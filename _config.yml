@@ -1,0 +1,11 @@
+title: Kingpire
+email: tyler.n.king@icloud.com
+description: My beer, ramblings, & work.
+baseurl: ~
+url: 'http://kingpire.ca'
+twitter_username: tylernking
+github_username:  tyler-king
+markdown: kramdown
+paginate: 5
+paginate_path: "/page/:num/"
+permalink: /:year/:month/:day/:title

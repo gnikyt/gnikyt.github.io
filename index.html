@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<section class="post-list">
+  <div class="wrapper">
+    {% for post in paginator.posts %}
+      <article>
+        <div class="post-meta">
+          <time datetime="{{ post.date }}" pubdate>
+            {% assign d = post.date | date: "%-d"  %}
+            {{ post.date | date: "%b" }} 
+            {% case d %}
+              {% when '1' or '21' or '31' %}{{ d }}st
+              {% when '2' or '22' %}{{ d }}nd
+              {% when '3' or '23' %}{{ d }}rd
+              {% else %}{{ d }}th
+            {% endcase %}
+          </time>
+        </div>
+
+        <h3>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h3>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="pagination">
+  <div>
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">&lang;</a>
+    {% else %}
+      <span class="previous">&lang;</span>
+    {% endif %}
+  </div>
+  <div>
+    <span class="page_number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  </div>
+  <div>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">&rang;</a>
+    {% else %}
+      <span class="next ">&rang;</span>
+    {% endif %}
+  </div>
+</div>
+
+<section id="ig">
+  <h2>Recent Shots</h2>
+  <ul id="instagram-feed"></ul>
+</section>
