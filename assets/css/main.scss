@@ -138,13 +138,13 @@ pre {
 }
 
 main {
-  margin: 3em 1em;
+  margin: 3em auto;
+  padding: 0 1em;
   max-width: $container-width;
-  
-  padding: 0;
   
   @include at-query($min, $medium) {
     margin: 5em auto;
+    padding: 0;
   }
 }
 
@@ -336,8 +336,8 @@ footer {
   
   position: relative;
   
-  margin: 5em 1em 5em 1em;
-  padding-top: 1.5em;
+  margin: 5em auto 5em auto;
+  padding: 1.5em 1em;
   
   &:before {
     content: '';
@@ -365,16 +365,13 @@ footer {
         display: table-cell;
         vertical-align: middle;
 
-        width: 50%;
+        width: 15%;
 
         img {
           width: 100%;
+          max-width: 110px;
 
           border-radius: 30%;
-        }
-        
-        @include at-query($min, $medium) {
-          width: 10%;
         }
       }
 
@@ -421,6 +418,8 @@ footer {
   
   @include at-query($min, $medium) {
     margin: 10em auto 5em auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
