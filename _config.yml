@@ -5,6 +5,7 @@ baseurl: ~
 url: 'http://kingpire.ca'
 twitter_username: tylernking
 github_username:  tyler-king
+instagram_username: tylernking
 markdown: kramdown
 paginate: 5
 paginate_path: "/page/:num/"
