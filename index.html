@@ -27,26 +27,30 @@ layout: default
 </section>
 
 <div class="pagination">
-  <div>
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">&lang;</a>
-    {% else %}
-      <span class="previous">&lang;</span>
-    {% endif %}
-  </div>
-  <div>
-    <span class="page_number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
-  </div>
-  <div>
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">&rang;</a>
-    {% else %}
-      <span class="next ">&rang;</span>
-    {% endif %}
+  <div class="wrapper">
+    <div>
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">&lang;</a>
+      {% else %}
+        <span class="previous">&lang;</span>
+      {% endif %}
+    </div>
+    <div>
+      <span class="page_number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    </div>
+    <div>
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">&rang;</a>
+      {% else %}
+        <span class="next ">&rang;</span>
+      {% endif %}
+    </div>
   </div>
 </div>
 
 <section id="ig">
-  <h2>Recent Shots</h2>
-  <ul id="instagram-feed"></ul>
+  <div class="wrapper">
+    <h2>Recent Shots</h2>
+    <ul id="instagram-feed"></ul>
+  </div>
 </section>
