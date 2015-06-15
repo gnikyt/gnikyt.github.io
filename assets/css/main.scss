@@ -310,6 +310,10 @@ section.post-list {
       font-size: 1.8em;
       
       margin: 0;
+      
+      &.strike {
+        text-decoration: line-through;
+      }
     }
   }
 }
@@ -487,5 +491,17 @@ footer.site-footer {
   @include at-query($min, $medium) {
     margin-top: 10em;
     margin-bottom: 10em;
+  }
+}
+
+// Brews
+section#brew-intro {
+  margin-bottom: 4em;
+  
+  img {
+    width: 30px;
+    height: auto;
+    
+    vertical-align: -0.1em;
   }
 }
