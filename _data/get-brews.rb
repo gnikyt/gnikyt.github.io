@@ -35,7 +35,7 @@ brews = Array.new
     }
 
     note = wunderlist_get 'notes', params: { task_id: brew['id'] }
-    _brew[:note] = note[0]['content'] if note[0]
+    _brew[:note] = note[0]['content'] if note[0] # Note is my recipe information
 
     _brew
   end
