@@ -18,9 +18,6 @@ $base-fonts: 'Abel', Helvetica, sans-serif;
 $header-fonts: 'Allura', Verdana, Geneva, sans-serif;
 $code-fonts: 'Source Code Pro', Helvetica, sans-serif;
 $container-width: 700px;
-$red-color: #b93333;
-$font-color: #545252;
-$line-color: #dadada;
 
 // Mixins
 @mixin at-query($constraint, $viewport1, $viewport2:null) {
@@ -42,8 +39,6 @@ $line-color: #dadada;
 // Defaults
 body {
   font-size: 16px;
-  
-  color: $font-color;
   font-family: $base-fonts;
 }
 
@@ -54,18 +49,7 @@ pre {
 }
 
 a {
-  color: $red-color;
   text-decoration: none;
-
-  &:visited,
-  &:link,
-  &:active {
-    color: $red-color;
-  }
-  
-  &:hover {
-    border-bottom: 1px dotted white;
-  }
 }
 
 // Highlighting
@@ -197,7 +181,6 @@ header.site-header {
     line-height: 2.1em;
     
     a {
-      color: $red-color !important;
       font-family: $header-fonts;
       text-decoration: none;
       font-size: 3em;
@@ -273,8 +256,6 @@ section.post-list {
       
       width: 85%;
       
-      border-bottom: 1px dotted $line-color;
-      
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -325,8 +306,6 @@ section.post-list {
     
     & > div {      
       @include at-query($min, $medium) {
-        background: white;
-      
         width: 40%;
 
         margin: -10px auto;
@@ -335,8 +314,6 @@ section.post-list {
     
     @include at-query($min, $medium) {
       text-align: center;
-    
-      border-bottom: 1px dotted $line-color;
     }
   }
   
@@ -386,7 +363,6 @@ section#ig {
         
         text-align: center;
         font-size: 1.5em;
-        color: lighten($red-color, 10%);
         
         position: absolute;
         top: 60%;
@@ -412,8 +388,6 @@ footer.site-footer {
       content: '';
 
       width: 70%;
-
-      border-bottom: 1px solid $line-color;
 
       position: absolute;
       top: -1em;
@@ -477,7 +451,6 @@ footer.site-footer {
   #thanks {
     text-align: center;
     font-size: 0.8em;
-    color: $line-color;
     
     img {
       height: 25px;
@@ -503,5 +476,188 @@ section#brew-intro {
     height: auto;
     
     vertical-align: -0.1em;
+  }
+}
+
+// Color Schemes
+body.default-scheme {
+  $default--bkg-color: #FFFFFF;
+  $default--font-color: #545252;
+  $default--red-color: #B93333;
+  $default--line-color: #DADADA;
+  $default--time-color: #545252;
+  
+  color: $default--font-color;
+  
+  background-color: $default--bkg-color;
+
+  a {
+    color: $default--red-color;
+    text-decoration: none;
+
+    &:visited,
+    &:link,
+    &:active {
+      color: $default--red-color;
+    }
+  
+    &:hover {
+      border-bottom: 1px dotted white;
+    }
+  }
+
+  header.site-header {  
+    h1 {
+      a {
+        color: $default--red-color !important;
+      }
+    }
+  }
+
+  section.post-list {
+    article {    
+      &:after {
+        border-bottom: 1px dotted $default--line-color;
+      }
+    
+      .post-meta {
+        time {
+          color: $default--time-color;
+        }
+      }
+    }
+  }
+
+  .post {
+    .post-meta {    
+      & > div {      
+        @include at-query($min, $medium) {
+          background: white;
+        }
+      }
+    
+      @include at-query($min, $medium) {
+        border-bottom: 1px dotted $default--line-color;
+      }
+    }
+  }
+
+  section#ig {
+    ul {
+      li {
+        span {
+          color: lighten($default--red-color, 10%);
+        }
+      }
+    }
+  }
+
+  footer.site-footer {  
+    .wrapper {
+      &:before {
+        border-bottom: 1px solid $default--line-color;
+      }
+    
+      #thanks {
+        color: $default--line-color;
+      }
+    }
+  }
+}
+
+body.birds-of-paradise-scheme {
+  $orange: rgb(239,93,50);
+  $yellow: rgb(211,208,95);
+  $blue: rgb(108,153,187);
+  $cray: rgb(123,171,153);
+  $brown: rgb(55,39,37);
+  $light-brown: rgb(81,67,65);
+  
+  color: white;
+  
+  background-color: $brown;
+
+  a {
+    color: $cray;
+    text-decoration: none;
+
+    &:visited,
+    &:link,
+    &:active {
+      color: $cray;
+    }
+  
+    &:hover {
+      border-bottom: 1px dotted white;
+    }
+  }
+
+  header.site-header {  
+    h1 {
+      a {
+        color: $orange !important;
+      }
+    }
+    
+    h2 {
+      color: $blue;
+    }
+  }
+
+  section.post-list {
+    article {    
+      &:after {
+        border-bottom: 1px dotted $light-brown;
+      }
+    
+      .post-meta {
+        time {
+          color: $yellow;
+        }
+      }
+    }
+  }
+
+  .post {
+    .post-title {
+      color: $cray;
+    }
+    
+    .post-meta {    
+      color: $yellow;
+      
+      & > div {      
+        @include at-query($min, $medium) {
+          background: $brown;
+        }
+      }
+    
+      @include at-query($min, $medium) {
+        border-bottom: 1px dotted $light-brown;
+      }
+    }
+  }
+
+  section#ig {
+    ul {
+      li {
+        span {
+          color: $cray;
+          text-shadow: 1px 1px 8px rgba(150, 150, 150, 1);
+        }
+      }
+    }
+  }
+
+  footer.site-footer {  
+    .wrapper {
+      &:before {
+        border-bottom: 1px solid $light-brown;
+      }
+    
+      #thanks {
+        color: $yellow;
+      }
+    }
   }
 }
