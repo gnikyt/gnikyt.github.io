@@ -1,5 +1,6 @@
 .highlight { background: white; color: black;  border-radius: 4px; }
 .highlight pre { padding: 0.5em; }
+.highlight pre code { font-family: monospace !important; font-size: 0.85em; }
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
