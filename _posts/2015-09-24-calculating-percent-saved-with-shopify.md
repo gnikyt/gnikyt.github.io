@@ -10,7 +10,7 @@ tags:
     - snippet
 ---
 
-Visually displaying to the customer how much they are saving is a big help to driving them towards a purchase. This is a simple snippet and guide to help you achieve this funcationality in your Shopify stores.
+Visually displaying to the customer how much they are saving is a big help to driving them towards a purchase. This is a simple snippet and guide to help you achieve this functionality in your Shopify stores.
 
 First, to calculate the percentage saved, lets look at the basic math for this in plain text.
 
