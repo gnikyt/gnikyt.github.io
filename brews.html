@@ -31,13 +31,8 @@ permalink: /brews/
         </h3>
         <p>
           Status: <strong>{% if brew.completed == false %}Brewing{% else %}Bottled{% endif %}</strong>
-          {% if brew.note %}
-            <br>
-            <small>{{ brew.note | newline_to_br }}</small>
-          {% else %}
-            <br>
-            <small>No recipe entered.</small>
-          {% endif %}
+          <br>
+          <small>{% if brew.note %}{{ brew.note | newline_to_br }}{% else %}No recipe entered.{% endif %}</small>
         </p>
       </article>
     {% endfor %}

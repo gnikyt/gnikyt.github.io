@@ -166,6 +166,10 @@ header.site-header {
 
         font-weight: bold;
       }
+      
+      a:hover {
+        border-bottom: 0;
+      }
     }
   }
 }
@@ -181,7 +185,7 @@ section.post-list {
       padding-top: 0;
     }
     
-    &:after {
+    &:not(:last-child):after {
       content: '';
       
       width: 85%;
@@ -436,10 +440,6 @@ body.default-scheme {
     &:active {
       color: $default--red-color;
     }
-  
-    &:hover {
-      border-bottom: 1px dotted white;
-    }
   }
 
   header.site-header {  
@@ -447,6 +447,12 @@ body.default-scheme {
       a {
         color: $default--red-color !important;
       }
+    }
+  }
+  
+  main {
+    a:hover {
+      border-bottom: 1px dotted white;
     }
   }
 
@@ -483,6 +489,11 @@ body.default-scheme {
       li {
         span {
           color: lighten($default--red-color, 10%);
+        }
+        
+        a:hover {
+          text-decoration: none;
+          border-bottom: 0;
         }
       }
     }
@@ -523,10 +534,6 @@ body.birds-of-paradise-scheme {
     &:active {
       color: $cray;
     }
-  
-    &:hover {
-      border-bottom: 1px dotted white;
-    }
   }
 
   header.site-header {  
@@ -538,6 +545,12 @@ body.birds-of-paradise-scheme {
     
     h2 {
       color: $blue;
+    }
+  }
+  
+  main {
+    a:hover {
+      border-bottom: 1px dotted white;
     }
   }
 
@@ -587,6 +600,11 @@ body.birds-of-paradise-scheme {
         span {
           color: $cray;
           text-shadow: 1px 1px 8px rgba(150, 150, 150, 1);
+        }
+        
+        a:hover {
+          text-decoration: none;
+          border-bottom: 0;
         }
       }
     }

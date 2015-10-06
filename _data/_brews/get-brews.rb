@@ -41,4 +41,4 @@ brews = Array.new
   end
 end
 
-File.write 'brews.json', brews.flatten.to_json
+File.write '../brews.json', brews.flatten.to_json
