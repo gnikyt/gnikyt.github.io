@@ -252,15 +252,17 @@ section.post-list {
   }
   
   article {
-    font-size: 1.05em;
+    .article-body {
+      font-size: 1.05em;
 
-    img {
-      max-width: $container-width;
+      img {
+        max-width: $container-width;
       
-      margin: 0 auto;
+        margin: 0 auto;
       
-      display: block;
-    }   
+        display: block;
+      }   
+    }
   }
 }
 
