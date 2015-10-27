@@ -13,3 +13,4 @@ permalink: /:year/:month/:day/:title
 scheme: birds-of-paradise
 gems:
   - jekyll-sitemap
+  - jekyll-paginate
