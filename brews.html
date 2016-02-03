@@ -6,7 +6,7 @@ permalink: /brews/
 <section id="brew-intro">
   <div class="wrapper">
     <h1><img src="/assets/images/scheme/{{ site.scheme }}/beer.svg" alt="Beer"> My Brews!</h1>
-    <p>Here is a list of my current and past brews since I've started recording them. This list is tracked and pulled from <a href="http://wunderlist.com" target="_blank">Wunderlist</a> using their API. The date signifies when the brew was/is ready to bottle!</p>
+    <p>Here is a list of my current and past brews since I've started recording them. This list is tracked and pulled from <a href="http://wunderlist.com" target="_blank">Wunderlist</a> using their API. The date signifies when the brew was/is ready to keg!</p>
   </div>
 </section>
 
@@ -31,7 +31,7 @@ permalink: /brews/
           <a href="#" onClick="javascript: return: false">{{ brew.title }}</a>
         </h3>
         <p>
-          Status: <strong>{% if brew.completed == false %}Brewing{% else %}Bottled{% endif %}</strong>
+          Status: <strong>{% if brew.completed == false %}Brewing{% else %}Bottled or Kegged!{% endif %}</strong>
           <br>
           <small>{% if brew.note %}{{ brew.note | newline_to_br }}{% else %}No recipe entered.{% endif %}</small>
         </p>
