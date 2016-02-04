@@ -6,6 +6,8 @@ url: http://tylerking.me
 github_username:  tyler-king
 instagram_username: tylernking
 markdown: kramdown
+kramdown:
+  input: GFM
 paginate: 5
 paginate_path: /page/:num/
 permalink: /:year/:month/:day/:title

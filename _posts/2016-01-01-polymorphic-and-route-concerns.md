@@ -21,14 +21,14 @@ For those unfamiliar to it, [Polymorphic is an Active Record](http://guides.ruby
 
 These are used in routing for Rails where you're able to declare common routes for resources. An example of this can be a *picture* concern, where many resources can have a picture route.
 
-{% highlight ruby %}
+```ruby
 concern :picturable do
   resources :pictures
 end
 # ...
 resources :users, concerns: [:picturable]
 resources :customers, concerns: [:picturable]
-{% endhighlight %}
+```
 
 ## The problem
 
