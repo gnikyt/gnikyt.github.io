@@ -1,5 +1,5 @@
-.highlight { background: white; color: black;  border-radius: 4px; padding: 0.5em; margin: 1em 25px; }
-.highlight pre { margin: 0; font-family: monospace !important; font-size: 0.85em; }
+.highlight { background: white; color: black;  border-radius: 4px; padding: 0.5em; margin: 1em 25px; font-size: 0.85em; }
+.highlight pre { margin: 0; font-family: monospace !important; }
 .highlight code { font-family: monospace !important; }
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
