@@ -34,16 +34,16 @@ resources :customers, concerns: [:picturable]
 
 If your polymorphic modal has a controller, how do you know what object is using it? How do you get the object itself? Let's start and assume I have a polymorphic modal for Metafields, so many modals can have metafields and we'll call it *fieldable*.
 
-{% highlight ruby %}
+```ruby
 # modals/metafield.rb
 module MyCoolApp
   class Metafield < ActiveRecord::Base
     belongs_to :fieldable, polymorphic: true
   end
 end
-{% endhighlight %}
+```
 
-{% highlight ruby %}
+```ruby
 # modals/user.rb
 module MyCoolApp
   class User < ActiveRecord::Base
@@ -52,9 +52,9 @@ module MyCoolApp
     # ...
   end
 end
-{% endhighlight %}
+```
 
-{% highlight ruby %}
+```ruby
 # modals/movie.rb
 module MyCoolApp
   class Movie < ActiveRecord::Base
@@ -63,13 +63,13 @@ module MyCoolApp
     # ...
   end
 end
-{% endhighlight %}
+```
 
 So now, we have three modals. The *Metafield* modal which is polymorphic and a *User* and a *Movie* modal which can have these metafields. The *Metafield* modal will create a table in the database with `fieldable_type` and `fieldable_id` which should reference the modal class and the object's ID.
 
 Along with this, I've setup a Metafield controller so we can add, edit, and delete metafields for these other modals. With all this put together, we'll setup the routing concerns.
 
-{% highlight ruby %}
+```ruby
 concern(:fieldable) { resources :metafields }
 # ...
 resources :users do
@@ -79,22 +79,22 @@ end
 resouces :movies do
   concerns :fieldable
 end
-{% endhighlight %}
+```
 
 Now, the user and movie resource routes will have metafield resource routes added to them. Which will create routes such as `/users/metafields`, `/users/metafields/new`, `/movies/metafields/3/edit`.
 
 However, for the metafield controller, how is it supposed to know if were accessing User metafields or Movie metafields when you're adding and editing? You could do things such as base it on the URL, or manual section, but thats not a great solution in the long run. There's easier and cleaner ways... by utilizing a mix of the routing concerns and a private method in the Metafield controller. Let's change our concern in the routing now to accept options and parameters.
 
-{% highlight ruby %}
+```ruby
 # Before
 concern(:fieldable) { resources :metafields }
 # After
 concern(:fieldable) {|opts| resources :metafields, opts}
-{% endhighlight %}
+```
 
 Now let's pass a parameter to the concern per resource route.
 
-{% highlight ruby %}
+```ruby
 concern(:fieldable) {|opts| resources :metafields, opts}
 # ...
 resources :users do
@@ -104,11 +104,11 @@ end
 resouces :movies do
   concerns :fieldable, fieldable_type: "MyCoolApp::Movies"
 end
-{% endhighlight %}
+```
 
 So now we're passing `fieldable_type` with the modal class to the concern which gets passed to the resource for metafields. We can now grab this parameter in the controller and it'll help us figure out what modal is trying to access the metafields. Let's add a method to the metafield controller now which will do this work for us.
 
-{% highlight ruby %}
+```ruby
 module MyCoolApp
   class MetafieldsController < ApplicationController
       before_action :set_object
@@ -127,18 +127,18 @@ module MyCoolApp
       end
   end
 end
-{% endhighlight %}
+```
 
 As you can see above, everything is now in place. We convert the `fieldable_type` value we passed in the concern into an module reference and an ID for whose trying to access it. `@object` will not be the User object or Movie object trying to access the metafields.
 
 Lastly, we can tie this into the forms for metafields creation/editing:
 
-{% highlight erb %}
-  # ...
-  <div class="hide">
-    <%= f.text_field :fieldable_id, value: @object.id %>
-    <%= f.text_field :fieldable_type, value: @object.class %>
-  </div>
-{% endhighlight %}
+```html
+# ...
+<div class="hide">
+  <%= f.text_field :fieldable_id, value: @object.id %>
+  <%= f.text_field :fieldable_type, value: @object.class %>
+</div>
+```
 
 Now when saved, the metafield record in the database will automatically set the modal class and the ID for the object.

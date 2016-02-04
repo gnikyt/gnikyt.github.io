@@ -20,18 +20,18 @@ Recently a project came up where special front-end actions and structures had to
 
 This is a quick way to test if a field has errors; Simply do this inside your Twig template...
 
-{% highlight liquid %}
+```liquid
 {% raw %}{{ form.__field_name__.vars.errors|length }}{% endraw %}
-{% endhighlight %}
+```
 
 The above code will show how many errors a certain field has. A usage example...
 
-{% highlight liquid linenos %}
+```liquid
 {% raw %}
 {% if form.__field_name__.vars.errors|length > 0 %}
   <div class="special-class-for-jquery">{{ form_errors(__field_name__) }}</div>
 {% endif %}
 {% endraw %}
-{% endhighlight %}
+```
 
 Just replace __field_name__ with the field name you wish to use!

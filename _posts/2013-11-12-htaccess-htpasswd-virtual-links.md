@@ -22,13 +22,13 @@ In my case, I created an Awiz-clone (adult content manager) for an adult-themed 
 
 Using __mod_env__, I checked if the incoming __REQUEST_URI__ matches the virtual-url of __/members__ and assigned it the name of __SECURED__
 
-{% highlight conf %}
+```conf
 SetEnvIfNoCase Request_URI "^/members" SECURED
-{% endhighlight %}
+```
 
 Next, I setup the standard Auth notations
 
-{% highlight conf linenos %}
+```conf
 AuthGroupFile /dev/null  
 AuthUserFile /home/xxx/public_html/cgi-bin/ccbill/password/.htpasswd  
 Require valid-user
@@ -36,13 +36,13 @@ Require valid-user
 Order allow,deny  
 Satisfy any  
 Allow from all
-{% endhighlight %}
+```
 
 Then I tell Apache to __Deny__ anyone who is accessing the __mod_env__ declaration of __SECURED__ if they are not authenticated.
 
-{% highlight conf %}
+```conf
 Deny from env=SECURED
-{% endhighlight %}
+```
 
 ## Great, it works! So what's the issue?
 
@@ -56,17 +56,21 @@ Provide a __ErrorDocument__ to handle Apache's 401 status.
 
 After your mod_env declaration, simply add something like...
 
-{% highlight conf %}ErrorDocument 401 "<meta http-equiv=\"refresh\" content=\"0;url=/register\">"{% endhighlight %}
+```conf
+ErrorDocument 401 "<meta http-equiv=\"refresh\" content=\"0;url=/register\">"
+```
 
 Upon cancel and Apache throwing a 401, it will load the HTML provided there and redirect the user to a register page. If you would like to direct the user to a physical file on the server simple do...
 
-{% highlight conf %}ErrorDocument 401 /register.php{% endhighlight %}
+```conf
+ErrorDocument 401 /register.php
+```
 
 So there you have it. Adding __ErrorDocument__ to your protected virtual URL will ensure no one can still see it's contents when they click cancel. Its also a great way to direct members to a register page, or to any other "not authorized" page you require to show.
 
 In full here is the compiled htaccess code:  
 
-{% highlight conf linenos %}
+```conf
 SetEnvIfNoCase Request_URI "^/members" SECURED
 ErrorDocument 401 "<html><meta http-equiv=\"refresh\" content=\"0;url=/register\"></html>"
 AuthGroupFile /dev/null
@@ -76,4 +80,4 @@ Order allow,deny
 Satisfy any
 Allow from all
 Deny from env=SECURED
-{% endhighlight %}
+```

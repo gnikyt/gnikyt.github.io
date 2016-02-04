@@ -25,7 +25,7 @@ If we were to replace the values with some real numbers we can see the result:
 
 Create a new snippet in Shopify called `percent-savings.liquid` and use the following code:
 
-{% highlight liquid %}
+```liquid
 {% raw %}
 {% assign _compare_price  = compare_price | plus: 0.00 %}
 {% assign _price          = price | plus: 0.00 %}
@@ -33,7 +33,7 @@ Create a new snippet in Shopify called `percent-savings.liquid` and use the foll
 {% assign percent         = difference | divided_by: _compare_price | times: 100 | round %}
 {{ percent }}%
 {% endraw %}
-{% endhighlight %}
+```
 
 As an explaination of the code:
 
@@ -48,13 +48,13 @@ Pass two parameters to the include tag.
 1. `price` being the current price of the product
 2. `compare_price` being the old price of the product.
 
-{% highlight liquid %}
+```liquid
 {% raw %}
 {% if product.price_min < product.compare_at_price_min %}
   Old price {{ product.compare_at_price_min | money }} &ndash; {% include 'percent-savings', price: product.price, compare_price: product.compare_at_price_min %} savings!
 {% endif %}
 {% endraw %}
-{% endhighlight %}
+```
 
 With the above example, if a product was $15.99 and is now $11.99 you should see it display:
 

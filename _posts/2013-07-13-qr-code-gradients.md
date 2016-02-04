@@ -19,9 +19,9 @@ This created a problem... _how do I create a gradient on the Qr code?_ I came up
 
 We would first take the Qr data the user entered and generate a black, basic, Qr code. Which is our canvas to work with. Now, we had to apply their top color chosen (RGB) to the base Qr and render it, using similar shell command below.
 
-{% highlight bash %}
+```bash
 /usr/bin/convert qr.png -fuzz 60% -fill 'rgb(161,161,163)' -opaque black qr_top.png
-{% endhighlight %}
+```
 
 ![qr code top](/assets/images/posts/qr_top.png)
 
@@ -29,9 +29,9 @@ This is the result of the above command. It replaces all __black __with a fuzz o
 
 It's nothing spectacular; but it works. Now, we need to do the same for the bottom color the user chose. Again we use the base Qr render to apply the color to.
 
-{% highlight bash %}
+```bash
 /usr/bin/convert qr.png -fuzz 60% -fill 'rgb(248,150,39)' -opaque black qr_bottom.png
-{% endhighlight %}
+```
 
 ![qr code bottom](/assets/images/posts/qr_bottom.png)
 
@@ -39,15 +39,15 @@ This is the result of the above command. It replaces all __black__ with a fuzz o
 
 Finally, we need to blend them together as if they we're two layers in gimp. To accomplish this, we need to set the gray Qr we just rendered, to go from a gray color to complete transparency.
 
-{% highlight bash %}
+```bash
 /usr/bin/convert qr_top.png -size 150x150 gradient: -compose copy_opacity -composite qr_gradient.png
-{% endhighlight %}
+```
 
 This creates the effect we are looking for. Color at top, transparent at bottom. Now we place the gray transparent Qr on top of the orange Qr. Finally, here is the result!
 
-{% highlight bash %}
+```bash
 /usr/bin/composite qr_bottom.png -compose Dst_Over qr_gradient.png result.png
-{% endhighlight %}
+```
 
 ![result](/assets/images/posts/qr_together.png)
 ![result 2](/assets/images/posts/qr_together_2.png)

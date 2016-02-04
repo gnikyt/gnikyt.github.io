@@ -31,7 +31,7 @@ That is the sad key to the great code-snippit he provided in the discussion. Alt
 
 This is the filter I can use to add clauses (joins, wheres, orders) to the __$args__ passed. So mixing that, with the code __bheadrick__ provided in the discussion is this...  
 
-{% highlight php startinline linenos %}
+```php
 add_filter('woocommerce_default_catalog_orderby_options', 'ty_catalog_orderby');
 add_filter('woocommerce_catalog_orderby', 'ty_catalog_orderby');
 function ty_catalog_orderby( $sortby ) {
@@ -85,7 +85,7 @@ JOIN " . $wpdb->woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id
 
   return $args;
 }
-{% endhighlight %}
+```
 
 
 - Lines __1-8__ register the extra filters I want to show in Woocommerce's filter dropdown.

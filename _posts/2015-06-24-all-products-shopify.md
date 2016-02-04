@@ -15,4 +15,6 @@ Shopify has [global variables](https://docs.shopify.com/themes/liquid-documentat
 
 Theres no documentaion yet for the new variable but as the Github comment states, simply use `all_products['handle-here']`
 
-{% highlight html %}<img src="{% raw %}{{ all_products['mario-party-game'].featured_image.src | img_url: 'medium' }}{% endraw %}">{% endhighlight %}
+```html
+<img src="{% raw %}{{ all_products['mario-party-game'].featured_image.src | img_url: 'medium' }}{% endraw %}">
+```

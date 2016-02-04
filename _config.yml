@@ -13,6 +13,7 @@ paginate_path: /page/:num/
 permalink: /:year/:month/:day/:title
 scheme: birds-of-paradise
 exclude: [vendor]
+include: [_pages]
 gems:
   - jekyll-sitemap
   - jekyll-paginate

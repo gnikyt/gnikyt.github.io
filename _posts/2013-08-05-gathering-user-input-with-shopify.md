@@ -21,11 +21,15 @@ Let's take this example; like I said above, I recently did this for a client whe
 
 First, we open __product.liquid__ of your current shop's theme, from here find the add cart form which looks similar to the form code below.
 
-{% highlight html %}<form id="add-item-form" action="/cart/add" method="post">{% endhighlight %}
+```html
+<form id="add-item-form" action="/cart/add" method="post">
+```
 
 Next, we add our property HTML. Shopify looks for input fields which contain the name "__properties__". Anything inside the braces will be the label of what you want to capture; you can change __Dimensions__ to something like __Size__, __Hex Color,__ etc.
 
-{% highlight html %}Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions]" />{% endhighlight %}
+```
+Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions]">
+```
 
 ![Screenshot from 2013-08-05 13:46:40](/assets/images/posts/si_1.png)
 
@@ -37,13 +41,13 @@ Next, save the liquid template and view a product you have in your store. You sh
 
 Now that our dimensions input shows up. Let's go ahead and have it show up on the cart page (for when they add it to their cart). Open __cart.liquid__ in your current shop's theme, find a line which contains the product's title for example "__{{ item.product.title }}__". Below this, we will add the liquid code which will list all of the properties that the user has entered, because remember, you can add more than one.
 
-{% highlight liquid %}
+```liquid
 {% raw %} 
 {% for p in item.properties %}  
   {{ p.first }}: {{ p.last }}
 {% endfor %}
 {% endraw %}
-{% endhighlight %}
+```
 
 ![Screenshot from 2013-08-05 13:47:27](/assets/images/posts/si_3.png)
 

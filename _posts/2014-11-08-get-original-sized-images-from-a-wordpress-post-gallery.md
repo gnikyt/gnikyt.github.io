@@ -16,20 +16,22 @@ tags:
 ---
 Recently I was working on a project where I needed to modify an existing page which had multiple galleries. This change required me to have access to the original uploaded images. Heres a simple function I wrote which returns the images easily in an array format.  
   
-    # Input
-    Hey comes see my gallery! [gallery ids="12,124,342]
-    
-    # Code
-    $images = getGalleryImages(get_the_content());
-    
-    # Output
-    Array (
-        [0] => http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
-        [1] => http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
-        [2] => http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
-    );
+```bash
+# Input
+Hey comes see my gallery! [gallery ids="12,124,342]
 
-{% highlight php startinline linenos %}
+# Code
+$images = getGalleryImages(get_the_content());
+
+# Output
+Array (
+  [0] => http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
+  [1] => http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
+  [2] => http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
+);
+```
+
+```php
 /*
  * getGalleryImages
  *
@@ -53,4 +55,4 @@ function getGalleryImages($content, $return_size = 'large') {
   
   return $images;
 }
-{% endhighlight %}
+```

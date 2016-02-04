@@ -23,7 +23,7 @@ So my solution was simple; take the user's email, validate it, then take the pas
 
 Here is the controller code below. In my code I added a "android_secret" parameter read from app/parameters.yml which is a hash that just ensures the request came from the Android application - this is unnecessary and can be removed if you please.
 
-{% highlight php startinline linenos %}
+```php
 <?php
 
 namespace Acme\WebsiteBundle\Controller;
@@ -87,4 +87,4 @@ class AndroidController extends Controller
     return new Response($return_fail, 200, ['Content-Type' => $type]);
   }
 }
-{% endhighlight %}
+```
