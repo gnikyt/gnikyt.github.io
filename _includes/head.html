@@ -1,13 +1,24 @@
 <head>
   <!--
     What are you looking for, officer? I don't have anything to hide, I swear!
-    Don't tase me bro!
   -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   
+  {% if page %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 140 }}{% else %}{{ site.description }}{% endif %}">
+
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 140 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:site_name" content="{{ site.title }}">
+  {% endif %}
+
   <title>{% if page.title %}{{ site.title }} &mdash; {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <link rel='stylesheet' href="//fonts.googleapis.com/css?family=Abel|Allura|Source+Code+Pro:300,400,700" type="text/css">
