@@ -86,7 +86,7 @@ Guts::Type.class_eval do
 
   # Adds a new method to the model
   def title_with_bang
-    "#{self[title]}!"
+    "#{self[:title]}!"
   end
 end
 ```

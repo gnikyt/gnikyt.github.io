@@ -254,6 +254,7 @@ section.post-list {
   article {
     .article-body {
       font-size: 1.05em;
+      line-height: 1.6em;
 
       img {
         max-width: $container-width;
@@ -344,6 +345,11 @@ footer.site-footer {
   
   // Bio section
   #bio {
+    p {
+      line-height: 1.6em;
+      margin: 0;
+    }
+    
     & > div {
       display: table;
       width: 100%;
@@ -643,6 +649,10 @@ body.birds-of-paradise-scheme {
     .post-content {
       & > *:not(.highlight) code {
         color: $light-orange;
+      }
+      
+      a {
+        border-bottom: 1px dotted white;
       }
     }
   }
