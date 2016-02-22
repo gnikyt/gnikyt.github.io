@@ -421,6 +421,56 @@ section#brew-intro {
   }
 }
 
+// Software
+section.softwares {
+  .wrapper {
+    display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+    flex-flow: row wrap;
+    
+    & > .col {
+      width: 100%;
+      
+      @include at-query($min, $medium) {
+        width: 50%;
+      }
+    }
+  }
+  
+  .software {
+    display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    .logo {
+      width: 20%;
+      
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    
+    .content {
+      width: 80%;
+      padding: 1em;
+      
+      h3 {
+        margin: 0;
+        margin-bottom: 0.3em;
+      }
+      
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 0.80em;
+      }
+    }
+  }
+}
 // Color Schemes
 body.default-scheme {
   $default--bkg-color: #FFFFFF;
