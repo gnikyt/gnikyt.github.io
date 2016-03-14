@@ -77,9 +77,9 @@ end
 
 If you run this into your terminal it should output:
 
-```shell
+```
 > ruby autosuggest.rb
-Processing Tommy's Ray Gun...
+Processing Tommy\'s Ray Gun...
 "to" "tom" "tomm" "tommy" "tommys" "ra" "ray" "gu" "gun"
 Processing 1990 Blaster Ray!!...
 "19" "199" "1990" "bl" "bla" "blas" "blast" "blaste" "blaster" "ra" "ray"
@@ -101,7 +101,7 @@ redis.zadd "p:#{part[0...len]}", 0, "#{product[:title]}//#{product[:id]}"
 
 This will now store the titles for the objects as planned into a sorted list on Redis, where common sets of parts will group objects together. Go ahead and run your script again.
 
-```shell
+```
 > ruby autosuggest.rb
 Processing Tommy's Ray Gun...
 Processing 1990 Blaster Ray!!...
@@ -110,7 +110,7 @@ Processing (Nuke) Bomb Gun #8...
 
 Login to Redis and lets check if it works as planned. Since this is a sorted set we need to use [ZRANGE](http://redis.io/commands/ZRANGE).
 
-```shell
+```
 > redis-cli
 127.0.0.1:6379> ZRANGE p:gun 0 -1
 1) "(Nuke) Bomb Gun #8//3"
@@ -125,7 +125,7 @@ Awesome, it works! We now have sorted sets with groups of products based on part
 
 Now that we have a script (that you should expand on into a proper lib), we need to now show results to the user for when they're searching.
 
-Heres a quick Sinatra example
+Heres a quick Sinatra example (of course you can use more advanced techniques as well)
 
 ```ruby
 require "redis"
@@ -137,24 +137,24 @@ require "sinatra/jsonp"
 module YourApp
   class AutoComplete < Sinatra::Base
     helpers Sinatra::Jsonp
-    
+
     configure {set :redis, Redis.new}
-  
+
     get "/" do
       # Clean the query and get each word
       sets = []
       clean_query(params["q"]).split(" ").each {|word| sets << "p:#{word}"}
-      
+
       # Get the common results in a temporary key
       tmp_key = "tmp_#{SecureRandom.uuid[0...8]}"
       settings.redis.zinterstore tmp_key, sets
       results = settings.redis.zrange tmp_key, 0, -1
       settings.redis.del tmp_key
-      
+
       # Output results as JSON to browser
       jsonp results.to_json
     end
-    
+
     private
     def clean_query(query)
       # Remove all special characters and adjusts naming
@@ -166,6 +166,6 @@ end
 
 By calling `/?q=some+text`, we create a key for each word passed. So `some+text` goes into the `sets` variable and becomes `["p:some", "p:text"]`.
 
-Next, we create a temporary key to use with [zinterstore](http://redis.io/commands/ZINTERSTORE) which computes intersection between keys (our `p:some` and `p:text`). We then use zrange to get the result of the intersection and delete the temporary key.
+Next, we create a temporary key to use with [zinterstore](http://redis.io/commands/ZINTERSTORE) which computes intersection between keys (our `p:some` and `p:text`). This finds products that have both the words some and text in their title. We then use zrange to get the result of the intersection and delete the temporary key.
 
 Finally, send the results as JSON. You can use AJAX to actively call the Sinatra app when the user is typing.
