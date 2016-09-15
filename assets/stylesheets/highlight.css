@@ -1,5 +1,5 @@
 /* Monoki */
-.highlight { border-left: 3px solid #F2A60D; border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; background-color: #272822; color: black; padding: 0.5em; margin: 1em 0px; font-size: 0.85em; line-height: 1.4em; }
+.highlight { border-left: 3px solid #F2A60D; border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; background-color: #272822; color: #75715e; padding: 0.5em; margin: 1em 0px; font-size: 0.85em; line-height: 1.4em; }
 .highlight pre { margin: 0; font-family: monospace !important; }
 .highlight code { font-family: monospace !important; }
 .highlight .hll { background-color: #272822; }
