@@ -14,10 +14,23 @@ $large: 1400px;
 $large-max: 1400px;
 
 // Variables
-$base-fonts: 'Abel', Helvetica, sans-serif;
+$base-fonts: 'Oxygen', Helvetica, sans-serif;
 $header-fonts: 'Allura', Verdana, Geneva, sans-serif;
 $code-fonts: 'Source Code Pro', Helvetica, sans-serif;
 $container-width: 700px;
+$color-bg: #E2DCD4;
+$color-bg-alt: #F7F3EE;
+$color-bg-alt2: #DBD3C8;
+$color-bg-alt3: #fdfdfc;
+$color-fg: #605B53;
+$color-fg-alt: #A89C8A;
+$color-orange-highlight: #F2A60D;
+$color-orange: #F9E3C6;
+$color-purple: #F1DDF0;
+$color-blue: #DDE4F2;
+$color-blue-alt: #3399FF;
+$color-teal: #D2EBE3;
+$color-green: #E2E9C1;
 
 // Mixins
 @mixin at-query($constraint, $viewport1, $viewport2:null) {
@@ -40,6 +53,8 @@ $container-width: 700px;
 body {
   font-size: 16px;
   font-family: $base-fonts;
+  background-color: $color-bg;
+  color: $color-fg;
 }
 
 pre,
@@ -57,19 +72,21 @@ a {
   font-family: 'Source Code Pro', Helvetica, sans-serif;
 }
 
+::selection {
+  background: $color-blue;
+}
+
 // Responsive Youtube
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 25px;
-  
   height: 0;
 
   iframe {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
   }
@@ -80,19 +97,34 @@ a {
   padding: 0 1em;
   margin-left: auto;
   margin-right: auto;
-  
   max-width: $container-width;
+
+  a {
+    background: $color-purple;
+    color: $color-fg;
+    padding: 0 0.15rem;
+  }
 
   @include at-query($min, $medium) {
     padding: 0;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+  }
+}
+
+.wrapper-colored {
+  border: 2px solid $color-bg-alt2;
+  border-radius: 4px;
+  background-color: $color-bg-alt;
 }
 
 // Main section
 main {
   margin-top: 3em;
   margin-bottom: 3em;
-  
+
   @include at-query($min, $medium) {
     margin-top: 5em;
     margin-bottom: 5em;
@@ -102,25 +134,24 @@ main {
 // Header of site
 header.site-header {
   text-align: center;
-  
   margin-top: 2.5em;
-  
+
   h1 {
     margin-bottom: 0;
-    
     line-height: 2.1em;
-    
+
     a {
       font-family: $header-fonts;
       text-decoration: none;
       font-size: 3em;
       font-weight: 400;
+      color: $color-blue-alt;
+      background: transparent;
     }
   }
-  
+
   h2 {
     font-size: 1.2em;
-    
     margin: 0;
   }
 }
@@ -128,20 +159,19 @@ header.site-header {
 // Pagination
 .pagination {
   margin-top: 3em;
-  
   font-size: 1.1em;
-  
+
   .wrapper {
     position: relative;
-    
+
     & > div {
       &:first-child {
         font-size: 1.5em;
         font-family: Arial, sans-serif;
-
         position: absolute;
-        top: -10px;
-        left: 0;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
 
         span {
           opacity: 0.3;
@@ -150,25 +180,31 @@ header.site-header {
 
       &:nth-child(2) {
         display: inline-block;
-
         width: 100%;
-
         text-align: center;
       }
 
       &:last-child {
         font-size: 1.5em;
         font-family: Arial, sans-serif;
-
         position: absolute;
-        top: -10px;
-        right: 0;
-
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
         font-weight: bold;
       }
-      
-      a:hover {
-        border-bottom: 0;
+
+      .page-number {
+        background-color: $color-teal;
+        padding: 0 0.15rem;
+      }
+
+      a {
+        background-color: $color-orange;
+
+        &:hover {
+          border-bottom: 0;
+        }
       }
     }
   }
@@ -176,56 +212,81 @@ header.site-header {
 
 // Articles
 section.post-list {
+  #articles {
+    @extend .wrapper-colored;
+  }
+
   article {
     position: relative;
-    
-    padding: 1.5em 0;
-    
-    &:first-child {
-      padding-top: 0;
+    margin-bottom: 1em;
+    padding: 1em 0;
+    transition: background-color 100ms linear;
+
+    @include at-query($min, $medium) {
+      padding: 0;
     }
-    
+
+    &:hover {
+      background-color: $color-bg-alt3;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      border-left: 2px solid $color-orange-highlight;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     &:not(:last-child):after {
       content: '';
-      
       width: 85%;
-      
       position: absolute;
       bottom: 0;
       left: 50%;
-      
       transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      
+
       @include at-query($min, $medium) {
         width: 100%;
       }
     }
-    
+
     .post-meta {
+      color: $color-fg-alt;
+
       time {
         font-size: 1.4em;
-        
+        padding-left: 1rem;
+
         @include at-query($min, $medium) {
           font-size: 1em;
+          padding-left: 0;
         }
       }
-      
+
       @include at-query($min, $medium) {
         position: absolute;
         left: -5.5em;
-
-        margin-top: 0.5em;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
-    
+
     h3 {
       font-size: 1.8em;
-      
       margin: 0;
-      
+      padding: 0 1rem;
+
+      @include at-query($min, $medium) {
+        padding: 1rem;
+      }
+
       &.strike {
         text-decoration: line-through;
       }
@@ -235,34 +296,61 @@ section.post-list {
 
 // Single post
 .post {
-  .post-meta {    
-    margin-bottom: 4em;
-    
-    & > div {      
-      @include at-query($min, $medium) {
-        width: 40%;
+  .post-header {
+    h1 {
+      position: relative;
+      padding: 0.5em;
+      margin: 0;
 
-        margin: -10px auto;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 2px;
+        height: 100%;
+        border-left: 2px solid $color-orange-highlight;
       }
     }
-    
-    @include at-query($min, $medium) {
+
+    .post-meta {
+      margin: 0.5em 0 1em 0;
       text-align: center;
+
+      & > span {
+        background: $color-green;
+        padding: 0 0.15rem;
+      }
     }
   }
-  
+
   article {
     .article-body {
+      display: block;
       font-size: 1.05em;
+      font-weight: 300;
       line-height: 1.6em;
+      padding: 0 1em;
+      @extend .wrapper-colored;
 
       img {
         max-width: $container-width;
-      
         margin: 0 auto;
-      
         display: block;
-      }   
+      }
+    }
+
+    footer {
+      padding: 1em;
+
+      strong {
+        text-transform: lowercase;
+      }
+
+      span {
+        background-color: #DDE4F2;
+        padding: 0 0.15rem;
+      }
     }
   }
 }
@@ -273,43 +361,43 @@ section#ig {
 
   ul {
     list-style: none;
-    
     margin: 0;
     padding: 0;
-    
+
     li {
       display: inline-block;
       position: relative;
-      
       width: 25%;
-      
+
       &:nth-child(n+5) {
         display: none;
-        
+
         @include at-query($min, $medium) {
           display: inline-block;
         }
       }
-      
+
       a {
         text-decoration: none;
+        background-color: transparent;
+        display: block;
+        height: 100%;
       }
-      
+
       img {
         width: 100%;
         height: auto;
       }
-      
+
       span {
         display: block;
         width: 100%;
-        
         text-align: center;
         font-size: 1.5em;
-        
         position: absolute;
         top: 60%;
         left: 0;
+        color: $color-orange;
       }
     }
   }
@@ -318,38 +406,34 @@ section#ig {
 // Footer section
 footer.site-footer {
   position: relative;
-  
   margin-top: 5em;
   margin-bottom: 5em;
-  
+
   .wrapper {
     position: relative;
-    
     padding-top: 1.5em;
-    
+
     &:before {
       content: '';
-
       width: 70%;
-
       position: absolute;
       top: -1em;
       left: 50%;
-
       transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
     }
   }
-  
+
   // Bio section
   #bio {
     p {
       line-height: 1.6em;
       margin: 0;
+
+      a {
+        background-color: $color-green;
+      }
     }
-    
+
     & > div {
       display: table;
       width: 100%;
@@ -357,13 +441,11 @@ footer.site-footer {
       figure {
         display: table-cell;
         vertical-align: middle;
-
         width: 15%;
 
         img {
           width: 100%;
           max-width: 110px;
-
           border-radius: 30%;
         }
       }
@@ -371,317 +453,37 @@ footer.site-footer {
       & > div {
         display: table-cell;
         vertical-align: middle;
-
         width: 50%;
-
         padding: 0 1em;
 
         h5 {
           font-size: 1.5em;
-
           margin: 0;
         }
 
         h6 {
           margin: 0;
-
           font-size: 1em;
         }
-        
+
         @include at-query($min, $medium) {
           width: 80%;
         }
       }
     }
   }
-  
-  // Thanks to Github and Jekyll
+
+  // Thanks to Github and Jekyll and Flatwhite Syntax
   #thanks {
     text-align: center;
     font-size: 0.8em;
-    
+    line-height: 1.8em;
+
     img {
       height: 25px;
       width: auto;
-      
       position: relative;
       top: 7px;
-    }
-  }
-  
-  @include at-query($min, $medium) {
-    margin-top: 10em;
-    margin-bottom: 10em;
-  }
-}
-
-// Brews
-section#brew-intro {
-  margin-bottom: 4em;
-  
-  img {
-    width: 30px;
-    height: auto;
-    
-    vertical-align: -0.1em;
-  }
-}
-
-// Software
-section.softwares {
-  .wrapper {
-    display: -ms-flex;
-	display: -webkit-flex;
-	display: flex;
-    flex-flow: row wrap;
-    
-    & > .col {
-      width: 100%;
-      
-      @include at-query($min, $medium) {
-        width: 50%;
-      }
-    }
-  }
-  
-  .software {
-    display: -ms-flex;
-	display: -webkit-flex;
-	display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    .logo {
-      width: 20%;
-      font-size: 0;
-      
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
-    
-    .content {
-      width: 80%;
-      padding: 1em;
-      
-      h3 {
-        margin: 0;
-        margin-bottom: 0.3em;
-      }
-      
-      p {
-        padding: 0;
-        margin: 0;
-        font-size: 0.80em;
-      }
-    }
-  }
-}
-// Color Schemes
-body.default-scheme {
-  $default--bkg-color: #FFFFFF;
-  $default--font-color: #545252;
-  $default--red-color: #B93333;
-  $default--line-color: #DADADA;
-  $default--time-color: #545252;
-  
-  color: $default--font-color;
-  
-  background-color: $default--bkg-color;
-
-  a {
-    color: $default--red-color;
-    text-decoration: none;
-
-    &:visited,
-    &:link,
-    &:active {
-      color: $default--red-color;
-    }
-  }
-
-  header.site-header {  
-    h1 {
-      a {
-        color: $default--red-color !important;
-      }
-    }
-  }
-  
-  main {
-    a:hover {
-      border-bottom: 1px dotted white;
-    }
-  }
-
-  section.post-list {
-    article {    
-      &:after {
-        border-bottom: 1px dotted $default--line-color;
-      }
-    
-      .post-meta {
-        time {
-          color: $default--time-color;
-        }
-      }
-    }
-  }
-
-  .post {
-    .post-meta {    
-      & > div {      
-        @include at-query($min, $medium) {
-          background: white;
-        }
-      }
-    
-      @include at-query($min, $medium) {
-        border-bottom: 1px dotted $default--line-color;
-      }
-    }
-  }
-
-  section#ig {
-    ul {
-      li {
-        span {
-          color: lighten($default--red-color, 10%);
-        }
-        
-        a:hover {
-          text-decoration: none;
-          border-bottom: 0;
-        }
-      }
-    }
-  }
-
-  footer.site-footer {  
-    .wrapper {
-      &:before {
-        border-bottom: 1px solid $default--line-color;
-      }
-    
-      #thanks {
-        color: $default--line-color;
-      }
-    }
-  }
-}
-
-body.birds-of-paradise-scheme {
-  $orange: rgb(239,93,50);
-  $light-orange: rgb(232,166,49);
-  $yellow: rgb(211,208,95);
-  $blue: rgb(108,153,187);
-  $cray: rgb(123,171,153);
-  $brown: rgb(55,39,37);
-  $light-brown: rgb(81,67,65);
-  
-  color: white;
-  
-  background-color: $brown;
-
-  a {
-    color: $cray;
-    text-decoration: none;
-
-    &:visited,
-    &:link,
-    &:active {
-      color: $cray;
-    }
-  }
-
-  header.site-header {  
-    h1 {
-      a {
-        color: $orange !important;
-      }
-    }
-    
-    h2 {
-      color: $blue;
-    }
-  }
-  
-  main {
-    a:hover {
-      border-bottom: 1px dotted white;
-    }
-  }
-
-  section.post-list {
-    article {    
-      &:after {
-        border-bottom: 1px dotted $light-brown;
-      }
-    
-      .post-meta {
-        time {
-          color: $yellow;
-        }
-      }
-    }
-  }
-
-  .post {
-    .post-title {
-      color: $cray;
-    }
-    
-    .post-meta {    
-      color: $yellow;
-      
-      & > div {      
-        @include at-query($min, $medium) {
-          background: $brown;
-        }
-      }
-    
-      @include at-query($min, $medium) {
-        border-bottom: 1px dotted $light-brown;
-      }
-    }
-    
-    .post-content {
-      & > *:not(.highlight) code {
-        color: $light-orange;
-      }
-      
-      a {
-        border-bottom: 1px dotted white;
-      }
-    }
-  }
-
-  section#ig {
-    ul {
-      li {
-        span {
-          color: $cray;
-          text-shadow: 1px 1px 8px rgba(150, 150, 150, 1);
-        }
-        
-        a:hover {
-          text-decoration: none;
-          border-bottom: 0;
-        }
-      }
-    }
-  }
-
-  footer.site-footer {  
-    .wrapper {
-      &:before {
-        border-bottom: 1px solid $light-brown;
-      }
-    
-      #thanks {
-        color: $yellow;
-      }
     }
   }
 }

@@ -1,5 +1,5 @@
 title: Tyler King
-email: tyler.n.king@outlook.com
+email: tyler.n.king@gmail.com
 description: My beer, ramblings, & work.
 baseurl: ~
 url: http://tylerking.me
@@ -11,9 +11,8 @@ kramdown:
 paginate: 5
 paginate_path: /page/:num/
 permalink: /:year/:month/:day/:title
-scheme: birds-of-paradise
 exclude: [vendor]
-include: [_pages]
+#include: [_pages]
 gems:
   - jekyll-sitemap
   - jekyll-paginate
