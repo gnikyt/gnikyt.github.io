@@ -18,19 +18,12 @@ $base-fonts: 'Oxygen', Helvetica, sans-serif;
 $header-fonts: 'Allura', Verdana, Geneva, sans-serif;
 $code-fonts: 'Source Code Pro', Helvetica, sans-serif;
 $container-width: 700px;
-$color-bg: #E2DCD4;
-$color-bg-alt: #F7F3EE;
-$color-bg-alt2: #DBD3C8;
-$color-bg-alt3: #fdfdfc;
-$color-fg: #605B53;
-$color-fg-alt: #A89C8A;
-$color-orange-highlight: #F2A60D;
-$color-orange: #F9E3C6;
-$color-purple: #F1DDF0;
-$color-blue: #DDE4F2;
-$color-blue-alt: #3399FF;
-$color-teal: #D2EBE3;
-$color-green: #E2E9C1;
+$color-bg: #F0E7D3;
+$color-c1: #437C90;
+$color-c2: #751323;
+$color-c4: #A89C8A;
+$color-c5: #303036;
+$color-c6: #fdfdfc;
 
 // Mixins
 @mixin at-query($constraint, $viewport1, $viewport2:null) {
@@ -54,7 +47,7 @@ body {
   font-size: 16px;
   font-family: $base-fonts;
   background-color: $color-bg;
-  color: $color-fg;
+  color: $color-c5;
 }
 
 pre,
@@ -73,7 +66,7 @@ a {
 }
 
 ::selection {
-  background: $color-blue;
+  background: $color-c4;
 }
 
 // Responsive Youtube
@@ -100,9 +93,7 @@ a {
   max-width: $container-width;
 
   a {
-    background: $color-purple;
-    color: $color-fg;
-    padding: 0 0.15rem;
+    color: $color-c2;
   }
 
   @include at-query($min, $medium) {
@@ -112,12 +103,6 @@ a {
   h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
   }
-}
-
-.wrapper-colored {
-  border: 2px solid $color-bg-alt2;
-  border-radius: 4px;
-  background-color: $color-bg-alt;
 }
 
 // Main section
@@ -145,8 +130,7 @@ header.site-header {
       text-decoration: none;
       font-size: 3em;
       font-weight: 400;
-      color: $color-blue-alt;
-      background: transparent;
+      color: $color-c1;
     }
   }
 
@@ -165,6 +149,8 @@ header.site-header {
     position: relative;
 
     & > div {
+      color: $color-c4;
+
       &:first-child {
         font-size: 1.5em;
         font-family: Arial, sans-serif;
@@ -195,12 +181,11 @@ header.site-header {
       }
 
       .page-number {
-        background-color: $color-teal;
-        padding: 0 0.15rem;
+        color: $color-c1;
       }
 
       a {
-        background-color: $color-orange;
+        color: $color-c2;
 
         &:hover {
           border-bottom: 0;
@@ -212,10 +197,6 @@ header.site-header {
 
 // Articles
 section.post-list {
-  #articles {
-    @extend .wrapper-colored;
-  }
-
   article {
     position: relative;
     margin-bottom: 1em;
@@ -227,17 +208,7 @@ section.post-list {
     }
 
     &:hover {
-      background-color: $color-bg-alt3;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: -1px;
-      top: 0;
-      width: 2px;
-      height: 100%;
-      border-left: 2px solid $color-orange-highlight;
+      background-color: $color-c6;
     }
 
     &:last-child {
@@ -258,7 +229,7 @@ section.post-list {
     }
 
     .post-meta {
-      color: $color-fg-alt;
+      color: $color-c4;
 
       time {
         font-size: 1.4em;
@@ -301,16 +272,6 @@ section.post-list {
       position: relative;
       padding: 0.5em;
       margin: 0;
-
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -1px;
-        width: 2px;
-        height: 100%;
-        border-left: 2px solid $color-orange-highlight;
-      }
     }
 
     .post-meta {
@@ -318,8 +279,7 @@ section.post-list {
       text-align: center;
 
       & > span {
-        background: $color-green;
-        padding: 0 0.15rem;
+        color: $color-c1;
       }
     }
   }
@@ -328,10 +288,12 @@ section.post-list {
     .article-body {
       display: block;
       font-size: 1.05em;
-      font-weight: 300;
       line-height: 1.6em;
       padding: 0 1em;
-      @extend .wrapper-colored;
+
+      a {
+        border-bottom: 1px solid $color-c2;
+      }
 
       img {
         max-width: $container-width;
@@ -342,15 +304,9 @@ section.post-list {
 
     footer {
       padding: 1em;
-
-      strong {
-        text-transform: lowercase;
-      }
-
-      span {
-        background-color: #DDE4F2;
-        padding: 0 0.15rem;
-      }
+      color: $color-c4;
+      text-transform: lowercase;
+      font-weight: 300;
     }
   }
 }
@@ -397,7 +353,8 @@ section#ig {
         position: absolute;
         top: 60%;
         left: 0;
-        color: $color-orange;
+        color: $color-c6;
+        opacity: 0.7;
       }
     }
   }
@@ -430,7 +387,7 @@ footer.site-footer {
       margin: 0.3em 0;
 
       a {
-        background-color: $color-green;
+        color: $color-c1;
       }
     }
 
@@ -473,7 +430,7 @@ footer.site-footer {
     }
   }
 
-  // Thanks to Github and Jekyll and Flatwhite Syntax
+  // Thanks to Github and Jekyll
   #thanks {
     text-align: center;
     font-size: 0.8em;
