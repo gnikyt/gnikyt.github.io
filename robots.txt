@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://typebrew.com/sitemap.xml
