@@ -297,6 +297,8 @@ section.post-list {
 
       img {
         max-width: $container-width;
+        width: 100%;
+        height: auto;
         margin: 0 auto;
         display: block;
         border: 1px solid $color-c5;
