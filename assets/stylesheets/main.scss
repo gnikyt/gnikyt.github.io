@@ -50,11 +50,6 @@ body {
   color: $color-c5;
 }
 
-pre,
-code {
-  font-family: $base-fonts;
-}
-
 a {
   text-decoration: none;
 }
@@ -288,7 +283,7 @@ section.post-list {
     .article-body {
       display: block;
       font-size: 1.05em;
-      line-height: 1.6em;
+      line-height: 1.8em;
       padding: 0 1em;
 
       a {
@@ -303,6 +298,10 @@ section.post-list {
         display: block;
         border: 1px solid $color-c5;
       }
+    }
+
+    code.highlighter-rouge {
+      color: $color-c2;
     }
 
     footer {

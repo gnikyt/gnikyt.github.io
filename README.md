@@ -1,5 +1,5 @@
 ## tyler-king @ GitHub Pages
 
-tylerking.me (hello@tylerking.me)
+typebrew.com (hello@typebrew.com)
 
-Powered by Jekyll
+Powered by Jekyll, hosted by GitHub Pages
