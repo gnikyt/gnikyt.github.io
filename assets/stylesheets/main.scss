@@ -1,39 +1,40 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-@font-face {
-  font-family: 'charter';
-  src: url('charter_regular-webfont.tff') format('embedded-truetype'),
-       url('charter_regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'charter';
-  src: url('charter_italic-webfont.tff') format('embedded-truetype'),
-       url('charter_italic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'charter';
-  src: url('charter_bold_italic-webfont.tff') format('embedded-truetype'),
-       url('charter_bold_italic-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'charter';
-  src: url('charter_bold-webfont.tff') format('embedded-truetype'),
-       url('charter_bold-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
 @charset 'utf-8';
+
+@font-face {
+  font-family: 'charter';
+  src: url('../fonts/charter-regular.tff') format('embedded-truetype'),
+       url('../fonts/charter-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'charter';
+  src: url('../fonts/charter-italic.tff') format('embedded-truetype'),
+       url('../fonts/charter-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'charter';
+  src: url('../fonts/charter-bold-italic.tff') format('embedded-truetype'),
+       url('../fonts/charter-bold-italic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'charter';
+  src: url('../fonts/charter-bold.tff') format('embedded-truetype'),
+       url('../fonts/charter-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
 @import 'normalize.css';
 
 // Sizing
