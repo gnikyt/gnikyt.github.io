@@ -17,4 +17,4 @@ I ran into an issue with a client a few months back where the client needed to e
 
 So I wrote this add-on for ACF. It allows you to set the number of rows, columns and even titles for the client to see. All they need to do is enter their data and off you go! You can easily with a few lines of code extract it into a usable form (its pretty much just an array representing a table).
 
-To see some screenshots and sample usage of this add-on please [click here](https://github.com/tyler-king/acf-simple_table) and you're free to use this in any commercial or personal project!
+To see some screenshots and sample usage of this add-on please [click here](https://github.com/ohmybrew/acf-simple_table) and you're free to use this in any commercial or personal project!

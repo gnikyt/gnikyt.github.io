@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://typebrew.com/sitemap.xml
+Sitemap: http://ohmybrew.com/sitemap.xml

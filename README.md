@@ -1,5 +1,5 @@
-## tyler-king @ GitHub Pages
+## ohmybrew @ GitHub Pages
 
-typebrew.com (hello@typebrew.com)
+ohmybrew.com (hello@ohmybrew.com)
 
 Powered by Jekyll, hosted by GitHub Pages

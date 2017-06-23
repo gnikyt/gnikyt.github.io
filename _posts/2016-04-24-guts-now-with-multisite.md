@@ -13,9 +13,9 @@ tags:
 
 
 
-This is just a quick and proud update that I've released a lengthy update to [Guts](https://github.com/tyler-king/guts) which includes multisite abilities. Meaning, you can run the same Guts admin interface for multiple domains. It also includes a handy concern for enabling multisite support on your application.
+This is just a quick and proud update that I've released a lengthy update to [Guts](https://github.com/ohmybrew/guts) which includes multisite abilities. Meaning, you can run the same Guts admin interface for multiple domains. It also includes a handy concern for enabling multisite support on your application.
 
-Right from the docs is the full details below. Besides that, I've introduced a `CHANGELOG` file, multiple fixes, and more tests from the [multisite pull request](https://github.com/tyler-king/guts/pull/1). The Gem is now at version `1.1.0` with a passing build. As a cool note, because Guts is on [rubydoc.info](http://www.rubydoc.info/gems/guts/1.1.0), you can open your favourite doc app like [Dash](https://kapeli.com/dash), and pull the full documentation.
+Right from the docs is the full details below. Besides that, I've introduced a `CHANGELOG` file, multiple fixes, and more tests from the [multisite pull request](https://github.com/ohmybrew/guts/pull/1). The Gem is now at version `1.1.0` with a passing build. As a cool note, because Guts is on [rubydoc.info](http://www.rubydoc.info/gems/guts/1.1.0), you can open your favourite doc app like [Dash](https://kapeli.com/dash), and pull the full documentation.
 
 ## How It Works
 
