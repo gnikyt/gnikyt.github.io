@@ -156,9 +156,13 @@ header.site-header {
     a {
       font-family: $header-fonts;
       text-decoration: none;
-      font-size: 3em;
+      font-size: 2em;
       font-weight: 400;
       color: $color-c1;
+
+      @include at-query($min, $medium) {
+        font-size: 3em;
+      }
     }
   }
 
@@ -354,6 +358,7 @@ section#ig {
     list-style: none;
     margin: 0;
     padding: 0;
+    font-size: 0;
 
     li {
       display: inline-block;
@@ -384,7 +389,7 @@ section#ig {
         display: block;
         width: 100%;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         position: absolute;
         top: 60%;
         left: 0;
@@ -448,13 +453,13 @@ footer.site-footer {
         width: 50%;
         padding: 0 1em;
 
-        h5 {
+        & > span:first-child {
+          display: block;
           font-size: 1.5em;
-          margin: 0;
         }
 
-        h6 {
-          margin: 0;
+        & > span:last-child {
+          display: block;
           font-size: 1em;
         }
 
