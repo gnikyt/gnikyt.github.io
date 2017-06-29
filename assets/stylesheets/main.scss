@@ -420,6 +420,36 @@ footer.site-footer {
     }
   }
 
+  // Beer section
+  #beer {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1em;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      content: '';
+      border-top: 1px solid $color-c1;
+      width: 100%;
+      z-index: -1;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      background: $color-bg;
+
+      @include at-query($min, $medium) {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
   // Bio section
   #bio {
     p {
