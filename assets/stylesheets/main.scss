@@ -425,6 +425,11 @@ footer.site-footer {
     p {
       line-height: 1.6em;
       margin: 0.3em 0;
+      text-align: center;
+
+      @include at-query($min, $medium) {
+        text-align: left;
+      }
 
       a {
         color: $color-c1;
