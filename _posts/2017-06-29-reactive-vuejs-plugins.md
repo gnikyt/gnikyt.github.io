@@ -15,9 +15,9 @@ VueJS has been my go-to framework from building small to medium-sized frontend a
 
 ## Plugins & Reactivity
 
-[Plugins in Vue](https://vuejs.org/v2/guide/plugins.html), allow you to extract code into a re-usable module. The plugins allow you to create global mixins, methods, properties, and more. It has the added benefit of keeping your code modularize, clean, and not pollute your app's main instance.
+[Plugins in Vue](https://vuejs.org/v2/guide/plugins.html), allow you to extract code into a re-usable module. The plugins allow you to create global mixins, methods, properties, and more. It has the added benefit of keeping your code modularized, clean, and doesn't pollute your app's main instance.
 
-[Reactivity in Vue](https://vuejs.org/v2/guide/reactivity.html) is simply a way of describing changes in state/data. Vue watches for changes in data, which in turn causes the component to re-render showing the updated state.
+[Reactivity in Vue](https://vuejs.org/v2/guide/reactivity.html) is simply a way of describing something that watches for changes in state/data and reacts to it. Vue watches for changes in data, which in turn causes the component to re-render, showing the updated state.
 
 ## Use Case
 
@@ -27,9 +27,9 @@ One example is if you're depending on a third-party service for data. You need t
 
 ## Building
 
-Lets build a sports ticker to show the latest score of a team.
+Lets build a sports ticker to show the latest score result from some sports team.
 
-The key to making your data reactive in your plugin is simple - create a new Vue instance which holds the data.
+The key to making your data reactive in your plugin is simple... create a new Vue instance which holds the data.
 
 ```javascript
 // plugins/sports-ticker.js
@@ -52,7 +52,7 @@ class SportsTicker {
           gameTime: null,
           score: {
             home: null,
-            away: null
+            away: null,
           },
         };
       },
@@ -75,14 +75,14 @@ class SportsTicker {
    */
   fetchData() {
     fetch(`https://some-api.com/games/${this.team}/last`)
-        .then(resp => resp.json())
-        .then((data) => {
-            this.state.gameTime = data.game_time;
-      		this.state.score = {
-              home: data.home_score,
-              away: data.away_score
-      		};
-    	})
+    	.then(resp => resp.json())
+    	.then((data) => {
+    		this.state.gameTime = data.game_time;
+    		this.state.score = {
+    			home: data.home_score,
+     			away: data.away_score
+    		};
+   		})
     ;
   }
 }
@@ -113,11 +113,12 @@ With all this in play, our data is now reactive.
 
 ```html
 <template v-if="$SportsTicker.state.gameTime">
+  {% raw %}
   {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}
+  {% endraw %}
 </template>
 ```
 
 Because the data is reactive, the above view snippet will not show until we have data (checking `gameTime` is not null in this case). When the data is processed, it will trigger Vue to render the template and show the data.
 
 All we needed to do was create our own Vue instance for the plugin to store the data, with a simple method to access it (`get state`).
-
