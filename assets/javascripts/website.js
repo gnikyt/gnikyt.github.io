@@ -3,7 +3,7 @@ if (document.getElementById('instagram-feed')) {
     target      : 'instagram-feed',
     get         : 'user',
     userId      : 28731503,
-    accessToken : '28731503.094d5ca.11ba631a69d043e5aada163876280a18',
+    accessToken : '28731503.094d5ca.fae36b394ed74458a282d7410ed1606a',
     limit       : 8,
     resolution  : 'low_resolution',
     template    : '<li><a href="{{link}}" tagret="_blank"><img src="{{image}}" /><span>&#9829; {{likes}}</span></a></li>'
