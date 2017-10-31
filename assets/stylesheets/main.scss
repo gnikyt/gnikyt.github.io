@@ -2,39 +2,6 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset 'utf-8';
-
-@font-face {
-  font-family: 'charter';
-  src: url('../fonts/charter-regular.tff') format('embedded-truetype'),
-       url('../fonts/charter-regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'charter';
-  src: url('../fonts/charter-italic.tff') format('embedded-truetype'),
-       url('../fonts/charter-italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'charter';
-  src: url('../fonts/charter-bold-italic.tff') format('embedded-truetype'),
-       url('../fonts/charter-bold-italic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'charter';
-  src: url('../fonts/charter-bold.tff') format('embedded-truetype'),
-       url('../fonts/charter-bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
 @import 'normalize.css';
 
 // Sizing
@@ -47,8 +14,9 @@ $large: 1400px;
 $large-max: 1400px;
 
 // Variables
-$base-fonts: 'charter', Helvetica, sans-serif;
+$base-fonts: 'Raleway', Helvetica, sans-serif;
 $header-fonts: 'Allura', Verdana, Geneva, sans-serif;
+$heading-fonts: 'Lora', Verdana, Geneva, sans-serif;
 $code-fonts: 'Source Code Pro', Helvetica, sans-serif;
 $container-width: 700px;
 $color-bg: #F0E7D3;
@@ -142,6 +110,11 @@ main {
     margin-top: 5em;
     margin-bottom: 5em;
   }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-fonts;
 }
 
 // Header of site
@@ -345,7 +318,7 @@ section.post-list {
       padding: 1em;
       color: $color-c4;
       text-transform: lowercase;
-      font-weight: 300;
+      font-family: $heading-fonts;
     }
   }
 }
