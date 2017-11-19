@@ -31,7 +31,7 @@ Next, open `bootstrap/app.php`, find `$app->register(App\Providers\AppServicePro
 
 After this is done, open the app provider in `app/Providers/`.
 
-At the bottom of the register method, paste in the following:
+At the bottom of the `register` method, paste in the following:
 
 ```php
 <?php
@@ -61,7 +61,33 @@ $this->app->make('queue');
 
 And see my Lumen Redis tutorial to setup Redis for processing.
 
-That's it, you're done the setup!
+Next, setup the basic config `config/mail.php`:
+
+```php
+<?php
+
+return [
+    'driver' => env('MAIL_DRIVER'),
+    'host' => env('MAIL_HOST'),
+    'port' => env('MAIL_PORT'),
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name' => env('MAIL_FROM_NAME'),
+    ],
+    'encryption' => env('MAIL_ENCRYPTION'),
+    'username' => env('MAIL_USERNAME'),
+    'password' => env('MAIL_PASSWORD'),
+    'markdown' => [
+        'theme' => 'default',
+        'paths' => [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
+];
+
+```
+
+That's it, you're done the setup! Don't forget to setup your environment variables for production.
 
 ### Creating a Mailer
 
