@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Opinion: When to use a VPS vs PaaS</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Opinion: When to use a VPS vs PaaS" />
+    <meta property="og:description" content="Introduction Well this is my first post for 2017. I&#x27;ve been very busy with family and the recent passing of my close grandfather who was diagnosed with Bronchitis Obliterans, also known as &amp;quot;Popcorn Lungs&amp;quot;, a rare and incurable condition. He went through the new Assisted Death option here" />
+    <meta property="og:url" content="https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/" />
+    <meta property="article:published_time" content="2017-03-08T11:12:00.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T16:31:00.000Z" />
+    <meta property="article:tag" content="general" />
+    <meta property="article:tag" content="opinion" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Opinion: When to use a VPS vs PaaS" />
+    <meta name="twitter:description" content="Introduction Well this is my first post for 2017. I&#x27;ve been very busy with family and the recent passing of my close grandfather who was diagnosed with Bronchitis Obliterans, also known as &amp;quot;Popcorn Lungs&amp;quot;, a rare and incurable condition. He went through the new Assisted Death option here" />
+    <meta name="twitter:url" content="https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="general, opinion" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Opinion: When to use a VPS vs PaaS",
+    "url": "https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/",
+    "datePublished": "2017-03-08T11:12:00.000Z",
+    "dateModified": "2018-02-21T16:31:00.000Z",
+    "keywords": "general, opinion",
+    "description": "Introduction Well this is my first post for 2017. I&#x27;ve been very busy with family and the recent passing of my close grandfather who was diagnosed with Bronchitis Obliterans, also known as &amp;quot;Popcorn Lungs&amp;quot;, a rare and incurable condition. He went through the new Assisted Death option here",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-general tag-opinion">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Opinion: When to use a VPS vs PaaS</h1>
+		<span class="post-meta"><a href="../author/tyler-king/index.html">Tyler King</a> | <time datetime="2017-03-08">08 Mar 2017</time></span>
+		
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-general tag-opinion">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><h2 id="introduction">Introduction</h2>
+<p>Well this is my first post for 2017. I've been very busy with family and the <a href="http://hoskinsfuneralhomes.ca/tribute/details/1797/Willis-King/obituary.html#tribute-start">recent passing of my close grandfather</a> who was diagnosed with Bronchitis Obliterans, also known as &quot;Popcorn Lungs&quot;, a rare and incurable condition. He went through the new Assisted Death option here in Canada late last month with of us loving family around him.</p>
+<p>Before we get started on my own opinions, lets take a look at what each system is.</p>
+<h3 id="whatisavps">What is a VPS?</h3>
+<p>A VPS is a Virtual Private Server. A server running on more powerful hardware than standard &quot;shared hosting&quot; plans (usually). Every &quot;account&quot; has its own physical space on the server in virtual compartments with super-level access. Software is setup independently in each space. Its like your own piece of pie on the server.</p>
+<p>Most VPS providers offer both managed (host manages for you) or unmanaged (clean slate for you to break!) plans. Theres many pricing levels and many providers. The top providers mentioned the past few years are:</p>
+<ul>
+<li><a href="http://digitalocean.com">DigitalOcean</a> <em>(one I personally choose to use)</em></li>
+<li><a href="http://linode.com">Linode</a></li>
+<li><a href="http://vultr.com">Vultr</a></li>
+<li><a href="http://scaleway">Scaleway</a></li>
+</ul>
+<p>Each of these providers are great. They offer features such as instant upgrades, point-n-click setup of instances, pre-bundled setups, DNS configurations, IP management, backups, and more. Their prices are relatively the same as well.</p>
+<p>For example, with DigitalOcean, on a $5 per month plan, you can get 512MB of RAM, 1 CPU, 20GB SSD space, and be up-and-running in minutes. This is a very cost effective method for those who want to have freedom with their server to host their applications and websites.</p>
+<p>The vast amount of tutorials and community support out there for these services make any modifications easy for even new-comers.</p>
+<h3 id="whatisapaas">What is a PaaS?</h3>
+<p>PaaS or Platform as a Service, is cloud-computing service that provides a platform allowing customers to develop, run and manage their applications/websites without the complexity of building and maintaining the infrastructure associated with developing and launching.</p>
+<p>With <a href="http://heroku.com">Heroku</a> for example, you can setup an account in minutes, generate a <a href="https://devcenter.heroku.com/articles/procfile">Procfile</a> for your app, and deploy your code through Git. Heroku will pull your code, read your Procfile and build a system that suits your code, launching it mere minutes with no interaction on your part. It comes with several add-ons that are point-and-click setup like Redis, Postgres, Loader.io, and more.</p>
+<p>These services allow you to focus on code, not the server. You don't need to worry about the command line, resource scaling, migrations, errors... its all taken care of you. This of course, comes at a cost to you though compared to a VPS.</p>
+<p>Heroku is billed by the usage time of the server (how long its running). They have free hobby plans to get you going, but once you need more resources, the price will jump. A small app on Heroku could start out as $10 a month. A medium-sized medium-load app could quickly jump to $260 a month from experience.</p>
+<h3 id="whattochoose">What to Choose?</h3>
+<p>Well, its up to your needs. Go &quot;cheap&quot;, manage the server yourself, then you'd pick a VPS. Focus on code and not worry about the server, you'd pick a PaaS.</p>
+<p>Personally, if its a minimal load and minimal traffic app, I'd spin up a DigitalOcean instance, spend the time to configure it properly, deploy the app and let it be. Sometimes, this is all the client is willing to afford anyways.</p>
+<p>If its an app that is going to be experience high traffic, high load, and needs to stay dependable… I'd choose a PaaS every time. I don't need to worry about recourses and I can easily scale the databases, CPU, RAM, etc. as needed with a click of a button. When it's crunch time... this can be a big help.</p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Opinion: When to use a VPS vs PaaS&url=https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/general/index.html">general</a> <a href="../tag/opinion/index.html">opinion</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/index.html">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../moving-away-from-cancancan-to-pundit/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Moving away from CanCanCan to Pundit</h2>
+							<p class="post-nav-excerpt">What is Pundit &amp; CanCanCan? Pundit is a simple, platform-agnostic, plain-ol-Ruby authorization&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../toggling-tinymce-v4/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Toggling TinyMCE v4</h2>
+							<p class="post-nav-excerpt">Heres a easy way to turn on and off the TinyMCE editor&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-general tag-opinion"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>tip - OhMyBrew! (Page 2)</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../../../../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="prev" href="../../index.html" />
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../../../../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="tag-template tag-tip paged">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../../../../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../../../../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+<header id="blog-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../../../../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="blog-name">tip</h1>
+		<span class="blog-description">
+			Posts: 17
+		</span>
+	</div>
+</header>
+
+<div id="index" class="container">
+
+	<main class="content" role="main">
+	
+		<div class="extra-pagination">
+	<nav class="pagination" role="pagination">
+	<div class="inner">
+		<a class="pagination-next" href="../../index.html"><i class="ic ic-arrow-left"></i> <span class="pagination-label">Newer Posts</span></a>
+		<span class="pagination-info">Page 2 of 2</span>
+		<div class="clear"></div>
+	</div>
+</nav>
+</div>
+
+
+<article class="post tag-shopify tag-tip tag-programming tag-liquid-3">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../all-products-shopify/index.html">all_products... finally</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../../shopify/index.html">shopify</a>, <a href="../../index.html">tip</a>, <a href="../../../programming/index.html">programming</a>, <a href="../../../liquid-3/index.html">liquid</a> | <time datetime="2015-06-24">24 Jun 2015</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Shopify has finally implemented a global variable for accessing products. Shopify has global variables for many things like Collections, Linklists, pages, etc, so you can do things such as access a collection by its handle collections.my-cool-toys.products. However, it always lacked the ability to look up products by their&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-tip tag-programming tag-php tag-wordpress">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../get-original-sized-images-from-a-wordpress-post-gallery/index.html">Get Original Sized Images from a Wordpress Post Gallery</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../index.html">tip</a>, <a href="../../../programming/index.html">programming</a>, <a href="../../../php/index.html">php</a>, <a href="../../../wordpress/index.html">wordpress</a> | <time datetime="2014-11-08">08 Nov 2014</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Recently I was working on a project where I needed to modify an existing page which had multiple galleries. This change required me to have access to the original uploaded images. Heres a simple function I wrote which returns the images easily in an array format. # Input Hey comes see&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-ruby tag-shopify tag-tip tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../quickly-get-all-products-in-your-shopify-store-with-ruby/index.html">Quickly Get All Products in Your Shopify Store with Ruby</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../../ruby/index.html">ruby</a>, <a href="../../../shopify/index.html">shopify</a>, <a href="../../index.html">tip</a>, <a href="../../../programming/index.html">programming</a> | <time datetime="2014-11-05">05 Nov 2014</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>This is a simple snippet I've used over-and-over again this year to batch process products (modify tags, pricing, etc). It simply calculates the number of pages of products, pushes each page of products into a master array and returns them all. Should work well for others so I thought I&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-symfony tag-php tag-tip tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../get-single-field-error-in-symfony/index.html">Get Single Field Error in Symfony</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../../symfony/index.html">symfony</a>, <a href="../../../php/index.html">php</a>, <a href="../../index.html">tip</a>, <a href="../../../programming/index.html">programming</a> | <time datetime="2013-12-12">12 Dec 2013</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>This is just a quick tid-bit/how-to! Recently a project came up where special front-end actions and structures had to take place within the view of the Twig template once an error occurred on specific fields. It also didn't require enough attention to warrant creating a form theme. This is&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-programming tag-tip tag-php tag-wordpress">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../woocommerce-sorting-products-by-category/index.html">Woocommerce - Sorting Product by Category</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../../programming/index.html">programming</a>, <a href="../../index.html">tip</a>, <a href="../../../php/index.html">php</a>, <a href="../../../wordpress/index.html">wordpress</a> | <time datetime="2013-10-05">05 Oct 2013</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one task, was to give the customers the ability to filter products on the product's page by a specific set of categories. In other words: Only show&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-tip tag-programming tag-php tag-symfony">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../simple-password-checking-with-symfony-and-fos-user-bundle/index.html">Simple Password Checking with Symfony and FOS User Bundle</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../index.html">tip</a>, <a href="../../../programming/index.html">programming</a>, <a href="../../../php/index.html">php</a>, <a href="../../../symfony/index.html">symfony</a> | <time datetime="2013-08-28">28 Aug 2013</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Recently for a project, a co-developer wanted to validate someone's record in the database from an Android application and the website was using Symfony 2.3 with FOS User Bundle. Specifically this developer did not want to log the user in, only to check their login against the database. So&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-shopify tag-programming tag-tip">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../../../gathering-user-input-with-shopify/index.html">Gathering User-Input with Shopify</a></h2>
+			<span class="post-meta"><a href="../../../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../../shopify/index.html">shopify</a>, <a href="../../../programming/index.html">programming</a>, <a href="../../index.html">tip</a> | <time datetime="2013-08-05">05 Aug 2013</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Shopify includes everything you need to setup an online store, including free web-based store building software, unlimited ecommerce website hosting, and more. It is a great tool for both users and __developers. __It offers a great API which has libraries for many languages (PHP, Python, Ruby, ...) and a great back-end&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<nav class="pagination" role="pagination">
+	<div class="inner">
+		<a class="pagination-next" href="../../index.html"><i class="ic ic-arrow-left"></i> <span class="pagination-label">Newer Posts</span></a>
+		<span class="pagination-info">Page 2 of 2</span>
+		<div class="clear"></div>
+	</div>
+</nav>	
+	</main>
+
+</div>
+		<div id="body-class" style="display: none;" class="tag-template tag-tip paged"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../../../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

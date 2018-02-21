@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Woocommerce - Sorting Product by Category</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Woocommerce - Sorting Product by Category" />
+    <meta property="og:description" content="This past week I was assigned to heavily customize a Woocommerce install on a client&#x27;s successful store. What needed to be done on one task, was to give the customers the ability to filter products on the product&#x27;s page by a specific set of categories. In other words: Only show" />
+    <meta property="og:url" content="https://ohmybrew.com/woocommerce-sorting-products-by-category/" />
+    <meta property="og:image" content="https://ohmybrew.com/content/images/2018/02/tristan-colangelo-221273-unsplash.jpg" />
+    <meta property="article:published_time" content="2013-10-05T15:56:26.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T01:51:23.000Z" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="tip" />
+    <meta property="article:tag" content="php" />
+    <meta property="article:tag" content="wordpress" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Woocommerce - Sorting Product by Category" />
+    <meta name="twitter:description" content="This past week I was assigned to heavily customize a Woocommerce install on a client&#x27;s successful store. What needed to be done on one task, was to give the customers the ability to filter products on the product&#x27;s page by a specific set of categories. In other words: Only show" />
+    <meta name="twitter:url" content="https://ohmybrew.com/woocommerce-sorting-products-by-category/" />
+    <meta name="twitter:image" content="https://ohmybrew.com/content/images/2018/02/tristan-colangelo-221273-unsplash.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="programming, tip, php, wordpress" />
+    <meta property="og:image:width" content="6480" />
+    <meta property="og:image:height" content="4310" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Woocommerce - Sorting Product by Category",
+    "url": "https://ohmybrew.com/woocommerce-sorting-products-by-category/",
+    "datePublished": "2013-10-05T15:56:26.000Z",
+    "dateModified": "2018-02-21T01:51:23.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ohmybrew.com/content/images/2018/02/tristan-colangelo-221273-unsplash.jpg",
+        "width": 6480,
+        "height": 4310
+    },
+    "keywords": "programming, tip, php, wordpress",
+    "description": "This past week I was assigned to heavily customize a Woocommerce install on a client&#x27;s successful store. What needed to be done on one task, was to give the customers the ability to filter products on the product&#x27;s page by a specific set of categories. In other words: Only show",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-programming tag-tip tag-php tag-wordpress">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Woocommerce - Sorting Product by Category</h1>
+		<span class="post-meta"><a href="../author/tyler-king/">Tyler King</a> | <time datetime="2013-10-05">05 Oct 2013</time></span>
+		<div class="post-cover cover" style="background-image: url('../content/images/2018/02/tristan-colangelo-221273-unsplash.jpg');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-programming tag-tip tag-php tag-wordpress">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one task, was to give the customers the ability to filter products on the product's page by a specific set of categories. In other words: Only show the products in <em>X Category</em>.</p>
+<h2 id="surethisshouldbeeasy">Sure, this should be easy!</h2>
+<p>Now, reading up on the Woocommerce documentation, I came across the filter named <strong>woocommerce_get_catalog_ordering_args</strong> which seemed like it would fit the bill and allow you to modify the post query, as shown in <a href="http://docs.woothemes.com/document/custom-sorting-options-ascdesc/">this example snippit</a>. My assumption being, <strong>$args</strong> was used similar to providing an array of args to <strong>get_posts</strong> or <strong>WP_Query</strong>. I was wrong - dead wrong. It turns out afterall, __$args__passed to the <strong>woocommerce_get_catalog_ordering_args</strong> filter is more of a <em>collection of direct SQL commands which Wordpress compiles</em>. Which means simply passing <strong>$args['product_cat'] = xxx;</strong> wasen't going to work as I originally thought. Back to square one...</p>
+<h2 id="findingacluetothepuzzle">Finding a clue to the puzzle</h2>
+<p>Thats when I busted out some Google-Fu and tried to find <em>any</em> hook or filter Woocomerce had to directly modify the output of the query. There is no Woocommerce-direct way to do this from what I've found. I did however find a <a href="http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161">Wordpress support post</a> of people asking a similar question, and a guy by the name of <strong>bheadrick</strong> in that discussion provided some sample code.</p>
+<blockquote>
+<p>This works to sort products by category on the main shop page, but it also changes the order of my blog posts AND takes away the ability for any other sort options, which is a bit of a bummer.</p>
+</blockquote>
+<p>That is the sad key to the great code-snippit he provided in the discussion. Although it worked, it modified_all_ of Wordpress' post queries instead of just the Woocomerce product's page. I decided to dig into the Woocomerce code itself.</p>
+<h2 id="readingthecodetofindananswer">Reading the code to find an answer...</h2>
+<p><a href="http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411">In classes/class-Wc-Query.php on line 411</a>, I found the function that called the <strong>woocommerce_get_catalog_ordering_args</strong> filter. Looking upwards from that line on <strong>396</strong>, is Woocomerce calling a filter <strong>post_clauses</strong>, bingo!</p>
+<p>This is the filter I can use to add clauses (joins, wheres, orders) to the <strong>$args</strong> passed. So mixing that, with the code <strong>bheadrick</strong> provided in the discussion is this...</p>
+<pre><code class="language-php">add_filter('woocommerce_default_catalog_orderby_options', 'ty_catalog_orderby');
+add_filter('woocommerce_catalog_orderby', 'ty_catalog_orderby');
+function ty_catalog_orderby( $sortby ) {
+  $sortby['originals'] = 'Originals';
+  $sortby['prints']    = 'Prints';
+
+  return $sortby;
+}
+ 
+add_filter('woocommerce_get_catalog_ordering_args', 'ty_get_catalog_ordering_args');
+function ty_get_catalog_ordering_args($args) {
+  global $wpdb;
+
+  $orderby_value = isset($_GET['orderby']) ? woocommerce_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+
+  if ('originals' == $orderby_value) {
+    $args['orderby']  = 'date';
+    $args['order']    = 'DESC';
+    $args['meta_key'] = '';
+
+    add_filter('posts_clauses', 'ty_post_clausesdd_originals');
+  }
+
+  if ('prints' == $orderby_value) {
+    $args['orderby']  = 'date';
+    $args['order']    = 'DESC';
+    $args['meta_key'] = '';
+
+    add_filter('posts_clauses', 'ty_post_clausesdd_prints');
+  }
+
+  return $args;
+}
+ 
+function ty_post_clausesdd_originals($args) {
+  global $wpdb;
+
+  $args['join']  .= &quot; JOIN &quot; . $wpdb-&gt;term_relationships .&quot; tr ON &quot; . $wpdb-&gt;posts . &quot;.id = tr.object_id JOIN &quot; . $wpdb-&gt;term_taxonomy .&quot; tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'product_cat' JOIN &quot; . $wpdb-&gt;terms .&quot; t ON tt.term_id = t.term_id
+JOIN &quot; . $wpdb-&gt;woocommerce_termmeta .&quot; tm ON tm.woocommerce_term_id = t.term_id and tm.meta_key = 'order'&quot;;
+  $args['where'] .= &quot; AND (t.term_id = 13)&quot;;
+
+  return $args;
+}
+ 
+function ty_post_clausesdd_prints($args) {
+  global $wpdb;
+
+  $args['join']  .= &quot; JOIN &quot; . $wpdb-&gt;term_relationships .&quot; tr ON &quot; . $wpdb-&gt;posts . &quot;.id = tr.object_id JOIN &quot; . $wpdb-&gt;term_taxonomy .&quot; tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'product_cat' JOIN &quot; . $wpdb-&gt;terms .&quot; t ON tt.term_id = t.term_id
+JOIN &quot; . $wpdb-&gt;woocommerce_termmeta .&quot; tm ON tm.woocommerce_term_id = t.term_id and tm.meta_key = 'order'&quot;;
+  $args['where'] .= &quot; AND (t.term_id = 16)&quot;;
+
+  return $args;
+}
+</code></pre>
+<ul>
+<li>Lines <strong>1-8</strong> register the extra filters I want to show in Woocommerce's filter dropdown.</li>
+<li>Lines <strong>10-33</strong> adds my custom handler for when my filter is selected and called.</li>
+<li>Lines <strong>35-43 and 45-53</strong> is where the magic happens.</li>
+</ul>
+<h2 id="inconclusion">In conclusion</h2>
+<p>Looking at the function <strong>ty_get_catalog_ordering_args,</strong> I check if my filter is being called and if it is, I register a filter call for <strong>post_clauses</strong> on lines <strong>21 and 29</strong>. When the post_clauses is called, it will run one of my functions such as <strong>ty_post_clausesdd_originals</strong>. In this function, I add the join provided by <strong>bheadrick</strong> and add a <em>where clause</em> to tell it to find only posts with a category ID of <strong>13</strong>. Because this filter is being called inside <strong>ty_get_catalog_ordering_args</strong> function, it will not affect standard Wordpress post listings.</p>
+<p>All you need to do if you wish to add this to your project, is change up the titling of the filter names and modify each category ID I provided. You can even do multiples by changing it to <strong>$args['where'] .= &quot; AND t.term_id IN(13, 15, 19)&quot;;</strong> if you wish to get products in multiple categories for one filter action.</p>
+<p>Anyways, that's my story on the hunt to add such a filter. Feel free to modify this and use it in your code since there doesn't seem to be a more viable option around that I've seen.</p>
+<hr>
+<p><em>Cover image credit to: <a href="https://unsplash.com/photos/d4OnMIl5OYk">Tristan Colangelo</a></em></p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Woocommerce - Sorting Product by Category&url=https://ohmybrew.com/woocommerce-sorting-products-by-category/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/woocommerce-sorting-products-by-category/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/woocommerce-sorting-products-by-category/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/programming/">programming</a> <a href="../tag/tip/">tip</a> <a href="../tag/php/">php</a> <a href="../tag/wordpress/">wordpress</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../fright-night-1985-vs-2011/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Fright Night - 1985 vs 2011</h2>
+							<p class="post-nav-excerpt">I'm a big, big fan, of 80s horror films. Some are cheesy,&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../happy-4th-birthday-to-my-girl/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Happy 4th Birthday to My Girl!</h2>
+							<p class="post-nav-excerpt">&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-programming tag-tip tag-php tag-wordpress"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

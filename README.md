@@ -1,5 +1,4 @@
-## ohmybrew @ GitHub Pages
+# OhMyBrew
 
-ohmybrew.com (hello@ohmybrew.com)
-
-Powered by Jekyll, hosted by GitHub Pages
+https://ohmybrew.com
+Powered by Ghost

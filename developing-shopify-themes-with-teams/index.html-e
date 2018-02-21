@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Developing Shopify Themes with Teams</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Developing Shopify Themes with Teams" />
+    <meta property="og:description" content="This is a simple write up to explain how a team can utilize Git versioning to manage a Shopify theme successfully. Its not a complicated processes but will require patience! As a side-note, this is simply a personal recommendation based on my experiences, there are of course other ways to" />
+    <meta property="og:url" content="https://ohmybrew.com/developing-shopify-themes-with-teams/" />
+    <meta property="og:image" content="https://ohmybrew.com/content/images/2018/02/anna-samoylova-535880-unsplash.jpg" />
+    <meta property="article:published_time" content="2014-09-16T22:17:10.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T01:59:38.000Z" />
+    <meta property="article:tag" content="shopify" />
+    <meta property="article:tag" content="process" />
+    <meta property="article:tag" content="programming" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Developing Shopify Themes with Teams" />
+    <meta name="twitter:description" content="This is a simple write up to explain how a team can utilize Git versioning to manage a Shopify theme successfully. Its not a complicated processes but will require patience! As a side-note, this is simply a personal recommendation based on my experiences, there are of course other ways to" />
+    <meta name="twitter:url" content="https://ohmybrew.com/developing-shopify-themes-with-teams/" />
+    <meta name="twitter:image" content="https://ohmybrew.com/content/images/2018/02/anna-samoylova-535880-unsplash.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="shopify, process, programming" />
+    <meta property="og:image:width" content="2322" />
+    <meta property="og:image:height" content="1548" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Developing Shopify Themes with Teams",
+    "url": "https://ohmybrew.com/developing-shopify-themes-with-teams/",
+    "datePublished": "2014-09-16T22:17:10.000Z",
+    "dateModified": "2018-02-21T01:59:38.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ohmybrew.com/content/images/2018/02/anna-samoylova-535880-unsplash.jpg",
+        "width": 2322,
+        "height": 1548
+    },
+    "keywords": "shopify, process, programming",
+    "description": "This is a simple write up to explain how a team can utilize Git versioning to manage a Shopify theme successfully. Its not a complicated processes but will require patience! As a side-note, this is simply a personal recommendation based on my experiences, there are of course other ways to",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-shopify tag-process tag-programming">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Developing Shopify Themes with Teams</h1>
+		<span class="post-meta"><a href="../author/tyler-king/index.html">Tyler King</a> | <time datetime="2014-09-16">16 Sep 2014</time></span>
+		<div class="post-cover cover" style="background-image: url('../content/images/2018/02/anna-samoylova-535880-unsplash.jpg');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-shopify tag-process tag-programming">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>This is a simple write up to explain how a team can utilize Git versioning to manage a Shopify theme successfully. Its not a complicated processes but will require patience! As a side-note, this is simply a personal recommendation based on my experiences, there are of course other ways to go about this process.</p>
+<h2 id="steponeinstallingshopifysthememanager">Step One: Installing Shopify’s Theme Manager</h2>
+<p>No, not the GUI - that doesn’t work very well for what we need to do (many GUIs don’t!). What you’re going to do instead is open your Terminal.</p>
+<p>Run <code>gem install shopify_theme</code> - it’s Shopify’s Ruby Gem for managing themes with advanced options.</p>
+<p><img src="../content/images/shopify-1.png" alt="terminal shopify"></p>
+<h2 id="steptwocreatingyourownshop">Step Two: Creating your own shop</h2>
+<h5 id="citationthisisonlymypersonalrecommendation">Citation: This is only my personal recommendation</h5>
+<p>Each developer working on the theme will need <em>their own shop</em> to push changes/to test changes. Because we can not run Shopify locally, we need to view it somewhere and the problem is that multiple developers can not push changes to the same shop because we will overwrite each other and create mess.</p>
+<p>So creating your own shop will allow each developer to be independent but still work on the same codebase.</p>
+<p>It’s time to register a private app in your development shop to let the Shopify Theme Manager communicate. Go to <strong>https://[your store].myshopify.com/admin/apps/private</strong> and generate a private application; call it anything you like… &quot;Theme Dev&quot;, &quot;Rickyisms&quot;, doesn’t matter. What Shopify will give you API information. <strong>Keep that API key and password on hand for step three</strong>.</p>
+<p><img src="../content/images/shopify-2.png" alt="api setup"></p>
+<h2 id="stepthreesettingupthethemefiles">Step Three: Setting up the theme files</h2>
+<h3 id="stepthreeasettingupanewdevtheme"><strong>Step Three-A: Setting up a new dev theme</strong></h3>
+<p><strong>If there is no theme created for your development team yet</strong>, simply open the Terminal and cd into the directory where you wish to develop.</p>
+<p><img src="../content/images/shopify-3.png" alt="terminal output"></p>
+<p>Now that we’re in our place of development, lets pull Shopify’s Timber theme using the gem.</p>
+<p>Run <code>theme bootstrap api_key password shop_name theme_name master</code></p>
+<ul>
+<li>Replace <strong>api_key</strong> in the command with the API key you had in step two</li>
+<li>Replace <strong>password</strong> in the command with the API password you had in step two</li>
+<li>Replace <strong>shop_name</strong> in the command with the Shopify URL of your shop</li>
+<li>Replace <strong>theme_name</strong> in the command with what you will name the theme</li>
+</ul>
+<p><img src="../content/images/shopify-4.png" alt="theme setup output"></p>
+<p>In my case I called my theme <strong>porte_mode</strong>. This command will do three things…</p>
+<ul>
+<li>Create you a <strong>config.yml</strong> which Shopify Theme Manager uses to connect to your shop</li>
+<li>Download the latest Timber theme files</li>
+<li>Publish the them to your shop</li>
+</ul>
+<p>Now that we have Timber ready and registered with our dev shop we can go ahead and get this baby up on Github/Bitbucket (keep the repository name the same as your theme name).</p>
+<p>Be sure to create a <strong>.gitignore</strong> file and add <strong>config.yml</strong> to it. This ensures no developer’s Shopify Theme Manager configurations will clash when working on the repository code.</p>
+<p><img src="../content/images/shopify-5.png" alt="theme gitignore output"></p>
+<p>Now commit this code to the repository (ex: <code>git add -A &amp;&amp; git commit -m “First commit” &amp;&amp; git push -u origin master</code>).</p>
+<p>That’s it. In under 5 minutes you’re ready to develop with other developers. A review of what we did…</p>
+<ul>
+<li>Chose a development location locally</li>
+<li>Pulled Timber theme from Shopify using <strong>theme bootstrap</strong></li>
+<li>Setup our confirguation</li>
+<li>Created a Git Ignore file</li>
+<li>Pushed the first commit to GtHub/BitBucket</li>
+</ul>
+<p><em>Note: You may need to publish the newly uploaded theme in your Shopify backend to see it.</em></p>
+<h3 id="stepthreebusinganalreadycreateddevtheme"><strong>Step Three-B: Using an already created dev theme</strong></h3>
+<p><strong>If a developer has made a dev theme for this project on GitHub/Bitbucket already,</strong> simply clone it (ex: <code>git clone git@bitbucket.org:[your-username]/[theme_name].git&lt;/span&gt;</code>)</p>
+<p>Next, we need to configure Shopify’s Theme Manager to use our dev shop. Open the Terminal to the repository location and run <code>theme configure api_key password shop_name</code></p>
+<ul>
+<li>Replace <strong>api_key</strong> in the command with the API key you had in step two</li>
+<li>Replace __password __in the command with the API password you had in step two</li>
+<li>Replace __shop_name__in the command with the Shopify URL of your shop</li>
+</ul>
+<p>After this is done, run it. Last but least, push the theme code to your dev shop. Open the Terminal and run <code>theme replace</code> this will push all changes and register the theme on your shop (this command will take some time).</p>
+<p><img src="../content/images/shopify-6.png" alt="theme replace output"></p>
+<p>That’s it, you’re done. In a couple minutes we’ve downloaded the dev theme from Github/Bitbucket and pushed it to our dev shop to work on.</p>
+<p><em>Note: You may need to publish the newly uploaded theme in your Shopify backend to see it.</em></p>
+<h2 id="usingtheshopifythememanager">Using the Shopify Theme Manager</h2>
+<p>There are several command we can use to manage the theme of your dev shop.</p>
+<p><strong>Upload a theme file</strong></p>
+<p><code>theme upload assets/logo.gif</code></p>
+<ul>
+<li>This is for uploading a single file to your dev shop</li>
+</ul>
+<p><strong>Remove a theme file</strong></p>
+<p><code>theme remove assets/logo.gif</code></p>
+<ul>
+<li>This removes a single from your devshop</li>
+</ul>
+<p><strong>Completely replace shop theme assets with the local assets</strong></p>
+<p><code>theme replace</code></p>
+<ul>
+<li>This mass replaces everything in your dev shop with what’s in your local repository. Useful for if you <code>git pull/fetch/merge</code> changes and want to push them to your dev shop.</li>
+</ul>
+<p><strong>Watch the theme directory and upload any files as they change</strong></p>
+<p><code>theme watch</code></p>
+<ul>
+<li>This actively watches your local repository for changes and automatically pushes these changes to your dev shop in the background.</li>
+</ul>
+<h2 id="finalthoughts">Final Thoughts</h2>
+<p>So that’s it! This document simply outlines how to setup a development theme on GItHub/Bitbucket and Shopify, how to pull a theme from Github/Bitbucket and develop with it as well as a list of useful commands to manage the theme as a team.</p>
+<p>The viewable Google Doc of this is available here: <a href="https://docs.google.com/document/d/1fRCxDG7fCE4YjCVSXFZ5CsGhhpvj-PgrDPauDdjrwW8/edit?usp=sharing">https://docs.google.com/document/d/1fRCxDG7fCE4YjCVSXFZ5CsGhhpvj-PgrDPauDdjrwW8/edit?usp=sharing</a></p>
+<p><img src="../content/images/shopify-7.png" alt="yes!"></p>
+<hr>
+<p><em>Cover image credit to: <a href="https://unsplash.com/photos/w55SpMmoPgE">Anna Samoylova</a></em></p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Developing Shopify Themes with Teams&url=https://ohmybrew.com/developing-shopify-themes-with-teams/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/developing-shopify-themes-with-teams/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/developing-shopify-themes-with-teams/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/shopify/index.html">shopify</a> <a href="../tag/process/index.html">process</a> <a href="../tag/programming/index.html">programming</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/index.html">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../quickly-get-all-products-in-your-shopify-store-with-ruby/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Quickly Get All Products in Your Shopify Store with Ruby</h2>
+							<p class="post-nav-excerpt">This is a simple snippet I've used over-and-over again this year to&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../acf-simple-table/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">ACF: Simple Table</h2>
+							<p class="post-nav-excerpt">I've released a new GitHub repo. It's an add-on for popular ACF&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-shopify tag-process tag-programming"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Now: Kegging</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Now: Kegging" />
+    <meta property="og:description" content="Under the tree Christmas day, there was a large wrapped box from my friends. It sat there for a whole week and I was extremely curious to what it was, especially for something that size to be shipped down to me. Christmas day came and I opened the box... I" />
+    <meta property="og:url" content="https://ohmybrew.com/now-kegging/" />
+    <meta property="og:image" content="https://ohmybrew.com/content/images/2018/02/IMG_4181.jpg" />
+    <meta property="article:published_time" content="2016-01-01T05:45:00.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T16:10:48.000Z" />
+    <meta property="article:tag" content="general" />
+    <meta property="article:tag" content="beer" />
+    <meta property="article:tag" content="homebrew" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Now: Kegging" />
+    <meta name="twitter:description" content="Under the tree Christmas day, there was a large wrapped box from my friends. It sat there for a whole week and I was extremely curious to what it was, especially for something that size to be shipped down to me. Christmas day came and I opened the box... I" />
+    <meta name="twitter:url" content="https://ohmybrew.com/now-kegging/" />
+    <meta name="twitter:image" content="https://ohmybrew.com/content/images/2018/02/IMG_4181.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="general, beer, homebrew" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="900" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Now: Kegging",
+    "url": "https://ohmybrew.com/now-kegging/",
+    "datePublished": "2016-01-01T05:45:00.000Z",
+    "dateModified": "2018-02-21T16:10:48.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ohmybrew.com/content/images/2018/02/IMG_4181.jpg",
+        "width": 1200,
+        "height": 900
+    },
+    "keywords": "general, beer, homebrew",
+    "description": "Under the tree Christmas day, there was a large wrapped box from my friends. It sat there for a whole week and I was extremely curious to what it was, especially for something that size to be shipped down to me. Christmas day came and I opened the box... I",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-general tag-beer tag-homebrew">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Now: Kegging</h1>
+		<span class="post-meta"><a href="../author/tyler-king/index.html">Tyler King</a> | <time datetime="2016-01-01">01 Jan 2016</time></span>
+		<div class="post-cover cover" style="background-image: url('../content/images/2018/02/IMG_4181.jpg');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-general tag-beer tag-homebrew">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>Under the tree Christmas day, there was a large wrapped box from my friends. It sat there for a whole week and I was extremely curious to what it was, especially for something that size to be shipped down to me.</p>
+<p>Christmas day came and I opened the box... I was floored. Two brand new ball-lock kegs, 10 pound C02 tank, and all the fittings. A complete keg set! I couldn't thank them enough. Here's what it looked like after I hooked everything up:</p>
+<p>This is something I've been wanting for a few years now, and thanks to the extraordinary and unexpected gift from my friends, its now a reality. I can finally drop (most) of my bottling and move everything into the kegs. This will not only cut down on work for me but i'll also get perfectly carbed beer now.</p>
+<p>I've since put it into my fridge down in my basement beer room, its now in its home and awaiting beer!</p>
+<p><img src="../content/images/IMG_4191.jpg" alt="Kegs in the fridge"></p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Now: Kegging&url=https://ohmybrew.com/now-kegging/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/now-kegging/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/now-kegging/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/general/index.html">general</a> <a href="../tag/beer/index.html">beer</a> <a href="../tag/homebrew/index.html">homebrew</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/index.html">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../polymorphic-and-route-concerns/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Polymorphic and Route Concerns... who is who?</h2>
+							<p class="post-nav-excerpt">The goal of this post is to outline some tips on easily&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../activerecord-and-liquid-drops-with-sinatra/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">ActiveRecord and Liquid Drops with Sinatra</h2>
+							<p class="post-nav-excerpt">Normally I use ERB when doing templates but there was a special&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-general tag-beer tag-homebrew"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

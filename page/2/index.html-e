@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>OhMyBrew! (Page 2)</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="prev" href="../../index.html" />
+    <link rel="next" href="../3/index.html" />
+    <script type="text/javascript" src="../../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="paged">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		<header id="blog-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span class="blog-logo">
+				<a href="../../index.html"><h1>OhMyBrew!</h1></a>
+			</span>
+
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<span class="blog-description">Code, beer, and ramblings.</span>
+	</div>
+</header>
+
+<div id="index" class="container">
+
+	<main class="content" role="main">
+	
+		<div class="extra-pagination">
+	<nav class="pagination" role="pagination">
+	<div class="inner">
+		<a class="pagination-next" href="../../index.html"><i class="ic ic-arrow-left"></i> <span class="pagination-label">Newer Posts</span></a>
+		<span class="pagination-info">Page 2 of 5</span>
+		<a class="pagination-prev" href="../3/index.html"><span class="pagination-label">Older Posts</span> <i class="ic ic-arrow-right"></i></a>
+		<div class="clear"></div>
+	</div>
+</nav>
+</div>
+
+
+<article class="post tag-tip tag-programming tag-javascript">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../toggling-tinymce-v4/index.html">Toggling TinyMCE v4</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/tip/index.html">tip</a>, <a href="../../tag/programming/index.html">programming</a>, <a href="../../tag/javascript/index.html">javascript</a> | <time datetime="2016-12-06">06 Dec 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Heres a easy way to turn on and off the TinyMCE editor for version 4. document.getElementById('toggle-tinymce').addEventListener('click', function(e) {   e.preventDefault();   var editorID = this.dataset.editorId;   var editor   = tinymce.EditorManager.get(editorID);   if (editor) {     editor.remove();   } else {     editor = tinymce.EditorManager.createEditor(editorID, tinyMCE.settings);     editor.render();   } }); You&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-open-source tag-ruby tag-shopify tag-rails-5 tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../shopify-app-whitelist-gem/index.html">shopify_app_whitelist Gem</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/open-source/index.html">open-source</a>, <a href="../../tag/ruby/index.html">ruby</a>, <a href="../../tag/shopify/index.html">shopify</a>, <a href="../../tag/rails-5/index.html">rails</a>, <a href="../../tag/programming/index.html">programming</a> | <time datetime="2016-11-26">26 Nov 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>I regularly use shopify_app. Its a great way to get an app, embedded or not, up and running with Rails. Sometimes I'll create apps with shopify_app which are to be used by only one store. These apps sometimes have a front-end component for the themes... proxy integration, or&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-ruby tag-process tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../journey-to-sucker-punch/index.html">Journey to Sucker Punch</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/ruby/index.html">ruby</a>, <a href="../../tag/process/index.html">process</a>, <a href="../../tag/programming/index.html">programming</a> | <time datetime="2016-11-25">25 Nov 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Background jobs are great. Mailing, data processing, image processing, database operations… you name it. If its a repetitive blocking process for the user and its not time-sensitive, then its probably suited to be moved to a job. delayed_job My go-to ActiveJob adapter for Rails has always been Delayed Job.&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-programming tag-general">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../developing-sanely-on-windows/index.html">Developing sanely on Windows</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/programming/index.html">programming</a>, <a href="../../tag/general/index.html">general</a> | <time datetime="2016-11-07">07 Nov 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Preamble You might think, &quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&quot;. Its because I'm preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-shopify tag-tip tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../counting-unique-options-in-shopify/index.html">Counting Unique Options in Shopify</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/shopify/index.html">shopify</a>, <a href="../../tag/tip/index.html">tip</a>, <a href="../../tag/programming/index.html">programming</a> | <time datetime="2016-06-20">20 Jun 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Ever wanted to quickly display a how many of an option a product contains? Available in 4 sizes ... Available in Red, Blue, Green ... Available in 10 colors Here's an example of how to do just that (for color). Simply open your product's loop liquid and add this block at the&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-process tag-tip tag-shopify tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../testing-with-shopify-app/index.html">Testing with shopify_app</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/process/index.html">process</a>, <a href="../../tag/tip/index.html">tip</a>, <a href="../../tag/shopify/index.html">shopify</a>, <a href="../../tag/programming/index.html">programming</a> | <time datetime="2016-06-20">20 Jun 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>shopify_app is a great Gem to quickly build a Shopify App with Rails. It handles all the  verifications, authorizations, webhooking, and more; leaving you to focus on developing your app. This post is to serve as a quick-tip on how to unit-test your app with the Gem. Other than&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-tip tag-programming tag-ruby tag-rails-4">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../precompiling-assets-in-your-rails-engine/index.html">Precompiling Assets In Your Rails Engine</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/tip/index.html">tip</a>, <a href="../../tag/programming/index.html">programming</a>, <a href="../../tag/ruby/index.html">ruby</a>, <a href="../../tag/rails-4/index.html">rails</a> | <time datetime="2016-05-03">03 May 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>This'll be a quick post to highlight an issue I had where I needed to precompile an asset file for my Rails engine that was not to be compiled with the other engine assets. Recently, I added TinyMCE-Rails to Guts instead of rolling it in on its own. This allows&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-ruby tag-open-source tag-rails-3 tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../guts-now-with-multisite/index.html">Guts: With Multisite</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/ruby/index.html">ruby</a>, <a href="../../tag/open-source/index.html">open-source</a>, <a href="../../tag/rails-3/index.html">rails</a>, <a href="../../tag/programming/index.html">programming</a> | <time datetime="2016-04-24">24 Apr 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>This is just a quick and proud update that I've released a lengthy update to Guts which includes multisite abilities. Meaning, you can run the same Guts admin interface for multiple domains. It also includes a handy concern for enabling multisite support on your application. Right from the docs is&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-ruby tag-programming tag-process">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../building-a-simple-redis-autosuggest-with-ruby/index.html">Building a Simple Redis Autosuggest with Ruby</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/ruby/index.html">ruby</a>, <a href="../../tag/programming/index.html">programming</a>, <a href="../../tag/process/index.html">process</a> | <time datetime="2016-03-01">01 Mar 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>So you have a search box on your website.. an article search, a product search.. whatever it may be, you may find yourself the need to display suggested results to your user based on what they type. Redis is the perfect solution. Planning Let's say we have a bunch of&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-rails-2 tag-programming tag-ruby tag-tip tag-process">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../extending-a-rails-engine/index.html">Extending a Rails Engine</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../../tag/rails-2/index.html">rails</a>, <a href="../../tag/programming/index.html">programming</a>, <a href="../../tag/ruby/index.html">ruby</a>, <a href="../../tag/tip/index.html">tip</a>, <a href="../../tag/process/index.html">process</a> | <time datetime="2016-02-20">20 Feb 2016</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Redesigning my CMS in Rails has been great fun. Theres been many challenges faced, and many conquered (like having 100% code coverage :D). One thought that crossed my mind after building the monster was how do you extend an engine? By extending, I mean to add or overwrite methods of&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<nav class="pagination" role="pagination">
+	<div class="inner">
+		<a class="pagination-next" href="../../index.html"><i class="ic ic-arrow-left"></i> <span class="pagination-label">Newer Posts</span></a>
+		<span class="pagination-info">Page 2 of 5</span>
+		<a class="pagination-prev" href="../3/index.html"><span class="pagination-label">Older Posts</span> <i class="ic ic-arrow-right"></i></a>
+		<div class="clear"></div>
+	</div>
+</nav>	
+	</main>
+
+</div>
+		<div id="body-class" style="display: none;" class="paged"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

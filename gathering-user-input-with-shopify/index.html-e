@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Gathering User-Input with Shopify</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Gathering User-Input with Shopify" />
+    <meta property="og:description" content="Shopify includes everything you need to setup an online store, including free web-based store building software, unlimited ecommerce website hosting, and more. It is a great tool for both users and __developers. __It offers a great API which has libraries for many languages (PHP, Python, Ruby, ...) and a great back-end" />
+    <meta property="og:url" content="https://ohmybrew.com/gathering-user-input-with-shopify/" />
+    <meta property="og:image" content="https://ohmybrew.com/content/images/2018/02/christin-hume-505826-unsplash.jpg" />
+    <meta property="article:published_time" content="2013-08-05T16:43:02.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T01:59:56.000Z" />
+    <meta property="article:tag" content="shopify" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="tip" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gathering User-Input with Shopify" />
+    <meta name="twitter:description" content="Shopify includes everything you need to setup an online store, including free web-based store building software, unlimited ecommerce website hosting, and more. It is a great tool for both users and __developers. __It offers a great API which has libraries for many languages (PHP, Python, Ruby, ...) and a great back-end" />
+    <meta name="twitter:url" content="https://ohmybrew.com/gathering-user-input-with-shopify/" />
+    <meta name="twitter:image" content="https://ohmybrew.com/content/images/2018/02/christin-hume-505826-unsplash.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="shopify, programming, tip" />
+    <meta property="og:image:width" content="5616" />
+    <meta property="og:image:height" content="3744" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Gathering User-Input with Shopify",
+    "url": "https://ohmybrew.com/gathering-user-input-with-shopify/",
+    "datePublished": "2013-08-05T16:43:02.000Z",
+    "dateModified": "2018-02-21T01:59:56.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ohmybrew.com/content/images/2018/02/christin-hume-505826-unsplash.jpg",
+        "width": 5616,
+        "height": 3744
+    },
+    "keywords": "shopify, programming, tip",
+    "description": "Shopify includes everything you need to setup an online store, including free web-based store building software, unlimited ecommerce website hosting, and more. It is a great tool for both users and __developers. __It offers a great API which has libraries for many languages (PHP, Python, Ruby, ...) and a great back-end",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-shopify tag-programming tag-tip">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Gathering User-Input with Shopify</h1>
+		<span class="post-meta"><a href="../author/tyler-king/index.html">Tyler King</a> | <time datetime="2013-08-05">05 Aug 2013</time></span>
+		<div class="post-cover cover" style="background-image: url('../content/images/2018/02/christin-hume-505826-unsplash.jpg');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-shopify tag-programming tag-tip">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>Shopify includes everything you need to setup an online store, including free web-based store building software, unlimited ecommerce website hosting, and more. It is a great tool for both users and __developers. __It offers a great API which has libraries for many languages (PHP, Python, Ruby, ...) and a great back-end for customization of a store; templates, snippets, assets and more.</p>
+<p>A few times now, I've had to develop private Shopify Apps where the client would request the ability to gather <em>custom user-inputted data from a product page,</em> which they could see on their <em>order form to full-fill</em>. As recently, I developed a Shopify modification which needed to do just this, allowing the client to gather <em>dimension data</em> (width, length and height) from the customer.</p>
+<p>Shopify currently has no option for letting users add custom fields to the product page besides <a href="http://wiki.shopify.com/Variant">variants</a> which does not offer text input and is really not suited for this type of application.</p>
+<p>The solution - it's simple, Shopify has product properties which you can simply modify the the product's liquid template and add in your custom product fields; it will automatically show up on the order form when submitted in your Shopify back-end.</p>
+<p>Let's take this example; like I said above, I recently did this for a client where he could capture custom dimensions from a customer. All below actions will affect <em>all</em> products in your store. If you wish to affect only certain ones you will have to modify the liquid code more or use the API. But for example's sake let's do it for all products.</p>
+<p>First, we open <strong>product.liquid</strong> of your current shop's theme, from here find the add cart form which looks similar to the form code below.</p>
+<pre><code class="language-html">&lt;form id=&quot;add-item-form&quot; action=&quot;/cart/add&quot; method=&quot;post&quot;&gt;
+</code></pre>
+<p>Next, we add our property HTML. Shopify looks for input fields which contain the name &quot;<strong>properties</strong>&quot;. Anything inside the braces will be the label of what you want to capture; you can change <strong>Dimensions</strong> to something like <strong>Size</strong>, <strong>Hex Color,</strong> etc.</p>
+<pre><code>Dimensions (W x L)&lt;input type=&quot;text&quot; id=&quot;dimensions&quot; name=&quot;properties[Dimensions]&quot;&gt;
+</code></pre>
+<p><img src="../content/images/si_1.png" alt="Screenshot from 2013-08-05 13:46:40"></p>
+<p>In the image above (click to enlarge) I've added the code just below the variant definitions for the product. This is a very basic example with no styling, so you may style it how you please later. As you can see, I've set a name for the customer to see &quot;<strong>Dimensions (W x L)</strong>&quot; and the input which Shopify can see using the __properties __HTML array. The cool thing about it is, you can add more than one - even add file uploads!</p>
+<p>Next, save the liquid template and view a product you have in your store. You should see the dimensions field we just added and it should be usable.</p>
+<p><img src="../content/images/si_2.png" alt="Screenshot from 2013-08-05 13:47:27"></p>
+<p>Now that our dimensions input shows up. Let's go ahead and have it show up on the cart page (for when they add it to their cart). Open <strong>cart.liquid</strong> in your current shop's theme, find a line which contains the product's title for example &quot;<strong>{{ item.product.title }}</strong>&quot;. Below this, we will add the liquid code which will list all of the properties that the user has entered, because remember, you can add more than one.</p>
+<pre><code class="language-liquid">{% raw %} 
+{% for p in item.properties %}  
+  {{ p.first }}: {{ p.last }}
+{% endfor %}
+{% endraw %}
+</code></pre>
+<p><img src="../content/images/si_3.png" alt="Screenshot from 2013-08-05 13:47:27"></p>
+<p>This will allow the customer to see what they have entered or uploaded as well when they visit their cart page. So go ahead and save the template, go back to a product, enter some data into the <strong>dimensions</strong> field we added then add it to your cart. Once added, view your cart and you should now see what you entered on the previous page.</p>
+<p><img src="../content/images/si_4.png" alt="Screenshot from 2013-08-05 14:05:12"></p>
+<p>As you can see, on your cart page you can now see what you have entered. Again, this is just an example and is completely customizable by you in any way. Now go ahead and submit the order, we will view what you will see in your Shopify admin dashboard for the order.</p>
+<p><img src="../content/images/si_5.png" alt="Screenshot from 2013-08-05 14:07:57"></p>
+<p>It's captured and it's that easy. Now you have an easy way to gather the customer's input on products of your shop. This is only a bare example, you can of course, style it, customize the HTML, add javascript and validation, and even tack on the captured data to the customer's email order confirmation.</p>
+<p>I hope this tutorial will help others, it seems to be a frequently asked question among Shopify users and developers. For more information see Shopify's wiki entry for the subject <a href="http://wiki.shopify.com/Line_Item_Properties">here</a>.</p>
+<hr>
+<p><em>Cover image credit to: <a href="https://unsplash.com/photos/mfB1B1s4sMc">Christin Hume</a></em></p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Gathering User-Input with Shopify&url=https://ohmybrew.com/gathering-user-input-with-shopify/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/gathering-user-input-with-shopify/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/gathering-user-input-with-shopify/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/shopify/index.html">shopify</a> <a href="../tag/programming/index.html">programming</a> <a href="../tag/tip/index.html">tip</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/index.html">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../simple-password-checking-with-symfony-and-fos-user-bundle/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Simple Password Checking with Symfony and FOS User Bundle</h2>
+							<p class="post-nav-excerpt">Recently for a project, a co-developer wanted to validate someone's record in&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../my-contour-roam-review/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">My Contour Roam Review</h2>
+							<p class="post-nav-excerpt">What is the Contour Roam? The Contour Roam is a sleek and&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-shopify tag-programming tag-tip"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Developing sanely on Windows</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Developing sanely on Windows" />
+    <meta property="og:description" content="Preamble You might think, &amp;quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&amp;quot;. Its because I&#x27;m preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction" />
+    <meta property="og:url" content="https://ohmybrew.com/developing-sanely-on-windows/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib&#x3D;rb-0.3.5&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1080&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;s&#x3D;0e3f530a57112487346836888afad052" />
+    <meta property="article:published_time" content="2016-11-07T11:22:00.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T16:21:03.000Z" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="general" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Developing sanely on Windows" />
+    <meta name="twitter:description" content="Preamble You might think, &amp;quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&amp;quot;. Its because I&#x27;m preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction" />
+    <meta name="twitter:url" content="https://ohmybrew.com/developing-sanely-on-windows/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib&#x3D;rb-0.3.5&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1080&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;s&#x3D;0e3f530a57112487346836888afad052" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="programming, general" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="720" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Developing sanely on Windows",
+    "url": "https://ohmybrew.com/developing-sanely-on-windows/",
+    "datePublished": "2016-11-07T11:22:00.000Z",
+    "dateModified": "2018-02-21T16:21:03.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=0e3f530a57112487346836888afad052",
+        "width": 1080,
+        "height": 720
+    },
+    "keywords": "programming, general",
+    "description": "Preamble You might think, &amp;quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&amp;quot;. Its because I&#x27;m preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-programming tag-general">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Developing sanely on Windows</h1>
+		<span class="post-meta"><a href="../author/tyler-king/">Tyler King</a> | <time datetime="2016-11-07">07 Nov 2016</time></span>
+		<div class="post-cover cover" style="background-image: url('https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib&#x3D;rb-0.3.5&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1080&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;s&#x3D;0e3f530a57112487346836888afad052');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-programming tag-general">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><h2 id="preamble">Preamble</h2>
+<p>You might think, <em>&quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&quot;</em>. Its because I'm preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction the company is taking. I won't go into depth, but the entire lineup is a laughing stock to be honest. I will no longer be continuing with Apple for my next upgrades.</p>
+<p><strong>I decided to run an experiment to see if I could survive on Windows for my development needs.</strong></p>
+<h2 id="whywindows">Why Windows?</h2>
+<p>I used Linux on/off for close to 15 years now. Don't get me wrong, I <strong>love</strong> Linux, I always will. I don't care how many people say otherwise, its software support for many apps lack compared to the Windows/Mac version. Many people will say, <em>&quot;So switch to using (insert some different standard or app not many people use)&quot;</em>, its not that easy especially in the business world. I can't just tell all my co-workers to start using random apps that have little backing. Theres a suite of software I require daily which many do not work or lack proper implementation in Linux… and I'm not talking about the Adobe suite.</p>
+<p>Apps in Windows normally get first-class implementation — it just works. This is something important to me. I don't want to fix issues daily, I want to work. With OSX out of the picture, Windows was the next best thing for me that would <em>just work</em> and keep me <em>productive</em> in my mind.</p>
+<h3 id="configuration">Configuration</h3>
+<p><em>One warning about this post... I used Windows on my MacBook via Bootcamp. I feel its not the proper experience I could get out of Windows if I used a proper Windows laptop for work (XPS, Thinkpad, etc). I'll note more later why I say I did not get a proper experience.</em></p>
+<ul>
+<li><strong>Computer</strong>:
+<ul>
+<li><em>Model</em>: 2014 Macbook Pro Retina</li>
+<li><em>RAM</em>: 8GB</li>
+<li><em>Space:</em> 256GB SSD</li>
+</ul>
+</li>
+<li><strong>Windows</strong>: 10 — Home Edition</li>
+</ul>
+<h2 id="setupjourney">Setup Journey</h2>
+<h3 id="virtualmachining">Virtual Machining</h3>
+<p>Development on Windows is a mess. If anyone's ever done Ruby, Python, etc, development on a Windows machine, its usually a hit or miss. You run into issues with libs, compiling, support, mystic errors, and a pile of workarounds. A lot of people try to get around some issues by using tools like <strong><a href="https://www.cygwin.com/">Cygwin</a></strong>, or some other shell implementation but they still run into issues.I wanted to avoid all these issues by essentially taking Windows out of the equation.</p>
+<p>To do this, I decided to run Linux in a VM and host all my development needs in the VM. Now I have a clear separation. I can have the stability of Windows with all my required apps, and have my development… both in their own worlds.</p>
+<p>I decided to use <strong>VMWare Player</strong> and install <strong><a href="https://www.ubuntu.com/download/server">Ubuntu Server 16.04 LTS</a></strong>. I chose Ubuntu over something like Arch simply for time-sake of my experiment. From what I read, Ubuntu and VMWare have perfect support for one another. I require no desktop experience... simply a VM I can &quot;talk&quot; to, so something minimal like the Ubuntu Server was a good fit. I chose the fast install offered by VMWare Player and I had a working VM within 5 minutes.</p>
+<h4 id="performance">Performance</h4>
+<p>Initially I assumed this would eat a lot of my resources. I was wrong.</p>
+<p>Post-boot, just idling, VMWare Player and the VM instance itself totalled to ~45mb of RAM in-use. The CPU was negligible as well. Even during a intensive process in the VM, the CPU only reached 21% and RAM didn't increase by much.</p>
+<p>So my system was chugging a long happily, the VM didn't seem to affect my computers performance one bit from what I could tell.</p>
+<h3 id="vmcommunicationssh">VM Communication &amp; SSH</h3>
+<p>I did not want to use the windowed experience of VMWare. I decided I just need to SSH into the VM itself. I enabled <strong>bridged networking</strong> mode in VMWare. This gave the VM its own LAN IP address. Example, if my MacBook was 192.168.2.11 my VM could be assigned 192.168.2.13. I installed a SSH server on the VM and set it up to work for my needs. I now had a way to talk to the VM.</p>
+<h4 id="choosingasshclient">Choosing a SSH client</h4>
+<p>I regularly SSH into servers during my week to perform tasks, I also needed to (obviously) SSH into my VM. I looked over many options for Windows… <strong><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty</a></strong>, <strong><a href="http://kitty.9bis.net/">Kitty</a></strong> (fork of Putty), <strong><a href="http://mobaxterm.mobatek.net/">MobaXterm</a></strong>.</p>
+<p>I found Putty/Kitty to be great for customizations… its fully-loaded, although confusing interface, provides all anyone could need. It however lacked a single-window/tabbed mode or sub-connections as far as I could tell.</p>
+<p>MobaXterm, although great, I found it to be a bit of bloat… I need a terminal and nothing else. It seemed geared towards a more full-featured implementation with support for X11 apps, FTP, text editing, etc.</p>
+<p>In the end... I landed on <strong><a href="http://smartty.sysprogs.com/">SmarTTY</a></strong>. An app I discovered while surfing Reddit for suggestions. It provided me with good configuration options, tabbed interface, sub-connections, lightweight, and more.</p>
+<h4 id="testingconnections">Testing Connections</h4>
+<p>I created an SSH key on the Windows side using Putty's keygen. I plugged the SSH key into the VM and fired up SmarTTY. I created a connection using my username, keyfile, and the VM's IP address.</p>
+<p>It connected perfectly. I ran 4 sub-connections to the VM without issue. There was no lag in typing and input to the VM, I was pleased.</p>
+<h2 id="postsetup">Post Setup</h2>
+<p>So I now had a working, communicable, VM to host my development needs. I went ahead and setup all the tools I needed in the VM (RVM, Python, Go, MySQL, SQLite, Node, etc). On the Windows side I installed <a href="http://atom.io">Atom</a>, <a href="http://www.mysql.com/products/workbench/">MySQL Workbench</a>/<a href="http://www.sql-workbench.net/">SQL Workbench</a>, <a href="http://slack.com">Slack</a>, and other tools.</p>
+<p>Workflow-wise — I'm happy. I'd edit my files in Atom, have my sessions opened in SmarTTY watching files (for Grunt or Rails, etc), edit my databases with workbench. Everything seemed to work fine without a hitch.</p>
+<p>Although the setup took a bit a time, I believe its a great path to take given Bash for Windows, is not fully ready yet for use. I actually, surprisingly found the Windows install to be snappier than OSX… I suspect thats due to it being a new install however. The battery-life was on-par with OSX despite what I heard online of Windows draining MacBook batteries in no-time.</p>
+<p>Overall I was happy with the Windows experience as a whole. Both as a developer and a PC user.</p>
+<h3 id="miscissues">Misc. Issues</h3>
+<p>Although the setup was fine, I was slightly hindered by not using a laptop designed for Windows in mind as I mentioned previously.</p>
+<h4 id="1keyboard">1. Keyboard</h4>
+<p>A few text-flow issues I ran into that I normally do on Mac such as deleting a whole line of text was not possible because the MacBook keyboard is missing a few keys for this that Windows targets.</p>
+<p>The position of the CTRL button was also slightly farther away than I liked. I found I had to change my natural posture for using CTRL functions due the spacing for cutting, copying, pasting, etc.</p>
+<h4 id="2mousetrackpad">2. Mouse &amp; Trackpad</h4>
+<p>Bootcamp installs drivers to emulate the trackpad a mouse. Tap emulates a click, two finger emulates a right click, and there is no trackpad gestures likes dragging built-in. Changing the sensitivity of the scrolling with the trackpad would result in the mouse having the same scrolling sensitivity and one would be slower than the other. I found a great app to get around the issue, called <strong><a href="http://eithermouse.com">EitherMouse</a></strong>. It detects individual devices and allows you to assign settings for each. This solved my issue on that part.</p>
+<p>I suspect if I owned a Thinkpad, XPS, Zenbook, or some other Windows-designed laptop, I would have a much better experience.</p>
+<h3 id="verdict">Verdict</h3>
+<p>I'll have my current MacBook and iPhone for a couple years to come but my next upgrade in the future will move away from this company. This experience was a good lesson that yes, I can develop in Windows just fine, without any drawbacks that I can see to my flow. This will heavily weigh my decision for purchases in the future.</p>
+<p><a href="../content/images/kitty_vm_rails.png"><img src="../content/images/kitty_vm_rails.png" alt="Trying Kitty with Ubuntu Server on a VM with Rails"></a></p>
+<p><em>A shot of me playing with Kitty connecting into the VM, running Rails, and viewing it in Chrome on Windows</em></p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/sYZ4bIBt1o4">Teddy Kelley</a></em></p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Developing sanely on Windows&url=https://ohmybrew.com/developing-sanely-on-windows/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/developing-sanely-on-windows/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/developing-sanely-on-windows/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/programming/">programming</a> <a href="../tag/general/">general</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../journey-to-sucker-punch/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Journey to Sucker Punch</h2>
+							<p class="post-nav-excerpt">Background jobs are great. Mailing, data processing, image processing, database operations… you&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../testing-with-shopify-app/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Testing with shopify_app</h2>
+							<p class="post-nav-excerpt">shopify_app is a great Gem to quickly build a Shopify App&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-programming tag-general"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

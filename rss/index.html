@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[OhMyBrew!]]></title><description><![CDATA[Code, beer, and ramblings.]]></description><link>https://ohmybrew.com/</link><image><url>https://ohmybrew.com/favicon.png</url><title>OhMyBrew!</title><link>https://ohmybrew.com/</link></image><generator>Ghost 1.21</generator><lastBuildDate>Wed, 21 Feb 2018 16:55:24 GMT</lastBuildDate><atom:link href="https://ohmybrew.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Laravel Shopify Billing]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Version 2.0.0 was <a href="https://github.com/ohmybrew/laravel-shopify/releases/tag/v2.0.0">just released</a> which features the baked-in ability to turn your Shopify app into a billable app with some simple configuration additions.</p>
+<p>It has support for the two methods Shopify supports, single and recurring charges. You have the ability to set the plan name, price, trial</p></div>]]></description><link>https://ohmybrew.com/laravel-shopify-billing/</link><guid isPermaLink="false">5a8ca2fd415b127824f260ed</guid><category><![CDATA[laravel]]></category><category><![CDATA[php]]></category><category><![CDATA[programming]]></category><category><![CDATA[open-source]]></category><category><![CDATA[shopify]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Fri, 26 Jan 2018 15:52:56 GMT</pubDate><media:content url="https://ohmybrew.com/content/images/2018/02/laravel-shopify-billing.png" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="https://ohmybrew.com/content/images/2018/02/laravel-shopify-billing.png" alt="Laravel Shopify Billing"><p>Version 2.0.0 was <a href="https://github.com/ohmybrew/laravel-shopify/releases/tag/v2.0.0">just released</a> which features the baked-in ability to turn your Shopify app into a billable app with some simple configuration additions.</p>
+<p>It has support for the two methods Shopify supports, single and recurring charges. You have the ability to set the plan name, price, trial days, and more.</p>
+<p>You also have to ability to easily upgrade or downgrade a shop's plan, enable them as a grandfather (skip billing), and more.</p>
+<p>For full information see the release notes, <a href="https://github.com/ohmybrew/laravel-shopify/wiki/Upgrading#v1xx--v200">upgrading doc</a>, and the wiki page for <a href="https://github.com/ohmybrew/laravel-shopify/wiki/Creating-a-Billable-App">creating a billable app</a>.</p>
+<p>Other minor updates include integration with StyleCI to keep coding standards within PSR1 and PSR2.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Setting Up Lumen + Redis]]></title><description><![CDATA[<div class="kg-card-markdown"><p>This is more of an extension of my previous post &quot;Setting Up Lumen + Mail&quot;. I wanted to take it a step furthur and show the basic setup for getting Redis to work, so you can queue not only mail, but jobs.</p>
+<p>First, run <code>composer require illuminate/redis:5.</code></p></div>]]></description><link>https://ohmybrew.com/setting-up-lumen-and-redis/</link><guid isPermaLink="false">5a8ca2fd415b127824f260e8</guid><category><![CDATA[laravel]]></category><category><![CDATA[lumen]]></category><category><![CDATA[php]]></category><category><![CDATA[tip]]></category><category><![CDATA[programming]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Sun, 19 Nov 2017 11:43:01 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1484912695906-c0c29e914a1d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=54700d67a0b618581ec3af2c6ef9912f" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="https://images.unsplash.com/photo-1484912695906-c0c29e914a1d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=54700d67a0b618581ec3af2c6ef9912f" alt="Setting Up Lumen + Redis"><p>This is more of an extension of my previous post &quot;Setting Up Lumen + Mail&quot;. I wanted to take it a step furthur and show the basic setup for getting Redis to work, so you can queue not only mail, but jobs.</p>
+<p>First, run <code>composer require illuminate/redis:5.5</code> to grab the Redis components.</p>
+<p>Next, open <code>app/Providers/AppServiceProvider.php</code> and add the following to the <code>register</code> method:</p>
+<pre><code class="language-php">&lt;?php
+// ...
+
+// Configs
+$this-&gt;app-&gt;configure('database');
+
+// Enable queues
+$this-&gt;app-&gt;make('queue');
+</code></pre>
+<p>Next, create <code>config/database.php</code> and add the following:</p>
+<pre><code class="language-php">&lt;?php
+
+return [
+  'redis' =&gt; [
+    'client' =&gt; 'predis',
+    'default' =&gt; [
+      'host' =&gt; env('REDIS_HOST', '127.0.0.1'),
+      'password' =&gt; env('REDIS_PASSWORD', null),
+      'port' =&gt; env('REDIS_PORT', 6379),
+      'database' =&gt; 0
+    ]
+  ]
+];
+
+</code></pre>
+<p>Don't forget to setup all your environment variables for Redis, as well, to enable Redis for job processing and cache, set the following environment variables:</p>
+<pre><code class="language-conf">CACHE_DRIVER=redis
+QUEUE_DRIVER=redis
+</code></pre>
+<p>That's it! You can now queue mail or process jobs.</p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/avKPLHgASBM">Jingyi Wang</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Setting Up Lumen + Mailer]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="whatislumen">What is Lumen?</h2>
+<p><a href="https://lumen.laravel.com/">Lumen</a> is a micro-framework built by Laravel. Its geared towards small services like APIs, job handling, or very small projects. Laravel is all-inclusive, where as Lumen is bare-bones but still featured.</p>
+<h2 id="settingupmailing">Setting Up Mailing</h2>
+<p>Recently I ported a small app from Sinatra to Lumen for trial with</p></div>]]></description><link>https://ohmybrew.com/setting-up-lumen-and-mail/</link><guid isPermaLink="false">5a8ca2fd415b127824f260e1</guid><category><![CDATA[php]]></category><category><![CDATA[laravel]]></category><category><![CDATA[lumen]]></category><category><![CDATA[programming]]></category><category><![CDATA[tip]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Sun, 19 Nov 2017 11:04:33 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1492539161849-b2b18e79c85f?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=343f6a516fbc5c1ff243dd16dc1a8a16" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="whatislumen">What is Lumen?</h2>
+<img src="https://images.unsplash.com/photo-1492539161849-b2b18e79c85f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=343f6a516fbc5c1ff243dd16dc1a8a16" alt="Setting Up Lumen + Mailer"><p><a href="https://lumen.laravel.com/">Lumen</a> is a micro-framework built by Laravel. Its geared towards small services like APIs, job handling, or very small projects. Laravel is all-inclusive, where as Lumen is bare-bones but still featured.</p>
+<h2 id="settingupmailing">Setting Up Mailing</h2>
+<p>Recently I ported a small app from Sinatra to Lumen for trial with a client. Its a job processing app for Shopify, where it would take data from a web hook, process it with a worker, and send back some data later. It needed to be fast, as like other webhook-focused app, it has to keep up with the high demand.</p>
+<p>One issue I ran into was mailing, its not enabled by default in Lumen, and there are many posts throughout Google of people attempting to set it up. There is also many outdated ways which only worked for old version of Lumen.</p>
+<p>Through trial and error, I managed to find a working setup I thought I would share.</p>
+<h3 id="setup">Setup</h3>
+<p>First, run <code>composer require illuminate/mail:5.5</code> to grab the mailing component.</p>
+<p>Next, open <code>bootstrap/app.php</code>, find <code>$app-&gt;register(App\Providers\AppServiceProvider::class);</code> and uncomment it, if not already.</p>
+<p>After this is done, open the app provider in <code>app/Providers/</code>.</p>
+<p>At the bottom of the <code>register</code> method, paste in the following:</p>
+<pre><code class="language-php">&lt;?php
+// ...
+
+// Init mailer
+$this-&gt;app-&gt;singleton(
+    'mailer',
+    function ($app) {
+        return $app-&gt;loadComponent('mail', 'Illuminate\Mail\MailServiceProvider', 'mailer');
+    }
+);
+
+// Aliases
+$this-&gt;app-&gt;alias('mailer', \Illuminate\Contracts\Mail\Mailer::class);
+</code></pre>
+<p>To make mailing queue-able and able to be processed in the background, simply add:</p>
+<pre><code class="language-php">&lt;?php
+// ...
+
+// Enable queues
+$this-&gt;app-&gt;make('queue');  
+</code></pre>
+<p>And see my Lumen Redis tutorial to setup Redis for processing.</p>
+<p>Next, setup the basic config <code>config/mail.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+return [
+    'driver' =&gt; env('MAIL_DRIVER'),
+    'host' =&gt; env('MAIL_HOST'),
+    'port' =&gt; env('MAIL_PORT'),
+    'from' =&gt; [
+        'address' =&gt; env('MAIL_FROM_ADDRESS'),
+        'name' =&gt; env('MAIL_FROM_NAME'),
+    ],
+    'encryption' =&gt; env('MAIL_ENCRYPTION'),
+    'username' =&gt; env('MAIL_USERNAME'),
+    'password' =&gt; env('MAIL_PASSWORD'),
+    'markdown' =&gt; [
+        'theme' =&gt; 'default',
+        'paths' =&gt; [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
+];
+
+</code></pre>
+<p>That's it, you're done the setup! Don't forget to setup your environment variables for production.</p>
+<h3 id="creatingamailer">Creating a Mailer</h3>
+<p>Now that we're setup, you can create a mailer in <code>app/Mail/</code>, heres an example to go by (<code>app/Mail/Winnings</code>):</p>
+<pre><code class="language-php">&lt;?php namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class Winnings extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /** @var string the address to send the email */
+    protected $to_address;
+
+    /** @var float the winnings they won */
+    protected $winnings;
+
+    /**
+     * Create a new message instance.
+     *
+     * @param string $to_address the address to send the email
+     * @param float $winnings   the winnings they won
+     * 
+     * @return void
+     */
+    public function __construct($to_address, $winnings)
+    {
+        $this-&gt;to_address = $to_address;
+        $this-&gt;winnings = $winnings;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this
+            -&gt;to($this-&gt;to_address)
+            -&gt;subject('Your winnings!')
+            -&gt;view('emails.winnings')
+            -&gt;with(
+                [
+                    'winnings' =&gt; $this-&gt;winnings
+                ]
+            );
+    }
+}
+
+</code></pre>
+<p>Now, create a view, <code>resources/views/emails/winnings.blade.php</code> for simply HTML-only,:</p>
+<pre><code class="language-html">{% raw %}&lt;strong&gt;You won {{ $winnings }}&lt;/strong&gt;!{% endraw %}
+</code></pre>
+<h2 id="sendingmail">Sending Mail</h2>
+<p>Now that we have it setup, and a mailable created, we can send. In your job, controller, or where ever you need it:</p>
+<pre><code class="language-php">&lt;?php
+use App\Mail\Winnings as WinningsMail;
+
+// ...
+// $to_email = 'john@doe.com'; $winnings = 130.00;
+
+Mail::send(
+    new WinningsMail(
+        $to_email,
+        $winnings
+    )
+);
+</code></pre>
+<p>If you're queuing mail, replace <code>send</code> with <code>queue</code>. You can also see <a href="https://laravel.com/docs/5.5/mail#sending-mail">Laravel's mail documentation</a> for more information on sending.</p>
+<h2 id="testing">Testing</h2>
+<p>Of course, we need to test (<code>tests/WinningsMailTest.php</code>):</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Mail\Winnings;
+use Illuminate\Support\Facades\Mail;
+
+class WinningsMailTest extends TestCase
+{
+    public function testItWorks()
+    {
+        Mail::fake();
+
+        Mail::send(
+            (new Winnings('john@doe.com', 15.00))-&gt;build()
+        );
+
+        Mail::assertSent(Winnings::class, function ($mail) {
+            return $mail-&gt;hasTo('john@doe.com') &amp;&amp;
+                   $mail-&gt;subject === 'Your winnings!' &amp;&amp;
+                   $mail-&gt;viewData['winnings'] === 15.00;
+        });
+    }
+}
+</code></pre>
+<p>Running the tests should pass if everything is setup correctly. For more information on testing mailables, see <a href="https://laravel.com/docs/5.5/mocking#mail-fake">Laravel's documentation on faking</a>.</p>
+<p>I hope this was a quick and useful setup for anyone having issues. Good luck!</p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/MYXf7tGEntk">Mikael Kristenson</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Pomodoro Method]]></title><description><![CDATA[<div class="kg-card-markdown"><p>I've had a history of a bad back and neck, ever since I was a kid. I've seen a chiropractor countless times about my issues. Sitting all day at a desk in my adult years, doesn't help at all to that.</p>
+<p>Researching in help for this, besides ergonomics of the</p></div>]]></description><link>https://ohmybrew.com/pomodoro-method/</link><guid isPermaLink="false">5a8ca2fd415b127824f260fc</guid><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Fri, 20 Oct 2017 14:00:00 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1507732052797-d22258ac2f96?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=9bbe239a0324168bdbfccfcfff579ed5" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="https://images.unsplash.com/photo-1507732052797-d22258ac2f96?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=9bbe239a0324168bdbfccfcfff579ed5" alt="Pomodoro Method"><p>I've had a history of a bad back and neck, ever since I was a kid. I've seen a chiropractor countless times about my issues. Sitting all day at a desk in my adult years, doesn't help at all to that.</p>
+<p>Researching in help for this, besides ergonomics of the workstation, I stumbled upon the Pomodoro method. A small addition to the day, but a big pay off in my health.</p>
+<h2 id="whatisapomodoroclock">What is a Pomodoro Clock?</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">idea</a> is about sectioning work into timed intervals, typically 25 minutes. After completing an interval of work, you take a 5 minute break. After 4 intervals of work, you take a longer, 15-30 minute break.</p>
+<h2 id="benefits">Benefits</h2>
+<p>Your brain needs a break, but also your body. As a programmer, you're desk locked most of the time. You need time to decompress, stretch, and realign yourself from time to time.</p>
+<p>Sticking to the Pomodoro method, you'll get in a rhythm of doing your work, then having your break, allowing you to get up out of your desk. This can prevent back issues, neck issues, soreness, and burnouts.</p>
+<h2 id="pomodoroprogramming">Pomodoro &amp; Programming</h2>
+<p>Programmers <em>hate</em> interruptions. A major interruption to a programmer can on-average, take 10-15 minutes to &quot;recover&quot; back into the mindset of the task at hand.</p>
+<p>The thing about programming is you're mentally managing connections between systems, files, methods, etc. An interruption can sever those connections instantly and require you to rebuild it before starting work.</p>
+<p>Its as if you had 5 books open on a table and you're reading different paragraphs in each book which all relate. You're in the zone connecting all these similar paragraphs of information for research... when suddenly - someone asks you where you bought your backpack. Oops, there goes your train of thought, and you'll sit there looking at those 5 books and no longer have an idea of where you we're.</p>
+<p>Its hard to turn tasks of programming work into sections of 25 minutes due to this. When the timer is up, you're <em>supposed</em> to take a 5 minute break, but if you're deep into a task, it could seem like an interruption and distraction. Its <em>really</em> hard.</p>
+<h2 id="overcomingadapting">Overcoming &amp; Adapting</h2>
+<p>I was skeptical the method would work for me, the thought of stopping when the timer is done just kept a message playing in my head, <em>&quot;this is a bad idea, this is a bad idea,&quot;</em> because I felt this would cause me to lose track of what I was doing and actually hinder my day, not improve it.</p>
+<p>But, due to my past and current back/neck issues, I decided to give it a go - rip the bandaid off.</p>
+<p>The first few days was hard. Several times the timer would go off and I would say, <em>&quot;one more minute I'll be good,&quot;</em> <em>&quot;one more minute, I'll have the task done,&quot;</em> and guess what... it was never a minute. I got into that deep vibe and before I knew it, hours past and I was sore and my eyes we're tired.</p>
+<p>I realized this and decided I have to be more proactive on it. Adapt.</p>
+<p>When that timer would go off, I'd take a mental note of my current status and just drop it all, stand up, and walk around... get a coffee... decompress for 5 minutes.</p>
+<p>Yes, coming back to the work after the break, it took a few minutes to realign, which was frustrating at first, but I knew it was worth it for my health.</p>
+<p>Over time (currently a month doing this), realigning surprisingly got easier and easier, I somehow trained myself better coming back to a task.</p>
+<h2 id="results">Results</h2>
+<p>Its amazing. 5 minute breaks after every task seems small. But the posture of my body, pain, soreness, and mental state, have all been improved by doing these little breaks and timed workloads.</p>
+<p>I have time to stand up, walk, stretch, and let my eyes adjust to something besides a glaring LCD panel.</p>
+<p>Its a hard adjustment but just try it, commit to it, and try it for a week. It helped me.</p>
+<h2 id="tools">Tools</h2>
+<p>There's phone apps, web apps, desktop apps. You can even buy a physical timer to slap on your desk. Some are bare, some are rich in features.</p>
+<p>Personally, I just needed a timer for the work (25 minutes), break (5 minutes), and a long break (15-30 minutes). An addon for my Firefox fit the bill perfect, called <a href="https://github.com/samueljun/tomato-clock">Tomoto Clock</a> which is under active development. It supports the 3 types of timers, with a visual/sound notification, it also keeps stats of your daily usage for tasks and breaks. Its super simple to use.</p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/p6KMIFzWwy8">Vince Lee</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Introducing Laravel Shopify]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="background">Background</h2>
+<p>As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra. I've even released my own Gems to solve common (small) issues I've faced developing for these platforms.</p>
+<p>PHP itself... I haven't been active in years on that front. With PHP7 however,</p></div>]]></description><link>https://ohmybrew.com/introducing-shopify-for-laravel/</link><guid isPermaLink="false">5a8ca2fd415b127824f260e3</guid><category><![CDATA[laravel]]></category><category><![CDATA[open-source]]></category><category><![CDATA[php]]></category><category><![CDATA[programming]]></category><category><![CDATA[shopify]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Wed, 09 Aug 2017 16:35:00 GMT</pubDate><media:content url="https://ohmybrew.com/content/images/2018/02/laravel-shopify.png" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="background">Background</h2>
+<img src="https://ohmybrew.com/content/images/2018/02/laravel-shopify.png" alt="Introducing Laravel Shopify"><p>As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra. I've even released my own Gems to solve common (small) issues I've faced developing for these platforms.</p>
+<p>PHP itself... I haven't been active in years on that front. With PHP7 however, the language is shaping up. It doesn't have the great method chaining or syntax beauty that Ruby does, but its a well tested, proven, and mature language to work with that's easily deployable to a magnitude of places without much interaction.</p>
+<p>Being out of the PHP game for a while, I decided to survey the landscape. I used to work heavily with Symfony, however it always left a sour taste in my mouth. Symfony is great... its really well structured, enterprise type of framework. It falls short for medium-sized projects due to the verbosity of it (in my personal experience).</p>
+<p>After some digging, I stumbled upon Laravel. Laravel, like many projects, uses bits of Symfony's core and builds on top of it. I spent a lot of time studying Laravel, its community, its activeness, its code. It looked solid and had great tools and documentation to go along with it. It has a lot baked into it, which is all easily configurable and accessible - it felt like Rails for PHP honestly.</p>
+<p><a href="https://github.com/Shopify/shopify_app">shopify_app</a> is Shopify's own gem for building Shopify apps on Rails; quick and easy. It handles authentication, installation, webhooks, scripttags, ESDK integration and more. In Laravel, I could not find a package which covered all those points.  I decided I'd go head first into Laravel and build a package for it.</p>
+<h2 id="whatthepackagedoes">What The Package Does</h2>
+<p>Right from the Github page, the package handles all that <code>shopify_app</code> does:</p>
+<ul>
+<li>Provide assistance in developing Shopify apps with Laravel</li>
+<li>Integration with Shopify API</li>
+<li>Authentication &amp; installation for shops</li>
+<li>Auto install app webhooks and scripttags thorugh background jobs</li>
+<li>Provide basic ESDK views</li>
+<li>Handles and processes incoming webhooks</li>
+<li>Handles and verifies incoming app proxy requests</li>
+</ul>
+<p>The package is fully tested and works with PHP &gt;= 7 and Laravel 5.4.</p>
+<h2 id="project">Project</h2>
+<p>You can head over to the <a href="https://github.com/ohmybrew/laravel-shopify">project's page</a> for full information, or also browse <a href="https://github.com/ohmybrew/laravel-shopify/wiki">the wiki</a> for documentation, installation, and other topics.</p>
+<p>Happy coding with Shopify + Laravel!</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Reactive VueJS Plugins]]></title><description><![CDATA[<div class="kg-card-markdown"><p>VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple view layer.</p>
+<h2 id="pluginsreactivity">Plugins &amp; Reactivity</h2>
+<p><a href="https://vuejs.org/v2/guide/plugins.html">Plugins in Vue</a>, allow you to extract code into a re-usable module.</p></div>]]></description><link>https://ohmybrew.com/reactive-vuejs-plugins/</link><guid isPermaLink="false">5a8ca2fd415b127824f260f3</guid><category><![CDATA[programming]]></category><category><![CDATA[tip]]></category><category><![CDATA[javascript]]></category><category><![CDATA[vuejs]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Thu, 29 Jun 2017 12:36:22 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple view layer.</p>
+<h2 id="pluginsreactivity">Plugins &amp; Reactivity</h2>
+<p><a href="https://vuejs.org/v2/guide/plugins.html">Plugins in Vue</a>, allow you to extract code into a re-usable module. The plugins allow you to create global mixins, methods, properties, and more. It has the added benefit of keeping your code modularized, clean, and doesn't pollute your app's main instance.</p>
+<p><a href="https://vuejs.org/v2/guide/reactivity.html">Reactivity in Vue</a> is simply a way of describing something that watches for changes in state/data and reacts to it. Vue watches for changes in data, which in turn causes the component to re-render, showing the updated state.</p>
+<h2 id="usecase">Use Case</h2>
+<p>As mentioned, creating plugins can keep your code modularized and your main app instance clean. There could be many reasons you'd need a plugin to track data (be reactive).</p>
+<p>One example is if you're depending on a third-party service for data. You need to request this data, process it, save it, and display it. This takes time. By the time the request is completed your Vue instance may be rendered and your data will not display.</p>
+<h2 id="building">Building</h2>
+<p>Lets build a sports ticker to show the latest score result from some sports team.</p>
+<p>The key to making your data reactive in your plugin is simple... create a new Vue instance which holds the data.</p>
+<pre><code class="language-javascript">// plugins/sports-ticker.js
+
+/**
+ * Simple sports ticker class
+ */
+class SportsTicker {
+  /**
+   * @constructor
+   */
+  constructor(Vue, team) {
+    this.team = team;
+
+    // Lets make a new instance to store the data
+    this.storeVM = new Vue({
+      data() {
+        return {
+          team,
+          gameTime: null,
+          score: {
+            home: null,
+            away: null,
+          },
+        };
+      },
+    });
+    
+    // Fetch the scores
+    this.fetchData();
+  }
+
+  /**
+   * Gets the state of the data
+   * @return {Object}
+   */
+  get state() {
+    return this.storeVM.$data;
+  }
+  
+  /**
+   * Simple fetch to grab the data
+   */
+  fetchData() {
+    fetch(`https://some-api.com/games/${this.team}/last`)
+    	.then(resp =&gt; resp.json())
+    	.then((data) =&gt; {
+    		this.state.gameTime = data.game_time;
+    		this.state.score = {
+    			home: data.home_score,
+     			away: data.away_score
+    		};
+   		})
+    ;
+  }
+}
+
+export default {
+  /**
+   * Install sports ticker plugin
+   * @param {Vue} Vue - Vue instance
+   * @param {Object} options - Options for the plugin
+   */
+  install: (Vue, options = {}) =&gt; {
+    Vue.prototype.$SportsTicker = new SportsTicker(
+      Vue,
+      options.team
+    );
+  },
+};
+
+// Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker);
+
+</code></pre>
+<p>That's all that's to it.</p>
+<p>What we've done is created a class to keep our logic separate from the Vue plugin installation code. Then, we register the plugin with the options (in this case, just team name). In the SportsTicker class, we create a new Vue instance with its own data store filled with dummy/default data. We create a <code>get state</code> method so we can quickly access the data of the Vue instance we created. Next, we fetch the data, process it, and write it back to our Vue instance.</p>
+<p>With all this in play, our data is now reactive.</p>
+<pre><code class="language-html">&lt;template v-if=&quot;$SportsTicker.state.gameTime&quot;&gt;
+  {% raw %}
+  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}
+  {% endraw %}
+&lt;/template&gt;
+</code></pre>
+<p>Because the data is reactive, the above view snippet will not show until we have data (checking <code>gameTime</code> is not null in this case). When the data is processed, it will trigger Vue to render the template and show the data.</p>
+<p>All we needed to do was create our own Vue instance for the plugin to store the data, with a simple method to access it (<code>get state</code>).</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Wordpress Under Docker: A Basic Guide]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="purpose">Purpose</h2>
+<p>There's many lengthy guides out there for the official Docker image for Wordpress. However, some people have a little trouble getting going so I will quickly provide some tips to help out.</p>
+<p>I haven't used Wordpress professionally in a long time, but I decided to do some weekend digging</p></div>]]></description><link>https://ohmybrew.com/wordpress-under-docker/</link><guid isPermaLink="false">5a8ca2fd415b127824f260f1</guid><category><![CDATA[wordpress]]></category><category><![CDATA[docker]]></category><category><![CDATA[programming]]></category><category><![CDATA[process]]></category><category><![CDATA[php]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Thu, 15 Jun 2017 09:53:10 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1455487890814-f11ab4eaec4b?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=8d6edbbe6354f4b44ab4ca4b97dfa286" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="purpose">Purpose</h2>
+<img src="https://images.unsplash.com/photo-1455487890814-f11ab4eaec4b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=8d6edbbe6354f4b44ab4ca4b97dfa286" alt="Wordpress Under Docker: A Basic Guide"><p>There's many lengthy guides out there for the official Docker image for Wordpress. However, some people have a little trouble getting going so I will quickly provide some tips to help out.</p>
+<p>I haven't used Wordpress professionally in a long time, but I decided to do some weekend digging to keep my brain fresh, so forgive any errors ;)</p>
+<h2 id="setup">Setup</h2>
+<h3 id="directories">Directories</h3>
+<p>Lets create a basic directory structure to use. Keep in mind, this is geared for theme development.</p>
+<ul>
+<li>{your_theme}/
+<ul>
+<li>wordpress/
+<ul>
+<li>wp-content/
+<ul>
+<li>themes/
+<ul>
+<li>(your-theme)/</li>
+</ul>
+</li>
+<li>uploads/</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We only need to track  our theme, so we do not need to install the whole Wordpress system.</p>
+<p>Once done, be sure to <code>chmod 755 wordpress/wp-content/uploads/</code> so Wordpress can write to this directory when uploading media.</p>
+<h3 id="docker">Docker</h3>
+<p>Next, lets get Docker ready. The simplest way is to use a <a href="https://docs.docker.com/compose/">Docker Compose file</a>. Its a simple YML-formatted file that's easy to read for anyone.</p>
+<p>Based on <a href="https://hub.docker.com/_/wordpress/">Wordpress' Offical Image</a>, I've compiled the following <code>docker-compose.yml</code> <a href="https://github.com/ohmybrew/wordpress-docker-quickstart">file you can use</a>.</p>
+<p>Simply replace <code>{YOUR_THEME}</code> with your theme name and save it to the root of <code>{your_theme}/</code> directory.</p>
+<h3 id="volumes">Volumes</h3>
+<p>In the <code>docker-compose.yml</code> file you'll notice two entries under <code>volumes</code>.</p>
+<p>One maps the theme folder to the Wordpress install so its visible to Wordpress, the other maps, read-write, <code>wp-content/uploads</code> to the Wordpress install as well so it can write and read media from a location accessible.</p>
+<h3 id="gitignore">Git Ignore</h3>
+<p>Now that you have the directories setup, Docker Compose ready, volumes mapped... its time to setup Git.</p>
+<pre><code>wordpress/wp-content/uploads/*
+</code></pre>
+<p>Now, we keep track of only our theme.</p>
+<h2 id="running">Running</h2>
+<p>Once you're done the quick setup simply run <code>docker-compose up</code> in the main directory. On first run, you'll have to run through the Wordpress installation process.</p>
+<p>After it's done, simply login and visit Appearance. If you have your theme setup as per Wordpress requirements (<code>style.css</code> (with info) and <code>index.php</code>)  then you will see it in the theme list. Hit &quot;Activate&quot; and you're ready to go.</p>
+<h2 id="windowswsltips">Windows (WSL) Tips</h2>
+<p>If you're running this under WSL, be sure you have Docker on Windows settings set to expose Docker daemon without TLS (its under General panel).</p>
+<p>Also, WSL accesses your C:\ drive via <code>/mnt/c</code> but Docker requires <code>/c</code>. To resolve this issue simply create a symlink via <code>ln -s /mnt/c /c</code>. If this is not done, you'll have issues with Docker under WSL trying to find files and map volumes. This means you also need to run <code>docker-compose</code> commands under <code>/c</code> as well.</p>
+<p>To quickly switch to <code>/c</code> no matter what directory you're under, open <code>$HOME/.bash_aliases</code> and add this entry:</p>
+<pre><code class="language-shell">alias cswap='cd `pwd | sed 's,/mnt,,g'`'	
+</code></pre>
+<p>Now, any directory you're in, simply run <code>cswap</code> and it'll move you to <code>/c</code></p>
+<pre><code class="language-shell">tyler@bash[/mnt/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ cswap
+tyler@bash[/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ docker-compose up
+Starting...
+</code></pre>
+<h2 id="furtherexploring">Further Exploring</h2>
+<p><a href="https://github.com/ohmybrew/wordpress-docker-quickstart">I've setup a repo on Github</a> which contains all I've talked about above plus some extras like a basic Grunt setup for managing asset files. Feel free to clone, run <code>docker-compose up</code> and play around!</p>
+<p>I hope this has helped anyone struggling.</p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/FtRkRespN24">Boba Jovanovic</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Developing sanely on Windows: Revisited]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Back in November <a href="https://ohmybrew.com/2016/11/07/developing-sanely-on-windows">I wrote a post</a> about how to develop sanely on Windows. It was a successful experiment which resulted in a usable environment to develop.</p>
+<p>Today, I am re-visiting this with some more notes as I've now been full-time developing on Windows for a month now. With this,</p></div>]]></description><link>https://ohmybrew.com/developing-sanely-on-windows-revisited/</link><guid isPermaLink="false">5a8ca2fd415b127824f260df</guid><category><![CDATA[general]]></category><category><![CDATA[programming]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Wed, 10 May 2017 10:31:22 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=0e3f530a57112487346836888afad052" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=0e3f530a57112487346836888afad052" alt="Developing sanely on Windows: Revisited"><p>Back in November <a href="https://ohmybrew.com/2016/11/07/developing-sanely-on-windows">I wrote a post</a> about how to develop sanely on Windows. It was a successful experiment which resulted in a usable environment to develop.</p>
+<p>Today, I am re-visiting this with some more notes as I've now been full-time developing on Windows for a month now. With this, I've changed some tactics and have come to a much more streamlined solution.</p>
+<h2 id="changes">Changes</h2>
+<p>Previously I installed Ubuntu Server onto VMWare. I would SSH into the environment using a terminal and had a shared development folder so I could use the browser and editor on Windows' side, while all code execution was contained on the VM side.</p>
+<p>Now, I've done away with the VM. With Docker working well on Windows, there's really not much need for a VM anymore since Docker is a more full-featured stable solution anyways; but the big change... <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">WSL (Bash on Ubuntu on Windows)</a>.</p>
+<p>I previously explored this option last time but it was incomplete and had issues, mainly the lack of inotify support for file system notifications which most build systems rely on. <a href="https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/">With the latest creator's update</a> released this month, they not only solved the inotify issues but many others.</p>
+<p>I've now switched to using a combination of using WSL and Docker - it works wonderfully.</p>
+<h2 id="sidenote">Side Note</h2>
+<p>The great thing about WSL is it can easily integrate with VSCode's integrated terminal feature.</p>
+<p><img src="https://ohmybrew.com/content/images/vs-code-wsl.png" alt="Developing sanely on Windows: Revisited"></p>
+<p>In conclusion... I've had no issues yet with this setup. Docker + WSL + Windows = A happy environment.</p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/sYZ4bIBt1o4">Teddy Kelley</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Moving away from CanCanCan to Pundit]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="whatispunditcancancan">What is Pundit &amp; CanCanCan?</h2>
+<p><a href="https://github.com/elabs/pundit">Pundit</a> is a simple, platform-agnostic, plain-ol-Ruby authorization library. It provides a set of helpers to get authorization done simply no matter if its plain Ruby, Sinatra, or Rails.</p>
+<p><a href="https://github.com/CanCanCommunity/cancancan">CanCanCan</a> is a fork of the original CanCan Gem for Rails. CanCanCan, like Pundit, is an authorization</p></div>]]></description><link>https://ohmybrew.com/moving-away-from-cancancan-to-pundit/</link><guid isPermaLink="false">5a8ca2fd415b127824f260eb</guid><category><![CDATA[rails]]></category><category><![CDATA[ruby]]></category><category><![CDATA[process]]></category><category><![CDATA[programming]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Thu, 30 Mar 2017 00:00:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="whatispunditcancancan">What is Pundit &amp; CanCanCan?</h2>
+<p><a href="https://github.com/elabs/pundit">Pundit</a> is a simple, platform-agnostic, plain-ol-Ruby authorization library. It provides a set of helpers to get authorization done simply no matter if its plain Ruby, Sinatra, or Rails.</p>
+<p><a href="https://github.com/CanCanCommunity/cancancan">CanCanCan</a> is a fork of the original CanCan Gem for Rails. CanCanCan, like Pundit, is an authorization library. Its specifically designed for Rails and provides a set of baked-in helpers to authorize models and controllers within Rails.</p>
+<h2 id="innerworkings">Inner Workings</h2>
+<p>Pundit relies on POROs… &quot;Policy&quot; classes. Each model can have a policy where you can define the methods accessible to the object attempting to access it (a user, a group, …). Each policy can have its own scope as well, example, an &quot;admin&quot; scope can see all entries in the database, while a &quot;manager&quot; can only see published entries in the database.</p>
+<pre><code class="language-ruby">class ArticlePolicy
+  #...
+  def create?
+    # Only admins can create articles
+    user.role? :admin
+  end
+  
+  #...
+  class Scope
+    #...
+    def resolve
+      if user.role? :admin
+        scope.all
+      else
+        scope.where(published: true)
+      end
+    end
+  end
+end
+
+class ArticleController
+  #...
+  def index
+    @articles = policy_scope(Article)
+  end
+  #...
+end
+
+#...
+
+&lt;%= link_to('Add Article', new_article_path) if policy(:article).create? %&gt;
+</code></pre>
+<p>So in the above example, we setup our simply policy. All policy methods return a boolean to determine if the object requesting access can perform the action. In the controller, we scope the articles using the scope defined in the policy. Then in the view, we can call the Article's policy and check if the current user is able to create an article. Very clear logic.</p>
+<p>CanCanCan, in all my past experiences, relies on a single Ability class tied to the object we're checking authorizations on. It's DSL is very simple and effective.</p>
+<pre><code class="language-ruby">class Ability
+  #...
+  if user.role? :admin
+    can :crud, :all
+  elsif user.role? :manager
+    can :read, Article, published: true
+    can [:update, :edit], Article, user: { id: user.id }
+    can :destory, Article
+  end
+  #...
+end
+
+#...
+
+&lt;%= link_to('Add Article', new_article_path) if can? :create, Article %&gt;
+</code></pre>
+<p>So in the above example, the user's abilities will be defined by the class. Scoping can be handled here as well. In the view, we then check if the user is able to create an article.</p>
+<h2 id="whyiswitched">Why I Switched</h2>
+<p>I'm current reviewing my own CMS' pull request for moving to Pundit. <a href="https://patch-diff.githubusercontent.com/raw/tyler-king/guts/pull/9.patch">It is a long one</a>… but worth it.</p>
+<p>CanCanCan is awesome. It provides quick boilerplate to bust out an authorization system that ties into Rails nicely. However, once you start getting into complex authorizations, it becomes cumbersome to manage.</p>
+<p>You start the need to do complex scoping which you then need to offload scoping logic into the model. You start to have many conflicting and confusing <code>can</code> and <code>cannot</code> statements. You start have a growing ability file which has everything mushed together and it becomes hard to read. Controllers start to have a lot of authorization magic happen which sometimes needs to have an override.</p>
+<p>Eventually its a mess. Yes you can spend time separating CanCanCan into more manageable pieces but then you look at Pundit, which does this already.</p>
+<p>With Pundit… everything has its own class, a simple PORO, and their own scopes… very easy to look up and see at a glance what is happening. Although with Pundit you are writing more explicitly in the controllers, its actually more beneficial because another person can easily read your controllers/views and know exactly whats happening without &quot;magic&quot; that comes with CanCanCan.</p>
+<p>I simply switched because I felt Pundit is more manageable and a better long-term solution than CanCanCan. I now have more readable code, more maintainable code, and code thats easily overridable by others.</p>
+<h2 id="whentouseeach">When to use each?</h2>
+<p>Both libraries are great and both get the job done. In my opinion, if you need something quick and don't have a lot of logic at play, CanCanCan will fit right in your flow. If you want more fine-grained control and separation, give Pundit a try!</p>
+<p>Either way, with both, you will not be disappointed. Both libraries are well documented, well written and contribute greatly to the Ruby and Rails communities.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Opinion: When to use a VPS vs PaaS]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="introduction">Introduction</h2>
+<p>Well this is my first post for 2017. I've been very busy with family and the <a href="http://hoskinsfuneralhomes.ca/tribute/details/1797/Willis-King/obituary.html#tribute-start">recent passing of my close grandfather</a> who was diagnosed with Bronchitis Obliterans, also known as &quot;Popcorn Lungs&quot;, a rare and incurable condition. He went through the new Assisted Death option here</p></div>]]></description><link>https://ohmybrew.com/opinion-when-to-use-a-vps-vs-pass/</link><guid isPermaLink="false">5a8ca2fd415b127824f260d9</guid><category><![CDATA[general]]></category><category><![CDATA[opinion]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Wed, 08 Mar 2017 11:12:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="introduction">Introduction</h2>
+<p>Well this is my first post for 2017. I've been very busy with family and the <a href="http://hoskinsfuneralhomes.ca/tribute/details/1797/Willis-King/obituary.html#tribute-start">recent passing of my close grandfather</a> who was diagnosed with Bronchitis Obliterans, also known as &quot;Popcorn Lungs&quot;, a rare and incurable condition. He went through the new Assisted Death option here in Canada late last month with of us loving family around him.</p>
+<p>Before we get started on my own opinions, lets take a look at what each system is.</p>
+<h3 id="whatisavps">What is a VPS?</h3>
+<p>A VPS is a Virtual Private Server. A server running on more powerful hardware than standard &quot;shared hosting&quot; plans (usually). Every &quot;account&quot; has its own physical space on the server in virtual compartments with super-level access. Software is setup independently in each space. Its like your own piece of pie on the server.</p>
+<p>Most VPS providers offer both managed (host manages for you) or unmanaged (clean slate for you to break!) plans. Theres many pricing levels and many providers. The top providers mentioned the past few years are:</p>
+<ul>
+<li><a href="http://digitalocean.com">DigitalOcean</a> <em>(one I personally choose to use)</em></li>
+<li><a href="http://linode.com">Linode</a></li>
+<li><a href="http://vultr.com">Vultr</a></li>
+<li><a href="http://scaleway">Scaleway</a></li>
+</ul>
+<p>Each of these providers are great. They offer features such as instant upgrades, point-n-click setup of instances, pre-bundled setups, DNS configurations, IP management, backups, and more. Their prices are relatively the same as well.</p>
+<p>For example, with DigitalOcean, on a $5 per month plan, you can get 512MB of RAM, 1 CPU, 20GB SSD space, and be up-and-running in minutes. This is a very cost effective method for those who want to have freedom with their server to host their applications and websites.</p>
+<p>The vast amount of tutorials and community support out there for these services make any modifications easy for even new-comers.</p>
+<h3 id="whatisapaas">What is a PaaS?</h3>
+<p>PaaS or Platform as a Service, is cloud-computing service that provides a platform allowing customers to develop, run and manage their applications/websites without the complexity of building and maintaining the infrastructure associated with developing and launching.</p>
+<p>With <a href="http://heroku.com">Heroku</a> for example, you can setup an account in minutes, generate a <a href="https://devcenter.heroku.com/articles/procfile">Procfile</a> for your app, and deploy your code through Git. Heroku will pull your code, read your Procfile and build a system that suits your code, launching it mere minutes with no interaction on your part. It comes with several add-ons that are point-and-click setup like Redis, Postgres, Loader.io, and more.</p>
+<p>These services allow you to focus on code, not the server. You don't need to worry about the command line, resource scaling, migrations, errors... its all taken care of you. This of course, comes at a cost to you though compared to a VPS.</p>
+<p>Heroku is billed by the usage time of the server (how long its running). They have free hobby plans to get you going, but once you need more resources, the price will jump. A small app on Heroku could start out as $10 a month. A medium-sized medium-load app could quickly jump to $260 a month from experience.</p>
+<h3 id="whattochoose">What to Choose?</h3>
+<p>Well, its up to your needs. Go &quot;cheap&quot;, manage the server yourself, then you'd pick a VPS. Focus on code and not worry about the server, you'd pick a PaaS.</p>
+<p>Personally, if its a minimal load and minimal traffic app, I'd spin up a DigitalOcean instance, spend the time to configure it properly, deploy the app and let it be. Sometimes, this is all the client is willing to afford anyways.</p>
+<p>If its an app that is going to be experience high traffic, high load, and needs to stay dependable… I'd choose a PaaS every time. I don't need to worry about recourses and I can easily scale the databases, CPU, RAM, etc. as needed with a click of a button. When it's crunch time... this can be a big help.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Toggling TinyMCE v4]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Heres a easy way to turn on and off the TinyMCE editor for version 4.</p>
+<pre><code class="language-javascript">document.getElementById('toggle-tinymce').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  var editorID = this.dataset.editorId;
+  var editor   = tinymce.EditorManager.get(editorID);
+
+  if (editor) {
+    editor.remove();
+  } else {
+    editor = tinymce.EditorManager.createEditor(editorID, tinyMCE.settings);
+    editor.render();
+  }
+});
+</code></pre>
+<p>You</p></div>]]></description><link>https://ohmybrew.com/toggling-tinymce-v4/</link><guid isPermaLink="false">5a8ca2fd415b127824f260d5</guid><category><![CDATA[tip]]></category><category><![CDATA[programming]]></category><category><![CDATA[javascript]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Tue, 06 Dec 2016 11:38:32 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Heres a easy way to turn on and off the TinyMCE editor for version 4.</p>
+<pre><code class="language-javascript">document.getElementById('toggle-tinymce').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  var editorID = this.dataset.editorId;
+  var editor   = tinymce.EditorManager.get(editorID);
+
+  if (editor) {
+    editor.remove();
+  } else {
+    editor = tinymce.EditorManager.createEditor(editorID, tinyMCE.settings);
+    editor.render();
+  }
+});
+</code></pre>
+<p>You simply then need to create a link or button as such:</p>
+<pre><code class="language-html">&lt;a href=&quot;#&quot; id=&quot;toggle-tinymce&quot; editor-id=&quot;your-editor-id&quot;&gt;Toggle&lt;/a&gt;
+</code></pre>
+<p>Thats it. It will remove the TinyMCE if enabled, and if not, it will re-render by re-creating the editor with settings provided by <code>tinyMCE.settings</code>.</p>
+</div>]]></content:encoded></item><item><title><![CDATA[shopify_app_whitelist Gem]]></title><description><![CDATA[<div class="kg-card-markdown"><p>I regularly use <a href="https://github.com/Shopify/shopify_app">shopify_app</a>. Its a great way to get an app, embedded or not, up and running with Rails.</p>
+<p>Sometimes I'll create apps with <code>shopify_app</code> which are to be used by only one store. These apps sometimes have a front-end component for the themes... proxy integration, or</p></div>]]></description><link>https://ohmybrew.com/shopify-app-whitelist-gem/</link><guid isPermaLink="false">5a8ca2fd415b127824f260e2</guid><category><![CDATA[open-source]]></category><category><![CDATA[ruby]]></category><category><![CDATA[shopify]]></category><category><![CDATA[rails]]></category><category><![CDATA[programming]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Sat, 26 Nov 2016 16:45:01 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>I regularly use <a href="https://github.com/Shopify/shopify_app">shopify_app</a>. Its a great way to get an app, embedded or not, up and running with Rails.</p>
+<p>Sometimes I'll create apps with <code>shopify_app</code> which are to be used by only one store. These apps sometimes have a front-end component for the themes... proxy integration, or JSON data fetching. I'd hate to have someone poke around and install the client's app to their own shop.</p>
+<p>In the past I limited access to <code>shopify_app</code>'s session controller by having a <code>before_action</code> callback to confirm the shop. This gets repetitive quick and its not a central solution meaning its hard to update should the Gem change.</p>
+<p>I decided to create a Gem for this problem which allows you to whitelist shops to have access to installing or accessing the app's backend. <a href="https://github.com/ohmybrew/shopify_app_whitelist">shopify_app_whitelist</a> adds a Railite which automatically injects a controller concern into your ApplicationController. It also adds a couple settings to <code>shopify_app</code>'s config so you can define your whitelist settings. I figured I would make as easy as possible.</p>
+<p>You simply need to add the Gem to your Gemfile, add two configuration lines, and you're set. The Gem is fully tested and documented if you want to dig into the code. I hope someone will find it useful - enjoy!</p>
+</div>]]></content:encoded></item><item><title><![CDATA[Journey to Sucker Punch]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Background jobs are great. Mailing, data processing, image processing, database operations… you name it. If its a repetitive blocking process for the user and its not time-sensitive, then its probably suited to be moved to a job.</p>
+<h2 id="delayed_job">delayed_job</h2>
+<p>My go-to ActiveJob adapter for Rails has always been <a href="https://github.com/collectiveidea/delayed_job">Delayed Job</a></p></div>]]></description><link>https://ohmybrew.com/journey-to-sucker-punch/</link><guid isPermaLink="false">5a8ca2fd415b127824f260ef</guid><category><![CDATA[ruby]]></category><category><![CDATA[process]]></category><category><![CDATA[programming]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Sat, 26 Nov 2016 01:06:21 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1509255929945-586a420363cf?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=0051d834f646e0e3c5494e196cf1ef6f" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><img src="https://images.unsplash.com/photo-1509255929945-586a420363cf?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=0051d834f646e0e3c5494e196cf1ef6f" alt="Journey to Sucker Punch"><p>Background jobs are great. Mailing, data processing, image processing, database operations… you name it. If its a repetitive blocking process for the user and its not time-sensitive, then its probably suited to be moved to a job.</p>
+<h2 id="delayed_job">delayed_job</h2>
+<p>My go-to ActiveJob adapter for Rails has always been <a href="https://github.com/collectiveidea/delayed_job">Delayed Job</a>. Delayed Job is an extracted method from Shopify (which I highly doubt Shopify uses anymore) to manage background jobs. It uses the existing database by adding a <code>delayed_jobs</code> table which contains the jobs to process. Its extremely easy to setup and reliable and also requires no other external dependancies to operate.</p>
+<p>I've never cared much about performance of a job adapter simply because I'd normally push up a small, single app, to a single DO server; plenty of resources to play with. But recently, performance came into mind when a rewrite of two apps for a client started maxing out the tiny memory of a DO server when I would deploy the code. Sure, I could just as easily hit resize and grab more memory, but I wanted to investigate the issue.</p>
+<p>Checking <code>htop</code>, and sorting by memory, the second highest memory consumer was <code>delayed_jobs</code>. Both instances of <code>delayed_jobs</code> were using 4.9% each so <em>9.8%</em> total of the available memory - this was simply <em>idling</em>. The apps themselves were using about 3.7% each so <em>7.4%</em> total. Combined, this is ~<em>17%</em> of the available memory just to run at a given time.</p>
+<p>Investigating into <code>delayed_job</code>, it loads the entire Rails app. So essentially, each app is running twice, and on top of that, something polling the database to process the jobs. Thats a lot going on just to process the small data the background jobs needed to do.</p>
+<p>I had to look for another solution.</p>
+<h2 id="resquesidekiq">resque &amp; sidekiq</h2>
+<p><a href="https://github.com/resque/resque">resque</a> and <a href="https://github.com/mperham/sidekiq">sidekiq</a> are widely used in the Rails world. They both rely on <a href="https://redis.io/">Redis</a> as a backend storage for the job processing, unlike <code>delayed_job</code> which uses the database. I created a branch for both adapters to check out if they'd be a solid route to stick with. They we're equally simple to setup and configure and with a few modifications to my Rails tests, they passed with flying colors.</p>
+<p>I deployed both to the server to check out their performance, however, I found I did not gain. Checking <code>htop</code> once again, I found these adapters spawned processed which used roughly the same amount of memory as <code>delayed_job</code> did. I was told these adapters would have a better footprint, but it didn't seem to be the case and I'm not sure if something was configured incorrectly or not… I moved on either way.</p>
+<h2 id="sucker_punch">sucker_punch</h2>
+<p><a href="https://github.com/brandonhilkert/sucker_punch">This is a Gem</a> which I stumbled upon in my Feedly feed. It's written by <a href="http://brandonhilkert.com">Brandon Hilkert</a>. Sucker Punch is a single-process, asynchronous-processing library where the jobs are stored in-memory and tied to the same application process - it lives with your app. This means it has no other external dependancies, and is easy to setup. Once your app is fired up - so is <code>sucker_punch</code>. Now, <code>sucker_punch</code> is not a perfect solution… it does not retry jobs and if you shut your app down or reboot it while jobs are in the queue, they'd be lost. So this solution is good for non-critical, quick, jobs; perfect for these two apps.</p>
+<p>I again, created a branch, checked my tests, and deployed. I was happy with the results. The app's memory itself sits a little higher than before ~4.0-4.1% from 3.7% it was and Passenger Status reports roughly 75mb. Combined, both apps now utilize roughly 8% of the available memory compared to the 17% they used before. That's a good chunk saved!</p>
+<p>So that was my journey through many ActiveJob adapters and settling on <code>sucker_punch</code>.</p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/WwrQnL0Gi1c">NeONBRAND</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Developing sanely on Windows]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="preamble">Preamble</h2>
+<p>You might think, <em>&quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&quot;</em>. Its because I'm preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction</p></div>]]></description><link>https://ohmybrew.com/developing-sanely-on-windows/</link><guid isPermaLink="false">5a8ca2fd415b127824f260ff</guid><category><![CDATA[programming]]></category><category><![CDATA[general]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Mon, 07 Nov 2016 11:22:00 GMT</pubDate><media:content url="https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;s=0e3f530a57112487346836888afad052" medium="image"/><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="preamble">Preamble</h2>
+<img src="https://images.unsplash.com/photo-1457925471563-0721891209b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=0e3f530a57112487346836888afad052" alt="Developing sanely on Windows"><p>You might think, <em>&quot;Why are you trying to develop on Windows? Why not use OSX or (insert Linux distro)&quot;</em>. Its because I'm preparing for a stable future. With the decisions of Apple the past year with the iPhone and new Macbook, I no longer like the direction the company is taking. I won't go into depth, but the entire lineup is a laughing stock to be honest. I will no longer be continuing with Apple for my next upgrades.</p>
+<p><strong>I decided to run an experiment to see if I could survive on Windows for my development needs.</strong></p>
+<h2 id="whywindows">Why Windows?</h2>
+<p>I used Linux on/off for close to 15 years now. Don't get me wrong, I <strong>love</strong> Linux, I always will. I don't care how many people say otherwise, its software support for many apps lack compared to the Windows/Mac version. Many people will say, <em>&quot;So switch to using (insert some different standard or app not many people use)&quot;</em>, its not that easy especially in the business world. I can't just tell all my co-workers to start using random apps that have little backing. Theres a suite of software I require daily which many do not work or lack proper implementation in Linux… and I'm not talking about the Adobe suite.</p>
+<p>Apps in Windows normally get first-class implementation — it just works. This is something important to me. I don't want to fix issues daily, I want to work. With OSX out of the picture, Windows was the next best thing for me that would <em>just work</em> and keep me <em>productive</em> in my mind.</p>
+<h3 id="configuration">Configuration</h3>
+<p><em>One warning about this post... I used Windows on my MacBook via Bootcamp. I feel its not the proper experience I could get out of Windows if I used a proper Windows laptop for work (XPS, Thinkpad, etc). I'll note more later why I say I did not get a proper experience.</em></p>
+<ul>
+<li><strong>Computer</strong>:
+<ul>
+<li><em>Model</em>: 2014 Macbook Pro Retina</li>
+<li><em>RAM</em>: 8GB</li>
+<li><em>Space:</em> 256GB SSD</li>
+</ul>
+</li>
+<li><strong>Windows</strong>: 10 — Home Edition</li>
+</ul>
+<h2 id="setupjourney">Setup Journey</h2>
+<h3 id="virtualmachining">Virtual Machining</h3>
+<p>Development on Windows is a mess. If anyone's ever done Ruby, Python, etc, development on a Windows machine, its usually a hit or miss. You run into issues with libs, compiling, support, mystic errors, and a pile of workarounds. A lot of people try to get around some issues by using tools like <strong><a href="https://www.cygwin.com/">Cygwin</a></strong>, or some other shell implementation but they still run into issues.I wanted to avoid all these issues by essentially taking Windows out of the equation.</p>
+<p>To do this, I decided to run Linux in a VM and host all my development needs in the VM. Now I have a clear separation. I can have the stability of Windows with all my required apps, and have my development… both in their own worlds.</p>
+<p>I decided to use <strong>VMWare Player</strong> and install <strong><a href="https://www.ubuntu.com/download/server">Ubuntu Server 16.04 LTS</a></strong>. I chose Ubuntu over something like Arch simply for time-sake of my experiment. From what I read, Ubuntu and VMWare have perfect support for one another. I require no desktop experience... simply a VM I can &quot;talk&quot; to, so something minimal like the Ubuntu Server was a good fit. I chose the fast install offered by VMWare Player and I had a working VM within 5 minutes.</p>
+<h4 id="performance">Performance</h4>
+<p>Initially I assumed this would eat a lot of my resources. I was wrong.</p>
+<p>Post-boot, just idling, VMWare Player and the VM instance itself totalled to ~45mb of RAM in-use. The CPU was negligible as well. Even during a intensive process in the VM, the CPU only reached 21% and RAM didn't increase by much.</p>
+<p>So my system was chugging a long happily, the VM didn't seem to affect my computers performance one bit from what I could tell.</p>
+<h3 id="vmcommunicationssh">VM Communication &amp; SSH</h3>
+<p>I did not want to use the windowed experience of VMWare. I decided I just need to SSH into the VM itself. I enabled <strong>bridged networking</strong> mode in VMWare. This gave the VM its own LAN IP address. Example, if my MacBook was 192.168.2.11 my VM could be assigned 192.168.2.13. I installed a SSH server on the VM and set it up to work for my needs. I now had a way to talk to the VM.</p>
+<h4 id="choosingasshclient">Choosing a SSH client</h4>
+<p>I regularly SSH into servers during my week to perform tasks, I also needed to (obviously) SSH into my VM. I looked over many options for Windows… <strong><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty</a></strong>, <strong><a href="http://kitty.9bis.net/">Kitty</a></strong> (fork of Putty), <strong><a href="http://mobaxterm.mobatek.net/">MobaXterm</a></strong>.</p>
+<p>I found Putty/Kitty to be great for customizations… its fully-loaded, although confusing interface, provides all anyone could need. It however lacked a single-window/tabbed mode or sub-connections as far as I could tell.</p>
+<p>MobaXterm, although great, I found it to be a bit of bloat… I need a terminal and nothing else. It seemed geared towards a more full-featured implementation with support for X11 apps, FTP, text editing, etc.</p>
+<p>In the end... I landed on <strong><a href="http://smartty.sysprogs.com/">SmarTTY</a></strong>. An app I discovered while surfing Reddit for suggestions. It provided me with good configuration options, tabbed interface, sub-connections, lightweight, and more.</p>
+<h4 id="testingconnections">Testing Connections</h4>
+<p>I created an SSH key on the Windows side using Putty's keygen. I plugged the SSH key into the VM and fired up SmarTTY. I created a connection using my username, keyfile, and the VM's IP address.</p>
+<p>It connected perfectly. I ran 4 sub-connections to the VM without issue. There was no lag in typing and input to the VM, I was pleased.</p>
+<h2 id="postsetup">Post Setup</h2>
+<p>So I now had a working, communicable, VM to host my development needs. I went ahead and setup all the tools I needed in the VM (RVM, Python, Go, MySQL, SQLite, Node, etc). On the Windows side I installed <a href="http://atom.io">Atom</a>, <a href="http://www.mysql.com/products/workbench/">MySQL Workbench</a>/<a href="http://www.sql-workbench.net/">SQL Workbench</a>, <a href="http://slack.com">Slack</a>, and other tools.</p>
+<p>Workflow-wise — I'm happy. I'd edit my files in Atom, have my sessions opened in SmarTTY watching files (for Grunt or Rails, etc), edit my databases with workbench. Everything seemed to work fine without a hitch.</p>
+<p>Although the setup took a bit a time, I believe its a great path to take given Bash for Windows, is not fully ready yet for use. I actually, surprisingly found the Windows install to be snappier than OSX… I suspect thats due to it being a new install however. The battery-life was on-par with OSX despite what I heard online of Windows draining MacBook batteries in no-time.</p>
+<p>Overall I was happy with the Windows experience as a whole. Both as a developer and a PC user.</p>
+<h3 id="miscissues">Misc. Issues</h3>
+<p>Although the setup was fine, I was slightly hindered by not using a laptop designed for Windows in mind as I mentioned previously.</p>
+<h4 id="1keyboard">1. Keyboard</h4>
+<p>A few text-flow issues I ran into that I normally do on Mac such as deleting a whole line of text was not possible because the MacBook keyboard is missing a few keys for this that Windows targets.</p>
+<p>The position of the CTRL button was also slightly farther away than I liked. I found I had to change my natural posture for using CTRL functions due the spacing for cutting, copying, pasting, etc.</p>
+<h4 id="2mousetrackpad">2. Mouse &amp; Trackpad</h4>
+<p>Bootcamp installs drivers to emulate the trackpad a mouse. Tap emulates a click, two finger emulates a right click, and there is no trackpad gestures likes dragging built-in. Changing the sensitivity of the scrolling with the trackpad would result in the mouse having the same scrolling sensitivity and one would be slower than the other. I found a great app to get around the issue, called <strong><a href="http://eithermouse.com">EitherMouse</a></strong>. It detects individual devices and allows you to assign settings for each. This solved my issue on that part.</p>
+<p>I suspect if I owned a Thinkpad, XPS, Zenbook, or some other Windows-designed laptop, I would have a much better experience.</p>
+<h3 id="verdict">Verdict</h3>
+<p>I'll have my current MacBook and iPhone for a couple years to come but my next upgrade in the future will move away from this company. This experience was a good lesson that yes, I can develop in Windows just fine, without any drawbacks that I can see to my flow. This will heavily weigh my decision for purchases in the future.</p>
+<p><a href="https://ohmybrew.com/content/images/kitty_vm_rails.png"><img src="https://ohmybrew.com/content/images/kitty_vm_rails.png" alt="Developing sanely on Windows"></a></p>
+<p><em>A shot of me playing with Kitty connecting into the VM, running Rails, and viewing it in Chrome on Windows</em></p>
+<hr>
+<p><em>Cover image credit: <a href="https://unsplash.com/photos/sYZ4bIBt1o4">Teddy Kelley</a></em></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Counting Unique Options in Shopify]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Ever wanted to quickly display a how many of an option a product contains?</p>
+<pre><code>Available in 4 sizes
+...
+Available in Red, Blue, Green
+...
+Available in 10 colors
+</code></pre>
+<p>Here's an example of how to do just that (for color). Simply open your product's loop liquid and add this block at the</p></div>]]></description><link>https://ohmybrew.com/counting-unique-options-in-shopify/</link><guid isPermaLink="false">5a8ca2fd415b127824f260e4</guid><category><![CDATA[shopify]]></category><category><![CDATA[tip]]></category><category><![CDATA[programming]]></category><dc:creator><![CDATA[Tyler King]]></dc:creator><pubDate>Tue, 21 Jun 2016 01:17:33 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Ever wanted to quickly display a how many of an option a product contains?</p>
+<pre><code>Available in 4 sizes
+...
+Available in Red, Blue, Green
+...
+Available in 10 colors
+</code></pre>
+<p>Here's an example of how to do just that (for color). Simply open your product's loop liquid and add this block at the top:</p>
+<pre><code class="language-liquid"># snippets/product_loop.liquid
+{% raw %}
+{% assign color_index = nil %}
+{% assign color_label = 'Color' %}
+{% if product.options[0] == color_label %}
+  {% capture color_index %}option1{% endcapture %}
+{% elsif product.options[1] == color_label %}
+  {% capture color_index %}option2{% endcapture %}
+{% elsif product.options[2] == color_label %}
+  {% capture color_index %}option3{% endcapture %}
+{% endif %}
+
+{% assign colors = product.variants | map: color_index | uniq %}
+
+This product is available in {{ colors.size }} {{ colors.size | pluralize: 'color', 'colors' }}
+{% endraw %}
+</code></pre>
+<p>Now you should get a result (given you have a color option for your variants), showing you how many unique colors there are for the product. Here's what happened:</p>
+<ol>
+<li>First we determined which index the <code>Color</code> option was. Because Shopify only allows for three options, this makes it a quick check.</li>
+<li>We grab the variants with <code>product.variants</code> and use <a href="https://help.shopify.com/themes/liquid/filters/array-filters#map"><code>map</code></a> to return the results for only <code>option1</code>, <code>option2</code>, or <code>option3</code> depending on the <code>color_index</code> value.</li>
+<li>We then run the results through <a href="https://help.shopify.com/themes/liquid/filters/array-filters#uniq"><code>uniq</code></a> to filter out duplicates.</li>
+</ol>
+<p>You can now apply the same logic to any options you want. Change the <code>color_label</code> variable to <code>Size</code> and you can get the same results but for sizes.</p>
+<p>Allowing the customer to quickly scan what they're looking for and selecting the product appropiate to their needs... this little bit of Liquid can easily help with conversion rates.</p>
+</div>]]></content:encoded></item></channel></rss>

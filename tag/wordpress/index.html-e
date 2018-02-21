@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>wordpress - OhMyBrew!</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="wordpress - OhMyBrew!" />
+    <meta property="og:url" content="https://ohmybrew.com/tag/wordpress/" />
+    <meta property="article:modified_time" content="2018-02-21T16:35:07.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="wordpress - OhMyBrew!" />
+    <meta name="twitter:url" content="https://ohmybrew.com/tag/wordpress/" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Series",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "url": "https://ohmybrew.com/tag/wordpress/",
+    "name": "wordpress",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="tag-template tag-wordpress">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+<header id="blog-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="blog-name">wordpress</h1>
+		<span class="blog-description">
+			Posts: 6
+		</span>
+	</div>
+</header>
+
+<div id="index" class="container">
+
+	<main class="content" role="main">
+	
+		<div class="extra-pagination">
+	<nav class="pagination" role="pagination">
+	<div class="inner">
+		<span class="pagination-info">Page 1 of 1</span>
+		<div class="clear"></div>
+	</div>
+</nav>
+</div>
+
+
+<article class="post tag-wordpress tag-docker tag-programming tag-process tag-php">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../wordpress-under-docker/index.html">Wordpress Under Docker: A Basic Guide</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="index.html">wordpress</a>, <a href="../docker/index.html">docker</a>, <a href="../programming/index.html">programming</a>, <a href="../process/index.html">process</a>, <a href="../php/index.html">php</a> | <time datetime="2017-06-15">15 Jun 2017</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Purpose There's many lengthy guides out there for the official Docker image for Wordpress. However, some people have a little trouble getting going so I will quickly provide some tips to help out. I haven't used Wordpress professionally in a long time, but I decided to do some weekend digging&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-wordpress tag-open-source tag-php tag-programming">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../wp-user-themes/index.html">WP User Themes</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="index.html">wordpress</a>, <a href="../open-source/index.html">open-source</a>, <a href="../php/index.html">php</a>, <a href="../programming/index.html">programming</a> | <time datetime="2015-05-21">21 May 2015</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>I've released a unit-tested plugin called Wp User Themes. It allows users to switch themes in their profile section (useful for development!) You can checkout the plugin here Cover image credit: Ben Kolde&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-tip tag-programming tag-php tag-wordpress">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../get-original-sized-images-from-a-wordpress-post-gallery/index.html">Get Original Sized Images from a Wordpress Post Gallery</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../tip/index.html">tip</a>, <a href="../programming/index.html">programming</a>, <a href="../php/index.html">php</a>, <a href="index.html">wordpress</a> | <time datetime="2014-11-08">08 Nov 2014</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Recently I was working on a project where I needed to modify an existing page which had multiple galleries. This change required me to have access to the original uploaded images. Heres a simple function I wrote which returns the images easily in an array format. # Input Hey comes see&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-programming tag-wordpress tag-php tag-open-source">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../acf-simple-table/index.html">ACF: Simple Table</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../programming/index.html">programming</a>, <a href="index.html">wordpress</a>, <a href="../php/index.html">php</a>, <a href="../open-source/index.html">open-source</a> | <time datetime="2014-07-18">18 Jul 2014</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>I've released a new GitHub repo. It's an add-on for popular ACF (Advanced Custom Fields) for Wordpress which allows you to create really custom post/taxonomy pages and more. I ran into an issue with a client a few months back where the client needed to enter table data but&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-open-source tag-php tag-programming tag-wordpress">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../phpmailer-contrib/index.html">PHPMailer Contrib</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../open-source/index.html">open-source</a>, <a href="../php/index.html">php</a>, <a href="../programming/index.html">programming</a>, <a href="index.html">wordpress</a> | <time datetime="2014-02-09">09 Feb 2014</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Myself and a fellow developer were working on updating a two/three year old plugin we developed for Wordpress this week. Its a fairly complex plugin which in one of its functions, relies on getting the recipients of e-mails sent out by Wordpress. During our upgrading of the code, we&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<article class="post tag-programming tag-tip tag-php tag-wordpress">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../woocommerce-sorting-products-by-category/index.html">Woocommerce - Sorting Product by Category</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="../programming/index.html">programming</a>, <a href="../tip/index.html">tip</a>, <a href="../php/index.html">php</a>, <a href="index.html">wordpress</a> | <time datetime="2013-10-05">05 Oct 2013</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one task, was to give the customers the ability to filter products on the product's page by a specific set of categories. In other words: Only show&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<nav class="pagination" role="pagination">
+	<div class="inner">
+		<span class="pagination-info">Page 1 of 1</span>
+		<div class="clear"></div>
+	</div>
+</nav>	
+	</main>
+
+</div>
+		<div id="body-class" style="display: none;" class="tag-template tag-wordpress"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>sinatra - OhMyBrew!</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="sinatra - OhMyBrew!" />
+    <meta property="og:url" content="https://ohmybrew.com/tag/sinatra/" />
+    <meta property="article:modified_time" content="2018-02-21T16:30:12.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="sinatra - OhMyBrew!" />
+    <meta name="twitter:url" content="https://ohmybrew.com/tag/sinatra/" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Series",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "url": "https://ohmybrew.com/tag/sinatra/",
+    "name": "sinatra",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="tag-template tag-sinatra">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+<header id="blog-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="blog-name">sinatra</h1>
+		<span class="blog-description">
+			Posts: 1
+		</span>
+	</div>
+</header>
+
+<div id="index" class="container">
+
+	<main class="content" role="main">
+	
+		<div class="extra-pagination">
+	<nav class="pagination" role="pagination">
+	<div class="inner">
+		<span class="pagination-info">Page 1 of 1</span>
+		<div class="clear"></div>
+	</div>
+</nav>
+</div>
+
+
+<article class="post tag-sinatra tag-ruby tag-process tag-liquid">
+	<div class="inner">
+		<header class="post-header">
+			<h2 class="post-title"><a href="../../activerecord-and-liquid-drops-with-sinatra/index.html">ActiveRecord and Liquid Drops with Sinatra</a></h2>
+			<span class="post-meta"><a href="../../author/tyler-king/index.html">Tyler King</a>  on <a href="index.html">sinatra</a>, <a href="../ruby/index.html">ruby</a>, <a href="../process/index.html">process</a>, <a href="../liquid/index.html">liquid</a> | <time datetime="2015-10-14">14 Oct 2015</time></span>
+			<div class="clear"></div>
+		</header>
+
+		<section class="post-excerpt">
+			<p>Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a specific template. Liquid templates (what Jekyll and Shopify uses) was perfect for this situation because it has a simple syntax for anyone to pick up&hellip;</p>
+		</section>
+	</div>
+</article>
+
+
+<nav class="pagination" role="pagination">
+	<div class="inner">
+		<span class="pagination-info">Page 1 of 1</span>
+		<div class="clear"></div>
+	</div>
+</nav>	
+	</main>
+
+</div>
+		<div id="body-class" style="display: none;" class="tag-template tag-sinatra"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

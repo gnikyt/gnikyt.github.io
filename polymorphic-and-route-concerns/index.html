@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Polymorphic and Route Concerns... who is who?</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Polymorphic and Route Concerns... who is who?" />
+    <meta property="og:description" content="The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let&#x27;s start with the basics... Polymorphic For those unfamiliar to it, Polymorphic is an Active Record association type where a model can belong to other models. As" />
+    <meta property="og:url" content="https://ohmybrew.com/polymorphic-and-route-concerns/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1510422136352-eaef78506ce5?ixlib&#x3D;rb-0.3.5&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1080&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;s&#x3D;c1aaf2d38bada0dd06d01b220673832f" />
+    <meta property="article:published_time" content="2016-01-01T12:55:00.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T16:13:17.000Z" />
+    <meta property="article:tag" content="ruby" />
+    <meta property="article:tag" content="rails" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="tip" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Polymorphic and Route Concerns... who is who?" />
+    <meta name="twitter:description" content="The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let&#x27;s start with the basics... Polymorphic For those unfamiliar to it, Polymorphic is an Active Record association type where a model can belong to other models. As" />
+    <meta name="twitter:url" content="https://ohmybrew.com/polymorphic-and-route-concerns/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1510422136352-eaef78506ce5?ixlib&#x3D;rb-0.3.5&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1080&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;s&#x3D;c1aaf2d38bada0dd06d01b220673832f" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="ruby, rails, programming, tip" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1620" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Polymorphic and Route Concerns... who is who?",
+    "url": "https://ohmybrew.com/polymorphic-and-route-concerns/",
+    "datePublished": "2016-01-01T12:55:00.000Z",
+    "dateModified": "2018-02-21T16:13:17.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1510422136352-eaef78506ce5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&s=c1aaf2d38bada0dd06d01b220673832f",
+        "width": 1080,
+        "height": 1620
+    },
+    "keywords": "ruby, rails, programming, tip",
+    "description": "The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let&#x27;s start with the basics... Polymorphic For those unfamiliar to it, Polymorphic is an Active Record association type where a model can belong to other models. As",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-ruby tag-rails tag-programming tag-tip">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Polymorphic and Route Concerns... who is who?</h1>
+		<span class="post-meta"><a href="../author/tyler-king/">Tyler King</a> | <time datetime="2016-01-01">01 Jan 2016</time></span>
+		<div class="post-cover cover" style="background-image: url('https://images.unsplash.com/photo-1510422136352-eaef78506ce5?ixlib&#x3D;rb-0.3.5&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1080&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;s&#x3D;c1aaf2d38bada0dd06d01b220673832f');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-ruby tag-rails tag-programming tag-tip">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let's start with the basics...</p>
+<h2 id="polymorphic">Polymorphic</h2>
+<p>For those unfamiliar to it, <a href="http://guides.rubyonrails.org/association_basics.html#polymorphic-associations">Polymorphic is an Active Record</a> association type where a model can belong to other models. As a simple example, you could have an <em>Ingredient</em> model which can be polymorphic and belong to different types of models such as <em>Baking</em>, <em>Cooking</em>, or <em>WitchesBrew</em>.</p>
+<h2 id="routeconcerns">Route Concerns</h2>
+<p>These are used in routing for Rails where you're able to declare common routes for resources. An example of this can be a <em>picture</em> concern, where many resources can have a picture route.</p>
+<pre><code class="language-ruby">concern :picturable do
+  resources :pictures
+end
+# ...
+resources :users, concerns: [:picturable]
+resources :customers, concerns: [:picturable]
+</code></pre>
+<h2 id="theproblem">The problem</h2>
+<p>If your polymorphic modal has a controller, how do you know what object is using it? How do you get the object itself? Let's start and assume I have a polymorphic modal for Metafields, so many modals can have metafields and we'll call it <em>fieldable</em>.</p>
+<pre><code class="language-ruby"># modals/metafield.rb
+module MyCoolApp
+  class Metafield &lt; ActiveRecord::Base
+    belongs_to :fieldable, polymorphic: true
+  end
+end
+</code></pre>
+<pre><code class="language-ruby"># modals/user.rb
+module MyCoolApp
+  class User &lt; ActiveRecord::Base
+    # ...
+    has_many :metafields, as: :fieldable, dependent: :destroy
+    # ...
+  end
+end
+</code></pre>
+<pre><code class="language-ruby"># modals/movie.rb
+module MyCoolApp
+  class Movie &lt; ActiveRecord::Base
+    # ...
+    has_many :metafields, as: :fieldable, dependent: :destroy
+    # ...
+  end
+end
+</code></pre>
+<p>So now, we have three modals. The <em>Metafield</em> modal which is polymorphic and a <em>User</em> and a <em>Movie</em> modal which can have these metafields. The <em>Metafield</em> modal will create a table in the database with <code>fieldable_type</code> and <code>fieldable_id</code> which should reference the modal class and the object's ID.</p>
+<p>Along with this, I've setup a Metafield controller so we can add, edit, and delete metafields for these other modals. With all this put together, we'll setup the routing concerns.</p>
+<pre><code class="language-ruby">concern(:fieldable) { resources :metafields }
+# ...
+resources :users do
+  concerns :fieldable
+end
+# ...
+resouces :movies do
+  concerns :fieldable
+end
+</code></pre>
+<p>Now, the user and movie resource routes will have metafield resource routes added to them. Which will create routes such as <code>/users/metafields</code>, <code>/users/metafields/new</code>, <code>/movies/metafields/3/edit</code>.</p>
+<p>However, for the metafield controller, how is it supposed to know if were accessing User metafields or Movie metafields when you're adding and editing? You could do things such as base it on the URL, or manual section, but thats not a great solution in the long run. There's easier and cleaner ways... by utilizing a mix of the routing concerns and a private method in the Metafield controller. Let's change our concern in the routing now to accept options and parameters.</p>
+<pre><code class="language-ruby"># Before
+concern(:fieldable) { resources :metafields }
+# After
+concern(:fieldable) {|opts| resources :metafields, opts}
+</code></pre>
+<p>Now let's pass a parameter to the concern per resource route.</p>
+<pre><code class="language-ruby">concern(:fieldable) {|opts| resources :metafields, opts}
+# ...
+resources :users do
+  concerns :fieldable, fieldable_type: &quot;MyCoolApp::Users&quot;
+end
+# ...
+resouces :movies do
+  concerns :fieldable, fieldable_type: &quot;MyCoolApp::Movies&quot;
+end
+</code></pre>
+<p>So now we're passing <code>fieldable_type</code> with the modal class to the concern which gets passed to the resource for metafields. We can now grab this parameter in the controller and it'll help us figure out what modal is trying to access the metafields. Let's add a method to the metafield controller now which will do this work for us.</p>
+<pre><code class="language-ruby">module MyCoolApp
+  class MetafieldsController &lt; ApplicationController
+      before_action :set_object
+      # ...
+      
+      private
+      def set_object
+        # Converts (as example) &quot;MyCoolApp::Movies&quot; string to &quot;movies_id&quot;
+        param_name   = &quot;#{params[:fieldable_type].demodulize.underscore}_id&quot;
+        
+        # Converts (as example) &quot;MyCoolApp::Movies&quot; string into a module reference
+        param_object = params[:fieldable_type].constantize
+        
+        # Grab the object now, as example: (object.find movie_id) -&gt; MyCoolApp::Movies.find 3
+        @object = param_object.find params[param_name]
+      end
+  end
+end
+</code></pre>
+<p>As you can see above, everything is now in place. We convert the <code>fieldable_type</code> value we passed in the concern into an module reference and an ID for whose trying to access it. <code>@object</code> will not be the User object or Movie object trying to access the metafields.</p>
+<p>Lastly, we can tie this into the forms for metafields creation/editing:</p>
+<pre><code class="language-html"># ...
+&lt;div class=&quot;hide&quot;&gt;
+  &lt;%= f.text_field :fieldable_id, value: @object.id %&gt;
+  &lt;%= f.text_field :fieldable_type, value: @object.class %&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Now when saved, the metafield record in the database will automatically set the modal class and the ID for the object.</p>
+<hr>
+<p><em>Cover image credit: (Marion Michele)[<a href="https://unsplash.com/photos/c1syC9YOBuI">https://unsplash.com/photos/c1syC9YOBuI</a>]</em></p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Polymorphic and Route Concerns... who is who?&url=https://ohmybrew.com/polymorphic-and-route-concerns/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/polymorphic-and-route-concerns/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/polymorphic-and-route-concerns/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/ruby/">ruby</a> <a href="../tag/rails/">rails</a> <a href="../tag/programming/">programming</a> <a href="../tag/tip/">tip</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../extending-a-rails-engine/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Extending a Rails Engine</h2>
+							<p class="post-nav-excerpt">Redesigning my CMS in Rails has been great fun. Theres been many&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../now-kegging/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Now: Kegging</h2>
+							<p class="post-nav-excerpt">Under the tree Christmas day, there was a large wrapped box from&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-ruby tag-rails tag-programming tag-tip"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Moving away from CanCanCan to Pundit</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Moving away from CanCanCan to Pundit" />
+    <meta property="og:description" content="What is Pundit &amp;amp; CanCanCan? Pundit is a simple, platform-agnostic, plain-ol-Ruby authorization library. It provides a set of helpers to get authorization done simply no matter if its plain Ruby, Sinatra, or Rails. CanCanCan is a fork of the original CanCan Gem for Rails. CanCanCan, like Pundit, is an authorization" />
+    <meta property="og:url" content="https://ohmybrew.com/moving-away-from-cancancan-to-pundit/" />
+    <meta property="article:published_time" content="2017-03-30T00:00:00.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T16:32:20.000Z" />
+    <meta property="article:tag" content="rails" />
+    <meta property="article:tag" content="ruby" />
+    <meta property="article:tag" content="process" />
+    <meta property="article:tag" content="programming" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Moving away from CanCanCan to Pundit" />
+    <meta name="twitter:description" content="What is Pundit &amp;amp; CanCanCan? Pundit is a simple, platform-agnostic, plain-ol-Ruby authorization library. It provides a set of helpers to get authorization done simply no matter if its plain Ruby, Sinatra, or Rails. CanCanCan is a fork of the original CanCan Gem for Rails. CanCanCan, like Pundit, is an authorization" />
+    <meta name="twitter:url" content="https://ohmybrew.com/moving-away-from-cancancan-to-pundit/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="rails, ruby, process, programming" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Moving away from CanCanCan to Pundit",
+    "url": "https://ohmybrew.com/moving-away-from-cancancan-to-pundit/",
+    "datePublished": "2017-03-30T00:00:00.000Z",
+    "dateModified": "2018-02-21T16:32:20.000Z",
+    "keywords": "rails, ruby, process, programming",
+    "description": "What is Pundit &amp;amp; CanCanCan? Pundit is a simple, platform-agnostic, plain-ol-Ruby authorization library. It provides a set of helpers to get authorization done simply no matter if its plain Ruby, Sinatra, or Rails. CanCanCan is a fork of the original CanCan Gem for Rails. CanCanCan, like Pundit, is an authorization",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/index.html" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-rails-6 tag-ruby tag-process tag-programming">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../index.html">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/index.html"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Moving away from CanCanCan to Pundit</h1>
+		<span class="post-meta"><a href="../author/tyler-king/index.html">Tyler King</a> | <time datetime="2017-03-29">29 Mar 2017</time></span>
+		
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-rails-6 tag-ruby tag-process tag-programming">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><h2 id="whatispunditcancancan">What is Pundit &amp; CanCanCan?</h2>
+<p><a href="https://github.com/elabs/pundit">Pundit</a> is a simple, platform-agnostic, plain-ol-Ruby authorization library. It provides a set of helpers to get authorization done simply no matter if its plain Ruby, Sinatra, or Rails.</p>
+<p><a href="https://github.com/CanCanCommunity/cancancan">CanCanCan</a> is a fork of the original CanCan Gem for Rails. CanCanCan, like Pundit, is an authorization library. Its specifically designed for Rails and provides a set of baked-in helpers to authorize models and controllers within Rails.</p>
+<h2 id="innerworkings">Inner Workings</h2>
+<p>Pundit relies on POROs… &quot;Policy&quot; classes. Each model can have a policy where you can define the methods accessible to the object attempting to access it (a user, a group, …). Each policy can have its own scope as well, example, an &quot;admin&quot; scope can see all entries in the database, while a &quot;manager&quot; can only see published entries in the database.</p>
+<pre><code class="language-ruby">class ArticlePolicy
+  #...
+  def create?
+    # Only admins can create articles
+    user.role? :admin
+  end
+  
+  #...
+  class Scope
+    #...
+    def resolve
+      if user.role? :admin
+        scope.all
+      else
+        scope.where(published: true)
+      end
+    end
+  end
+end
+
+class ArticleController
+  #...
+  def index
+    @articles = policy_scope(Article)
+  end
+  #...
+end
+
+#...
+
+&lt;%= link_to('Add Article', new_article_path) if policy(:article).create? %&gt;
+</code></pre>
+<p>So in the above example, we setup our simply policy. All policy methods return a boolean to determine if the object requesting access can perform the action. In the controller, we scope the articles using the scope defined in the policy. Then in the view, we can call the Article's policy and check if the current user is able to create an article. Very clear logic.</p>
+<p>CanCanCan, in all my past experiences, relies on a single Ability class tied to the object we're checking authorizations on. It's DSL is very simple and effective.</p>
+<pre><code class="language-ruby">class Ability
+  #...
+  if user.role? :admin
+    can :crud, :all
+  elsif user.role? :manager
+    can :read, Article, published: true
+    can [:update, :edit], Article, user: { id: user.id }
+    can :destory, Article
+  end
+  #...
+end
+
+#...
+
+&lt;%= link_to('Add Article', new_article_path) if can? :create, Article %&gt;
+</code></pre>
+<p>So in the above example, the user's abilities will be defined by the class. Scoping can be handled here as well. In the view, we then check if the user is able to create an article.</p>
+<h2 id="whyiswitched">Why I Switched</h2>
+<p>I'm current reviewing my own CMS' pull request for moving to Pundit. <a href="https://patch-diff.githubusercontent.com/raw/tyler-king/guts/pull/9.patch">It is a long one</a>… but worth it.</p>
+<p>CanCanCan is awesome. It provides quick boilerplate to bust out an authorization system that ties into Rails nicely. However, once you start getting into complex authorizations, it becomes cumbersome to manage.</p>
+<p>You start the need to do complex scoping which you then need to offload scoping logic into the model. You start to have many conflicting and confusing <code>can</code> and <code>cannot</code> statements. You start have a growing ability file which has everything mushed together and it becomes hard to read. Controllers start to have a lot of authorization magic happen which sometimes needs to have an override.</p>
+<p>Eventually its a mess. Yes you can spend time separating CanCanCan into more manageable pieces but then you look at Pundit, which does this already.</p>
+<p>With Pundit… everything has its own class, a simple PORO, and their own scopes… very easy to look up and see at a glance what is happening. Although with Pundit you are writing more explicitly in the controllers, its actually more beneficial because another person can easily read your controllers/views and know exactly whats happening without &quot;magic&quot; that comes with CanCanCan.</p>
+<p>I simply switched because I felt Pundit is more manageable and a better long-term solution than CanCanCan. I now have more readable code, more maintainable code, and code thats easily overridable by others.</p>
+<h2 id="whentouseeach">When to use each?</h2>
+<p>Both libraries are great and both get the job done. In my opinion, if you need something quick and don't have a lot of logic at play, CanCanCan will fit right in your flow. If you want more fine-grained control and separation, give Pundit a try!</p>
+<p>Either way, with both, you will not be disappointed. Both libraries are well documented, well written and contribute greatly to the Ruby and Rails communities.</p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Moving away from CanCanCan to Pundit&url=https://ohmybrew.com/moving-away-from-cancancan-to-pundit/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/moving-away-from-cancancan-to-pundit/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/moving-away-from-cancancan-to-pundit/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/rails-6/index.html">rails</a> <a href="../tag/ruby/index.html">ruby</a> <a href="../tag/process/index.html">process</a> <a href="../tag/programming/index.html">programming</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/index.html">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../developing-sanely-on-windows-revisited/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Developing sanely on Windows: Revisited</h2>
+							<p class="post-nav-excerpt">Back in November I wrote a post about how to develop sanely&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../opinion-when-to-use-a-vps-vs-pass/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Opinion: When to use a VPS vs PaaS</h2>
+							<p class="post-nav-excerpt">Introduction Well this is my first post for 2017. I've been very&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-rails-6 tag-ruby tag-process tag-programming"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Theme: Attila by zutrinken, powered by: Ghost -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Reactive VueJS Plugins</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=4f8314772c" />
+
+	<link rel="shortcut icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/" />
+    
+    <meta property="og:site_name" content="OhMyBrew!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Reactive VueJS Plugins" />
+    <meta property="og:description" content="VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple view layer. Plugins &amp;amp; Reactivity Plugins in Vue, allow you to extract code into a re-usable module." />
+    <meta property="og:url" content="https://ohmybrew.com/reactive-vuejs-plugins/" />
+    <meta property="article:published_time" content="2017-06-29T12:36:22.000Z" />
+    <meta property="article:modified_time" content="2018-02-21T16:37:10.000Z" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="tip" />
+    <meta property="article:tag" content="javascript" />
+    <meta property="article:tag" content="vuejs" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Reactive VueJS Plugins" />
+    <meta name="twitter:description" content="VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple view layer. Plugins &amp;amp; Reactivity Plugins in Vue, allow you to extract code into a re-usable module." />
+    <meta name="twitter:url" content="https://ohmybrew.com/reactive-vuejs-plugins/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Tyler King" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="programming, tip, javascript, vuejs" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "OhMyBrew!",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ohmybrew.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Tyler King",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://ohmybrew.com/author/tyler-king/",
+        "sameAs": [
+            "https://ohmybrew.com"
+        ]
+    },
+    "headline": "Reactive VueJS Plugins",
+    "url": "https://ohmybrew.com/reactive-vuejs-plugins/",
+    "datePublished": "2017-06-29T12:36:22.000Z",
+    "dateModified": "2018-02-21T16:37:10.000Z",
+    "keywords": "programming, tip, javascript, vuejs",
+    "description": "VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple view layer. Plugins &amp;amp; Reactivity Plugins in Vue, allow you to extract code into a re-usable module.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ohmybrew.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../public/ghost-sdk.js?v=4f8314772c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "af2244026b4c"
+});
+</script>
+    <meta name="generator" content="Ghost 1.21" />
+    <link rel="alternate" type="application/rss+xml" title="OhMyBrew!" href="../rss/" />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101589108-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</head>
+
+<body class="post-template tag-programming tag-tip tag-javascript-2 tag-vuejs">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="../">Home</a></li>
+			<li class="nav-github" role="presentation"><a href="https://github.com/ohmybrew"><i class="ic ic-star"></i> Github</a></li>
+			
+			<li class="nav-rss"><a href="../rss/"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="../" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Reactive VueJS Plugins</h1>
+		<span class="post-meta"><a href="../author/tyler-king/">Tyler King</a> | <time datetime="2017-06-29">29 Jun 2017</time></span>
+		
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-programming tag-tip tag-javascript-2 tag-vuejs">
+		<div class="inner">
+
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple view layer.</p>
+<h2 id="pluginsreactivity">Plugins &amp; Reactivity</h2>
+<p><a href="https://vuejs.org/v2/guide/plugins.html">Plugins in Vue</a>, allow you to extract code into a re-usable module. The plugins allow you to create global mixins, methods, properties, and more. It has the added benefit of keeping your code modularized, clean, and doesn't pollute your app's main instance.</p>
+<p><a href="https://vuejs.org/v2/guide/reactivity.html">Reactivity in Vue</a> is simply a way of describing something that watches for changes in state/data and reacts to it. Vue watches for changes in data, which in turn causes the component to re-render, showing the updated state.</p>
+<h2 id="usecase">Use Case</h2>
+<p>As mentioned, creating plugins can keep your code modularized and your main app instance clean. There could be many reasons you'd need a plugin to track data (be reactive).</p>
+<p>One example is if you're depending on a third-party service for data. You need to request this data, process it, save it, and display it. This takes time. By the time the request is completed your Vue instance may be rendered and your data will not display.</p>
+<h2 id="building">Building</h2>
+<p>Lets build a sports ticker to show the latest score result from some sports team.</p>
+<p>The key to making your data reactive in your plugin is simple... create a new Vue instance which holds the data.</p>
+<pre><code class="language-javascript">// plugins/sports-ticker.js
+
+/**
+ * Simple sports ticker class
+ */
+class SportsTicker {
+  /**
+   * @constructor
+   */
+  constructor(Vue, team) {
+    this.team = team;
+
+    // Lets make a new instance to store the data
+    this.storeVM = new Vue({
+      data() {
+        return {
+          team,
+          gameTime: null,
+          score: {
+            home: null,
+            away: null,
+          },
+        };
+      },
+    });
+    
+    // Fetch the scores
+    this.fetchData();
+  }
+
+  /**
+   * Gets the state of the data
+   * @return {Object}
+   */
+  get state() {
+    return this.storeVM.$data;
+  }
+  
+  /**
+   * Simple fetch to grab the data
+   */
+  fetchData() {
+    fetch(`https://some-api.com/games/${this.team}/last`)
+    	.then(resp =&gt; resp.json())
+    	.then((data) =&gt; {
+    		this.state.gameTime = data.game_time;
+    		this.state.score = {
+    			home: data.home_score,
+     			away: data.away_score
+    		};
+   		})
+    ;
+  }
+}
+
+export default {
+  /**
+   * Install sports ticker plugin
+   * @param {Vue} Vue - Vue instance
+   * @param {Object} options - Options for the plugin
+   */
+  install: (Vue, options = {}) =&gt; {
+    Vue.prototype.$SportsTicker = new SportsTicker(
+      Vue,
+      options.team
+    );
+  },
+};
+
+// Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker);
+
+</code></pre>
+<p>That's all that's to it.</p>
+<p>What we've done is created a class to keep our logic separate from the Vue plugin installation code. Then, we register the plugin with the options (in this case, just team name). In the SportsTicker class, we create a new Vue instance with its own data store filled with dummy/default data. We create a <code>get state</code> method so we can quickly access the data of the Vue instance we created. Next, we fetch the data, process it, and write it back to our Vue instance.</p>
+<p>With all this in play, our data is now reactive.</p>
+<pre><code class="language-html">&lt;template v-if=&quot;$SportsTicker.state.gameTime&quot;&gt;
+  {% raw %}
+  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}
+  {% endraw %}
+&lt;/template&gt;
+</code></pre>
+<p>Because the data is reactive, the above view snippet will not show until we have data (checking <code>gameTime</code> is not null in this case). When the data is processed, it will trigger Vue to render the template and show the data.</p>
+<p>All we needed to do was create our own Vue instance for the plugin to store the data, with a simple method to access it (<code>get state</code>).</p>
+</div>
+			</section>
+
+			<section class="post-info">
+
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Reactive VueJS Plugins&url=https://ohmybrew.com/reactive-vuejs-plugins/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://ohmybrew.com/reactive-vuejs-plugins/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=https://ohmybrew.com/reactive-vuejs-plugins/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+
+				<aside class="post-tags">
+					<a href="../tag/programming/">programming</a> <a href="../tag/tip/">tip</a> <a href="../tag/javascript-2/">javascript</a> <a href="../tag/vuejs/">vuejs</a>
+				</aside>
+
+				<div class="clear"></div>
+
+				<aside class="post-author">
+					<figure class="post-author-avatar avatar">
+							<img src="http://www.gravatar.com/avatar/b866d161c9f02b7384a0940cb07135bc?s=250&amp;d=mm&amp;r=x" alt="Tyler King" />
+					</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../author/tyler-king/">Tyler King</a></h4>
+							<p class="post-author-about">I'm a loving father, passionate homebrewer, motorcycle rider, and of course.. a coder. I develop solutions through experience.</p>
+							<span class="post-author-location"><i class="ic ic-location"></i> Newfoundland</span>
+							<span class="post-author-website"><i class="ic ic-link"></i> <a href="https://ohmybrew.com">Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			</section>
+
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../introducing-shopify-for-laravel/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Introducing Laravel Shopify</h2>
+							<p class="post-nav-excerpt">Background As an active Ruby (and Rails) developer, I found myself regularly&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../wordpress-under-docker/">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Wordpress Under Docker: A Basic Guide</h2>
+							<p class="post-nav-excerpt">Purpose There's many lengthy guides out there for the official Docker image&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-programming tag-tip tag-javascript-2 tag-vuejs"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../assets/js/script.js?v=4f8314772c"></script>
+
+	
+</body>
+</html>
