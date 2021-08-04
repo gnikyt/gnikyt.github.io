@@ -11,12 +11,13 @@ body.scheme-light {
 
     & > footer {
         h3 {
-            color: $light-link;
+            /* color: $light-link; */
+            color: $light-font-faded;
         }
 
-        /* img {
+        img {
            border: 0.3rem solid $light-img-border;
-        } */
+        }
 
         hr {
             border-color: $light-footer-sep;
@@ -50,7 +51,12 @@ body.scheme-light {
         article {
             header {
                 time {
-                    color: $light-font-faded;
+                    /* color: $light-font-faded; */
+                    color: $light-meta-accent;
+                }
+
+                h1 {
+                    color: $light-meta;
                 }
             }
 
