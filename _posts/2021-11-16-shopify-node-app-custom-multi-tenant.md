@@ -211,7 +211,7 @@ This middleware file for Koa will verify HMAC strings.
 ```javascript
 # ./src/server/middleare/verifyHmac.js
 import Shopify from "@shopify/shopify-api";
-import { generateLocalHmac } from "../../services/utils";
+import { generateLocalHmac, cleanDomain } from "../../services/utils";
 
 /**
  * Verify HMAC.
@@ -222,13 +222,14 @@ import { generateLocalHmac } from "../../services/utils";
 const verifyHmac = async (ctx, next) => {
   // Remove HMAC
   const { query } = ctx;
-  const { hmac } = query;
+  const { hmac, shop } = query;
   delete ctx.query.hmac;
 
   // Generate a local HMAC
+  const domain = cleanDomain(shop);
   const localHmac = generateLocalHmac(
     query,
-    Shopify.Context.API_SECRET_KEY
+    process.env[`SHOPIFY_API_SECRET_${domain}`]
   );
 
   // Validate the HMAC
