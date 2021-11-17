@@ -136,12 +136,14 @@ export function generateLocalHmac(query, secret) {
 }
 ```
 
-### Middleware Addition
+### Middleware Additions
+
+#### ShopContext
 
 This middleware file for Koa will create the Shopify context.
 
 ```javascript
-# ./src/server/middleware/shopEnv.js
+# ./src/server/middleware/shopContext.js
 import Shopify, { ApiVersion } from "@shopify/shopify-api";
 import { cleanDomain } from "../../services/utils";
 
@@ -151,7 +153,7 @@ import { cleanDomain } from "../../services/utils";
  * @param {*} next The next code to hit.
  * @returns any
  */
-const shopEnv = async (ctx, next) => {
+const shopContext = async (ctx, next) => {
   // Find the Shopify domain
   const { shop } = ctx.query;
   const shopDomain = ctx.request.headers["x-shopify-shop-domain"];
@@ -171,7 +173,7 @@ const shopEnv = async (ctx, next) => {
   return await next();
 };
 
-export default shopEnv;
+export default shopContext;
 ```
 
 Now open your `server/server.js` file and include the middleware for use on every backend route. Example:
@@ -185,15 +187,15 @@ import shopEnv from "../src/server/middleware/shopEnv";
 // Example
 router.post(
     "/customer/register",
-    shopEnv, # <---- middleware
-    shopContext,
+    shopContext, # <---- middleware
+    shopState,
     errWrap(customerRegister)
 );
 
 // Example
 router.get(
     "(.*)",
-    shopEnv, # <---- middleware
+    shopContext, # <---- middleware
     defaultRequest(handle)
 );
 ```
@@ -202,30 +204,30 @@ As well, remove the default `Shopify.Context` declaration in the `server.js` fil
 
 Now, all API requests in your handlers will use the shop's API key and secret.
 
-### Handler Addition
+#### VerifyHmac
 
-We need to pass the proper API key to AppBridge. To do this, we will create a handler to verify the HMAC and return the proper API key if the HMAC is valid.
+This middleware file for Koa will verify HMAC strings.
 
 ```javascript
-# ./src/server/handlers/backend/appbridge.js
-import { createError, generateLocalHmac } from "../../../services/backendUtils";
-import { cleanDomain } from "../../../services/utils";
+# ./src/server/middleare/verifyHmac.js
 import Shopify from "@shopify/shopify-api";
+import { generateLocalHmac } from "../../services/utils";
 
 /**
- * AppBridge setup.
- * Will verify the HMAC and return an API key for use.
- * @param {*} ctx Koa context.
- * @returns void
+ * Verify HMAC.
+ * @param {*} ctx The Koa context.
+ * @param {*} next The next code to hit.
+ * @returns any
  */
-const appbridge = async (ctx) => {
+const verifyHmac = async (ctx, next) => {
   // Remove HMAC
-  const hmac = ctx.query.hmac;
+  const { query } = ctx;
+  const { hmac } = query;
   delete ctx.query.hmac;
 
   // Generate a local HMAC
   const localHmac = generateLocalHmac(
-    ctx.query,
+    query,
     Shopify.Context.API_SECRET_KEY
   );
 
@@ -239,6 +241,26 @@ const appbridge = async (ctx) => {
     return;
   }
 
+  return await next();
+};
+
+export default verifyHmac;
+```
+
+### Handler Addition
+
+We need to pass the proper API key to AppBridge.
+
+```javascript
+# ./src/server/handlers/backend/appbridge.js
+import { cleanDomain } from "../../../services/utils";
+
+/**
+ * AppBridge setup.
+ * @param {*} ctx Koa context.
+ * @returns void
+ */
+const appbridge = async (ctx) => {
   // Get the API key for the shop
   const domain = cleanDomain(ctx.query.shop);
   const key = process.env[`SHOPIFY_API_KEY_${domain}`];
@@ -248,18 +270,20 @@ const appbridge = async (ctx) => {
 };
 
 export default appbridge;
+
 ```
 
-Now open `server/server.js` to add a route for this.
+Now open `server/server.js` to add a route for this as well as the `VerifyHmac` middleware.
 
 ```javascript
 # ./server/server.js
 // ...
 import appbridge from "../src/server/handlers/backend/appbridge";
+import verifyHmac from "../src/server/middleware/verifyHmac";
 // ...
 
 // Route: AppBridge API key
-router.get("/_appbridge", appbridge);
+router.get("/_appbridge", verifyHmac, appbridge);
 ```
 
 ### AppBridge Integration
