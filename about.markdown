@@ -24,8 +24,8 @@ A combination of two Egyptian gods &mdash; Osiris and his brother Set. Combining
 ### I regularly develop with
 
 - Python
+- NodeJS (NodeJS, Typescript, Javascript)
 - PHP
-- Typescript / Javascript
 
 ### I dabble with
 
@@ -42,7 +42,6 @@ A combination of two Egyptian gods &mdash; Osiris and his brother Set. Combining
 - [gowith](https://github.com/osiset/gowith) - Golang; Python's "with" implemented in Go.
 - [with](https://github.com/osiset/with) - PHP; Python's "with" implemented in PHP.
 - [http_shopify_webhook](https://github.com/osiset/http_shopify_webhook) - Golang; Webhook verification for Shopify.
-- [Theme Deploy](https://github.com/osiset/Shopify-Theme-Deploy) - Golang; An automated, delta, theme release helper for Shopify.
 
 <!-- 
 ## Where I started
