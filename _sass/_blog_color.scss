@@ -1,7 +1,4 @@
-/**
- * Light Scheme
- */
-body.scheme-light {
+body {
     background: $light-bkg;
     color: $light-font;
 
@@ -86,53 +83,6 @@ body.scheme-light {
 
         .warning.post-old {
             background-color: lighten($light-heading, 35%);
-        }
-    }
-}
-
-/**
- * Dark Scheme
- */
-body.scheme-dark {
-    background: $dark-bkg;
-    color: $dark-font;
-
-    a {
-        color: $dark-link;
-    }
-
-    & > footer {
-        color: $dark-footer-color;
-
-        img {
-            border: 0.3rem solid $dark-img-border;
-        }
-
-        hr {
-            border-color: $dark-footer-sep;
-        }
-
-        .button {
-            background: $dark-footer-btn-bkg;
-            color: $dark-footer-btn;
-
-            &.filled {
-                background: $dark-footer-btn-filled-bkg;
-                color: $dark-footer-btn-filled;
-            }
-        }
-    }
-
-
-    main {
-        h1, h2, h3, h4, h5, h6 {
-            color: $dark-heading;
-        }
-    }
-
-    &.post {
-        .warning.post-old {
-            background-color: lighten($dark-heading, 35%);
         }
     }
 }

@@ -59,7 +59,7 @@ ul {
 code {
     &.highlighter-rouge {
         font-size: 0.8em;
-        border: 2px dotted;
+        border: 1px solid;
         padding: 0 0.4em;
     }
 }
@@ -117,14 +117,4 @@ code {
             margin: 1em 0 0 0;
         }
     }
-}
-
-#theme-switch {
-    width: 30px;
-    height: auto;
-    position: fixed;
-    bottom: 1%;
-    right: .5%;
-    opacity: 0.6;
-    cursor: pointer;
 }
