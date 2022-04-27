@@ -6,6 +6,12 @@ body {
         color: $light-link;
     }
 
+    & > header {
+        a {
+            color: $light-logo-color;
+        }
+    }
+
     & > footer {
         h3 {
             /* color: $light-link; */
@@ -48,26 +54,26 @@ body {
         article {
             header {
                 time {
-                    /* color: $light-font-faded; */
                     color: $light-meta-accent;
                 }
 
                 h1 {
-                    color: $light-meta;
+                    // color: $light-meta;
+                    color: $light-heading;
                 }
             }
 
             code {
                 &.highlighter-rouge {
                     border-color: $light-meta-accent;
-                    background: $light-bkg-alt;
+                    background: $light-code-fence-bkg;
                 }
             }
 
             pre {
                 border-color: $light-meta-accent;
                 border-left-color: $light-meta-accent;
-                background: $light-bkg-alt;
+                background: $light-code-fence-bkg;
             }
 
             p {
@@ -82,7 +88,7 @@ body {
         }
 
         .warning.post-old {
-            background-color: lighten($light-heading, 35%);
+            background-color: $light-warn-bkg;
         }
     }
 }

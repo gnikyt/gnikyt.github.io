@@ -6,4 +6,4 @@ CSS: Concrete.css, Normalize.css
 
 ## Development
 
-`docker-compose up`
+Using Podman: `bin/start`

@@ -109,6 +109,14 @@ code {
             text-align: right;
         }
 
+        h2, h3, h4, h5, h6 {
+            font-weight: 400;
+        }
+
+        a {
+            font-weight: 500;
+        }
+
         .warning.post-old {
             padding: .5em;
             font-size: 80%;

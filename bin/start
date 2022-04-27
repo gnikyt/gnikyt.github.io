@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+podman run -it --rm --name osiset_jekyll \
+    -v .:/srv/jekyll:rw,slave,Z \
+    -v ./_site:/srv/jekyll/_site \
+    -v ./vendor/bundle:/usr/local/bundle:rw,slave,Z \
+    -v ./.jekyll-cache:/srv/jekyll/.jekyll-cache \
+    --publish 4000:4000  \
+    -e JEKYLL_UID=$(id -u) \
+    -e JEKYLL_GID=$(id -g) \
+    docker.io/jekyll/jekyll:3.8.5 \
+    jekyll serve --drafts --livereload --verbose
