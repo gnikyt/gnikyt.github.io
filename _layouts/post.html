@@ -6,7 +6,7 @@
         <p><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time></p>
     </header>
 
-    {{ content }}
+    {% include anchor_headings.html html=content anchorBody="#" anchorClass="anchor" %}
 
     <footer>
         <small>
