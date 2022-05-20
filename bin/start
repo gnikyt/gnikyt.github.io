@@ -9,4 +9,4 @@ podman run -it --rm --name osiset_jekyll \
     -e JEKYLL_UID=$(id -u) \
     -e JEKYLL_GID=$(id -g) \
     docker.io/jekyll/jekyll:3.8.5 \
-    jekyll serve --drafts --livereload --verbose
+    jekyll serve --drafts --future --livereload --verbose
