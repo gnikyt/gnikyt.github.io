@@ -39,7 +39,7 @@ jobs:
         with:
           push: origin HEAD:master
           default_author: github_actions
-          message: "Updated settings_schema.json to version '${{ github.ref_name }}'"
+          message: "Updated settings_schema.json to version {% raw %}'${{ github.ref_name }}'{% endraw %}"
           add: config/settings_schema.json
 ```
 
