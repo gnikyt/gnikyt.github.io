@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% seo %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
 
-        {%- if site.css == 'inline' %}
-            <style>{% capture inline-styles %}{% include style.scss %}{% endcapture %}{{ inline-styles | scssify }}</style>
-        {% else %}
-            <link href="/css/style.css" rel="stylesheet">
-        {% endif -%}
-        <link href="/feed.xml" rel="self" type="application/atom+xml">
-        <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/assets/images/favicon.png" sizes="32x32" type="image/png">
-    </head>
-    <body class="scheme-light {% if page.layout == 'home' %}home{% else %}post{% endif %}">
-        <header class="container">
-            <span><a href="/">{{ site.title }}</a></span>
-            <span>{{ site.tagline }}</span>
-        </header>
-        <main class="container">
+    {%- if site.css == 'inline' %}
+        <style>{% capture inline-styles %}{% include style.scss %}{% endcapture %}{{ inline-styles | scssify }}</style>
+    {% else %}
+        <link href="/css/style.css" rel="stylesheet">
+    {% endif -%}
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon.png" sizes="32x32" type="image/png">
+    <link rel="self" ref="/feed.xml" type="application/atom+xml">
+</head>
+<body class="scheme-light {% if page.layout == 'home' %}home{% else %}post{% endif %}">
+    <header class="container">
+        <span><a href="/">{{ site.title }}</a></span>
+        <span>{{ site.tagline }}</span>
+    </header>
+    <main class="container">
