@@ -68,6 +68,10 @@ body {
                     border-color: $light-meta-accent;
                     background: $light-code-fence-bkg;
                 }
+
+                .err {
+                    visibility: hidden;
+                }
             }
 
             pre {
