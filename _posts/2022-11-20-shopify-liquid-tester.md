@@ -63,6 +63,8 @@ Previously, I had attempted a similar setup with Ruby, since Shopify's Liquid li
 
 While the implementation worked great, it had flaws of not being able to utilize Shopify data or Shopify's custom Liquid filters such as `asset_url`, `img_tag`, `money`, etc. which could lead to some snippets not producing a true result to what it would on Shopify's servers.
 
+Given the process to get a result of the snippet rendering, the tool really could've been developed in any language such as Go, or Python, etc. however, given majority of Shopify developers most likely know their way around Javascript, then it made sense to go down that path.
+
 ## Utilization
 
 Similarly stated in the README of the repository, if you place your Liquid function snippet into the `tests` directory, with a defined test suite to match, you will be able to unit test the result of the snippet. Because its executed on the Shopify store, the snippet you wish to test will have access to everything for Shopify's Liquid and the store itself; such as `request`, `all_products`, `| asset_url`, etc.

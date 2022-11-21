@@ -8,7 +8,7 @@ _Hello World_. I'm {{ site.about_name | split: ' ' | first }} &mdash; {{ site.ab
 
 ## The name
 
-**Osiset**; _oh-sy-set_.
+**Osiset**; _oh-sy-set_; _oʊˈsaɪ'sɛt_
 
 A combination of two Egyptian gods &mdash; Osiris and his brother Set. Combining the two together gives a glimpse to the elements of development... birth, death, resurrection, disorder, and chaos that a project or process goes through.
 
@@ -18,18 +18,18 @@ A combination of two Egyptian gods &mdash; Osiris and his brother Set. Combining
 
 - Backend systems
 - Integrations between systems
-- Shopify & Shopify apps
+- Shopify themes and Shopify apps
 - Development consulting
 
 ### I regularly develop with
 
-- Python
+- Go
 - NodeJS (NodeJS, Typescript, Javascript)
 - PHP
 
 ### I dabble with
 
-- Golang
+- Python
 - React Native/Flutter
 - Hardware development with BLE and NFC communications
 - Open source contributions
