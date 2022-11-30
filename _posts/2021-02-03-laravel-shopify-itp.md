@@ -7,7 +7,7 @@ date: '2021-02-03 10:28:34'
 
 ## Background
 
-[Laravel Shopify](https://github.com/osiset/laravel-shopify) is a package I started a few years ago which gained quite a bit of community traction. It is a full-featured package that helps you get up-and-running with developing Shopify apps with Laravel.
+[Laravel Shopify](https://github.com/gnikyt/laravel-shopify) is a package I started a few years ago which gained quite a bit of community traction. It is a full-featured package that helps you get up-and-running with developing Shopify apps with Laravel.
 
 Around 2017, Safari, and later other browsers, began blocking browser storage access for third-parties. This includes cookies, session storage, local storage, and more. This was called "Intelligent Tracking Prevention" (ITP).
 
@@ -45,4 +45,4 @@ Alternatively, you can skip the standard flow and utilize JWT which was introduc
 
 ITP is still fairly new and still evolving with differences between browsers. The v16.0.0 release of the package will work well for mostly everyone, but more work may still need to be done in the future to correct some quirks.
 
-For additional information, see the [ITP](https://github.com/osiset/laravel-shopify/wiki/ITP) wiki page on the repository. Also, thank you to the community for the assistance and patience during this large issue.
+For additional information, see the [ITP](https://github.com/gnikyt/laravel-shopify/wiki/ITP) wiki page on the repository. Also, thank you to the community for the assistance and patience during this large issue.

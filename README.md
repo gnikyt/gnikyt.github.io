@@ -1,4 +1,4 @@
-# osiset.com
+# gnikyt.com
 
 Powered by Jekyll.
 

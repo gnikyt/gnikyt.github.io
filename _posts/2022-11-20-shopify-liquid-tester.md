@@ -37,7 +37,7 @@ A very basic example:
 
 For such a small "function", no one would second guess, however, working with merchant data is sometimes a challenge... What if there is multiple `:` in the tag string? What if we need the resulting value converted to something else, consistently?
 
-We can not unit test Liquid files in the context of a Shopify store very easily, which is why I developed a handly tool called [liquid-fn-tester](https://github.com/osiset/liquid-fn-tester) to assist with this for our clients.
+We can not unit test Liquid files in the context of a Shopify store very easily, which is why I developed a handly tool called [liquid-fn-tester](https://github.com/gnikyt/liquid-fn-tester) to assist with this for our clients.
 
 ## How it works
 
@@ -71,7 +71,7 @@ Similarly stated in the README of the repository, if you place your Liquid funct
 
 Your test suite will have full control over setup, snippet initilization, teardown, output, and more.
 
-The repository's [provided examples](https://github.com/osiset/liquid-fn-tester/tree/master/tests) is a great guide for how everything comes together and how you can test a single snippet against multiple values.
+The repository's [provided examples](https://github.com/gnikyt/liquid-fn-tester/tree/master/tests) is a great guide for how everything comes together and how you can test a single snippet against multiple values.
 
 ![Liquid Fn Example](/assets/images/2022/11/liquid-fn.png)
 

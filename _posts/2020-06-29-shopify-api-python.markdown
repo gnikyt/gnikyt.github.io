@@ -7,11 +7,11 @@ date: '2020-06-29 12:31:02'
 
 ## Introduction
 
-I maintain a fairly used [PHP](https://github.com/osiset/Basic-Shopify-API) library for Shopify API which uses Guzzle for sync/async requests. It was also recently featured as a recommended third-party library on Shopify's dev docs.
+I maintain a fairly used [PHP](https://github.com/gnikyt/Basic-Shopify-API) library for Shopify API which uses Guzzle for sync/async requests. It was also recently featured as a recommended third-party library on Shopify's dev docs.
 
 For Python, which I also use with Shopify work, I didn't notice a library which provides async abilities. Normally I use Shopify's Python library which provides a nice ActiveResource implementation. However, their library has no plans to support async.
 
-I decided to create a tested library that can do both, [basic_shopify_api](https://github.com/osiset/basic_shopify_api). It is a loose port of my PHP version which supports sync, async, HMAC validation, rate limiting, automatic retries, REST, and GraphQL; all backed by the HTTPX package.
+I decided to create a tested library that can do both, [basic_shopify_api](https://github.com/gnikyt/basic_shopify_api). It is a loose port of my PHP version which supports sync, async, HMAC validation, rate limiting, automatic retries, REST, and GraphQL; all backed by the HTTPX package.
 
 You simply need to set up some basic options and create a session for a shop to get started.
 

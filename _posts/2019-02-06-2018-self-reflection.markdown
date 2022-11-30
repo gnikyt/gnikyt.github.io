@@ -13,7 +13,7 @@ It is a couple of months into 2019 already! I sat down and thought about all I'v
 
 Last year I hunkered down and focused on my open source projects.
 
-A few silly ones like [movie-barcode](https://github.com/osiset/movie-barcode), [CloudApp-Bash](https://github.com/osiset/cloudapp-bash), or [With](https://github.com/osiset/with) and some more important ones, which have gained some popularity, such as [Laravel Shopify](https://github.com/osiset/laravel-shopify) and [Basic Shopify](https://github.com/osiset/Basic-Shopify-API) API.
+A few silly ones like [movie-barcode](https://github.com/gnikyt/movie-barcode), [CloudApp-Bash](https://github.com/gnikyt/cloudapp-bash), or [With](https://github.com/gnikyt/with) and some more important ones, which have gained some popularity, such as [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) and [Basic Shopify](https://github.com/gnikyt/Basic-Shopify-API) API.
 
 Focusing on my open source work has not only allowed me to refine my existing public code (which some of it has aged), keep self-improving, but also help others who've faced similar issues.
 

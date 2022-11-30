@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-podman run -it --rm --name osiset_jekyll \
+podman run -it --rm --name gnikyt_jekyll \
     -v .:/srv/jekyll:rw,slave,Z \
     -v ./_site:/srv/jekyll/_site \
     -v ./vendor/bundle:/usr/local/bundle:rw,slave,Z \

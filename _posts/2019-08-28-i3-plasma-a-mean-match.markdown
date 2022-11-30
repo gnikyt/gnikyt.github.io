@@ -59,11 +59,11 @@ Several tweaks are needed to ensure an environment that works well for Plasma an
 
 This involves killing off Plasma desktop, telling i3 how to handle certain windows/popups/dialogs, and configuring launchers.
 
-[.Xresources](https://github.com/osiset/dots/blob/master/.Xresources) is a great way to configure cross-compatible settings for cursors, fonts, colors, and more. Mine simply has just that - colors, cursors, fonts, and some settings for URxvt (terminal).
+[.Xresources](https://github.com/gnikyt/dots/blob/master/.Xresources) is a great way to configure cross-compatible settings for cursors, fonts, colors, and more. Mine simply has just that - colors, cursors, fonts, and some settings for URxvt (terminal).
 
 You can utilize your Xresources to pull in config values into i3.
 
-[Here is my i3 config](https://github.com/osiset/dots/blob/master/.config/i3/config), which has pre-defined settings for handling the different Plasma windows. I have several standard keybindings defined, launchers, and window management. You can go in-depth as you like... you can target certain windows/popups/window-titles and more to do anything you like. You can have certain windows float, certain windows open on a monitor or workspace, certain windows have priorities, certain windows that open next to other certain windows, and so forth; you can go nuts!
+[Here is my i3 config](https://github.com/gnikyt/dots/blob/master/.config/i3/config), which has pre-defined settings for handling the different Plasma windows. I have several standard keybindings defined, launchers, and window management. You can go in-depth as you like... you can target certain windows/popups/window-titles and more to do anything you like. You can have certain windows float, certain windows open on a monitor or workspace, certain windows have priorities, certain windows that open next to other certain windows, and so forth; you can go nuts!
 
 ### Bars
 

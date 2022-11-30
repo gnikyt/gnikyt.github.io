@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://osiset.com/sitemap.xml
+Sitemap: https://gnikyt.com/sitemap.xml

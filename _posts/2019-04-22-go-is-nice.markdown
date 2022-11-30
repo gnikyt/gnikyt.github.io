@@ -7,7 +7,7 @@ date: '2019-04-22 02:32:29'
 
 I've been coding with Golang in my spare time for the past year. It's been different from the regular day-to-day Python, PHP, and Typescript.
 
-I've released a few side projects such as a [simple blockchain implementation](https://github.com/osiset/gochain), a [webhook validator for Shopify](https://github.com/osiset/http_shopify_webhook), a [Python clone of with](https://github.com/osiset/gowith), and [other nick-nacks](https://github.com/osiset/swf). Unfortunately, I haven't had the chance to use it a whole lot during working hours.
+I've released a few side projects such as a [simple blockchain implementation](https://github.com/gnikyt/gochain), a [webhook validator for Shopify](https://github.com/gnikyt/http_shopify_webhook), a [Python clone of with](https://github.com/gnikyt/gowith), and [other nick-nacks](https://github.com/gnikyt/swf). Unfortunately, I haven't had the chance to use it a whole lot during working hours.
 
 Go is a strange beast. To a newcomer, it has an odd syntax for methods, loops, doesn't come with built-in collection methods, its plain-jane control flow, and to top it off.. it is not functional and it is not object-oriented.
 

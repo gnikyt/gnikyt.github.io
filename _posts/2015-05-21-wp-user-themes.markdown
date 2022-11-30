@@ -9,4 +9,4 @@ I've released a unit-tested plugin called Wp User Themes.
 
 It allows users to switch themes in their profile section (useful for development!)
 
-You can check out the plugin [here](https://github.com/osiset/wp-user-themes)
+You can check out the plugin [here](https://github.com/gnikyt/wp-user-themes)

@@ -15,4 +15,4 @@ Here's an example of it in action:
 
 ![promo-verify](/assets/images/2018/10/promo-verify.gif)
 
-For the source code of this script, please see [this repository](https://github.com/osiset/Shopify-Frontend-Helper).
+For the source code of this script, please see [this repository](https://github.com/gnikyt/Shopify-Frontend-Helper).

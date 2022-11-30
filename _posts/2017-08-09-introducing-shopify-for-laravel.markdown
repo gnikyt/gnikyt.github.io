@@ -33,6 +33,6 @@ The package is fully tested and works with PHP >= 7 and Laravel 5.4.
 
 ## Project
 
-You can head over to the [project's page](https://github.com/osiset/laravel-shopify) for full information, or also browse [the wiki](https://github.com/osiset/laravel-shopify/wiki) for documentation, installation, and other topics.
+You can head over to the [project's page](https://github.com/gnikyt/laravel-shopify) for full information, or also browse [the wiki](https://github.com/gnikyt/laravel-shopify/wiki) for documentation, installation, and other topics.
 
 Happy coding with Shopify + Laravel!

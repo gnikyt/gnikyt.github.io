@@ -1,19 +1,19 @@
-title: Osiset
-email: tyler@osiset.com
+title: gnikyt
+email: tyler.n.king@gmail.com
 tagline: Code ramblings.
 description: Code ramblings
 baseurl: ""
-url: "https://osiset.com"
+url: "https://gnikyt.com"
 logo: /assets/favicon-32x32.png
 lang: en
 
 about_name: Tyler King
 about_short: A self-taught, seasoned, versatile developer from Newfoundland.
-github_username: osiset
+github_username: gnikyt
 social:
   name: Tyler King
   links:
-    - https://github.com/osiset
+    - https://github.com/gnikyt
 
 markdown: kramdown
 css: inline

@@ -32,7 +32,7 @@ Once done, be sure to `chmod 755 wordpress/wp-content/uploads/` so WordPress can
 
 Next, let's get Docker ready. The simplest way is to use a [Docker Compose file](https://docs.docker.com/compose/). It's a simple YML-formatted file that's easy to read for anyone.
 
-Based on [Wordpress' Offical Image](https://hub.docker.com/_/wordpress/), I've compiled the following `docker-compose.yml` [file you can use](https://github.com/osiset/wordpress-docker-quickstart).
+Based on [Wordpress' Offical Image](https://hub.docker.com/_/wordpress/), I've compiled the following `docker-compose.yml` [file you can use](https://github.com/gnikyt/wordpress-docker-quickstart).
 
 Simply replace `{YOUR_THEME}` with your theme name and save it to the root of `{your_theme}/` directory.
 
@@ -78,6 +78,6 @@ Starting...
 
 ## Further Exploring
 
-[I've set up a repo on Github](https://github.com/osiset/wordpress-docker-quickstart) which contains all I've talked about above plus some extras like a basic Grunt setup for managing asset files. Feel free to clone, run `docker-compose up`, and play around!
+[I've set up a repo on Github](https://github.com/gnikyt/wordpress-docker-quickstart) which contains all I've talked about above plus some extras like a basic Grunt setup for managing asset files. Feel free to clone, run `docker-compose up`, and play around!
 
 I hope this has helped anyone struggling.

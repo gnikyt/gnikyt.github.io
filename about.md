@@ -36,12 +36,12 @@ A combination of two Egyptian gods &mdash; Osiris and his brother Set. Combining
 
 ### Some of my pinned work
 
-- [Laravel Shopify](https://github.com/osiset/laravel-shopify) - PHP; A full-featured Laravel package for aiding in Shopify App development
-- [Basic Shopify API](https://github.com/osiset/Basic-Shopify-API) - PHP; A simple sync/async API wrapper for Shopify using Guzzle for REST and GraphQL.
-- [basic_shopify_api](https://github.com/osiset/basic_shopify_api) - Python; A sync/async REST and GraphQL client for Shopify API using HTTPX.
-- [gowith](https://github.com/osiset/gowith) - Golang; Python's "with" implemented in Go.
-- [with](https://github.com/osiset/with) - PHP; Python's "with" implemented in PHP.
-- [http_shopify_webhook](https://github.com/osiset/http_shopify_webhook) - Golang; Webhook verification for Shopify.
+- [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) - PHP; A full-featured Laravel package for aiding in Shopify App development
+- [Basic Shopify API](https://github.com/gnikyt/Basic-Shopify-API) - PHP; A simple sync/async API wrapper for Shopify using Guzzle for REST and GraphQL.
+- [basic_shopify_api](https://github.com/gnikyt/basic_shopify_api) - Python; A sync/async REST and GraphQL client for Shopify API using HTTPX.
+- [gowith](https://github.com/gnikyt/gowith) - Golang; Python's "with" implemented in Go.
+- [with](https://github.com/gnikyt/with) - PHP; Python's "with" implemented in PHP.
+- [http_shopify_webhook](https://github.com/gnikyt/http_shopify_webhook) - Golang; Webhook verification for Shopify.
 
 <!-- 
 ## Where I started
