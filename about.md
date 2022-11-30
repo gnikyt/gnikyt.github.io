@@ -4,13 +4,9 @@ title: About
 permalink: /about/
 ---
 
-_Hello World_. I'm {{ site.about_name | split: ' ' | first }} &mdash; {{ site.about_short }}
+_Hello World_. I'm **{{ site.about_name | split: ' ' | first }}** &mdash; {{ site.about_short }}.
 
-## The name
-
-**Osiset**; _oh-sy-set_; _oʊˈsaɪ'sɛt_
-
-A combination of two Egyptian gods &mdash; Osiris and his brother Set. Combining the two together gives a glimpse to the elements of development... birth, death, resurrection, disorder, and chaos that a project or process goes through.
+Outside of that, its **_gnikyt_** (_nɪkɪt_).
 
 ## My Rundown
 
