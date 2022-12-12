@@ -94,4 +94,6 @@ Theming:
 * **GTK/WM theme**: Mint-Y-Dark-Aqua
 * **Desktop theme**: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
 
+Additionally, Mint's ["X-Apps"](https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html) work well and are customizable as I like. As well, Nemo, is much more full featured than Nautilus, it actually shows informations and has meaningful settings.
+
 All-in-all, I am very happy. Cinnamon for my week of using it is a great, well-thought-out desktop which brings back the feeling of nostalgia and control again.
