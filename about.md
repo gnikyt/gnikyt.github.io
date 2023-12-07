@@ -32,6 +32,7 @@ Outside of that, its **_gnikyt_** (_nɪkɪt_).
 
 ### Some of my pinned work
 
+- [cq](https://github.com/gnikyt/cq) - Golang; A function-based composible queue.
 - [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) - PHP; A full-featured Laravel package for aiding in Shopify App development
 - [Basic Shopify API](https://github.com/gnikyt/Basic-Shopify-API) - PHP; A simple sync/async API wrapper for Shopify using Guzzle for REST and GraphQL.
 - [basic_shopify_api](https://github.com/gnikyt/basic_shopify_api) - Python; A sync/async REST and GraphQL client for Shopify API using HTTPX.

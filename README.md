@@ -7,3 +7,5 @@ CSS: Concrete.css, Normalize.css
 ## Development
 
 Using Podman: `bin/start`
+
+Using Docker: `docker-compose up`
