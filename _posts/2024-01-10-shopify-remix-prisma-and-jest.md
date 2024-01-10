@@ -48,9 +48,9 @@ Open `package.json` and add the following to the end of your `scripts` object:
 /* package.json */
 "test": "jest",
 "test:coverage": "jest --coverage",
-"test:db:generate": "prisma generate --schema ./prisma/schema.test.prisma",
-"test:db:deploy": "prisma migrate deploy --schema ./prisma/schema.test.prisma",
-"test:db:reset": "prisma db push --force-reset --accept-data-loss --skip-generate --schema ./prisma/schema.test.prisma"
+"test:db:generate": "prisma generate",
+"test:db:deploy": "prisma migrate deploy",
+"test:db:reset": "prisma db push --force-reset --accept-data-loss --skip-generate"
 ```
 
 These commands will be utilized later.
@@ -80,7 +80,7 @@ Add the following to your `.gitignore`:
 
 ### Schema
 
-Duplicate your `prisma/schema.prisma` file to `prisma/schema.test.prisma`. Then, change the `datasource` to:
+Update your `prisma/schema.prisma` file by changing the `datasource.url` value to `env("DATABASE_URL)`:
 
 ```conf
 datasource db {
@@ -88,8 +88,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 ```
-
-*Note: Alternatively, create a script entry such as `test:db:create-schema` to run before the other `test:db` scripts to grab your existing schema, copy it, and replace the `url` value so its automatic.*
 
 ## Mocks Setup
 
@@ -311,17 +309,17 @@ describe("order processor", () => {
 Now, running `npm run test` will give us a testing result!
 
 ```bash
-npm run test:coverage
+npm run test
 
 > test:coverage
-> jest --coverage
+> jest
 
  PASS  app/order/processor.test.ts (10.12 s)
 
 Test Suites: 1 passed, 1 total
 Tests:       3 passed, 3 total
 Snapshots:   0 total
-Time:        12.44 s
+Time:        10.44 s
 ```
 
 Success! I hope this helps you run integrations tests with Prisma and Jest.
