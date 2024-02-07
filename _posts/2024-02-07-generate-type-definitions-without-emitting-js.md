@@ -49,8 +49,7 @@ Create a directory at the root called `types`, then `cd` inside and run `npm ini
 {
   "name": "app-types",
   "private": true,
-  "version": "1.0.0",
-  "type": "module"
+  "version": "1.0.0"
 }
 ```
 
