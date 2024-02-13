@@ -48,6 +48,10 @@ body {
         time {
             color: $light-font-faded;
         }
+
+        article ul li a {
+            color: $light-article-link;
+        }
     }
 
     &.post {
