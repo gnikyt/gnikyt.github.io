@@ -39,15 +39,37 @@ body {
 
         img {
             border-radius: 50%;
-            float: left;
             width: 5em;
             height: 5em;
             display: block;
-            margin-left: 4rem;
+
+            @media (min-width: 768px) {
+                float: left;
+                margin-left: 4rem;
+            }
         }
 
         div {
-            padding-left: 10em;
+            @media (min-width: 768px) {
+                padding-left: 10em;
+            }
+        }
+
+        .colors {
+            padding-left: 0;
+            padding-right: 0;
+            list-style: none;
+
+            .color {
+                $size: 15px;
+                display: inline-block;
+                width: $size;
+                height: $size;
+                border: {
+                    style: solid;
+                    width: 2px;
+                };
+            }
         }
     }
 }

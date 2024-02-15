@@ -36,6 +36,34 @@ body {
                 color: $light-footer-btn-filled;
             }
         }
+
+        .colors {
+            .color {
+                &.a {
+                    background-color: $light-bkg;
+                }
+
+                &.b {
+                    background-color: $light-bkg-alt;
+                }
+
+                &.c {
+                    background-color: $light-font;
+                }
+
+                &.d {
+                    background-color: $light-font-faded;
+                }
+
+                &.e {
+                    background-color: $light-heading;
+                }
+
+                &.f {
+                    background-color: $light-link;
+                }
+            }
+        }
     }
 
     main {
@@ -46,7 +74,7 @@ body {
 
     &.home {
         time {
-            color: $light-font-faded;
+            color: $light-font;
         }
 
         article ul li a {

@@ -43,15 +43,15 @@ $font-family: 'Roboto Mono', Helvetica, Arial, sans-serif;
 // $light-warn-bkg: lighten($light-logo-color, 70%);
 
 // Dark scheme: Stand with UA
-$light-bkg: #0c2e4a;
-$light-bkg-alt: #163b5c;
+$light-bkg: #183752;
+$light-bkg-alt: #214462;
 $light-font: #afc1db;
-$light-font-faded: #5d82ac;
-$light-heading: #bbbd4d;
+$light-font-faded: #2189c4;
+$light-heading: #e5ce5c;
 $light-img-border: $light-font-faded;
-$light-link: #be6b27;
+$light-link: #d17c36;
 $light-article-link: $light-heading;
-$light-meta: #6082a8;
+$light-meta: $light-font;
 $light-meta-accent: $light-meta;
 $light-footer-color: $light-font;
 $light-footer-sep: $light-bkg-alt;
@@ -59,6 +59,6 @@ $light-footer-btn-bkg: $light-bkg;
 $light-footer-btn: $light-font;
 $light-footer-btn-filled-bkg: $light-meta;
 $light-footer-btn-filled: $light-bkg;
-$light-logo-color: $light-link; // #036e6e;
+$light-logo-color: $light-link; // #036e6e
 $light-code-fence-bkg: $light-bkg-alt;
 $light-warn-bkg: lighten($light-logo-color, 70%);
