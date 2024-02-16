@@ -86,13 +86,18 @@ body {
         article {
             header {
                 time {
-                    color: $light-meta-accent;
+                    color: $light-font-faded;
                 }
 
                 h1 {
                     // color: $light-meta;
                     color: $light-heading;
                 }
+            }
+
+            div.highlight {
+                border-radius: 5px;
+                background-color: transparent;;
             }
 
             code {
@@ -110,6 +115,14 @@ body {
                 border-color: $light-meta-accent;
                 border-left-color: $light-meta-accent;
                 background: $light-code-fence-bkg;
+
+                &::-webkit-scrollbar{
+                    background: $light-meta-accent;
+                }
+    
+                &::-webkit-scrollbar-thumb:horizontal {
+                    background: #000;
+                }
             }
 
             p {
@@ -125,6 +138,7 @@ body {
 
         .warning.post-old {
             background-color: $light-warn-bkg;
+            color: #000;
         }
     }
 }

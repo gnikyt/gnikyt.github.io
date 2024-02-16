@@ -55,6 +55,10 @@ body {
             }
         }
 
+        .button {
+            border-radius: 5px;;
+        }
+
         .colors {
             padding-left: 0;
             padding-right: 0;
@@ -68,6 +72,7 @@ body {
                 border: {
                     style: solid;
                     width: 2px;
+                    radius: 50%;
                 };
             }
         }
@@ -106,6 +111,29 @@ code {
     article {
         header {
             padding-bottom: 3rem;
+        }
+
+        pre {
+            border: {
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left-width: 5px;
+                radius: 5px;
+            };
+
+            &::-webkit-scrollbar{
+                height: 5px;
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb:horizontal {
+                border-radius: 10px;
+            }
+        }
+
+        code.highlighter-rouge {
+            border-radius: 5px;;
         }
 
         p, ul, ol {
@@ -158,6 +186,7 @@ code {
             text-align: center;
             font-style: italic;
             margin: 1em 0 0 0;
+            border-radius: 5px;;
         }
     }
 }
