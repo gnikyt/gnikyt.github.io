@@ -6,6 +6,6 @@ CSS: Concrete.css, Normalize.css
 
 ## Development
 
-Using Podman: `bin/start`
-
-Using Docker: `docker-compose up`
+* Using nothing: `bin/start`
+* Using Podman: `bin/start-podman`
+* Using Docker: `docker-compose up`
