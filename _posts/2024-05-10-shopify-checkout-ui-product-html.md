@@ -219,7 +219,7 @@ const description = descriptionTransformer(html, (element, children, index, defa
 Also available [on this Gist](https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8).
 
 ```jsx
-/* eslint-disable react/react-in-jsx-scope */
+import React from "react";
 import { List, ListItem, TextBlock } from "@shopify/ui-extensions-react/checkout";
 
 /**
@@ -421,7 +421,11 @@ function transform(elements, transformer) {
   for (const element of elements) {
     if (element.contents !== "") {
       // Parse nested elements, if nessessary
-      const children = Array.isArray(element.contents) ? transform(element.contents) : <>{element.contents}</>;
+      const children = Array.isArray(element.contents) ? (
+        transform(element.contents, transformer)
+      ) : (
+        <>{element.contents}</>
+      );
 
       // Transform to React
       const reactElement = transformer
@@ -460,7 +464,7 @@ function transform(elements, transformer) {
  * @example
  * ```
  * const parsed = descriptionTransformer(html, (element, children, index, defaultTransformer) => {
- *  if (element.classes.includes("RichQuote")) {
+ *  if (element.classes.join(' ').indexOf("RichQuote") > -1) {
  *    return (
  *       <BlockStack key={index}>
  *          <Text>Quote</Text>
@@ -478,7 +482,7 @@ function transform(elements, transformer) {
  */
 export default function descriptionTransformer(rawHtml, transformer) {
   const cleanedRawHtml = rawHtml.replace(/<br>/g, "").trim();
-  return transform(walk(cleanedRawHtml, transformer));
+  return transform(walk(cleanedRawHtml), transformer);
 }
 ```
 
