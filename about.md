@@ -20,7 +20,7 @@ Outside of that, its **_gnikyt_** (_nɪkɪt_).
 ### I regularly develop with
 
 - Go
-- NodeJS (NodeJS, Typescript, Javascript)
+- Javascript (NodeJS, Typescript/Javascript)
 - PHP
 
 ### I dabble with
