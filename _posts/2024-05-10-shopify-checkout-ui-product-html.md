@@ -19,79 +19,79 @@ An example description HTML from a product in Shopify:
 
 ```html
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  Did you know that once your package leaves our warehouse, it is your responsibility to correct any issues?
+  LINE 1
 </div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"></div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  That's why we offer:
+  LINE 2
 </div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"></div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  Covered Protection - No matter what the carrier does, you are covered 100%.
+  LINE 3
 </div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"></div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  We intervene with the shipper, handles all issues, and gets another shipment to you ASAP.
+  LINE 4
 </div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"></div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  This allows you to spend your time with your customers without countless hours on the phone with carriers.
+  LINE 5
 </div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
   <br>
 </div>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  Covers:
+  LINE 6
 </div>
 <ul class="RichTextList-bulleted" style="list-style-type: disc;">
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Damaged
+      ITEM 1
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Shipped to the wrong address
+      ITEM 2
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Lost
+      ITEM 3
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Dis-figured
+      ITEM 4
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Mis-delivered
+      ITEM 5
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Mis-labeled
+      ITEM 6
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Theft
+      ITEM 7
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      Truck wrecks or Truck breaks down
+      ITEM 8
     </div>
   </li>
   <li>
     <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-      30-day coverage for the supplies you don't open until later, and then you find a problem with damage.
+      ITEM 9
     </div>
   </li>
 </ul>
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph">
-  Another way we give the best service for our customers.
+  LINE 7
 </div>
 ```
 
@@ -100,72 +100,72 @@ Example of the transformed output:
 ```jsx
 <>
   <TextBlock>
-    Did you know that once your package leaves our warehouse, it is your responsibility to correct any issues?
+    LINE 1
   </TextBlock>
   <TextBlock>
-    That's why we offer:
+    LINE 2
   </TextBlock>
   <TextBlock>
-    Covered Protection - No matter what the carrier does, you are covered 100%.
+    LINE 3
   </TextBlock>
   <TextBlock>
-    We intervene with the shipper, handles all issues, and gets another shipment to you ASAP.
+    LINE 4
   </TextBlock>
   <TextBlock>
-    This allows you to spend your time with your customers without countless hours on the phone with carriers.
+    LINE 5
   </TextBlock>
   <TextBlock>
-    Covers:
+    LINE 6
   </TextBlock>
   <List>
     <ListItem>
       <TextBlock>
-        Damaged
+        ITEM 1
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Shipped to the wrong address
+        ITEM 2
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Lost
+        ITEM 3
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Dis-figured
+        ITEM 4
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Mis-delivered
+        ITEM 5
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Mis-labeled
+        ITEM 6
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Theft
+        ITEM 7
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        Truck wrecks or Truck breaks down
+        ITEM 8
       </TextBlock>
     </ListItem>
     <ListItem>
       <TextBlock>
-        30-day coverage for the supplies you don't open until later, and then you find a problem with damage.
+        ITEM 9
       </TextBlock>
     </ListItem>
   </ListItem>
   <TextBlock>
-    Another way we give the best service for our customers.
+    LINE 7
   </TextBlock>
 </>
 ```
