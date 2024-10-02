@@ -14,7 +14,6 @@ body {
 
     & > footer {
         h3 {
-            /* color: $light-link; */
             color: $light-font-faded;
         }
 
@@ -60,7 +59,7 @@ body {
                 }
 
                 &.f {
-                    background-color: $light-link;
+                    background-color: $light-link-head;
                 }
             }
         }
@@ -68,7 +67,7 @@ body {
 
     main {
         h1, h2, h3, h4, h5, h6 {
-            color: $light-heading;
+            color: $light-link;
         }
     }
 
@@ -90,9 +89,12 @@ body {
                 }
 
                 h1 {
-                    // color: $light-meta;
-                    color: $light-heading;
+                    color: $light-font;
                 }
+            }
+
+            h2, h3, h4, h5, h6 {
+                color: $light-heading;
             }
 
             div.highlight {
@@ -129,6 +131,10 @@ body {
                 a + em {
                     color: $light-meta-accent;
                 }
+            }
+
+            a {
+                color: $light-link-head;
             }
 
             blockquote {
