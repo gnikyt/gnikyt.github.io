@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'ACF: Simple Table'
+title: ACF Simple Table
 permalink: acf-simple-table
 date: '2014-07-18 12:48:05'
 ---

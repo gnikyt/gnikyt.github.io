@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'WordPress Under Docker: A basic guide'
+title: WordPress Under Docker guide
 permalink: WordPress-under-docker
 date: '2017-06-15 09:53:10'
 ---

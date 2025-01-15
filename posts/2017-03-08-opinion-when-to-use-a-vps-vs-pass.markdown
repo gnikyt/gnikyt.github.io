@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'When to use a VPS vs PaaS'
+title: When to use a VPS vs PaaS
 permalink: when-to-use-a-vps-vs-pass
 date: '2017-03-08 11:12:00'
 ---

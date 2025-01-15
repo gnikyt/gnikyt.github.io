@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Generate type definitions without emitting Javascript'
+title: Generate type definitions without emitting Javascript
 permalink: generate-type-definitions-without-emitting-js
 date: '2024-02-07 13:44:12'
 ---

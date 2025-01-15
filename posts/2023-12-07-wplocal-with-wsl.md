@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'WP Local with WSL'
+title: WP Local with WSL
 permalink: wplocal-with-wsl
 date: '2023-12-07 11:22:03'
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Shopify Checkout Extension to backend fetching'
+title: Shopify Checkout Extension to backend fetching
 permalink: generate-type-definitions-without-emitting-js
 date: '2024-02-27 15:52:00'
 ---

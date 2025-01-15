@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'New desktop setup'
+title: New desktop setup
 permalink: new-desktop-setup
 date: '2022-12-11 14:50:22'
 ---

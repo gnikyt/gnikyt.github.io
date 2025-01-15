@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'i3 & Plasma: A solid match'
+title: i3 & Plasma - A solid match
 permalink: i3-plasma-a-solid-match
 date: '2019-08-28 04:06:39'
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Developing sanely on Windows: Revisited'
+title: Developing sanely on Windows revisited
 permalink: developing-sanely-on-windows-revisited
 date: '2017-05-10 10:31:22'
 ---

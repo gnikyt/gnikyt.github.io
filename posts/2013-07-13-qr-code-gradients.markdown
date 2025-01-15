@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Qr Code Gradients
+title: QR Code gradients
 permalink: qr-code-gradients
 date: '2013-07-13 16:25:58'
 ---

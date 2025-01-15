@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Shopify checkout extension with product HTML'
+title: Shopify checkout extension with product HTML
 permalink: shopify-checkout-ui-product-html
 date: '2024-05-10 13:30:56'
 ---

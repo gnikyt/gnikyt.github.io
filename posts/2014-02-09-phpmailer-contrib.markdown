@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHPMailer Contrib
+title: PHPMailer contrib
 permalink: phpmailer-contrib
 date: '2014-02-09 20:55:00'
 ---

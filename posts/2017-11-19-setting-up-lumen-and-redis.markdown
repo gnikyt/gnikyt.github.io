@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting Up Lumen with Redis
+title: Setting up Lumen with Redis
 permalink: setting-up-lumen-with-redis
 date: '2017-11-19 11:43:01'
 ---

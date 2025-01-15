@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel Shopify Billing
+title: Laravel Shopify billing
 permalink: laravel-Shopify-billing
 date: '2018-01-26 15:52:56'
 ---
