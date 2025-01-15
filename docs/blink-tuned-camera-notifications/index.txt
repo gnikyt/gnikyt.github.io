@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                                       Blin
 
@@ -44,7 +46,7 @@ Solutions
 
   Macrodroid
 
-   I previously installed an app called [2]Macrodroid, for automating some
+   I previously installed an app called [3]Macrodroid, for automating some
    "Do Not Disturb" rules.
 
    Macrodroid is similar to the popular Tasker app for Android. These are
@@ -111,17 +113,17 @@ Conclusion
    notifications for those specific cameras, but still allow them to stay
    enabled and record motion.
 
-   [3]MD | [4]TXT | [5]CC-4.0
+   [4]MD | [5]TXT | [6]CC-4.0
 
    This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
-   [6]Tyler King
+   [7]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   [8]Github [9]About Me [10]CV
      *
      *
      *
@@ -131,12 +133,13 @@ Ty King
 
 References
 
-   1. file:///
-   2. https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid&hl=en_CA&gl=US&pli=1
-   3. file:///blink-tuned-camera-notifications/index.md
-   4. file:///blink-tuned-camera-notifications/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
-   7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid&hl=en_CA&gl=US&pli=1
+   4. file:///blink-tuned-camera-notifications/index.md
+   5. file:///blink-tuned-camera-notifications/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

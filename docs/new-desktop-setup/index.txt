@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                                New desktop setup
 
@@ -8,7 +10,7 @@ Introduction
 
    I havenʼt had the time to tweak my desktop in over a year, Iʼve been
    mostly stuck with the default settings of Fedora (GNOME) and slowly
-   tweaked things, before that, a [2]Plasma/i3 setup (which was awesome!).
+   tweaked things, before that, a [3]Plasma/i3 setup (which was awesome!).
    Iʼve had a long run of different setups over the last couple of
    decades... AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
 
@@ -46,7 +48,7 @@ Trying with GNOME
    worked out decently well! But, of course, required a lot of extensions
    and a theme.
 
-   [3]Finalized GNOME
+   [4]Finalized GNOME
 
    The above screenshot is an example of the resulting setup which has a
    similar feel to the old layout... two panels with proper information.
@@ -68,7 +70,7 @@ Trying with GNOME
      * Workspaces Bar: To show the list of workspaces
      * Places Indicator: To show the Places menu as GNOME 2 had
 
-   And the following theme is to be downloaded: [4]GNOME Theme Default
+   And the following theme is to be downloaded: [5]GNOME Theme Default
    Light.
 
    All-in-all, it worked well. But an instant update recently killed a few
@@ -108,7 +110,7 @@ Cinnamon
    I hunkered down for 20 minutes and produced an initial desktop which
    got me back to my feeling of my old XFCE and GNOME 2 desktops:
 
-   [5]Cinnamon result
+   [6]Cinnamon result
 
    Itʼs everything I need to visually see at the moment (minus some system
    stats which I had not yet tackled). It is also consistent. The Linux
@@ -140,7 +142,7 @@ Cinnamon
      * GTK/WM theme: Mint-Y-Dark-Aqua
      * Desktop theme: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
 
-   Additionally, Mintʼs [6]"X-Apps" work well and are customizable as I
+   Additionally, Mintʼs [7]"X-Apps" work well and are customizable as I
    like. As well, Nemo, is much more full featured than Nautilus, it
    actually shows informations and has meaningful settings.
 
@@ -148,17 +150,17 @@ Cinnamon
    great, well-thought-out desktop which brings back the feeling of
    nostalgia and control again.
 
-   [7]MD | [8]TXT | [9]CC-4.0
+   [8]MD | [9]TXT | [10]CC-4.0
 
    This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
-   [10]Tyler King
+   [11]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [11]Github [12]About Me [13]CV
+   [12]Github [13]About Me [14]CV
      *
      *
      *
@@ -168,16 +170,17 @@ Ty King
 
 References
 
-   1. file:///
-   2. file:///i3-plasma-a-solid-match
-   3. file:///assets/images/2022/12/gnome<em>shell</em>look.png
-   4. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
-   5. file:///assets/images/2022/12/cinnamon.png
-   6. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-   7. file:///new-desktop-setup/index.md
-   8. file:///new-desktop-setup/index.txt
-   9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
-  11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. file:///i3-plasma-a-solid-match
+   4. file:///assets/images/2022/12/gnome<em>shell</em>look.png
+   5. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
+   6. file:///assets/images/2022/12/cinnamon.png
+   7. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
+   8. file:///new-desktop-setup/index.md
+   9. file:///new-desktop-setup/index.txt
+  10. https://creativecommons.org/licenses/by/4.0/
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. file:///about
+  14. file:///assets/files/cv.pdf

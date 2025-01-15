@@ -1,30 +1,33 @@
-   [1]gnikyt Code ramblings.
-     * [2]WSL network speed Jan 15, 2025
-     * [3]Shopify Node Ap Jan 15, 2025
-     * [4]Prisma, Jest, and MySQL testing Jan 15, 2025
-     * [5]Blin Jan 15, 2025
-     * [6]Shopify Liquid Tester Jan 15, 2025
-     * [7]Git release branches Jan 15, 2025
-     * [8]New desktop setup Jan 15, 2025
-     * [9]Laravel Shopify ITP Jan 15, 2025
-     * [10]Generate type definitions without emitting Javascript Jan 15,
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+     * [3]WSL network speed Jan 15, 2025
+     * [4]Shopify Node Ap Jan 15, 2025
+     * [5]Prisma, Jest, and MySQL testing Jan 15, 2025
+     * [6]Blin Jan 15, 2025
+     * [7]Shopify Liquid Tester Jan 15, 2025
+     * [8]Git release branches Jan 15, 2025
+     * [9]New desktop setup Jan 15, 2025
+     * [10]Laravel Shopify ITP Jan 15, 2025
+     * [11]Generate type definitions without emitting Javascript Jan 15,
        2025
-     * [11]Laravel Shopif Jan 15, 2025
-     * [12]Joint Venture with LFL Jan 15, 2025
-     * [13]Shopify Checkout Extension to backend fetching Jan 15, 2025
-     * [14]Laravel Shopify featured on Shopify Dev Blog Jan 15, 2025
-     * [15]Shopify Remix, Prisma, and Jest Jan 15, 2025
-     * [16]Shopify Github Action for versioning Jan 15, 2025
-     * [17]Shopify checkout extension with product HTML Jan 15, 2025
-     * [18]WP Local with WSL Jan 15, 2025
+     * [12]Laravel Shopif Jan 15, 2025
+     * [13]Joint Venture with LFL Jan 15, 2025
+     * [14]Shopify Checkout Extension to backend fetching Jan 15, 2025
+     * [15]Laravel Shopify featured on Shopify Dev Blog Jan 15, 2025
+     * [16]Shopify Remix, Prisma, and Jest Jan 15, 2025
+     * [17]Shopify Github Action for versioning Jan 15, 2025
+     * [18]Shopify checkout extension with product HTML Jan 15, 2025
+     * [19]WP Local with WSL Jan 15, 2025
      __________________________________________________________________
 
-   [19]Tyler King
+   [20]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [20]Github [21]About Me [22]CV
+   [21]Github [22]About Me [23]CV
      *
      *
      *
@@ -34,25 +37,26 @@ Ty King
 
 References
 
-   1. file:///
-   2. file:///wsl-network-speed
-   3. file:///shopify-node-app-custom-multi-tenant
-   4. file:///prisma-jest-mysql-testing
-   5. file:///blink-tuned-camera-notifications
-   6. file:///shopify-liquid-tester
-   7. file:///git-release-branches
-   8. file:///new-desktop-setup
-   9. file:///laravel-shopify-itp
-  10. file:///generate-type-definitions-without-emitting-js
-  11. file:///laravel-shopify-cookieless
-  12. file:///joint-venture-lfl
-  13. file:///generate-type-definitions-without-emitting-js
-  14. file:///laravel-shopify-featured-shopify-blog
-  15. file:///shopify-remix-prisma-and-jest
-  16. file:///shopify-github-action-versioning
-  17. file:///shopify-checkout-ui-product-html
-  18. file:///wplocal-with-wsl
-  19. file:///about
-  20. https://github.com/gnikyt
-  21. file:///about
-  22. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. file:///wsl-network-speed
+   4. file:///shopify-node-app-custom-multi-tenant
+   5. file:///prisma-jest-mysql-testing
+   6. file:///blink-tuned-camera-notifications
+   7. file:///shopify-liquid-tester
+   8. file:///git-release-branches
+   9. file:///new-desktop-setup
+  10. file:///laravel-shopify-itp
+  11. file:///generate-type-definitions-without-emitting-js
+  12. file:///laravel-shopify-cookieless
+  13. file:///joint-venture-lfl
+  14. file:///generate-type-definitions-without-emitting-js
+  15. file:///laravel-shopify-featured-shopify-blog
+  16. file:///shopify-remix-prisma-and-jest
+  17. file:///shopify-github-action-versioning
+  18. file:///shopify-checkout-ui-product-html
+  19. file:///wplocal-with-wsl
+  20. file:///about
+  21. https://github.com/gnikyt
+  22. file:///about
+  23. file:///assets/files/cv.pdf

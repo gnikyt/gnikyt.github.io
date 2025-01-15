@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                       Shopify Github Action for versioning
 
@@ -8,7 +10,7 @@
    the value of themeversion from config/settingsschema.json
    onto the theme listing page. Example (yellow highlight):
 
-   [2]Shopify theme version example
+   [3]Shopify theme version example
 
    With our setup, all our client themes are connected to Github and every
    release gets tagged a version in SYMVER format.
@@ -59,22 +61,22 @@ gs_schema.json
     5. Commit the changes to the schema with a commit message containing
        the version; lines 19-25
 
-   [3]Shopify theme version output example
+   [4]Shopify theme version output example
 
    Hopefully this is a helpful starting point for any other developers
    looking to do the same process.
 
-   [4]MD | [5]TXT | [6]CC-4.0
+   [5]MD | [6]TXT | [7]CC-4.0
 
    This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
-   [7]Tyler King
+   [8]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [8]Github [9]About Me [10]CV
+   [9]Github [10]About Me [11]CV
      *
      *
      *
@@ -84,13 +86,14 @@ Ty King
 
 References
 
-   1. file:///
-   2. file:///assets/images/2022/05/shopify-versioning.png
-   3. file:///assets/images/2022/05/shopify-versioning-github.png
-   4. file:///shopify-github-action-versioning/index.md
-   5. file:///shopify-github-action-versioning/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///about
-   8. https://github.com/gnikyt
-   9. file:///about
-  10. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. file:///assets/images/2022/05/shopify-versioning.png
+   4. file:///assets/images/2022/05/shopify-versioning-github.png
+   5. file:///shopify-github-action-versioning/index.md
+   6. file:///shopify-github-action-versioning/index.txt
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///about
+   9. https://github.com/gnikyt
+  10. file:///about
+  11. file:///assets/files/cv.pdf

@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                              Shopify Liquid Tester
 
@@ -41,7 +43,7 @@ Introduction
 
    We can not unit test Liquid files in the context of a Shopify store
    very easily, which is why I developed a handly tool called
-   [2]liquid-fn-tester to assist with this for our clients.
+   [3]liquid-fn-tester to assist with this for our clients.
 
 How it works
 
@@ -98,7 +100,7 @@ Utilization
    Your test suite will have full control over setup, snippet
    initilization, teardown, output, and more.
 
-   The repositoryʼs [3]provided examples is a great guide for how
+   The repositoryʼs [4]provided examples is a great guide for how
    everything comes together and how you can test a single snippet against
    multiple values.
 
@@ -109,17 +111,17 @@ Utilization
    Hopefully this tool will continue to grow and is helpful to those who
    are looking to try and test their snippets; both small and complex.
 
-   [4]MD | [5]TXT | [6]CC-4.0
+   [5]MD | [6]TXT | [7]CC-4.0
 
    This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
-   [7]Tyler King
+   [8]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [8]Github [9]About Me [10]CV
+   [9]Github [10]About Me [11]CV
      *
      *
      *
@@ -129,13 +131,14 @@ Ty King
 
 References
 
-   1. file:///
-   2. https://github.com/gnikyt/liquid-fn-tester
-   3. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
-   4. file:///shopify-liquid-tester/index.md
-   5. file:///shopify-liquid-tester/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///about
-   8. https://github.com/gnikyt
-   9. file:///about
-  10. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/liquid-fn-tester
+   4. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
+   5. file:///shopify-liquid-tester/index.md
+   6. file:///shopify-liquid-tester/index.txt
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///about
+   9. https://github.com/gnikyt
+  10. file:///about
+  11. file:///assets/files/cv.pdf

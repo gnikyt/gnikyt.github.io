@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                                      About
 
@@ -31,26 +33,26 @@ My Rundown
 
   Some of my pinned work
 
-     * [2]cq - Golang; A function-based composible queue.
-     * [3]Laravel Shopify - PHP; A full-featured Laravel package for
+     * [3]cq - Golang; A function-based composible queue.
+     * [4]Laravel Shopify - PHP; A full-featured Laravel package for
        aiding in Shopify App development
-     * [4]Basic Shopify API - PHP; A simple sync/async API wrapper for
+     * [5]Basic Shopify API - PHP; A simple sync/async API wrapper for
        Shopify using Guzzle for REST and GraphQL.
-     * [5]basicshopifyapi - Python; A sync/async REST and GraphQL client
+     * [6]basicshopifyapi - Python; A sync/async REST and GraphQL client
        for Shopify API using HTTPX.
-     * [6]gowith - Golang; Pythonʼs "with" implemented in Go.
-     * [7]with - PHP; Pythonʼs "with" implemented in PHP.
-     * [8]httpshopifywebhook - Golang; Webhook verification for Shopify.
+     * [7]gowith - Golang; Pythonʼs "with" implemented in Go.
+     * [8]with - PHP; Pythonʼs "with" implemented in PHP.
+     * [9]httpshopifywebhook - Golang; Webhook verification for Shopify.
 
-   [9]MD | [10]TXT | [11]CC-4.0
+   [10]MD | [11]TXT | [12]CC-4.0
      __________________________________________________________________
 
-   [12]Tyler King
+   [13]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [13]Github [14]About Me [15]CV
+   [14]Github [15]About Me [16]CV
      *
      *
      *
@@ -60,18 +62,19 @@ Ty King
 
 References
 
-   1. file:///
-   2. https://github.com/gnikyt/cq
-   3. https://github.com/gnikyt/laravel-shopify
-   4. https://github.com/gnikyt/Basic-Shopify-API
-   5. https://github.com/gnikyt/basic<em>shopify</em>api
-   6. https://github.com/gnikyt/gowith
-   7. https://github.com/gnikyt/with
-   8. https://github.com/gnikyt/http<em>shopify</em>webhook
-   9. file:///about/index.md
-  10. file:///about/index.txt
-  11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. file:///about
-  15. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/cq
+   4. https://github.com/gnikyt/laravel-shopify
+   5. https://github.com/gnikyt/Basic-Shopify-API
+   6. https://github.com/gnikyt/basic<em>shopify</em>api
+   7. https://github.com/gnikyt/gowith
+   8. https://github.com/gnikyt/with
+   9. https://github.com/gnikyt/http<em>shopify</em>webhook
+  10. file:///about/index.md
+  11. file:///about/index.txt
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. file:///about
+  16. file:///assets/files/cv.pdf

@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                              Joint Venture with LFL
 
@@ -17,8 +19,8 @@ JV
    future...
 
    This morning, LFL Group, who is comprised of the largest retailers in
-   Canada... companies such as [2]Leonʼs Furniture, [3]The Brick,
-   [4]Furniture.ca, and others &mdash; also a fantastic long term client
+   Canada... companies such as [3]Leonʼs Furniture, [4]The Brick,
+   [5]Furniture.ca, and others &mdash; also a fantastic long term client
    of ours for years, has announced a Joint Venture with us!
 
    This is a great milestone not only for my personal goals, but business
@@ -40,26 +42,26 @@ JV
    LFL. LFL & Little Rocket 🚀
 
    Releases from both sides:
-     * [5]LinkedIn Post from Little Rocket
-     * [6]Press Release from LFL Group
+     * [6]LinkedIn Post from Little Rocket
+     * [7]Press Release from LFL Group
 
    The remainder of this post is the press release published by LFL.
 
 Press Release
 
-   From [7]LFLʼs corporate website on November 15th, 2022:
+   From [8]LFLʼs corporate website on November 15th, 2022:
 
-   [8]MD | [9]TXT | [10]CC-4.0
+   [9]MD | [10]TXT | [11]CC-4.0
 
    This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
-   [11]Tyler King
+   [12]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [12]Github [13]About Me [14]CV
+   [13]Github [14]About Me [15]CV
      *
      *
      *
@@ -69,17 +71,18 @@ Ty King
 
 References
 
-   1. file:///
-   2. https://leons.ca/
-   3. https://www.thebrick.com/
-   4. https://furniture.ca/
-   5. https://www.linkedin.com/company/little-rocket-inc/
-   6. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
-   7. https://www.lflgroup.ca/
-   8. file:///joint-venture-lfl/index.md
-   9. file:///joint-venture-lfl/index.txt
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. file:///about
-  14. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. https://leons.ca/
+   4. https://www.thebrick.com/
+   5. https://furniture.ca/
+   6. https://www.linkedin.com/company/little-rocket-inc/
+   7. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
+   8. https://www.lflgroup.ca/
+   9. file:///joint-venture-lfl/index.md
+  10. file:///joint-venture-lfl/index.txt
+  11. https://creativecommons.org/licenses/by/4.0/
+  12. file:///about
+  13. https://github.com/gnikyt
+  14. file:///about
+  15. file:///assets/files/cv.pdf

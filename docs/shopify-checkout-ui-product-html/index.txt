@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                   Shopify checkout extension with product HTML
 
@@ -239,7 +241,7 @@ ultTransformer) &ge; {
 
 Code
 
-   Also available [2]on this Gist.
+   Also available [3]on this Gist.
 import React from "react";
 import { List, ListItem, TextBlock } from "@shopify/ui-extensions-react/checkout
 ";
@@ -521,15 +523,15 @@ export default function descriptionTransformer(rawHtml, transformer) {
    attempting to use product descriptions in a Shopify Checkout UI
    Extension.
 
-   [3]MD | [4]TXT | [5]CC-4.0
+   [4]MD | [5]TXT | [6]CC-4.0
      __________________________________________________________________
 
-   [6]Tyler King
+   [7]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   [8]Github [9]About Me [10]CV
      *
      *
      *
@@ -539,12 +541,13 @@ Ty King
 
 References
 
-   1. file:///
-   2. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
-   3. file:///shopify-checkout-ui-product-html/index.md
-   4. file:///shopify-checkout-ui-product-html/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
-   7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
+   4. file:///shopify-checkout-ui-product-html/index.md
+   5. file:///shopify-checkout-ui-product-html/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

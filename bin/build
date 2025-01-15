@@ -107,7 +107,7 @@ process_pages() {
       # Parse the page template and save the result.
       parsed_tpl=$(parse_tpl "${layouts["page"]}")
       target=docs/"${globals["handle"]}"
-      mkdir "$target"
+      mkdir -p "$target"
       echo "$parsed_tpl" > "$target"/index.html
 
       # Create text and Markdown versions.
@@ -204,8 +204,9 @@ main() {
   process_pages
   tidy_markup
 
-  # Copy assets to docs.
-  cp -R assets docs/assets
+  # Copy static files to docs.
+  cp -R static/* docs/
+  cp static/.nojekyll docs/
 }
 
 main

@@ -66,4 +66,5 @@ Completed
 ## Misc
 
 * `docs` directory is pointing to Github to use for the hosting of the content on the domain name.
+* Anything in `static` is copied directly into `docs` after generation is completed.
 * This was previously powered by Jekyll but it was quiet large for my needs and I wanted something more simple to run.

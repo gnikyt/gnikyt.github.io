@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                                  Laravel Shopif
 
@@ -12,7 +14,7 @@ This Issue
    implementing support for ITP to get around cookie issues. Now, with the
    announcement, that work needed to be scrapped.
 
-   On March 17th, [2]I opened an issue to outline the plan for tackling
+   On March 17th, [3]I opened an issue to outline the plan for tackling
    this new support for session tokens, and remove cookies/ITP. To be
    honest, I expected to tackle the work on my own. However, to my
    surprise, the community as well as Shopify themselves, helped lend a
@@ -33,12 +35,12 @@ Shopify
    proud the package was able to be a part of it!
 
    After a couple quick meetings with their developer advocate team, we
-   settled on [3]offering Shopify swag to gain momentum for anyone in
+   settled on [4]offering Shopify swag to gain momentum for anyone in
    support of closing the issue.
 
    This was a great move for Shopify - getting involved with the community
    open source projects that touch their platform. In addition to the
-   swag, [4]Lucas Michot of Shopify generated a number of pull requests to
+   swag, [5]Lucas Michot of Shopify generated a number of pull requests to
    tighten up the CI, cleaniness, code coverage, and testability of the
    package.
 
@@ -74,21 +76,21 @@ Community
 
 Whatʼs next?
 
-   You can [5]view the release for v17.0.0. For the package, we will be
+   You can [6]view the release for v17.0.0. For the package, we will be
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
-   [6]MD | [7]TXT | [8]CC-4.0
+   [7]MD | [8]TXT | [9]CC-4.0
 
    This post is 3 years old and may contain outdated information.
      __________________________________________________________________
 
-   [9]Tyler King
+   [10]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [10]Github [11]About Me [12]CV
+   [11]Github [12]About Me [13]CV
      *
      *
      *
@@ -98,15 +100,16 @@ Ty King
 
 References
 
-   1. file:///
-   2. https://github.com/gnikyt/laravel-shopify/issues/744
-   3. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
-   4. https://github.com/lucasmichot
-   5. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-   6. file:///laravel-shopify-cookieless/index.md
-   7. file:///laravel-shopify-cookieless/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
-  10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/laravel-shopify/issues/744
+   4. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
+   5. https://github.com/lucasmichot
+   6. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
+   7. file:///laravel-shopify-cookieless/index.md
+   8. file:///laravel-shopify-cookieless/index.txt
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. file:///about
+  11. https://github.com/gnikyt
+  12. file:///about
+  13. file:///assets/files/cv.pdf

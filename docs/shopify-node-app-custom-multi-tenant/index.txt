@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                                 Shopify Node Ap
 
@@ -367,17 +369,17 @@ Conculsion
    start for someone looking to add multi-tenant support to a custom app
    setup.
 
-   [2]MD | [3]TXT | [4]CC-4.0
+   [3]MD | [4]TXT | [5]CC-4.0
 
    This post is 3 years old and may contain outdated information.
      __________________________________________________________________
 
-   [5]Tyler King
+   [6]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [6]Github [7]About Me [8]CV
+   [7]Github [8]About Me [9]CV
      *
      *
      *
@@ -387,11 +389,12 @@ Ty King
 
 References
 
-   1. file:///
-   2. file:///shopify-node-app-custom-multi-tenant/index.md
-   3. file:///shopify-node-app-custom-multi-tenant/index.txt
-   4. https://creativecommons.org/licenses/by/4.0/
-   5. file:///about
-   6. https://github.com/gnikyt
-   7. file:///about
-   8. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. file:///shopify-node-app-custom-multi-tenant/index.md
+   4. file:///shopify-node-app-custom-multi-tenant/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

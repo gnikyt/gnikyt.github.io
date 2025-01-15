@@ -1,4 +1,6 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                                WP Local with WSL
 
@@ -27,7 +29,7 @@ Installation
    for Local (Ubuntu) (in my case), but you can also spawn it through the
    terminal with /usr/bin/local.
 
-   [2]WP Local Running inside WSL
+   [3]WP Local Running inside WSL
 
    Although its open and running, if you immediately tried to connect to
    WP Engine and pull down a project, youʼll have displays with errors pop
@@ -35,7 +37,7 @@ Installation
    issues for it to properly configure NGINX.
 
    With a lot of digging around the web to solve both issues... I came
-   across a great post by [3]robert77 on the WP Local Community Forums
+   across a great post by [4]robert77 on the WP Local Community Forums
    which I will outline below.
 
 Fixing Dependencies
@@ -83,7 +85,7 @@ Priviliaged Requests
 
    An example of it running:
 
-   [4]LxQT Sudo GUI
+   [5]LxQT Sudo GUI
 
 NGINX Fix
 
@@ -142,15 +144,15 @@ Conclusion
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
-   [5]MD | [6]TXT | [7]CC-4.0
+   [6]MD | [7]TXT | [8]CC-4.0
      __________________________________________________________________
 
-   [8]Tyler King
+   [9]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [9]Github [10]About Me [11]CV
+   [10]Github [11]About Me [12]CV
      *
      *
      *
@@ -160,14 +162,15 @@ Ty King
 
 References
 
-   1. file:///
-   2. file:///assets/images/2023/12/wplocal<em>running.png
-   3. https://community.localwp.com/u/robert77
-   4. file:///assets/images/2023/12/wplocal<em>sudo.png
-   5. file:///wplocal-with-wsl/index.md
-   6. file:///wplocal-with-wsl/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///about
-   9. https://github.com/gnikyt
-  10. file:///about
-  11. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. file:///assets/images/2023/12/wplocal<em>running.png
+   4. https://community.localwp.com/u/robert77
+   5. file:///assets/images/2023/12/wplocal<em>sudo.png
+   6. file:///wplocal-with-wsl/index.md
+   7. file:///wplocal-with-wsl/index.txt
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///about
+  10. https://github.com/gnikyt
+  11. file:///about
+  12. file:///assets/files/cv.pdf

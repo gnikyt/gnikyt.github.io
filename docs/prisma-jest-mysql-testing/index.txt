@@ -1,10 +1,12 @@
-   [1]gnikyt Code ramblings.
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
 
                         Prisma, Jest, and MySQL testing
 
    Jan 15, 2025
 
-   This is an alternate extension to my previous post, [2]Shopify, Remix,
+   This is an alternate extension to my previous post, [3]Shopify, Remix,
    Prisma, and Jest.
 
    Follow that post to get to its current state, and weʼll modify the
@@ -251,15 +253,15 @@ volumes:
    down once Jest exits. Without this, the container stays open and
    running.
 
-   [3]MD | [4]TXT | [5]CC-4.0
+   [4]MD | [5]TXT | [6]CC-4.0
      __________________________________________________________________
 
-   [6]Tyler King
+   [7]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   [8]Github [9]About Me [10]CV
      *
      *
      *
@@ -269,12 +271,13 @@ Ty King
 
 References
 
-   1. file:///
-   2. file:///tmp/shopify-remix-prisma-and-jest
-   3. file:///prisma-jest-mysql-testing/index.md
-   4. file:///prisma-jest-mysql-testing/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
-   7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
+   1. file:///rss.xml
+   2. file:///
+   3. file:///tmp/shopify-remix-prisma-and-jest
+   4. file:///prisma-jest-mysql-testing/index.md
+   5. file:///prisma-jest-mysql-testing/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf
