@@ -1,0 +1,175 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                   Woocommerce - Sorting product by category
+
+   Oct 05, 2013
+
+   This past week I was assigned to heavily customize a Woocommerce
+   install on a clientʼs successful store. What needed to be done on one
+   task, was to give the customers the ability to filter products on the
+   productʼs page by a specific set of categories. In other words: Only
+   show the products in X Category.
+
+Sure, this should be easy
+
+   Now, reading up on the Woocommerce documentation, I came across the
+   filter named __woocommercegetcatalogorderingargs which seemed like it
+   would fit the bill and allow you to modify the post query, as shown in
+   [3]this example snippit. My assumption being, $args was used similar to
+   providing an array of args to getposts or WPQuery. I was wrong - dead
+   wrong. It turns out after all, $argspassed to the
+   woocommercegetcatalogorderingargs__ filter is more of a collection of
+   direct SQL commands which WordPress compiles. This means simply passing
+   __$args[ʼproduct_catʼ] = xxx;__ wasnʼt going to work as I originally
+   thought. Back to square one...
+
+Finding a clue to the puzzle
+
+   Thatʼs when I busted out some Google-Fu and tried to find any hook or
+   filter Woocomerce had to directly modify the output of the query. There
+   is no Woocommerce-direct way to do this from what Iʼve found. I did
+   however find a [4]Wordpress support post of people asking a similar
+   question, and a guy by the name of bheadrick in that discussion
+   provided some sample code.
+
+   That is the sad key to the great code-snippet he provided in the
+   discussion. Although it worked, it modifiedall of WordPressʼ post
+   queries instead of just the Woocomerce productʼs page. I decided to dig
+   into the Woocomerce code itself.
+
+Reading the code to find an answer
+
+   [In classes/class-Wc-Query.php on line
+   411](http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#41
+   1), I found the function that called the
+   __woocommercegetcatalogorderingargs filter. Looking upwards from that
+   line on 396, is Woocomerce calling a filter post_clauses__, bingo!
+
+   This is the filter I can use to add clauses (joins, wheres, orders) to
+   the $args passed. So mixing that, with the code bheadrick provided in
+   the discussion is this...
+add_filter(ʼwoocommerce_default_catalog_orderby_optionsʼ, ʼty_catalog_orderbyʼ);
+add_filter(ʼwoocommerce_catalog_orderbyʼ, ʼty_catalog_orderbyʼ);
+function ty_catalog_orderby( $sortby ) {
+  $sortby[ʼoriginalsʼ] = ʼOriginalsʼ;
+  $sortby[ʼprintsʼ]    = ʼPrintsʼ;
+
+  return $sortby;
+}
+
+add_filter(ʼwoocommerce_get_catalog_ordering_argsʼ, ʼty_get_catalog_ordering_arg
+sʼ);
+function ty_get_catalog_ordering_args($args) {
+  global $wpdb;
+
+  $orderby_value = isset($_GET[ʼorderbyʼ]) ? woocommerce_clean($_GET[ʼorderbyʼ])
+ : apply_filters(ʼwoocommerce_default_catalog_orderbyʼ, get_option(ʼwoocommerce_
+default_catalog_orderbyʼ));
+
+  if (ʼoriginalsʼ == $orderby_value) {
+    $args[ʼorderbyʼ]  = ʼdateʼ;
+    $args[ʼorderʼ]    = ʼDESCʼ;
+    $args[ʼmeta_keyʼ] = ʼʼ;
+
+    add_filter(ʼposts_clausesʼ, ʼty_post_clausesdd_originalsʼ);
+  }
+
+  if (ʼprintsʼ == $orderby_value) {
+    $args[ʼorderbyʼ]  = ʼdateʼ;
+    $args[ʼorderʼ]    = ʼDESCʼ;
+    $args[ʼmeta_keyʼ] = ʼʼ;
+
+    add_filter(ʼposts_clausesʼ, ʼty_post_clausesdd_printsʼ);
+  }
+
+  return $args;
+}
+
+function ty_post_clausesdd_originals($args) {
+  global $wpdb;
+
+  $args[ʼjoinʼ]  .= " JOIN " . $wpdb->term_relationships ." tr ON " . $wpdb->pos
+ts . ".id = tr.object_id JOIN " . $wpdb->term_taxonomy ." tt ON tt.term_taxonomy
+_id = tr.term_taxonomy_id AND tt.taxonomy = ʼproduct_catʼ JOIN " . $wpdb->terms
+." t ON tt.term_id = t.term_id
+JOIN " . $wpdb->woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id
+ and tm.meta_key = ʼorderʼ";
+  $args[ʼwhereʼ] .= " AND (t.term_id = 13)";
+
+  return $args;
+}
+
+function ty_post_clausesdd_prints($args) {
+  global $wpdb;
+
+  $args[ʼjoinʼ]  .= " JOIN " . $wpdb->term_relationships ." tr ON " . $wpdb->pos
+ts . ".id = tr.object_id JOIN " . $wpdb->term_taxonomy ." tt ON tt.term_taxonomy
+_id = tr.term_taxonomy_id AND tt.taxonomy = ʼproduct_catʼ JOIN " . $wpdb->terms
+." t ON tt.term_id = t.term_id
+JOIN " . $wpdb->woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id
+ and tm.meta_key = ʼorderʼ";
+  $args[ʼwhereʼ] .= " AND (t.term_id = 16)";
+
+  return $args;
+}
+
+     * Lines 1-8 register the extra filters I want to show in
+       Woocommerceʼs filter dropdown.
+     * Lines 10-33 adds my custom handler for when my filter is selected
+       and called.
+     * Lines 35-43 and 45-53 is where the magic happens.
+
+In conclusion
+
+   Looking at the function __tygetcatalogorderingargs, I check if my
+   filter is being called, and if it is, I register a filter call for
+   post_clauses on lines 21 and 29__. When the post_clauses are called, it
+   will run one of my functions such as __typostclausesdd_originals__. In
+   this function, I add the join provided by bheadrick and add a where
+   clause to tell it to find only posts with a category ID of 13. Because
+   this filter is being called inside __tygetcatalogorderingargs_
+   function, it will not affect standard WordPress post listings.
+
+   All you need to do if you wish to add this to your project is to change
+   up the titling of the filter names and modify each category ID I
+   provided. You can even do multiples by changing it to __$args[ʼwhereʼ]
+   .= " AND t.term_id IN(13, 15, 19)";__ if you wish to get products in
+   multiple categories for one filter action.
+
+   Anyways, thatʼs my story on the hunt to add such a filter. Feel free to
+   modify this and use it in your code since there doesnʼt seem to be a
+   more viable option around that Iʼve seen.
+
+   [5]MD | [6]TXT | [7]CC-4.0
+
+   This post is 11 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [8]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [9]Github [10]About Me [11]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. http://docs.woothemes.com/document/custom-sorting-options-ascdesc/
+   4. http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161
+   5. file:///woocommerce-sorting-products-by-category/index.md
+   6. file:///woocommerce-sorting-products-by-category/index.txt
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///about
+   9. https://github.com/gnikyt
+  10. file:///about
+  11. file:///assets/files/cv.pdf

@@ -1,0 +1,52 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                            all_products... finally
+
+   Jun 24, 2015
+
+   [3]Shopify has finally implemented a global variable for accessing
+   products.
+
+   Shopify has [4]global variables for many things like Collections,
+   Linklists, pages, etc, so you can do things such as access a collection
+   by its handle collections.my-cool-toys.products. However, it always
+   lacked the ability to look up products by their handle until now.
+
+   Thereʼs no documentation yet for the new variable but as the Github
+   comment states, simply use all_products[ʼhandle-hereʼ]
+<img src="{% raw %}{{ all_products[ʼmario-party-gameʼ].featured_image.src | img_
+url: ʼmediumʼ }}{% endraw %}">
+
+   [5]MD | [6]TXT | [7]CC-4.0
+
+   This post is 9 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [8]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [9]Github [10]About Me [11]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/Shopify/liquid/issues/438#issuecomment-108981467
+   4. https://docs.shopify.com/themes/liquid-documentation/objects
+   5. file:///all-products-shopify/index.md
+   6. file:///all-products-shopify/index.txt
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///about
+   9. https://github.com/gnikyt
+  10. file:///about
+  11. file:///assets/files/cv.pdf

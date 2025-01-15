@@ -1,0 +1,79 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                          Setting up Lumen with Redis
+
+   Nov 19, 2017
+
+   This is more of an extension of my previous post "Setting Up Lumen +
+   Mail". I wanted to take it a step further and show the basic setup for
+   getting Redis to work, so you can queue not only mail, but jobs.
+
+   First, run composer require illuminate/redis:5.5 to grab the Redis
+   components.
+
+   Next, open app/Providers/AppServiceProvider.php and add the following
+   to the register method:
+<?php
+// ...
+
+// Configs
+$this->app->configure(ʼdatabaseʼ);
+
+// Enable queues
+$this->app->make(ʼqueueʼ);
+
+   Next, create config/database.php and add the following:
+<?php
+
+return [
+  ʼredisʼ &ge; [
+    ʼclientʼ &ge; ʼpredisʼ,
+    ʼdefaultʼ &ge; [
+      ʼhostʼ &ge; env(ʼREDIS_HOSTʼ, ʼ127.0.0.1ʼ),
+      ʼpasswordʼ &ge; env(ʼREDIS_PASSWORDʼ, null),
+      ʼportʼ &ge; env(ʼREDIS_PORTʼ, 6379),
+      ʼdatabaseʼ &ge; 0
+    ]
+  ]
+];
+
+
+   Donʼt forget to set up all your environment variables for Redis, as
+   well, to enable Redis for job processing and cache, set the following
+   environment variables:
+CACHE_DRIVER=redis
+QUEUE_DRIVER=redis
+
+   Thatʼs it! You can now queue mail or process jobs.
+
+   [3]MD | [4]TXT | [5]CC-4.0
+
+   This post is 7 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///setting-up-lumen-with-redis/index.md
+   4. file:///setting-up-lumen-with-redis/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

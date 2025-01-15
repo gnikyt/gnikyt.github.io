@@ -1,0 +1,58 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                       Get single field error in Symfony
+
+   Dec 12, 2013
+
+   This is just a quick tid-bit/how-to!
+
+   Recently a project came up where special front-end actions and
+   structures had to take place within the view of the Twig template once
+   an error occurred on specific fields. It also didnʼt require enough
+   attention to warrant creating a form theme.
+
+   This is a quick way to test if a field has errors; Simply do this
+   inside your Twig template...
+{% raw %}{{ form.__field_name__.vars.errors|length }}{% endraw %}
+
+   The above code will show how many errors a certain field has. A usage
+   example...
+{% raw %}
+{% if form.__field_name__.vars.errors|length > 0 %}
+  <div class="special-class-for-jquery">{{ form_errors(__field_name__) }}</div>
+{% endif %}
+{% endraw %}
+
+   Just replace __field_name__ with the field name you wish to use!
+
+   [3]MD | [4]TXT | [5]CC-4.0
+
+   This post is 11 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///get-single-field-error-in-symfony/index.md
+   4. file:///get-single-field-error-in-symfony/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

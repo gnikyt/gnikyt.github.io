@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Microservices... don't create a problem | gnikyt
+    </title>
+    <link href="https://gnikyt.com/microservices-dont-create-a-problem" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "![Cover Image](/assets/images/2020/04/3xdp0w.jpg) ## Big Fat No This post is about creating unnecessary problems for yourself. In bro..."
+    name="description">
+    <meta content="2020-04-20T15:03:02-0230" property="article:published_time">
+    <meta content="Microservices... don't create a problem" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "![Cover Image](/assets/images/2020/04/3xdp0w.jpg) ## Big Fat No This post is about creating unnecessary problems for yourself. In bro..."
+    property="og:description">
+    <meta content="https://gnikyt.com/microservices-dont-create-a-problem" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "![Cover Image](/assets/images/2020/04/3xdp0w.jpg) ## Big Fat No This post is about creating unnecessary problems for yourself. In bro..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2020-04-20T15:03:02-0230",
+    "datePublished": "2020-04-20T15:03:02-0230",
+    "description": "
+    ![Cover Image](/assets/images/2020/04/3xdp0w.jpg)
+
+    ## Big Fat No
+
+    This post is about creating unnecessary problems for yourself.
+
+    In bro...",
+    "headline": "Microservices... don't create a problem",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/microservices-dont-create-a-problem"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/microservices-dont-create-a-problem"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="microservices-dont-create-a-problem">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Microservices... don't create a problem
+          </h1>
+
+          <p>
+            <time datetime="2020-04-20">Apr 20, 2020</time>
+          </p>
+        </header>
+
+        <p>
+          <img alt="Cover Image" src="/assets/images/2020/04/3xdp0w.jpg">
+        </p>
+
+        <h2 id="big-fat-no">
+          Big Fat No
+        </h2>
+
+        <p>
+          This post is about creating unnecessary problems for yourself.
+        </p>
+
+        <p>
+          In browsing the various tech and programming feeds I read weekly, I've seen a trend of developers asking
+          questions such as:
+        </p>
+
+        <p>
+          I don't know if its some sort of tech-culture pressure to learn these languages and create microservices
+          out-of-the-gate for new projects... but it seems to be becoming more commonly asked.
+        </p>
+
+        <p>
+          The answer is always <strong>no</strong>. A <em>big fat <strong>no</strong></em>. If you're currently in the
+          start of doing this, <strong>turn around</strong>.
+        </p>
+
+        <h2 id="the-issue">
+          The Issue
+        </h2>
+
+        <p>
+          <strong>Monolith</strong>: This is when the entirety of your project's business is contained in one piece.
+        </p>
+
+        <p>
+          <strong>Microservices</strong>: This is when your project's business is split up into multiple pieces.
+        </p>
+
+        <p>
+          The trend lately seems to be people attempting to write with a microservices-first mindset. Not only that,
+          but people are also wanting to write these microservices in Golang, Rust, Erlang, etc, instead of a more
+          popular/mature language with a full-featured framework.
+        </p>
+
+        <p>
+          I've used/use some of those languages, and while I like them, I would not start with them. Even with adding
+          packages to fill gaps, its still not as a smooth of a process as a mature avenue can offer.
+        </p>
+
+        <p>
+          You end up trying to connect dots yourself, writing a bunch of code to handle the basics a framework already
+          provides. In the end, spending a lot of time creating a loose framework rather than writing your project's
+          business logic. You then also have to write tests for this new framework, then do this <em>X times</em> over
+          for each microservice.
+        </p>
+
+        <p>
+          Here are some things to consider about if you're thinking about starting with microservices, and
+          microservices in less popular languages/frameworks:
+        </p>
+
+        <ul>
+          <li>Are you writing this project by yourself?
+          </li>
+
+          <li>Are you writing this project with a team?
+          </li>
+
+          <li>Does your team have experience with microservices?
+          </li>
+
+          <li>Does your team have experience with the language(s)?
+          </li>
+
+          <li>Do they have time to learn it?
+          </li>
+
+          <li>How will you deploy the project and microservices?
+          </li>
+
+          <li>How do you plan to manage the project's resources?
+          </li>
+
+          <li>Are you having authentication and validation?
+          </li>
+
+          <li>How do you plan to manage the above if yes?
+          </li>
+
+          <li>How do you plan to monitor and log the project?
+          </li>
+
+          <li>Are you touching a cache or database?
+          </li>
+
+          <li>How do you plan to manage those connections?
+          </li>
+
+          <li>How do you plan to test?
+          </li>
+
+          <li>How do you plan to write tests between the microservices?
+          </li>
+        </ul>
+
+        <p>
+          The list goes on and on... starting with a monolith, with a well-matured ecosystem, can handle most (if not
+          all) of that list for you. So that's where you should begin. Let yourself, and your team, write the business
+          logic and focus on the project's goals itself, rather than trying to manage all sort of separated services in
+          various languages.
+        </p>
+
+        <p>
+          You will regret it once you go down the path of microservices to start, then your deadline looms over your
+          head and you and your team are still patching together the basics a framework would've provided to you.
+        </p>
+
+        <p>
+          You and your team will be able to develop at a much higher rate of speed with the proper initial setup. That
+          initial setup should not include microservices.
+        </p>
+
+        <h2 id="a-good-process">
+          A Good Process
+        </h2>
+
+        <p>
+          Build a monolith to start. Don't worry about your <em>imaginary server load</em>, <em>mystical scaling
+          needs</em>, and whatever nonsense you've read on some clickbait article.
+        </p>
+
+        <p>
+          Worry about it when the time comes to worry about it - you will know when you reach that point. Also, most
+          things never reach that point for many new company projects. Most end up with short lives.
+        </p>
+
+        <p>
+          What you want to do is keep your core as a monolith and separate your external resources... like database,
+          caching, queue, logging, etc.
+        </p>
+
+        <p>
+          If your project requires Postgres for a database, Redis for a cache layer, RabbitMQ or Redis or a queue hold
+          pen, and logging... then those are items you should separate from your app. Allow them to run in another
+          instance, either self-managed or preferably managed.
+        </p>
+
+        <p>
+          This way you have a good base.
+        </p>
+
+        <ul>
+          <li>Happen to get some hard-hitting load on your app? Throw it behind a load balancer...
+          </li>
+
+          <li>Is your database getting hammered? Scale its resources...
+          </li>
+
+          <li>Is your cache growing too much? Increase it and create a cluster...
+          </li>
+
+          <li>Is your queue overworked? Spin up new instances...
+          </li>
+        </ul>
+
+        <p>
+          All this can be handled easily, and with services that DigitalOcean, Azure, Heroku, AWS, and many others
+          provide, it can happen with a click of a button... all without the need to microservice the core of your
+          project.
+        </p>
+
+        <p>
+          When your core project is forecasted to approch it's scaling limits, this is when you need to think about
+          microservices, but not before.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/microservices-dont-create-a-problem/index.md">MD</a> | <a href=
+            "/microservices-dont-create-a-problem/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 4 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

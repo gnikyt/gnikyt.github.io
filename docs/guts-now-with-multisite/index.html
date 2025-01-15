@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Guts with multisite | gnikyt
+    </title>
+    <link href="https://gnikyt.com/guts-now-with-multisite" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "This is just a quick and proud update that I've released a lengthy update to [Guts](https://github.com/gnikyt/guts) which includes multi..."
+    name="description">
+    <meta content="2016-04-24T23:38:00-0230" property="article:published_time">
+    <meta content="Guts with multisite" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "This is just a quick and proud update that I've released a lengthy update to [Guts](https://github.com/gnikyt/guts) which includes multi..."
+    property="og:description">
+    <meta content="https://gnikyt.com/guts-now-with-multisite" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "This is just a quick and proud update that I've released a lengthy update to [Guts](https://github.com/gnikyt/guts) which includes multi..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-04-24T23:38:00-0230",
+    "datePublished": "2016-04-24T23:38:00-0230",
+    "description": "
+    This is just a quick and proud update that I've released a lengthy update to [Guts](https://github.com/gnikyt/guts) which includes multi...",
+    "headline": "Guts with multisite",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/guts-now-with-multisite"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/guts-now-with-multisite"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="guts-now-with-multisite">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Guts with multisite
+          </h1>
+
+          <p>
+            <time datetime="2016-04-24">Apr 24, 2016</time>
+          </p>
+        </header>
+
+        <p>
+          This is just a quick and proud update that I've released a lengthy update to <a href=
+          "https://github.com/gnikyt/guts">Guts</a> which includes multisite abilities. Meaning, you can run the same
+          Guts admin interface for multiple domains. It also includes a handy concern for enabling multisite support on
+          your application.
+        </p>
+
+        <p>
+          Right from the docs is the full details below. Besides that, I've introduced a <code>CHANGELOG</code> file,
+          multiple fixes, and more tests from the <a href="https://github.com/gnikyt/guts/pull/1">multisite pull
+          request</a>. The Gem is now at version <code>1.1.0</code> with a passing build. As a cool note, because Guts
+          is on <a href="http://www.rubydoc.info/gems/guts/1.1.0">rubydoc.info</a>, you can open your favorite doc app
+          like <a href="https://kapeli.com/dash">Dash</a>, and pull the full documentation.
+        </p>
+
+        <h2 id="how-it-works">
+          How It Works
+        </h2>
+
+        <p>
+          All models for Guts except for Groups, Users, and Sites, have a <code>default_scope</code> which scopes the
+          queries to the current domain.
+        </p>
+
+        <p>
+          So using for example, <code>Guts::Content.all</code> will show all content for the current domain only.
+        </p>
+
+        <h2 id="getting-started">
+          Getting Started
+        </h2>
+
+        <h3 id="admin-setup">
+          Admin Setup
+        </h3>
+
+        <p>
+          Open Guts' dashboard and head to <code>Sites</code> in the sidebar. From here, there are two ways to handle
+          your situation...
+        </p>
+
+        <ol>
+          <li>The current domain is the "default", you add the extra domains
+          </li>
+
+          <li>No current "default", you add a default domain and the extra domains
+          </li>
+        </ol>
+
+        <p>
+          In most cases, you'll use options one and have <code>example.com</code> pointing for Guts (meaning you don't
+          add it in the section of the site), then you'd add your secondary domains such as
+          <code>fr.example.com</code>.
+        </p>
+
+        <h3 id="code-setup">
+          Code Setup
+        </h3>
+
+        <p>
+          Open your <code>application_controller.rb</code> file and add <code>include Guts::MultisiteConcern</code>.
+        </p>
+
+        <p>
+          This will do two things:
+        </p>
+
+        <ol>
+          <li>Adds a <code>before<em>action</em></code> <em>to set the current site
+          (<code>@current</code></em><code>site</code>) based on the domain, which is also usable in your views
+          </li>
+
+          <li>Adds a <code>around_action</code> which tells the <code>Site</code> model which site ID we're requesting
+          so the models can be scoped to only show data for the current site.
+          </li>
+        </ol>
+
+        <p>
+          For more insight into this concern see <code>app/concerns/guts/multisite_concern.rb</code> or view the YARD
+          documenation.
+        </p>
+
+        <h2 id="misc-notes">
+          Misc. Notes
+        </h2>
+
+        <h3 id="quot-set-as-default-quot-option">
+          "Set as Default" option
+        </h3>
+
+        <p>
+          The <code>Set as Default</code> option the in sites section internally means nothing to Guts. It simply flags
+          the site a boolean value to determine if you've set it as the default which you can then use in your
+          application (maybe to query it, etc).
+        </p>
+
+        <h3 id="users-amp-groups">
+          Users & Groups
+        </h3>
+
+        <p>
+          Currently, multisite support does not scope users and groups. This means the same users and groups will
+          appear in all domains.
+        </p>
+
+        <h3 id="unscoping">
+          Unscoping
+        </h3>
+
+        <p>
+          Because for most models, a <code>default_scope</code> is provided, you may wish to remove this scope in some
+          use-cases (such as pulling content from all sites, not just the current site). Simply add
+          <code>unscoped</code> to your ActiveRecord queries.
+        </p>
+
+        <pre><code># For current site
+Guts::Content.where(type: @type)
+
+# For all
+Guts::Content.unscoped.where(type: @type)
+</code></pre>
+        <footer>
+          <div class="sources">
+            <a href="/guts-now-with-multisite/index.md">MD</a> | <a href="/guts-now-with-multisite/index.txt">TXT</a> |
+            <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 8 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                                   Go is nice
+
+   Apr 22, 2019
+
+   Iʼve been coding with Golang in my spare time for the past year. Itʼs
+   been different from the regular day-to-day Python, PHP, and Typescript.
+
+   Iʼve released a few side projects such as a [3]simple blockchain
+   implementation, a [4]webhook validator for Shopify, a [5]Python clone
+   of with, and [6]other nick-nacks. Unfortunately, I havenʼt had the
+   chance to use it a whole lot during working hours.
+
+   Go is a strange beast. To a newcomer, it has an odd syntax for methods,
+   loops, doesnʼt come with built-in collection methods, its plain-jane
+   control flow, and to top it off.. it is not functional and it is not
+   object-oriented.
+
+   I wonʼt get into depths of Go, but I just wanted to shout out to its
+   beauty in its strangeness in this post. It allows you to code freely in
+   a logical manner, with the power of interfaces and structs that Iʼve
+   not yet seen in another language Iʼve personally worked with.
+
+   I love how it also does not hold your hand. Youʼre free to do what you
+   please and it is very bare-bones in a sense which gives you a good base
+   to build from (example: the built-in testing package has no
+   assertions). Its also hella fast.. the compile times and plain
+   processing abilities are phenomenal.
+
+   Thereʼs a lot of built-in tools like gofmt which ensures your code is
+   formatted a certain way and the build system, the ability to build
+   targetted binaries for systems (even exes!) quickly.
+
+   The community is growing rapidly and many tools are popping up, and
+   many tools are being rewritten to Go. Iʼm excited to see its future and
+   continue working with it more, hopefully, the next few versions will
+   fix some module issues and introduce generics.
+
+   [7]MD | [8]TXT | [9]CC-4.0
+
+   This post is 5 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [10]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [11]Github [12]About Me [13]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/gochain
+   4. https://github.com/gnikyt/http<em>shopify</em>webhook
+   5. https://github.com/gnikyt/gowith
+   6. https://github.com/gnikyt/swf
+   7. file:///go-is-nice/index.md
+   8. file:///go-is-nice/index.txt
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. file:///about
+  11. https://github.com/gnikyt
+  12. file:///about
+  13. file:///assets/files/cv.pdf

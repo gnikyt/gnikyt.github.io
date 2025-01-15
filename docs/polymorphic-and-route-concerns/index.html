@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Polymorphic and Route Concerns... who is who? | gnikyt
+    </title>
+    <link href="https://gnikyt.com/polymorphic-and-route-concerns" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let's s..."
+    name="description">
+    <meta content="2016-01-01T12:55:00-0330" property="article:published_time">
+    <meta content="Polymorphic and Route Concerns... who is who?" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let's s..."
+    property="og:description">
+    <meta content="https://gnikyt.com/polymorphic-and-route-concerns" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let's s..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-01-01T12:55:00-0330",
+    "datePublished": "2016-01-01T12:55:00-0330",
+    "description": "
+    The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic modal/route/controller. Let's s...",
+    "headline": "Polymorphic and Route Concerns... who is who?",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/polymorphic-and-route-concerns"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/polymorphic-and-route-concerns"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="polymorphic-and-route-concerns">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Polymorphic and Route Concerns... who is who?
+          </h1>
+
+          <p>
+            <time datetime="2016-01-01">Jan 01, 2016</time>
+          </p>
+        </header>
+
+        <p>
+          The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic
+          modal/route/controller. Let's start with the basics...
+        </p>
+
+        <h2 id="polymorphic">
+          Polymorphic
+        </h2>
+
+        <p>
+          For those unfamiliar to it, <a href=
+          "http://guides.rubyonrails.org/association_basics.html#polymorphic-associations">Polymorphic is an Active
+          Record</a> association type where a model can belong to other models. As a simple example, you could have an
+          <em>Ingredient</em> model which can be polymorphic and belong to different types of models such as
+          <em>Baking</em>, <em>Cooking</em>, or <em>WitchesBrew</em>.
+        </p>
+
+        <h2 id="route-concerns">
+          Route Concerns
+        </h2>
+
+        <p>
+          These are used in routing for Rails where you're able to declare common routes for resources. An example of
+          this can be a <em>picture</em> concern, where many resources can have a picture route.
+        </p>
+
+        <pre><code>concern :picturable do
+  resources :pictures
+end
+# ...
+resources :users, concerns: [:picturable]
+resources :customers, concerns: [:picturable]
+</code></pre>
+        <h2 id="the-problem">
+          The problem
+        </h2>
+
+        <p>
+          If your polymorphic modal has a controller, how do you know what object is using it? How do you get the
+          object itself? Let's start and assume I have a polymorphic modal for Metafields, so many models can have
+          metafields and we'll call it <em>fieldable</em>.
+        </p>
+
+        <pre><code># modals/metafield.rb
+module MyCoolApp
+  class Metafield &lt; ActiveRecord::Base
+    belongs_to :fieldable, polymorphic: true
+  end
+end
+</code></pre>
+
+        <pre><code># modals/user.rb
+module MyCoolApp
+  class User &lt; ActiveRecord::Base
+    # ...
+    has_many :metafields, as: :fieldable, dependent: :destroy
+    # ...
+  end
+end
+</code></pre>
+
+        <pre><code># modals/movie.rb
+module MyCoolApp
+  class Movie &lt; ActiveRecord::Base
+    # ...
+    has_many :metafields, as: :fieldable, dependent: :destroy
+    # ...
+  end
+end
+</code></pre>
+        <p>
+          So now, we have three models. The <em>Metafield</em> modal which is polymorphic and a <em>User</em> and a
+          <em>Movie</em> modal which can have these metafields. The <em>Metafield</em> modal will create a table in the
+          database with <code>fieldable<em>type</em></code> <em>and <code>fieldable</code></em><code>id</code> which
+          should reference the modal class and the object's ID.
+        </p>
+
+        <p>
+          Along with this, I've set up a Metafield controller so we can add, edit, and delete metafields for these
+          other models. With all this put together, we'll set up the routing concerns.
+        </p>
+
+        <pre><code>concern(:fieldable) { resources :metafields }
+# ...
+resources :users do
+  concerns :fieldable
+end
+# ...
+resouces :movies do
+  concerns :fieldable
+end
+</code></pre>
+        <p>
+          Now, the user and movie resource routes will have metafield resource routes added to them. Which will create
+          routes such as <code>/users/metafields</code>, <code>/users/metafields/new</code>,
+          <code>/movies/metafields/3/edit</code>.
+        </p>
+
+        <p>
+          However, for the metafield controller, how is it supposed to know if we're accessing User metafields or Movie
+          metafields when you're adding and editing? You could do things such as base it on the URL, or manual section,
+          but that's not a great solution in the long run. There are easier and cleaner ways... by utilizing a mix of
+          the routing concerns and a private method in the Metafield controller. Let's change our concern in the
+          routing now to accept options and parameters.
+        </p>
+
+        <pre><code># Before
+concern(:fieldable) { resources :metafields }
+# After
+concern(:fieldable) {|opts| resources :metafields, opts}
+</code></pre>
+        <p>
+          Now let's pass a parameter to the concern per resource route.
+        </p>
+
+        <pre><code>concern(:fieldable) {|opts| resources :metafields, opts}
+# ...
+resources :users do
+  concerns :fieldable, fieldable_type: "MyCoolApp::Users"
+end
+# ...
+resouces :movies do
+  concerns :fieldable, fieldable_type: "MyCoolApp::Movies"
+end
+</code></pre>
+        <p>
+          So now we're passing <code>fieldable_type</code> with the modal class to the concern which gets passed to the
+          resource for metafields. We can now grab this parameter in the controller and it'll help us figure out what
+          modal is trying to access the metafields. Let's add a method to the metafield controller now which will do
+          this work for us.
+        </p>
+
+        <pre><code>module MyCoolApp
+  class MetafieldsController &lt; ApplicationController
+      before_action :set_object
+      # ...
+
+      private
+      def set_object
+        # Converts (as example) "MyCoolApp::Movies" string to "movies_id"
+        param_name   = "#{params[:fieldable_type].demodulize.underscore}_id"
+
+        # Converts (as example) "MyCoolApp::Movies" string into a module reference
+        param_object = params[:fieldable_type].constantize
+
+        # Grab the object now, as example: (object.find movie_id) -&gt; MyCoolApp::Movies.find 3
+        @object = param_object.find params[param_name]
+      end
+  end
+end
+</code></pre>
+        <p>
+          As you can see above, everything is now in place. We convert the <code>fieldable_type</code> value we passed
+          in the concern into a module reference and an ID for whose trying to access it. <code>@object</code> will not
+          be the User object or Movie object trying to access the metafields.
+        </p>
+
+        <p>
+          Lastly, we can tie this into the forms for metafields creation/editing:
+        </p>
+
+        <pre><code># ...
+&lt;div class="hide"&gt;
+  &lt;%= f.text_field :fieldable_id, value: @object.id %&gt;
+  &lt;%= f.text_field :fieldable_type, value: @object.class %&gt;
+&lt;/div&gt;
+</code></pre>
+        <p>
+          Now when saved, the metafield record in the database will automatically set the modal class and the ID for
+          the object.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/polymorphic-and-route-concerns/index.md">MD</a> | <a href=
+            "/polymorphic-and-route-concerns/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 9 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

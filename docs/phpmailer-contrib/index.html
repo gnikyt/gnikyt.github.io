@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      PHPMailer contrib | gnikyt
+    </title>
+    <link href="https://gnikyt.com/phpmailer-contrib" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex..."
+    name="description">
+    <meta content="2014-02-09T20:55:00-0330" property="article:published_time">
+    <meta content="PHPMailer contrib" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex..."
+    property="og:description">
+    <meta content="https://gnikyt.com/phpmailer-contrib" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2014-02-09T20:55:00-0330",
+    "datePublished": "2014-02-09T20:55:00-0330",
+    "description": "
+    I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex...",
+    "headline": "PHPMailer contrib",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/phpmailer-contrib"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/phpmailer-contrib"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="phpmailer-contrib">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            PHPMailer contrib
+          </h1>
+
+          <p>
+            <time datetime="2014-02-09">Feb 09, 2014</time>
+          </p>
+        </header>
+
+        <p>
+          I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this
+          week. Its a fairly complex plugin which is one of its functions relies on getting the recipients of e-mails
+          sent out by WordPress.
+        </p>
+
+        <p>
+          During our upgrading of the code, we discovered <a href="http://phpmailer.worxware.com/">PHPMailer</a> (the
+          component WordPress uses for mailing <a href=
+          "http://codex.wordpress.org/Function%3Cem%3EReference/wp%3C/em%3Email">wp<em>mail</em></a>, has been changed
+          since we last wrote the plugin. The class properties "to", "bcc", "cc", "ReplyTo", and "allrecipients" of
+          PHPMailer went from public to protected over the last couple years.
+        </p>
+
+        <p>
+          <em>So our issue was <code>$mailer-&gt;to</code> simply wouldn't work anymore, and there appeared to be no
+          public access methods to get the addresses such as <code>$mailer-&gt;getToAddresses()</code>.</em>
+        </p>
+
+        <p>
+          <em>I addressed the issue on PHPMailer's Github page, and <a href=
+          "https://github.com/PHPMailer/PHPMailer/issues/180">provided a pull request which has been merged into the
+          master</a> :) So in short, you can now access "to", "bcc", "cc", "ReplyTo", and "all_recipients" by using
+          <code>getToAddresses()</code>, <code>getBccAddresses()</code>, <code>getCcAddresses()</code>,
+          <code>getReplyToAddresses()</code> and <code>getAllRecipientAddresses()</code>.</em>
+        </p>
+
+        <footer>
+          <em></em>
+          <div class="sources">
+            <em><a href="/phpmailer-contrib/index.md">MD</a> | <a href="/phpmailer-contrib/index.txt">TXT</a> |
+            <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a></em>
+          </div>
+          <em></em>
+          <div class="warning post-old">
+            <em>This post is 10 years old and may contain outdated information.</em>
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <em></em>
+
+      <hr>
+      <em><a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a></em>
+      <div>
+        <em></em>
+        <h3>
+          <em>Ty King</em>
+        </h3>
+
+        <p>
+          <em>A self-taught, seasoned, versatile developer from Newfoundland.</em>
+        </p>
+        <em><a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a>
+        <a class="button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target=
+        "_blank">CV</a></em>
+        <ul class="colors">
+          <li class="color color--a">
+            <em></em>
+          </li>
+
+          <li class="color color--b">
+            <em></em>
+          </li>
+
+          <li class="color color--c">
+            <em></em>
+          </li>
+
+          <li class="color color--d">
+            <em></em>
+          </li>
+
+          <li class="color color--e">
+            <em></em>
+          </li>
+
+          <li class="color color--f">
+            <em></em>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Extending a Rails Engine | gnikyt
+    </title>
+    <link href="https://gnikyt.com/extending-a-rails-engine" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many conquered (like having 100% code coverag..."
+    name="description">
+    <meta content="2016-02-20T12:27:45-0330" property="article:published_time">
+    <meta content="Extending a Rails Engine" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many conquered (like having 100% code coverag..."
+    property="og:description">
+    <meta content="https://gnikyt.com/extending-a-rails-engine" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many conquered (like having 100% code coverag..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-02-20T12:27:45-0330",
+    "datePublished": "2016-02-20T12:27:45-0330",
+    "description": "
+    Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many conquered (like having 100% code coverag...",
+    "headline": "Extending a Rails Engine",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/extending-a-rails-engine"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/extending-a-rails-engine"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="extending-a-rails-engine">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Extending a Rails Engine
+          </h1>
+
+          <p>
+            <time datetime="2016-02-20">Feb 20, 2016</time>
+          </p>
+        </header>
+
+        <p>
+          Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many conquered
+          (like having 100% code coverage :D). One thought that crossed my mind after building the monster was how do
+          you extend an engine? By extending, I mean to add or overwrite methods of controllers, models, helpers, etc.
+        </p>
+
+        <p>
+          The <a href="http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality">Rails Engine
+          Guide</a> is excellent and it has two main points on extending the engine functionality. One is by use of
+          "decorators" and the other is by abstracting all your controller and model code into concerns inside your
+          engine. While I like the concern method, as it gives more flexibility for complex extensions, its overkill in
+          my opinion. The <a href=
+          "http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers">decorator</a> option is
+          very easy to implement without changing much of your existing engine.
+        </p>
+
+        <p>
+          The first step as the Rails guide shows you, is to add support for decorator loading inside your engine lib.
+          Below is how I did it in my CMS engine called Guts:
+        </p>
+
+        <pre><code># lib/guts/engine.rb
+# ... etc ...
+isolate_namespace Guts
+
+config.to_prepare do
+  Dir.glob("#{Rails.root}app/decorators/*/guts/*_decorator*.rb").each do |c|
+    require_dependency c
+  end
+end
+# ... etc ...
+</code></pre>
+        <p>
+          This will look for all decorators in the main Rails apps for the path
+          <code>app/decorators/{controllers,models,concerns,helpers,etc}/guts/{file}<em>decorator(s).rb</em></code>
+          <em>and load them in using <a href=
+          "http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require%3C/em%3Edependency">require_dependency</a>.</em>
+        </p>
+
+        <p>
+          <em>Now the engine has support to load the decorators, lets move on to some examples. All following examples
+          from here-on-out will be using my engine for example purposes.</em>
+        </p>
+
+        <h2 id="controllers">
+          <em>Controllers</em>
+        </h2>
+
+        <p>
+          <em>Create a file in <code>app/decorators/controllers/guts/</code> such as
+          <code>type_decorator.rb</code></em>
+        </p>
+
+        <p>
+          <em>Add in the following code using <code>class_eval</code> from Ruby:</em>
+        </p>
+
+        <pre><em><code>Guts::TypesController.class_eval do
+  # Decorator action is explode.. we will route this as: guts/types#explode
+  def explode
+    # Will render app/views/guts/types/explode.html.erb
+  end
+end
+</code></em></pre>
+        <p>
+          <em>Next open <code>app/config/routes.rb</code> in your main Ruby app and prepend this new route at the
+          <strong>very top of the route file before mounting the Guts engine</strong> in the
+          <code>Rails.application.routes.draw</code> block.</em>
+        </p>
+
+        <p>
+          <em>As an example:</em>
+        </p>
+
+        <pre><em><code>Guts::Engine.routes.prepend do
+  # Create a route of /guts/types/explode
+  # Map it to types controller and the explode method
+  # Give the route a name of guts_types_explode
+  get "/types/explode", to: "types#explode", as: :guts_types_explode
+end
+
+Rails.application.routes.draw do
+  # Mount the Guts engine
+  mount Guts::Engine &amp;ge; "/guts"
+end
+</code></em></pre>
+        <p>
+          <em>This will now prepend our new route to the engine and map <code>/guts/types/explode</code> to our
+          decorator action.</em>
+        </p>
+
+        <p>
+          <em>Lastly, create a view in <code>app/views/guts/types/</code> called <code>explode.html.erb</code> with
+          whatever you wish to display! This is the basics of extending a controller.</em>
+        </p>
+
+        <h2 id="models">
+          <em>Models</em>
+        </h2>
+
+        <p>
+          <em>As in controllers, create a file in <code>app/decorators/models/guts/</code> such as
+          <code>type<em>modal</em>decorator.rb</code></em>
+        </p>
+
+        <p>
+          Add in the following code using <code>class_eval</code> from Ruby:
+        </p>
+
+        <pre><code>Guts::Type.class_eval do
+  # Override title setter
+  def title=(title)
+    self[:title] = "Tricked ya! New Title!"
+  end
+
+  # Adds a new method to the model
+  def title_with_bang
+    "#{self[:title]}!"
+  end
+end
+</code></pre>
+        <h2 id="views">
+          Views
+        </h2>
+
+        <p>
+          As stated above for the controller example, since Rails looks in the main app for views first, you simply
+          need to match the correct path.
+        </p>
+
+        <p>
+          If your engine's view for <code>CoolController#jumps</code> is
+          <code>app/views/{engine}/cool/jumps.html.erb</code> you will duplicate this in your main Rails apps by
+          creating a file in <code>app/views/{engine}/cool/jumps.html.erb</code>. You can then enter anything you need
+          into that view and will be overridden.
+        </p>
+
+        <p>
+          A good tip I used in my CMS engine was to utilize <a href=
+          "http://guides.rubyonrails.org/layouts%3Cem%3Eand%3C/em%3Erendering.html#understanding-yield">yields</a>. I
+          placed named yields in many parts of my engine views so they can be utilized by a Rails app by calling
+          <a href=
+          "http://guides.rubyonrails.org/layouts%3Cem%3Eand%3C/em%3Erendering.html#using-the-content-for-method">content_for</a>
+          in their views.
+        </p>
+
+        <p>
+          Although the Rails Guide covers all this, I thought seeing a real-world example would help. Happy coding!
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/extending-a-rails-engine/index.md">MD</a> | <a href="/extending-a-rails-engine/index.txt">TXT</a>
+            | <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 8 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

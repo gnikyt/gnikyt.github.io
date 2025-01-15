@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Simple password checking with Symfony and FOS User Bundle | gnikyt
+    </title>
+    <link href="https://gnikyt.com/simple-password-checking-with-symfony-and-fos-user-bundle" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Recently for a project, a co-developer wanted to validate someone's record in the database from an Android application and the website w..."
+    name="description">
+    <meta content="2013-08-28T16:22:49-0230" property="article:published_time">
+    <meta content="Simple password checking with Symfony and FOS User Bundle" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Recently for a project, a co-developer wanted to validate someone's record in the database from an Android application and the website w..."
+    property="og:description">
+    <meta content="https://gnikyt.com/simple-password-checking-with-symfony-and-fos-user-bundle" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Recently for a project, a co-developer wanted to validate someone's record in the database from an Android application and the website w..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2013-08-28T16:22:49-0230",
+    "datePublished": "2013-08-28T16:22:49-0230",
+    "description": "
+    Recently for a project, a co-developer wanted to validate someone's record in the database from an Android application and the website w...",
+    "headline": "Simple password checking with Symfony and FOS User Bundle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/simple-password-checking-with-symfony-and-fos-user-bundle"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/simple-password-checking-with-symfony-and-fos-user-bundle"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="simple-password-checking-with-symfony-and-fos-user-bundle">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Simple password checking with Symfony and FOS User Bundle
+          </h1>
+
+          <p>
+            <time datetime="2013-08-28">Aug 28, 2013</time>
+          </p>
+        </header>
+
+        <p>
+          Recently for a project, a co-developer wanted to validate someone's record in the database from an Android
+          application and the website was using Symfony 2.3 with FOS User Bundle. Specifically, this developer did not
+          want to log the user in, only to check their login against the database. So this seemed like a special enough
+          case to show my solution to the problem.
+        </p>
+
+        <p>
+          We were going to tackle this by an HTTP POST request to /login_check, with the user's email and password.
+          Now, FOS User Bundle is highly configurable. At first, I considered extending the authentication handler and
+          tapping into <code>onAuthenticationSuccess</code> and <code>onAuthenticationFailure</code>. By extending the
+          authentication handler, I could now check for an external request from the Android application, and provide a
+          JSON response for the POST data - showing if it was a valid login or not.
+        </p>
+
+        <p>
+          This provided a problem however, FOS User Bundle uses CSRF tokens on the login to prevent these kinds of HTTP
+          requests, which is nice. But, to disable it so the Android application could externally call /login_check on
+          the website, I would have to extend the security form controller for FOS User Bundle in
+          SecurityController.php, and to do that you need to create a new bundle which is a child of FOSUserBundle. On
+          top of that, then we have a security issue where we have no CSRF protection.
+        </p>
+
+        <p>
+          That's a lot of work just to respond to a HTTP request and let the application know of the email and password
+          match the database.
+        </p>
+
+        <p>
+          So my solution was simple; take the user's email, validate it, then take the password and use Symfony's
+          encoder service to hash the password sent to the controller for that email and check if it's valid.
+        </p>
+
+        <p>
+          Here is the controller code below. In my code, I added an "android_secret" parameter read from
+          app/parameters.yml which is a hash that just ensures the request came from the Android application - this is
+          unnecessary and can be removed if you please.
+        </p>
+
+        <pre><code>&lt;?php
+
+namespace Acme\WebsiteBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class AndroidController extends Controller
+{
+  public function checkLoginAction(Request $request)
+  {
+  // Get our POST data.
+    $email    = $request-&gt;request-&gt;get('email');
+    $password = $request-&gt;request-&gt;get('password');
+    $secret   = $request-&gt;request-&gt;get('secret');
+
+  // Setup the JSON messages.
+    $messages = [
+      'success' &amp;ge; [
+        'success' &amp;ge; true,
+        'message' &amp;ge; 'VALID_LOGIN'
+      ],
+      'fail'    &amp;ge; [
+        'success' &amp;ge; false,
+        'message' &amp;ge; 'INVALID_LOGIN'
+      ],
+      'secret'  &amp;ge; [
+        'success' &amp;ge; false,
+        'message' &amp;ge; 'INVALID_AUTH'
+      ]
+    ];
+
+    $type           = 'application/json';
+    $return_success = json_encode($messages['success']);
+    $return_fail    = json_encode($messages['fail']);
+    $return_secret  = json_encode($messages['secret']);
+
+  // Ensure this is from the Android application.
+    if ($this-&gt;container-&gt;getParameter('android_secret') !== $secret) {
+      return new Response($return_secret, 200, ['Content-Type' &amp;ge; $type]);
+    }
+
+  // Check the email sent to us.
+    $user = $this-&gt;get('fos_user.user_manager')-&gt;findUserByEmail($email);
+    if (null === $user) {
+      return new Response($return_fail, 200, ['Content-Type' &amp;ge; $type]);
+    }
+
+  // Email passed. Let's encode the password sent to us using the user's salt.
+    $encoder      = $this-&gt;get('security.encoder_factory')-&gt;getEncoder($user);
+    $encoded_pass = $encoder-&gt;encodePassword($password, $user-&gt;getSalt());
+
+  // Check if the password sent to us matches encoded_pass we just created.
+    if ($encoded_pass === $user-&gt;getPassword()) {
+    // Passed!
+      return new Response($return_success, 200, ['Content-Type' &amp;ge; $type]);
+    }
+
+  // Failed!
+    return new Response($return_fail, 200, ['Content-Type' &amp;ge; $type]);
+  }
+}
+</code></pre>
+        <footer>
+          <div class="sources">
+            <a href="/simple-password-checking-with-symfony-and-fos-user-bundle/index.md">MD</a> | <a href=
+            "/simple-password-checking-with-symfony-and-fos-user-bundle/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 11 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

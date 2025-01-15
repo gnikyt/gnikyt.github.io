@@ -4,10 +4,10 @@
 
                        Blink - Tuned camera notifications
 
-   Jan 15, 2025
+   Nov 28, 2022
 
-   ***Note**: This post is geared towards Android devices. Currently
-   unaware of a solution for Apple devices.*
+   Note: This post is geared towards Android devices. Currently unaware of
+   a solution for Apple devices.*
 
 The Problem
 

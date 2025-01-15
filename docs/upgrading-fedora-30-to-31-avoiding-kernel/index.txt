@@ -1,0 +1,90 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+             Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7
+
+   Jan 15, 2020
+
+   Fedora 30 was released on April 30th, 2019.
+
+   Fedora 31 was released on October 29th, 2019.
+
+   While Fedora 30 had minimal reported issues (at least socially), Fedora
+   31 was a different case altogether due to the 5.4.7 packaged kernel
+   where Fedora 30 had 5.0 (later updated to 5.3.x).
+
+   There have been several reports of usersʼ WIFI completely dropping,
+   Ethernet not working, audio not working, and so on.
+
+   While I normally wait a few months after a major release for the dust
+   to settle, there are a few features I was wanting, so I decided to
+   upgrade and create a guide on how to keep your existing kernel during
+   the upgrade.
+
+Upgrade
+
+   First, make sure all packages are updated.
+
+   sudo dnf --refresh upgrade --exclude=kernel*
+
+   This will refresh the repos, update your packages, and exclude any
+   kernel updates.
+
+System Upgrade
+
+   Next, to upgrade to Fedora 31, run the following command.
+
+   sudo dnf system-upgrade download --releasever=31 --exclude=kernel*
+
+   This will download (not update) all packages needed to bump to release
+   31, while excluding any kernel updates.
+
+   You will be asked to accept various keys and accept the package
+   summary. Once youʼre ready, continue the update.
+
+   Your system will reboot to a Plymouth screen with a progress bar
+   showing the current status of the upgrade.
+
+   This upgrade takes approx. 15 minutes from my experience.
+
+Reboot
+
+   Upon reboot, youʼll be booting into Fedora 31, the GRUB screen should
+   show your 5.3.x kernel still there. If youʼve missed it, run uname -r
+   in the terminal to confirm the version.
+
+   Thatʼs it. Please be sure to check out the [3]release notes and keep an
+   eye out for new kernel updates and reports to know when its safe to
+   upgrade your kernel.
+
+   [4]MD | [5]TXT | [6]CC-4.0
+
+   This post is 5 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [7]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [8]Github [9]About Me [10]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://fedoraproject.org/wiki/Releases/31/ChangeSet
+   4. file:///upgrading-fedora-30-to-31-avoiding-kernel/index.md
+   5. file:///upgrading-fedora-30-to-31-avoiding-kernel/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

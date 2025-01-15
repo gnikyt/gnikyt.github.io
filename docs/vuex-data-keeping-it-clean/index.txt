@@ -1,0 +1,93 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                         Vuex & Data - Keeping it clean
+
+   Jul 19, 2019
+
+Introduction
+
+   Vuex is a state management library, centralized storage of data for
+   your whole application. Itʼs well documented, beautiful, and easy to
+   use with Vue. The part I want to talk about today is the data portion.
+
+   I have increasingly seen cases where the data state of Vuex gets
+   transformed and represents something more than just plain-old data ;
+   thatʼs a problem in the long run.
+
+The Problem
+
+   A simple example...
+
+  Step 1
+
+   An external API request is sent out through an action to get a list of
+   books.
+
+  Step 2
+
+   That book data is then sent to the mutation handler where the developer
+   would map the data to a model class: const bookCollection =
+   books.map(book &ge; new Book(book));.
+
+  Step 3
+
+   This transformed data gets committed to the state afterwards with
+   state.books = bookCollection;.
+
+  All-Together
+
+   At first, this seems convenient to the developer, because in any part
+   of their code, they can utilize their models such as: const
+   authorsNotOnSale = state.books.filter(book &ge;
+   !book.isOnSale()).map(book &ge; book.getAuthor()).
+
+   But, what happens when you want to serialize that data to JSON? Store
+   it somewhere else outside of Vuex? Such as using a library like
+   vuex-persist?
+
+   Youʼll immediately loose all those nice model functions youʼve built
+   out and you can not easily restore the state because its more than just
+   data at this point.
+
+The Solution
+
+   The proper solution would be to utilize Vuex getters to transform that
+   data into something more usable in your application.
+
+   const bookCollection = state &ge; state.books.map(book &ge; new
+   Book(book));
+
+   Keep the data clean, lean, and plain. Think of the data this way: can I
+   serialize this? If the answer is no, you may need to dig into why.
+
+   [3]MD | [4]TXT | [5]CC-4.0
+
+   This post is 5 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///vuex-data-keeping-it-clean/index.md
+   4. file:///vuex-data-keeping-it-clean/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

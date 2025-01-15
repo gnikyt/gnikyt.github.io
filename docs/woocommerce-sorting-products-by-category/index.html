@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Woocommerce - Sorting product by category | gnikyt
+    </title>
+    <link href="https://gnikyt.com/woocommerce-sorting-products-by-category" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one t..."
+    name="description">
+    <meta content="2013-10-05T15:56:26-0230" property="article:published_time">
+    <meta content="Woocommerce - Sorting product by category" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one t..."
+    property="og:description">
+    <meta content="https://gnikyt.com/woocommerce-sorting-products-by-category" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one t..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2013-10-05T15:56:26-0230",
+    "datePublished": "2013-10-05T15:56:26-0230",
+    "description": "
+    This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What needed to be done on one t...",
+    "headline": "Woocommerce - Sorting product by category",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/woocommerce-sorting-products-by-category"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/woocommerce-sorting-products-by-category"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="woocommerce-sorting-products-by-category">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Woocommerce - Sorting product by category
+          </h1>
+
+          <p>
+            <time datetime="2013-10-05">Oct 05, 2013</time>
+          </p>
+        </header>
+
+        <p>
+          This past week I was assigned to heavily customize a Woocommerce install on a client's successful store. What
+          needed to be done on one task, was to give the customers the ability to filter products on the product's page
+          by a specific set of categories. In other words: Only show the products in <em>X Category</em>.
+        </p>
+
+        <h2 id="sure-this-should-be-easy">
+          Sure, this should be easy
+        </h2>
+
+        <p>
+          Now, reading up on the Woocommerce documentation, I came across the filter named
+          __woocommerce<em>get</em>catalog<em>ordering</em>args <strong>which seemed like it would fit the bill and
+          allow you to modify the post query, as shown in <a href=
+          "http://docs.woothemes.com/document/custom-sorting-options-ascdesc/">this example snippit</a>. My assumption
+          being,</strong> $args <strong>was used similar to providing an array of args to</strong> get<em>posts
+          <strong>or</strong> WP</em>Query<strong>. I was wrong - dead wrong. It turns out after all,</strong>
+          $args<strong>passed to the</strong> woocommerce<em>get</em>catalog<em>ordering</em>args__ filter is more of a
+          <em>collection of direct SQL commands which WordPress compiles</em>. This means simply passing
+          __$args['product_cat'] = xxx;__ wasn't going to work as I originally thought. Back to square one...
+        </p>
+
+        <h2 id="finding-a-clue-to-the-puzzle">
+          Finding a clue to the puzzle
+        </h2>
+
+        <p>
+          That's when I busted out some Google-Fu and tried to find <em>any</em> hook or filter Woocomerce had to
+          directly modify the output of the query. There is no Woocommerce-direct way to do this from what I've found.
+          I did however find a <a href=
+          "http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161">Wordpress
+          support post</a> of people asking a similar question, and a guy by the name of <strong>bheadrick</strong> in
+          that discussion provided some sample code.
+        </p>
+
+        <p>
+          That is the sad key to the great code-snippet he provided in the discussion. Although it worked, it
+          modified<em>all</em> of WordPress' post queries instead of just the Woocomerce product's page. I decided to
+          dig into the Woocomerce code itself.
+        </p>
+
+        <h2 id="reading-the-code-to-find-an-answer">
+          Reading the code to find an answer
+        </h2>
+
+        <p>
+          [In classes/class-Wc-Query.php on line
+          411](http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411), I found the function that called
+          the __woocommerce<em>get</em>catalog<em>ordering</em>args <strong>filter. Looking upwards from that line
+          on</strong> 396<strong>, is Woocomerce calling a filter</strong> post_clauses__, bingo!
+        </p>
+
+        <p>
+          This is the filter I can use to add clauses (joins, wheres, orders) to the <strong>$args</strong> passed. So
+          mixing that, with the code <strong>bheadrick</strong> provided in the discussion is this...
+        </p>
+
+        <pre><code>add_filter('woocommerce_default_catalog_orderby_options', 'ty_catalog_orderby');
+add_filter('woocommerce_catalog_orderby', 'ty_catalog_orderby');
+function ty_catalog_orderby( $sortby ) {
+  $sortby['originals'] = 'Originals';
+  $sortby['prints']    = 'Prints';
+
+  return $sortby;
+}
+
+add_filter('woocommerce_get_catalog_ordering_args', 'ty_get_catalog_ordering_args');
+function ty_get_catalog_ordering_args($args) {
+  global $wpdb;
+
+  $orderby_value = isset($_GET['orderby']) ? woocommerce_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+
+  if ('originals' == $orderby_value) {
+    $args['orderby']  = 'date';
+    $args['order']    = 'DESC';
+    $args['meta_key'] = '';
+
+    add_filter('posts_clauses', 'ty_post_clausesdd_originals');
+  }
+
+  if ('prints' == $orderby_value) {
+    $args['orderby']  = 'date';
+    $args['order']    = 'DESC';
+    $args['meta_key'] = '';
+
+    add_filter('posts_clauses', 'ty_post_clausesdd_prints');
+  }
+
+  return $args;
+}
+
+function ty_post_clausesdd_originals($args) {
+  global $wpdb;
+
+  $args['join']  .= " JOIN " . $wpdb-&gt;term_relationships ." tr ON " . $wpdb-&gt;posts . ".id = tr.object_id JOIN " . $wpdb-&gt;term_taxonomy ." tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'product_cat' JOIN " . $wpdb-&gt;terms ." t ON tt.term_id = t.term_id
+JOIN " . $wpdb-&gt;woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id and tm.meta_key = 'order'";
+  $args['where'] .= " AND (t.term_id = 13)";
+
+  return $args;
+}
+
+function ty_post_clausesdd_prints($args) {
+  global $wpdb;
+
+  $args['join']  .= " JOIN " . $wpdb-&gt;term_relationships ." tr ON " . $wpdb-&gt;posts . ".id = tr.object_id JOIN " . $wpdb-&gt;term_taxonomy ." tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'product_cat' JOIN " . $wpdb-&gt;terms ." t ON tt.term_id = t.term_id
+JOIN " . $wpdb-&gt;woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id and tm.meta_key = 'order'";
+  $args['where'] .= " AND (t.term_id = 16)";
+
+  return $args;
+}
+</code></pre>
+        <ul>
+          <li>Lines <strong>1-8</strong> register the extra filters I want to show in Woocommerce's filter dropdown.
+          </li>
+
+          <li>Lines <strong>10-33</strong> adds my custom handler for when my filter is selected and called.
+          </li>
+
+          <li>Lines <strong>35-43 and 45-53</strong> is where the magic happens.
+          </li>
+        </ul>
+
+        <h2 id="in-conclusion">
+          In conclusion
+        </h2>
+
+        <p>
+          Looking at the function __ty<em>get</em>catalog<em>ordering</em>args, <strong>I check if my filter is being
+          called, and if it is, I register a filter call for</strong> post_clauses <strong>on lines</strong> 21 and
+          29__. When the post_clauses are called, it will run one of my functions such as
+          __ty<em>post</em>clausesdd_originals__. In this function, I add the join provided by <em>bheadrick</em> and
+          add a <em>where clause</em> to tell it to find only posts with a category ID of <strong>13</strong>. Because
+          this filter is being called inside __ty<em>get</em>catalog<em>ordering</em>args_ function, it will not affect
+          standard WordPress post listings.
+        </p>
+
+        <p>
+          All you need to do if you wish to add this to your project is to change up the titling of the filter names
+          and modify each category ID I provided. You can even do multiples by changing it to __$args['where'] .= " AND
+          t.term_id IN(13, 15, 19)";__ if you wish to get products in multiple categories for one filter action.
+        </p>
+
+        <p>
+          Anyways, that's my story on the hunt to add such a filter. Feel free to modify this and use it in your code
+          since there doesn't seem to be a more viable option around that I've seen.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/woocommerce-sorting-products-by-category/index.md">MD</a> | <a href=
+            "/woocommerce-sorting-products-by-category/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 11 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

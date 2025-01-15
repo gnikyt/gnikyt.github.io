@@ -5,7 +5,7 @@ permalink: blink-tuned-camera-notifications
 date: '2022-11-28 15:47:22'
 ---
 
-***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.*
+**Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.*
 
 ## The Problem
 

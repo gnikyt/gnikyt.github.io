@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Vuex & Data - Keeping it clean | gnikyt
+    </title>
+    <link href="https://gnikyt.com/vuex-data-keeping-it-clean" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## Introduction Vuex is a state management library, centralized storage of data for your whole application. It's well documented, beaut..."
+    name="description">
+    <meta content="2019-07-19T16:44:52-0230" property="article:published_time">
+    <meta content="Vuex &amp; Data - Keeping it clean" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## Introduction Vuex is a state management library, centralized storage of data for your whole application. It's well documented, beaut..."
+    property="og:description">
+    <meta content="https://gnikyt.com/vuex-data-keeping-it-clean" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## Introduction Vuex is a state management library, centralized storage of data for your whole application. It's well documented, beaut..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2019-07-19T16:44:52-0230",
+    "datePublished": "2019-07-19T16:44:52-0230",
+    "description": "
+    ## Introduction
+
+    Vuex is a state management library, centralized storage of data for your whole application. It's well documented, beaut...",
+    "headline": "Vuex & Data - Keeping it clean",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/vuex-data-keeping-it-clean"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/vuex-data-keeping-it-clean"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="vuex-data-keeping-it-clean">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Vuex & Data - Keeping it clean
+          </h1>
+
+          <p>
+            <time datetime="2019-07-19">Jul 19, 2019</time>
+          </p>
+        </header>
+
+        <h2 id="introduction">
+          Introduction
+        </h2>
+
+        <p>
+          Vuex is a state management library, centralized storage of data for your whole application. It's well
+          documented, beautiful, and easy to use with Vue. The part I want to talk about today is the
+          <strong>data</strong> portion.
+        </p>
+
+        <p>
+          I have increasingly seen cases where the <strong>data</strong> state of Vuex gets transformed and represents
+          something more than just plain-old <strong>data</strong> ; that's a problem in the long run.
+        </p>
+
+        <h2 id="the-problem">
+          The Problem
+        </h2>
+
+        <p>
+          A simple example...
+        </p>
+
+        <h3 id="step-1">
+          Step 1
+        </h3>
+
+        <p>
+          An external API request is sent out through an <strong>action</strong> to get a list of books.
+        </p>
+
+        <h3 id="step-2">
+          Step 2
+        </h3>
+
+        <p>
+          That book data is then sent to the <strong>mutation</strong> handler where the developer would map the data
+          to a model class: <code>const bookCollection = books.map(book &amp;ge; new Book(book));</code>.
+        </p>
+
+        <h3 id="step-3">
+          Step 3
+        </h3>
+
+        <p>
+          This transformed data gets <strong>committed</strong> to the state afterwards with <code>state.books =
+          bookCollection;</code>.
+        </p>
+
+        <h3 id="all-together">
+          All-Together
+        </h3>
+
+        <p>
+          At first, this seems convenient to the developer, because in any part of their code, they can utilize their
+          models such as: <code>const authorsNotOnSale = state.books.filter(book &amp;ge; !book.isOnSale()).map(book
+          &amp;ge; book.getAuthor())</code>.
+        </p>
+
+        <p>
+          But, what happens when you want to serialize that data to JSON? Store it somewhere else outside of Vuex? Such
+          as using a library like <code>vuex-persist</code>?
+        </p>
+
+        <p>
+          You'll immediately loose all those nice model functions you've built out and you can not easily restore the
+          state because its more than just <strong>data</strong> at this point.
+        </p>
+
+        <h2 id="the-solution">
+          The Solution
+        </h2>
+
+        <p>
+          The proper solution would be to utilize Vuex <strong>getters</strong> to transform that <strong>data</strong>
+          into something more usable in your application.
+        </p>
+
+        <p>
+          <code>const bookCollection = state &amp;ge; state.books.map(book &amp;ge; new Book(book));</code>
+        </p>
+
+        <p>
+          Keep the <strong>data</strong> clean, lean, and plain. Think of the <strong>data</strong> this way: <em>can I
+          serialize this?</em> If the answer is <em>no</em>, you may need to dig into <em>why</em>.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/vuex-data-keeping-it-clean/index.md">MD</a> | <a href=
+            "/vuex-data-keeping-it-clean/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 5 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

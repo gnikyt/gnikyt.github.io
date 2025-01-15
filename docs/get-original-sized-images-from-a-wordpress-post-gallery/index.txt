@@ -1,0 +1,78 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+            Get original sized images from a Wordpress Post Gallery
+
+   Nov 08, 2014
+
+   Recently, I was working on a project where I needed to modify an
+   existing page that had multiple galleries. This change required me to
+   have access to the original uploaded images. Hereʼs a simple function I
+   wrote which returns the images easily in an array format.
+# Input
+Hey comes see my gallery! [gallery ids="12,124,342]
+
+# Code
+$images = getGalleryImages(get_the_content());
+
+# Output
+Array (
+  [0] &ge; http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
+  [1] &ge; http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
+  [2] &ge; http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
+);
+
+/*
+ * getGalleryImages
+ *
+ * Converts a WP gallery into an array of images to use.
+ *
+ * @param $content rendered content (ex: get_the_content())
+ * @param $return_size size of image to return
+ * @return array
+ */
+function getGalleryImages($content, $return_size = ʼlargeʼ) {
+  // Gallery is in format of [gallery link="..." ids="12,124,342"]
+  preg_match(ʼ/ids="([^"]*)"/iʼ, $content, $matches);
+
+  $images = [];
+  if (isset($matches[1])) {
+    foreach(explode(ʼ,ʼ, $matches[1]) as $id) {
+      // For each image in the gallery, get its WP data (url, width, height)
+      $images[] = wp_get_attachment_image_src($id, $return_size);
+    }
+  }
+
+  return $images;
+}
+
+   [3]MD | [4]TXT | [5]CC-4.0
+
+   This post is 10 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.md
+   4. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

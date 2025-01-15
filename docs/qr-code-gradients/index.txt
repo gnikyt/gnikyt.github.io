@@ -1,0 +1,107 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                               QR Code gradients
+
+   Jul 13, 2013
+
+   Qr codes and matrices are a great way to share content to an audience,
+   it allows anybody to simply put their phone up to the Qr image, scan
+   it, and see whatʼs inside. The premise of QrInColor.com was to provide
+   a free way for users to not only create linked Qr codes, but to
+   customize them as well - with color
+
+   For the QrInColor.com web-application initially we used [3]Endroid Qr
+   Bundle, when we re-vamped the look and features of the app into
+   [4]Symfony from [5]Silex, we wanted to allow users to generate not only
+   colored Qr codes, but two-tone gradient colors as well. I wanted to
+   accomplish this without modifying the Endroid package as its not really
+   itʼs purpose to do such a thing.
+
+   This created a problem... how do I create a gradient on the Qr code? I
+   came up with a solution: colorize the Qr with [6]Imagick using their
+   top and bottom colors the user picked then, "blend" the two images
+   together to create a gradient effect.
+
+   qr code base
+
+   We would first take the Qr data the user entered and generate a black,
+   basic, Qr code. Which is our canvas to work with. Now, we had to apply
+   their top color chosen (RGB) to the base Qr and render it, using
+   similar shell command below.
+/usr/bin/convert qr.png -fuzz 60% -fill ʼrgb(161,161,163)ʼ -opaque black qr_top.
+png
+
+   qr code top
+
+   This is the result of the above command. It replaces all black with a
+   fuzz of 60% threshold with the color chosen by the user,
+   rgb(161,161,163).
+
+   Itʼs nothing spectacular; but it works. Now, we need to do the same for
+   the bottom color the user chose. Again we use the base Qr render to
+   apply the color to.
+/usr/bin/convert qr.png -fuzz 60% -fill ʼrgb(248,150,39)ʼ -opaque black qr_botto
+m.png
+
+   qr code bottom
+
+   This is the result of the above command. It replaces all black with a
+   fuzz of 60% threshold with the color chosen by the user,
+   rgb(248,150,39).
+
+   Finally, we need to blend them together as if they weʼre two layers in
+   gimp. To accomplish this, we need to set the gray Qr we just rendered,
+   to go from a gray color to complete transparency.
+/usr/bin/convert qr_top.png -size 150x150 gradient: -compose copy_opacity -compo
+site qr_gradient.png
+
+   This creates the effect we are looking for. Color at top, transparent
+   at bottom. Now we place the gray transparent Qr on top of the orange
+   Qr. Finally, here is the result!
+/usr/bin/composite qr_bottom.png -compose Dst_Over qr_gradient.png result.png
+
+   result result 2
+
+   Unfortunately, I did not choose very vibrant colors to blend (gray and
+   orange) but the effect is there, Iʼve included another example with two
+   better colors. Now, Iʼm sure there are better ways to produce these
+   gradients, but the point of this post is that there was a problem I
+   faced with a clientʼs website, I used my brain to come up with a
+   solution and it worked. A road block can always be passed; just donʼt
+   pass the ones with cops posted, that wonʼt end well.
+
+   [7]MD | [8]TXT | [9]CC-4.0
+
+   This post is 11 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [10]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [11]Github [12]About Me [13]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/endroid/EndroidQrCodeBundle
+   4. http://symfony.com/
+   5. http://silex.sensiolabs.org/
+   6. http://www.imagemagick.org/script/index.php
+   7. file:///qr-code-gradients/index.md
+   8. file:///qr-code-gradients/index.txt
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. file:///about
+  11. https://github.com/gnikyt
+  12. file:///about
+  13. file:///assets/files/cv.pdf

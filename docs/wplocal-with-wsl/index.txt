@@ -4,7 +4,7 @@
 
                                WP Local with WSL
 
-   Jan 15, 2025
+   Dec 07, 2023
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided

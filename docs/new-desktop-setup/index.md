@@ -32,7 +32,7 @@ I simply miss my old XFCE and GNOME 2 layout of the early 2000s -- the peak of t
 
 To achieve an XFCE/GNOME 2 setup, I attempted several ways, which worked out decently well! But, of course, required a lot of extensions and a theme.
 
-[![Finalized GNOME](/assets/images/2022/12/gnome_shell_look.png)](/assets/images/2022/12/gnome_shell_look.png)
+[![Finalized GNOME](/assets/images/2022/12/gnomeshelllook.png)](/assets/images/2022/12/gnomeshelllook.png)
 
 The above screenshot is an example of the resulting setup which has a similar feel to the old layout... two panels with proper information.
 

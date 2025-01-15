@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Setting up Lumen with Redis | gnikyt
+    </title>
+    <link href="https://gnikyt.com/setting-up-lumen-with-redis" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta a="" and="" basic="" content="This is more of an extension of my previous post" further="" i="" it="" lumen=
+    "" name="description" setting="" setup="" show="" step="" take="" the="" to="" up="" wanted="">
+    <meta content="2017-11-19T11:43:01-0330" property="article:published_time">
+    <meta content="Setting up Lumen with Redis" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta a="" and="" basic="" content="This is more of an extension of my previous post" further="" i="" it="" lumen=
+    "" property="og:description" setting="" setup="" show="" step="" take="" the="" to="" up="" wanted="">
+    <meta content="https://gnikyt.com/setting-up-lumen-with-redis" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta a="" and="" basic="" content="This is more of an extension of my previous post" further="" i="" it="" lumen=
+    "" property="twitter:title" setting="" setup="" show="" step="" take="" the="" to="" up="" wanted="">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2017-11-19T11:43:01-0330",
+    "datePublished": "2017-11-19T11:43:01-0330",
+    "description": "
+    This is more of an extension of my previous post "Setting Up Lumen + Mail". I wanted to take it a step further and show the basic setup ...",
+    "headline": "Setting up Lumen with Redis",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/setting-up-lumen-with-redis"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/setting-up-lumen-with-redis"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="setting-up-lumen-with-redis">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Setting up Lumen with Redis
+          </h1>
+
+          <p>
+            <time datetime="2017-11-19">Nov 19, 2017</time>
+          </p>
+        </header>
+
+        <p>
+          This is more of an extension of my previous post "Setting Up Lumen + Mail". I wanted to take it a step
+          further and show the basic setup for getting Redis to work, so you can queue not only mail, but jobs.
+        </p>
+
+        <p>
+          First, run <code>composer require illuminate/redis:5.5</code> to grab the Redis components.
+        </p>
+
+        <p>
+          Next, open <code>app/Providers/AppServiceProvider.php</code> and add the following to the
+          <code>register</code> method:
+        </p>
+
+        <pre><code>&lt;?php
+// ...
+
+// Configs
+$this-&gt;app-&gt;configure('database');
+
+// Enable queues
+$this-&gt;app-&gt;make('queue');
+</code></pre>
+        <p>
+          Next, create <code>config/database.php</code> and add the following:
+        </p>
+
+        <pre><code>&lt;?php
+
+return [
+  'redis' &amp;ge; [
+    'client' &amp;ge; 'predis',
+    'default' &amp;ge; [
+      'host' &amp;ge; env('REDIS_HOST', '127.0.0.1'),
+      'password' &amp;ge; env('REDIS_PASSWORD', null),
+      'port' &amp;ge; env('REDIS_PORT', 6379),
+      'database' &amp;ge; 0
+    ]
+  ]
+];
+
+</code></pre>
+        <p>
+          Don't forget to set up all your environment variables for Redis, as well, to enable Redis for job processing
+          and cache, set the following environment variables:
+        </p>
+
+        <pre><code>CACHE_DRIVER=redis
+QUEUE_DRIVER=redis
+</code></pre>
+        <p>
+          That's it! You can now queue mail or process jobs.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/setting-up-lumen-with-redis/index.md">MD</a> | <a href=
+            "/setting-up-lumen-with-redis/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 7 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

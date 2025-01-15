@@ -1,0 +1,180 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                 Polymorphic and Route Concerns... who is who?
+
+   Jan 01, 2016
+
+   The goal of this post is to outline some tips on easily figuring out
+   the parent object for a polymorphic modal/route/controller. Letʼs start
+   with the basics...
+
+Polymorphic
+
+   For those unfamiliar to it, [3]Polymorphic is an Active Record
+   association type where a model can belong to other models. As a simple
+   example, you could have an Ingredient model which can be polymorphic
+   and belong to different types of models such as Baking, Cooking, or
+   WitchesBrew.
+
+Route Concerns
+
+   These are used in routing for Rails where youʼre able to declare common
+   routes for resources. An example of this can be a picture concern,
+   where many resources can have a picture route.
+concern :picturable do
+  resources :pictures
+end
+# ...
+resources :users, concerns: [:picturable]
+resources :customers, concerns: [:picturable]
+
+The problem
+
+   If your polymorphic modal has a controller, how do you know what object
+   is using it? How do you get the object itself? Letʼs start and assume I
+   have a polymorphic modal for Metafields, so many models can have
+   metafields and weʼll call it fieldable.
+# modals/metafield.rb
+module MyCoolApp
+  class Metafield < ActiveRecord::Base
+    belongs_to :fieldable, polymorphic: true
+  end
+end
+
+# modals/user.rb
+module MyCoolApp
+  class User < ActiveRecord::Base
+    # ...
+    has_many :metafields, as: :fieldable, dependent: :destroy
+    # ...
+  end
+end
+
+# modals/movie.rb
+module MyCoolApp
+  class Movie < ActiveRecord::Base
+    # ...
+    has_many :metafields, as: :fieldable, dependent: :destroy
+    # ...
+  end
+end
+
+   So now, we have three models. The Metafield modal which is polymorphic
+   and a User and a Movie modal which can have these metafields. The
+   Metafield modal will create a table in the database with fieldabletype
+   and fieldableid
+   which should reference the modal class and the objectʼs ID.
+
+   Along with this, Iʼve set up a Metafield controller so we can add,
+   edit, and delete metafields for these other models. With all this put
+   together, weʼll set up the routing concerns.
+concern(:fieldable) { resources :metafields }
+# ...
+resources :users do
+  concerns :fieldable
+end
+# ...
+resouces :movies do
+  concerns :fieldable
+end
+
+   Now, the user and movie resource routes will have metafield resource
+   routes added to them. Which will create routes such as
+   /users/metafields, /users/metafields/new, /movies/metafields/3/edit.
+
+   However, for the metafield controller, how is it supposed to know if
+   weʼre accessing User metafields or Movie metafields when youʼre adding
+   and editing? You could do things such as base it on the URL, or manual
+   section, but thatʼs not a great solution in the long run. There are
+   easier and cleaner ways... by utilizing a mix of the routing concerns
+   and a private method in the Metafield controller. Letʼs change our
+   concern in the routing now to accept options and parameters.
+# Before
+concern(:fieldable) { resources :metafields }
+# After
+concern(:fieldable) {|opts| resources :metafields, opts}
+
+   Now letʼs pass a parameter to the concern per resource route.
+concern(:fieldable) {|opts| resources :metafields, opts}
+# ...
+resources :users do
+  concerns :fieldable, fieldable_type: "MyCoolApp::Users"
+end
+# ...
+resouces :movies do
+  concerns :fieldable, fieldable_type: "MyCoolApp::Movies"
+end
+
+   So now weʼre passing fieldable_type with the modal class to the concern
+   which gets passed to the resource for metafields. We can now grab this
+   parameter in the controller and itʼll help us figure out what modal is
+   trying to access the metafields. Letʼs add a method to the metafield
+   controller now which will do this work for us.
+module MyCoolApp
+  class MetafieldsController < ApplicationController
+      before_action :set_object
+      # ...
+
+      private
+      def set_object
+        # Converts (as example) "MyCoolApp::Movies" string to "movies_id"
+        param_name   = "#{params[:fieldable_type].demodulize.underscore}_id"
+
+        # Converts (as example) "MyCoolApp::Movies" string into a module referen
+ce
+        param_object = params[:fieldable_type].constantize
+
+        # Grab the object now, as example: (object.find movie_id) -> MyCoolApp::
+Movies.find 3
+        @object = param_object.find params[param_name]
+      end
+  end
+end
+
+   As you can see above, everything is now in place. We convert the
+   fieldable_type value we passed in the concern into a module reference
+   and an ID for whose trying to access it. @object will not be the User
+   object or Movie object trying to access the metafields.
+
+   Lastly, we can tie this into the forms for metafields creation/editing:
+# ...
+<div class="hide">
+  <%= f.text_field :fieldable_id, value: @object.id %>
+  <%= f.text_field :fieldable_type, value: @object.class %>
+</div>
+
+   Now when saved, the metafield record in the database will automatically
+   set the modal class and the ID for the object.
+
+   [4]MD | [5]TXT | [6]CC-4.0
+
+   This post is 9 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [7]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [8]Github [9]About Me [10]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
+   4. file:///polymorphic-and-route-concerns/index.md
+   5. file:///polymorphic-and-route-concerns/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

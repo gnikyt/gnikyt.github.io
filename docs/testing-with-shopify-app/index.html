@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Testing with shopify_app | gnikyt
+    </title>
+    <link href="https://gnikyt.com/testing-with-shopify-app" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "[shopify_app](https://github.com/Shopify/shopify_app) is a great Gem to quickly build a Shopify App with Rails. It handles all the verif..."
+    name="description">
+    <meta content="2016-06-21T01:17:33-0230" property="article:published_time">
+    <meta content="Testing with shopify_app" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "[shopify_app](https://github.com/Shopify/shopify_app) is a great Gem to quickly build a Shopify App with Rails. It handles all the verif..."
+    property="og:description">
+    <meta content="https://gnikyt.com/testing-with-shopify-app" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "[shopify_app](https://github.com/Shopify/shopify_app) is a great Gem to quickly build a Shopify App with Rails. It handles all the verif..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-06-21T01:17:33-0230",
+    "datePublished": "2016-06-21T01:17:33-0230",
+    "description": "
+    [shopify_app](https://github.com/Shopify/shopify_app) is a great Gem to quickly build a Shopify App with Rails. It handles all the verif...",
+    "headline": "Testing with shopify_app",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/testing-with-shopify-app"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/testing-with-shopify-app"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="testing-with-shopify-app">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Testing with shopify_app
+          </h1>
+
+          <p>
+            <time datetime="2016-06-21">Jun 21, 2016</time>
+          </p>
+        </header>
+
+        <p>
+          <a href="https://github.com/Shopify/shopify%3Cem%3Eapp">shopifyapp</a> is a great Gem to quickly build a
+          Shopify App with Rails. It handles all the verifications, authorizations, webhook, and more; leaving you to
+          focus on developing your app. This post is to serve as a quick tip on how to unit-test your app with the Gem.
+        </p>
+
+        <p>
+          Other than the install page, most likely your app will require a shop to be logged in for all routes.
+          <code>shopify_app</code>, upon installation will create a fixture file in
+          <code>test/fixtures/shops.yml</code> of your Rails application.
+        </p>
+
+        <p>
+          Inspecting it you will see it's filled with one shop, <code>regular-shop.myshopify.com</code>, and a simple
+          token. When running <code>bundle exec rake test</code> (after migrations are done for a test environment of
+          course), it will populate the shop database table with the fixture data in <code>shop.yml</code>.
+        </p>
+
+        <p>
+          Now that we have a shop we can "log into", let's create a support module for the unit tests. Create a file
+          called <code>shopify<em>session</em>support.rb</code> inside <code>test/support</code>.
+        </p>
+
+        <pre><code># test/support/shopify_session_support.rb
+module ShopifySessionSupport
+  # Make this module concernable
+  extend ActiveSupport::Concern
+
+  included do
+    # On include, tell TestCase to use this setup block
+    setup do
+      # Set the shop to the test shop from fixtures
+      # The key is `:shopify` and `:shopify_domain` which shopify_app needs
+      # See: https://github.com/Shopify/shopify_app/blob/c7e50247a72a52b1d1e4d9009ba997196a64e7e8/lib/shopify_app/login_protection.rb#L22
+      session[:shopify]        = shops(:regular_shop).id
+      session[:shopify_domain] = shops(:regular_shop).shopify_domain
+    end
+  end
+end
+</code></pre>
+        <p>
+          Next, include your new support module in <code>test_helper.rb</code> before <code>class
+          ActiveSupport::TestCase</code> with:
+        </p>
+
+        <pre><code># Include support modules
+Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
+</code></pre>
+        <p>
+          Finally, in any of your controller tests where you require an authenticated shop, simply add <code>include
+          ShopifySessionSupport</code> to your class as such:
+        </p>
+
+        <pre><code># ...
+class ImageControllerTest &lt; ActionController::TestCase
+  include ShopifySessionSupport
+  # ...
+end
+</code></pre>
+        <p>
+          Running <code>bundle exec rake test</code> should now pass your tests with the shop.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/testing-with-shopify-app/index.md">MD</a> | <a href="/testing-with-shopify-app/index.txt">TXT</a>
+            | <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 8 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

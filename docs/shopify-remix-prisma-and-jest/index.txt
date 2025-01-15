@@ -4,7 +4,7 @@
 
                         Shopify Remix, Prisma, and Jest
 
-   Jan 15, 2025
+   Jan 10, 2024
 
 Introduction
 

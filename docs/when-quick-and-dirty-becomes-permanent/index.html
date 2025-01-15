@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      When quick and dirty becomes permanent | gnikyt
+    </title>
+    <link href="https://gnikyt.com/when-quick-and-dirty-becomes-permanent" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## The Start You're assigned a backend project to kick-off and setup, great! You know the requirements and goals, so you set off to bui..."
+    name="description">
+    <meta content="2019-11-14T20:37:04-0330" property="article:published_time">
+    <meta content="When quick and dirty becomes permanent" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## The Start You're assigned a backend project to kick-off and setup, great! You know the requirements and goals, so you set off to bui..."
+    property="og:description">
+    <meta content="https://gnikyt.com/when-quick-and-dirty-becomes-permanent" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## The Start You're assigned a backend project to kick-off and setup, great! You know the requirements and goals, so you set off to bui..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2019-11-14T20:37:04-0330",
+    "datePublished": "2019-11-14T20:37:04-0330",
+    "description": "
+    ## The Start
+
+    You're assigned a backend project to kick-off and setup, great! You know the requirements and goals, so you set off to bui...",
+    "headline": "When quick and dirty becomes permanent",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/when-quick-and-dirty-becomes-permanent"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/when-quick-and-dirty-becomes-permanent"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="when-quick-and-dirty-becomes-permanent">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            When quick and dirty becomes permanent
+          </h1>
+
+          <p>
+            <time datetime="2019-11-14">Nov 14, 2019</time>
+          </p>
+        </header>
+
+        <h2 id="the-start">
+          The Start
+        </h2>
+
+        <p>
+          You're assigned a backend project to kick-off and setup, great! You know the requirements and goals, so you
+          set off to build the structure and prototype "quick and dirty" code as a proof-of-concept implementation.
+        </p>
+
+        <p>
+          Before you know it... you've got the ball rolling on the project and making good headway! Other developers
+          may be introduced to assist, and they pick up right along with you in the development flow. Then, it
+          snowballs.
+        </p>
+
+        <p>
+          Eventually, you'll realize your original "quick and dirty" way, is now <em>"the way"</em>, and it is going to
+          be tough to correct due to the size or timeline of the project now. Whoops!
+        </p>
+
+        <p>
+          My personal opinion from being in this situation of beginning large backend projects: <em>Do it right
+          once.</em> It is better to bite the bullet and properly set up the project in a way that's abstract and
+          scalable; even if you have to refactor many times in the early stages, its easier to refactor a couple
+          files/directories compared to dozens.
+        </p>
+
+        <h2 id="what-to-do">
+          What To Do
+        </h2>
+
+        <p>
+          Sit down and plan out your entire structure and with good ol' pen and paper.
+        </p>
+
+        <ul>
+          <li>What type of project is it?
+          </li>
+
+          <li>Do you require a database?
+          </li>
+
+          <li>Will you need caching?
+          </li>
+
+          <li>Models and Entities?
+          </li>
+
+          <li>Response handlers?
+          </li>
+
+          <li>Will you be hitting the database with both reads and writes?
+          </li>
+
+          <li>Will you have complex queries to a database?
+          </li>
+
+          <li>Do you need external file storage?
+          </li>
+
+          <li>Object storage?
+          </li>
+
+          <li>Do you need views or presenters?
+          </li>
+
+          <li>etc...
+          </li>
+        </ul>
+
+        <p>
+          When you sit back and think about the longer term for the project, it'll help guide your thoughts into
+          <em><strong>compartments</strong></em> which will help you mentally map things out for a better start.
+        </p>
+
+        <h2 id="abstraction-amp-responsibility">
+          Abstraction & Responsibility
+        </h2>
+
+        <p>
+          Now, the rest of this article is purely my own opinion from experience. There's usually a good debate on what
+          code should do what, and how much abstraction is needed. Every developer has their own opinion and feelings
+          towards what they view as too much or too little.
+        </p>
+
+        <p>
+          In my opinion, back to my previous heading, things should always be compartmentalized and have singular
+          responsibilities. This helps keep code DRY, maintainable, scalable, testable, and even cleaner to look at.
+        </p>
+
+        <h3 id="interfaces">
+          Interfaces
+        </h3>
+
+        <p>
+          A lot of new developers are put off from interfaces. They don't exactly see the point of them in their
+          projects, even if they are the sole developer working on it.
+        </p>
+
+        <p>
+          Interfaces however can be one of the best keys to success in testability and scalability.
+        </p>
+
+        <p>
+          An interface in plain words is a set of rules around how a structure needs to behave; whether that structure
+          is an actual struct, class, method, or so on.
+        </p>
+
+        <p>
+          You may think its silly to define an interface for a single class, but that's not the case. It allows you to
+          decouple your dependencies and swap out those dependencies. It allows another developer to know how to define
+          a structure to match that interface so there will be no compatibility issues.
+        </p>
+
+        <p>
+          For the sake of using a more common language, PHP, let's take a look at how an interface can be useful with a
+          simple silly example. Of course, this can be done with any other language.
+        </p>
+
+        <pre><code>&lt;?php
+
+// src/Services/BundleDirectory.php
+
+use Some\Namespace\Interfaces\DirectoryStorage as IDirectoryStorage;
+
+class BundleDirectory
+{
+    protected $storage;
+
+    public function __construct(IDirectoryStorage $storage)
+    {
+        $this-&gt;storage = $storage;
+    }
+
+    public function fetch(int $bundleType): array
+    {
+        $result = // Some // actions // here
+        return $this-&gt;storage-&gt;locate($result);
+    }
+}
+</code></pre>
+        <p>
+          By type-hinting the constructor to an interface and not to a concrete class, we can pass anything that
+          matches <code>DirectoryStorage</code> interface. This <strong>decouples</strong> the implementation.
+        </p>
+
+        <p>
+          Now, <code>DirectoryStorage</code> interface would define how <code>locate</code> method should be.
+          <code>BundleDirectory</code> doesn't care about the storage lookup... maybe <code>locate</code> pulls from
+          SQLite, or S3, or plain-ol text files. The point is, it just doesn't care, so long as the interface matches
+          and does as it's supposed to.
+        </p>
+
+        <p>
+          When you're testing, you can now inject a mock implementation into <code>BundleDirectory</code> and test
+          without the need to hit an actual storage container.
+        </p>
+
+        <p>
+          Nice right? That's just a very basic example of how an interface can be useful.
+        </p>
+
+        <h3 id="srp-cqr">
+          SRP / CQR
+        </h3>
+
+        <p>
+          <em>Single Responsibility Principle (SRP)</em> is one of the big topics people go back-and-forth on. The
+          debate is around how single, single should be. Many complaints come around the fact that SRP causes <em>too
+          much</em> abstraction and separation.
+        </p>
+
+        <p>
+          My thoughts: meh, go nuts! Your code should be in compartments and have a singular job to do and to do that
+          job well.
+        </p>
+
+        <p>
+          I love following SRP. Similarly, a sub-practice of SRP is CQR, <em>Command Query Responsibility,</em> which
+          states you should have a separation of reading (Query) and writing (Command) methods.
+        </p>
+
+        <p>
+          Tieing this in with interfaces, you can produce code that follows DRY and is clean to look at as well as work
+          with.
+        </p>
+
+        <p>
+          Combining both, let's take a look at a file storage cache. In NextCloud, which I use heavily with AWS S3 for
+          a storage backend, it stores the information about the files in the database so it does not have to hit S3
+          for the information constantly, as well as provide a nice method for metadata.
+        </p>
+
+        <p>
+          If we were to build something that followed SRP and CQR, we could create something like this (again using PHP
+          for examples):
+        </p>
+
+        <pre><code>&lt;?php
+
+// src/Interfaces/FileQueries.php
+
+use Some/Namespace/Entities/File as FileModel;
+use Some/Namespace/Interfaces/Enums/FileTypes;
+
+interface FileQueries
+{
+    public function getByID(int $id): FileModel;
+
+    public function getAll(): array; // FileModel[]
+
+    public function getByType(string $type = FileTypes::DEFAULT);
+
+    // ....
+}
+
+//
+// ....
+//
+
+// src/Services/Operations/ProcessImageFiles.php
+
+use Some/Namespace/Interfaces/FileQueries as IFileQueries;
+use Some/Namesapce/Interfaces/AbstractOperation;
+
+class ProcessImageFiles implements AbstractOperation
+{
+    protected $query;
+    protected $fileType;
+
+    public function __construct(IFileQueries $query, string $fileType)
+    {
+        $this-&gt;query = $query;
+        $this-&gt;fileType = $fileType;
+    }
+
+    public function execute(): array
+    {
+        $results = [];
+        $files = $this-&gt;query-&gt;getByType($this-&gt;fileType);
+        foreach ($files as $file) {
+            // do something with the files, maybe generate thumbnails for images
+            $results[] = // something
+        }
+
+        return $results;
+    }
+}
+</code></pre>
+        <p>
+          In the above, we define a querier, the <em>Q</em> in <em>CQR,</em> which is an interface. We then have an
+          <em>operation</em> which is a single responsibility class doing one job: to query files of a type, do an
+          operation on those files, and return a result.
+        </p>
+
+        <p>
+          We can easily swap out the querier for the operation in testing, it is clean to look at, reusable, scalable,
+          and so on.
+        </p>
+
+        <p>
+          Maybe we swap in a querier which provides a Redis-cached version of the data for example; instead of
+          injecting <code>DatabaseFileQueries</code> we inject <code>RedisFileQueries</code> which still conforms to
+          <code>FileQueries</code> interface.
+        </p>
+
+        <p>
+          Similarly, for the <em>C</em> in <em>CQR</em>, we could define <code>FileCommand</code> interface which
+          dictates how to update, destroy, and create a file entity.
+        </p>
+
+        <h3 id="service-classes">
+          Service Classes
+        </h3>
+
+        <p>
+          While creating many interfaces, operations, commands, queries, etc may seem disjointed... that's the point,
+          because everything should do one thing and do it right!
+        </p>
+
+        <p>
+          That being said, you don't have to reference everything singularly just because you defined it with a
+          singular purpose. You can create a service class to glue the operations, commands, and queries together into
+          a group of common methods.
+        </p>
+
+        <p>
+          Maybe its a response handler class for the files... taking a request, using that request to form a query, and
+          providing a response. Maybe it is a plain old class for the files... having a common place to access the
+          files, transform the data, etc.
+        </p>
+
+        <p>
+          This allows you to have decoupled code, that have singular responsibilities, but still commonly accessible if
+          need be. This avoids creating god-like classes, just simply using the classes to join bits of logic together.
+          Again, making it testable, DRY, clean, reusable, and so forth.
+        </p>
+
+        <h2 id="conclusion">
+          Conclusion
+        </h2>
+
+        <p>
+          I just mainly wanted to drive a point home about proper planning for the long run can have some big payoffs
+          when you compartmentalize your code, give it single responsibilities, and decouple it with interfaces. Quick
+          and dirty can become solid and lasting, no matter the language.
+        </p>
+
+        <p>
+          Cheers.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/when-quick-and-dirty-becomes-permanent/index.md">MD</a> | <a href=
+            "/when-quick-and-dirty-becomes-permanent/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 5 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

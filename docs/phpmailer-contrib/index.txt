@@ -1,0 +1,62 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                               PHPMailer contrib
+
+   Feb 09, 2014
+
+   I and a fellow developer were working on updating a two/three-year-old
+   plugin we developed for WordPress this week. Its a fairly complex
+   plugin which is one of its functions relies on getting the recipients
+   of e-mails sent out by WordPress.
+
+   During our upgrading of the code, we discovered [3]PHPMailer (the
+   component WordPress uses for mailing [4]wpmail, has been changed since
+   we last wrote the plugin. The class properties "to", "bcc", "cc",
+   "ReplyTo", and "all
+   recipients" of PHPMailer went from public to protected over the last
+   couple years.
+
+   So our issue was $mailer->to simply wouldnʼt work anymore, and there
+   appeared to be no public access methods to get the addresses such as
+   $mailer->getToAddresses().
+
+   I addressed the issue on PHPMailerʼs Github page, and [5]provided a
+   pull request which has been merged into the master :) So in short, you
+   can now access "to", "bcc", "cc", "ReplyTo", and "all_recipients" by
+   using getToAddresses(), getBccAddresses(), getCcAddresses(),
+   getReplyToAddresses() and getAllRecipientAddresses().
+
+   [6]MD | [7]TXT | [8]CC-4.0
+
+   This post is 10 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [9]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [10]Github [11]About Me [12]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. http://phpmailer.worxware.com/
+   4. http://codex.wordpress.org/Function<em>Reference/wp</em>mail
+   5. https://github.com/PHPMailer/PHPMailer/issues/180
+   6. file:///phpmailer-contrib/index.md
+   7. file:///phpmailer-contrib/index.txt
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///about
+  10. https://github.com/gnikyt
+  11. file:///about
+  12. file:///assets/files/cv.pdf

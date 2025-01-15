@@ -1,0 +1,237 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                          Setting Up Lumen with Mailer
+
+   Nov 19, 2017
+
+What is Lumen
+
+   [3]Lumen is a micro-framework built by Laravel. Its geared towards
+   small services like APIs, job handling, or very small projects. Laravel
+   is all-inclusive, whereas Lumen is more bare-bones but moderately
+   featured; however, it doesnʼt feel as lean as something like Slim.
+
+Setting Up Mailing
+
+   Recently I ported a small app from Sinatra to Lumen for trial with a
+   client. Its a job processing app for Shopify, where it would take data
+   from a webhook, process it with a worker, and send back some data
+   later. It needed to be fast, as, like other webhook-focused apps, it
+   has to keep up with the high demand.
+
+   One issue I ran into was mailing, itʼs not enabled by default in Lumen,
+   and there are many posts throughout Google of people attempting to set
+   it up. There are also many outdated ways which only worked for the old
+   version of Lumen.
+
+   Through trial and error, I managed to find a working setup I thought I
+   would share.
+
+  Setup
+
+   First, run composer require illuminate/mail:5.5 to grab the mailing
+   component.
+
+   Next, open bootstrap/app.php, find
+   $app->register(AppProvidersAppServiceProvider::class); and uncomment
+   it, if not already.
+
+   After this is done, open the app provider in app/Providers/.
+
+   At the bottom of the register method, paste in the following:
+<?php
+// ...
+
+// Init mailer
+$this->app->singleton(
+    ʼmailerʼ,
+    function ($app) {
+        return $app->loadComponent(ʼmailʼ, ʼIlluminate\Mail\MailServiceProvider
+ʼ, ʼmailerʼ);
+    }
+);
+
+// Aliases
+$this->app->alias(ʼmailerʼ, \Illuminate\Contracts\Mail\Mailer::class);
+
+   To make mailing queue-able and able to be processed in the background,
+   simply add:
+<?php
+// ...
+
+// Enable queues
+$this->app->make(ʼqueueʼ);
+
+   And see my Lumen Redis tutorial to setup Redis for processing.
+
+   Next, setup the basic config config/mail.php:
+<?php
+
+return [
+    ʼdriverʼ &ge; env(ʼMAIL_DRIVERʼ),
+    ʼhostʼ &ge; env(ʼMAIL_HOSTʼ),
+    ʼportʼ &ge; env(ʼMAIL_PORTʼ),
+    ʼfromʼ &ge; [
+        ʼaddressʼ &ge; env(ʼMAIL_FROM_ADDRESSʼ),
+        ʼnameʼ &ge; env(ʼMAIL_FROM_NAMEʼ),
+    ],
+    ʼencryptionʼ &ge; env(ʼMAIL_ENCRYPTIONʼ),
+    ʼusernameʼ &ge; env(ʼMAIL_USERNAMEʼ),
+    ʼpasswordʼ &ge; env(ʼMAIL_PASSWORDʼ),
+    ʼmarkdownʼ &ge; [
+        ʼthemeʼ &ge; ʼdefaultʼ,
+        ʼpathsʼ &ge; [
+            resource_path(ʼviews/vendor/mailʼ),
+        ],
+    ],
+];
+
+
+   Thatʼs it, youʼre done the setup! Donʼt forget to set up your
+   environment variables for production.
+
+  Creating a Mailer
+
+   Now that weʼre setup, you can create a mailer in app/Mail/, hereʼs an
+   example to go by (app/Mail/Winnings):
+<?php namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class Winnings extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /** @var string the address to send the email */
+    protected $to_address;
+
+    /** @var float the winnings they won */
+    protected $winnings;
+
+    /**
+     * Create a new message instance.
+     *
+     * @param string $to_address the address to send the email
+     * @param float $winnings   the winnings they won
+     *
+     * @return void
+     */
+    public function __construct($to_address, $winnings)
+    {
+        $this->to_address = $to_address;
+        $this->winnings = $winnings;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this
+            ->to($this->to_address)
+            ->subject(ʼYour winnings!ʼ)
+            ->view(ʼemails.winningsʼ)
+            ->with(
+                [
+                    ʼwinningsʼ &ge; $this->winnings
+                ]
+            );
+    }
+}
+
+
+   Now, create a view, resources/views/emails/winnings.blade.php for
+   simply HTML-only,:
+{% raw %}<strong>You won {{ $winnings }}</strong>!{% endraw %}
+
+Sending Mail
+
+   Now that we have it setup, and a mailable created, we can send. In your
+   job, controller, or where ever you need it:
+<?php
+use App\Mail\Winnings as WinningsMail;
+
+// ...
+// $to_email = ʼjohn@doe.comʼ; $winnings = 130.00;
+
+Mail::send(
+    new WinningsMail(
+        $to_email,
+        $winnings
+    )
+);
+
+   If youʼre queuing mail, replace send with queue. You can also see
+   [4]Laravelʼs mail documentation for more information on sending.
+
+Testing
+
+   Of course, we need to test (tests/WinningsMailTest.php):
+<?php
+
+use App\Mail\Winnings;
+use Illuminate\Support\Facades\Mail;
+
+class WinningsMailTest extends TestCase
+{
+    public function testItWorks()
+    {
+        Mail::fake();
+
+        Mail::send(
+            (new Winnings(ʼjohn@doe.comʼ, 15.00))->build()
+        );
+
+        Mail::assertSent(Winnings::class, function ($mail) {
+            return $mail->hasTo(ʼjohn@doe.comʼ) &&
+                   $mail->subject === ʼYour winnings!ʼ &&
+                   $mail->viewData[ʼwinningsʼ] === 15.00;
+        });
+    }
+}
+
+   Running the tests should pass if everything is set up correctly. For
+   more information on testing mailables, see [5]Laravelʼs documentation
+   on faking.
+
+   I hope this was a quick and useful setup for anyone having issues. Good
+   luck!
+
+   [6]MD | [7]TXT | [8]CC-4.0
+
+   This post is 7 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [9]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [10]Github [11]About Me [12]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://lumen.laravel.com/
+   4. https://laravel.com/docs/5.5/mail#sending-mail
+   5. https://laravel.com/docs/5.5/mocking#mail-fake
+   6. file:///setting-up-lumen-with-mail/index.md
+   7. file:///setting-up-lumen-with-mail/index.txt
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///about
+  10. https://github.com/gnikyt
+  11. file:///about
+  12. file:///assets/files/cv.pdf

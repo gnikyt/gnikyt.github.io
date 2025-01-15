@@ -4,7 +4,7 @@
 
                   Shopify checkout extension with product HTML
 
-   Jan 15, 2025
+   May 10, 2024
 
 Background
 

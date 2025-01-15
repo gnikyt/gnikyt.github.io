@@ -1,0 +1,151 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                            Extending a Rails Engine
+
+   Feb 20, 2016
+
+   Redesigning my CMS in Rails has been great fun. There have been many
+   challenges faced, and many conquered (like having 100% code coverage
+   :D). One thought that crossed my mind after building the monster was
+   how do you extend an engine? By extending, I mean to add or overwrite
+   methods of controllers, models, helpers, etc.
+
+   The [3]Rails Engine Guide is excellent and it has two main points on
+   extending the engine functionality. One is by use of "decorators" and
+   the other is by abstracting all your controller and model code into
+   concerns inside your engine. While I like the concern method, as it
+   gives more flexibility for complex extensions, its overkill in my
+   opinion. The [4]decorator option is very easy to implement without
+   changing much of your existing engine.
+
+   The first step as the Rails guide shows you, is to add support for
+   decorator loading inside your engine lib. Below is how I did it in my
+   CMS engine called Guts:
+# lib/guts/engine.rb
+# ... etc ...
+isolate_namespace Guts
+
+config.to_prepare do
+  Dir.glob("#{Rails.root}app/decorators/*/guts/*_decorator*.rb").each do |c|
+    require_dependency c
+  end
+end
+# ... etc ...
+
+   This will look for all decorators in the main Rails apps for the path
+   app/decorators/{controllers,models,concerns,helpers,etc}/guts/{file}dec
+   orator(s).rb and load them in using [5]require_dependency.
+
+   Now the engine has support to load the decorators, lets move on to some
+   examples. All following examples from here-on-out will be using my
+   engine for example purposes.
+
+Controllers
+
+   Create a file in app/decorators/controllers/guts/ such as
+   type_decorator.rb
+
+   Add in the following code using class_eval from Ruby:
+Guts::TypesController.class_eval do
+  # Decorator action is explode.. we will route this as: guts/types#explode
+  def explode
+    # Will render app/views/guts/types/explode.html.erb
+  end
+end
+
+   Next open app/config/routes.rb in your main Ruby app and prepend this
+   new route at the very top of the route file before mounting the Guts
+   engine in the Rails.application.routes.draw block.
+
+   As an example:
+Guts::Engine.routes.prepend do
+  # Create a route of /guts/types/explode
+  # Map it to types controller and the explode method
+  # Give the route a name of guts_types_explode
+  get "/types/explode", to: "types#explode", as: :guts_types_explode
+end
+
+Rails.application.routes.draw do
+  # Mount the Guts engine
+  mount Guts::Engine &ge; "/guts"
+end
+
+   This will now prepend our new route to the engine and map
+   /guts/types/explode to our decorator action.
+
+   Lastly, create a view in app/views/guts/types/ called explode.html.erb
+   with whatever you wish to display! This is the basics of extending a
+   controller.
+
+Models
+
+   As in controllers, create a file in app/decorators/models/guts/ such as
+   typemodaldecorator.rb
+
+   Add in the following code using class_eval from Ruby:
+Guts::Type.class_eval do
+  # Override title setter
+  def title=(title)
+    self[:title] = "Tricked ya! New Title!"
+  end
+
+  # Adds a new method to the model
+  def title_with_bang
+    "#{self[:title]}!"
+  end
+end
+
+Views
+
+   As stated above for the controller example, since Rails looks in the
+   main app for views first, you simply need to match the correct path.
+
+   If your engineʼs view for CoolController#jumps is
+   app/views/{engine}/cool/jumps.html.erb you will duplicate this in your
+   main Rails apps by creating a file in
+   app/views/{engine}/cool/jumps.html.erb. You can then enter anything you
+   need into that view and will be overridden.
+
+   A good tip I used in my CMS engine was to utilize [6]yields. I placed
+   named yields in many parts of my engine views so they can be utilized
+   by a Rails app by calling [7]content_for in their views.
+
+   Although the Rails Guide covers all this, I thought seeing a real-world
+   example would help. Happy coding!
+
+   [8]MD | [9]TXT | [10]CC-4.0
+
+   This post is 8 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [11]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [12]Github [13]About Me [14]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality
+   4. http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers
+   5. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require</em>dependency
+   6. http://guides.rubyonrails.org/layouts<em>and</em>rendering.html#understanding-yield
+   7. http://guides.rubyonrails.org/layouts<em>and</em>rendering.html#using-the-content-for-method
+   8. file:///extending-a-rails-engine/index.md
+   9. file:///extending-a-rails-engine/index.txt
+  10. https://creativecommons.org/licenses/by/4.0/
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. file:///about
+  14. file:///assets/files/cv.pdf

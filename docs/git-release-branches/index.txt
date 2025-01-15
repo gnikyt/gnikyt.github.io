@@ -4,7 +4,7 @@
 
                               Git release branches
 
-   Jan 15, 2025
+   Mar 10, 2021
 
    A method I like to utilize internally, which Iʼve been slowly pushing
    into my open source work, is to create branches for each major/minor

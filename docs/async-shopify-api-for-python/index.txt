@@ -1,0 +1,161 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                          Async Shopify API for Python
+
+   Jun 29, 2020
+
+Introduction
+
+   I maintain a fairly used [3]PHP library for Shopify API which uses
+   Guzzle for sync/async requests. It was also recently featured as a
+   recommended third-party library on Shopifyʼs dev docs.
+
+   For Python, which I also use with Shopify work, I didnʼt notice a
+   library which provides async abilities. Normally I use Shopifyʼs Python
+   library which provides a nice ActiveResource implementation. However,
+   their library has no plans to support async.
+
+   I decided to create a tested library that can do both,
+   [4]basicshopifyapi. It is a loose port of my PHP version which supports
+   sync, async, HMAC validation, rate limiting, automatic retries, REST,
+   and GraphQL; all backed by the HTTPX package.
+
+   You simply need to set up some basic options and create a session for a
+   shop to get started.
+
+Sync
+
+  REST
+
+from basic_shopify_api import Client
+
+# ...
+
+with Client(sess, opts) as client:
+    shop = client.rest("get", "/admin/api/shop.json", {"fields": "name,email"})
+    print(shop.response)
+    print(shop.body["name"])
+
+    # returns the following:
+    # RestResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or
+ the exception error,
+    #   status=The HTTP status code,
+    #   link=A RestLink object of next/previous pagination info,
+    #   retries=Number of retires for the request
+    # )
+
+  GraphQL
+
+from basic_shopify_api import Client
+
+# ...
+
+with Client(sess, opts) as client:
+    shop = client.graphql("{ shop { name } }")
+    print(shop.response)
+    print(shop.body["data"]["shop"]["name"])
+
+    # returns the following:
+    # ApiResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or
+ the exception error,
+    #   status=The HTTP status code,
+    #   retries=Number of retires for the request,
+    # )
+
+Async
+
+  REST
+
+from basic_shopify_api import AsyncClient
+
+# ...
+
+async with AsyncClient(sess, opts) as client:
+    shop = await client.rest("get", "/admin/api/shop.json", {"fields": "name,ema
+il"})
+    print(shop.response)
+    print(shop.body["name"])
+
+    # returns the following:
+    # RestResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or
+ the exception error,
+    #   status=The HTTP status code,
+    #   link=A RestLink object of next/previous pagination info,
+    #   retries=Number of retires for the request
+    # )
+
+  GraphQL
+
+from basic_shopify_api import AsyncClient
+
+# ...
+
+async with AsyncClient(sess, opts) as client:
+    shop = await client.graphql("{ shop { name } }")
+    print(shop.response)
+    print(shop.body["data"]["shop"]["name"])
+
+    # returns the following:
+    # ApiResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or
+ the exception error,
+    #   status=The HTTP status code,
+    #   retries=Number of retires for the request,
+    # )
+
+Conclusion
+
+   The above examples are brief, refer to the README of the project for
+   full information. But I believe you will find it very helpful -
+   especially the automatic retries for failed requests and built-in
+   rate/cost limiting.
+
+   Feel free to give it a try with your projects, with the continual rise
+   of async within Python, I hope the library will serve some use to you.
+   Iʼve recently paired it with [5]FastAPI and it performed well.
+
+   [6]MD | [7]TXT | [8]CC-4.0
+
+   This post is 4 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [9]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [10]Github [11]About Me [12]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/Basic-Shopify-API
+   4. https://github.com/gnikyt/basic<em>shopify</em>api
+   5. https://fastapi.tiangolo.com/
+   6. file:///async-shopify-api-for-python/index.md
+   7. file:///async-shopify-api-for-python/index.txt
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///about
+  10. https://github.com/gnikyt
+  11. file:///about
+  12. file:///assets/files/cv.pdf

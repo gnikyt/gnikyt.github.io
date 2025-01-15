@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      ActiveRecord and Liquid Drops with Sinatra | gnikyt
+    </title>
+    <link href="https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci..."
+    name="description">
+    <meta content="2015-10-15T02:00:00-0230" property="article:published_time">
+    <meta content="ActiveRecord and Liquid Drops with Sinatra" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci..."
+    property="og:description">
+    <meta content="https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2015-10-15T02:00:00-0230",
+    "datePublished": "2015-10-15T02:00:00-0230",
+    "description": "
+    Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci...",
+    "headline": "ActiveRecord and Liquid Drops with Sinatra",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="activerecord-and-liquid-drops-with-sinatra">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            ActiveRecord and Liquid Drops with Sinatra
+          </h1>
+
+          <p>
+            <time datetime="2015-10-15">Oct 15, 2015</time>
+          </p>
+        </header>
+
+        <p>
+          Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the
+          app user to modify a specific template. <a href="http://liquidmarkup.org/">Liquid templates</a> (what Jekyll
+          and Shopify use) was perfect for this situation because it has a simple syntax for anyone to pick up and it's
+          also safe due to its scope limited to what's passed to the template.
+        </p>
+
+        <p>
+          Let's suppose you have two models in your Sinatra application -- <code>Student</code> and <code>Book</code>.
+        </p>
+
+        <pre><code># app/models/student_model.rb
+module MyApp
+  module Model
+    class Student
+      has_many :books
+    end
+  end
+end
+
+# app/models/book_model.rb
+module MyApp
+  module Model
+    class Book
+      belongs_to :student
+    end
+  end
+end
+</code></pre>
+        <p>
+          Now, Liquid has what they call a <a href=
+          "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop</a>, where you can easily build a plain
+          class which Liquid can then use directly when rendering the template. As the <a href=
+          "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop Introduction</a> states, it acts "like" a
+          hash so the methods you create can be accessed with dot-notation in the template. Example: <code>{% raw %}{{
+          student.full_name }}{% endraw %}</code>
+        </p>
+
+        <p>
+          So let's create a <code>Student</code> drop and a <code>Book</code> drop and give the templates some basic
+          variables from the model to access.
+        </p>
+
+        <pre><code># app/drops/student_drop.rb
+module MyApp
+  module Drop
+    class Student
+      def initialize(student)
+        @student = student
+      end
+
+      def full_name
+        "#{@student.first_name} {@student.last_name}"
+      end
+
+      def allergies
+        @student.allergies.split ','
+      end
+
+      def books
+        @student.books
+      end
+    end
+  end
+end
+
+# app/drops/book_drop.rb
+module MyApp
+  module Drop
+    class Book
+      def initialize(book)
+        @book = book
+      end
+
+      def title
+        @book.title
+      end
+
+      def barcode
+        @book.barcode
+      end
+
+      def date_printed
+        @book.date_printed
+      end
+    end
+  end
+end
+</code></pre>
+        <p>
+          Ok so now we have our models and drops setup. As you can see above we've set up methods for accessing the
+          student's name, their books, the book title, barcode, etc. All of these methods can be used in a Liquid
+          template now.
+        </p>
+
+        <p>
+          But now, how do we easily combine the two? Easy, we utilize <code>to<em>liquid</em></code> <em>method by
+          adding it to our model which Liquid calls when rendering the template. We then return the proper drop for the
+          model inside the new <code>to</code></em><code>liquid</code> method.
+        </p>
+
+        <pre><code># app/models/student_model.rb
+module MyApp
+  module Model
+    class Student
+      has_many :books
+
+      def to_liquid
+        Drop::Student.new self
+      end
+    end
+  end
+end
+
+# app/models/book_model.rb
+module MyApp
+  module Model
+    class Book
+      belongs_to :student
+
+      def to_liquid
+        Drop::Book.new self
+      end
+    end
+  end
+end
+</code></pre>
+        <p>
+          That's pretty much it. We've now:
+        </p>
+
+        <ol>
+          <li>Created our models
+          </li>
+
+          <li>Created our drops
+          </li>
+
+          <li>Modified our models to return a drop
+          </li>
+        </ol>
+
+        <p>
+          With all this combined we can then use it all together as such:
+        </p>
+
+        <pre><code># app/controllers/front_controller.rb
+...
+student = Model::Student.find params[:id]
+liquid :'front/test', layout: :layout_front, locals: {'student' &amp;ge; student}
+</code></pre>
+
+        <pre><code>{% raw %}
+# app/views/front/test.liquid
+My name is {{ student.full_name }}. I have {{ student.books.size }} books!
+{% endraw %}
+</code></pre>
+        <p>
+          That's it for this little how-to. I will note there are other ways to expose your ActiveRecord models to work
+          automatically with Liquid but this article just shows you a more expanded and controlled version.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/activerecord-and-liquid-drops-with-sinatra/index.md">MD</a> | <a href=
+            "/activerecord-and-liquid-drops-with-sinatra/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 9 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

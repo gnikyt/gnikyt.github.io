@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Counting unique options in Shopify | gnikyt
+    </title>
+    <link href="https://gnikyt.com/counting-unique-options-in-shopify" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Ever wanted to quickly display how many of an option a product contains? Available in 4 sizes ... Available in Red, Blue, ..."
+    name="description">
+    <meta content="2016-06-21T01:17:33-0230" property="article:published_time">
+    <meta content="Counting unique options in Shopify" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Ever wanted to quickly display how many of an option a product contains? Available in 4 sizes ... Available in Red, Blue, ..."
+    property="og:description">
+    <meta content="https://gnikyt.com/counting-unique-options-in-shopify" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Ever wanted to quickly display how many of an option a product contains? Available in 4 sizes ... Available in Red, Blue, ..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-06-21T01:17:33-0230",
+    "datePublished": "2016-06-21T01:17:33-0230",
+    "description": "
+
+    Ever wanted to quickly display how many of an option a product contains?
+
+    Available in 4 sizes
+    ...
+    Available in Red, Blue, ...",
+    "headline": "Counting unique options in Shopify",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/counting-unique-options-in-shopify"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/counting-unique-options-in-shopify"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="counting-unique-options-in-shopify">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Counting unique options in Shopify
+          </h1>
+
+          <p>
+            <time datetime="2016-06-21">Jun 21, 2016</time>
+          </p>
+        </header>
+
+        <p>
+          Ever wanted to quickly display how many of an option a product contains?
+        </p>
+
+        <p>
+          Available in 4 sizes ... Available in Red, Blue, Green ... Available in 10 colors
+        </p>
+
+        <p>
+          Here's an example of how to do just that (for color). Simply open your product's loop liquid and add this
+          block at the top:
+        </p>
+
+        <pre><code># snippets/product_loop.liquid
+{% raw %}
+{% assign color_index = nil %}
+{% assign color_label = 'Color' %}
+{% if product.options[0] == color_label %}
+  {% capture color_index %}option1{% endcapture %}
+{% elsif product.options[1] == color_label %}
+  {% capture color_index %}option2{% endcapture %}
+{% elsif product.options[2] == color_label %}
+  {% capture color_index %}option3{% endcapture %}
+{% endif %}
+
+{% assign colors = product.variants | map: color_index | uniq %}
+
+This product is available in {{ colors.size }} {{ colors.size | pluralize: 'color', 'colors' }}
+{% endraw %}
+</code></pre>
+        <p>
+          Now you should get a result (given you have a color option for your variants), showing you how many unique
+          colors there are for the product. Here's what happened:
+        </p>
+
+        <ol>
+          <li>First, we determined which index the <code>Color</code> option was. Because Shopify only allows for three
+          options, this makes it a quick check.
+          </li>
+
+          <li>We grab the variants with <code>product.variants</code> and use
+          [<code>map</code>](https://help.shopify.com/themes/liquid/filters/array-filters#map) to return the results
+          for only <code>option1</code>, <code>option2</code>, or <code>option3</code> depending on the
+          <code>color_index</code> value.
+          </li>
+
+          <li>We then run the results through
+          [<code>uniq</code>](https://help.shopify.com/themes/liquid/filters/array-filters#uniq) to filter out
+          duplicates.
+          </li>
+        </ol>
+
+        <p>
+          You can now apply the same logic to any options you want. Change the <code>color_label</code> variable to
+          <code>Size</code> and you can get the same results but for sizes.
+        </p>
+
+        <p>
+          Allowing the customer to quickly scan what they're looking for and selecting the product appropriate to their
+          needs... this little bit of Liquid can easily help with conversion rates.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/counting-unique-options-in-shopify/index.md">MD</a> | <a href=
+            "/counting-unique-options-in-shopify/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 8 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

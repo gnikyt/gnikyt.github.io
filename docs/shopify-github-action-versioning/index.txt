@@ -4,7 +4,7 @@
 
                       Shopify Github Action for versioning
 
-   Jan 15, 2025
+   May 20, 2022
 
    Shopify recently updated their admin panel again and started to display
    the value of themeversion from config/settingsschema.json

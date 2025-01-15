@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      QR Code gradients | gnikyt
+    </title>
+    <link href="https://gnikyt.com/qr-code-gradients" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Qr codes and matrices are a great way to share content to an audience, it allows anybody to simply put their phone up to the Qr image, s..."
+    name="description">
+    <meta content="2013-07-13T16:25:58-0230" property="article:published_time">
+    <meta content="QR Code gradients" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Qr codes and matrices are a great way to share content to an audience, it allows anybody to simply put their phone up to the Qr image, s..."
+    property="og:description">
+    <meta content="https://gnikyt.com/qr-code-gradients" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Qr codes and matrices are a great way to share content to an audience, it allows anybody to simply put their phone up to the Qr image, s..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2013-07-13T16:25:58-0230",
+    "datePublished": "2013-07-13T16:25:58-0230",
+    "description": "
+    Qr codes and matrices are a great way to share content to an audience, it allows anybody to simply put their phone up to the Qr image, s...",
+    "headline": "QR Code gradients",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/qr-code-gradients"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/qr-code-gradients"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="qr-code-gradients">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            QR Code gradients
+          </h1>
+
+          <p>
+            <time datetime="2013-07-13">Jul 13, 2013</time>
+          </p>
+        </header>
+
+        <p>
+          Qr codes and matrices are a great way to share content to an audience, it allows anybody to simply put their
+          phone up to the Qr image, scan it, and see what's inside. The premise of QrInColor.com was to provide a free
+          way for users to not only create linked Qr codes, but to customize them as well - with color
+        </p>
+
+        <p>
+          For the QrInColor.com web-application initially we used <a href=
+          "https://github.com/endroid/EndroidQrCodeBundle">Endroid Qr Bundle</a>, when we re-vamped the look and
+          features of the app into <a href="http://symfony.com">Symfony</a> from <a href=
+          "http://silex.sensiolabs.org/">Silex</a>, we wanted to allow users to generate not only colored Qr codes, but
+          two-tone gradient colors as well. I wanted to accomplish this without modifying the Endroid package as its
+          not really it's purpose to do such a thing.
+        </p>
+
+        <p>
+          This created a problem... <em>how do I create a gradient on the Qr code?</em> I came up with a solution:
+          colorize the Qr with <a href="http://www.imagemagick.org/script/index.php">Imagick</a> using their top and
+          bottom colors the user picked then, "blend" the two images together to create a gradient effect.
+        </p>
+
+        <p>
+          <img alt="qr code base" src="/assets/images/0000/qr.png">
+        </p>
+
+        <p>
+          We would first take the Qr data the user entered and generate a black, basic, Qr code. Which is our canvas to
+          work with. Now, we had to apply their top color chosen (RGB) to the base Qr and render it, using similar
+          shell command below.
+        </p>
+
+        <pre><code>/usr/bin/convert qr.png -fuzz 60% -fill 'rgb(161,161,163)' -opaque black qr_top.png
+</code></pre>
+        <p>
+          <img alt="qr code top" src="/assets/images/0000/qr_top.png">
+        </p>
+
+        <p>
+          This is the result of the above command. It replaces all <strong>black</strong> with a fuzz of
+          <strong>60%</strong> threshold with the color chosen by the user, <strong>rgb(161,161,163)</strong>.
+        </p>
+
+        <p>
+          It's nothing spectacular; but it works. Now, we need to do the same for the bottom color the user chose.
+          Again we use the base Qr render to apply the color to.
+        </p>
+
+        <pre><code>/usr/bin/convert qr.png -fuzz 60% -fill 'rgb(248,150,39)' -opaque black qr_bottom.png
+</code></pre>
+        <p>
+          <img alt="qr code bottom" src="/assets/images/0000/qr_bottom.png">
+        </p>
+
+        <p>
+          This is the result of the above command. It replaces all <strong>black</strong> with a fuzz of
+          <strong>60%</strong> threshold with the color chosen by the user, <strong>rgb(248,150,39)</strong>.
+        </p>
+
+        <p>
+          Finally, we need to blend them together as if they we're two layers in gimp. To accomplish this, we need to
+          set the gray Qr we just rendered, to go from a gray color to complete transparency.
+        </p>
+
+        <pre><code>/usr/bin/convert qr_top.png -size 150x150 gradient: -compose copy_opacity -composite qr_gradient.png
+</code></pre>
+        <p>
+          This creates the effect we are looking for. Color at top, transparent at bottom. Now we place the gray
+          transparent Qr on top of the orange Qr. Finally, here is the result!
+        </p>
+
+        <pre><code>/usr/bin/composite qr_bottom.png -compose Dst_Over qr_gradient.png result.png
+</code></pre>
+        <p>
+          <img alt="result" src="/assets/images/0000/qr_together.png"> <img alt="result 2" src=
+          "/assets/images/0000/qr_together2.png">
+        </p>
+
+        <p>
+          Unfortunately, I did not choose very vibrant colors to blend (gray and orange) but the effect is there, I've
+          included another example with <em>two better colors</em>. Now, I'm sure there are better ways to produce
+          these gradients, but the point of this post is that there was a problem I faced with a client's website, I
+          used my brain to come up with a solution and it worked. A road block can always be passed; just don't pass
+          the ones with cops posted, that won't end well.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/qr-code-gradients/index.md">MD</a> | <a href="/qr-code-gradients/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 11 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Introducing Laravel Shopify | gnikyt
+    </title>
+    <link href="https://gnikyt.com/introducing-Shopify-for-laravel" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## Background As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra. I've even rel..."
+    name="description">
+    <meta content="2017-08-09T16:35:00-0230" property="article:published_time">
+    <meta content="Introducing Laravel Shopify" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## Background As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra. I've even rel..."
+    property="og:description">
+    <meta content="https://gnikyt.com/introducing-Shopify-for-laravel" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## Background As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra. I've even rel..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2017-08-09T16:35:00-0230",
+    "datePublished": "2017-08-09T16:35:00-0230",
+    "description": "
+    ## Background
+
+    As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra. I've even rel...",
+    "headline": "Introducing Laravel Shopify",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/introducing-Shopify-for-laravel"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/introducing-Shopify-for-laravel"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="introducing-Shopify-for-laravel">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Introducing Laravel Shopify
+          </h1>
+
+          <p>
+            <time datetime="2017-08-09">Aug 09, 2017</time>
+          </p>
+        </header>
+
+        <h2 id="background">
+          Background
+        </h2>
+
+        <p>
+          As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps in Rails and Sinatra.
+          I've even released my own Gems to solve common (small) issues I've faced developing for these platforms.
+        </p>
+
+        <p>
+          PHP itself... I haven't been active in years on that front. With PHP7 however, the language is shaping up. It
+          doesn't have the great method chaining or syntax beauty that Ruby does, but its a well tested, proven, and
+          mature language to work with that's easily deployable to a magnitude of places without much interaction.
+        </p>
+
+        <p>
+          Being out of the PHP game for a while, I decided to survey the landscape. I used to work heavily with
+          Symfony, however, it always left a sour taste in my mouth. Symfony is great... its really well structured,
+          enterprise type of framework. It falls short for medium-sized projects due to the verbosity of it (in my
+          personal experience).
+        </p>
+
+        <p>
+          After some digging, I stumbled upon Laravel. Laravel, like many projects, uses bits of Symfony's core and
+          builds on top of it. I spent a lot of time studying Laravel, its community, its activeness, its code. It
+          looked solid and had great tools and documentation to go along with it. It has a lot baked into it, which is
+          all easily configurable and accessible - it felt like Rails for PHP honestly.
+        </p>
+
+        <p>
+          <a href="https://github.com/Shopify/shopify%3Cem%3Eapp">shopifyapp</a> is Shopify's own gem for building
+          Shopify apps on Rails; quick and easy. It handles authentication, installation, webhooks, scripttags, ESDK
+          integration, and more. In Laravel, I could not find a package that covered all those points. I decided I'd go
+          headfirst into Laravel and build a package for it.
+        </p>
+
+        <h2 id="what-the-package-does">
+          What The Package Does
+        </h2>
+
+        <p>
+          Right from the Github page, the package handles all that <code>shopify_app</code> does:
+        </p>
+
+        <ul>
+          <li>Provide assistance in developing Shopify apps with Laravel
+          </li>
+
+          <li>Integration with Shopify API
+          </li>
+
+          <li>Authentication & installation for shops
+          </li>
+
+          <li>Auto install app webhooks and scripttags through background jobs
+          </li>
+
+          <li>Provide basic ESDK views
+          </li>
+
+          <li>Handles and processes incoming webhooks
+          </li>
+
+          <li>Handles and verifies incoming app proxy requests
+          </li>
+        </ul>
+
+        <p>
+          The package is fully tested and works with PHP &amp;ge; 7 and Laravel 5.4.
+        </p>
+
+        <h2 id="project">
+          Project
+        </h2>
+
+        <p>
+          You can head over to the <a href="https://github.com/gnikyt/laravel-shopify">project's page</a> for full
+          information, or also browse <a href="https://github.com/gnikyt/laravel-shopify/wiki">the wiki</a> for
+          documentation, installation, and other topics.
+        </p>
+
+        <p>
+          Happy coding with Shopify + Laravel!
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/introducing-Shopify-for-laravel/index.md">MD</a> | <a href=
+            "/introducing-Shopify-for-laravel/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 7 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

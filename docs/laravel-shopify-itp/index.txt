@@ -4,7 +4,7 @@
 
                               Laravel Shopify ITP
 
-   Jan 15, 2025
+   Feb 03, 2021
 
 Background
 
@@ -54,13 +54,11 @@ Solving
    are following, which is what I tried to strive for in the latest
    release.
 
-   [![](/assets/images/2021/01/ls-ask.png)](/assets/images/2021/01/ls-ask.
-   png)
+   [4]Step 4
 
    Step #4 - Asking for storage access
 
-   [![](/assets/images/2021/01/ls-manual.png)](/assets/images/2021/01/ls-a
-   sk.png)
+   [5]Step 5
 
    Step #5 - Asking user to manually enable storage
 
@@ -77,21 +75,21 @@ Conclusion
    everyone, but more work may still need to be done in the future to
    correct some quirks.
 
-   For additional information, see the [4]ITP wiki page on the repository.
+   For additional information, see the [6]ITP wiki page on the repository.
    Also, thank you to the community for the assistance and patience during
    this large issue.
 
-   [5]MD | [6]TXT | [7]CC-4.0
+   [7]MD | [8]TXT | [9]CC-4.0
 
    This post is 3 years old and may contain outdated information.
      __________________________________________________________________
 
-   [8]Tyler King
+   [10]Tyler King
 
 Ty King
 
    A self-taught, seasoned, versatile developer from Newfoundland.
-   [9]Github [10]About Me [11]CV
+   [11]Github [12]About Me [13]CV
      *
      *
      *
@@ -104,11 +102,13 @@ References
    1. file:///rss.xml
    2. file:///
    3. https://github.com/gnikyt/laravel-shopify
-   4. https://github.com/gnikyt/laravel-shopify/wiki/ITP
-   5. file:///laravel-shopify-itp/index.md
-   6. file:///laravel-shopify-itp/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///about
-   9. https://github.com/gnikyt
+   4. file:///assets/images/2021/01/ls-ask.png
+   5. file:///assets/images/2021/01/ls-ask.png
+   6. https://github.com/gnikyt/laravel-shopify/wiki/ITP
+   7. file:///laravel-shopify-itp/index.md
+   8. file:///laravel-shopify-itp/index.txt
+   9. https://creativecommons.org/licenses/by/4.0/
   10. file:///about
-  11. file:///assets/files/cv.pdf
+  11. https://github.com/gnikyt
+  12. file:///about
+  13. file:///assets/files/cv.pdf

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Building a simple Redis autosuggest with Ruby | gnikyt
+    </title>
+    <link href="https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "So you have a search box on your website.. an article search, a product search.. whatever it may be, you may find yourself the need to d..."
+    name="description">
+    <meta content="2016-03-02T01:02:11-0330" property="article:published_time">
+    <meta content="Building a simple Redis autosuggest with Ruby" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "So you have a search box on your website.. an article search, a product search.. whatever it may be, you may find yourself the need to d..."
+    property="og:description">
+    <meta content="https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "So you have a search box on your website.. an article search, a product search.. whatever it may be, you may find yourself the need to d..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-03-02T01:02:11-0330",
+    "datePublished": "2016-03-02T01:02:11-0330",
+    "description": "
+    So you have a search box on your website.. an article search, a product search.. whatever it may be, you may find yourself the need to d...",
+    "headline": "Building a simple Redis autosuggest with Ruby",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="building-a-simple-redis-autosuggest-with-ruby">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Building a simple Redis autosuggest with Ruby
+          </h1>
+
+          <p>
+            <time datetime="2016-03-02">Mar 02, 2016</time>
+          </p>
+        </header>
+
+        <p>
+          So you have a search box on your website.. an article search, a product search.. whatever it may be, you may
+          find yourself the need to display suggested results to your user based on what they type. Redis is the
+          perfect solution.
+        </p>
+
+        <h2 id="planning">
+          Planning
+        </h2>
+
+        <p>
+          Let's say we have a bunch of products:
+        </p>
+
+        <ul>
+          <li>Tommy's Ray Gun - ID: 1
+          </li>
+
+          <li>1990 Blaster Ray!! - ID: 2
+          </li>
+
+          <li>(Nuke) Bomb Gun #8 - ID: 3
+          </li>
+        </ul>
+
+        <p>
+          Looking at our products, we can see there is a different and unpredictable title. We have punctuation,
+          special characters, numbers, and letters. If someone types <code>Gun</code> we'd like to see our search
+          suggest <code>(Nuke) Bomb Gun #8</code> and <code>Tommy's Ray Gun</code>.
+        </p>
+
+        <p>
+          Redis does not offer a full-text search solution like ElasticSearch, so we simply can't drop <code>Tommy's
+          Ray Gun</code> string into Redis and expect to search it. We need to come up with a clever way.
+        </p>
+
+        <p>
+          My solution was to split each letter up of each word in each product. For each letter set, we store the
+          products which contain those letters. So common sets of letters in titles will be stored together.
+        </p>
+
+        <p>
+          As a basic example, let's look at a singular word. <code>RUBY</code> we can split this up into <code>R</code>
+          then <code>RU</code> then <code>RUB</code> and finally <code>RUBY</code>.
+        </p>
+
+        <p>
+          Lets store these product titles in this manner with the values being the title and ID for the product into a
+          <a href="http://redis.io/commands/ZADD">Redis sorted set</a>. Now, when someone types <code>gun</code> in
+          your search box we should be able to call <code>p:gun</code> key on Redis and get:
+        </p>
+
+        <ul>
+          <li>
+            <code>Tommy's Ray Gun//1</code>
+          </li>
+
+          <li>
+            <code>(Nuke) Bomb Gun #8//3</code>
+          </li>
+        </ul>
+
+        <h2 id="processing-the-objects">
+          Processing the Objects
+        </h2>
+
+        <p>
+          So now we have a plan in place, let's write a quick script to import the objects you wish to autosuggest,
+          into your Redis database. As before, we need to split each word up of each object.
+        </p>
+
+        <pre><code>
+# autosuggest.rb
+require "redis"
+
+redis = Redis.new
+redis.flushdb # Resets to a clean database
+
+def clean_title(title)
+    # Change to your needs
+    title.downcase.gsub(/-/, " ").gsub(/[^0-9a-z ]/, "")
+end
+
+# Our list of products
+products = [
+  {id: 1, title: "Tommy's Ray Gun"},
+  {id: 2, title: "1990 Blaster Ray!!"},
+  {id: 3, title: "(Nuke) Bomb Gun #8"}
+]
+
+products.each do |product|
+  puts "Processing #{product[:title]}..."
+
+  # Clean the title, split up into parts
+  clean_title(product[:title]).split(" ").each do |part|
+      1.upto(part.length) do |len|
+          next if len == 1 # So we do not have a key of 1 length
+
+          # Output a piece of each part
+          puts part[0...len]
+      end
+  end
+end
+</code></pre>
+        <p>
+          If you run this into your terminal it should output:
+        </p>
+
+        <pre><code>&gt; ruby autosuggest.rb
+Processing Tommy's Ray Gun...
+"to" "tom" "tomm" "tommy" "tommys" "ra" "ray" "gu" "gun"
+Processing 1990 Blaster Ray!!...
+"19" "199" "1990" "bl" "bla" "blas" "blast" "blaste" "blaster" "ra" "ray"
+Processing (Nuke) Bomb Gun #8...
+"nu" "nuk" "nuke" "bo" "bom" "bomb" "gu" "gun"
+</code></pre>
+        <p>
+          Here we can see how the script cleans the titles, then breaks them down to produce key names for Redis to use
+          as we had hoped for in the planning section. Now, let's import this into Redis. Simply change line 27:
+        </p>
+
+        <pre><code># BEFORE
+puts part[0...len]
+
+# AFTER
+redis.zadd "p:#{part[0...len]}", 0, "#{product[:title]}//#{product[:id]}"
+</code></pre>
+        <p>
+          This will now store the titles for the objects as planned into a sorted list on Redis, where common sets of
+          parts will group objects together. Go ahead and run your script again.
+        </p>
+
+        <pre><code>&gt; ruby autosuggest.rb
+Processing Tommy's Ray Gun...
+Processing 1990 Blaster Ray!!...
+Processing (Nuke) Bomb Gun #8...
+</code></pre>
+        <p>
+          Login to Redis and let's check if it works as planned. Since this is a sorted set we need to use <a href=
+          "http://redis.io/commands/ZRANGE">ZRANGE</a>.
+        </p>
+
+        <pre><code>&gt; redis-cli
+127.0.0.1:6379&gt; ZRANGE p:gun 0 -1
+1) "(Nuke) Bomb Gun #8//3"
+2) "Tommy's Ray Gun//1"
+127.0.0.1:6379&gt; ZRANGE p:nuke 0 -1
+1) "(Nuke) Bomb Gun #8//3"
+</code></pre>
+        <p>
+          Awesome, it works! We now have sorted sets with groups of products based on parts of the words in the object
+          titles.
+        </p>
+
+        <h2 id="frontend">
+          Frontend
+        </h2>
+
+        <p>
+          Now that we have a script (that you should expand on into a proper lib), we need to now show results to the
+          user for when they're searching.
+        </p>
+
+        <p>
+          Here's a quick Sinatra example (of course you can use more advanced techniques as well)
+        </p>
+
+        <pre><code>require "redis"
+require "json"
+require "securerandom"
+require "sinatra/base"
+require "sinatra/jsonp"
+
+module YourApp
+  class AutoComplete &lt; Sinatra::Base
+    helpers Sinatra::Jsonp
+
+    configure {set :redis, Redis.new}
+
+    get "/" do
+      # Clean the query and get each word
+      sets = []
+      clean_query(params["q"]).split(" ").each {|word| sets &lt;&lt; "p:#{word}"}
+
+      # Get the common results in a temporary key
+      tmp_key = "tmp_#{SecureRandom.uuid[0...8]}"
+      settings.redis.zinterstore tmp_key, sets
+      results = settings.redis.zrange tmp_key, 0, -1
+      settings.redis.del tmp_key
+
+      # Output results as JSON to browser
+      jsonp results.to_json
+    end
+
+    private
+    def clean_query(query)
+      # Remove all special characters and adjusts naming
+      query.downcase.gsub(/-/, " ").gsub(/[^0-9a-z ]/, "")
+    end
+  end
+end
+</code></pre>
+        <p>
+          By calling <code>/?q=some+text</code>, we create a key for each word passed. So <code>some+text</code> goes
+          into the <code>sets</code> variable and becomes <code>["p:some", "p:text"]</code>.
+        </p>
+
+        <p>
+          Next, we create a temporary key to use with <a href="http://redis.io/commands/ZINTERSTORE">zinterstore</a>
+          which computes intersection between keys (our <code>p:some</code> and <code>p:text</code>). This finds
+          products that have both the words some and text in their title. We then use zrange to get the result of the
+          intersection and delete the temporary key.
+        </p>
+
+        <p>
+          Finally, send the results as JSON. You can use AJAX to actively call the Sinatra app when the user is typing.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/building-a-simple-redis-autosuggest-with-ruby/index.md">MD</a> | <a href=
+            "/building-a-simple-redis-autosuggest-with-ruby/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 8 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

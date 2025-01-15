@@ -1,0 +1,54 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+               Apply, verify, and validate Shopify discount codes
+
+   Oct 19, 2018
+
+   Shopify doesnʼt have an API to verify discounts, however, I have found
+   a little workaround.
+
+   By making an AJAX call to /discount/(code), Shopify will set a cookie
+   telling the checkout to auto-apply a discount on a visit to the
+   checkout page.
+
+   Next, making an AJAX call to /checkout, weʼre able to parse the HTML
+   and determine if the discount code worked!
+
+   Hereʼs an example of it in action:
+
+   promo-verify
+
+   For the source code of this script, please see [3]this repository.
+
+   [4]MD | [5]TXT | [6]CC-4.0
+
+   This post is 6 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [7]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [8]Github [9]About Me [10]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/Shopify-Frontend-Helper
+   4. file:///apply-verify-and-validate-shopify-discount-codes/index.md
+   5. file:///apply-verify-and-validate-shopify-discount-codes/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

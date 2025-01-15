@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Basic Symfony Flex with Symfony Server Dockerized | gnikyt
+    </title>
+    <link href="https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta a="" content="Symfony Flex allows you to tailor a Symfony application to your needs by building it with"
+    create="" it="" name="description" provides="" to="" very="" way="">
+    <meta content="2020-02-04T00:56:22-0330" property="article:published_time">
+    <meta content="Basic Symfony Flex with Symfony Server Dockerized" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta a="" content="Symfony Flex allows you to tailor a Symfony application to your needs by building it with"
+    create="" it="" property="og:description" provides="" to="" very="" way="">
+    <meta content="https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta a="" content="Symfony Flex allows you to tailor a Symfony application to your needs by building it with"
+    create="" it="" property="twitter:title" provides="" to="" very="" way="">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2020-02-04T00:56:22-0330",
+    "datePublished": "2020-02-04T00:56:22-0330",
+    "description": "
+    Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes". It provides a way to create a very ...",
+    "headline": "Basic Symfony Flex with Symfony Server Dockerized",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="basic-symfony-flex-with-symfony-server-dockerized">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Basic Symfony Flex with Symfony Server Dockerized
+          </h1>
+
+          <p>
+            <time datetime="2020-02-04">Feb 04, 2020</time>
+          </p>
+        </header>
+
+        <p>
+          Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes". It
+          provides a way to create a very lean and clean Symfony application with only the bells and whistles you
+          choose.
+        </p>
+
+        <p>
+          In this post, I'll show you how to create a Dockerized version of your Flex application that utilizes the
+          Symfony local server for use during local development.
+        </p>
+
+        <h2 id="setup">
+          Setup
+        </h2>
+
+        <p>
+          <em>If you already have a Symfony Flex application created, you can skip this section.</em>
+        </p>
+
+        <p>
+          <code>composer create-project symfony/skeleton myapi</code>
+        </p>
+
+        <p>
+          This will create a skeleton project in a directory called <code>myapi</code> with everything set up and ready
+          to go in an easy to navigate structure.
+        </p>
+
+        <p>
+          Next, we install the API recipe which installs bundles such as Doctrine, CORS handling, Twig templating,
+          validators, etc. It will give you barebones ability to easily create an API base.
+        </p>
+
+        <p>
+          <code>composer req api</code>
+        </p>
+
+        <p>
+          You're now free to create any entities, repositories, controllers, services, etc. that you require, or you
+          can come back to that at a later time, it is not required.
+        </p>
+
+        <h2 id="dockerizing">
+          Dockerizing
+        </h2>
+
+        <h3 id="docker-compose">
+          Docker Compose
+        </h3>
+
+        <p>
+          For this example, we'll simply set up a MySQL server, Redis server, and PHP CLI. We will manage all this
+          through Docker Compose.
+        </p>
+
+        <h1 id="docker-compose-yml-version-3">
+          docker-compose.yml version: '3'
+        </h1>
+
+        <p>
+          services: db: image: mysql:5.7 environment: MYSQL<em>ROOT</em>PASSWORD: root_pwd MYSQL<em>DATABASE:
+          api</em>db MYSQL<em>USER: api</em>user MYSQL<em>PASSWORD: api</em>pass volumes:
+        </p>
+
+        <ul>
+          <li>./docker/db:/var/lib/mysql/data
+          </li>
+        </ul>
+
+        <p>
+          ports:
+        </p>
+
+        <ul>
+          <li>'3306:3306'
+          </li>
+        </ul>
+
+        <p>
+          restart: always redis: image: redis ports:
+        </p>
+
+        <ul>
+          <li>'6379:6379'
+          </li>
+        </ul>
+
+        <p>
+          volumes:
+        </p>
+
+        <ul>
+          <li>./docker/redis:/data
+          </li>
+        </ul>
+
+        <p>
+          entrypoint: redis-server --appendonly yes restart: always web: build: context: . depends_on:
+        </p>
+
+        <ul>
+          <li>db
+          </li>
+
+          <li>redis
+          </li>
+        </ul>
+
+        <p>
+          volumes:
+        </p>
+
+        <ul>
+          <li>./:/var/www/html/
+          </li>
+        </ul>
+
+        <p>
+          ports:
+        </p>
+
+        <ul>
+          <li>'8080:80'
+          </li>
+        </ul>
+
+        <p>
+          stdin_open: true tty: true
+        </p>
+
+        <p>
+          The above will pull in the <code>mysql:5.7</code> image with some initial environment variables <em>(you're
+          free to replace them)</em>. It will mount its data volume to <code>./docker/db</code> of your
+          <code>myapi</code> directory for persistence. It will also map port <code>3306</code> on your host machine to
+          forward to <code>3306</code> in the container.
+        </p>
+
+        <p>
+          Below that, we pull in the <code>redis</code> image and mount it's volume to <code>./docker/redis</code> of
+          your <code>myapi</code> directory for storage. It will also map port <code>6379</code> of your host machine
+          to forward to <code>6379</code> in the container. You can adjust the entrypoint to your needs.
+        </p>
+
+        <p>
+          Lastly, <code>web</code> will build a custom image based on a <code>Dockerfile</code> below. It will mount
+          your <code>myapi</code> directory to <code>/var/www/html</code> inside the container. It will also map port
+          <code>8080</code> of your host machine to forward to port <code>80</code> in the container.
+        </p>
+
+        <p>
+          It is also a good idea to add these volume paths to your <code>.gitignore</code> to avoid checking them into
+          your repository.
+        </p>
+
+        <h3 id="dockerfile">
+          Dockerfile
+        </h3>
+
+        <h1 id="dockerfile-from-php-7-3-cli">
+          Dockerfile FROM php:7.3-cli
+        </h1>
+
+        <h1 id="remove-restirction-from-installing-php-packages-run-rm-etc-apt-preferences-d-no-debian-php">
+          Remove restirction from installing PHP packages RUN rm /etc/apt/preferences.d/no-debian-php
+        </h1>
+
+        <h1 id=
+        "install-required-packages-run-apt-update-apt-install-wget-php-mysql-php-json-php-mbstring-php-xml-php-curl-y">
+          Install required packages RUN apt update &amp;& apt install wget php-mysql php-json php-mbstring php-xml
+          php-curl -y
+        </h1>
+
+        <h1 id="extension-install-run-docker-php-ext-install-mysqli-pdo-pdo-mysql">
+          Extension install RUN docker-php-ext-install mysqli pdo pdo_mysql
+        </h1>
+
+        <h1 id=
+        "install-symfony-package-run-wget-https-get-symfony-com-cli-installer-o-bash-mv-root-symfony-bin-symfony-usr-local-bin-symfony">
+          Install Symfony package RUN wget https://get.symfony.com/cli/installer -O - | bash &amp;& mv
+          /root/.symfony/bin/symfony /usr/local/bin/symfony
+        </h1>
+
+        <h1 id="open-port-80-expose-80">
+          Open port 80 EXPOSE 80
+        </h1>
+
+        <h1 id="run-it-cmd-cd-var-www-html-symfony-server-start-no-tls-port-80">
+          Run it CMD cd /var/www/html &amp;& symfony server:start --no-tls --port=80
+        </h1>
+
+        <p>
+          The above Dockerfile will pull in the <code>php:7.3-cli</code> image. Since Symfony's local server will be
+          handling the requests, we do not need Nginx, Apache, mod_php, or php-fpm.
+        </p>
+
+        <p>
+          In the commands, we tell it to install <code>wget</code> which is required to install the Symfony CLI tools,
+          and other PHP packages (by removing the APT restriction). We also open up port <code>80</code>. At the end,
+          we change our directory to <code>/var/www/html</code> where our <code>myapi</code> directory is mounted, and
+          run the Symfony local server on port <code>80</code>.
+        </p>
+
+        <h2 id="running">
+          Running
+        </h2>
+
+        <p>
+          It is a good idea to now modify your <code>.env.local</code> file to connect to the container's MySQL
+          instance and Redis instance with the credentials set up in the <code>docker-compose.yml</code> file and the
+          special mapping keywords, <code>redis</code> and <code>db</code> for the address.
+        </p>
+
+        <p>
+          Examples:
+        </p>
+
+        <ul>
+          <li>
+            <code>DATABASE<em>URL=mysql://${DATABASE</em>USER}:${DATABASE<em>PASSWORD}@mysql:3306/${DATABASE</em>NAME}?serverVersion=5.7</code>
+          </li>
+
+          <li>
+            <code>REDIS_URL=redis://redis:6379?timeout=5</code>
+          </li>
+        </ul>
+
+        <p>
+          Finally, executing <code>docker-compose up</code> will build and boot the containers. If you're successful...
+          you should see the Symfony local server running with a message similar to:
+        </p>
+
+        <p>
+          <code>[OK] Web server listening on http://127.0.0.1:80</code>
+        </p>
+
+        <p>
+          Now, if you open your browser to <code>http://127.0.0.1:8080</code> <em>(8080 is our local port which will
+          forward to port 80 in the container),</em> you should see the Symfony welcome screen.
+        </p>
+
+        <p>
+          As a side note, it would be a good idea to set up a hosts file entry so you don't need to type your localhost
+          every time, and also enabling HTTPS would be a good measure, but not necessarily needed for local
+          development.
+        </p>
+
+        <h2 id="conclusion">
+          Conclusion
+        </h2>
+
+        <p>
+          That concludes the basic setup to Dockerize a Symfony Flex API application.
+        </p>
+
+        <p>
+          For more information on Symfony Flex, <a href=
+          "https://symfony.com/doc/current/quick%3Cem%3Etour/flex%3C/em%3Erecipes.html">click here</a>; or information
+          on Symfony Server, <a href="https://symfony.com/doc/current/setup/symfony_server.html">click here</a>.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/basic-symfony-flex-with-symfony-server-dockerized/index.md">MD</a> | <a href=
+            "/basic-symfony-flex-with-symfony-server-dockerized/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 4 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

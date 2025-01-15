@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7 | gnikyt
+    </title>
+    <link href="https://gnikyt.com/upgrading-fedora-30-to-31-avoiding-kernel" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Fedora 30 was released on April 30th, 2019. Fedora 31 was released on October 29th, 2019. While Fedora 30 had minimal reported issues ..."
+    name="description">
+    <meta content="2020-01-15T19:13:27-0330" property="article:published_time">
+    <meta content="Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Fedora 30 was released on April 30th, 2019. Fedora 31 was released on October 29th, 2019. While Fedora 30 had minimal reported issues ..."
+    property="og:description">
+    <meta content="https://gnikyt.com/upgrading-fedora-30-to-31-avoiding-kernel" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Fedora 30 was released on April 30th, 2019. Fedora 31 was released on October 29th, 2019. While Fedora 30 had minimal reported issues ..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2020-01-15T19:13:27-0330",
+    "datePublished": "2020-01-15T19:13:27-0330",
+    "description": "
+    Fedora 30 was released on April 30th, 2019.
+
+    Fedora 31 was released on October 29th, 2019.
+
+    While Fedora 30 had minimal reported issues ...",
+    "headline": "Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/upgrading-fedora-30-to-31-avoiding-kernel"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/upgrading-fedora-30-to-31-avoiding-kernel"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="upgrading-fedora-30-to-31-avoiding-kernel">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7
+          </h1>
+
+          <p>
+            <time datetime="2020-01-15">Jan 15, 2020</time>
+          </p>
+        </header>
+
+        <p>
+          Fedora 30 was released on April 30th, 2019.
+        </p>
+
+        <p>
+          Fedora 31 was released on October 29th, 2019.
+        </p>
+
+        <p>
+          While Fedora 30 had minimal reported issues (at least socially), Fedora 31 was a different case altogether
+          due to the 5.4.7 packaged kernel where Fedora 30 had 5.0 (later updated to 5.3.x).
+        </p>
+
+        <p>
+          There have been several reports of users' WIFI completely dropping, Ethernet not working, audio not working,
+          and so on.
+        </p>
+
+        <p>
+          While I normally wait a few months after a major release for the dust to settle, there are a few features I
+          was wanting, so I decided to upgrade and create a guide on how to keep your existing kernel during the
+          upgrade.
+        </p>
+
+        <h2 id="upgrade">
+          Upgrade
+        </h2>
+
+        <p>
+          First, make sure all packages are updated.
+        </p>
+
+        <p>
+          <code>sudo dnf --refresh upgrade --exclude=kernel*</code>
+        </p>
+
+        <p>
+          This will refresh the repos, update your packages, and exclude any kernel updates.
+        </p>
+
+        <h2 id="system-upgrade">
+          System Upgrade
+        </h2>
+
+        <p>
+          Next, to upgrade to Fedora 31, run the following command.
+        </p>
+
+        <p>
+          <code>sudo dnf system-upgrade download --releasever=31 --exclude=kernel*</code>
+        </p>
+
+        <p>
+          This will download (not update) all packages needed to bump to release 31, while excluding any kernel
+          updates.
+        </p>
+
+        <p>
+          You will be asked to accept various keys and accept the package summary. Once you're ready, continue the
+          update.
+        </p>
+
+        <p>
+          Your system will reboot to a Plymouth screen with a progress bar showing the current status of the upgrade.
+        </p>
+
+        <p>
+          This upgrade takes approx. 15 minutes from my experience.
+        </p>
+
+        <h2 id="reboot">
+          Reboot
+        </h2>
+
+        <p>
+          Upon reboot, you'll be booting into Fedora 31, the GRUB screen should show your 5.3.x kernel still there. If
+          you've missed it, run <code>uname -r</code> in the terminal to confirm the version.
+        </p>
+
+        <p>
+          That's it. Please be sure to check out the <a href=
+          "https://fedoraproject.org/wiki/Releases/31/ChangeSet">release notes</a> and keep an eye out for new kernel
+          updates and reports to know when its safe to upgrade your kernel.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/upgrading-fedora-30-to-31-avoiding-kernel/index.md">MD</a> | <a href=
+            "/upgrading-fedora-30-to-31-avoiding-kernel/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 5 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -4,7 +4,7 @@
 
                                New desktop setup
 
-   Jan 15, 2025
+   Dec 11, 2022
 
 Introduction
 
@@ -173,7 +173,7 @@ References
    1. file:///rss.xml
    2. file:///
    3. file:///i3-plasma-a-solid-match
-   4. file:///assets/images/2022/12/gnome<em>shell</em>look.png
+   4. file:///assets/images/2022/12/gnomeshelllook.png
    5. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
    6. file:///assets/images/2022/12/cinnamon.png
    7. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html

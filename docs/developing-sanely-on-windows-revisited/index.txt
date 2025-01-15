@@ -1,0 +1,80 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                     Developing sanely on Windows revisited
+
+   May 10, 2017
+
+   Back in November [3]I wrote a post about how to develop sanely on
+   Windows. It was a successful experiment that resulted in a usable
+   environment to develop.
+
+   Today, I am re-visiting this with some more notes as Iʼve now been
+   full-time developing on Windows for a month now. With this, Iʼve
+   changed some tactics and have come to a much more streamlined solution.
+
+Changes
+
+   Previously I installed Ubuntu Server onto VMWare. I would SSH into the
+   environment using a terminal and had a shared development folder so I
+   could use the browser and editor on Windows side, while all code
+   execution was contained on the VM side.
+
+   Now, Iʼve done away with the VM. With Docker working well on Windows,
+   thereʼs really not much need for a VM anymore since Docker is a more
+   full-featured stable solution anyways; but the big change... [4]WSL
+   (Bash on Ubuntu on Windows).
+
+   I previously explored this option last time but it was incomplete and
+   had issues, mainly the lack of inotify support for file system
+   notifications which most build systems rely on. [5]With the latest
+   creatorʼs update released this month, they not only solved the inotify
+   issues but many others.
+
+   Iʼve now switched to using a combination of using WSL and Docker - it
+   works wonderfully.
+
+Side Note
+
+   The great thing about WSL is it can easily integrate with VSCodeʼs
+   integrated terminal feature.
+
+   [6]VS Code with WSL
+
+   In conclusion... Iʼve had no issues yet with this setup. Docker + WSL +
+   Windows = A happy environment.
+
+   [7]MD | [8]TXT | [9]CC-4.0
+
+   This post is 7 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [10]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [11]Github [12]About Me [13]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///developing-sanely-on-windows
+   4. https://msdn.microsoft.com/en-us/commandline/wsl/about
+   5. https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/
+   6. file:///assets/images/0000/vs-code-wsl.png
+   7. file:///developing-sanely-on-windows-revisited/index.md
+   8. file:///developing-sanely-on-windows-revisited/index.txt
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. file:///about
+  11. https://github.com/gnikyt
+  12. file:///about
+  13. file:///assets/files/cv.pdf

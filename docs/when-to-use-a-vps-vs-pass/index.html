@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      When to use a VPS vs PaaS | gnikyt
+    </title>
+    <link href="https://gnikyt.com/when-to-use-a-vps-vs-pass" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## Introduction ### What is a VPS A VPS is a Virtual Private Server. A server running on more powerful hardware than the standard"
+    name="description">
+    <meta content="2017-03-08T11:12:00-0330" property="article:published_time">
+    <meta content="When to use a VPS vs PaaS" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## Introduction ### What is a VPS A VPS is a Virtual Private Server. A server running on more powerful hardware than the standard"
+    property="og:description">
+    <meta content="https://gnikyt.com/when-to-use-a-vps-vs-pass" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## Introduction ### What is a VPS A VPS is a Virtual Private Server. A server running on more powerful hardware than the standard"
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2017-03-08T11:12:00-0330",
+    "datePublished": "2017-03-08T11:12:00-0330",
+    "description": "
+    ## Introduction
+
+    ### What is a VPS
+
+    A VPS is a Virtual Private Server. A server running on more powerful hardware than the standard "sha...",
+    "headline": "When to use a VPS vs PaaS",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/when-to-use-a-vps-vs-pass"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/when-to-use-a-vps-vs-pass"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="when-to-use-a-vps-vs-pass">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            When to use a VPS vs PaaS
+          </h1>
+
+          <p>
+            <time datetime="2017-03-08">Mar 08, 2017</time>
+          </p>
+        </header>
+
+        <h2 id="introduction">
+          Introduction
+        </h2>
+
+        <h3 id="what-is-a-vps">
+          What is a VPS
+        </h3>
+
+        <p>
+          A VPS is a Virtual Private Server. A server running on more powerful hardware than the standard "shared
+          hosting" plans (usually). Every "account" has its own physical space on the server in virtual compartments
+          with super-level access. Software is set up independently in each space. It's like your own piece of pie on
+          the server.
+        </p>
+
+        <p>
+          Most VPS providers offer both managed (host manages for you) or unmanaged (clean slate for you to break!)
+          plans. There are many pricing levels and many providers. The top providers mentioned the past few years are:
+        </p>
+
+        <ul>
+          <li>
+            <a href="http://digitalocean.com">DigitalOcean</a> <em>(one I personally choose to use)</em>
+          </li>
+
+          <li>
+            <a href="http://linode.com">Linode</a>
+          </li>
+
+          <li>
+            <a href="http://vultr.com">Vultr</a>
+          </li>
+
+          <li>
+            <a href="http://scaleway">Scaleway</a>
+          </li>
+        </ul>
+
+        <p>
+          Each of these providers is great. They offer features such as instant upgrades, point-n-click setup of
+          instances, pre-bundled setups, DNS configurations, IP management, backups, and more. Their prices are
+          relatively the same as well.
+        </p>
+
+        <p>
+          For example, with DigitalOcean, on a $5 per month plan, you can get 512MB of RAM, 1 CPU, 20GB SSD space, and
+          be up-and-running in minutes. This is a very cost-effective method for those who want to have freedom with
+          their server to host their applications and websites.
+        </p>
+
+        <p>
+          The vast amount of tutorials and community support out there for these services make any modifications easy
+          for even new-comers.
+        </p>
+
+        <h3 id="what-is-a-paas">
+          What is a PaaS
+        </h3>
+
+        <p>
+          PaaS or Platform as a Service is a cloud-computing service that provides a platform allowing customers to
+          develop, run and manage their applications/websites without the complexity of building and maintaining the
+          infrastructure associated with developing and launching.
+        </p>
+
+        <p>
+          With <a href="http://heroku.com">Heroku</a> for example, you can set up an account in minutes, generate a
+          <a href="https://devcenter.heroku.com/articles/procfile">Procfile</a> for your app, and deploy your code
+          through Git. Heroku will pull your code, read your Procfile, and build a system that suits your code,
+          launching it mere minutes with no interaction on your part. It comes with several add-ons that are
+          point-and-click setups like Redis, Postgres, Loader.io, and more.
+        </p>
+
+        <p>
+          These services allow you to focus on code, not the server. You don't need to worry about the command line,
+          resource scaling, migrations, errors... its all taken care of you. This, of course, comes at a cost to you
+          though compared to a VPS.
+        </p>
+
+        <p>
+          Heroku is billed by the usage time of the server (how long it's running). They have free hobby plans to get
+          you going, but once you need more resources, the price will jump. A small app on Heroku could start out as
+          $10 a month. A medium-sized medium-load app could quickly jump to $260 a month from experience.
+        </p>
+
+        <h3 id="what-to-choose">
+          What to Choose
+        </h3>
+
+        <p>
+          Well, it's up to your needs. Go "cheap", manage the server yourself, then you'd pick a VPS. Focus on code and
+          not worry about the server, you'd pick a PaaS.
+        </p>
+
+        <p>
+          Personally, if its a minimal load and minimal traffic app, I'd spin up a DigitalOcean instance, spend the
+          time to configure it properly, deploy the app and let it be. Sometimes, this is all the client is willing to
+          afford anyways.
+        </p>
+
+        <p>
+          If its an app that is going to experience high traffic, high load, and needs to stay dependable… I'd choose a
+          PaaS every time. I don't need to worry about recourses and I can easily scale the databases, CPU, RAM, etc.
+          as needed with a click of a button. When it's crunch time... this can be a big help.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/when-to-use-a-vps-vs-pass/index.md">MD</a> | <a href=
+            "/when-to-use-a-vps-vs-pass/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 7 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

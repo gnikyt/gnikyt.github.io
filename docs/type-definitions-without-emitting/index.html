@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Type definitions without emitting | gnikyt
+    </title>
+    <link href="https://gnikyt.com/type-definitions-without-emitting" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## Introduction A Shopify-based project was assigned which was a backend app with frontend extensions. After completion of the backend,..."
+    name="description">
+    <meta content="2024-02-07T13:44:12-0330" property="article:published_time">
+    <meta content="Type definitions without emitting" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## Introduction A Shopify-based project was assigned which was a backend app with frontend extensions. After completion of the backend,..."
+    property="og:description">
+    <meta content="https://gnikyt.com/type-definitions-without-emitting" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## Introduction A Shopify-based project was assigned which was a backend app with frontend extensions. After completion of the backend,..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2024-02-07T13:44:12-0330",
+    "datePublished": "2024-02-07T13:44:12-0330",
+    "description": "
+    ## Introduction
+
+    A Shopify-based project was assigned which was a backend app with frontend extensions. After completion of the backend,...",
+    "headline": "Type definitions without emitting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/type-definitions-without-emitting"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/type-definitions-without-emitting"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="type-definitions-without-emitting">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Type definitions without emitting
+          </h1>
+
+          <p>
+            <time datetime="2024-02-07">Feb 07, 2024</time>
+          </p>
+        </header>
+
+        <h2 id="introduction">
+          Introduction
+        </h2>
+
+        <p>
+          A Shopify-based project was assigned which was a backend app with frontend extensions. After completion of
+          the backend, it was realized that the frontend extensions needed types from the backend.
+        </p>
+
+        <p>
+          Extensions with Shopify's setup does not allow importing relative packages. For example, if this was the
+          loose structure:
+        </p>
+
+        <ul>
+          <li>app/
+          </li>
+
+          <li>paginate/
+          </li>
+        </ul>
+
+        <p>
+          index.ts index.test.ts
+        </p>
+
+        <ul>
+          <li>value/
+          </li>
+        </ul>
+
+        <p>
+          amount.ts amount.test.ts id.ts id.test.ts
+        </p>
+
+        <ul>
+          <li>[etc]
+          </li>
+        </ul>
+
+        <ul>
+          <li>extensions/
+          </li>
+
+          <li>order-stats/
+          </li>
+
+          <li>src/
+          </li>
+        </ul>
+
+        <p>
+          BlockExtension.tsx
+        </p>
+
+        <ul>
+          <li>[etc]
+          </li>
+        </ul>
+
+        <ul>
+          <li>[etc]
+          </li>
+        </ul>
+
+        <p>
+          We would not be able to do something such as:
+        </p>
+
+        <pre><code>// extensions/order-stats/src/BlockExtension.tsx
+
+import { type PaginatedRecords } from "../../../app/paginate";
+import { type ShopifyOrderIdValue } from "../../../app/value/id";
+</code></pre>
+        <p>
+          This would produce an error and not compile. You could copy/paste the type definitions into the extension
+          manually, but this is not a great idea.. what if the types you're importing change? They would be out of sync
+          if you did not manually correct it.
+        </p>
+
+        <p>
+          A solution is to generate types based upon the app into a local package which the extensions can use.
+        </p>
+
+        <h2 id="types-package">
+          types package
+        </h2>
+
+        <p>
+          Create a directory at the root called <code>types</code>, then <code>cd</code> inside and run <code>npm
+          init</code>. Once done, you should have a <code>package.json</code> inside similar to this:
+        </p>
+
+        <pre><code>{
+  "name": "app-types",
+  "private": true,
+  "version": "1.0.0"
+}
+</code></pre>
+        <p>
+          In my case, I named the package <code>app-types</code>, but you're free to name as you please.
+        </p>
+
+        <h2 id="generation">
+          Generation
+        </h2>
+
+        <p>
+          Create a <code>bin/app-typegen</code> with the following contents:
+        </p>
+
+        <pre><code>#!/usr/bin/env bash
+
+# List the files you would like to generate types for
+srcs=("paginate/index" "value/id", "value/amount")
+for src in "${srcs[@]}"; do
+  # Generation to the types/ directory
+  tsc -d "app/$src.ts" --declarationDir types
+  # Remove Typescript-generated .js files
+  for file in $(git status -s); do
+    if [[ $file == *"app/"* ]] &amp;& [[ $file == *".js"* ]]; then
+      rm "$file"
+    fi
+  done
+done
+</code></pre>
+        <p>
+          What this script does is allow you to list out the files you would like to generate types for. It will then
+          utilize <code>tsc</code> to generate the types and dump the <code>d.ts</code> files into the
+          <code>types</code> directory we previously created. Next, it will check the status of <code>git</code> to
+          remove the generated Javascript files as there appears to be no way to not emit Javascript files during
+          generation.
+        </p>
+
+        <p>
+          Additionally, you can add a slot into your root <code>package.json</code> scripts:
+        </p>
+
+        <pre><code>"generate:app-types": "bin/app-typegen"
+</code></pre>
+        <p>
+          Then, you can simply run <code>npm run generate:app-types</code> manually or with your CI setup to
+          (re)generate the types.
+        </p>
+
+        <h2 id="importing">
+          Importing
+        </h2>
+
+        <p>
+          Modify the <code>package.json</code> for the package you would like to use the types. In my case,
+          <code>extensions/order-stats/package.json</code>.
+        </p>
+
+        <p>
+          Adding, <code>"app-types": "file:../../../types"</code> to <code>devDependencies</code>, then running
+          <code>npm install</code>.
+        </p>
+
+        <p>
+          Now, you'll be able to import the types without compilation errors or warnings as such:
+        </p>
+
+        <pre><code>// extensions/order-stats/src/BlockExtension.tsx
+
+import { type PaginatedRecords } from "app-types/paginate/index";
+import { type ShopifyOrderIdValue } from "app-types/value/id";
+</code></pre>
+        <footer>
+          <div class="sources">
+            <a href="/type-definitions-without-emitting/index.md">MD</a> | <a href=
+            "/type-definitions-without-emitting/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                          Introducing Laravel Shopify
+
+   Aug 09, 2017
+
+Background
+
+   As an active Ruby (and Rails) developer, I found myself regularly
+   making Shopify apps in Rails and Sinatra. Iʼve even released my own
+   Gems to solve common (small) issues Iʼve faced developing for these
+   platforms.
+
+   PHP itself... I havenʼt been active in years on that front. With PHP7
+   however, the language is shaping up. It doesnʼt have the great method
+   chaining or syntax beauty that Ruby does, but its a well tested,
+   proven, and mature language to work with thatʼs easily deployable to a
+   magnitude of places without much interaction.
+
+   Being out of the PHP game for a while, I decided to survey the
+   landscape. I used to work heavily with Symfony, however, it always left
+   a sour taste in my mouth. Symfony is great... its really well
+   structured, enterprise type of framework. It falls short for
+   medium-sized projects due to the verbosity of it (in my personal
+   experience).
+
+   After some digging, I stumbled upon Laravel. Laravel, like many
+   projects, uses bits of Symfonyʼs core and builds on top of it. I spent
+   a lot of time studying Laravel, its community, its activeness, its
+   code. It looked solid and had great tools and documentation to go along
+   with it. It has a lot baked into it, which is all easily configurable
+   and accessible - it felt like Rails for PHP honestly.
+
+   [3]shopifyapp is Shopifyʼs own gem for building Shopify apps on Rails;
+   quick and easy. It handles authentication, installation, webhooks,
+   scripttags, ESDK integration, and more. In Laravel, I could not find a
+   package that covered all those points. I decided Iʼd go headfirst into
+   Laravel and build a package for it.
+
+What The Package Does
+
+   Right from the Github page, the package handles all that shopify_app
+   does:
+     * Provide assistance in developing Shopify apps with Laravel
+     * Integration with Shopify API
+     * Authentication & installation for shops
+     * Auto install app webhooks and scripttags through background jobs
+     * Provide basic ESDK views
+     * Handles and processes incoming webhooks
+     * Handles and verifies incoming app proxy requests
+
+   The package is fully tested and works with PHP &ge; 7 and Laravel 5.4.
+
+Project
+
+   You can head over to the [4]projectʼs page for full information, or
+   also browse [5]the wiki for documentation, installation, and other
+   topics.
+
+   Happy coding with Shopify + Laravel!
+
+   [6]MD | [7]TXT | [8]CC-4.0
+
+   This post is 7 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [9]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [10]Github [11]About Me [12]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/Shopify/shopify<em>app
+   4. https://github.com/gnikyt/laravel-shopify
+   5. https://github.com/gnikyt/laravel-shopify/wiki
+   6. file:///introducing-Shopify-for-laravel/index.md
+   7. file:///introducing-Shopify-for-laravel/index.txt
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///about
+  10. https://github.com/gnikyt
+  11. file:///about
+  12. file:///assets/files/cv.pdf

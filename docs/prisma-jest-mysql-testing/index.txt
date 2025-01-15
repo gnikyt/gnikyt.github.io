@@ -4,7 +4,7 @@
 
                         Prisma, Jest, and MySQL testing
 
-   Jan 15, 2025
+   Mar 28, 2024
 
    This is an alternate extension to my previous post, [3]Shopify, Remix,
    Prisma, and Jest.

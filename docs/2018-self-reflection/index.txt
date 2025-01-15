@@ -1,0 +1,124 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                              2018 Self reflection
+
+   Feb 06, 2019
+
+   It is a couple of months into 2019 already! I sat down and thought
+   about all Iʼve done in 2018 in regards to my digital landscape. On
+   initial spark of this, I didnʼt think of much therefore, I didnʼt do
+   much; but, I was wrong!
+
+Software
+
+  Open Source
+
+   Last year I hunkered down and focused on my open source projects.
+
+   A few silly ones like [3]movie-barcode, [4]CloudApp-Bash, or [5]With
+   and some more important ones, which have gained some popularity, such
+   as [6]Laravel Shopify and [7]Basic Shopify API.
+
+   Focusing on my open source work has not only allowed me to refine my
+   existing public code (which some of it has aged), keep self-improving,
+   but also help others whoʼve faced similar issues.
+
+   In regards to Laravel Shopify in particular, I hinged on learning the
+   core of Laravel, and coming from a previous Symfony background, this
+   was not hard - just different. Laravel feels more like Rails for PHP -
+   a framework to get things done quickly. Laravel was missing a decent
+   Shopify boilerplate package at the time so I created the package from
+   the ground-up to follow similar practices to how Railsʼ version,
+   shopifyapp gem_ does.
+
+   It has since gained a lot of popularity with many helpful contributors
+   both in pull requests and general questions people post in the issue
+   section. This, in-conjunction with Basic Shopify API package, has
+   allowed many companies (based on their personal thank you emails to me)
+   to create Laravel-powered Shopify apps fairly quickly, letting them
+   focus on their apps code and not the setup.
+
+   Open-source ecosystems are always great to be involved with. Iʼm glad
+   Iʼve had the late nights this year to give back to it.
+
+Operating
+
+   Its been a hectic year bouncing between operating systems. As a long
+   time Linux user, I broke the streak in 2014 when I purchased my
+   Macbook. However, last year my Macbook finally hit the grave and I
+   purchased a Thinkpad T580 to replace it (with some great specs too!),
+   leading me to use Windows for a few months, but now Iʼm back on Linux!
+
+   Thankfully for software like Vagrant, Docker, WSL, VSCode, and more, my
+   productivity hasnʼt been impacted between these transitions since most
+   everything I write these days is either fairly portable or easily setup
+   on another system.
+
+   Iʼve opted for [8]PopOS on my T580 given its great support for dual
+   graphics cards and customizations. I even have a [9]recent post
+   outlining some steps I took to optimize the T580 for daily-driver
+   usage.
+
+Code
+
+   Besides moving away from Ruby/Rails due to less demand, and focusing
+   back to PHP/Laravel/Symfony and Python, Iʼve also taken a great focus
+   on modern Javascript/Node and Typescript.
+
+   Iʼve fallen in love with Typescript (compared to plain Javascript). Not
+   only is it backed by Microsoft, but its integration with VSCode has
+   been great. It allows you to write code you can trust by ensuring
+   values in, out and across, are correct and properly formed... something
+   greatly missing from plain Javascript.
+
+   From a pure web-perspective... a good Typescript setup with
+   Babel/Browserify and some polyfills, can allow you to write modern
+   Javascript that transpiles down to something thatʼs able to work even
+   on older browsers. Keeping a nice, clean, modern source code.
+
+   I currently have a large Typescript library assisting an enterprise
+   company processing over 15 million hits a month successfully.
+
+   Besides the backend, I have also hit the mobile space with Flutter/Dart
+   and ReactNative. I had a chance to work on some interesting projects
+   involving Bluetooth low energy (BLE) between custom devices and mobile
+   phones, as well as some cool unique NFC implementations.
+
+   [10]MD | [11]TXT | [12]CC-4.0
+
+   This post is 5 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [13]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [14]Github [15]About Me [16]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. https://github.com/gnikyt/movie-barcode
+   4. https://github.com/gnikyt/cloudapp-bash
+   5. https://github.com/gnikyt/with
+   6. https://github.com/gnikyt/laravel-shopify
+   7. https://github.com/gnikyt/Basic-Shopify-API
+   8. https://system76.com/pop
+   9. file:///thinkpad-t580-on-linux/
+  10. file:///2018-self-reflection/index.md
+  11. file:///2018-self-reflection/index.txt
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. file:///about
+  16. file:///assets/files/cv.pdf

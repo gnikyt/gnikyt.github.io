@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Async Shopify API for Python | gnikyt
+    </title>
+    <link href="https://gnikyt.com/async-shopify-api-for-python" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## Introduction I maintain a fairly used [PHP](https://github.com/gnikyt/Basic-Shopify-API) library for Shopify API which uses Guzzle f..."
+    name="description">
+    <meta content="2020-06-29T12:31:02-0230" property="article:published_time">
+    <meta content="Async Shopify API for Python" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## Introduction I maintain a fairly used [PHP](https://github.com/gnikyt/Basic-Shopify-API) library for Shopify API which uses Guzzle f..."
+    property="og:description">
+    <meta content="https://gnikyt.com/async-shopify-api-for-python" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## Introduction I maintain a fairly used [PHP](https://github.com/gnikyt/Basic-Shopify-API) library for Shopify API which uses Guzzle f..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2020-06-29T12:31:02-0230",
+    "datePublished": "2020-06-29T12:31:02-0230",
+    "description": "
+    ## Introduction
+
+    I maintain a fairly used [PHP](https://github.com/gnikyt/Basic-Shopify-API) library for Shopify API which uses Guzzle f...",
+    "headline": "Async Shopify API for Python",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/async-shopify-api-for-python"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/async-shopify-api-for-python"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="async-shopify-api-for-python">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Async Shopify API for Python
+          </h1>
+
+          <p>
+            <time datetime="2020-06-29">Jun 29, 2020</time>
+          </p>
+        </header>
+
+        <h2 id="introduction">
+          Introduction
+        </h2>
+
+        <p>
+          I maintain a fairly used <a href="https://github.com/gnikyt/Basic-Shopify-API">PHP</a> library for Shopify
+          API which uses Guzzle for sync/async requests. It was also recently featured as a recommended third-party
+          library on Shopify's dev docs.
+        </p>
+
+        <p>
+          For Python, which I also use with Shopify work, I didn't notice a library which provides async abilities.
+          Normally I use Shopify's Python library which provides a nice ActiveResource implementation. However, their
+          library has no plans to support async.
+        </p>
+
+        <p>
+          I decided to create a tested library that can do both, <a href=
+          "https://github.com/gnikyt/basic%3Cem%3Eshopify%3C/em%3Eapi">basic<em>shopify</em>api</a>. It is a loose port
+          of my PHP version which supports sync, async, HMAC validation, rate limiting, automatic retries, REST, and
+          GraphQL; all backed by the HTTPX package.
+        </p>
+
+        <p>
+          You simply need to set up some basic options and create a session for a shop to get started.
+        </p>
+
+        <h2 id="sync">
+          Sync
+        </h2>
+
+        <h3 id="rest">
+          REST
+        </h3>
+
+        <pre><code>from basic_shopify_api import Client
+
+# ...
+
+with Client(sess, opts) as client:
+    shop = client.rest("get", "/admin/api/shop.json", {"fields": "name,email"})
+    print(shop.response)
+    print(shop.body["name"])
+
+    # returns the following:
+    # RestResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or the exception error,
+    #   status=The HTTP status code,
+    #   link=A RestLink object of next/previous pagination info,
+    #   retries=Number of retires for the request
+    # )
+</code></pre>
+        <h3 id="graphql">
+          GraphQL
+        </h3>
+
+        <pre><code>from basic_shopify_api import Client
+
+# ...
+
+with Client(sess, opts) as client:
+    shop = client.graphql("{ shop { name } }")
+    print(shop.response)
+    print(shop.body["data"]["shop"]["name"])
+
+    # returns the following:
+    # ApiResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or the exception error,
+    #   status=The HTTP status code,
+    #   retries=Number of retires for the request,
+    # )
+</code></pre>
+        <h2 id="async">
+          Async
+        </h2>
+
+        <h3 id="rest">
+          REST
+        </h3>
+
+        <pre><code>from basic_shopify_api import AsyncClient
+
+# ...
+
+async with AsyncClient(sess, opts) as client:
+    shop = await client.rest("get", "/admin/api/shop.json", {"fields": "name,email"})
+    print(shop.response)
+    print(shop.body["name"])
+
+    # returns the following:
+    # RestResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or the exception error,
+    #   status=The HTTP status code,
+    #   link=A RestLink object of next/previous pagination info,
+    #   retries=Number of retires for the request
+    # )
+</code></pre>
+        <h3 id="graphql">
+          GraphQL
+        </h3>
+
+        <pre><code>from basic_shopify_api import AsyncClient
+
+# ...
+
+async with AsyncClient(sess, opts) as client:
+    shop = await client.graphql("{ shop { name } }")
+    print(shop.response)
+    print(shop.body["data"]["shop"]["name"])
+
+    # returns the following:
+    # ApiResult(
+    #   response=The HTTPX response object,
+    #   body=A dict of JSON response, or None if errors,
+    #   errors=A dict of error response (if possible), or None for no errors, or the exception error,
+    #   status=The HTTP status code,
+    #   retries=Number of retires for the request,
+    # )
+</code></pre>
+        <h2 id="conclusion">
+          Conclusion
+        </h2>
+
+        <p>
+          The above examples are brief, refer to the README of the project for full information. But I believe you will
+          find it very helpful - especially the automatic retries for failed requests and built-in rate/cost limiting.
+        </p>
+
+        <p>
+          Feel free to give it a try with your projects, with the continual rise of async within Python, I hope the
+          library will serve some use to you. I've recently paired it with <a href=
+          "https://fastapi.tiangolo.com/">FastAPI</a> and it performed well.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/async-shopify-api-for-python/index.md">MD</a> | <a href=
+            "/async-shopify-api-for-python/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 4 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

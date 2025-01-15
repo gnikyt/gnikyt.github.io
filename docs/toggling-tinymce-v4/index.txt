@@ -1,0 +1,60 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                              Toggling TinyMCE v4
+
+   Dec 06, 2016
+
+   Hereʼs an easy way to turn on and off the TinyMCE editor for version 4.
+document.getElementById(ʼtoggle-tinymceʼ).addEventListener(ʼclickʼ, function(e)
+{
+  e.preventDefault();
+
+  var editorID = this.dataset.editorId;
+  var editor   = tinymce.EditorManager.get(editorID);
+
+  if (editor) {
+    editor.remove();
+  } else {
+    editor = tinymce.EditorManager.createEditor(editorID, tinyMCE.settings);
+    editor.render();
+  }
+});
+
+   You simply then need to create a link or button as such:
+<a href="#" id="toggle-tinymce" editor-id="your-editor-id">Toggle</a>
+
+   Thatʼs it. It will remove the TinyMCE if enabled, and if not, it will
+   re-render by re-creating the editor with settings provided by
+   tinyMCE.settings.
+
+   [3]MD | [4]TXT | [5]CC-4.0
+
+   This post is 8 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///toggling-tinymce-v4/index.md
+   4. file:///toggling-tinymce-v4/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

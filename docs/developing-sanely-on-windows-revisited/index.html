@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Developing sanely on Windows revisited | gnikyt
+    </title>
+    <link href="https://gnikyt.com/developing-sanely-on-windows-revisited" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Back in November [I wrote a post](/developing-sanely-on-windows) about how to develop sanely on Windows. It was a successful experiment ..."
+    name="description">
+    <meta content="2017-05-10T10:31:22-0230" property="article:published_time">
+    <meta content="Developing sanely on Windows revisited" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Back in November [I wrote a post](/developing-sanely-on-windows) about how to develop sanely on Windows. It was a successful experiment ..."
+    property="og:description">
+    <meta content="https://gnikyt.com/developing-sanely-on-windows-revisited" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Back in November [I wrote a post](/developing-sanely-on-windows) about how to develop sanely on Windows. It was a successful experiment ..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2017-05-10T10:31:22-0230",
+    "datePublished": "2017-05-10T10:31:22-0230",
+    "description": "
+    Back in November [I wrote a post](/developing-sanely-on-windows) about how to develop sanely on Windows. It was a successful experiment ...",
+    "headline": "Developing sanely on Windows revisited",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/developing-sanely-on-windows-revisited"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/developing-sanely-on-windows-revisited"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="developing-sanely-on-windows-revisited">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Developing sanely on Windows revisited
+          </h1>
+
+          <p>
+            <time datetime="2017-05-10">May 10, 2017</time>
+          </p>
+        </header>
+
+        <p>
+          Back in November <a href="/developing-sanely-on-windows">I wrote a post</a> about how to develop sanely on
+          Windows. It was a successful experiment that resulted in a usable environment to develop.
+        </p>
+
+        <p>
+          Today, I am re-visiting this with some more notes as I've now been full-time developing on Windows for a
+          month now. With this, I've changed some tactics and have come to a much more streamlined solution.
+        </p>
+
+        <h2 id="changes">
+          Changes
+        </h2>
+
+        <p>
+          Previously I installed Ubuntu Server onto VMWare. I would SSH into the environment using a terminal and had a
+          shared development folder so I could use the browser and editor on Windows side, while all code execution was
+          contained on the VM side.
+        </p>
+
+        <p>
+          Now, I've done away with the VM. With Docker working well on Windows, there's really not much need for a VM
+          anymore since Docker is a more full-featured stable solution anyways; but the big change... <a href=
+          "https://msdn.microsoft.com/en-us/commandline/wsl/about">WSL (Bash on Ubuntu on Windows)</a>.
+        </p>
+
+        <p>
+          I previously explored this option last time but it was incomplete and had issues, mainly the lack of inotify
+          support for file system notifications which most build systems rely on. <a href=
+          "https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/">
+          With the latest creator's update</a> released this month, they not only solved the inotify issues but many
+          others.
+        </p>
+
+        <p>
+          I've now switched to using a combination of using WSL and Docker - it works wonderfully.
+        </p>
+
+        <h2 id="side-note">
+          Side Note
+        </h2>
+
+        <p>
+          The great thing about WSL is it can easily integrate with VSCode's integrated terminal feature.
+        </p>
+
+        <p>
+          <a href="/assets/images/0000/vs-code-wsl.png"><img alt="VS Code with WSL" src=
+          "/assets/images/0000/vs-code-wsl.png"></a>
+        </p>
+
+        <p>
+          In conclusion... I've had no issues yet with this setup. Docker + WSL + Windows = A happy environment.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/developing-sanely-on-windows-revisited/index.md">MD</a> | <a href=
+            "/developing-sanely-on-windows-revisited/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 7 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Setting Up Lumen with Mailer | gnikyt
+    </title>
+    <link href="https://gnikyt.com/setting-up-lumen-with-mail" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## What is Lumen [Lumen](https://lumen.laravel.com/) is a micro-framework built by Laravel. Its geared towards small services like APIs..."
+    name="description">
+    <meta content="2017-11-19T11:04:33-0330" property="article:published_time">
+    <meta content="Setting Up Lumen with Mailer" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## What is Lumen [Lumen](https://lumen.laravel.com/) is a micro-framework built by Laravel. Its geared towards small services like APIs..."
+    property="og:description">
+    <meta content="https://gnikyt.com/setting-up-lumen-with-mail" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## What is Lumen [Lumen](https://lumen.laravel.com/) is a micro-framework built by Laravel. Its geared towards small services like APIs..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2017-11-19T11:04:33-0330",
+    "datePublished": "2017-11-19T11:04:33-0330",
+    "description": "
+    ## What is Lumen
+
+    [Lumen](https://lumen.laravel.com/) is a micro-framework built by Laravel. Its geared towards small services like APIs...",
+    "headline": "Setting Up Lumen with Mailer",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/setting-up-lumen-with-mail"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/setting-up-lumen-with-mail"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="setting-up-lumen-with-mail">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Setting Up Lumen with Mailer
+          </h1>
+
+          <p>
+            <time datetime="2017-11-19">Nov 19, 2017</time>
+          </p>
+        </header>
+
+        <h2 id="what-is-lumen">
+          What is Lumen
+        </h2>
+
+        <p>
+          <a href="https://lumen.laravel.com/">Lumen</a> is a micro-framework built by Laravel. Its geared towards
+          small services like APIs, job handling, or very small projects. Laravel is all-inclusive, whereas Lumen is
+          more bare-bones but moderately featured; however, it doesn't feel as lean as something like Slim.
+        </p>
+
+        <h2 id="setting-up-mailing">
+          Setting Up Mailing
+        </h2>
+
+        <p>
+          Recently I ported a small app from Sinatra to Lumen for trial with a client. Its a job processing app for
+          Shopify, where it would take data from a webhook, process it with a worker, and send back some data later. It
+          needed to be fast, as, like other webhook-focused apps, it has to keep up with the high demand.
+        </p>
+
+        <p>
+          One issue I ran into was mailing, it's not enabled by default in Lumen, and there are many posts throughout
+          Google of people attempting to set it up. There are also many outdated ways which only worked for the old
+          version of Lumen.
+        </p>
+
+        <p>
+          Through trial and error, I managed to find a working setup I thought I would share.
+        </p>
+
+        <h3 id="setup">
+          Setup
+        </h3>
+
+        <p>
+          First, run <code>composer require illuminate/mail:5.5</code> to grab the mailing component.
+        </p>
+
+        <p>
+          Next, open <code>bootstrap/app.php</code>, find
+          <code>$app-&gt;register(AppProvidersAppServiceProvider::class);</code> and uncomment it, if not already.
+        </p>
+
+        <p>
+          After this is done, open the app provider in <code>app/Providers/</code>.
+        </p>
+
+        <p>
+          At the bottom of the <code>register</code> method, paste in the following:
+        </p>
+
+        <pre><code>&lt;?php
+// ...
+
+// Init mailer
+$this-&gt;app-&gt;singleton(
+    'mailer',
+    function ($app) {
+        return $app-&gt;loadComponent('mail', 'Illuminate\Mail\MailServiceProvider', 'mailer');
+    }
+);
+
+// Aliases
+$this-&gt;app-&gt;alias('mailer', \Illuminate\Contracts\Mail\Mailer::class);
+</code></pre>
+        <p>
+          To make mailing queue-able and able to be processed in the background, simply add:
+        </p>
+
+        <pre><code>&lt;?php
+// ...
+
+// Enable queues
+$this-&gt;app-&gt;make('queue');  
+</code></pre>
+        <p>
+          And see my Lumen Redis tutorial to setup Redis for processing.
+        </p>
+
+        <p>
+          Next, setup the basic config <code>config/mail.php</code>:
+        </p>
+
+        <pre><code>&lt;?php
+
+return [
+    'driver' &amp;ge; env('MAIL_DRIVER'),
+    'host' &amp;ge; env('MAIL_HOST'),
+    'port' &amp;ge; env('MAIL_PORT'),
+    'from' &amp;ge; [
+        'address' &amp;ge; env('MAIL_FROM_ADDRESS'),
+        'name' &amp;ge; env('MAIL_FROM_NAME'),
+    ],
+    'encryption' &amp;ge; env('MAIL_ENCRYPTION'),
+    'username' &amp;ge; env('MAIL_USERNAME'),
+    'password' &amp;ge; env('MAIL_PASSWORD'),
+    'markdown' &amp;ge; [
+        'theme' &amp;ge; 'default',
+        'paths' &amp;ge; [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
+];
+
+</code></pre>
+        <p>
+          That's it, you're done the setup! Don't forget to set up your environment variables for production.
+        </p>
+
+        <h3 id="creating-a-mailer">
+          Creating a Mailer
+        </h3>
+
+        <p>
+          Now that we're setup, you can create a mailer in <code>app/Mail/</code>, here's an example to go by
+          (<code>app/Mail/Winnings</code>):
+        </p>
+
+        <pre><code>&lt;?php namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class Winnings extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /** @var string the address to send the email */
+    protected $to_address;
+
+    /** @var float the winnings they won */
+    protected $winnings;
+
+    /**
+     * Create a new message instance.
+     *
+     * @param string $to_address the address to send the email
+     * @param float $winnings   the winnings they won
+     * 
+     * @return void
+     */
+    public function __construct($to_address, $winnings)
+    {
+        $this-&gt;to_address = $to_address;
+        $this-&gt;winnings = $winnings;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this
+            -&gt;to($this-&gt;to_address)
+            -&gt;subject('Your winnings!')
+            -&gt;view('emails.winnings')
+            -&gt;with(
+                [
+                    'winnings' &amp;ge; $this-&gt;winnings
+                ]
+            );
+    }
+}
+
+</code></pre>
+        <p>
+          Now, create a view, <code>resources/views/emails/winnings.blade.php</code> for simply HTML-only,:
+        </p>
+
+        <pre><code>{% raw %}&lt;strong&gt;You won {{ $winnings }}&lt;/strong&gt;!{% endraw %}
+</code></pre>
+        <h2 id="sending-mail">
+          Sending Mail
+        </h2>
+
+        <p>
+          Now that we have it setup, and a mailable created, we can send. In your job, controller, or where ever you
+          need it:
+        </p>
+
+        <pre><code>&lt;?php
+use App\Mail\Winnings as WinningsMail;
+
+// ...
+// $to_email = 'john@doe.com'; $winnings = 130.00;
+
+Mail::send(
+    new WinningsMail(
+        $to_email,
+        $winnings
+    )
+);
+</code></pre>
+        <p>
+          If you're queuing mail, replace <code>send</code> with <code>queue</code>. You can also see <a href=
+          "https://laravel.com/docs/5.5/mail#sending-mail">Laravel's mail documentation</a> for more information on
+          sending.
+        </p>
+
+        <h2 id="testing">
+          Testing
+        </h2>
+
+        <p>
+          Of course, we need to test (<code>tests/WinningsMailTest.php</code>):
+        </p>
+
+        <pre><code>&lt;?php
+
+use App\Mail\Winnings;
+use Illuminate\Support\Facades\Mail;
+
+class WinningsMailTest extends TestCase
+{
+    public function testItWorks()
+    {
+        Mail::fake();
+
+        Mail::send(
+            (new Winnings('john@doe.com', 15.00))-&gt;build()
+        );
+
+        Mail::assertSent(Winnings::class, function ($mail) {
+            return $mail-&gt;hasTo('john@doe.com') &amp;&
+                   $mail-&gt;subject === 'Your winnings!' &amp;&
+                   $mail-&gt;viewData['winnings'] === 15.00;
+        });
+    }
+}
+</code></pre>
+        <p>
+          Running the tests should pass if everything is set up correctly. For more information on testing mailables,
+          see <a href="https://laravel.com/docs/5.5/mocking#mail-fake">Laravel's documentation on faking</a>.
+        </p>
+
+        <p>
+          I hope this was a quick and useful setup for anyone having issues. Good luck!
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/setting-up-lumen-with-mail/index.md">MD</a> | <a href=
+            "/setting-up-lumen-with-mail/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 7 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
