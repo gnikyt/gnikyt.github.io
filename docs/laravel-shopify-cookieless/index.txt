@@ -2,7 +2,7 @@
 
    [2]gnikyt Code ramblings.
 
-                                 Laravel Shopif
+                          Laravel Shopify - Cookieless
 
    Jan 15, 2025
 

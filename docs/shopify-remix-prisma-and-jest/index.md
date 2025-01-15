@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Shopify Remix, Prisma, and Jest'
+title: Shopify Remix, Prisma, and Jest
 permalink: shopify-remix-prisma-and-jest
 date: '2024-01-10 13:17:03'
 ---

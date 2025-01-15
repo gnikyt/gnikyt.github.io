@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Prisma, Jest, and MySQL testing'
+title: Prisma, Jest, and MySQL testing
 permalink: prisma-jest-mysql-testing
 date: '2024-03-28 13:19:23'
 ---

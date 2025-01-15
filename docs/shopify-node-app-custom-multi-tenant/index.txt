@@ -2,7 +2,7 @@
 
    [2]gnikyt Code ramblings.
 
-                                Shopify Node Ap
+                 Shopify Node App - Custom multi-tenant support
 
    Jan 15, 2025
 

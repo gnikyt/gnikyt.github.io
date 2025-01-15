@@ -3,16 +3,16 @@
    [2]gnikyt Code ramblings.
 
      * [3]WSL network speed Jan 15, 2025
-     * [4]Shopify Node Ap Jan 15, 2025
+     * [4]Shopify Node App - Custom multi-tenant support Jan 15, 2025
      * [5]Prisma, Jest, and MySQL testing Jan 15, 2025
-     * [6]Blin Jan 15, 2025
+     * [6]Blink - Tuned camera notifications Jan 15, 2025
      * [7]Shopify Liquid Tester Jan 15, 2025
      * [8]Git release branches Jan 15, 2025
      * [9]New desktop setup Jan 15, 2025
      * [10]Laravel Shopify ITP Jan 15, 2025
      * [11]Generate type definitions without emitting Javascript Jan 15,
        2025
-     * [12]Laravel Shopif Jan 15, 2025
+     * [12]Laravel Shopify - Cookieless Jan 15, 2025
      * [13]Joint Venture with LFL Jan 15, 2025
      * [14]Shopify Checkout Extension to backend fetching Jan 15, 2025
      * [15]Laravel Shopify featured on Shopify Dev Blog Jan 15, 2025

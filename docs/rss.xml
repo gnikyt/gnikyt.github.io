@@ -14,7 +14,7 @@
       <pubDate>2025-01-15T00:00:00-0330</pubDate>
     </item>
     <item>
-      <title>Shopify Node Ap</title>
+      <title>Shopify Node App - Custom multi-tenant support</title>
       <link>https://gnikyt.com/shopify-node-app-custom-multi-tenant</link>
       <description>## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of
       small details out of the way, allo...</description>
@@ -30,7 +30,7 @@
       <pubDate>2025-01-15T00:00:00-0330</pubDate>
     </item>
     <item>
-      <title>Blin</title>
+      <title>Blink - Tuned camera notifications</title>
       <link>https://gnikyt.com/blink-tuned-camera-notifications</link>
       <description>***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple
       devices.* ## The Problem If you have...</description>
@@ -78,7 +78,7 @@
       <pubDate>2025-01-15T00:00:00-0330</pubDate>
     </item>
     <item>
-      <title>Laravel Shopif</title>
+      <title>Laravel Shopify - Cookieless</title>
       <link>https://gnikyt.com/laravel-shopify-cookieless</link>
       <description>## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize
       the new session token implementati...</description>

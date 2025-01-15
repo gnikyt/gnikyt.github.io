@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Blink: Tuned camera notifications'
+title: Blink - Tuned camera notifications
 permalink: blink-tuned-camera-notifications
 date: '2022-11-28 15:47:22'
 ---

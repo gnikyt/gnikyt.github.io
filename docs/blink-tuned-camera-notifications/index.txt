@@ -2,7 +2,7 @@
 
    [2]gnikyt Code ramblings.
 
-                                      Blin
+                       Blink - Tuned camera notifications
 
    Jan 15, 2025
 
