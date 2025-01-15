@@ -16,7 +16,7 @@ Generated is handled by a bunch of crude Bash scripts to do things such as:
 Each page and post gets its own directory, for example, if a post was under `posts/2025-01-01-hello-world.md`, then the result would be pushed out as:
 
 ```
-www/hello-world/
+docs/hello-world/
   index.html
   index.txt
   index.md
@@ -65,5 +65,5 @@ Completed
 
 ## Misc
 
-* `www` directory is pointing to Github to use for the hosting of the content on the domain name.
+* `docs` directory is pointing to Github to use for the hosting of the content on the domain name.
 * This was previously powered by Jekyll but it was quiet large for my needs and I wanted something more simple to run.

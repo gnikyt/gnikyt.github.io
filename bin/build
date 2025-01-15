@@ -55,7 +55,7 @@ process_posts() {
 
     # Parse the post template and save result.
     parsed_tpl=$(parse_tpl "${layouts["post"]}")
-    target=www/"${globals["handle"]}"
+    target=docs/"${globals["handle"]}"
     mkdir "$target"
     echo "$parsed_tpl" > "$target"/index.html
 
@@ -100,13 +100,13 @@ process_pages() {
     if [[ "$source" = "404.md" ]]; then
       # Parse the page template and save the result.
       parsed_tpl=$(parse_tpl "${layouts["page"]}")
-      echo "$parsed_tpl" > www/404.html
+      echo "$parsed_tpl" > docs/404.html
     elif [[ "$source" = "robots.md" ]]; then
-      cp pages/"$source" www/robots.txt
+      cp pages/"$source" docs/robots.txt
     else
       # Parse the page template and save the result.
       parsed_tpl=$(parse_tpl "${layouts["page"]}")
-      target=www/"${globals["handle"]}"
+      target=docs/"${globals["handle"]}"
       mkdir "$target"
       echo "$parsed_tpl" > "$target"/index.html
 
@@ -130,14 +130,14 @@ process_rss() {
   globals["is_post"]=""
   globals["is_page"]=""
   parsed_tpl=$(parse_tpl "${layouts["rss"]}")
-  echo "$parsed_tpl" > www/rss.xml
+  echo "$parsed_tpl" > docs/rss.xml
   echo -e "Completed\n"
 }
 
 # tidy_markup will tidy the HTML and XML.
 tidy_markup() {
   local result
-  local opts
+  local dopts
   dopts="--indent yes \
       --indent-spaces 2 \
       --vertical-space yes \
@@ -149,14 +149,14 @@ tidy_markup() {
       --quiet yes"
 
   echo "Tidying markup..."
-  for i in $(find www -name "*.html" -type f); do
+  for i in $(find docs -name "*.html" -type f); do
     # shellcheck disable=SC2086
     result=$(tidy $dopts < "$i")
     echo "$result" > "$i"
   done
   # shellcheck disable=SC2086
-  result=$(tidy --input-xml yes --output-xml yes $dopts < www/rss.xml)
-  echo "$result" > www/rss.xml
+  result=$(tidy --input-xml yes --output-xml yes $dopts < docs/rss.xml)
+  echo "$result" > docs/rss.xml
   echo -e "Completed\n"
 }
 
@@ -172,19 +172,19 @@ process_index() {
   # Parse the index layout and save the result.
   parsed_tpl=$(parse_tpl "${layouts["index"]}")
   parsed_tpl=${parsed_tpl/gnikyt | gnikyt/gnikyt}
-  echo "$parsed_tpl" > www/index.html
+  echo "$parsed_tpl" > docs/index.html
 
   # Create text version.
-  text=$(lynx --stdin --dump < www/index.html)
-  echo "$text" > www/index.txt
+  text=$(lynx --stdin --dump < docs/index.html)
+  echo "$text" > docs/index.txt
 
   echo -e "Completed\n"
 }
 
 # main will process all posts and pages.
 main() {
-  # Clear www.
-  rm -r www/* 2> /dev/null
+  # Clear docs.
+  rm -r docs/* 2> /dev/null
 
   # Find all posts.
   posts=$(find posts -name "*.md" -type f)
@@ -204,8 +204,8 @@ main() {
   process_pages
   tidy_markup
 
-  # Copy assets to www.
-  cp -R assets www/assets
+  # Copy assets to docs.
+  cp -R assets docs/assets
 }
 
 main
