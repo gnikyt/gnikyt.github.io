@@ -1,0 +1,111 @@
+   [1]gnikyt Code ramblings.
+
+                              Laravel Shopify ITP
+
+   Jan 15, 2025
+
+Background
+
+   [2]Laravel Shopify is a package I started a few years ago which gained
+   quite a bit of community traction. It is a full-featured package that
+   helps you get up-and-running with developing Shopify apps with Laravel.
+
+   Around 2017, Safari, and later other browsers, began blocking browser
+   storage access for third-parties. This includes cookies, session
+   storage, local storage, and more. This was called "Intelligent Tracking
+   Prevention" (ITP).
+
+   Given Shopify apps load within an iframe inside Shopifyʼs admin panel,
+   this means the app inside the iframe is a third-party, thus will be
+   blocked from attempting to access storage.
+
+   Once ITP gained traction in the largest market share browser, Chrome,
+   Laravel Shopify was immediately flooded with issues of users having
+   trouble with their applications... no login session, authentication
+   errors, etc.
+
+Solving
+
+   The problem was hard to debug and hard to resolve. It took many
+   commits, lots of community input, and various testing methods to get a
+   release out which assisted in the issue.
+
+   The solution was to create a flow that tried to handle everything
+   smoothly for the app user.
+    1. A middleware to check if a cookie called itp exists
+    2. If not, redirect full-page to a route to set this itp cookie...
+       this creates a first-party cookie since it was not created in an
+       iframe
+    3. Re-check the existence of the itp cookie. In some cases, since the
+       original cookie was created first-party, this re-check passes and
+       the app will load
+    4. If the re-check fails... display a prompt to try and ask for
+       storage access, and set a cookie through Javascript
+    5. If the prompt method fails... as a final fallback, we ask the app
+       user to manually enable storage access
+
+   In some cases, 1->3 is enough to load the app, but in the majority of
+   cases in testing, 1->4 is whatʼs actually happening to initially get
+   the app displaying properly.
+
+   The above flow is similar to what Shopifyʼs own Ruby and Koa packages
+   are following, which is what I tried to strive for in the latest
+   release.
+
+   [![](/assets/images/2021/01/ls-ask.png)](/assets/images/2021/01/ls-ask.
+   png)
+
+   Step #4 - Asking for storage access
+
+   [![](/assets/images/2021/01/ls-manual.png)](/assets/images/2021/01/ls-a
+   sk.png)
+
+   Step #5 - Asking user to manually enable storage
+
+Alternatives
+
+   Alternatively, you can skip the standard flow and utilize JWT which was
+   introduced by a contributor a few released back. Currently, there is no
+   wiki page for setting this up, but one is coming!
+
+Conclusion
+
+   ITP is still fairly new and still evolving with differences between
+   browsers. The v16.0.0 release of the package will work well for mostly
+   everyone, but more work may still need to be done in the future to
+   correct some quirks.
+
+   For additional information, see the [3]ITP wiki page on the repository.
+   Also, thank you to the community for the assistance and patience during
+   this large issue.
+
+   [4]MD | [5]TXT | [6]CC-4.0
+
+   This post is 3 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [7]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [8]Github [9]About Me [10]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///
+   2. https://github.com/gnikyt/laravel-shopify
+   3. https://github.com/gnikyt/laravel-shopify/wiki/ITP
+   4. file:///laravel-shopify-itp/index.md
+   5. file:///laravel-shopify-itp/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

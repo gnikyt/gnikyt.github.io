@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Laravel Shopif | gnikyt
+    </title>
+    <link href="https://gnikyt.com/laravel-shopify-cookieless" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session token implementati..."
+    name="description">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Laravel Shopif" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session token implementati..."
+    property="og:description">
+    <meta content="https://gnikyt.com/laravel-shopify-cookieless" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session token implementati..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    ## This Issue
+
+    In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session token implementati...",
+    "headline": "Laravel Shopif",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/laravel-shopify-cookieless"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/laravel-shopify-cookieless"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="laravel-shopify-cookieless">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Laravel Shopif
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <h2 id="this-issue">
+          This Issue
+        </h2>
+
+        <p>
+          In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session token
+          implementations. Laravel Shopify package at the time, had just gone through a long process of implementing
+          support for ITP to get around cookie issues. Now, with the announcement, that work needed to be scrapped.
+        </p>
+
+        <p>
+          On March 17th, <a href="https://github.com/gnikyt/laravel-shopify/issues/744">I opened an issue</a> to
+          outline the plan for tackling this new support for session tokens, and remove cookies/ITP. To be honest, I
+          expected to tackle the work on my own. However, to my surprise, the community as well as Shopify themselves,
+          helped lend a hand in getting this issue closed.
+        </p>
+
+        <p>
+          It was a large undertaking... to remove complete dependency on cookies, switch authentication and checks to
+          use session tokens instead. Additionally, many internal improvements on top.
+        </p>
+
+        <h2 id="shopify">
+          Shopify
+        </h2>
+
+        <p>
+          Shopify reached out to me a few weeks ago to discuss what they can do to help on the issue, as many
+          developers utilize the package and were stuck for approvals due to the lack of session token support.
+        </p>
+
+        <p>
+          Shopify did not yet dabble in being involved with open source projects surrounding their platform, so this
+          was a first for them; and I am proud the package was able to be a part of it!
+        </p>
+
+        <p>
+          After a couple quick meetings with their developer advocate team, we settled on <a href=
+          "https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966">offering Shopify swag</a> to
+          gain momentum for anyone in support of closing the issue.
+        </p>
+
+        <p>
+          This was a great move for Shopify - getting involved with the community open source projects that touch their
+          platform. In addition to the swag, <a href="https://github.com/lucasmichot">Lucas Michot</a> of Shopify
+          generated a number of pull requests to tighten up the CI, cleaniness, code coverage, and testability of the
+          package.
+        </p>
+
+        <h2 id="community">
+          Community
+        </h2>
+
+        <p>
+          For the community, we had a ton of support in every area! In total (hopefully not missing anyone), there were
+          23 community members helping to diagnose and solve this issue through comments or pull requests, I'd like to
+          thank you all!
+        </p>
+
+        <ul>
+          <li>@Enmaboya
+          </li>
+
+          <li>@alexweissman
+          </li>
+
+          <li>@arvesolland
+          </li>
+
+          <li>@LHongy
+          </li>
+
+          <li>@diemah77
+          </li>
+
+          <li>@darrynten
+          </li>
+
+          <li>@mkmaker
+          </li>
+
+          <li>@derickRenwick
+          </li>
+
+          <li>@ingalesachin7
+          </li>
+
+          <li>@mohinht
+          </li>
+
+          <li>@davodavodavo3
+          </li>
+
+          <li>@squatto
+          </li>
+
+          <li>@raibhuwan
+          </li>
+
+          <li>@thang12l
+          </li>
+
+          <li>@vicky92727
+          </li>
+
+          <li>@restyler
+          </li>
+
+          <li>@muhammadasfar
+          </li>
+
+          <li>@LonnyX
+          </li>
+
+          <li>@stevesweets
+          </li>
+
+          <li>@raff-shopify
+          </li>
+
+          <li>@andthink
+          </li>
+
+          <li>@jayShopTO
+          </li>
+
+          <li>@mattias
+          </li>
+        </ul>
+
+        <h2 id="what-apos-s-next">
+          What's next?
+        </h2>
+
+        <p>
+          You can <a href="https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0">view the release</a> for
+          <code>v17.0.0</code>. For the package, we will be watching for upcoming issues and attempting to place back
+          per-user authentication support that was in previous versions.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/laravel-shopify-cookieless/index.md">MD</a> | <a href=
+            "/laravel-shopify-cookieless/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 3 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

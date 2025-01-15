@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# parse_md will extract two parts and assign them to the `globals``.
+# 1) Extracts the frontmatter and converts each key and value
+#    into the `globals` table. This works only for simple
+#    key/values, not full YAML.
+# 2) Extracts the post/page's body content.
+parse_md() {
+  # Reset body content.
+  globals["body"]=""
+  globals["excerpt"]=""
+
+  # is_frontmatter keeps track of if were inside the frontmatter text.
+  local is_frontmatter=0
+  local key=""
+  local val=""
+
+  readarray -t lines <<<"$1"
+  for ln in "${!lines[@]}";
+  do
+    if [ "${lines[$ln]}" = "---" ] && [ "$ln" -eq 0 ]; then
+      # Beginning of frontmatter.
+      is_frontmatter=1
+    elif [ "${lines[$ln]}" = "---" ] && [ "$ln" -gt 0 ]; then
+      # End of frontmatter.
+      is_frontmatter=0
+    elif [ $is_frontmatter -eq 1 ]; then
+      # Inside frontmatter, split key/value pair and assign to table.
+      key=$(echo "${lines[$ln]}" | awk '{split($0,kv,": "); print kv[1]}')
+      val=$(echo "${lines[$ln]}" | awk '{split($0,kv,": "); print kv[2]}')
+
+      if [ "${val:0:1}" = "'" ] || [ "${val:0:1}" = '"' ]; then
+        # Remove quotes surrounding value.
+        val=${val:1:-1}
+      fi
+
+      if [ "$key" = "permalink" ]; then
+        # Change "permalink" to "handle".
+        key="handle"
+      fi
+
+      # Assign to variable for later use.
+      eval "globals[\"$key\"]=\"$val\""
+    else
+      # Assign post body text for later use.
+      globals["body"]="${globals["body"]}${lines[$ln]}"$'\n'
+      globals["excerpt"]="${globals["body"]:0:137}..."
+    fi
+  done
+}

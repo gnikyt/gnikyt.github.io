@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Prisma, Jest, and MySQL testing | gnikyt
+    </title>
+    <link href="https://gnikyt.com/prisma-jest-mysql-testing" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).* Follow that..."
+    name="description">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Prisma, Jest, and MySQL testing" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).* Follow that..."
+    property="og:description">
+    <meta content="https://gnikyt.com/prisma-jest-mysql-testing" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).* Follow that..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    *This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).*
+
+    Follow that...",
+    "headline": "Prisma, Jest, and MySQL testing",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/prisma-jest-mysql-testing"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/prisma-jest-mysql-testing"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="prisma-jest-mysql-testing">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Prisma, Jest, and MySQL testing
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <p>
+          <em>This is an alternate extension to my previous post, <a href="../shopify-remix-prisma-and-jest">Shopify,
+          Remix, Prisma, and Jest</a>.</em>
+        </p>
+
+        <p>
+          Follow that post to get to its current state, and we'll modify the existing files to support MySQL.
+        </p>
+
+        <h2 id="changes">
+          Changes
+        </h2>
+
+        <p>
+          Change <code>app/<strong>mocks</strong>/db.server.ts</code> to:
+        </p>
+
+        <pre><code>/* app/__mocks__/db.server.ts */
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { afterEach, beforeEach } from "@jest/globals";
+import { PrismaClient } from "@prisma/client";
+import { execSync } from "child_process";
+import { existsSync } from "fs";
+import * as path from "path";
+
+/**
+ * Run an NPM command.
+ *
+ * @param script - Script to run.
+ */
+function npm(script: string): Buffer {
+  return execSync(["npm", "run", script].join(" "), {
+    env: {
+      ...process.env,
+      NODE_ENV: "test",
+      DATABASE_URL: process.env.DATABASE_URL,
+    },
+  });
+}
+
+/**
+ * Seeds the database with initial data.
+ */
+function seedDatabase() {
+  return Promise.allSettled([
+    // Seed shop session
+    prisma.session.create({
+      data: {
+        id: "example.myshopify.com_id",
+        shop: "example.myshopify.com",
+        accessToken: "token",
+        state: "",
+        isOnline: false,
+      },
+    }),
+    // Add more seed data
+  ]);
+}
+
+// Path to generated types
+const typesPath = path.resolve("node_modules", ".prisma", "client", "index.d.ts");
+if (!existsSync(typesPath)) {
+  npm("test⭐generate");
+}
+
+// Prisma setup... generate a unique database for MySQL, override existing Prisma implementation via Jest mock
+const dbName = `test-${new Date().getTime()}`;
+process.env.DATABASE_URL = `/`;
+const prisma = new PrismaClient({
+  datasources: { db: { url: process.env.DATABASE_URL } },
+});
+
+beforeEach(async () &amp;ge; {
+  npm("test⭐deploy");
+  await seedDatabase();
+});
+
+afterEach(async () &amp;ge; {
+  // Drop the database and disconnect
+  await prisma.$executeRawUnsafe(`DROP DATABASE \`\`;`);
+  await prisma.$disconnect();
+});
+
+export default prisma;
+</code></pre>
+        <p>
+          This will create a unique database in MySQL for each test, then destroy it.
+        </p>
+
+        <h2 id="example">
+          Example
+        </h2>
+
+        <p>
+          You reference the existing <code>db.server.ts</code> file normally in your tests, as Jest will swap it out
+          with our <code><strong>mocks</strong>/db.server.ts</code> version.
+        </p>
+
+        <pre><code>/* app/order/processor.test.ts */
+
+import { describe, expect, it } from "@jest/globals";
+import db from "../db.server";
+import { prismaHooks } from "../mocks.prisma";
+import { ShopifyClient, ShopifyFixture } from "../mocks.clients";
+// etc...
+
+/* just an example... */
+
+describe("order processor", () &amp;ge; {
+  it("should insert order", async () &amp;ge; {
+    const orderId = OrderId("gid://shopify/Order/1");
+    const customerId = CustomerId("gid://shopify/Customer/1");
+    const product1 = ProductId("gid://shopify/Product/1");
+    const prodcut2 = ProductId("gid://shopify/Product/2");
+
+    // Job data
+    const jobData = {
+      order: {
+        id: orderId.toInt(),
+        admin_graphql_id: orderId.toGql(),
+        tags: [],
+        total_price: "115.00",
+        customer: {
+          id: customerId.toInt(),
+        },
+        line_items: [
+          {
+            product_id: p1.toInt(),
+            price: "100.00",
+            quantity: 1,
+          },
+          {
+            product_id: p2.toInt(),
+            price: "15.00",
+            quantity: 1,
+          },
+        ],
+      },
+      shop: "example.myshopify.com",
+    };
+
+    // Shopify GraphQL mock client
+    const client = ShopifyClient(
+      ShopifyFixture("product-no-tag", "product/no-override-tag"),
+      ShopifyFixture("product-with-tag", "product/with-override-tag"),
+      ShopifyFixture("add-tag", "tags-add-customer"),
+    );
+
+    // Run the processor
+    const [retOrderId, retOustomerId, retSum]: JobReturn = await processor({
+      db,
+      client,
+      job: { data: jobData },
+    });
+    expect(retOrderId.isSame(orderId)).toBe(true);
+    expect(retCustomerId.isSame(customerId)).toBe(true);
+    expect(retSum.isSame(Cents(3000)));
+  });
+});
+</code></pre>
+        <h2 id="usage">
+          Usage
+        </h2>
+
+        <p>
+          You would need to pass in a database URL for connection parameters for MySQL, except for the database name,
+          as we generate that normally:
+        </p>
+
+        <p>
+          <code>DATABASE_URL=mysql://root:password@localhost:3306 npm run test --runInBand</code>
+        </p>
+
+        <h3 id="docker-docker-compose">
+          Docker / Docker-Compose
+        </h3>
+
+        <p>
+          If you would like to utilize containers for the testing, this is doable as well.
+        </p>
+
+        <p>
+          Create a <code>Dockerfile-test</code> and <code>docker-compose.test.yml</code> in your app root.
+        </p>
+
+        <pre><code># Dockerfile-test
+
+# Stage 1: Node modules installation
+FROM node:18-alpine as testcache
+
+WORKDIR /cache
+
+# Copy in package JSONs, and Prisma must be copied in before running install
+COPY package-lock.json .
+COPY package.json .
+COPY prisma ./prisma
+
+RUN npm install
+
+# Stage 2: Test
+FROM node:18-alpine as test
+
+WORKDIR /app
+
+EXPOSE 3000
+
+# Set initial ENVs, can be overwritten in docker-compose.test.yml
+ENV NODE_ENV=test
+ENV DATABASE_URL=mysql://root:password@db:3306
+
+# Copy in only files we need to complete the tests
+COPY app ./app
+COPY fixtures ./fixtures
+COPY jest.config.js ./jest.config.js
+COPY tsconfig.json ./tsconfig.json
+COPY --from=testcache /cache .
+
+CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]
+</code></pre>
+        <p>
+          This Dockerfile uses Alpine Linux with two stage build... one to install dependencies and cache them, and a
+          second step which uses the cached dependencies and runs the tests.
+        </p>
+
+        <pre><code>version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - dbdata:/var/lib/mysql
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=test
+      - DATABASE_URL=mysql://root:password@db:3306
+    volumes:
+      - ./jest.config.js:/app/jest.config.js
+      - ./app:/app/app
+      - ./prisma:/app/prisma
+
+volumes:
+  dbdata:
+</code></pre>
+        <p>
+          This Docker Compile file will setup MySQL v8 with a basic password and expose the port, as well as persist
+          our database volume.
+        </p>
+
+        <p>
+          It will also setup the app to test, mounting all needed files we need to run the tests.
+        </p>
+
+        <p>
+          Then, <code>docker-compose -f docker-compose.test.yml up --exit-code-from test</code> to run it.
+        </p>
+
+        <p>
+          The first time you run it, it may take time as the cache needs to be built, but after that its super fast in
+          booting and starting the tests.
+        </p>
+
+        <p>
+          The <code>--exit-code-from test</code> is needed so that Docker Compose will shut down once Jest exits.
+          Without this, the container stays open and running.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/prisma-jest-mysql-testing/index.md">MD</a> | <a href=
+            "/prisma-jest-mysql-testing/index.txt">TXT</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

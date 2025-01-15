@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Blin | gnikyt
+    </title>
+    <link href="https://gnikyt.com/blink-tuned-camera-notifications" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.* ## The Problem If you have..."
+    name="description">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Blin" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.* ## The Problem If you have..."
+    property="og:description">
+    <meta content="https://gnikyt.com/blink-tuned-camera-notifications" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.* ## The Problem If you have..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    ***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.*
+
+    ## The Problem
+
+    If you have...",
+    "headline": "Blin",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/blink-tuned-camera-notifications"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/blink-tuned-camera-notifications"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="blink-tuned-camera-notifications">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Blin
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <p>
+          ***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple devices.*
+        </p>
+
+        <h2 id="the-problem">
+          The Problem
+        </h2>
+
+        <p>
+          If you have a Blink setup at work or home, you've probably run into a common issue of getting notifications
+          for cameras which you do not care to have notifications for. For example, you may have six cameras recording
+          motion, but you may only care about receiving notifications for two of them; but with Blink's app, there is
+          no way to control this.
+        </p>
+
+        <p>
+          It's all or nothing with Blink. This is because (at time of writing), Blink uses a single channel to push
+          notifications to called <code>Motion detection</code>. Because of this, you are unable to silence
+          notifications for specific cameras, you only have the option of silencing the whole notification channel,
+          which would leave you without <strong>any</strong> motion notifications to your device.
+        </p>
+
+        <h2 id="solutions">
+          Solutions
+        </h2>
+
+        <h3 id="snoozing">
+          Snoozing
+        </h3>
+
+        <p>
+          Since an update earlier this year, Amazon has added a snooze feature displayed as an icon next to each
+          camera's name.
+        </p>
+
+        <p>
+          Clicking the icon will give you options to snooze notifications for 1, 2, 3, or 4 hours.
+        </p>
+
+        <p>
+          This seemed like a viable solution on the surface, but in practice, it fails. Even with selecting 4 hours, it
+          appears to be bugged... I would get notifications just 20 minutes later, but the snooze icon would still be
+          active. Additionally, repeating this action for every camera, every 4 hours, was a little annoying.
+        </p>
+
+        <p>
+          Given it was buggy and was not automated, I abandoned this as a solution. Plus, why couldn't Amazon add a
+          <em>"Until I turn off"</em> option to the list of times? That would be an ideal built-in solution.
+        </p>
+
+        <h3 id="macrodroid">
+          Macrodroid
+        </h3>
+
+        <p>
+          I previously installed an app called <a href=
+          "https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid&amp;hl=en_CA&amp;gl=US&amp;pli=1">Macrodroid</a>,
+          for automating some "Do Not Disturb" rules.
+        </p>
+
+        <p>
+          Macrodroid is similar to the popular Tasker app for Android. These are apps which allow you to automate your
+          phone based on triggers or actions performed.
+        </p>
+
+        <p>
+          In digging more into the offered triggers for Macrodroid, I discovered it had a feature to read notifications
+          instantly and perform an action on them.
+        </p>
+
+        <p>
+          With some trial and error, I was able to build a macro in the app which would watch for a notification
+          containing the camera names, and then running an action to clear those notifications.
+        </p>
+
+        <p>
+          <strong>It worked!</strong> The instant a notification comes in for one of the cameras I wish to ignore
+          notifications for, it clears it out so I never have to see or hear it.
+        </p>
+
+        <h4 id="setup">
+          Setup
+        </h4>
+
+        <ol>
+          <li>Install Macrodroid
+          </li>
+
+          <li>Go through the setup and enable the correct permissions for app overlays, notification access, etc.
+          </li>
+
+          <li>Click <strong>Add Macro</strong>
+          </li>
+
+          <li>In the <strong>Triggers</strong> panel, click the <strong>+</strong> icon
+          </li>
+
+          <li>From the list, select <strong>Notifications</strong>
+          </li>
+
+          <li>Select <strong>Notification Received</strong> for the event option
+          </li>
+
+          <li>Select <strong>Select Applications(s)</strong> then choose <strong>Blink</strong> from the list
+          </li>
+
+          <li>Set for text contains to be:
+          </li>
+        </ol>
+
+        <ul>
+          <li>
+            <code>Motion detected at your [CAMERA_NAME]</code>
+          </li>
+
+          <li>Replace <code>[CAMERA NAME]</code> with the camera's name
+          </li>
+
+          <li>Example: <code>Motion detected at your Porch</code>
+          </li>
+        </ul>
+
+        <ol>
+          <li>Save, then in the <strong>Actions</strong> panel, click the <strong>+</strong> icon
+          </li>
+
+          <li>Select <strong>Notification</strong> from the list
+          </li>
+
+          <li>Select <strong>Clear Notifications</strong> from the secondary list
+          </li>
+
+          <li>Select <strong>Select Application(s)</strong> then choose <strong>Blink</strong> from the list
+          </li>
+
+          <li>Set for text contains to be:
+          </li>
+        </ol>
+
+        <ul>
+          <li>
+            <code>Motion detected at your [CAMERA_NAME]</code>
+          </li>
+
+          <li>Replace <code>[CAMERA NAME]</code> with the camera's name
+          </li>
+
+          <li>Example: <code>Motion detected at your Porch</code>
+          </li>
+        </ul>
+
+        <ol>
+          <li>Check off <strong>Ignore ongoing notifications</strong>
+          </li>
+
+          <li>Save, then save the macro with a desired name
+          </li>
+        </ol>
+
+        <h4 id="result">
+          Result
+        </h4>
+
+        <p>
+          Once configured, your macro should be similar to this:
+        </p>
+
+        <p>
+          <img alt="Macro" src="/assets/images/2022/11/blink.png">
+        </p>
+
+        <p>
+          You can additionally use regular expressions on the text contains input to apply it to multiple camera names,
+          or you can duplicate the macro and change the text contains for each camera... both options work fine in my
+          testing.
+        </p>
+
+        <h2 id="conclusion">
+          Conclusion
+        </h2>
+
+        <p>
+          Until Amazon adds the ability to snooze notifications indefinitely or adds notification channels per camera,
+          then the best option is to take advantage of Macrodroid. With the macro, you will no longer receive
+          notifications for those specific cameras, but still allow them to stay enabled and record motion.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/blink-tuned-camera-notifications/index.md">MD</a> | <a href=
+            "/blink-tuned-camera-notifications/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 2 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

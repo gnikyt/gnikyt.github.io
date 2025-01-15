@@ -1,0 +1,366 @@
+/* todo: migrate all to CSS vars and clean up to BEM */
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/assets/fonts/RobotoMono-Regular.woff2") format("woff2"), url("/assets/fonts/RobotoMono-Regular.woff") format("woff"), url("/assets/fonts/RobotoMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/assets/fonts/RobotoMono-Bold.woff2") format("woff2"), url("/assets/fonts/RobotoMono-Bold.woff") format("woff"), url("/assets/fonts/RobotoMono-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/assets/fonts/RobotoMono-Light.woff2") format("woff2"), url("/assets/fonts/RobotoMono-Light.woff") format("woff"), url("/assets/fonts/RobotoMono-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Roboto Mono", Helvetica, Arial, sans-serif;
+}
+
+body > header {
+  text-align: center;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  font-size: 2.5rem;
+}
+
+body > header a {
+  text-decoration: none;
+}
+
+body > header > span {
+  display: block;
+  font-weight: bold;
+}
+
+body > header > span:first-child {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+body > header > span:last-child {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+body > footer {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  line-height: 26px;
+}
+
+body > footer hr {
+  margin-bottom: 2em;
+  border-width: 0.1rem;
+}
+
+body > footer img {
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  body > footer img {
+    float: left;
+    margin-left: 4rem;
+  }
+
+}
+
+@media (min-width: 768px) {
+  body > footer div {
+    padding-left: 10em;
+  }
+
+}
+
+body > footer .button {
+  border-radius: 5px;
+}
+
+body > footer .colors {
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+}
+
+body > footer .colors .color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+}
+
+ul {
+  padding-left: 1.5em;
+}
+
+code.highlighter-rouge {
+  font-size: 0.8em;
+  border: 1px solid;
+  padding: 0 0.4em;
+}
+
+body[data-handle="index"] ul li {
+  margin-bottom: 4rem;
+}
+
+body[data-handle="index"] ul li a {
+  line-height: 26px;
+}
+
+body[data-handle="index"] ul li span {
+  font-size: 0.85em;
+}
+
+.layout--post article header {
+  padding-bottom: 3rem;
+}
+
+.layout--post article pre {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left-width: 5px;
+  border-radius: 5px;
+}
+
+.layout--post article pre::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.layout--post article pre::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 10px;
+}
+
+.layout--post article code.highlighter-rouge {
+  border-radius: 5px;
+}
+
+.layout--post article p,
+.layout--post article ul,
+.layout--post article ol {
+  line-height: 26px;
+}
+
+.layout--post article p img {
+  display: block;
+  margin: 0 auto;
+}
+
+.layout--post article p a + em {
+  text-align: center;
+  font-size: 0.75em;
+  display: inherit;
+  margin-top: 0.5rem;
+}
+
+.sources {
+  font-size: 0.75em;
+  margin-top: 5rem;
+  text-align: right;
+}
+
+.sources a {
+  color: #b43f51;
+  font-weight: 500; 
+}
+
+.layout--post article h2,
+.layout--post article h3,
+.layout--post article h4,
+.layout--post article h5,
+.layout--post article h6 {
+  font-weight: 400;
+}
+
+.layout--post article h2 .anchor,
+.layout--post article h3 .anchor,
+.layout--post article h4 .anchor,
+.layout--post article h5 .anchor,
+.layout--post article h6 .anchor {
+  font-size: 16px;
+  position: relative;
+  top: -12px;
+  left: -10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.layout--post article h2 .anchor:hover,
+.layout--post article h3 .anchor:hover,
+.layout--post article h4 .anchor:hover,
+.layout--post article h5 .anchor:hover,
+.layout--post article h6 .anchor:hover {
+  text-decoration: underline;
+}
+
+.layout--post article a {
+  font-weight: 500;
+}
+
+.layout--post article .warning.post-old {
+  padding: 0.5em;
+  font-size: 80%;
+  text-align: center;
+  font-style: italic;
+  margin: 1em 0 0 0;
+  border-radius: 5px;
+}
+
+body {
+  background: #121827;
+  color: #9b968c;
+}
+
+body a {
+  color: #d0a97f;
+}
+
+body > header a {
+  color: #b43f51;
+}
+
+body > footer h3 {
+  color: #d0a97f;
+}
+
+body > footer img {
+  border: 0.3rem solid #d0a97f;
+}
+
+body > footer hr {
+  border-color: #1a253a;
+}
+
+body > footer .button {
+  background: #d0a97f;
+  color: #121827;
+  border-color: #d0a97f;
+}
+
+body > footer .button.filled {
+  background: #d0a97f;
+  color: #121827;
+}
+
+body > footer .colors .color--a {
+  background-color: #121827;
+}
+
+body > footer .colors .color--b {
+  background-color: #1a253a;
+}
+
+body > footer .colors .color--c {
+  background-color: #9b968c;
+}
+
+body > footer .colors .color--d {
+  background-color: #d0a97f;
+}
+
+body > footer .colors .color--e {
+  background-color: #f09162;
+}
+
+body > footer .colors .color--f {
+  background-color: #b43f51;
+}
+
+body main h1,
+body main h2,
+body main h3,
+body main h4,
+body main h5,
+body main h6 {
+  color: #d0a97f;
+}
+
+body[data-handle="index"] time {
+  color: #9b968c;
+}
+
+body[data-handle="index"] article ul li a {
+  color: #f09162;
+}
+
+.layout--post article header time {
+  color: #d0a97f;
+}
+
+.layout--post article header h1 {
+  color: #9b968c;
+}
+
+.layout--post article h2,
+.layout--post article h3,
+.layout--post article h4,
+.layout--post article h5,
+.layout--post article h6 {
+  color: #f09162;
+}
+
+.layout--post article div.highlight {
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.layout--post article code.highlighter-rouge {
+  border-color: #9b968c;
+  background: #1a253a;
+}
+
+.layout--post article code .err {
+  visibility: hidden;
+}
+
+.layout--post article pre {
+  border-color: #9b968c;
+  border-left-color: #9b968c;
+  background: #1a253a;
+}
+
+.layout--post article pre::-webkit-scrollbar {
+  background: #9b968c;
+}
+
+.layout--post article pre::-webkit-scrollbar-thumb:horizontal {
+  background: #000;
+}
+
+.layout--post article p a + em {
+  color: #9b968c;
+}
+
+.layout--post article a {
+  color: #b43f51;
+}
+
+.layout--post article blockquote {
+  border-left-color: #9b968c;
+}
+
+.layout--post .warning.post-old {
+  background-color: #d0a97f;
+  color: #000;
+}
+
+body[data-handle="404"] main {
+  text-align: center;
+}

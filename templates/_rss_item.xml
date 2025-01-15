@@ -1,0 +1,7 @@
+<item>
+  <title>${title}</title>
+  <link>https://gnikyt.com/${handle}</link>
+  <description>${excerpt}</description>
+  <guid isPermaLink="true">https://gnikyt.com/${handle}</guid>
+  <pubDate>${date_iso8601}</pubDate>
+</item>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Shopify Liquid Tester | gnikyt
+    </title>
+    <link href="https://gnikyt.com/shopify-liquid-tester" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta a="" as="" content="## Introduction Shopify's theme system currently lacks the ability to define custom"
+    developers="" many="" name="description" shopify="">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Shopify Liquid Tester" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta a="" as="" content="## Introduction Shopify's theme system currently lacks the ability to define custom"
+    developers="" many="" property="og:description" shopify="">
+    <meta content="https://gnikyt.com/shopify-liquid-tester" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta a="" as="" content="## Introduction Shopify's theme system currently lacks the ability to define custom"
+    developers="" many="" property="twitter:title" shopify="">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    ## Introduction
+
+    Shopify's theme system currently lacks the ability to define custom "functions". As a result, many Shopify developers u...",
+    "headline": "Shopify Liquid Tester",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/shopify-liquid-tester"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/shopify-liquid-tester"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="shopify-liquid-tester">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Shopify Liquid Tester
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <h2 id="introduction">
+          Introduction
+        </h2>
+
+        <p>
+          Shopify's theme system currently lacks the ability to define custom "functions". As a result, many Shopify
+          developers use Liquid snippets to accept inputs and echo an output result, to create a pseudo-function within
+          Shopify.
+        </p>
+
+        <p>
+          A very basic example:
+        </p>
+
+        <pre><code>{%- raw -%}
+# snippets/fn-remove-prefix.liquid
+{%- comment -%}
+  Removes tag prefix.
+
+  Parameters:
+    tag, string, required: Tag string to remove prefix on.
+
+  Syntax:
+    {%- render 'fn-remove-prefix', tag: [string] -%}
+
+  Example:
+    {%- render 'fn-remove-prefix', tag: 'Type:Cannabis' -%}
+
+  Output:
+    Cannabis
+{%- endcomment -%}
+{%- liquid
+  echo tag | split: ':' | last
+-%}
+{% endraw %}
+</code></pre>
+        <p>
+          For such a small "function", no one would second guess, however, working with merchant data is sometimes a
+          challenge... What if there is multiple <code>:</code> in the tag string? What if we need the resulting value
+          converted to something else, consistently?
+        </p>
+
+        <p>
+          We can not unit test Liquid files in the context of a Shopify store very easily, which is why I developed a
+          handly tool called <a href="https://github.com/gnikyt/liquid-fn-tester">liquid-fn-tester</a> to assist with
+          this for our clients.
+        </p>
+
+        <h2 id="how-it-works">
+          How it works
+        </h2>
+
+        <p>
+          The tool works by injecting a custom page into your Shopify store and also injecting your snippet to test
+          into the Shopify theme.
+        </p>
+
+        <p>
+          Then, for each test assertion, it then will inject a custom page template with your Liquid and reference your
+          snippet.
+        </p>
+
+        <p>
+          From here, the page content is fetched with no layout to get the result, for which the result is then used to
+          test for expected output.
+        </p>
+
+        <h4 id="questions">
+          Questions
+        </h4>
+
+        <p>
+          <strong><em>Why a new page for each test assertion?</em></strong>
+        </p>
+
+        <p>
+          Shopify caches page content since last year. By creating a new page for every test assertion, we can get
+          around the issue of having stale/wrong output. Upon completion of the test suite, all created page templates
+          on the theme are removed as part of cleanup.
+        </p>
+
+        <p>
+          <strong><em>How flexible is this?</em></strong>
+        </p>
+
+        <p>
+          You extend the base test class which does all the heavy lifting. You have freedom to define setup, teardown,
+          and tap into various events documented in the repository's README to further customize your tests.
+        </p>
+
+        <p>
+          <strong><em>Why NodeJS?</em></strong>
+        </p>
+
+        <p>
+          Previously, I had attempted a similar setup with Ruby, since Shopify's Liquid library is a Ruby package
+          (Gem).
+        </p>
+
+        <p>
+          While the implementation worked great, it had flaws of not being able to utilize Shopify data or Shopify's
+          custom Liquid filters such as <code>asset<em>url</em></code><em>, <code>img</code></em><code>tag</code>,
+          <code>money</code>, etc. which could lead to some snippets not producing a true result to what it would on
+          Shopify's servers.
+        </p>
+
+        <p>
+          Given the process to get a result of the snippet rendering, the tool really could've been developed in any
+          language such as Go, or Python, etc. however, given majority of Shopify developers most likely know their way
+          around Javascript, then it made sense to go down that path.
+        </p>
+
+        <h2 id="utilization">
+          Utilization
+        </h2>
+
+        <p>
+          Similarly stated in the README of the repository, if you place your Liquid function snippet into the
+          <code>tests</code> directory, with a defined test suite to match, you will be able to unit test the result of
+          the snippet. Because its executed on the Shopify store, the snippet you wish to test will have access to
+          everything for Shopify's Liquid and the store itself; such as <code>request</code>,
+          <code>all<em>products</em></code><em>, <code>| asset</code></em><code>url</code>, etc.
+        </p>
+
+        <p>
+          Your test suite will have full control over setup, snippet initilization, teardown, output, and more.
+        </p>
+
+        <p>
+          The repository's <a href="https://github.com/gnikyt/liquid-fn-tester/tree/master/tests">provided examples</a>
+          is a great guide for how everything comes together and how you can test a single snippet against multiple
+          values.
+        </p>
+
+        <p>
+          <img alt="Liquid Fn Example" src="/assets/images/2022/11/liquid-fn.png">
+        </p>
+
+        <p>
+          ____
+        </p>
+
+        <p>
+          Hopefully this tool will continue to grow and is helpful to those who are looking to try and test their
+          snippets; both small and complex.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/shopify-liquid-tester/index.md">MD</a> | <a href="/shopify-liquid-tester/index.txt">TXT</a> |
+            <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 2 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

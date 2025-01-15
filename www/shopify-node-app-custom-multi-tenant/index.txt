@@ -1,0 +1,397 @@
+   [1]gnikyt Code ramblings.
+
+                                Shopify Node Ap
+
+   Jan 15, 2025
+
+Introduction
+
+   Shopifyʼs new boilerplate for app development with Node works well. It
+   gets a lot of small details out of the way, allowing you to code an app
+   with built in Polaris support, verification, and more.
+
+   However, Shopify no longer allows you to develop an unpublished app and
+   have it installable by multiple shops, this was allowed years ago, but
+   they have phased this out. There are now two options for developing
+   apps.
+     * Custom - Allows you to develop an app for a single shop which does
+       not have to be published or reviewed by Shopify
+     * Public - Allows you to develop an app for use for the general
+       public, reviewed by Shopify
+
+   The problem is, there are instances where you will may need to develop
+   a Custom type app for a client who owns multiple shops, clients who
+   wish to keep the app private but utilize the same app for all their
+   shops.
+
+   By default, the Custom app route along with the Node boilerplate, will
+   not support this. Below is a quick solution I have used to get around
+   this limitation.
+
+Backend Changes
+
+  ENV
+
+   In your env file, you will create an API key and secret entry per shop,
+   that has no special characters.
+
+   If the shops are hello-world.myshopify.com and
+   welcome-123.myshopify.com, you would add:
+SHOPIFY_API_KEY_HELLOWORLD=xyz123
+SHOPIFY_API_SECRET_HELLOWORLD=123xyz
+SHOPIFY_API_KEY_WELCOME123=abc123
+SHOPIFY_API_SECRET_WELCOME123=123abc
+
+  NextJS
+
+   Open next.config.js.
+
+   By default, it looks like this:
+const { parsed: localEnv } = require("dotenv").config();
+const webpack = require("webpack");
+const apiKey = JSON.stringify(process.env.SHOPIFY_API_KEY);
+
+module.exports = {
+  webpack: (config) &ge; {
+    const env = { API_KEY: apiKey };
+    config.plugins.push(new webpack.DefinePlugin(env));
+
+    // Add ESM support for .mjs files in webpack 4
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    });
+
+    return config;
+  },
+};
+
+
+   We need to remove API_KEY and add a new HOST value.
+# ./next.config.js
+const { parsed: localEnv } = require("dotenv").config();
+const webpack = require("webpack");
+const host = JSON.stringify(process.env.HOST);
+
+module.exports = {
+  webpack: (config) &ge; {
+    const env = { HOST: host };
+    config.plugins.push(new webpack.DefinePlugin(env));
+
+    // Add ESM support for .mjs files in webpack 4
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    });
+
+    return config;
+  },
+};
+
+  Utils
+
+   Create a file to hold some utility functions which we will use to
+   support multi-tentant.
+# ./src/services/utils.js
+import crypto from "crypto";
+import querystring from "querystring"; // Can use URLSearchParams instead
+
+/**
+ * Clean the domain. Used for ENV access.
+ * @param {string} domain The Shopify myshopify.com domain.
+ * @param {boolean} upcase Upcase the result or not.
+ * @returns string
+ */
+const cleanDomain = (domain, upcase = true) &ge; {
+  const result = domain.replace(".myshopify.com", "").replace(/_|-/g, "");
+  return upcase ? result.toUpperCase() : result;
+};
+
+/**
+ * Fix and order query strings.
+ * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validato
+r.ts
+ * @param {object} query The query params.
+ * @returns string
+ */
+export function stringifyQuery(query) {
+  const orderedObj = Object.keys(query)
+    .sort((val1, val2) &ge; val1.localeCompare(val2))
+    .reduce((obj, key) &ge; {
+      obj[key] = query[key];
+      return obj;
+    }, {});
+  return querystring.stringify(orderedObj);
+}
+
+/**
+ * Create a local HMAC string based upon query params.
+ * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validato
+r.ts
+ * @param {object} query The query params.
+ * @param {strin} secret The API secret.
+ * @returns string
+ */
+export function generateLocalHmac(query, secret) {
+  const queryString = stringifyQuery(query);
+  return crypto.createHmac("sha256", secret).update(queryString).digest("hex");
+}
+
+  Middleware Additions
+
+    ShopContext
+
+   This middleware file for Koa will create the Shopify context.
+# ./src/server/middleware/shopContext.js
+import Shopify, { ApiVersion } from "@shopify/shopify-api";
+import { cleanDomain } from "../../services/utils";
+
+/**
+ * Set the Shopify context based upon the shop.
+ * @param {*} ctx The Koa context.
+ * @param {*} next The next code to hit.
+ * @returns any
+ */
+const shopContext = async (ctx, next) &ge; {
+  // Find the Shopify domain
+  const { shop } = ctx.query;
+  const shopDomain = ctx.request.headers["x-shopify-shop-domain"];
+
+  // Use shop domain to get env values
+  const domain = cleanDomain(shop || shopDomain);
+  Shopify.Context.initialize({
+    API_KEY: process.env[`SHOPIFY_API_KEY_`],
+    API_SECRET_KEY: process.env[`SHOPIFY_API_SECRET_`],
+    SCOPES: process.env.SCOPES.split(","),
+    HOST_NAME: process.env.HOST.replace(/https:\/\//, ""),
+    API_VERSION: ApiVersion.October20,
+    IS_EMBEDDED_APP: true,
+    SESSION_STORAGE: new Shopify.Session.MemorySessionStorage(),
+  });
+
+  return await next();
+};
+
+export default shopContext;
+
+   Now open your server/server.js file and include the middleware for use
+   on every backend route. Example:
+# ./server/server.js
+// ...
+import shopEnv from "../src/server/middleware/shopEnv";
+// ...
+
+// Example
+router.post(
+    "/customer/register",
+    shopContext, # <---- middleware
+    shopState,
+    errWrap(customerRegister)
+);
+
+// Example
+router.get(
+    "(.*)",
+    shopContext, # <---- middleware
+    defaultRequest(handle)
+);
+
+   As well, remove the default Shopify.Context declaration in the
+   server.js file.
+
+   Now, all API requests in your handlers will use the shopʼs API key and
+   secret.
+
+    VerifyHmac
+
+   This middleware file for Koa will verify HMAC strings.
+# ./src/server/middleare/verifyHmac.js
+import Shopify from "@shopify/shopify-api";
+import { generateLocalHmac, cleanDomain } from "../../services/utils";
+
+/**
+ * Verify HMAC.
+ * @param {*} ctx The Koa context.
+ * @param {*} next The next code to hit.
+ * @returns any
+ */
+const verifyHmac = async (ctx, next) &ge; {
+  // Remove HMAC
+  const { query } = ctx;
+  const { hmac, shop } = query;
+  delete ctx.query.hmac;
+
+  // Generate a local HMAC
+  const domain = cleanDomain(shop);
+  const localHmac = generateLocalHmac(
+    query,
+    process.env[`SHOPIFY_API_SECRET_`]
+  );
+
+  // Validate the HMAC
+  const valid = Shopify.Utils.safeCompare(hmac, localHmac);
+  if (!valid) {
+    // HMAC did not validate
+    // const err = createError("ValidationError");
+    // throw new err("Invalid HMAC");
+    ctx.status = 400;
+    return;
+  }
+
+  return await next();
+};
+
+export default verifyHmac;
+
+  Handler Addition
+
+   We need to pass the proper API key to AppBridge.
+# ./src/server/handlers/backend/appbridge.js
+import { cleanDomain } from "../../../services/utils";
+
+/**
+ * AppBridge setup.
+ * @param {*} ctx Koa context.
+ * @returns void
+ */
+const appbridge = async (ctx) &ge; {
+  // Get the API key for the shop
+  const domain = cleanDomain(ctx.query.shop);
+  const key = process.env[`SHOPIFY_API_KEY_`];
+
+  ctx.status = 200;
+  ctx.body = { key };
+};
+
+export default appbridge;
+
+
+   Now open server/server.js to add a route for this as well as the
+   VerifyHmac middleware.
+# ./server/server.js
+// ...
+import appbridge from "../src/server/handlers/backend/appbridge";
+import verifyHmac from "../src/server/middleware/verifyHmac";
+// ...
+
+// Route: AppBridge API key
+router.get("/_appbridge", verifyHmac, appbridge);
+
+  AppBridge Integration
+
+   Now that we have our backend handler to verify the HMAC and return back
+   an API key for the shop, we need to tap into the existing AppBridge
+   setup to complete the integration.
+
+   Open _app.js, and look for the MyApp.getInitialProps, it will look
+   something like this:
+MyApp.getInitialProps = async ({ ctx }) &ge; {
+  return {
+    host: ctx.query.host,
+  };
+};
+
+   We will now modify it to this:
+MyApp.getInitialProps = async ({ ctx }) &ge; {
+  let key = "";
+  try {
+    // Get the API key for the shop
+    const query = new URLSearchParams(ctx.query).toString();
+    const response = await fetch(`/_appbridge?`);
+    const body = await response.json();
+    key = body.key;
+  } catch (e) {
+    // This usually will only fire when running `npm run build`
+    console.error("Unable to obtain AppBridge key.");
+  }
+
+  return {
+    apiKey: key,
+    host: ctx.query.host,
+  };
+};
+
+   Next, modify your MyApp class, which will look something like this:
+class MyApp extends App {
+  render() {
+    const { Component, pageProps, host } = this.props;
+
+    return (
+      <AppProvider i18n={translations}>
+        <Provider
+          config={ {
+            apiKey: API_KEY,
+            host: host,
+            forceRedirect: true,
+          } }
+        >
+          <MyProvider Component={Component} {...pageProps} />
+        </Provider>
+      </AppProvider>
+    );
+  }
+}
+
+   We will now modify it to this, to use the new prop:
+class MyApp extends App {
+  render() {
+    const { Component, pageProps, host, apiKey } = this.props;
+
+    return (
+      <AppProvider i18n={translations}>
+        <Provider
+          config={ {
+            apiKey: apiKey,
+            host: host,
+            forceRedirect: true,
+          } }
+        >
+          <MyProvider Component={Component} {...pageProps} />
+        </Provider>
+      </AppProvider>
+    );
+  }
+}
+
+   Youʼre now completed.
+
+Conculsion
+
+   In two parts, we created middleware to handle modifying/setting up the
+   Shopify.Context object and also created a handler to verify the shopʼs
+   request and supply back an API key to pass to AppBridge.
+
+   The code in this post can certainly be improved upon, but its a good
+   start for someone looking to add multi-tenant support to a custom app
+   setup.
+
+   [2]MD | [3]TXT | [4]CC-4.0
+
+   This post is 3 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [5]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [6]Github [7]About Me [8]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///
+   2. file:///shopify-node-app-custom-multi-tenant/index.md
+   3. file:///shopify-node-app-custom-multi-tenant/index.txt
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. file:///about
+   6. https://github.com/gnikyt
+   7. file:///about
+   8. file:///assets/files/cv.pdf

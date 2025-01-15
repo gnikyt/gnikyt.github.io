@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Shopify Github Action for versioning | gnikyt
+    </title>
+    <link href="https://gnikyt.com/shopify-github-action-versioning" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Shopify recently updated their admin panel again and started to display the value of `theme_version` from `config/settings_schema.json` ..."
+    name="description">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Shopify Github Action for versioning" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Shopify recently updated their admin panel again and started to display the value of `theme_version` from `config/settings_schema.json` ..."
+    property="og:description">
+    <meta content="https://gnikyt.com/shopify-github-action-versioning" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Shopify recently updated their admin panel again and started to display the value of `theme_version` from `config/settings_schema.json` ..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    Shopify recently updated their admin panel again and started to display the value of `theme_version` from `config/settings_schema.json` ...",
+    "headline": "Shopify Github Action for versioning",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/shopify-github-action-versioning"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/shopify-github-action-versioning"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="shopify-github-action-versioning">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Shopify Github Action for versioning
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <p>
+          Shopify recently updated their admin panel again and started to display the value of
+          <code>theme<em>version</em></code> <em>from <code>config/settings</code></em><code>schema.json</code> onto
+          the theme listing page. Example (yellow highlight):
+        </p>
+
+        <p>
+          <a href="/assets/images/2022/05/shopify-versioning.png"><img alt="Shopify theme version example" src=
+          "/assets/images/2022/05/shopify-versioning.png"></a>
+        </p>
+
+        <p>
+          With our setup, all our client themes are connected to Github and every release gets tagged a version in
+          SYMVER format.
+        </p>
+
+        <p>
+          Depending on a developer or release manager to manually update
+          <code>config/settings<em>schema.json</em></code> <em>before releasing is not ideal; even with a process guide
+          or release checklist, there is a chance it can be missed. We wanted an automated solution to update the
+          <code>theme</code></em><code>version</code> value upon a tag being pushed to the <code>master</code> branch.
+        </p>
+
+        <p>
+          We have come up with the following solution (<code>.github/workflows/schema_version.yml</code>):
+        </p>
+
+        <pre><code>name: Schema version
+
+on:
+  create:
+    tags: [ v* ]
+
+jobs:
+  replacement:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Update settings_schema.json
+        run: |
+          sed -i 's/"theme_version": ".*"/"theme_version": "''"/g' config/settings_schema.json
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          push: origin HEAD:master
+          default_author: github_actions
+          message: "Updated settings_schema.json to version {% raw %}'${{ github.ref_name }}'{% endraw %}"
+          add: config/settings_schema.json
+</code></pre>
+        <p>
+          Now, anytime a version tag gets pushed to the <code>master</code> branch, the action will do the following:
+        </p>
+
+        <ol>
+          <li>Confirm the action to only run upon tagging; <em>lines 3-5</em>
+          </li>
+
+          <li>Confirm the steps will only run if tagging happened; <em>line 10</em>
+          </li>
+
+          <li>Checkout the repository; <em>lines 12-13</em>
+          </li>
+
+          <li>Utilize <code>sed</code> to inline-replace the <code>theme<em>version</em></code> <em>value to
+          <code>${GITHUB</code></em><code>REF_NAME}</code> (removes the <code>v</code>); <em>line 17</em>
+          </li>
+
+          <li>Commit the changes to the schema with a commit message containing the version; <em>lines 19-25</em>
+          </li>
+        </ol>
+
+        <p>
+          <a href="/assets/images/2022/05/shopify-versioning-github.png"><img alt=
+          "Shopify theme version output example" src="/assets/images/2022/05/shopify-versioning-github.png"></a>
+        </p>
+
+        <p>
+          Hopefully this is a helpful starting point for any other developers looking to do the same process.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/shopify-github-action-versioning/index.md">MD</a> | <a href=
+            "/shopify-github-action-versioning/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 2 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

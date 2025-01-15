@@ -1,0 +1,45 @@
+   [1]gnikyt Code ramblings.
+
+                  Laravel Shopify featured on Shopify Dev Blog
+
+   Jan 15, 2025
+
+   A couple of weeks ago, Liam Griffin at Shopify reached out to me about
+   the Laravel Shopify package, interested in featuring it on Shopifyʼs
+   development blog with other community-built tools.
+
+   You can view the article [2]here at Shopifyʼs blog, Laravel Shopify is
+   the second mentioned package.
+
+   Thank you Liam for the opportunity to share the package with your
+   readers!
+
+   [3]MD | [4]TXT | [5]CC-4.0
+
+   This post is 3 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///
+   2. https://www.shopify.com/partners/blog/api-tools
+   3. file:///laravel-shopify-featured-shopify-blog/index.md
+   4. file:///laravel-shopify-featured-shopify-blog/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

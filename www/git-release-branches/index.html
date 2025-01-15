@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Git release branches | gnikyt
+    </title>
+    <link href="https://gnikyt.com/git-release-branches" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create branches for each major/min..."
+    name="description">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Git release branches" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create branches for each major/min..."
+    property="og:description">
+    <meta content="https://gnikyt.com/git-release-branches" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create branches for each major/min..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create branches for each major/min...",
+    "headline": "Git release branches",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/git-release-branches"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/git-release-branches"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="git-release-branches">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Git release branches
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <p>
+          A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create
+          branches for each major/minor release. Many developers will say branches are meant to be short-lived, to be
+          eventually merged into your main branch. I believe this is true for features and bugfixes, but there is a
+          benefit to keeping branches around for the long term.
+        </p>
+
+        <p>
+          Essentially, if you follow symver (<em>[major].[minor].[patch]</em>) for versioning, you would create and
+          maintain a branch for each <em>[major].[minor]</em> release. For example... if I tagged the production branch
+          with <code>v9.0.0</code>, a new major release, I would create a supplementary branch <code>9.0</code>. If I
+          then released a bugfix, <code>v9.0.1</code>, I would then issue a pull request to merge code for
+          <code>v9.0.1</code> into branch <code>9.0</code> to keep it updated with patches.
+        </p>
+
+        <pre><code>$ git branch -l | sort -V
+# ...
+8.2
+8.3
+9.0
+develop
+master
+</code></pre>
+        <p>
+          By having your releases tagged and supplementing it with release branches, you will:
+        </p>
+
+        <ul>
+          <li>Have the ability to rollback easily
+          </li>
+
+          <li>Have the ability to support multiple versions easily
+          </li>
+
+          <li>Have a easily navigable snapshot of previous releases
+          </li>
+        </ul>
+
+        <p>
+          This may be overkill for small and personal projects, but when you're working with a team and potentially
+          have to support multiple versions of a codebase, then this flow is easy to adopt.
+        </p>
+
+        <p>
+          Below is a script you can use to walk through your existing repository (assuming everything is tagged in
+          symver format) and create the <em>[major].[minor]</em> branches for you.
+        </p>
+
+        <pre><code>#!/usr/bin/env python
+#
+# Usage: `python release_branches.py`
+#   For a "dry run": `DRY_RUN=1 python release_branches.py`
+#
+
+import subprocess
+import re
+from os import environ
+from typing import List, Dict
+
+
+def get_tag_list() -&gt; List[str]:
+    """
+        Get list of tags, sorted.
+    """
+
+    # Ensure tags are in vX.Y.Z format
+    mmp = re.compile(r"^v([0-9]+).([0-9]+).([0-9]+)$")
+
+    # Get all tags that match the format
+    tags = subprocess.getoutput(" ".join(("git", "tag", "-l"))).split("\n")
+    result = list(filter(lambda tag: (mmp.match(tag) is not None), tags))
+    result = [tag[1:] for tag in result]
+    result.sort(reverse=True)
+    return result
+
+
+def major_minor_list(tags: List[str]) -&gt; Dict[str, str]:
+    """
+        Create a list of major.minor versions.
+    """
+
+    mm = {}
+    for tag in tags:
+        # Strip off patch from tag
+        cleaned_tag = ".".join(tag.split(".")[:-1])
+        if cleaned_tag not in mm:
+            # Add to dict if major.minor doesn't exist yet
+            mm[cleaned_tag] = tag
+    return mm
+
+
+def make_branch(branch: str, tag: str) -&gt; None:
+    """
+        Make a branch from a tag.
+    """
+
+    # Checkout tag, create branch of major.minor based on tag, push to BB
+    subprocess.run(["git", "checkout", f"v{tag}"])
+    subprocess.run(["git", "checkout", "-b", branch])
+    subprocess.run(["git", "push", "origin", branch])
+
+
+tags = get_tag_list()
+mm = major_minor_list(tags)
+for branch, tag in mm.items():
+    print(f"Making branch '{branch}' based on tag of '{tag}'...")
+    if environ.get('DRY_RUN') is None:
+        make_branch(branch, tag)
+    print("&gt;&gt; Complete")
+</code></pre>
+        <p>
+          Running with the <code>DRY_RUN</code> env supplied, you'll be able to see the branches it will created based
+          on your existing tags before proceeding with the creation.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/git-release-branches/index.md">MD</a> | <a href="/git-release-branches/index.txt">TXT</a> |
+            <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 3 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

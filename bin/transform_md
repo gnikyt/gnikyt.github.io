@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# transform_md is a wrapper to run the Markdown to HTML script (md-to-html).
+transform_md() {
+  "$cwd"/md_to_html <<< "$1"
+}

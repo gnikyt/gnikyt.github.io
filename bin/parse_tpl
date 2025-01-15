@@ -1,0 +1,108 @@
+#!/bin/bash
+
+# token_regex represents the REGEX for token detection.
+# Format of `${operation:parameters:here}`. Very basic.
+token_regex='\$\{[a-zA-Z0-9_:/.-]+\}'
+
+# parse_tpl will parse the template and replace variables or run operations.
+# For variables:
+#    ${var} will be replaced with the value of `globals["var"]` if it exists.
+# For operation of include:
+#    ${inc:filename:var} will replace the string with the
+#    contents of `filename` and optionally only do that if
+#   `var` is truthy.
+# For opertions of echo:
+#    ${echo:something:var} will replace the string with the
+#    contents of "something" and optionally only do that if
+#   `var` is truthy.
+parse_tpl() {
+  local input
+  local match
+  local op
+
+  input="$1"
+  if [[ $input =~ ^templates/.* ]]; then
+    # Input is a template, get its contents.
+    input=$(cat "$1")
+  fi
+
+  while [[ $input =~ ($token_regex) ]]; do
+    # Remove "${" and "}".
+    match="${BASH_REMATCH[1]/\$\{/}"
+    match="${match/\}/}"
+
+    # Determine which action to take.
+    op=$(echo "$match" | cut -d":" -f1)
+    case $op in
+      "inc")
+        # Include operation.
+        local file
+        local cnd
+        local replace
+
+        # Extract filename and optional var conditional.
+        file=$(echo "$match" | cut -d":" -f2)
+        cnd=$(echo "$match" | cut -d":" -f3)
+        replace="true"
+
+        # Check if there is a conditional and handle it.
+        if [[ -n "$cnd" ]]; then
+          value="${globals[$cnd]}"
+          if [[ -z $value ]]; then
+            # Conditional did not pass as truthy.
+            replace=""
+          fi
+        fi
+
+        if [[ -n "$replace" ]]; then
+          # Allow the include.
+          local contents
+          local parsed_contents
+          contents="$(cat "$file")"
+          parsed_contents=$(parse_tpl "$contents")
+          input="${input/${BASH_REMATCH[1]}/"$parsed_contents"}"
+        else
+          # Remove the include.
+          input="${input/${BASH_REMATCH[1]}/}"
+        fi
+        ;;
+
+      "echo")
+        # Echo operation.
+        local contents
+        local cnd
+        local replace
+
+        # Extract content and optional var conditional.
+        contents=$(echo "$match" | cut -d":" -f2)
+        cnd=$(echo "$match" | cut -d":" -f3)
+        replace="true"
+
+        # Check if there is a conditional and handle it.
+        if [[ -n "$cnd" ]]; then
+          value="${globals[$cnd]}"
+          if [[ -z $value ]]; then
+            # Conditional did not pass as truthy.
+            replace=""
+          fi
+        fi
+
+        if [[ -n "$replace" ]]; then
+          # Allow the echo.
+          input="${input/${BASH_REMATCH[1]}/"$contents"}"
+        else
+          # Remove the echo.
+          input="${input/${BASH_REMATCH[1]}/}"
+        fi
+        ;;
+
+      *)
+        # Variable replacement.
+        local value
+        value="${globals[$match]}"
+        input="${input/${BASH_REMATCH[1]}/"$value"}"
+    esac
+  done
+
+  echo "$input"
+}

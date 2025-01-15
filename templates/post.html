@@ -1,0 +1,17 @@
+${inc:templates/_layout_head.html}
+
+<article>
+  <header>
+    <h1>${title}</h1>
+    <p><time datetime="${date_ymd}">${date_human}</time></p>
+  </header>
+
+  ${parsed_md}
+
+  <footer>
+    ${inc:templates/_sources.html}
+    ${inc:templates/_old_warning.html:is_old}
+  </footer>
+</article>
+
+${inc:templates/_layout_tail.html}

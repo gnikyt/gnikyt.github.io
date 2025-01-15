@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Shopify Node Ap | gnikyt
+    </title>
+    <link href="https://gnikyt.com/shopify-node-app-custom-multi-tenant" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo..."
+    name="description">
+    <meta content="2025-01-15T00:00:00-0330" property="article:published_time">
+    <meta content="Shopify Node Ap" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo..."
+    property="og:description">
+    <meta content="https://gnikyt.com/shopify-node-app-custom-multi-tenant" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-01-15T00:00:00-0330",
+    "datePublished": "2025-01-15T00:00:00-0330",
+    "description": "
+    ## Introduction
+
+    Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo...",
+    "headline": "Shopify Node Ap",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/shopify-node-app-custom-multi-tenant"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/shopify-node-app-custom-multi-tenant"
+    }
+    </script>
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link ref="/feed.xml" rel="self" type="application/atom+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="shopify-node-app-custom-multi-tenant">
+    <header class="container">
+      <span><a href="/">gnikyt</a></span> <span>Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article>
+        <header>
+          <h1>
+            Shopify Node Ap
+          </h1>
+
+          <p>
+            <time datetime="2025-01-15">Jan 15, 2025</time>
+          </p>
+        </header>
+
+        <h2 id="introduction">
+          Introduction
+        </h2>
+
+        <p>
+          Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the
+          way, allowing you to code an app with built in Polaris support, verification, and more.
+        </p>
+
+        <p>
+          However, Shopify no longer allows you to develop an unpublished app and have it installable by multiple
+          shops, this was allowed years ago, but they have phased this out. There are now two options for developing
+          apps.
+        </p>
+
+        <ul>
+          <li>
+            <code>Custom</code> - Allows you to develop an app for a single shop which does not have to be published or
+            reviewed by Shopify
+          </li>
+
+          <li>
+            <code>Public</code> - Allows you to develop an app for use for the general public, reviewed by Shopify
+          </li>
+        </ul>
+
+        <p>
+          The problem is, there are instances where you will may need to develop a <code>Custom</code> type app for a
+          client who owns multiple shops, clients who wish to keep the app private but utilize the same app for all
+          their shops.
+        </p>
+
+        <p>
+          By default, the <code>Custom</code> app route along with the Node boilerplate, will not support this. Below
+          is a quick solution I have used to get around this limitation.
+        </p>
+
+        <h2 id="backend-changes">
+          Backend Changes
+        </h2>
+
+        <h3 id="env">
+          ENV
+        </h3>
+
+        <p>
+          In your env file, you will create an API key and secret entry per shop, that has no special characters.
+        </p>
+
+        <p>
+          If the shops are <code>hello-world.myshopify.com</code> and <code>welcome-123.myshopify.com</code>, you would
+          add:
+        </p>
+
+        <pre><code>SHOPIFY_API_KEY_HELLOWORLD=xyz123
+SHOPIFY_API_SECRET_HELLOWORLD=123xyz
+SHOPIFY_API_KEY_WELCOME123=abc123
+SHOPIFY_API_SECRET_WELCOME123=123abc
+</code></pre>
+        <h3 id="nextjs">
+          NextJS
+        </h3>
+
+        <p>
+          Open <code>next.config.js</code>.
+        </p>
+
+        <p>
+          By default, it looks like this:
+        </p>
+
+        <pre><code>const { parsed: localEnv } = require("dotenv").config();
+const webpack = require("webpack");
+const apiKey = JSON.stringify(process.env.SHOPIFY_API_KEY);
+
+module.exports = {
+  webpack: (config) &amp;ge; {
+    const env = { API_KEY: apiKey };
+    config.plugins.push(new webpack.DefinePlugin(env));
+
+    // Add ESM support for .mjs files in webpack 4
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    });
+
+    return config;
+  },
+};
+
+</code></pre>
+        <p>
+          We need to remove <code>API_KEY</code> and add a new <code>HOST</code> value.
+        </p>
+
+        <pre><code># ./next.config.js
+const { parsed: localEnv } = require("dotenv").config();
+const webpack = require("webpack");
+const host = JSON.stringify(process.env.HOST);
+
+module.exports = {
+  webpack: (config) &amp;ge; {
+    const env = { HOST: host };
+    config.plugins.push(new webpack.DefinePlugin(env));
+
+    // Add ESM support for .mjs files in webpack 4
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    });
+
+    return config;
+  },
+};
+</code></pre>
+        <h3 id="utils">
+          Utils
+        </h3>
+
+        <p>
+          Create a file to hold some utility functions which we will use to support multi-tentant.
+        </p>
+
+        <pre><code># ./src/services/utils.js
+import crypto from "crypto";
+import querystring from "querystring"; // Can use URLSearchParams instead
+
+/**
+ * Clean the domain. Used for ENV access.
+ * @param {string} domain The Shopify myshopify.com domain.
+ * @param {boolean} upcase Upcase the result or not.
+ * @returns string
+ */
+const cleanDomain = (domain, upcase = true) &amp;ge; {
+  const result = domain.replace(".myshopify.com", "").replace(/_|-/g, "");
+  return upcase ? result.toUpperCase() : result;
+};
+
+/**
+ * Fix and order query strings.
+ * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validator.ts
+ * @param {object} query The query params.
+ * @returns string
+ */
+export function stringifyQuery(query) {
+  const orderedObj = Object.keys(query)
+    .sort((val1, val2) &amp;ge; val1.localeCompare(val2))
+    .reduce((obj, key) &amp;ge; {
+      obj[key] = query[key];
+      return obj;
+    }, {});
+  return querystring.stringify(orderedObj);
+}
+
+/**
+ * Create a local HMAC string based upon query params.
+ * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validator.ts
+ * @param {object} query The query params.
+ * @param {strin} secret The API secret.
+ * @returns string
+ */
+export function generateLocalHmac(query, secret) {
+  const queryString = stringifyQuery(query);
+  return crypto.createHmac("sha256", secret).update(queryString).digest("hex");
+}
+</code></pre>
+        <h3 id="middleware-additions">
+          Middleware Additions
+        </h3>
+
+        <h4 id="shopcontext">
+          ShopContext
+        </h4>
+
+        <p>
+          This middleware file for Koa will create the Shopify context.
+        </p>
+
+        <pre><code># ./src/server/middleware/shopContext.js
+import Shopify, { ApiVersion } from "@shopify/shopify-api";
+import { cleanDomain } from "../../services/utils";
+
+/**
+ * Set the Shopify context based upon the shop.
+ * @param {*} ctx The Koa context.
+ * @param {*} next The next code to hit.
+ * @returns any
+ */
+const shopContext = async (ctx, next) &amp;ge; {
+  // Find the Shopify domain
+  const { shop } = ctx.query;
+  const shopDomain = ctx.request.headers["x-shopify-shop-domain"];
+
+  // Use shop domain to get env values
+  const domain = cleanDomain(shop || shopDomain);
+  Shopify.Context.initialize({
+    API_KEY: process.env[`SHOPIFY_API_KEY_`],
+    API_SECRET_KEY: process.env[`SHOPIFY_API_SECRET_`],
+    SCOPES: process.env.SCOPES.split(","),
+    HOST_NAME: process.env.HOST.replace(/https:\/\//, ""),
+    API_VERSION: ApiVersion.October20,
+    IS_EMBEDDED_APP: true,
+    SESSION_STORAGE: new Shopify.Session.MemorySessionStorage(),
+  });
+
+  return await next();
+};
+
+export default shopContext;
+</code></pre>
+        <p>
+          Now open your <code>server/server.js</code> file and include the middleware for use on every backend route.
+          Example:
+        </p>
+
+        <pre><code># ./server/server.js
+// ...
+import shopEnv from "../src/server/middleware/shopEnv";
+// ...
+
+// Example
+router.post(
+    "/customer/register",
+    shopContext, # &lt;---- middleware
+    shopState,
+    errWrap(customerRegister)
+);
+
+// Example
+router.get(
+    "(.*)",
+    shopContext, # &lt;---- middleware
+    defaultRequest(handle)
+);
+</code></pre>
+        <p>
+          As well, remove the default <code>Shopify.Context</code> declaration in the <code>server.js</code> file.
+        </p>
+
+        <p>
+          Now, all API requests in your handlers will use the shop's API key and secret.
+        </p>
+
+        <h4 id="verifyhmac">
+          VerifyHmac
+        </h4>
+
+        <p>
+          This middleware file for Koa will verify HMAC strings.
+        </p>
+
+        <pre><code># ./src/server/middleare/verifyHmac.js
+import Shopify from "@shopify/shopify-api";
+import { generateLocalHmac, cleanDomain } from "../../services/utils";
+
+/**
+ * Verify HMAC.
+ * @param {*} ctx The Koa context.
+ * @param {*} next The next code to hit.
+ * @returns any
+ */
+const verifyHmac = async (ctx, next) &amp;ge; {
+  // Remove HMAC
+  const { query } = ctx;
+  const { hmac, shop } = query;
+  delete ctx.query.hmac;
+
+  // Generate a local HMAC
+  const domain = cleanDomain(shop);
+  const localHmac = generateLocalHmac(
+    query,
+    process.env[`SHOPIFY_API_SECRET_`]
+  );
+
+  // Validate the HMAC
+  const valid = Shopify.Utils.safeCompare(hmac, localHmac);
+  if (!valid) {
+    // HMAC did not validate
+    // const err = createError("ValidationError");
+    // throw new err("Invalid HMAC");
+    ctx.status = 400;
+    return;
+  }
+
+  return await next();
+};
+
+export default verifyHmac;
+</code></pre>
+        <h3 id="handler-addition">
+          Handler Addition
+        </h3>
+
+        <p>
+          We need to pass the proper API key to AppBridge.
+        </p>
+
+        <pre><code># ./src/server/handlers/backend/appbridge.js
+import { cleanDomain } from "../../../services/utils";
+
+/**
+ * AppBridge setup.
+ * @param {*} ctx Koa context.
+ * @returns void
+ */
+const appbridge = async (ctx) &amp;ge; {
+  // Get the API key for the shop
+  const domain = cleanDomain(ctx.query.shop);
+  const key = process.env[`SHOPIFY_API_KEY_`];
+
+  ctx.status = 200;
+  ctx.body = { key };
+};
+
+export default appbridge;
+
+</code></pre>
+        <p>
+          Now open <code>server/server.js</code> to add a route for this as well as the <code>VerifyHmac</code>
+          middleware.
+        </p>
+
+        <pre><code># ./server/server.js
+// ...
+import appbridge from "../src/server/handlers/backend/appbridge";
+import verifyHmac from "../src/server/middleware/verifyHmac";
+// ...
+
+// Route: AppBridge API key
+router.get("/_appbridge", verifyHmac, appbridge);
+</code></pre>
+        <h3 id="appbridge-integration">
+          AppBridge Integration
+        </h3>
+
+        <p>
+          Now that we have our backend handler to verify the HMAC and return back an API key for the shop, we need to
+          tap into the existing AppBridge setup to complete the integration.
+        </p>
+
+        <p>
+          Open <code>_app.js</code>, and look for the <code>MyApp.getInitialProps</code>, it will look something like
+          this:
+        </p>
+
+        <pre><code>MyApp.getInitialProps = async ({ ctx }) &amp;ge; {
+  return {
+    host: ctx.query.host,
+  };
+};
+</code></pre>
+        <p>
+          We will now modify it to this:
+        </p>
+
+        <pre><code>MyApp.getInitialProps = async ({ ctx }) &amp;ge; {
+  let key = "";
+  try {
+    // Get the API key for the shop
+    const query = new URLSearchParams(ctx.query).toString();
+    const response = await fetch(`/_appbridge?`);
+    const body = await response.json();
+    key = body.key;
+  } catch (e) {
+    // This usually will only fire when running `npm run build`
+    console.error("Unable to obtain AppBridge key.");
+  }
+
+  return {
+    apiKey: key,
+    host: ctx.query.host,
+  };
+};
+</code></pre>
+        <p>
+          Next, modify your <code>MyApp</code> class, which will look something like this:
+        </p>
+
+        <pre><code>class MyApp extends App {
+  render() {
+    const { Component, pageProps, host } = this.props;
+
+    return (
+      &lt;AppProvider i18n={translations}&gt;
+        &lt;Provider
+          config={ {
+            apiKey: API_KEY,
+            host: host,
+            forceRedirect: true,
+          } }
+        &gt;
+          &lt;MyProvider Component={Component} {...pageProps} /&gt;
+        &lt;/Provider&gt;
+      &lt;/AppProvider&gt;
+    );
+  }
+}
+</code></pre>
+        <p>
+          We will now modify it to this, to use the new prop:
+        </p>
+
+        <pre><code>class MyApp extends App {
+  render() {
+    const { Component, pageProps, host, apiKey } = this.props;
+
+    return (
+      &lt;AppProvider i18n={translations}&gt;
+        &lt;Provider
+          config={ {
+            apiKey: apiKey,
+            host: host,
+            forceRedirect: true,
+          } }
+        &gt;
+          &lt;MyProvider Component={Component} {...pageProps} /&gt;
+        &lt;/Provider&gt;
+      &lt;/AppProvider&gt;
+    );
+  }
+}
+</code></pre>
+        <p>
+          You're now completed.
+        </p>
+
+        <h2 id="conculsion">
+          Conculsion
+        </h2>
+
+        <p>
+          In two parts, we created middleware to handle modifying/setting up the <code>Shopify.Context</code> object
+          and also created a handler to verify the shop's request and supply back an API key to pass to AppBridge.
+        </p>
+
+        <p>
+          The code in this post can certainly be improved upon, but its a good start for someone looking to add
+          multi-tenant support to a custom app setup.
+        </p>
+
+        <footer>
+          <div class="sources">
+            <a href="/shopify-node-app-custom-multi-tenant/index.md">MD</a> | <a href=
+            "/shopify-node-app-custom-multi-tenant/index.txt">TXT</a> | <a href=
+            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+          </div>
+
+          <div class="warning post-old">
+            This post is 3 years old and may contain outdated information.
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="container">
+      <hr>
+      <a href="/about"><img alt="Tyler King" src="/assets/images/me.jpg"></a>
+      <div>
+        <h3>
+          Ty King
+        </h3>
+
+        <p>
+          A self-taught, seasoned, versatile developer from Newfoundland.
+        </p>
+        <a class="button filled" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class=
+        "button" href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a>
+        <ul class="colors">
+          <li class="color color--a">
+          </li>
+
+          <li class="color color--b">
+          </li>
+
+          <li class="color color--c">
+          </li>
+
+          <li class="color color--d">
+          </li>
+
+          <li class="color color--e">
+          </li>
+
+          <li class="color color--f">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

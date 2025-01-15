@@ -1,0 +1,211 @@
+#!/bin/bash
+
+cwd=$(dirname "$0")
+. $cwd/parse_md
+. $cwd/parse_tpl
+. $cwd/transform_md
+
+# count tracks the number of generated posts and pages.
+declare -i count=0
+# globals is for keeping a hash table of variables available to the templates.
+declare -A globals
+# newline is a newline feed helper.
+declare newline=$'\n'
+# layouts tracks the various layout files.
+declare -A layouts
+# posts is a list of all post files.
+declare posts=""
+# pages is a list of all page files.
+declare pages=""
+
+# process_posts will generate the posts.
+process_posts() {
+  local source
+  echo "Generating posts..."
+  for i in $posts; do
+    globals["layout"]="post"
+    globals["is_post"]="true"
+    globals["is_page"]=""
+    globals["is_old"]=""
+
+    local start_ts
+    local end_ts
+    local target
+    local text
+
+    source=$(basename "$i")
+    echo "[$source] Generating..."
+
+    # Grab entire post file content, extract it's body and frontmatter.
+    parse_md "$(cat "$i")"
+
+    # Parse Markdown body and convert to HTML.
+    globals["parsed_md"]=$(transform_md "${globals["body"]}")
+
+    # Setup the dating variables.
+    start_ts=$(date -d "${globals["date"]}" +"%s")
+    end_ts=$(date +"%s")
+    globals["date_iso8601"]=$(date -d "$date" +"%Y-%m-%dT%H:%M:%S%z")
+    globals["date_ymd"]=$(date -d "$date" +"%Y-%m-%d")
+    globals["date_human"]=$(date -d "$date" +"%b %d, %Y")
+    globals["diff_years"]=$(( (end_ts-start_ts)/(60*60*24)/365 ))
+    if [[ ${globals["diff_years"]} -ge 2 ]]; then
+      globals["is_old"]="true"
+    fi
+
+    # Parse the post template and save result.
+    parsed_tpl=$(parse_tpl "${layouts["post"]}")
+    target=www/"${globals["handle"]}"
+    mkdir "$target"
+    echo "$parsed_tpl" > "$target"/index.html
+
+    # Create text and Markdown versions.
+    text=$(lynx --stdin --dump < "$target"/index.html)
+    echo "$text" > "$target"/index.txt
+    cp posts/"$source" "$target"/index.md
+
+    # Parse the post RSS template and save result.
+    parsed_tpl=$(parse_tpl "${layouts["_rss_item"]}")
+    globals["rss_items"]="${globals["rss_items"]}${newline}${parsed_tpl}"
+
+    # Parse the home list template and save result.
+    parsed_tpl=$(parse_tpl "${layouts["_index_entry"]}")
+    globals["home_entries"]="${globals["home_entries"]}${newline}${parsed_tpl}"
+
+    echo "[$source] Generated"
+    count+=1
+  done
+  echo -e "Completed: $count posts\n"
+  count=0
+}
+
+# process_pages will generate the pages of the website.
+process_pages() {
+  local source
+  echo "Generating pages..."
+  for i in $pages; do
+    globals["layout"]="page"
+    globals["is_post"]=""
+    globals["is_page"]="true"
+
+    source=$(basename "$i")
+    echo "[$source] Generating..."
+
+    # Grab entire post file content, extract it's body and frontmatter.
+    parse_md "$(cat "$i")"
+
+    # Parse Markdown body and convert to HTML.
+    globals["parsed_md"]=$(transform_md "${globals["body"]}")
+
+    if [[ "$source" = "404.md" ]]; then
+      # Parse the page template and save the result.
+      parsed_tpl=$(parse_tpl "${layouts["page"]}")
+      echo "$parsed_tpl" > www/404.html
+    elif [[ "$source" = "robots.md" ]]; then
+      cp pages/"$source" www/robots.txt
+    else
+      # Parse the page template and save the result.
+      parsed_tpl=$(parse_tpl "${layouts["page"]}")
+      target=www/"${globals["handle"]}"
+      mkdir "$target"
+      echo "$parsed_tpl" > "$target"/index.html
+
+      # Create text and Markdown versions.
+      text=$(lynx --stdin --dump < "$target"/index.html)
+      echo "$text" > "$target"/index.txt
+      cp pages/"$source" "$target"/index.md
+    fi
+
+    echo "[$source] Generated"
+    count+=1
+  done
+  echo -e "Completed: $count pages\n"
+  count=0
+}
+
+# process_rss will generate an RSS feed of the posts.
+process_rss() {
+  echo "Generating RSS..."
+  globals["layout"]="rss"
+  globals["is_post"]=""
+  globals["is_page"]=""
+  parsed_tpl=$(parse_tpl "${layouts["rss"]}")
+  echo "$parsed_tpl" > www/rss.xml
+  echo -e "Completed\n"
+}
+
+# tidy_markup will tidy the HTML and XML.
+tidy_markup() {
+  local result
+  local opts
+  dopts="--indent yes \
+      --indent-spaces 2 \
+      --vertical-space yes \
+      --drop-empty-elements no \
+      --show-warnings no \
+      --wrap 120 \
+      --sort-attributes alpha \
+      --tidy-mark no \
+      --quiet yes"
+
+  echo "Tidying markup..."
+  for i in $(find www -name "*.html" -type f); do
+    # shellcheck disable=SC2086
+    result=$(tidy $dopts < "$i")
+    echo "$result" > "$i"
+  done
+  # shellcheck disable=SC2086
+  result=$(tidy --input-xml yes --output-xml yes $dopts < www/rss.xml)
+  echo "$result" > www/rss.xml
+  echo -e "Completed\n"
+}
+
+# process_index will generate the index of the website.
+process_index() {
+  echo "Generating index..."
+  globals["layout"]="index"
+  globals["is_post"]=""
+  globals["is_page"]="true"
+  globals["title"]="gnikyt"
+  globals["handle"]=""
+
+  # Parse the index layout and save the result.
+  parsed_tpl=$(parse_tpl "${layouts["index"]}")
+  parsed_tpl=${parsed_tpl/gnikyt | gnikyt/gnikyt}
+  echo "$parsed_tpl" > www/index.html
+
+  # Create text version.
+  text=$(lynx --stdin --dump < www/index.html)
+  echo "$text" > www/index.txt
+
+  echo -e "Completed\n"
+}
+
+# main will process all posts and pages.
+main() {
+  # Clear www.
+  rm -r www/* 2> /dev/null
+
+  # Find all posts.
+  posts=$(find posts -name "*.md" -type f)
+
+  # Find all pages.
+  pages=$(find pages -name "*.md" -type f)
+
+  # Get all layout files.
+  for i in $(find templates -type f); do
+    layouts[$(basename "${i%.*}")]=$i
+  done
+
+  # Processing.
+  process_posts
+  process_rss
+  process_index
+  process_pages
+  tidy_markup
+
+  # Copy assets to www.
+  cp -R assets www/assets
+}
+
+main

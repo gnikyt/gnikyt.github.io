@@ -1,0 +1,141 @@
+   [1]gnikyt Code ramblings.
+
+                             Shopify Liquid Tester
+
+   Jan 15, 2025
+
+Introduction
+
+   Shopifyʼs theme system currently lacks the ability to define custom
+   "functions". As a result, many Shopify developers use Liquid snippets
+   to accept inputs and echo an output result, to create a pseudo-function
+   within Shopify.
+
+   A very basic example:
+{%- raw -%}
+# snippets/fn-remove-prefix.liquid
+{%- comment -%}
+  Removes tag prefix.
+
+  Parameters:
+    tag, string, required: Tag string to remove prefix on.
+
+  Syntax:
+    {%- render ʼfn-remove-prefixʼ, tag: [string] -%}
+
+  Example:
+    {%- render ʼfn-remove-prefixʼ, tag: ʼType:Cannabisʼ -%}
+
+  Output:
+    Cannabis
+{%- endcomment -%}
+{%- liquid
+  echo tag | split: ʼ:ʼ | last
+-%}
+{% endraw %}
+
+   For such a small "function", no one would second guess, however,
+   working with merchant data is sometimes a challenge... What if there is
+   multiple : in the tag string? What if we need the resulting value
+   converted to something else, consistently?
+
+   We can not unit test Liquid files in the context of a Shopify store
+   very easily, which is why I developed a handly tool called
+   [2]liquid-fn-tester to assist with this for our clients.
+
+How it works
+
+   The tool works by injecting a custom page into your Shopify store and
+   also injecting your snippet to test into the Shopify theme.
+
+   Then, for each test assertion, it then will inject a custom page
+   template with your Liquid and reference your snippet.
+
+   From here, the page content is fetched with no layout to get the
+   result, for which the result is then used to test for expected output.
+
+    Questions
+
+   Why a new page for each test assertion?
+
+   Shopify caches page content since last year. By creating a new page for
+   every test assertion, we can get around the issue of having stale/wrong
+   output. Upon completion of the test suite, all created page templates
+   on the theme are removed as part of cleanup.
+
+   How flexible is this?
+
+   You extend the base test class which does all the heavy lifting. You
+   have freedom to define setup, teardown, and tap into various events
+   documented in the repositoryʼs README to further customize your tests.
+
+   Why NodeJS?
+
+   Previously, I had attempted a similar setup with Ruby, since Shopifyʼs
+   Liquid library is a Ruby package (Gem).
+
+   While the implementation worked great, it had flaws of not being able
+   to utilize Shopify data or Shopifyʼs custom Liquid filters such as
+   asseturl, imgtag
+   , money, etc. which could lead to some snippets not producing a true
+   result to what it would on Shopifyʼs servers.
+
+   Given the process to get a result of the snippet rendering, the tool
+   really couldʼve been developed in any language such as Go, or Python,
+   etc. however, given majority of Shopify developers most likely know
+   their way around Javascript, then it made sense to go down that path.
+
+Utilization
+
+   Similarly stated in the README of the repository, if you place your
+   Liquid function snippet into the tests directory, with a defined test
+   suite to match, you will be able to unit test the result of the
+   snippet. Because its executed on the Shopify store, the snippet you
+   wish to test will have access to everything for Shopifyʼs Liquid and
+   the store itself; such as request, allproducts, | asseturl
+   , etc.
+
+   Your test suite will have full control over setup, snippet
+   initilization, teardown, output, and more.
+
+   The repositoryʼs [3]provided examples is a great guide for how
+   everything comes together and how you can test a single snippet against
+   multiple values.
+
+   Liquid Fn Example
+
+   ____
+
+   Hopefully this tool will continue to grow and is helpful to those who
+   are looking to try and test their snippets; both small and complex.
+
+   [4]MD | [5]TXT | [6]CC-4.0
+
+   This post is 2 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [7]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [8]Github [9]About Me [10]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///
+   2. https://github.com/gnikyt/liquid-fn-tester
+   3. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
+   4. file:///shopify-liquid-tester/index.md
+   5. file:///shopify-liquid-tester/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

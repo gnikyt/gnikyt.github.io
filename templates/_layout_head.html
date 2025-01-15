@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  ${inc:templates/_seo_default.html:is_page}
+  ${inc:templates/_seo_post.html:is_post}
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/assets/images/favicon.png" sizes="32x32" type="image/png" />
+  <link rel="self" ref="/feed.xml" type="application/atom+xml" />
+  <link rel="stylesheet" href="/assets/styles/normalize.css" />
+  <link rel="stylesheet" href="/assets/styles/concrete.css" />
+  <link rel="stylesheet" href="/assets/styles/style.css" />
+</head>
+<body class="layout layout--${echo:post:is_post}${echo:page:is_page}" data-handle="${handle}">
+  <header class="container">
+    <span><a href="/">gnikyt</a></span>
+    <span>Code ramblings.</span>
+  </header>
+
+  <main class="container">

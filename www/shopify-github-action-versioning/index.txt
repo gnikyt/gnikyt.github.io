@@ -1,0 +1,96 @@
+   [1]gnikyt Code ramblings.
+
+                      Shopify Github Action for versioning
+
+   Jan 15, 2025
+
+   Shopify recently updated their admin panel again and started to display
+   the value of themeversion from config/settingsschema.json
+   onto the theme listing page. Example (yellow highlight):
+
+   [2]Shopify theme version example
+
+   With our setup, all our client themes are connected to Github and every
+   release gets tagged a version in SYMVER format.
+
+   Depending on a developer or release manager to manually update
+   config/settingsschema.json before releasing is not ideal; even with a
+   process guide or release checklist, there is a chance it can be missed.
+   We wanted an automated solution to update the themeversion
+   value upon a tag being pushed to the master branch.
+
+   We have come up with the following solution
+   (.github/workflows/schema_version.yml):
+name: Schema version
+
+on:
+  create:
+    tags: [ v* ]
+
+jobs:
+  replacement:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, ʼrefs/tags/vʼ)
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Update settings_schema.json
+        run: |
+          sed -i ʼs/"theme_version": ".*"/"theme_version": "ʼʼ"/gʼ config/settin
+gs_schema.json
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          push: origin HEAD:master
+          default_author: github_actions
+          message: "Updated settings_schema.json to version {% raw %}ʼ${{ github
+.ref_name }}ʼ{% endraw %}"
+          add: config/settings_schema.json
+
+   Now, anytime a version tag gets pushed to the master branch, the action
+   will do the following:
+    1. Confirm the action to only run upon tagging; lines 3-5
+    2. Confirm the steps will only run if tagging happened; line 10
+    3. Checkout the repository; lines 12-13
+    4. Utilize sed to inline-replace the themeversion value to
+       ${GITHUBREF_NAME} (removes the v); line 17
+    5. Commit the changes to the schema with a commit message containing
+       the version; lines 19-25
+
+   [3]Shopify theme version output example
+
+   Hopefully this is a helpful starting point for any other developers
+   looking to do the same process.
+
+   [4]MD | [5]TXT | [6]CC-4.0
+
+   This post is 2 years old and may contain outdated information.
+     __________________________________________________________________
+
+   [7]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [8]Github [9]About Me [10]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///
+   2. file:///assets/images/2022/05/shopify-versioning.png
+   3. file:///assets/images/2022/05/shopify-versioning-github.png
+   4. file:///shopify-github-action-versioning/index.md
+   5. file:///shopify-github-action-versioning/index.txt
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. file:///about
+  10. file:///assets/files/cv.pdf

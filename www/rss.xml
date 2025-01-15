@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gnikyt</title>
+    <link>https://gnikyt.com</link>
+    <description>Code ramblings.</description>
+    <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL network speed</title>
+      <link>https://gnikyt.com/wsl-network-speed</link>
+      <description>Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to
+      Windows 11 and clean out my system t...</description>
+      <guid isPermaLink="true">https://gnikyt.com/wsl-network-speed</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Shopify Node Ap</title>
+      <link>https://gnikyt.com/shopify-node-app-custom-multi-tenant</link>
+      <description>## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of
+      small details out of the way, allo...</description>
+      <guid isPermaLink="true">https://gnikyt.com/shopify-node-app-custom-multi-tenant</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Prisma, Jest, and MySQL testing</title>
+      <link>https://gnikyt.com/prisma-jest-mysql-testing</link>
+      <description>*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and
+      Jest](../shopify-remix-prisma-and-jest).* Follow that...</description>
+      <guid isPermaLink="true">https://gnikyt.com/prisma-jest-mysql-testing</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Blin</title>
+      <link>https://gnikyt.com/blink-tuned-camera-notifications</link>
+      <description>***Note**: This post is geared towards Android devices. Currently unaware of a solution for Apple
+      devices.* ## The Problem If you have...</description>
+      <guid isPermaLink="true">https://gnikyt.com/blink-tuned-camera-notifications</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Shopify Liquid Tester</title>
+      <link>https://gnikyt.com/shopify-liquid-tester</link>
+      <description>## Introduction Shopify's theme system currently lacks the ability to define custom "functions". As
+      a result, many Shopify developers u...</description>
+      <guid isPermaLink="true">https://gnikyt.com/shopify-liquid-tester</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Git release branches</title>
+      <link>https://gnikyt.com/git-release-branches</link>
+      <description>A method I like to utilize internally, which I've been slowly pushing into my open source work, is
+      to create branches for each major/min...</description>
+      <guid isPermaLink="true">https://gnikyt.com/git-release-branches</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>New desktop setup</title>
+      <link>https://gnikyt.com/new-desktop-setup</link>
+      <description>## Introduction I haven't had the time to tweak my desktop in over a year, I've been mostly stuck
+      with the default settings of Fedora (...</description>
+      <guid isPermaLink="true">https://gnikyt.com/new-desktop-setup</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Laravel Shopify ITP</title>
+      <link>https://gnikyt.com/laravel-shopify-itp</link>
+      <description>## Background [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) is a package I started a
+      few years ago which gained quite a ...</description>
+      <guid isPermaLink="true">https://gnikyt.com/laravel-shopify-itp</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Generate type definitions without emitting Javascript</title>
+      <link>https://gnikyt.com/generate-type-definitions-without-emitting-js</link>
+      <description>## Introduction A Shopify-based project was assigned which was a backend app with frontend
+      extensions. After completion of the backend,...</description>
+      <guid isPermaLink="true">https://gnikyt.com/generate-type-definitions-without-emitting-js</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Laravel Shopif</title>
+      <link>https://gnikyt.com/laravel-shopify-cookieless</link>
+      <description>## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize
+      the new session token implementati...</description>
+      <guid isPermaLink="true">https://gnikyt.com/laravel-shopify-cookieless</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Joint Venture with LFL</title>
+      <link>https://gnikyt.com/joint-venture-lfl</link>
+      <description>## JV The journey of running an agency is an uphill one for sure. It takes everyone working together
+      across the board, to not only keep...</description>
+      <guid isPermaLink="true">https://gnikyt.com/joint-venture-lfl</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Shopify Checkout Extension to backend fetching</title>
+      <link>https://gnikyt.com/generate-type-definitions-without-emitting-js</link>
+      <description>There are several posts around about people having issues figuring out how to send a fetch request
+      from their checkout extension to thei...</description>
+      <guid isPermaLink="true">https://gnikyt.com/generate-type-definitions-without-emitting-js</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Laravel Shopify featured on Shopify Dev Blog</title>
+      <link>https://gnikyt.com/laravel-shopify-featured-shopify-blog</link>
+      <description>A couple of weeks ago, Liam Griffin at Shopify reached out to me about the Laravel Shopify package,
+      interested in featuring it on Shopif...</description>
+      <guid isPermaLink="true">https://gnikyt.com/laravel-shopify-featured-shopify-blog</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Shopify Remix, Prisma, and Jest</title>
+      <link>https://gnikyt.com/shopify-remix-prisma-and-jest</link>
+      <description>## Introduction Shopify has *(once again)* changed up their app framework and templates. This time,
+      they're utilizing Remix which is a ...</description>
+      <guid isPermaLink="true">https://gnikyt.com/shopify-remix-prisma-and-jest</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Shopify Github Action for versioning</title>
+      <link>https://gnikyt.com/shopify-github-action-versioning</link>
+      <description>Shopify recently updated their admin panel again and started to display the value of `theme_version`
+      from `config/settings_schema.json` ...</description>
+      <guid isPermaLink="true">https://gnikyt.com/shopify-github-action-versioning</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>Shopify checkout extension with product HTML</title>
+      <link>https://gnikyt.com/shopify-checkout-ui-product-html</link>
+      <description>## Background A project last month required a build of an upselling checkout UI extension for
+      Shopify. The client wanted the descriptio...</description>
+      <guid isPermaLink="true">https://gnikyt.com/shopify-checkout-ui-product-html</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+    <item>
+      <title>WP Local with WSL</title>
+      <link>https://gnikyt.com/wplocal-with-wsl</link>
+      <description>A recent project was picked up from another agency where they utilized WP Engine and WP Local. WP
+      Local *can* work with WSL, but the pro...</description>
+      <guid isPermaLink="true">https://gnikyt.com/wplocal-with-wsl</guid>
+      <pubDate>2025-01-15T00:00:00-0330</pubDate>
+    </item>
+  </channel>
+</rss>

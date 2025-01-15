@@ -1,0 +1,550 @@
+   [1]gnikyt Code ramblings.
+
+                  Shopify checkout extension with product HTML
+
+   Jan 15, 2025
+
+Background
+
+   A project last month required a build of an upselling checkout UI
+   extension for Shopify. The client wanted the description of the product
+   to be what is displayed in the checkout, however, Shopifyʼs checkout
+   extension system does not support directly using HTML nor the
+   dangerouslySetInnerHtml property. Additionally to this, the extensions
+   do not support such services such a
+   [DOMParser](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser)
+   -- something custom would have to be built.
+
+   Given the tight timeline for the project, it was decided to just build
+   a quick transformation helper to convert the HTML Shopify uses for
+   product descriptions into Checkout UI Extension components. It was
+   successful, but I am sure it could be better written if we had more
+   time.
+
+   It works by capturing each open and close tag of the HTML element,
+   grabbing its details and contents, parsing into React components, then
+   shifting the HTML string to remove what was just captured, then repeats
+   the process.
+
+Input/output examples
+
+   An example description HTML from a product in Shopify:
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 1
+</div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph"></div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 2
+</div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph"></div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 3
+</div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph"></div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 4
+</div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph"></div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 5
+</div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  <br>
+</div>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 6
+</div>
+<ul class="RichTextList-bulleted" style="list-style-type: disc;">
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 1
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 2
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 3
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 4
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 5
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 6
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 7
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 8
+    </div>
+  </li>
+  <li>
+    <div class="TypographyPresentation TypographyPresentation--m RichText3-parag
+raph--withVSpacingNormal RichText3-paragraph">
+      ITEM 9
+    </div>
+  </li>
+</ul>
+<div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
+--withVSpacingNormal RichText3-paragraph">
+  LINE 7
+</div>
+
+   Example of the transformed output:
+<>
+  <TextBlock>
+    LINE 1
+  </TextBlock>
+  <TextBlock>
+    LINE 2
+  </TextBlock>
+  <TextBlock>
+    LINE 3
+  </TextBlock>
+  <TextBlock>
+    LINE 4
+  </TextBlock>
+  <TextBlock>
+    LINE 5
+  </TextBlock>
+  <TextBlock>
+    LINE 6
+  </TextBlock>
+  <List>
+    <ListItem>
+      <TextBlock>
+        ITEM 1
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 2
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 3
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 4
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 5
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 6
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 7
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 8
+      </TextBlock>
+    </ListItem>
+    <ListItem>
+      <TextBlock>
+        ITEM 9
+      </TextBlock>
+    </ListItem>
+  </ListItem>
+  <TextBlock>
+    LINE 7
+  </TextBlock>
+</>
+
+Usage examples
+
+   As-is with default transformer:
+import descriptionTransformer from ʼ./descriptionTransformerʼ;
+
+// ...
+
+const description = descriptionTransformer(product.desciptionHtml);
+
+// ...
+
+<BlockStack spacing="extraTight">
+  {description}
+</BlockStack>
+
+   With custom transformer:
+import descriptionTransformer from ʼ./descriptionTransformerʼ;
+
+// ...
+
+const description = descriptionTransformer(html, (element, children, index, defa
+ultTransformer) &ge; {
+  if (element.classes.includes("RichQuote")) {
+    return (
+      <BlockStack key={index}>
+        <Text emphasis>Quote</Text>
+        {children}
+      </BlockStack>
+    );
+  }
+  return defaultTransformer();
+});
+
+// ...
+
+<BlockStack spacing="extraTight">
+  {description}
+</BlockStack>
+
+Code
+
+   Also available [2]on this Gist.
+import React from "react";
+import { List, ListItem, TextBlock } from "@shopify/ui-extensions-react/checkout
+";
+
+/**
+ * Represents open tag.
+ * @typedef {Object} OpenTag
+ * @property {number} start - Indicates the start position of the open tag.
+ * @property {number} end - Indicates the end position of the open tag.
+ * @property {string} name - Name of the tag.
+ * @property {string[]} classes - Classes of the tag.
+ */
+
+/**
+ * Represents close tag.
+ * @typedef {Object} CloseTag
+ * @property {number} start - Indicates the start position of the end tag.
+ * @property {number} end - Indicates the end position of the end tag.
+ */
+
+/**
+ * Represents contents of a tag.
+ * @typedef {Object} TagContents
+ * @property {string} contents - Contents between the open and close tag.
+ * @property {boolean} hasInnerHtml - Indicates if the contents has nested HTML.
+ */
+
+/**
+ * Represents a parsed element.
+ * @typedef {Object} ParsedElement
+ * @property {string | ParsedElement[]} contents - Contents between the open and
+ close tag.
+ * @property {string} name - Name of the tag.
+ * @property {string[]} classes - Classes of the tag.
+ */
+
+/**
+ * Represents transformer callback.
+ *
+ * @callback Transformer
+ * @param {ParsedElement} element - Parsed element.
+ * @param {JSX.Element[]} children - React components parsed from element.
+ * @param {number} index - Current index in transforming loop, to use for `key`
+prop on component.
+ * @param {CallableFunction} defaultTransformer - Pre-filled default transformer
+.
+ */
+
+/**
+ * Parses open tag to return that start position, end position, tag name, and cl
+asses.
+ *
+ * @param {string} html - Raw HTML to parse.
+ *
+ * @returns {OpenTag}
+ */
+function parseOpenTag(html) {
+  // Open tag positions
+  const start = html.indexOf("<");
+  const end = html.indexOf(">") + 1;
+
+  // Open tagʼs contents
+  const contents = html.substring(start, end);
+
+  // Extract tag name
+  const name = html.substring(
+    start + 1,
+    // Until next space or end of tag
+    contents.indexOf(" ") > -1 ? contents.indexOf(" ") : end - 1,
+  );
+
+  // Extract classes
+  const classMatch = contents.match(/class="([^"]+)"/);
+  const classes = classMatch === null ? [] : classMatch[1].split(" ");
+
+  return {
+    start,
+    end,
+    name,
+    classes,
+  };
+}
+
+/**
+ * Parses close tag to return that start position and end position.
+ *
+ * @param {string} html - Raw HTML to parse.
+ * @param {string} name - Tag name.
+ *
+ * @returns {CloseTag}
+ */
+function parseCloseTag(html, name) {
+  // Tag itself
+  const tag = `</>`;
+
+  // End tag positions
+  const start = html.indexOf(tag);
+  const end = start + tag.length;
+
+  return {
+    start,
+    end,
+  };
+}
+
+/**
+ * Get the contents of a tag, returning the content and a flag of it has inner H
+TML.
+ *
+ * @param {string} html - Raw HTML to parse.
+ * @param {object} openTag - Open tag parsed result.
+ * @param {object} closeTag - Close tag parsed result.
+ *
+ * @returns {TagContents}
+ */
+function parseContentOfTag(html, openTag, closeTag) {
+  const contents = html.substring(openTag.end, closeTag.start).trim();
+  const hasInnerHtml = contents.match(/<.*>.*<\/.*>/g);
+
+  return {
+    contents,
+    hasInnerHtml,
+  };
+}
+
+/**
+ * Default transformer.
+ *
+ * @param {ParsedElement} element - Parsed element.
+ * @param {JSX.Element[]} children - React components.
+ * @param {number} index - Parsed element index in loop.
+ *
+ * @returns {JSX.Element}
+ */
+function defaultTransformer(element, children, index) {
+  /** @type JSX.Element */
+  let reactElement;
+
+  // No transformer result, handle defaults
+  switch (element.name) {
+    case "ul": {
+      reactElement = <List key={index}>{children}</List>;
+      break;
+    }
+    case "li": {
+      reactElement = <ListItem key={index}>{children}</ListItem>;
+      break;
+    }
+    case "div": {
+      reactElement = <TextBlock key={index}>{children}</TextBlock>;
+      break;
+    }
+    default: {
+      reactElement = <>No transformer to handle &quot;{element.name}&quot;</>;
+    }
+  }
+
+  return reactElement;
+}
+
+/**
+ * Walk through the HTML and parse it into an array of tag name, classes, and ne
+sted content.
+ *
+ * @param {string} html - Raw HTML to parse.
+ * @returns {ParsedElement[]}
+ */
+function walk(html) {
+  // Store elements parsed
+  /** @type ParsedElement[] */
+  const elements = [];
+
+  // Loop until no open tag is found
+  let shiftedHtml = html;
+  while (shiftedHtml.indexOf("<") !== -1) {
+    // Open tag and close tag
+    const openTag = parseOpenTag(shiftedHtml);
+    const closeTag = parseCloseTag(shiftedHtml, openTag.name);
+
+    // Contents
+    const content = parseContentOfTag(shiftedHtml, openTag, closeTag);
+    const contents = content.hasInnerHtml ? walk(content.contents) : content.con
+tents;
+
+    // Save, move to next part of the HTML
+    elements.push({
+      contents,
+      name: openTag.name,
+      classes: openTag.classes,
+    });
+    shiftedHtml = shiftedHtml.substring(closeTag.end).trim();
+  }
+
+  return elements;
+}
+
+/**
+ * Convert parsed HTML into React elements.
+ *
+ * @param {ParsedElement[]} elements - Elements to convert to React components.
+ * @param {Transformer | undefined} transformer - Custom transformation function
+.
+ *
+ * @returns {JSX.Element[]}
+ */
+function transform(elements, transformer) {
+  let index = 0;
+  const reactElements = [];
+  for (const element of elements) {
+    if (element.contents !== "") {
+      // Parse nested elements, if nessessary
+      const children = Array.isArray(element.contents) ? (
+        transform(element.contents, transformer)
+      ) : (
+        <>{element.contents}</>
+      );
+
+      // Transform to React
+      const reactElement = transformer
+        ? transformer(
+            element,
+            children,
+            index,
+            (
+              (e, c, i) &ge; () &ge;
+                defaultTransformer(e, c, i)
+            )(element, children, index),
+          )
+        : defaultTransformer(element, children, index);
+
+      reactElements.push(reactElement);
+      index += 1;
+    }
+  }
+
+  return reactElements;
+}
+
+/**
+ * Parse description HTML of a product into Shopify React elements.
+ *
+ * @param {string} rawHtml - Raw HTML to parse and transform.
+ * @param {Transformer | undefined} transformer - Custom transformation function
+.
+ *
+ * @example
+ * ```
+ * const parsed = descriptionTransformer(html);
+ * // ...
+ * <>{parsed}</>
+ * ```
+ *
+ * @example
+ * ```
+ * const parsed = descriptionTransformer(html, (element, children, index, defaul
+tTransformer) &ge; {
+ *  if (element.classes.join(ʼ ʼ).indexOf("RichQuote") > -1) {
+ *    return (
+ *       <BlockStack key={index}>
+ *          <Text>Quote</Text>
+ *          {children}
+ *       </BlockStack>
+ *    );
+ *  }
+ *  return defaultTransformer();
+ * });
+ * // ...
+ * <>{parsed}</>
+ * ```
+ *
+ * @returns {JSX.Element[]}
+ */
+export default function descriptionTransformer(rawHtml, transformer) {
+  const cleanedRawHtml = rawHtml.replace(/<br>/g, "").trim();
+  return transform(walk(cleanedRawHtml), transformer);
+}
+
+   Hopefully this can help point you in the right direction if youʼre
+   attempting to use product descriptions in a Shopify Checkout UI
+   Extension.
+
+   [3]MD | [4]TXT | [5]CC-4.0
+     __________________________________________________________________
+
+   [6]Tyler King
+
+Ty King
+
+   A self-taught, seasoned, versatile developer from Newfoundland.
+   [7]Github [8]About Me [9]CV
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///
+   2. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
+   3. file:///shopify-checkout-ui-product-html/index.md
+   4. file:///shopify-checkout-ui-product-html/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf

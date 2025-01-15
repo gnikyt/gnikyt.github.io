@@ -1,0 +1,14 @@
+${inc:templates/_layout_head.html}
+
+<article>
+  <header>
+    <h1>${title}</h1>
+  </header>
+
+  ${parsed_md}
+
+  <footer>
+    ${inc:templates/_sources.html}
+  </footer>
+</article>
+${inc:templates/_layout_tail.html}
