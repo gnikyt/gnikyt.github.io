@@ -526,7 +526,7 @@ export default function descriptionTransformer(rawHtml, transformer) {
    [4]MD | [5]TXT | [6]CC-4.0
      __________________________________________________________________
 
-   [7]Tyler King
+   [7]Ty King
 
 Ty King
 

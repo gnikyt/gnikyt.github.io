@@ -5,8 +5,6 @@ permalink: microservices-dont-create-a-problem
 date: '2020-04-20 15:03:02'
 ---
 
-![Cover Image](/assets/images/2020/04/3xdp0w.jpg)
-
 ## Big Fat No
 
 This post is about creating unnecessary problems for yourself.

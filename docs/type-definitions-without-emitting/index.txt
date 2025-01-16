@@ -108,7 +108,7 @@ import { type ShopifyOrderIdValue } from "app-types/value/id";
    [3]MD | [4]TXT | [5]CC-4.0
      __________________________________________________________________
 
-   [6]Tyler King
+   [6]Ty King
 
 Ty King
 

@@ -68,7 +68,7 @@ nt-savingsʼ, price: product.price, compare_price: product.compare_at_price_min 
    This post is 9 years old and may contain outdated information.
      __________________________________________________________________
 
-   [6]Tyler King
+   [6]Ty King
 
 Ty King
 

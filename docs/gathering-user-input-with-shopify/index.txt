@@ -46,7 +46,7 @@
 Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
 ]">
 
-   ![Screenshot from 2013-08-05 13⭐40](/assets/images/0000/si_1.png)
+   Screenshot 1
 
    In the image above (click to enlarge) Iʼve added the code just below
    the variant definitions for the product. This is a very basic example
@@ -60,7 +60,7 @@ Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
    store. You should see the dimensions field we just added and it should
    be usable.
 
-   ![Screenshot from 2013-08-05 13⭐27](/assets/images/0000/si_2.png)
+   Screenshot 2
 
    Now that our dimensions input shows up. Letʼs go ahead and have it show
    up on the cart page (for when they add it to their cart). Open
@@ -74,7 +74,7 @@ Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
 {% endfor %}
 {% endraw %}
 
-   ![Screenshot from 2013-08-05 13⭐27](/assets/images/0000/si_3.png)
+   Screenshot 3
 
    This will allow the customer to see what they have entered or uploaded
    as well when they visit their cart page. So go ahead and save the
@@ -82,14 +82,14 @@ Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
    field we added then add it to your cart. Once added, view your cart and
    you should now see what you entered on the previous page.
 
-   ![Screenshot from 2013-08-05 14⭐12](/assets/images/0000/si_4.png)
+   Screenshot 4
 
    As you can see, on your cart page you can now see what you have
    entered. Again, this is just an example and is completely customizable
    by you in any way. Now go ahead and submit the order, we will view what
    you will see in your Shopify admin dashboard for the order.
 
-   ![Screenshot from 2013-08-05 14⭐57](/assets/images/0000/si_5.png)
+   Screenshot 5
 
    Itʼs captured and itʼs that easy. Now you have an easy way to gather
    the customerʼs input on products of your shop. This is only a bare
@@ -106,7 +106,7 @@ Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
    This post is 11 years old and may contain outdated information.
      __________________________________________________________________
 
-   [8]Tyler King
+   [8]Ty King
 
 Ty King
 

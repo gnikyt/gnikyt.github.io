@@ -4,7 +4,7 @@
 
                                      About
 
-   Hello World. Iʼm Ty King &mdash; A self-taught, seasoned, versatile
+   Hello World. Iʼm Ty(ler) King — A self-taught, seasoned, versatile
    developer from Newfoundland.
 
    Outside of that, its gnikyt (nɪkɪt).
@@ -38,16 +38,16 @@ My Rundown
        aiding in Shopify App development
      * [5]Basic Shopify API - PHP; A simple sync/async API wrapper for
        Shopify using Guzzle for REST and GraphQL.
-     * [6]basicshopifyapi - Python; A sync/async REST and GraphQL client
+     * [6]basic_shopify_api - Python; A sync/async REST and GraphQL client
        for Shopify API using HTTPX.
      * [7]gowith - Golang; Pythonʼs "with" implemented in Go.
      * [8]with - PHP; Pythonʼs "with" implemented in PHP.
-     * [9]httpshopifywebhook - Golang; Webhook verification for Shopify.
+     * [9]http_shopify_webhook - Golang; Webhook verification for Shopify.
 
    [10]MD | [11]TXT | [12]CC-4.0
      __________________________________________________________________
 
-   [13]Tyler King
+   [13]Ty King
 
 Ty King
 

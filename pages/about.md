@@ -3,7 +3,7 @@ title: About
 permalink: about
 ---
 
-_Hello World_. I'm **Ty King** &mdash; A self-taught, seasoned, versatile developer from Newfoundland.
+_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, versatile developer from Newfoundland.
 
 Outside of that, its **_gnikyt_** (_nɪkɪt_).
 
@@ -34,7 +34,7 @@ Outside of that, its **_gnikyt_** (_nɪkɪt_).
 - [cq](https://github.com/gnikyt/cq) - Golang; A function-based composible queue.
 - [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) - PHP; A full-featured Laravel package for aiding in Shopify App development
 - [Basic Shopify API](https://github.com/gnikyt/Basic-Shopify-API) - PHP; A simple sync/async API wrapper for Shopify using Guzzle for REST and GraphQL.
-- [basic_shopify_api](https://github.com/gnikyt/basic_shopify_api) - Python; A sync/async REST and GraphQL client for Shopify API using HTTPX.
+- [basic\_shopify\_api](https://github.com/gnikyt/basic_shopify_api) - Python; A sync/async REST and GraphQL client for Shopify API using HTTPX.
 - [gowith](https://github.com/gnikyt/gowith) - Golang; Python's "with" implemented in Go.
 - [with](https://github.com/gnikyt/with) - PHP; Python's "with" implemented in PHP.
-- [http_shopify_webhook](https://github.com/gnikyt/http_shopify_webhook) - Golang; Webhook verification for Shopify.
+- [http\_shopify\_webhook](https://github.com/gnikyt/http_shopify_webhook) - Golang; Webhook verification for Shopify.

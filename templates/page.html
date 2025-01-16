@@ -1,14 +1,15 @@
 ${inc:templates/_layout_head.html}
 
-<article>
-  <header>
-    <h1>${title}</h1>
+<article class="post">
+  <header class="post__head">
+    <h1 class="post__title">${title}</h1>
   </header>
 
   ${parsed_md}
 
-  <footer>
+  <footer class="post__tail">
     ${inc:templates/_sources.html}
   </footer>
 </article>
+
 ${inc:templates/_layout_tail.html}

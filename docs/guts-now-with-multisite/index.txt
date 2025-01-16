@@ -87,7 +87,7 @@ Guts::Content.unscoped.where(type: @type)
    This post is 8 years old and may contain outdated information.
      __________________________________________________________________
 
-   [10]Tyler King
+   [10]Ty King
 
 Ty King
 

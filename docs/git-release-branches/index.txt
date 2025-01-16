@@ -112,7 +112,7 @@ for branch, tag in mm.items():
    This post is 3 years old and may contain outdated information.
      __________________________________________________________________
 
-   [6]Tyler King
+   [6]Ty King
 
 Ty King
 

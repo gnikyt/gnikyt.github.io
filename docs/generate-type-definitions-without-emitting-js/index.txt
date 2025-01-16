@@ -105,7 +105,7 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
    [3]MD | [4]TXT | [5]CC-4.0
      __________________________________________________________________
 
-   [6]Tyler King
+   [6]Ty King
 
 Ty King
 
