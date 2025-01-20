@@ -13,7 +13,7 @@ No, not the GUI - that doesn't work very well for what we need to do (many GUIs 
 
 Run `gem install shopify_theme` - it's Shopify's Ruby Gem for managing themes with advanced options.
 
-![terminal shopify](/assets/images/0000/shopify-1.png)
+![terminal shopify](/assets/images/posts/shopify-1.png)
 
 ## Step Two: Creating your own shop
 
@@ -25,7 +25,7 @@ So creating your own shop will allow each developer to be independent but still 
 
 It's time to register a private app in your development shop to let the Shopify Theme Manager communicate. Go to __https://[your store].myshopify.com/admin/apps/private__ and generate a private application; call it anything you like… "Theme Dev", "Rickyisms", doesn't matter. What Shopify will give you API information. __Keep that API key and password on hand for step three__.
 
-![api setup](/assets/images/0000/shopify-2.png)
+![api setup](/assets/images/posts/shopify-2.png)
 
 ## Step Three: Setting up the theme files
 
@@ -33,7 +33,7 @@ It's time to register a private app in your development shop to let the Shopify 
 
 __If there is no theme created for your development team yet__, simply open the Terminal and cd into the directory where you wish to develop.
 
-![terminal output](/assets/images/0000/shopify-3.png)
+![terminal output](/assets/images/posts/shopify-3.png)
 
 Now that we're in our place of development, let's pull Shopify's Timber theme using the gem.
 
@@ -44,7 +44,7 @@ Run `theme bootstrap api_key password shop_name theme_name master`
 - Replace __shop_name__ in the command with the Shopify URL of your shop
 - Replace __theme_name__ in the command with what you will name the theme
 
-![theme setup output](/assets/images/0000/shopify-4.png)
+![theme setup output](/assets/images/posts/shopify-4.png)
 
 In my case, I called my theme __porte_mode__. This command will do three things…
 
@@ -56,7 +56,7 @@ Now that we have Timber ready and registered with our dev shop we can go ahead a
 
 Be sure to create a __.gitignore__ file and add __config.yml__ to it. This ensures no developer's Shopify Theme Manager configurations will clash when working on the repository code.
 
-![theme gitignore output](/assets/images/0000/shopify-5.png)
+![theme gitignore output](/assets/images/posts/shopify-5.png)
 
 Now commit this code to the repository (ex: `git add -A && git commit -m “First commit” && git push -u origin master`).
 
@@ -82,7 +82,7 @@ Next, we need to configure Shopify's Theme Manager to use our dev shop. Open the
 
 After this is done, run it. Last but least, push the theme code to your dev shop. Open the Terminal and run `theme replace` this will push all changes and register the theme on your shop (this command will take some time).
 
-![theme replace output](/assets/images/0000/shopify-6.png)
+![theme replace output](/assets/images/posts/shopify-6.png)
 
 That's it, you're done. In a couple of minutes, we've downloaded the dev theme from Github/Bitbucket and pushed it to our dev shop to work on.
 
@@ -122,4 +122,4 @@ So that's it! This document simply outlines how to set up a development theme on
 
 The viewable Google Doc of this is available here: https://docs.google.com/document/d/1fRCxDG7fCE4YjCVSXFZ5CsGhhpvj-PgrDPauDdjrwW8/edit?usp=sharing
 
-![yes!](/assets/images/0000/shopify-7.png)
+![yes!](/assets/images/posts/shopify-7.png)

@@ -164,9 +164,9 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///assets/images/2023/12/wplocal<em>running.png
+   3. file:///assets/images/posts/wplocal<em>running.png
    4. https://community.localwp.com/u/robert77
-   5. file:///assets/images/2023/12/wplocal<em>sudo.png
+   5. file:///assets/images/posts/wplocal<em>sudo.png
    6. file:///wplocal-with-wsl/index.md
    7. file:///wplocal-with-wsl/index.txt
    8. https://creativecommons.org/licenses/by/4.0/

@@ -19,7 +19,7 @@ Replacing `[your user]` with your Windows username and `[version]` with the down
 
 This will install WP Local and automatically create a Start Menu entry for `Local (Ubuntu)` (in my case), but you can also spawn it through the terminal with `/usr/bin/local`.
 
-[![WP Local Running inside WSL](/assets/images/2023/12/wplocal_running.png)](/assets/images/2023/12/wplocal_running.png)
+[![WP Local Running inside WSL](/assets/images/posts/wplocal_running.png)](/assets/images/posts/wplocal_running.png)
 
 Although its open and running, if you immediately tried to connect to WP Engine and pull down a project, you'll have displays with errors pop up such as the inability for WP Local to ask for priviliages (sudo) and issues for it to properly configure NGINX.
 
@@ -69,7 +69,7 @@ Then run `sudo chmod +x /usr/bin/kdesudo` to allow it to be executable.
 
 An example of it running:
 
-[![LxQT Sudo GUI](/assets/images/2023/12/wplocal_sudo.png)](/assets/images/2023/12/wplocal_sudo.png)
+[![LxQT Sudo GUI](/assets/images/posts/wplocal_sudo.png)](/assets/images/posts/wplocal_sudo.png)
 
 ## NGINX Fix
 

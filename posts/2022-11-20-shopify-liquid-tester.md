@@ -73,7 +73,7 @@ Your test suite will have full control over setup, snippet initilization, teardo
 
 The repository's [provided examples](https://github.com/gnikyt/liquid-fn-tester/tree/master/tests) is a great guide for how everything comes together and how you can test a single snippet against multiple values.
 
-![Liquid Fn Example](/assets/images/2022/11/liquid-fn.png)
+![Liquid Fn Example](/assets/images/posts/liquid-fn.png)
 
 ____
 

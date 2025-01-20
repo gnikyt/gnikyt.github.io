@@ -11,7 +11,7 @@ For the QrInColor.com web-application initially we used [Endroid Qr Bundle](http
 
 This created a problem... _how do I create a gradient on the Qr code?_ I came up with a solution: colorize the Qr with [Imagick](http://www.imagemagick.org/script/index.php) using their top and bottom colors the user picked then, "blend" the two images together to create a gradient effect.
 
-![qr code base](/assets/images/0000/qr.png)
+![qr code base](/assets/images/posts/qr.png)
 
 We would first take the Qr data the user entered and generate a black, basic, Qr code. Which is our canvas to work with. Now, we had to apply their top color chosen (RGB) to the base Qr and render it, using similar shell command below.
 
@@ -19,7 +19,7 @@ We would first take the Qr data the user entered and generate a black, basic, Qr
 /usr/bin/convert qr.png -fuzz 60% -fill 'rgb(161,161,163)' -opaque black qr_top.png
 ```
 
-![qr code top](/assets/images/0000/qr_top.png)
+![qr code top](/assets/images/posts/qr_top.png)
 
 This is the result of the above command. It replaces all __black__ with a fuzz of __60%__ threshold with the color chosen by the user, __rgb(161,161,163)__.
 
@@ -29,7 +29,7 @@ It's nothing spectacular; but it works. Now, we need to do the same for the bott
 /usr/bin/convert qr.png -fuzz 60% -fill 'rgb(248,150,39)' -opaque black qr_bottom.png
 ```
 
-![qr code bottom](/assets/images/0000/qr_bottom.png)
+![qr code bottom](/assets/images/posts/qr_bottom.png)
 
 This is the result of the above command. It replaces all __black__ with a fuzz of __60%__ threshold with the color chosen by the user, __rgb(248,150,39)__.
 
@@ -45,7 +45,7 @@ This creates the effect we are looking for. Color at top, transparent at bottom.
 /usr/bin/composite qr_bottom.png -compose Dst_Over qr_gradient.png result.png
 ```
 
-![result](/assets/images/0000/qr_together.png)
-![result 2](/assets/images/0000/qr_together2.png)
+![result](/assets/images/posts/qr_together.png)
+![result 2](/assets/images/posts/qr_together2.png)
 
 Unfortunately, I did not choose very vibrant colors to blend (gray and orange) but the effect is there, I've included another example with _two better colors_. Now, I'm sure there are better ways to produce these gradients, but the point of this post is that there was a problem I faced with a client's website, I used my brain to come up with a solution and it worked. A road block can always be passed; just don't pass the ones with cops posted, that won't end well.

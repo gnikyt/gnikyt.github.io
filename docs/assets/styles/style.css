@@ -299,6 +299,10 @@ body[data-handle="404"] main {
   text-align: center;
 }
 
+body[data-handle="404"] .sources {
+  display: none;
+}
+
 /**
  * Site colors.
  */

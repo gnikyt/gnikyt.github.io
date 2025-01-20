@@ -95,4 +95,4 @@ I suspect if I owned a Thinkpad, XPS, Zenbook, or some other Windows-designed la
 
 I'll have my current MacBook and iPhone for a couple of years to come but my next upgrade in the future will move away from this company. This experience was a good lesson that yes, I can develop in Windows just fine, without any drawbacks that I can see to my flow. This will heavily weigh my decision for purchases in the future.
 
-[![Trying Kitty with Ubuntu Server on a VM with Rails](/assets/images/0000/kitty_vmrails.png)](/assets/images/kitty_vmrails.png)
+[![Trying Kitty with Ubuntu Server on a VM with Rails](/assets/images/posts/kitty_vmrails.png)](/assets/images/kitty_vmrails.png)

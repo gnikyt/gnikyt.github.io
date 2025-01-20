@@ -27,13 +27,13 @@ Next, we add our property HTML. Shopify looks for input fields which contain the
 Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions]">
 ```
 
-![Screenshot 1](/assets/images/0000/si_1.png)
+![Screenshot 1](/assets/images/posts/si_1.png)
 
 In the image above (click to enlarge) I've added the code just below the variant definitions for the product. This is a very basic example with no styling, so you may style it how you please later. As you can see, I've set a name for the customer to see "__Dimensions (W x L)__" and the input which Shopify can see using the __properties __HTML array. The cool thing about it is, you can add more than one - even add file uploads!
 
 Next, save the liquid template and view a product you have in your store. You should see the dimensions field we just added and it should be usable.
 
-![Screenshot 2](/assets/images/0000/si_2.png)
+![Screenshot 2](/assets/images/0000postssi_2.png)
 
 Now that our dimensions input shows up. Let's go ahead and have it show up on the cart page (for when they add it to their cart). Open __cart.liquid__ in your current shop's theme, find a line which contains the product's title for example "__{{ item.product.title }}__". Below this, we will add the liquid code which will list all of the properties that the user has entered, because remember, you can add more than one.
 
@@ -45,15 +45,15 @@ Now that our dimensions input shows up. Let's go ahead and have it show up on th
 {% endraw %}
 ```
 
-![Screenshot 3](/assets/images/0000/si_3.png)
+![Screenshot 3](/assets/images/posts/si_3.png)
 
 This will allow the customer to see what they have entered or uploaded as well when they visit their cart page. So go ahead and save the template, go back to a product, enter some data into the __dimensions__ field we added then add it to your cart. Once added, view your cart and you should now see what you entered on the previous page.
 
-![Screenshot 4](/assets/images/0000/si_4.png)
+![Screenshot 4](/assets/images/posts/si_4.png)
 
 As you can see, on your cart page you can now see what you have entered. Again, this is just an example and is completely customizable by you in any way. Now go ahead and submit the order, we will view what you will see in your Shopify admin dashboard for the order.
 
-![Screenshot 5](/assets/images/0000/si_5.png)
+![Screenshot 5](/assets/images/posts/si_5.png)
 
 It's captured and it's that easy. Now you have an easy way to gather the customer's input on products of your shop. This is only a bare example, you can of course, style it, customize the HTML, add javascript and validation, and even tack on the captured data to the customer's email order confirmation.
 

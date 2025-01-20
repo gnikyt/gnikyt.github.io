@@ -7,7 +7,7 @@ date: '2022-05-20 16:16:20'
 
 Shopify recently updated their admin panel again and started to display the value of `theme_version` from `config/settings_schema.json` onto the theme listing page. Example (yellow highlight):
 
-[![Shopify theme version example](/assets/images/2022/05/shopify-versioning.png)](/assets/images/2022/05/shopify-versioning.png)
+[![Shopify theme version example](/assets/images/posts/shopify-versioning.png)](/assets/images/posts/shopify-versioning.png)
 
 With our setup, all our client themes are connected to Github and every release gets tagged a version in SYMVER format.
 
@@ -51,6 +51,6 @@ Now, anytime a version tag gets pushed to the `master` branch, the action will d
 4. Utilize `sed` to inline-replace the `theme_version` value to `${GITHUB_REF_NAME}` (removes the `v`); *line 17*
 5. Commit the changes to the schema with a commit message containing the version; *lines 19-25*
 
-[![Shopify theme version output example](/assets/images/2022/05/shopify-versioning-github.png)](/assets/images/2022/05/shopify-versioning-github.png)
+[![Shopify theme version output example](/assets/images/posts/shopify-versioning-github.png)](/assets/images/posts/shopify-versioning-github.png)
 
 Hopefully this is a helpful starting point for any other developers looking to do the same process.

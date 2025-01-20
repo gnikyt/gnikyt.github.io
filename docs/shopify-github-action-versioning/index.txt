@@ -88,8 +88,8 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///assets/images/2022/05/shopify-versioning.png
-   4. file:///assets/images/2022/05/shopify-versioning-github.png
+   3. file:///assets/images/posts/shopify-versioning.png
+   4. file:///assets/images/posts/shopify-versioning-github.png
    5. file:///shopify-github-action-versioning/index.md
    6. file:///shopify-github-action-versioning/index.txt
    7. https://creativecommons.org/licenses/by/4.0/

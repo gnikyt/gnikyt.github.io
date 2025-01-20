@@ -5,7 +5,7 @@ permalink: i3-plasma-a-solid-match
 date: '2019-08-28 04:06:39'
 ---
 
-[![Cover Image](/assets/images/2019/08/screenshot.png)](/assets/images/2019/08/screenshot.png)
+[![Cover Image](/assets/images/posts/screenshot.png)](/assets/images/posts/screenshot.png)
 
 ## Introduction
 

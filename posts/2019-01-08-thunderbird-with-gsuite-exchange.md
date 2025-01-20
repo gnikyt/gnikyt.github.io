@@ -60,8 +60,8 @@ One note, the contact images do not seem to work though (for me)...
 
 Fine!
 
-[![Pic 1](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-03.png)](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-03.png)
+[![Pic 1](/assets/images/posts/Screenshot-from-2019-01-08-16-18-03.png)](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-03.png)
 
-[![Pic 2](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-56.png)](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-56.png)
+[![Pic 2](/assets/images/posts/Screenshot-from-2019-01-08-16-18-56.png)](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-56.png)
 
-[![Pic 3](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-06.png)](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-06.png)
+[![Pic 3](/assets/images/posts/Screenshot-from-2019-01-08-16-18-06.png)](/assets/images/2019/01/Screenshot-from-2019-01-08-16-18-06.png)

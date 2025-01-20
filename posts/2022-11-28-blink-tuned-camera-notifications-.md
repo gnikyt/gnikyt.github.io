@@ -65,7 +65,7 @@ With some trial and error, I was able to build a macro in the app which would wa
 
 Once configured, your macro should be similar to this:
 
-![Macro](/assets/images/2022/11/blink.png)
+![Macro](/assets/images/posts/blink.png)
 
 You can additionally use regular expressions on the text contains input to apply it to multiple camera names, or you can duplicate the macro and change the text contains for each camera... both options work fine in my testing.
 

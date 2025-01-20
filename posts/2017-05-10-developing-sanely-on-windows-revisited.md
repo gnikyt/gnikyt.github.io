@@ -23,6 +23,6 @@ I've now switched to using a combination of using WSL and Docker - it works wond
 
 The great thing about WSL is it can easily integrate with VSCode's integrated terminal feature.
 
-[![VS Code with WSL](/assets/images/0000/vs-code-wsl.png)](/assets/images/0000/vs-code-wsl.png)
+[![VS Code with WSL](/assets/images/posts/vs-code-wsl.png)](/assets/images/0000/vs-code-wsl.png)
 
 In conclusion... I've had no issues yet with this setup. Docker + WSL + Windows = A happy environment.

@@ -31,10 +31,10 @@ In *some* cases, `1->3` is enough to load the app, but in the *majority* of case
 
 The above flow is similar to what Shopify's own Ruby and Koa packages are following, which is what I tried to strive for in the latest release.
 
-[![Step 4](/assets/images/2021/01/ls-ask.png)](/assets/images/2021/01/ls-ask.png)
+[![Step 4](/assets/images/posts/ls-ask.png)](/assets/images/2021/01/ls-ask.png)
 *Step #4 - Asking for storage access*
 
-[![Step 5](/assets/images/2021/01/ls-manual.png)](/assets/images/2021/01/ls-ask.png)
+[![Step 5](/assets/images/posts/ls-manual.png)](/assets/images/2021/01/ls-ask.png)
 *Step #5 - Asking user to manually enable storage*
 
 ## Alternatives

@@ -105,8 +105,6 @@ process_pages() {
       # Parse the page template and save the result.
       parsed_tpl=$(parse_tpl "${layouts["page"]}")
       echo "$parsed_tpl" > docs/404.html
-    elif [[ "$source" = "robots.md" ]]; then
-      cp pages/"$source" docs/robots.txt
     else
       # Parse the page template and save the result.
       parsed_tpl=$(parse_tpl "${layouts["page"]}")

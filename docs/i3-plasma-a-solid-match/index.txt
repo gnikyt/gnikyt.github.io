@@ -127,7 +127,7 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///assets/images/2019/08/screenshot.png
+   3. file:///assets/images/posts/screenshot.png
    4. https://ryanlue.com/posts/2019-06-13-kde-i3
    5. https://github.com/gnikyt/dots/blob/master/.Xresources
    6. https://github.com/gnikyt/dots/blob/master/.config/i3/config

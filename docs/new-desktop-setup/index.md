@@ -32,7 +32,7 @@ I simply miss my old XFCE and GNOME 2 layout of the early 2000s -- the peak of t
 
 To achieve an XFCE/GNOME 2 setup, I attempted several ways, which worked out decently well! But, of course, required a lot of extensions and a theme.
 
-[![Finalized GNOME](/assets/images/2022/12/gnomeshelllook.png)](/assets/images/2022/12/gnomeshelllook.png)
+[![Finalized GNOME](/assets/images/posts/gnomeshelllook.png)](/assets/images/posts/gnomeshelllook.png)
 
 The above screenshot is an example of the resulting setup which has a similar feel to the old layout... two panels with proper information.
 
@@ -68,7 +68,7 @@ Without touching anything on the base Cinnamon install, it was already impressiv
 
 I hunkered down for 20 minutes and produced an initial desktop which got me back to my feeling of my old XFCE and GNOME 2 desktops:
 
-[![Cinnamon result](/assets/images/2022/12/cinnamon.png)](/assets/images/2022/12/cinnamon.png)
+[![Cinnamon result](/assets/images/posts/cinnamon.png)](/assets/images/posts/cinnamon.png)
 
 It's everything I need to visually see at the moment (minus some system stats which I had not yet tackled). It is also consistent. The Linux Mint team has done a great job to build Cinnamon away from GNOME Shell but still provide a consistent look between applications for a bit of a bonus on the eyes.
 
