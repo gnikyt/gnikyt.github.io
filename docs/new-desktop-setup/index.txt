@@ -4,7 +4,7 @@
 
                                New desktop setup
 
-   Dec 11, 2022
+   Dec 11, 2022 — 6.5K
 
 Introduction
 
@@ -159,8 +159,9 @@ Cinnamon
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [12]Github [13]About Me [14]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [12]Github [13]About Me [14]CV [15]RSS
      *
      *
      *
@@ -184,3 +185,4 @@ References
   12. https://github.com/gnikyt
   13. file:///about
   14. file:///assets/files/cv.pdf
+  15. file:///rss.xml

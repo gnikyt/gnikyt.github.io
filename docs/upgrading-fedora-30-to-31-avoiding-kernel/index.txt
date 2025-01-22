@@ -4,7 +4,7 @@
 
              Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7
 
-   Jan 15, 2020
+   Jan 15, 2020 — 1.9K
 
    Fedora 30 was released on April 30th, 2019.
 
@@ -67,8 +67,9 @@ Reboot
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [8]Github [9]About Me [10]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [8]Github [9]About Me [10]CV [11]RSS
      *
      *
      *
@@ -88,3 +89,4 @@ References
    8. https://github.com/gnikyt
    9. file:///about
   10. file:///assets/files/cv.pdf
+  11. file:///rss.xml

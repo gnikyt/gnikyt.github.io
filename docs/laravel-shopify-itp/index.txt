@@ -4,7 +4,7 @@
 
                               Laravel Shopify ITP
 
-   Feb 03, 2021
+   Feb 03, 2021 — 3.1K
 
 Background
 
@@ -88,8 +88,9 @@ Conclusion
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [11]Github [12]About Me [13]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [11]Github [12]About Me [13]CV [14]RSS
      *
      *
      *
@@ -112,3 +113,4 @@ References
   11. https://github.com/gnikyt
   12. file:///about
   13. file:///assets/files/cv.pdf
+  14. file:///rss.xml

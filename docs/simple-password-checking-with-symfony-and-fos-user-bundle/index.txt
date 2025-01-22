@@ -4,7 +4,7 @@
 
            Simple password checking with Symfony and FOS User Bundle
 
-   Aug 28, 2013
+   Aug 28, 2013 — 4.1K
 
    Recently for a project, a co-developer wanted to validate someoneʼs
    record in the database from an Android application and the website was
@@ -115,8 +115,9 @@ class AndroidController extends Controller
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -135,3 +136,4 @@ References
    7. https://github.com/gnikyt
    8. file:///about
    9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

@@ -4,7 +4,7 @@
 
                      When quick and dirty becomes permanent
 
-   Nov 14, 2019
+   Nov 14, 2019 — 8.3K
 
 The Start
 
@@ -252,8 +252,9 @@ Conclusion
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -272,3 +273,4 @@ References
    7. https://github.com/gnikyt
    8. file:///about
    9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

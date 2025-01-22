@@ -4,7 +4,7 @@
 
                                 Pomodoro Method
 
-   Oct 20, 2017
+   Oct 20, 2017 — 4.4K
 
    Iʼve had a history of a bad back and neck, ever since I was a kid. Iʼve
    seen a chiropractor countless times about my issues. Sitting all day at
@@ -118,8 +118,9 @@ Tools
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [9]Github [10]About Me [11]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [9]Github [10]About Me [11]CV [12]RSS
      *
      *
      *
@@ -140,3 +141,4 @@ References
    9. https://github.com/gnikyt
   10. file:///about
   11. file:///assets/files/cv.pdf
+  12. file:///rss.xml

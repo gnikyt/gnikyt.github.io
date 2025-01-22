@@ -4,7 +4,7 @@
 
                               2018 Self reflection
 
-   Feb 06, 2019
+   Feb 06, 2019 — 4.0K
 
    It is a couple of months into 2019 already! I sat down and thought
    about all Iʼve done in 2018 in regards to my digital landscape. On
@@ -95,8 +95,9 @@ Code
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [14]Github [15]About Me [16]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [14]Github [15]About Me [16]CV [17]RSS
      *
      *
      *
@@ -122,3 +123,4 @@ References
   14. https://github.com/gnikyt
   15. file:///about
   16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

@@ -4,7 +4,7 @@
 
                                WP Local with WSL
 
-   Dec 07, 2023
+   Dec 07, 2023 — 5.5K
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided
@@ -151,8 +151,9 @@ Conclusion
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [10]Github [11]About Me [12]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [10]Github [11]About Me [12]CV [13]RSS
      *
      *
      *
@@ -174,3 +175,4 @@ References
   10. https://github.com/gnikyt
   11. file:///about
   12. file:///assets/files/cv.pdf
+  13. file:///rss.xml

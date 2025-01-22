@@ -4,7 +4,7 @@
 
             Get original sized images from a Wordpress Post Gallery
 
-   Nov 08, 2014
+   Nov 08, 2014 — 1.5K
 
    Recently, I was working on a project where I needed to modify an
    existing page that had multiple galleries. This change required me to
@@ -56,8 +56,9 @@ function getGalleryImages($content, $return_size = ʼlargeʼ) {
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -76,3 +77,4 @@ References
    7. https://github.com/gnikyt
    8. file:///about
    9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

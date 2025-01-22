@@ -4,7 +4,7 @@
 
                            shopify_app_whitelist Gem
 
-   Nov 26, 2016
+   Nov 26, 2016 — 1.5K
 
    I regularly use [3]shopifyapp. Itʼs a great way to get an app, embedded
    or not, up and running with Rails.
@@ -39,8 +39,9 @@
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [9]Github [10]About Me [11]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [9]Github [10]About Me [11]CV [12]RSS
      *
      *
      *
@@ -61,3 +62,4 @@ References
    9. https://github.com/gnikyt
   10. file:///about
   11. file:///assets/files/cv.pdf
+  12. file:///rss.xml

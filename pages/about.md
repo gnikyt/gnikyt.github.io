@@ -3,9 +3,11 @@ title: About
 permalink: about
 ---
 
-_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, versatile developer from Newfoundland.
+_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care and expertise.
 
 Outside of that, its **_gnikyt_** (_nɪkɪt_).
+
+You can reach me through [me@gnikyt.com](mailto:me@gnikyt.com).
 
 ## My Rundown
 
@@ -13,23 +15,23 @@ Outside of that, its **_gnikyt_** (_nɪkɪt_).
 
 - Backend systems
 - Integrations between systems
-- Shopify themes and Shopify apps
-- Development consulting
+- Shopify themes, apps, integrations, and extensions
+- Development/technical consulting
 
 ### I regularly develop with
 
 - Go
-- Javascript (NodeJS, Typescript/Javascript)
-- PHP
+- Javascript/Typescript (and it's frameworks)
 
 ### I dabble with
 
 - Python
+- PHP
 - React Native/Flutter
 - Hardware development with BLE and NFC communications
 - Open source contributions
 
-### Some of my pinned work
+### Random Open Source work
 
 - [cq](https://github.com/gnikyt/cq) - Golang; A function-based composible queue.
 - [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) - PHP; A full-featured Laravel package for aiding in Shopify App development

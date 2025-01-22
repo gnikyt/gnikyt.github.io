@@ -4,7 +4,7 @@
 
                               Git release branches
 
-   Mar 10, 2021
+   Mar 10, 2021 — 3.4K
 
    A method I like to utilize internally, which Iʼve been slowly pushing
    into my open source work, is to create branches for each major/minor
@@ -116,8 +116,9 @@ for branch, tag in mm.items():
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -136,3 +137,4 @@ References
    7. https://github.com/gnikyt
    8. file:///about
    9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

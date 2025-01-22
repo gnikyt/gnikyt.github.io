@@ -4,7 +4,7 @@
 
                             Laravel Shopify billing
 
-   Jan 26, 2018
+   Jan 26, 2018 — 956B
 
    Version 2.0.0 was [3]just released which features the baked-in ability
    to turn your Shopify app into a billable app with some simple
@@ -32,8 +32,9 @@
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [10]Github [11]About Me [12]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [10]Github [11]About Me [12]CV [13]RSS
      *
      *
      *
@@ -55,3 +56,4 @@ References
   10. https://github.com/gnikyt
   11. file:///about
   12. file:///assets/files/cv.pdf
+  13. file:///rss.xml

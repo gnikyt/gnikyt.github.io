@@ -4,7 +4,7 @@
 
                               Guts with multisite
 
-   Apr 24, 2016
+   Apr 24, 2016 — 2.9K
 
    This is just a quick and proud update that Iʼve released a lengthy
    update to [3]Guts which includes multisite abilities. Meaning, you can
@@ -91,8 +91,9 @@ Guts::Content.unscoped.where(type: @type)
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [11]Github [12]About Me [13]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [11]Github [12]About Me [13]CV [14]RSS
      *
      *
      *
@@ -115,3 +116,4 @@ References
   11. https://github.com/gnikyt
   12. file:///about
   13. file:///assets/files/cv.pdf
+  14. file:///rss.xml

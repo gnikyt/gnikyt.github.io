@@ -4,7 +4,7 @@
 
                       Developing Shopify themes with teams
 
-   Sep 16, 2014
+   Sep 16, 2014 — 6.1K
 
    This is a simple write up to explain how a team can utilize Git
    versioning to manage a Shopify theme successfully. Itʼs not a
@@ -181,8 +181,9 @@ Final Thoughts
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -201,3 +202,4 @@ References
    7. https://github.com/gnikyt
    8. file:///about
    9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

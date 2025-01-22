@@ -4,7 +4,7 @@
 
                           Setting up Lumen with Redis
 
-   Nov 19, 2017
+   Nov 19, 2017 — 1.2K
 
    This is more of an extension of my previous post "Setting Up Lumen +
    Mail". I wanted to take it a step further and show the basic setup for
@@ -57,8 +57,9 @@ QUEUE_DRIVER=redis
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [7]Github [8]About Me [9]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -77,3 +78,4 @@ References
    7. https://github.com/gnikyt
    8. file:///about
    9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

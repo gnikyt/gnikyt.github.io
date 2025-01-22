@@ -3,7 +3,7 @@ ${inc:templates/_layout_head.html}
 <article class="post">
   <header class="post__head">
     <h1 class="post__title">${title}</h1>
-    <p class="post__meta"><time datetime="${date_ymd}">${date_human}</time></p>
+    <p class="post__meta"><time datetime="${date_ymd}">${date_human}</time> &mdash; ${post_size}</p>
   </header>
 
   ${parsed_md}

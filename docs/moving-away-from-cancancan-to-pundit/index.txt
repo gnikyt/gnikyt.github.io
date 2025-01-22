@@ -4,7 +4,7 @@
 
                       Moving away from CanCanCan to Pundit
 
-   Mar 30, 2017
+   Mar 30, 2017 — 4.5K
 
 What is Pundit & CanCanCan
 
@@ -139,8 +139,9 @@ When to use each
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [10]Github [11]About Me [12]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [10]Github [11]About Me [12]CV [13]RSS
      *
      *
      *
@@ -162,3 +163,4 @@ References
   10. https://github.com/gnikyt
   11. file:///about
   12. file:///assets/files/cv.pdf
+  13. file:///rss.xml

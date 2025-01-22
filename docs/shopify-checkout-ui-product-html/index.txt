@@ -4,7 +4,7 @@
 
                   Shopify checkout extension with product HTML
 
-   May 10, 2024
+   May 10, 2024 — 14K
 
 Background
 
@@ -530,8 +530,9 @@ export default function descriptionTransformer(rawHtml, transformer) {
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [8]Github [9]About Me [10]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [8]Github [9]About Me [10]CV [11]RSS
      *
      *
      *
@@ -551,3 +552,4 @@ References
    8. https://github.com/gnikyt
    9. file:///about
   10. file:///assets/files/cv.pdf
+  11. file:///rss.xml

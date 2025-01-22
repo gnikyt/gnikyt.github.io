@@ -53,6 +53,12 @@ process_posts() {
       globals["is_old"]="true"
     fi
 
+    # Get post size.
+    globals["post_size"]=$(du -h --apparent-size "$i" | cut -f1)
+    if [[ ! ${globals["post_size"]} = *K ]]; then
+      globals["post_size"]="${globals["post_size"]}B"
+    fi
+
     # Parse the post template and save result.
     parsed_tpl=$(parse_tpl "${layouts["post"]}")
     target=docs/"${globals["handle"]}"

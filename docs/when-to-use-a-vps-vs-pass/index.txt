@@ -4,7 +4,7 @@
 
                            When to use a VPS vs PaaS
 
-   Mar 08, 2017
+   Mar 08, 2017 — 3.5K
 
 Introduction
 
@@ -90,8 +90,9 @@ Introduction
 
 Ty King
 
-   A self-taught, seasoned, versatile developer from Newfoundland.
-   [13]Github [14]About Me [15]CV
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+   [13]Github [14]About Me [15]CV [16]RSS
      *
      *
      *
@@ -116,3 +117,4 @@ References
   13. https://github.com/gnikyt
   14. file:///about
   15. file:///assets/files/cv.pdf
+  16. file:///rss.xml
