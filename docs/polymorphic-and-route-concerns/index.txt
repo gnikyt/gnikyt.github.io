@@ -4,7 +4,7 @@
 
                  Polymorphic and Route Concerns... who is who?
 
-   Jan 01, 2016 — 5.1K
+   Jan 01, 2016 — 5.1KB
 
    The goal of this post is to outline some tips on easily figuring out
    the parent object for a polymorphic modal/route/controller. Letʼs start

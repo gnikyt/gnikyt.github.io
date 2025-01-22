@@ -4,7 +4,7 @@
 
                           Async Shopify API for Python
 
-   Jun 29, 2020 — 3.9K
+   Jun 29, 2020 — 3.9KB
 
 Introduction
 

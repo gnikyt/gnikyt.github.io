@@ -4,7 +4,7 @@
 
                       Developing Shopify themes with teams
 
-   Sep 16, 2014 — 6.1K
+   Sep 16, 2014 — 6.1KB
 
    This is a simple write up to explain how a team can utilize Git
    versioning to manage a Shopify theme successfully. Itʼs not a

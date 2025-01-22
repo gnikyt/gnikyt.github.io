@@ -4,7 +4,7 @@
 
                         Prisma, Jest, and MySQL testing
 
-   Mar 28, 2024 — 6.5K
+   Mar 28, 2024 — 6.5KB
 
    This is an alternate extension to my previous post, [3]Shopify, Remix,
    Prisma, and Jest.

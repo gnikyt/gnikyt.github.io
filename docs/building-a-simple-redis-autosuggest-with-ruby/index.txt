@@ -4,7 +4,7 @@
 
                  Building a simple Redis autosuggest with Ruby
 
-   Mar 02, 2016 — 5.6K
+   Mar 02, 2016 — 5.6KB
 
    So you have a search box on your website.. an article search, a product
    search.. whatever it may be, you may find yourself the need to display

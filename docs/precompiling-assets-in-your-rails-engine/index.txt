@@ -4,7 +4,7 @@
 
                     Precompiling assets in your Rails Engine
 
-   May 03, 2016 — 2.3K
+   May 03, 2016 — 2.3KB
 
    This will be a quick post to highlight an issue I had where I needed to
    precompile an asset file for my Rails engine that was not to be

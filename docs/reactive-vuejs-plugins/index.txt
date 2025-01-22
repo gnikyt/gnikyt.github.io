@@ -4,7 +4,7 @@
 
                              Reactive VueJS plugins
 
-   Jun 29, 2017 — 4.0K
+   Jun 29, 2017 — 4.0KB
 
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop

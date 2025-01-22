@@ -4,7 +4,7 @@
 
                           Introducing Laravel Shopify
 
-   Aug 09, 2017 — 2.5K
+   Aug 09, 2017 — 2.5KB
 
 Background
 

@@ -4,7 +4,7 @@
 
                      Developing sanely on Windows revisited
 
-   May 10, 2017 — 1.9K
+   May 10, 2017 — 1.9KB
 
    Back in November [3]I wrote a post about how to develop sanely on
    Windows. It was a successful experiment that resulted in a usable

@@ -4,7 +4,7 @@
 
                             Testing with shopify_app
 
-   Jun 21, 2016 — 2.3K
+   Jun 21, 2016 — 2.3KB
 
    [3]shopifyapp is a great Gem to quickly build a Shopify App with Rails.
    It handles all the verifications, authorizations, webhook, and more;

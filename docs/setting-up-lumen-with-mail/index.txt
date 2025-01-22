@@ -4,7 +4,7 @@
 
                           Setting Up Lumen with Mailer
 
-   Nov 19, 2017 — 5.3K
+   Nov 19, 2017 — 5.3KB
 
 What is Lumen
 

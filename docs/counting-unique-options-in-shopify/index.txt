@@ -4,7 +4,7 @@
 
                        Counting unique options in Shopify
 
-   Jun 21, 2016 — 2.0K
+   Jun 21, 2016 — 2.0KB
 
    Ever wanted to quickly display how many of an option a product
    contains?

@@ -4,7 +4,7 @@
 
             Get original sized images from a Wordpress Post Gallery
 
-   Nov 08, 2014 — 1.5K
+   Nov 08, 2014 — 1.5KB
 
    Recently, I was working on a project where I needed to modify an
    existing page that had multiple galleries. This change required me to

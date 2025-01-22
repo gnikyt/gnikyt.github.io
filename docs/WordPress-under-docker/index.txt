@@ -4,7 +4,7 @@
 
                           WordPress Under Docker guide
 
-   Jun 15, 2017 — 3.6K
+   Jun 15, 2017 — 3.6KB
 
 Purpose
 

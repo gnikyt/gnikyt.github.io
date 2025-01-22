@@ -4,7 +4,7 @@
 
                    ActiveRecord and Liquid Drops with Sinatra
 
-   Oct 15, 2015 — 3.7K
+   Oct 15, 2015 — 3.7KB
 
    Normally I use ERB when doing templates but there was a special
    use-case recently where I needed to allow the app user to modify a

@@ -4,7 +4,7 @@
 
                        Blink - Tuned camera notifications
 
-   Nov 28, 2022 — 4.3K
+   Nov 28, 2022 — 4.3KB
 
    Note: This post is geared towards Android devices. Currently unaware of
    a solution for Apple devices.*

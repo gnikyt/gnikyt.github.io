@@ -4,7 +4,7 @@
 
                           Setting up Lumen with Redis
 
-   Nov 19, 2017 — 1.2K
+   Nov 19, 2017 — 1.2KB
 
    This is more of an extension of my previous post "Setting Up Lumen +
    Mail". I wanted to take it a step further and show the basic setup for

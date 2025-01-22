@@ -4,7 +4,7 @@
 
                               Guts with multisite
 
-   Apr 24, 2016 — 2.9K
+   Apr 24, 2016 — 2.9KB
 
    This is just a quick and proud update that Iʼve released a lengthy
    update to [3]Guts which includes multisite abilities. Meaning, you can

@@ -4,7 +4,7 @@
 
                       Moving away from CanCanCan to Pundit
 
-   Mar 30, 2017 — 4.5K
+   Mar 30, 2017 — 4.5KB
 
 What is Pundit & CanCanCan
 

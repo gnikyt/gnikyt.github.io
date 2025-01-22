@@ -4,7 +4,7 @@
 
            Simple password checking with Symfony and FOS User Bundle
 
-   Aug 28, 2013 — 4.1K
+   Aug 28, 2013 — 4.1KB
 
    Recently for a project, a co-developer wanted to validate someoneʼs
    record in the database from an Android application and the website was

@@ -4,7 +4,7 @@
 
                   Laravel Shopify featured on Shopify Dev Blog
 
-   Mar 04, 2021 — 1.7K
+   Mar 04, 2021 — 1.7KB
 
    A couple of weeks ago, Liam Griffin at Shopify reached out to me about
    the Laravel Shopify package, interested in featuring it on Shopifyʼs

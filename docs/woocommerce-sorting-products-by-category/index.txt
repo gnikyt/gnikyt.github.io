@@ -4,7 +4,7 @@
 
                    Woocommerce - Sorting product by category
 
-   Oct 05, 2013 — 6.0K
+   Oct 05, 2013 — 6.0KB
 
    This past week I was assigned to heavily customize a Woocommerce
    install on a clientʼs successful store. What needed to be done on one

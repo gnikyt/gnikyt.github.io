@@ -4,7 +4,7 @@
 
                      Calculating percent saved with Shopify
 
-   Sep 24, 2015 — 2.0K
+   Sep 24, 2015 — 2.0KB
 
    Visually displaying to the customer how much they are saving is a big
    help to driving them towards a purchase. This is a simple snippet and

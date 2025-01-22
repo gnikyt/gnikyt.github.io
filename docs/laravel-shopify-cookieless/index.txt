@@ -4,7 +4,7 @@
 
                           Laravel Shopify - Cookieless
 
-   Jun 29, 2021 — 2.8K
+   Jun 29, 2021 — 2.8KB
 
 This Issue
 

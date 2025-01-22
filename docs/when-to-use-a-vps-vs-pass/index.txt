@@ -4,7 +4,7 @@
 
                            When to use a VPS vs PaaS
 
-   Mar 08, 2017 — 3.5K
+   Mar 08, 2017 — 3.5KB
 
 Introduction
 

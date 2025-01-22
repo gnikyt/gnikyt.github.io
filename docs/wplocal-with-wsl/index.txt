@@ -4,7 +4,7 @@
 
                                WP Local with WSL
 
-   Dec 07, 2023 — 5.5K
+   Dec 07, 2023 — 5.5KB
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided

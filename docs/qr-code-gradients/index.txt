@@ -4,7 +4,7 @@
 
                                QR Code gradients
 
-   Jul 13, 2013 — 3.4K
+   Jul 13, 2013 — 3.4KB
 
    Qr codes and matrices are a great way to share content to an audience,
    it allows anybody to simply put their phone up to the Qr image, scan

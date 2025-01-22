@@ -4,7 +4,7 @@
 
                   Shopify checkout extension with product HTML
 
-   May 10, 2024 — 14K
+   May 10, 2024 — 14KB
 
 Background
 

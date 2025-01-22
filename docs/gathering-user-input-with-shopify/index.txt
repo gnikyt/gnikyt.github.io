@@ -4,7 +4,7 @@
 
                        Gathering user input with Shopify
 
-   Aug 05, 2013 — 4.8K
+   Aug 05, 2013 — 4.8KB
 
    Shopify includes everything you need to setup an online store,
    including free web-based store building software, unlimited ecommerce

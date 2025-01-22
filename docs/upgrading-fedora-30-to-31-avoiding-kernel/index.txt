@@ -4,7 +4,7 @@
 
              Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7
 
-   Jan 15, 2020 — 1.9K
+   Jan 15, 2020 — 1.9KB
 
    Fedora 30 was released on April 30th, 2019.
 

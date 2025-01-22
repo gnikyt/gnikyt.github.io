@@ -4,7 +4,7 @@
 
                                PHPMailer contrib
 
-   Feb 09, 2014 — 1.3K
+   Feb 09, 2014 — 1.3KB
 
    I and a fellow developer were working on updating a two/three-year-old
    plugin we developed for WordPress this week. Its a fairly complex

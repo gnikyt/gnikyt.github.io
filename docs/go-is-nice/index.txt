@@ -4,7 +4,7 @@
 
                                    Go is nice
 
-   Apr 22, 2019 — 1.9K
+   Apr 22, 2019 — 1.9KB
 
    Iʼve been coding with Golang in my spare time for the past year. Itʼs
    been different from the regular day-to-day Python, PHP, and Typescript.

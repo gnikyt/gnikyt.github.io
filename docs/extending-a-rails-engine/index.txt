@@ -4,7 +4,7 @@
 
                             Extending a Rails Engine
 
-   Feb 20, 2016 — 4.3K
+   Feb 20, 2016 — 4.3KB
 
    Redesigning my CMS in Rails has been great fun. There have been many
    challenges faced, and many conquered (like having 100% code coverage

@@ -4,7 +4,7 @@
 
                             Journey to Sucker Punch
 
-   Nov 26, 2016 — 3.9K
+   Nov 26, 2016 — 3.9KB
 
    Background jobs are great. Mailing, data processing, image processing,
    database operations… you name it. If its a repetitive blocking process

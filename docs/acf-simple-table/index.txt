@@ -4,7 +4,7 @@
 
                                 ACF Simple Table
 
-   Jul 18, 2014 — 1.1K
+   Jul 18, 2014 — 1.1KB
 
    Iʼve released a new GitHub repo. Itʼs an add-on for popular [3]ACF
    (Advanced Custom Fields) for WordPress which allows you to create

@@ -4,7 +4,7 @@
 
                          Vuex & Data - Keeping it clean
 
-   Jul 19, 2019 — 1.9K
+   Jul 19, 2019 — 1.9KB
 
 Introduction
 
