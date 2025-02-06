@@ -15,7 +15,7 @@ experienced programmer \| father \| motorcycle enthusiast
 
 ## Currently
 
-Co-founder, CTO at [Shopped](https://shopped.agency/).
+Seeking full time employment and available for hire.
 
 ### Specialization
 
@@ -39,7 +39,7 @@ I adhere to the principle of simplicity and focus in all of my code. Each compon
 
 ## Career Experience
 
-`Dec 2023 - Present`
+`Dec 2023 - Feb 2025`
 **Shopped**, Toronto, Canada
 
 *Role: CTO*
