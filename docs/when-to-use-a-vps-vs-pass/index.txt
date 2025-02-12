@@ -4,7 +4,7 @@
 
                            When to use a VPS vs PaaS
 
-   Mar 08, 2017 — 3.5KB
+   /* Mar 08, 2017 — 3.5KB */
 
 Introduction
 
@@ -99,22 +99,25 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. http://digitalocean.com/
    4. http://linode.com/
    5. http://vultr.com/
    6. http://scaleway/
    7. http://heroku.com/
    8. https://devcenter.heroku.com/articles/procfile
-   9. file:///when-to-use-a-vps-vs-pass/index.md
-  10. file:///when-to-use-a-vps-vs-pass/index.txt
+   9. /when-to-use-a-vps-vs-pass/index.md
+  10. /when-to-use-a-vps-vs-pass/index.txt
   11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///about
+  12. /about
   13. https://github.com/gnikyt
-  14. file:///about
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+  14. /about
+  15. /assets/files/cv.pdf
+  16. /rss.xml

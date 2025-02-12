@@ -4,7 +4,7 @@
 
                           Developing sanely on Windows
 
-   Nov 07, 2016 — 8.2KB
+   /* Nov 07, 2016 — 8.2KB */
 
 Preamble
 
@@ -204,11 +204,14 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://www.cygwin.com/
    4. https://www.ubuntu.com/download/server
    5. http://www.chiark.greenend.org.uk/~sgtatham/putty/
@@ -220,12 +223,12 @@ References
   11. http://www.sql-workbench.net/
   12. http://slack.com/
   13. http://eithermouse.com/
-  14. file:///assets/images/kitty<em>vmrails.png
-  15. file:///developing-sanely-on-windows/index.md
-  16. file:///developing-sanely-on-windows/index.txt
+  14. /assets/images/kitty<em>vmrails.png
+  15. /developing-sanely-on-windows/index.md
+  16. /developing-sanely-on-windows/index.txt
   17. https://creativecommons.org/licenses/by/4.0/
-  18. file:///about
+  18. /about
   19. https://github.com/gnikyt
-  20. file:///about
-  21. file:///assets/files/cv.pdf
-  22. file:///rss.xml
+  20. /about
+  21. /assets/files/cv.pdf
+  22. /rss.xml

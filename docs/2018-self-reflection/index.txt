@@ -4,7 +4,7 @@
 
                               2018 Self reflection
 
-   Feb 06, 2019 — 4.0KB
+   /* Feb 06, 2019 — 4.0KB */
 
    It is a couple of months into 2019 already! I sat down and thought
    about all Iʼve done in 2018 in regards to my digital landscape. On
@@ -88,7 +88,7 @@ Code
 
    [10]MD | [11]TXT | [12]CC-4.0
 
-   This post is 5 years old and may contain outdated information.
+   This post is 6 years old and may contain outdated information.
      __________________________________________________________________
 
    [13]Ty King
@@ -104,23 +104,26 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/gnikyt/movie-barcode
    4. https://github.com/gnikyt/cloudapp-bash
    5. https://github.com/gnikyt/with
    6. https://github.com/gnikyt/laravel-shopify
    7. https://github.com/gnikyt/Basic-Shopify-API
    8. https://system76.com/pop
-   9. file:///thinkpad-t580-on-linux/
-  10. file:///2018-self-reflection/index.md
-  11. file:///2018-self-reflection/index.txt
+   9. /thinkpad-t580-on-linux/
+  10. /2018-self-reflection/index.md
+  11. /2018-self-reflection/index.txt
   12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///about
+  13. /about
   14. https://github.com/gnikyt
-  15. file:///about
-  16. file:///assets/files/cv.pdf
-  17. file:///rss.xml
+  15. /about
+  16. /assets/files/cv.pdf
+  17. /rss.xml

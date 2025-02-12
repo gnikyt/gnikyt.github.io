@@ -4,7 +4,7 @@
 
                  Shopify Node App - Custom multi-tenant support
 
-   Nov 15, 2021 — 9.9KB
+   /* Nov 15, 2021 — 9.9KB */
 
 Introduction
 
@@ -387,16 +387,19 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///shopify-node-app-custom-multi-tenant/index.md
-   4. file:///shopify-node-app-custom-multi-tenant/index.txt
+   1. /rss.xml
+   2. /
+   3. /shopify-node-app-custom-multi-tenant/index.md
+   4. /shopify-node-app-custom-multi-tenant/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
+   6. /about
    7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
-  10. file:///rss.xml
+   8. /about
+   9. /assets/files/cv.pdf
+  10. /rss.xml

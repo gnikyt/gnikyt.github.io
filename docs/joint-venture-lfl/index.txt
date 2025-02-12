@@ -4,7 +4,7 @@
 
                              Joint Venture with LFL
 
-   Nov 15, 2022 — 5.9KB
+   /* Nov 15, 2022 — 5.9KB */
 
 JV
 
@@ -69,22 +69,25 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://leons.ca/
    4. https://www.thebrick.com/
    5. https://furniture.ca/
    6. https://www.linkedin.com/company/little-rocket-inc/
    7. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
    8. https://www.lflgroup.ca/
-   9. file:///joint-venture-lfl/index.md
-  10. file:///joint-venture-lfl/index.txt
+   9. /joint-venture-lfl/index.md
+  10. /joint-venture-lfl/index.txt
   11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///about
+  12. /about
   13. https://github.com/gnikyt
-  14. file:///about
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+  14. /about
+  15. /assets/files/cv.pdf
+  16. /rss.xml

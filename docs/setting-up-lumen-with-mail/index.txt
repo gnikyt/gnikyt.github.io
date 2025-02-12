@@ -4,7 +4,7 @@
 
                           Setting Up Lumen with Mailer
 
-   Nov 19, 2017 — 5.3KB
+   /* Nov 19, 2017 — 5.3KB */
 
 What is Lumen
 
@@ -221,19 +221,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://lumen.laravel.com/
    4. https://laravel.com/docs/5.5/mail#sending-mail
    5. https://laravel.com/docs/5.5/mocking#mail-fake
-   6. file:///setting-up-lumen-with-mail/index.md
-   7. file:///setting-up-lumen-with-mail/index.txt
+   6. /setting-up-lumen-with-mail/index.md
+   7. /setting-up-lumen-with-mail/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml

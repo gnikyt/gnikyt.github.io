@@ -4,7 +4,7 @@
 
                                New desktop setup
 
-   Dec 11, 2022 — 6.5KB
+   /* Dec 11, 2022 — 6.5KB */
 
 Introduction
 
@@ -168,21 +168,24 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///i3-plasma-a-solid-match
-   4. file:///assets/images/posts/gnomeshelllook.png
+   1. /rss.xml
+   2. /
+   3. /i3-plasma-a-solid-match
+   4. /assets/images/posts/gnomeshelllook.png
    5. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
-   6. file:///assets/images/posts/cinnamon.png
+   6. /assets/images/posts/cinnamon.png
    7. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-   8. file:///new-desktop-setup/index.md
-   9. file:///new-desktop-setup/index.txt
+   8. /new-desktop-setup/index.md
+   9. /new-desktop-setup/index.txt
   10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///about
+  11. /about
   12. https://github.com/gnikyt
-  13. file:///about
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+  13. /about
+  14. /assets/files/cv.pdf
+  15. /rss.xml

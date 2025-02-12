@@ -4,7 +4,7 @@
 
                                  WP User Themes
 
-   May 21, 2015 — 320B
+   /* May 21, 2015 — 320B */
 
    Iʼve released a unit-tested plugin called Wp User Themes.
 
@@ -31,17 +31,20 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/gnikyt/wp-user-themes
-   4. file:///wp-user-themes/index.md
-   5. file:///wp-user-themes/index.txt
+   4. /wp-user-themes/index.md
+   5. /wp-user-themes/index.txt
    6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///about
+   7. /about
    8. https://github.com/gnikyt
-   9. file:///about
-  10. file:///assets/files/cv.pdf
-  11. file:///rss.xml
+   9. /about
+  10. /assets/files/cv.pdf
+  11. /rss.xml

@@ -4,7 +4,7 @@
 
                  Shopify Checkout Extension to backend fetching
 
-   Feb 27, 2024 — 3.0KB
+   /* Feb 27, 2024 — 3.0KB */
 
    There are several posts around about people having issues figuring out
    how to send a fetch request from their checkout extension to their app
@@ -118,16 +118,19 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///generate-type-definitions-without-emitting-js/index.md
-   4. file:///generate-type-definitions-without-emitting-js/index.txt
+   1. /rss.xml
+   2. /
+   3. /generate-type-definitions-without-emitting-js/index.md
+   4. /generate-type-definitions-without-emitting-js/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
+   6. /about
    7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
-  10. file:///rss.xml
+   8. /about
+   9. /assets/files/cv.pdf
+  10. /rss.xml

@@ -4,7 +4,7 @@
 
                           Introducing Laravel Shopify
 
-   Aug 09, 2017 — 2.5KB
+   /* Aug 09, 2017 — 2.5KB */
 
 Background
 
@@ -79,19 +79,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/Shopify/shopify<em>app
    4. https://github.com/gnikyt/laravel-shopify
    5. https://github.com/gnikyt/laravel-shopify/wiki
-   6. file:///introducing-Shopify-for-laravel/index.md
-   7. file:///introducing-Shopify-for-laravel/index.txt
+   6. /introducing-Shopify-for-laravel/index.md
+   7. /introducing-Shopify-for-laravel/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml

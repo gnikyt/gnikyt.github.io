@@ -4,7 +4,7 @@
 
                                PHPMailer contrib
 
-   Feb 09, 2014 — 1.3KB
+   /* Feb 09, 2014 — 1.3KB */
 
    I and a fellow developer were working on updating a two/three-year-old
    plugin we developed for WordPress this week. Its a fairly complex
@@ -30,7 +30,7 @@
 
    [6]MD | [7]TXT | [8]CC-4.0
 
-   This post is 10 years old and may contain outdated information.
+   This post is 11 years old and may contain outdated information.
      __________________________________________________________________
 
    [9]Ty King
@@ -46,19 +46,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. http://phpmailer.worxware.com/
    4. http://codex.wordpress.org/Function<em>Reference/wp</em>mail
    5. https://github.com/PHPMailer/PHPMailer/issues/180
-   6. file:///phpmailer-contrib/index.md
-   7. file:///phpmailer-contrib/index.txt
+   6. /phpmailer-contrib/index.md
+   7. /phpmailer-contrib/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml

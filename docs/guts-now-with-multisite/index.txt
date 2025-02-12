@@ -4,7 +4,7 @@
 
                               Guts with multisite
 
-   Apr 24, 2016 — 2.9KB
+   /* Apr 24, 2016 — 2.9KB */
 
    This is just a quick and proud update that Iʼve released a lengthy
    update to [3]Guts which includes multisite abilities. Meaning, you can
@@ -100,20 +100,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/gnikyt/guts
    4. https://github.com/gnikyt/guts/pull/1
    5. http://www.rubydoc.info/gems/guts/1.1.0
    6. https://kapeli.com/dash
-   7. file:///guts-now-with-multisite/index.md
-   8. file:///guts-now-with-multisite/index.txt
+   7. /guts-now-with-multisite/index.md
+   8. /guts-now-with-multisite/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

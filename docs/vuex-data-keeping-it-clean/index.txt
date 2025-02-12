@@ -4,7 +4,7 @@
 
                          Vuex & Data - Keeping it clean
 
-   Jul 19, 2019 — 1.9KB
+   /* Jul 19, 2019 — 1.9KB */
 
 Introduction
 
@@ -80,16 +80,19 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///vuex-data-keeping-it-clean/index.md
-   4. file:///vuex-data-keeping-it-clean/index.txt
+   1. /rss.xml
+   2. /
+   3. /vuex-data-keeping-it-clean/index.md
+   4. /vuex-data-keeping-it-clean/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
+   6. /about
    7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
-  10. file:///rss.xml
+   8. /about
+   9. /assets/files/cv.pdf
+  10. /rss.xml

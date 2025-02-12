@@ -4,7 +4,7 @@
 
                              Thinkpad T580 on Linux
 
-   Jan 08, 2019 — 5.9KB
+   /* Jan 08, 2019 — 5.9KB */
 
    Lenovo is known for creating configurable machines that are great for
    both business and consumers, which are easily extendable or fixable by
@@ -189,20 +189,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://support.lenovo.com/ca/en/solutions/pd031426
    4. https://system76.com/pop
    5. https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html
    6. https://github.com/JackHack96/PulseEffects-Presets
-   7. file:///thinkpad-t580-on-linux/index.md
-   8. file:///thinkpad-t580-on-linux/index.txt
+   7. /thinkpad-t580-on-linux/index.md
+   8. /thinkpad-t580-on-linux/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

@@ -4,7 +4,7 @@
 
                           WordPress Under Docker guide
 
-   Jun 15, 2017 — 3.6KB
+   /* Jun 15, 2017 — 3.6KB */
 
 Purpose
 
@@ -128,20 +128,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://docs.docker.com/compose/
    4. https://hub.docker.com/_/wordpress/
    5. https://github.com/gnikyt/wordpress-docker-quickstart
    6. https://github.com/gnikyt/wordpress-docker-quickstart
-   7. file:///WordPress-under-docker/index.md
-   8. file:///WordPress-under-docker/index.txt
+   7. /WordPress-under-docker/index.md
+   8. /WordPress-under-docker/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

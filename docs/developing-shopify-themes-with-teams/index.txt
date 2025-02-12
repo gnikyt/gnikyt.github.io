@@ -4,7 +4,7 @@
 
                       Developing Shopify themes with teams
 
-   Sep 16, 2014 — 6.1KB
+   /* Sep 16, 2014 — 6.1KB */
 
    This is a simple write up to explain how a team can utilize Git
    versioning to manage a Shopify theme successfully. Itʼs not a
@@ -190,16 +190,19 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///developing-shopify-themes-with-teams/index.md
-   4. file:///developing-shopify-themes-with-teams/index.txt
+   1. /rss.xml
+   2. /
+   3. /developing-shopify-themes-with-teams/index.md
+   4. /developing-shopify-themes-with-teams/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
+   6. /about
    7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
-  10. file:///rss.xml
+   8. /about
+   9. /assets/files/cv.pdf
+  10. /rss.xml

@@ -64,6 +64,7 @@ process_posts() {
 
     # Create text and Markdown versions.
     text=$(lynx --stdin --dump < "$target"/index.html)
+    text=$(echo "$text" | sed "s#file://##g")
     echo "$text" > "$target"/index.txt
     cp posts/"$source" "$target"/index.md
 

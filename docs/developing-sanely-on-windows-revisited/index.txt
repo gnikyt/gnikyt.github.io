@@ -4,7 +4,7 @@
 
                      Developing sanely on Windows revisited
 
-   May 10, 2017 — 1.9KB
+   /* May 10, 2017 — 1.9KB */
 
    Back in November [3]I wrote a post about how to develop sanely on
    Windows. It was a successful experiment that resulted in a usable
@@ -63,20 +63,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///developing-sanely-on-windows
+   1. /rss.xml
+   2. /
+   3. /developing-sanely-on-windows
    4. https://msdn.microsoft.com/en-us/commandline/wsl/about
    5. https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/
-   6. file:///assets/images/0000/vs-code-wsl.png
-   7. file:///developing-sanely-on-windows-revisited/index.md
-   8. file:///developing-sanely-on-windows-revisited/index.txt
+   6. /assets/images/0000/vs-code-wsl.png
+   7. /developing-sanely-on-windows-revisited/index.md
+   8. /developing-sanely-on-windows-revisited/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

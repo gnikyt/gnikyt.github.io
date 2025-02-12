@@ -4,7 +4,7 @@
 
                Basic Symfony Flex with Symfony Server Dockerized
 
-   Feb 04, 2020 — 5.5KB
+   /* Feb 04, 2020 — 5.5KB */
 
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with "recipes". It provides a way to create a very lean
@@ -171,18 +171,21 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://symfony.com/doc/current/quick<em>tour/flex</em>recipes.html
    4. https://symfony.com/doc/current/setup/symfony_server.html
-   5. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
-   6. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
+   5. /basic-symfony-flex-with-symfony-server-dockerized/index.md
+   6. /basic-symfony-flex-with-symfony-server-dockerized/index.txt
    7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///about
+   8. /about
    9. https://github.com/gnikyt
-  10. file:///about
-  11. file:///assets/files/cv.pdf
-  12. file:///rss.xml
+  10. /about
+  11. /assets/files/cv.pdf
+  12. /rss.xml

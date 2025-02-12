@@ -4,7 +4,7 @@
 
                           Laravel Shopify - Cookieless
 
-   Jun 29, 2021 — 2.8KB
+   /* Jun 29, 2021 — 2.8KB */
 
 This Issue
 
@@ -98,20 +98,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/gnikyt/laravel-shopify/issues/744
    4. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
    5. https://github.com/lucasmichot
    6. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-   7. file:///laravel-shopify-cookieless/index.md
-   8. file:///laravel-shopify-cookieless/index.txt
+   7. /laravel-shopify-cookieless/index.md
+   8. /laravel-shopify-cookieless/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

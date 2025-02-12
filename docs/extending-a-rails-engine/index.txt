@@ -4,7 +4,7 @@
 
                             Extending a Rails Engine
 
-   Feb 20, 2016 — 4.3KB
+   /* Feb 20, 2016 — 4.3KB */
 
    Redesigning my CMS in Rails has been great fun. There have been many
    challenges faced, and many conquered (like having 100% code coverage
@@ -133,21 +133,24 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality
    4. http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers
    5. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require</em>dependency
    6. http://guides.rubyonrails.org/layouts<em>and</em>rendering.html#understanding-yield
    7. http://guides.rubyonrails.org/layouts<em>and</em>rendering.html#using-the-content-for-method
-   8. file:///extending-a-rails-engine/index.md
-   9. file:///extending-a-rails-engine/index.txt
+   8. /extending-a-rails-engine/index.md
+   9. /extending-a-rails-engine/index.txt
   10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///about
+  11. /about
   12. https://github.com/gnikyt
-  13. file:///about
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+  13. /about
+  14. /assets/files/cv.pdf
+  15. /rss.xml

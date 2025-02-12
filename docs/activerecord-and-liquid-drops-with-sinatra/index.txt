@@ -4,7 +4,7 @@
 
                    ActiveRecord and Liquid Drops with Sinatra
 
-   Oct 15, 2015 — 3.7KB
+   /* Oct 15, 2015 — 3.7KB */
 
    Normally I use ERB when doing templates but there was a special
    use-case recently where I needed to allow the app user to modify a
@@ -161,19 +161,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. http://liquidmarkup.org/
    4. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
    5. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-   6. file:///activerecord-and-liquid-drops-with-sinatra/index.md
-   7. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
+   6. /activerecord-and-liquid-drops-with-sinatra/index.md
+   7. /activerecord-and-liquid-drops-with-sinatra/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml

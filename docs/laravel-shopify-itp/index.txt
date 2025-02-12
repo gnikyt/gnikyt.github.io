@@ -4,7 +4,7 @@
 
                               Laravel Shopify ITP
 
-   Feb 03, 2021 — 3.1KB
+   /* Feb 03, 2021 — 3.1KB */
 
 Background
 
@@ -97,20 +97,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/gnikyt/laravel-shopify
-   4. file:///assets/images/2021/01/ls-ask.png
-   5. file:///assets/images/2021/01/ls-ask.png
+   4. /assets/images/2021/01/ls-ask.png
+   5. /assets/images/2021/01/ls-ask.png
    6. https://github.com/gnikyt/laravel-shopify/wiki/ITP
-   7. file:///laravel-shopify-itp/index.md
-   8. file:///laravel-shopify-itp/index.txt
+   7. /laravel-shopify-itp/index.md
+   8. /laravel-shopify-itp/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

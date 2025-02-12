@@ -4,7 +4,7 @@
 
                         Shopify Remix, Prisma, and Jest
 
-   Jan 10, 2024 — 8.8KB
+   /* Jan 10, 2024 — 8.8KB */
 
 Introduction
 
@@ -346,17 +346,20 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
-   4. file:///shopify-remix-prisma-and-jest/index.md
-   5. file:///shopify-remix-prisma-and-jest/index.txt
+   4. /shopify-remix-prisma-and-jest/index.md
+   5. /shopify-remix-prisma-and-jest/index.txt
    6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///about
+   7. /about
    8. https://github.com/gnikyt
-   9. file:///about
-  10. file:///assets/files/cv.pdf
-  11. file:///rss.xml
+   9. /about
+  10. /assets/files/cv.pdf
+  11. /rss.xml

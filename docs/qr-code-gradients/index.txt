@@ -4,7 +4,7 @@
 
                                QR Code gradients
 
-   Jul 13, 2013 — 3.4KB
+   /* Jul 13, 2013 — 3.4KB */
 
    Qr codes and matrices are a great way to share content to an audience,
    it allows anybody to simply put their phone up to the Qr image, scan
@@ -90,20 +90,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/endroid/EndroidQrCodeBundle
    4. http://symfony.com/
    5. http://silex.sensiolabs.org/
    6. http://www.imagemagick.org/script/index.php
-   7. file:///qr-code-gradients/index.md
-   8. file:///qr-code-gradients/index.txt
+   7. /qr-code-gradients/index.md
+   8. /qr-code-gradients/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

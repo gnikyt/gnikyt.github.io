@@ -4,7 +4,7 @@
 
                            shopify_app_whitelist Gem
 
-   Nov 26, 2016 — 1.5KB
+   /* Nov 26, 2016 — 1.5KB */
 
    I regularly use [3]shopifyapp. Itʼs a great way to get an app, embedded
    or not, up and running with Rails.
@@ -48,18 +48,21 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/Shopify/shopify<em>app
    4. https://github.com/gnikyt/shopify<em>app</em>whitelist
-   5. file:///shopify-app-whitelist-gem/index.md
-   6. file:///shopify-app-whitelist-gem/index.txt
+   5. /shopify-app-whitelist-gem/index.md
+   6. /shopify-app-whitelist-gem/index.txt
    7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///about
+   8. /about
    9. https://github.com/gnikyt
-  10. file:///about
-  11. file:///assets/files/cv.pdf
-  12. file:///rss.xml
+  10. /about
+  11. /assets/files/cv.pdf
+  12. /rss.xml

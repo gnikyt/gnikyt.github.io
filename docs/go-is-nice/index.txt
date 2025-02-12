@@ -4,7 +4,7 @@
 
                                    Go is nice
 
-   Apr 22, 2019 — 1.9KB
+   /* Apr 22, 2019 — 1.9KB */
 
    Iʼve been coding with Golang in my spare time for the past year. Itʼs
    been different from the regular day-to-day Python, PHP, and Typescript.
@@ -57,20 +57,23 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/gnikyt/gochain
    4. https://github.com/gnikyt/http<em>shopify</em>webhook
    5. https://github.com/gnikyt/gowith
    6. https://github.com/gnikyt/swf
-   7. file:///go-is-nice/index.md
-   8. file:///go-is-nice/index.txt
+   7. /go-is-nice/index.md
+   8. /go-is-nice/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///about
+  10. /about
   11. https://github.com/gnikyt
-  12. file:///about
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  12. /about
+  13. /assets/files/cv.pdf
+  14. /rss.xml

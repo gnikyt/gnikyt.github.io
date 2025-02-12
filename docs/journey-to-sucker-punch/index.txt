@@ -4,7 +4,7 @@
 
                             Journey to Sucker Punch
 
-   Nov 26, 2016 — 3.9KB
+   /* Nov 26, 2016 — 3.9KB */
 
    Background jobs are great. Mailing, data processing, image processing,
    database operations… you name it. If its a repetitive blocking process
@@ -99,22 +99,25 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/collectiveidea/delayed<em>job
    4. https://github.com/resque/resque
    5. https://github.com/mperham/sidekiq
    6. https://redis.io/
    7. https://github.com/brandonhilkert/sucker<em>punch
    8. http://brandonhilkert.com/
-   9. file:///journey-to-sucker-punch/index.md
-  10. file:///journey-to-sucker-punch/index.txt
+   9. /journey-to-sucker-punch/index.md
+  10. /journey-to-sucker-punch/index.txt
   11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///about
+  12. /about
   13. https://github.com/gnikyt
-  14. file:///about
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+  14. /about
+  15. /assets/files/cv.pdf
+  16. /rss.xml

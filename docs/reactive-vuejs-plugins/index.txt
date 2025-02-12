@@ -4,7 +4,7 @@
 
                              Reactive VueJS plugins
 
-   Jun 29, 2017 — 4.0KB
+   /* Jun 29, 2017 — 4.0KB */
 
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop
@@ -157,18 +157,21 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://vuejs.org/v2/guide/plugins.html
    4. https://vuejs.org/v2/guide/reactivity.html
-   5. file:///reactive-vuejs-plugins/index.md
-   6. file:///reactive-vuejs-plugins/index.txt
+   5. /reactive-vuejs-plugins/index.md
+   6. /reactive-vuejs-plugins/index.txt
    7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///about
+   8. /about
    9. https://github.com/gnikyt
-  10. file:///about
-  11. file:///assets/files/cv.pdf
-  12. file:///rss.xml
+  10. /about
+  11. /assets/files/cv.pdf
+  12. /rss.xml

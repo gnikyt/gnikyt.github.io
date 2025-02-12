@@ -4,7 +4,7 @@
 
             Get original sized images from a Wordpress Post Gallery
 
-   Nov 08, 2014 — 1.5KB
+   /* Nov 08, 2014 — 1.5KB */
 
    Recently, I was working on a project where I needed to modify an
    existing page that had multiple galleries. This change required me to
@@ -65,16 +65,19 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.md
-   4. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.txt
+   1. /rss.xml
+   2. /
+   3. /get-original-sized-images-from-a-wordpress-post-gallery/index.md
+   4. /get-original-sized-images-from-a-wordpress-post-gallery/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///about
+   6. /about
    7. https://github.com/gnikyt
-   8. file:///about
-   9. file:///assets/files/cv.pdf
-  10. file:///rss.xml
+   8. /about
+   9. /assets/files/cv.pdf
+  10. /rss.xml

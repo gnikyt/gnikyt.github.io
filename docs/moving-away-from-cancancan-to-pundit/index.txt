@@ -4,7 +4,7 @@
 
                       Moving away from CanCanCan to Pundit
 
-   Mar 30, 2017 — 4.5KB
+   /* Mar 30, 2017 — 4.5KB */
 
 What is Pundit & CanCanCan
 
@@ -148,19 +148,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. https://github.com/elabs/pundit
    4. https://github.com/CanCanCommunity/cancancan
    5. https://patch-diff.githubusercontent.com/raw/tyler-king/guts/pull/9.patch
-   6. file:///moving-away-from-cancancan-to-pundit/index.md
-   7. file:///moving-away-from-cancancan-to-pundit/index.txt
+   6. /moving-away-from-cancancan-to-pundit/index.md
+   7. /moving-away-from-cancancan-to-pundit/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml

@@ -4,7 +4,7 @@
 
                                WP Local with WSL
 
-   Dec 07, 2023 — 5.5KB
+   /* Dec 07, 2023 — 5.5KB */
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided
@@ -160,19 +160,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///assets/images/posts/wplocal<em>running.png
+   1. /rss.xml
+   2. /
+   3. /assets/images/posts/wplocal<em>running.png
    4. https://community.localwp.com/u/robert77
-   5. file:///assets/images/posts/wplocal<em>sudo.png
-   6. file:///wplocal-with-wsl/index.md
-   7. file:///wplocal-with-wsl/index.txt
+   5. /assets/images/posts/wplocal<em>sudo.png
+   6. /wplocal-with-wsl/index.md
+   7. /wplocal-with-wsl/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml

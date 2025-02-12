@@ -4,7 +4,7 @@
 
                  Building a simple Redis autosuggest with Ruby
 
-   Mar 02, 2016 — 5.6KB
+   /* Mar 02, 2016 — 5.6KB */
 
    So you have a search box on your website.. an article search, a product
    search.. whatever it may be, you may find yourself the need to display
@@ -190,19 +190,22 @@ Ty King
      *
      *
      *
+     *
+     *
+     *
 
 References
 
-   1. file:///rss.xml
-   2. file:///
+   1. /rss.xml
+   2. /
    3. http://redis.io/commands/ZADD
    4. http://redis.io/commands/ZRANGE
    5. http://redis.io/commands/ZINTERSTORE
-   6. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
-   7. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
+   6. /building-a-simple-redis-autosuggest-with-ruby/index.md
+   7. /building-a-simple-redis-autosuggest-with-ruby/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///about
+   9. /about
   10. https://github.com/gnikyt
-  11. file:///about
-  12. file:///assets/files/cv.pdf
-  13. file:///rss.xml
+  11. /about
+  12. /assets/files/cv.pdf
+  13. /rss.xml
