@@ -108,18 +108,18 @@
         </p>
 
         <p>
-          <a href="/assets/images/posts/wplocal%3Cem%3Erunning.png"><img alt="WP Local Running inside WSL" src=
-          "/assets/images/posts/wplocal%3C/em%3Erunning.png"></a>
+          <a href="/assets/images/posts/wplocal_running.png"><img alt="WP Local Running inside WSL" src=
+          "/assets/images/posts/wplocal_running.png"></a>
         </p>
 
         <p>
           Although its open and running, if you immediately tried to connect to WP Engine and pull down a project,
-          you'll have displays with errors pop up such as the inability for WP Local to ask for priviliages (sudo) and
+          you’ll have displays with errors pop up such as the inability for WP Local to ask for priviliages (sudo) and
           issues for it to properly configure NGINX.
         </p>
 
         <p>
-          With a lot of digging around the web to solve both issues... I came across a great post by <a href=
+          With a lot of digging around the web to solve both issues… I came across a great post by <a href=
           "https://community.localwp.com/u/robert77">robert77</a> on the WP Local Community Forums which I will outline
           below.
         </p>
@@ -131,7 +131,7 @@
         <p>
           As mentioned earlier, not all dependencies we actually end up being installed. I am unsure if the Debian
           package defines the dependencies to be installed, or they error upon installing (I did not see an error in my
-          case), but... we need more packages regardless!
+          case), but… we need more packages regardless!
         </p>
 
         <p>
@@ -143,8 +143,12 @@
           Next, run:
         </p>
 
-        <pre><code>sudo apt-get -y install libaio1 libncurses5 libnss3-tools rsync shared-mime-info desktop-file-utils libxshmfence1 libglu1 libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 libgtk-3-0 libgbm-dev libasound2 libnuma-dev libxslt1.1 lxqt-sudo libzip4
-</code></pre>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class=
+          "at">-y</span> install libaio1 libncurses5 libnss3-tools rsync shared-mime-info desktop-file-utils libxshmfence1 libglu1 libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 libgtk-3-0 libgbm-dev libasound2 libnuma-dev libxslt1.1 lxqt-sudo libzip4</span></code></pre>
+        </div>
+
         <p>
           This will ensure were able to display a GUI for the privilaged requests, rync is installed for Local to use,
           and other items.
@@ -154,14 +158,24 @@
           Next we need to download a couple packages manually:
         </p>
 
-        <pre><code>curl -O http://snapshot.debian.org/archive/debian/20190501T215844Z/pool/main/g/glibc/multiarch-support_2.28-10_amd64.deb
-sudo dpkg -i multiarch-support_2.28-10_amd64.deb
-</code></pre>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="ex">curl</span> <span class=
+          "at">-O</span> http://snapshot.debian.org/archive/debian/20190501T215844Z/pool/main/g/glibc/multiarch-support_2.28-10_amd64.deb</span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class=
+"at">-i</span> multiarch-support_2.28-10_amd64.deb</span></code></pre>
+        </div>
 
-        <pre><code>curl -O http://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb
-sudo dpkg -i libjpeg8_8d1-2_amd64.deb
-sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig.so.4
-</code></pre>
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="ex">curl</span> <span class=
+          "at">-O</span> http://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb</span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class=
+"at">-i</span> libjpeg8_8d1-2_amd64.deb</span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class=
+"fu">sudo</span> cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig.so.4</span></code></pre>
+        </div>
+
         <p>
           This takes care of the needed dependencies.
         </p>
@@ -177,12 +191,16 @@ sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig
 
         <p>
           Running <code>sudo nano /usr/bin/kdesudo</code> should open a new file. Inside the file, paste the following
-          to use LxQT's prompt:
+          to use LxQT’s prompt:
         </p>
 
-        <pre><code>#!/bin/bash
-/usr/bin/lxqt-sudo $7
-</code></pre>
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href=
+          "#cb4-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class=
+"ex">/usr/bin/lxqt-sudo</span> <span class="va">$7</span></span></code></pre>
+        </div>
+
         <p>
           Then run <code>sudo chmod +x /usr/bin/kdesudo</code> to allow it to be executable.
         </p>
@@ -192,8 +210,8 @@ sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig
         </p>
 
         <p>
-          <a href="/assets/images/posts/wplocal%3Cem%3Esudo.png"><img alt="LxQT Sudo GUI" src=
-          "/assets/images/posts/wplocal%3C/em%3Esudo.png"></a>
+          <a href="/assets/images/posts/wplocal_sudo.png"><img alt="LxQT Sudo GUI" src=
+          "/assets/images/posts/wplocal_sudo.png"></a>
         </p>
 
         <h2 id="nginx-fix">
@@ -205,8 +223,14 @@ sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig
           unable to. To fix this, run the following:
         </p>
 
-        <pre><code>sudo setcap 'cap_net_bind_service=+ep' /opt/Local/resources/extraResources/lightning-services/nginx-[version]/bin/linux/sbin/nginx`
-</code></pre>
+        <div class="sourceCode" id="cb5">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" href=
+          "#cb5-1" tabindex="-1"></a><span class="fu">sudo</span> setcap <span class=
+          "st">'cap_net_bind_service=+ep'</span> /opt/Local/resources/extraResources/lightning-services/nginx-<span class=
+          "pp">[</span><span class="ss">version</span><span class="pp">]</span>/bin/linux/sbin/nginx<span class=
+          "kw">`</span></span></code></pre>
+        </div>
+
         <p>
           Replacing <code>[version]</code> with the current NGINX version listed in the directory, in my case it was
           <code>1.16.0+7</code>.
@@ -217,9 +241,9 @@ sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig
         </h2>
 
         <p>
-          Once completed, recommendation would be to change WP Local to use "localhost" instead of "Site Domains", but
-          should you choose to use "Site Domains", you will need to add an entry to your Windows' hosts file
-          (<code>C:Windowssystem32driversetchosts</code>) for the domain. For example, if your project was
+          Once completed, recommendation would be to change WP Local to use “localhost” instead of “Site Domains”, but
+          should you choose to use “Site Domains”, you will need to add an entry to your Windows’ hosts file
+          (<code>C:\Windows\system32\drivers\etc\hosts</code>) for the domain. For example, if your project was
           <code>jumping-bean.local</code> you would need to add <code>127.0.0.1 jumping-bean.local</code> to the hosts
           file.
         </p>
@@ -235,11 +259,11 @@ sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig
         </h2>
 
         <p>
-          If you're curious on how you can pull down a project with WP Local and connect it to either a new or existing
+          If you’re curious on how you can pull down a project with WP Local and connect it to either a new or existing
           repository, then it can be achieved by doing the following steps, at a high level:
         </p>
 
-        <ol>
+        <ol type="1">
           <li>Pull down the project with WP Local
           </li>
 
@@ -265,14 +289,23 @@ sudo cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig
           Script:
         </p>
 
-        <pre><code>cs app/public &amp;& \
-git init &amp;& \
-git remote add origin [url] &amp;& \
-git fetch origin master &amp;& \
-git reset --hard origin/master
-</code></pre>
+        <div class="sourceCode" id="cb6">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" href=
+          "#cb6-1" tabindex="-1"></a><span class="ex">cs</span> app/public <span class="kw">&amp;&</span> <span class=
+          "dt">\</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="fu">git</span> init <span class=
+"kw">&amp;&</span> <span class="dt">\</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class=
+"fu">git</span> remote add origin <span class="pp">[</span><span class="ss">url</span><span class=
+"pp">]</span> <span class="kw">&amp;&</span> <span class="dt">\</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a><span class=
+"fu">git</span> fetch origin master <span class="kw">&amp;&</span> <span class="dt">\</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a><span class="fu">git</span> reset <span class=
+"at">--hard</span> origin/master</span></code></pre>
+        </div>
+
         <p>
-          Replacing <code>[url]</code> with your repository's URL.
+          Replacing <code>[url]</code> with your repository’s URL.
         </p>
 
         <p>
@@ -285,7 +318,7 @@ git reset --hard origin/master
         </h2>
 
         <p>
-          That's it! A very helpful post from robert77 leads to a working WP Local installation. When previewing the
+          That’s it! A very helpful post from robert77 leads to a working WP Local installation. When previewing the
           site, WSL even opens your default browser (on Windows) just fine.
         </p>
 
@@ -314,7 +347,7 @@ git reset --hard origin/master
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

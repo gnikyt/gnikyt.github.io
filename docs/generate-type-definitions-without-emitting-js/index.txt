@@ -8,7 +8,7 @@
 
    There are several posts around about people having issues figuring out
    how to send a fetch request from their checkout extension to their app
-   backend (Remix). Shopifyʼs documentation around this is rather limited
+   backend (Remix). Shopify’s documentation around this is rather limited
    as well. So, I have put together a small example of how you can achieve
    this!
 
@@ -24,6 +24,7 @@
 
    Create a new file in your extension directory called useSessionFetch.ts
    and paste the following contents:
+
 // extensions/[your-ext]/useSessionFetch.ts
 
 import type { SessionToken } from "@shopify/ui-extensions/checkout";
@@ -46,7 +47,7 @@ export default function useSessionFetch(sessionToken: SessionToken) {
       ...(init || {}),
       headers: {
         ...(init && init.headers ? init.headers : {}),
-        Authorization: `Bearer `,
+        Authorization: `Bearer ${token}`,
       },
     });
   };
@@ -54,10 +55,11 @@ export default function useSessionFetch(sessionToken: SessionToken) {
 
    This function will accept the session token service and return a
    function you can use instead of fetch. Upon calling it, the code will
-   automatically get a session token to append to the fetch requestʼs
+   automatically get a session token to append to the fetch request’s
    headers. Its really just a small but helpful hook to wrap around fetch.
 
    To utilize this in your extension, example:
+
 // extensions/[your-ext]/Checkout.tsx
 
 import { useSessionToken } from "@shopify/ui-extensions-react/checkout";
@@ -67,8 +69,8 @@ function Extension() {
   const sessionToken = useSessionToken();
   const sessionFetch = useSessionFetch(sessionToken);
 
-  useEffect(() &ge; {
-    (async () &ge; {
+  useEffect(() => {
+    (async () => {
       // Use `sessionFetch` instead of `fetch`
       const response = await sessionFetch("/some/path/to/remix/backend");
       if (response.ok) {
@@ -82,6 +84,7 @@ function Extension() {
 }
 
    On your backend:
+
 // routes/some.path.to.remix.backend
 
 import { authenticate } from "../shopify.server";
@@ -125,6 +128,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /generate-type-definitions-without-emitting-js/index.md
@@ -135,3 +139,69 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-1
+  13. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-2
+  14. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-3
+  15. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-4
+  16. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-5
+  17. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-6
+  18. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-7
+  19. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-8
+  20. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-9
+  21. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-10
+  22. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-11
+  23. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-12
+  24. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-13
+  25. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-14
+  26. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-15
+  27. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-16
+  28. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-17
+  29. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-18
+  30. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-19
+  31. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-20
+  32. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-21
+  33. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-22
+  34. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-23
+  35. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-24
+  36. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-25
+  37. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-26
+  38. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb2-27
+  39. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-1
+  40. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-2
+  41. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-3
+  42. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-4
+  43. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-5
+  44. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-6
+  45. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-7
+  46. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-8
+  47. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-9
+  48. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-10
+  49. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-11
+  50. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-12
+  51. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-13
+  52. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-14
+  53. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-15
+  54. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-16
+  55. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-17
+  56. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-18
+  57. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-19
+  58. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-20
+  59. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-21
+  60. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb3-22
+  61. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-1
+  62. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-2
+  63. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-3
+  64. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-4
+  65. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-5
+  66. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-6
+  67. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-7
+  68. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-8
+  69. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-9
+  70. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-10
+  71. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-11
+  72. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-12
+  73. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-13
+  74. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-14
+  75. localhost/tmp/lynxXXXX7FvNfI/L3268443-9326TMP.html#cb4-15

@@ -75,48 +75,75 @@
 
         <p>
           Recently, I was working on a project where I needed to modify an existing page that had multiple galleries.
-          This change required me to have access to the original uploaded images. Here's a simple function I wrote
+          This change required me to have access to the original uploaded images. Here’s a simple function I wrote
           which returns the images easily in an array format.
         </p>
 
-        <pre><code># Input
-Hey comes see my gallery! [gallery ids="12,124,342]
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="co"># Input</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class=
+"ex">Hey</span> comes see my gallery! [gallery ids=<span class="st">"12,124,342]</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="st"># Code</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="va">$images</span><span class=
+"st"> = getGalleryImages(get_the_content());</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="st"># Output</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="st">Array (</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class=
+"st">  [0] =&gt; http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class=
+"st">  [1] =&gt; http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class=
+"st">  [2] =&gt; http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="st">);</span></span></code></pre>
+        </div>
 
-# Code
-$images = getGalleryImages(get_the_content());
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1"
+          tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class=
+"co"> * getGalleryImages</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class=
+"co"> * Converts a WP gallery into an array of images to use.</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class=
+"co"> * @param $content rendered content (ex: get_the_content())</span></span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a><span class=
+"co"> * @param $return_size size of image to return</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a><span class="co"> * @return array</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a><span class=
+"kw">function</span> getGalleryImages(<span class="va">$content</span><span class="ot">,</span> <span class=
+"va">$return_size</span> <span class="op">=</span> <span class="st">'large'</span>) {</span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>  <span class=
+"co">// Gallery is in format of [gallery link="..." ids="12,124,342"]</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>  <span class=
+"fu">preg_match</span>(<span class="st">'/ids="([^"]*)"/i'</span><span class="ot">,</span> <span class=
+"va">$content</span><span class="ot">,</span> <span class="va">$matches</span>)<span class="ot">;</span></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>  <span class="va">$images</span> <span class=
+"op">=</span> []<span class="ot">;</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>  <span class="cf">if</span> (<span class=
+"kw">isset</span>(<span class="va">$matches</span>[<span class="dv">1</span>])) {</span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a>    <span class=
+"cf">foreach</span>(<span class="fu">explode</span>(<span class="st">','</span><span class="ot">,</span> <span class=
+"va">$matches</span>[<span class="dv">1</span>]) <span class="kw">as</span> <span class="va">$id</span>) {</span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>      <span class=
+"co">// For each image in the gallery, get its WP data (url, width, height)</span></span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>      <span class=
+"va">$images</span>[] <span class="op">=</span> wp_get_attachment_image_src(<span class="va">$id</span><span class=
+"ot">,</span> <span class="va">$return_size</span>)<span class="ot">;</span></span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>    }</span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>  }</span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>  </span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"va">$images</span><span class="ot">;</span></span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-# Output
-Array (
-  [0] &amp;ge; http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
-  [1] &amp;ge; http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
-  [2] &amp;ge; http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
-);
-</code></pre>
-
-        <pre><code>/*
- * getGalleryImages
- *
- * Converts a WP gallery into an array of images to use.
- *
- * @param $content rendered content (ex: get_the_content())
- * @param $return_size size of image to return
- * @return array
- */
-function getGalleryImages($content, $return_size = 'large') {
-  // Gallery is in format of [gallery link="..." ids="12,124,342"]
-  preg_match('/ids="([^"]*)"/i', $content, $matches);
-
-  $images = [];
-  if (isset($matches[1])) {
-    foreach(explode(',', $matches[1]) as $id) {
-      // For each image in the gallery, get its WP data (url, width, height)
-      $images[] = wp_get_attachment_image_src($id, $return_size);
-    }
-  }
-
-  return $images;
-}
-</code></pre>
         <footer class="post__tail">
           <div class="sources">
             <a class="sources__link" href="/get-original-sized-images-from-a-wordpress-post-gallery/index.md">MD</a> |
@@ -147,7 +174,7 @@ function getGalleryImages($content, $return_size = 'large') {
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

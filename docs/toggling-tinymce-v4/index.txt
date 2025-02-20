@@ -6,8 +6,9 @@
 
    /* Dec 06, 2016 — 847B */
 
-   Hereʼs an easy way to turn on and off the TinyMCE editor for version 4.
-document.getElementById(ʼtoggle-tinymceʼ).addEventListener(ʼclickʼ, function(e)
+   Here’s an easy way to turn on and off the TinyMCE editor for version 4.
+
+document.getElementById('toggle-tinymce').addEventListener('click', function(e)
 {
   e.preventDefault();
 
@@ -23,9 +24,10 @@ document.getElementById(ʼtoggle-tinymceʼ).addEventListener(ʼclickʼ, function
 });
 
    You simply then need to create a link or button as such:
+
 <a href="#" id="toggle-tinymce" editor-id="your-editor-id">Toggle</a>
 
-   Thatʼs it. It will remove the TinyMCE if enabled, and if not, it will
+   That’s it. It will remove the TinyMCE if enabled, and if not, it will
    re-render by re-creating the editor with settings provided by
    tinyMCE.settings.
 
@@ -54,6 +56,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /toggling-tinymce-v4/index.md
@@ -64,3 +67,19 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-1
+  13. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-2
+  14. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-3
+  15. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-4
+  16. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-6
+  18. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-7
+  19. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-8
+  20. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-9
+  21. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-10
+  22. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-11
+  23. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-12
+  24. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb1-13
+  25. localhost/tmp/lynxXXXXpSdQhM/L3277548-3557TMP.html#cb2-1

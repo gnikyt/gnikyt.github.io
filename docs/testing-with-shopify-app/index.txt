@@ -6,25 +6,26 @@
 
    /* Jun 21, 2016 — 2.3KB */
 
-   [3]shopifyapp is a great Gem to quickly build a Shopify App with Rails.
-   It handles all the verifications, authorizations, webhook, and more;
-   leaving you to focus on developing your app. This post is to serve as a
-   quick tip on how to unit-test your app with the Gem.
+   [3]shopify_app is a great Gem to quickly build a Shopify App with
+   Rails. It handles all the verifications, authorizations, webhook, and
+   more; leaving you to focus on developing your app. This post is to
+   serve as a quick tip on how to unit-test your app with the Gem.
 
    Other than the install page, most likely your app will require a shop
    to be logged in for all routes. shopify_app, upon installation will
    create a fixture file in test/fixtures/shops.yml of your Rails
    application.
 
-   Inspecting it you will see itʼs filled with one shop,
+   Inspecting it you will see it’s filled with one shop,
    regular-shop.myshopify.com, and a simple token. When running bundle
    exec rake test (after migrations are done for a test environment of
    course), it will populate the shop database table with the fixture data
    in shop.yml.
 
-   Now that we have a shop we can "log into", letʼs create a support
+   Now that we have a shop we can “log into”, let’s create a support
    module for the unit tests. Create a file called
-   shopifysessionsupport.rb inside test/support.
+   shopify_session_support.rb inside test/support.
+
 # test/support/shopify_session_support.rb
 module ShopifySessionSupport
   # Make this module concernable
@@ -45,12 +46,14 @@ end
 
    Next, include your new support module in test_helper.rb before class
    ActiveSupport::TestCase with:
+
 # Include support modules
-Dir[Rails.root.join(ʼtest/support/**/*.rbʼ)].each { |f| require f }
+Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
 
    Finally, in any of your controller tests where you require an
    authenticated shop, simply add include ShopifySessionSupport to your
    class as such:
+
 # ...
 class ImageControllerTest < ActionController::TestCase
   include ShopifySessionSupport
@@ -84,9 +87,10 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
-   3. https://github.com/Shopify/shopify<em>app
+   3. https://github.com/Shopify/shopify_app
    4. /testing-with-shopify-app/index.md
    5. /testing-with-shopify-app/index.txt
    6. https://creativecommons.org/licenses/by/4.0/
@@ -95,3 +99,28 @@ References
    9. /about
   10. /assets/files/cv.pdf
   11. /rss.xml
+
+   Hidden links:
+  13. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-1
+  14. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-2
+  15. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-3
+  16. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-4
+  17. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-5
+  18. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-6
+  19. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-7
+  20. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-8
+  21. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-9
+  22. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-10
+  23. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-11
+  24. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-12
+  25. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-13
+  26. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-14
+  27. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-15
+  28. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb1-16
+  29. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb2-1
+  30. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb2-2
+  31. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb3-1
+  32. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb3-2
+  33. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb3-3
+  34. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb3-4
+  35. localhost/tmp/lynxXXXXLIxHMt/L3278539-8314TMP.html#cb3-5

@@ -77,31 +77,55 @@
         </header>
 
         <p>
-          Here's an easy way to turn on and off the TinyMCE editor for version 4.
+          Here’s an easy way to turn on and off the TinyMCE editor for version 4.
         </p>
 
-        <pre><code>document.getElementById('toggle-tinymce').addEventListener('click', function(e) {
-  e.preventDefault();
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true"
+          href="#cb1-1" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class=
+          "fu">getElementById</span>(<span class="st">'toggle-tinymce'</span>)<span class="op">.</span><span class=
+          "fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> <span class=
+          "kw">function</span>(e) {</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  e<span class="op">.</span><span class=
+"fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>  <span class=
+"kw">var</span> editorID <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class=
+"at">dataset</span><span class="op">.</span><span class="at">editorId</span><span class="op">;</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>  <span class=
+"kw">var</span> editor   <span class="op">=</span> tinymce<span class="op">.</span><span class=
+"at">EditorManager</span><span class="op">.</span><span class="fu">get</span>(editorID)<span class="op">;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>  <span class="cf">if</span> (editor) {</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>    editor<span class="op">.</span><span class=
+"fu">remove</span>()<span class="op">;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>    editor <span class=
+"op">=</span> tinymce<span class="op">.</span><span class="at">EditorManager</span><span class=
+"op">.</span><span class="fu">createEditor</span>(editorID<span class="op">,</span> tinyMCE<span class=
+"op">.</span><span class="at">settings</span>)<span class="op">;</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>    editor<span class=
+"op">.</span><span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a>  }</span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>})<span class=
+"op">;</span></span></code></pre>
+        </div>
 
-  var editorID = this.dataset.editorId;
-  var editor   = tinymce.EditorManager.get(editorID);
-
-  if (editor) {
-    editor.remove();
-  } else {
-    editor = tinymce.EditorManager.createEditor(editorID, tinyMCE.settings);
-    editor.render();
-  }
-});
-</code></pre>
         <p>
           You simply then need to create a link or button as such:
         </p>
 
-        <pre><code>&lt;a href="#" id="toggle-tinymce" editor-id="your-editor-id"&gt;Toggle&lt;/a&gt;
-</code></pre>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span> <span class=
+          "er">href</span><span class="ot">=</span><span class="st">"#"</span> <span class="er">id</span><span class=
+          "ot">=</span><span class="st">"toggle-tinymce"</span> <span class="er">editor-id</span><span class=
+          "ot">=</span><span class="st">"your-editor-id"</span><span class="dt">&gt;</span>Toggle<span class=
+          "dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code></pre>
+        </div>
+
         <p>
-          That's it. It will remove the TinyMCE if enabled, and if not, it will re-render by re-creating the editor
+          That’s it. It will remove the TinyMCE if enabled, and if not, it will re-render by re-creating the editor
           with settings provided by <code>tinyMCE.settings</code>.
         </p>
 
@@ -134,7 +158,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -81,10 +81,10 @@
 
         <p>
           A project last month required a build of an upselling checkout UI extension for Shopify. The client wanted
-          the description of the product to be what is displayed in the checkout, however, Shopify's checkout extension
+          the description of the product to be what is displayed in the checkout, however, Shopify’s checkout extension
           system does not support directly using HTML nor the <code>dangerouslySetInnerHtml</code> property.
-          Additionally to this, the extensions do not support such services such a
-          [<code>DOMParser</code>](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser) -- something custom
+          Additionally to this, the extensions do not support such services such a <a href=
+          "https://developer.mozilla.org/en-US/docs/Web/API/DOMParser"><code>DOMParser</code></a> – something custom
           would have to be built.
         </p>
 
@@ -100,7 +100,7 @@
           process.
         </p>
 
-        <h2 id="input-output-examples">
+        <h2 id="inputoutput-examples">
           Input/output examples
         </h2>
 
@@ -108,157 +108,297 @@
           An example description HTML from a product in Shopify:
         </p>
 
-        <pre><code>&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 1
-&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 2
-&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 3
-&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 4
-&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 5
-&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  &lt;br&gt;
-&lt;/div&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 6
-&lt;/div&gt;
-&lt;ul class="RichTextList-bulleted" style="list-style-type: disc;"&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 1
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 2
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 3
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 4
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 5
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 6
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 7
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 8
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-      ITEM 9
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"&gt;
-  LINE 7
-&lt;/div&gt;
-</code></pre>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span> <span class=
+          "er">class</span><span class="ot">=</span><span class=
+          "st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  LINE 1</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>  LINE 2</span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>  LINE 3</span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>  LINE 4</span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>  LINE 5</span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a>  LINE 6</span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">ul</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"RichTextList-bulleted"</span> <span class="er">style</span><span class="ot">=</span><span class=
+"st">"list-style-type: disc;"</span><span class="dt">&gt;</span></span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a>      ITEM 1</span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a>      ITEM 2</span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a>      ITEM 3</span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a>      ITEM 4</span>
+<span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-46"><a aria-hidden="true" href="#cb1-46" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-47"><a aria-hidden="true" href="#cb1-47" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-48"><a aria-hidden="true" href="#cb1-48" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-49"><a aria-hidden="true" href="#cb1-49" tabindex="-1"></a>      ITEM 5</span>
+<span id="cb1-50"><a aria-hidden="true" href="#cb1-50" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-51"><a aria-hidden="true" href="#cb1-51" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-53"><a aria-hidden="true" href="#cb1-53" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-54"><a aria-hidden="true" href="#cb1-54" tabindex="-1"></a>      ITEM 6</span>
+<span id="cb1-55"><a aria-hidden="true" href="#cb1-55" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-56"><a aria-hidden="true" href="#cb1-56" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-57"><a aria-hidden="true" href="#cb1-57" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-58"><a aria-hidden="true" href="#cb1-58" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-59"><a aria-hidden="true" href="#cb1-59" tabindex="-1"></a>      ITEM 7</span>
+<span id="cb1-60"><a aria-hidden="true" href="#cb1-60" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-61"><a aria-hidden="true" href="#cb1-61" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-62"><a aria-hidden="true" href="#cb1-62" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-63"><a aria-hidden="true" href="#cb1-63" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-64"><a aria-hidden="true" href="#cb1-64" tabindex="-1"></a>      ITEM 8</span>
+<span id="cb1-65"><a aria-hidden="true" href="#cb1-65" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-66"><a aria-hidden="true" href="#cb1-66" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-67"><a aria-hidden="true" href="#cb1-67" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-68"><a aria-hidden="true" href="#cb1-68" tabindex="-1"></a>    <span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-69"><a aria-hidden="true" href="#cb1-69" tabindex="-1"></a>      ITEM 9</span>
+<span id="cb1-70"><a aria-hidden="true" href="#cb1-70" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-71"><a aria-hidden="true" href="#cb1-71" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-72"><a aria-hidden="true" href="#cb1-72" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb1-73"><a aria-hidden="true" href="#cb1-73" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class=
+"st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+<span id="cb1-74"><a aria-hidden="true" href="#cb1-74" tabindex="-1"></a>  LINE 7</span>
+<span id="cb1-75"><a aria-hidden="true" href="#cb1-75" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span></code></pre>
+        </div>
+
         <p>
           Example of the transformed output:
         </p>
 
-        <pre><code>&lt;&gt;
-  &lt;TextBlock&gt;
-    LINE 1
-  &lt;/TextBlock&gt;
-  &lt;TextBlock&gt;
-    LINE 2
-  &lt;/TextBlock&gt;
-  &lt;TextBlock&gt;
-    LINE 3
-  &lt;/TextBlock&gt;
-  &lt;TextBlock&gt;
-    LINE 4
-  &lt;/TextBlock&gt;
-  &lt;TextBlock&gt;
-    LINE 5
-  &lt;/TextBlock&gt;
-  &lt;TextBlock&gt;
-    LINE 6
-  &lt;/TextBlock&gt;
-  &lt;List&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 1
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 2
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 3
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 4
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 5
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 6
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 7
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 8
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-    &lt;ListItem&gt;
-      &lt;TextBlock&gt;
-        ITEM 9
-      &lt;/TextBlock&gt;
-    &lt;/ListItem&gt;
-  &lt;/ListItem&gt;
-  &lt;TextBlock&gt;
-    LINE 7
-  &lt;/TextBlock&gt;
-&lt;/&gt;
-</code></pre>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb2-1"><a aria-hidden="true"
+          href="#cb2-1" tabindex="-1"></a><span class="kw">&lt;&gt;</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>    LINE 1</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>    LINE 2</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>    LINE 3</span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>    LINE 4</span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>    LINE 5</span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>    LINE 6</span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>  <span class="fu">&lt;List&gt;</span></span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>        ITEM 1</span>
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a>        ITEM 2</span>
+<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-33"><a aria-hidden="true" href="#cb2-33" tabindex="-1"></a>        ITEM 3</span>
+<span id="cb2-34"><a aria-hidden="true" href="#cb2-34" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-35"><a aria-hidden="true" href="#cb2-35" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-36"><a aria-hidden="true" href="#cb2-36" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-37"><a aria-hidden="true" href="#cb2-37" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-38"><a aria-hidden="true" href="#cb2-38" tabindex="-1"></a>        ITEM 4</span>
+<span id="cb2-39"><a aria-hidden="true" href="#cb2-39" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-40"><a aria-hidden="true" href="#cb2-40" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-41"><a aria-hidden="true" href="#cb2-41" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-42"><a aria-hidden="true" href="#cb2-42" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-43"><a aria-hidden="true" href="#cb2-43" tabindex="-1"></a>        ITEM 5</span>
+<span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-46"><a aria-hidden="true" href="#cb2-46" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-47"><a aria-hidden="true" href="#cb2-47" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-48"><a aria-hidden="true" href="#cb2-48" tabindex="-1"></a>        ITEM 6</span>
+<span id="cb2-49"><a aria-hidden="true" href="#cb2-49" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-50"><a aria-hidden="true" href="#cb2-50" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-51"><a aria-hidden="true" href="#cb2-51" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-52"><a aria-hidden="true" href="#cb2-52" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-53"><a aria-hidden="true" href="#cb2-53" tabindex="-1"></a>        ITEM 7</span>
+<span id="cb2-54"><a aria-hidden="true" href="#cb2-54" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-55"><a aria-hidden="true" href="#cb2-55" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-56"><a aria-hidden="true" href="#cb2-56" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-57"><a aria-hidden="true" href="#cb2-57" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-58"><a aria-hidden="true" href="#cb2-58" tabindex="-1"></a>        ITEM 8</span>
+<span id="cb2-59"><a aria-hidden="true" href="#cb2-59" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-60"><a aria-hidden="true" href="#cb2-60" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-61"><a aria-hidden="true" href="#cb2-61" tabindex="-1"></a>    <span class=
+"fu">&lt;ListItem&gt;</span></span>
+<span id="cb2-62"><a aria-hidden="true" href="#cb2-62" tabindex="-1"></a>      <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-63"><a aria-hidden="true" href="#cb2-63" tabindex="-1"></a>        ITEM 9</span>
+<span id="cb2-64"><a aria-hidden="true" href="#cb2-64" tabindex="-1"></a>      <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-65"><a aria-hidden="true" href="#cb2-65" tabindex="-1"></a>    <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-66"><a aria-hidden="true" href="#cb2-66" tabindex="-1"></a>  <span class=
+"fu">&lt;/ListItem&gt;</span></span>
+<span id="cb2-67"><a aria-hidden="true" href="#cb2-67" tabindex="-1"></a>  <span class=
+"fu">&lt;TextBlock&gt;</span></span>
+<span id="cb2-68"><a aria-hidden="true" href="#cb2-68" tabindex="-1"></a>    LINE 7</span>
+<span id="cb2-69"><a aria-hidden="true" href="#cb2-69" tabindex="-1"></a>  <span class=
+"fu">&lt;/TextBlock&gt;</span></span>
+<span id="cb2-70"><a aria-hidden="true" href="#cb2-70" tabindex="-1"></a><span class=
+"kw">&lt;/&gt;</span></span></code></pre>
+        </div>
+
         <h2 id="usage-examples">
           Usage examples
         </h2>
@@ -267,44 +407,75 @@
           <strong>As-is with default transformer:</strong>
         </p>
 
-        <pre><code>import descriptionTransformer from './descriptionTransformer';
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb3-1"><a aria-hidden="true"
+          href="#cb3-1" tabindex="-1"></a><span class="im">import</span> descriptionTransformer <span class=
+          "im">from</span> <span class="st">'./descriptionTransformer'</span><span class="op">;</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a><span class=
+"kw">const</span> description <span class="op">=</span> <span class=
+"fu">descriptionTransformer</span>(product<span class="op">.</span><span class="at">desciptionHtml</span>)<span class=
+"op">;</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a></span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a><span class=
+"fu">&lt;BlockStack</span> <span class="ot">spacing</span><span class="op">=</span><span class=
+"st">"extraTight"</span><span class="fu">&gt;</span></span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>  <span class=
+"va">{</span>description<span class="va">}</span></span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a><span class=
+"fu">&lt;/BlockStack&gt;</span></span></code></pre>
+        </div>
 
-// ...
-
-const description = descriptionTransformer(product.desciptionHtml);
-
-// ...
-
-&lt;BlockStack spacing="extraTight"&gt;
-  {description}
-&lt;/BlockStack&gt;
-</code></pre>
         <p>
           <strong>With custom transformer:</strong>
         </p>
 
-        <pre><code>import descriptionTransformer from './descriptionTransformer';
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb4-1"><a aria-hidden="true"
+          href="#cb4-1" tabindex="-1"></a><span class="im">import</span> descriptionTransformer <span class=
+          "im">from</span> <span class="st">'./descriptionTransformer'</span><span class="op">;</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a><span class=
+"kw">const</span> description <span class="op">=</span> <span class="fu">descriptionTransformer</span>(html<span class=
+"op">,</span> (element<span class="op">,</span> children<span class="op">,</span> index<span class=
+"op">,</span> defaultTransformer) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>  <span class=
+"cf">if</span> (element<span class="op">.</span><span class="at">classes</span><span class="op">.</span><span class=
+"fu">includes</span>(<span class="st">"RichQuote"</span>)) {</span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>      <span class=
+"fu">&lt;BlockStack</span> <span class="ot">key</span><span class="op">=</span><span class=
+"va">{</span>index<span class="va">}</span><span class="fu">&gt;</span></span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a>        <span class=
+"fu">&lt;Text</span> <span class="ot">emphasis</span><span class="fu">&gt;</span>Quote<span class=
+"fu">&lt;/Text&gt;</span></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>        <span class=
+"va">{</span>children<span class="va">}</span></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a>      <span class=
+"fu">&lt;/BlockStack&gt;</span></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>  }</span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"fu">defaultTransformer</span>()<span class="op">;</span></span>
+<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb4-16"><a aria-hidden="true" href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb4-18"><a aria-hidden="true" href="#cb4-18" tabindex="-1"></a></span>
+<span id="cb4-19"><a aria-hidden="true" href="#cb4-19" tabindex="-1"></a><span class=
+"fu">&lt;BlockStack</span> <span class="ot">spacing</span><span class="op">=</span><span class=
+"st">"extraTight"</span><span class="fu">&gt;</span></span>
+<span id="cb4-20"><a aria-hidden="true" href="#cb4-20" tabindex="-1"></a>  <span class=
+"va">{</span>description<span class="va">}</span></span>
+<span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a><span class=
+"fu">&lt;/BlockStack&gt;</span></span></code></pre>
+        </div>
 
-// ...
-
-const description = descriptionTransformer(html, (element, children, index, defaultTransformer) &amp;ge; {
-  if (element.classes.includes("RichQuote")) {
-    return (
-      &lt;BlockStack key={index}&gt;
-        &lt;Text emphasis&gt;Quote&lt;/Text&gt;
-        {children}
-      &lt;/BlockStack&gt;
-    );
-  }
-  return defaultTransformer();
-});
-
-// ...
-
-&lt;BlockStack spacing="extraTight"&gt;
-  {description}
-&lt;/BlockStack&gt;
-</code></pre>
         <h2 id="code">
           Code
         </h2>
@@ -313,274 +484,517 @@ const description = descriptionTransformer(html, (element, children, index, defa
           Also available <a href="https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8">on this Gist</a>.
         </p>
 
-        <pre><code>import React from "react";
-import { List, ListItem, TextBlock } from "@shopify/ui-extensions-react/checkout";
+        <div class="sourceCode" id="cb5">
+          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb5-1"><a aria-hidden="true"
+          href="#cb5-1" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class=
+          "st">"react"</span><span class="op">;</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class=
+"im">import</span> { List<span class="op">,</span> ListItem<span class="op">,</span> TextBlock } <span class=
+"im">from</span> <span class="st">"@shopify/ui-extensions-react/checkout"</span><span class="op">;</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a><span class=
+"co"> * Represents open tag.</span></span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@typedef</span><span class="co"> </span><span class="do">{Object}</span><span class="co"> </span><span class=
+"do">OpenTag</span></span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{number}</span><span class=
+"co"> start - Indicates the start position of the open tag.</span></span>
+<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{number}</span><span class=
+"co"> end - Indicates the end position of the open tag.</span></span>
+<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> name - Name of the tag.</span></span>
+<span id="cb5-10"><a aria-hidden="true" href="#cb5-10" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{string</span><span class=
+"co">[]} classes - Classes of the tag.</span></span>
+<span id="cb5-11"><a aria-hidden="true" href="#cb5-11" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-12"><a aria-hidden="true" href="#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a aria-hidden="true" href="#cb5-13" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-14"><a aria-hidden="true" href="#cb5-14" tabindex="-1"></a><span class=
+"co"> * Represents close tag.</span></span>
+<span id="cb5-15"><a aria-hidden="true" href="#cb5-15" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@typedef</span><span class="co"> </span><span class="do">{Object}</span><span class="co"> </span><span class=
+"do">CloseTag</span></span>
+<span id="cb5-16"><a aria-hidden="true" href="#cb5-16" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{number}</span><span class=
+"co"> start - Indicates the start position of the end tag.</span></span>
+<span id="cb5-17"><a aria-hidden="true" href="#cb5-17" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{number}</span><span class=
+"co"> end - Indicates the end position of the end tag.</span></span>
+<span id="cb5-18"><a aria-hidden="true" href="#cb5-18" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-19"><a aria-hidden="true" href="#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a aria-hidden="true" href="#cb5-20" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-21"><a aria-hidden="true" href="#cb5-21" tabindex="-1"></a><span class=
+"co"> * Represents contents of a tag.</span></span>
+<span id="cb5-22"><a aria-hidden="true" href="#cb5-22" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@typedef</span><span class="co"> </span><span class="do">{Object}</span><span class="co"> </span><span class=
+"do">TagContents</span></span>
+<span id="cb5-23"><a aria-hidden="true" href="#cb5-23" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> contents - Contents between the open and close tag.</span></span>
+<span id="cb5-24"><a aria-hidden="true" href="#cb5-24" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{boolean}</span><span class=
+"co"> hasInnerHtml - Indicates if the contents has nested HTML.</span></span>
+<span id="cb5-25"><a aria-hidden="true" href="#cb5-25" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-26"><a aria-hidden="true" href="#cb5-26" tabindex="-1"></a></span>
+<span id="cb5-27"><a aria-hidden="true" href="#cb5-27" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-28"><a aria-hidden="true" href="#cb5-28" tabindex="-1"></a><span class=
+"co"> * Represents a parsed element.</span></span>
+<span id="cb5-29"><a aria-hidden="true" href="#cb5-29" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@typedef</span><span class="co"> </span><span class="do">{Object}</span><span class="co"> </span><span class=
+"do">ParsedElement</span></span>
+<span id="cb5-30"><a aria-hidden="true" href="#cb5-30" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{string</span><span class=
+"co"> | ParsedElement[]} contents - Contents between the open and close tag.</span></span>
+<span id="cb5-31"><a aria-hidden="true" href="#cb5-31" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> name - Name of the tag.</span></span>
+<span id="cb5-32"><a aria-hidden="true" href="#cb5-32" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@property</span><span class="co"> </span><span class="cv">{string</span><span class=
+"co">[]} classes - Classes of the tag.</span></span>
+<span id="cb5-33"><a aria-hidden="true" href="#cb5-33" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-34"><a aria-hidden="true" href="#cb5-34" tabindex="-1"></a></span>
+<span id="cb5-35"><a aria-hidden="true" href="#cb5-35" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-36"><a aria-hidden="true" href="#cb5-36" tabindex="-1"></a><span class=
+"co"> * Represents transformer callback.</span></span>
+<span id="cb5-37"><a aria-hidden="true" href="#cb5-37" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-38"><a aria-hidden="true" href="#cb5-38" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@callback</span><span class="co"> Transformer</span></span>
+<span id="cb5-39"><a aria-hidden="true" href="#cb5-39" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{ParsedElement}</span><span class=
+"co"> element - Parsed element.</span></span>
+<span id="cb5-40"><a aria-hidden="true" href="#cb5-40" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{JSX.Element</span><span class=
+"co">[]} children - React components parsed from element.</span></span>
+<span id="cb5-41"><a aria-hidden="true" href="#cb5-41" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class=
+"co"> index - Current index in transforming loop, to use for `key` prop on component.</span></span>
+<span id="cb5-42"><a aria-hidden="true" href="#cb5-42" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{CallableFunction}</span><span class=
+"co"> defaultTransformer - Pre-filled default transformer.</span></span>
+<span id="cb5-43"><a aria-hidden="true" href="#cb5-43" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-44"><a aria-hidden="true" href="#cb5-44" tabindex="-1"></a></span>
+<span id="cb5-45"><a aria-hidden="true" href="#cb5-45" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-46"><a aria-hidden="true" href="#cb5-46" tabindex="-1"></a><span class=
+"co"> * Parses open tag to return that start position, end position, tag name, and classes.</span></span>
+<span id="cb5-47"><a aria-hidden="true" href="#cb5-47" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-48"><a aria-hidden="true" href="#cb5-48" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> html - Raw HTML to parse.</span></span>
+<span id="cb5-49"><a aria-hidden="true" href="#cb5-49" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-50"><a aria-hidden="true" href="#cb5-50" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> {OpenTag}</span></span>
+<span id="cb5-51"><a aria-hidden="true" href="#cb5-51" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-52"><a aria-hidden="true" href="#cb5-52" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">parseOpenTag</span>(html) {</span>
+<span id="cb5-53"><a aria-hidden="true" href="#cb5-53" tabindex="-1"></a>  <span class=
+"co">// Open tag positions</span></span>
+<span id="cb5-54"><a aria-hidden="true" href="#cb5-54" tabindex="-1"></a>  <span class=
+"kw">const</span> start <span class="op">=</span> html<span class="op">.</span><span class=
+"fu">indexOf</span>(<span class="st">"&lt;"</span>)<span class="op">;</span></span>
+<span id="cb5-55"><a aria-hidden="true" href="#cb5-55" tabindex="-1"></a>  <span class=
+"kw">const</span> end <span class="op">=</span> html<span class="op">.</span><span class=
+"fu">indexOf</span>(<span class="st">"&gt;"</span>) <span class="op">+</span> <span class="dv">1</span><span class=
+"op">;</span></span>
+<span id="cb5-56"><a aria-hidden="true" href="#cb5-56" tabindex="-1"></a></span>
+<span id="cb5-57"><a aria-hidden="true" href="#cb5-57" tabindex="-1"></a>  <span class=
+"co">// Open tag's contents</span></span>
+<span id="cb5-58"><a aria-hidden="true" href="#cb5-58" tabindex="-1"></a>  <span class=
+"kw">const</span> contents <span class="op">=</span> html<span class="op">.</span><span class=
+"fu">substring</span>(start<span class="op">,</span> end)<span class="op">;</span></span>
+<span id="cb5-59"><a aria-hidden="true" href="#cb5-59" tabindex="-1"></a></span>
+<span id="cb5-60"><a aria-hidden="true" href="#cb5-60" tabindex="-1"></a>  <span class=
+"co">// Extract tag name</span></span>
+<span id="cb5-61"><a aria-hidden="true" href="#cb5-61" tabindex="-1"></a>  <span class=
+"kw">const</span> name <span class="op">=</span> html<span class="op">.</span><span class="fu">substring</span>(</span>
+<span id="cb5-62"><a aria-hidden="true" href="#cb5-62" tabindex="-1"></a>    start <span class=
+"op">+</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb5-63"><a aria-hidden="true" href="#cb5-63" tabindex="-1"></a>    <span class=
+"co">// Until next space or end of tag</span></span>
+<span id="cb5-64"><a aria-hidden="true" href="#cb5-64" tabindex="-1"></a>    contents<span class=
+"op">.</span><span class="fu">indexOf</span>(<span class="st">" "</span>) <span class="op">&gt;</span> <span class=
+"op">-</span><span class="dv">1</span> <span class="op">?</span> contents<span class="op">.</span><span class=
+"fu">indexOf</span>(<span class="st">" "</span>) <span class="op">:</span> end <span class="op">-</span> <span class=
+"dv">1</span><span class="op">,</span></span>
+<span id="cb5-65"><a aria-hidden="true" href="#cb5-65" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb5-66"><a aria-hidden="true" href="#cb5-66" tabindex="-1"></a></span>
+<span id="cb5-67"><a aria-hidden="true" href="#cb5-67" tabindex="-1"></a>  <span class=
+"co">// Extract classes</span></span>
+<span id="cb5-68"><a aria-hidden="true" href="#cb5-68" tabindex="-1"></a>  <span class=
+"kw">const</span> classMatch <span class="op">=</span> contents<span class="op">.</span><span class=
+"fu">match</span>(<span class="ss">/class="</span><span class="sc">([^"]+)</span><span class=
+"ss">"/</span>)<span class="op">;</span></span>
+<span id="cb5-69"><a aria-hidden="true" href="#cb5-69" tabindex="-1"></a>  <span class=
+"kw">const</span> classes <span class="op">=</span> classMatch <span class="op">===</span> <span class=
+"kw">null</span> <span class="op">?</span> [] <span class="op">:</span> classMatch[<span class=
+"dv">1</span>]<span class="op">.</span><span class="fu">split</span>(<span class="st">" "</span>)<span class=
+"op">;</span></span>
+<span id="cb5-70"><a aria-hidden="true" href="#cb5-70" tabindex="-1"></a></span>
+<span id="cb5-71"><a aria-hidden="true" href="#cb5-71" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb5-72"><a aria-hidden="true" href="#cb5-72" tabindex="-1"></a>    start<span class="op">,</span></span>
+<span id="cb5-73"><a aria-hidden="true" href="#cb5-73" tabindex="-1"></a>    end<span class="op">,</span></span>
+<span id="cb5-74"><a aria-hidden="true" href="#cb5-74" tabindex="-1"></a>    name<span class="op">,</span></span>
+<span id="cb5-75"><a aria-hidden="true" href="#cb5-75" tabindex="-1"></a>    classes<span class="op">,</span></span>
+<span id="cb5-76"><a aria-hidden="true" href="#cb5-76" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb5-77"><a aria-hidden="true" href="#cb5-77" tabindex="-1"></a>}</span>
+<span id="cb5-78"><a aria-hidden="true" href="#cb5-78" tabindex="-1"></a></span>
+<span id="cb5-79"><a aria-hidden="true" href="#cb5-79" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-80"><a aria-hidden="true" href="#cb5-80" tabindex="-1"></a><span class=
+"co"> * Parses close tag to return that start position and end position.</span></span>
+<span id="cb5-81"><a aria-hidden="true" href="#cb5-81" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-82"><a aria-hidden="true" href="#cb5-82" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> html - Raw HTML to parse.</span></span>
+<span id="cb5-83"><a aria-hidden="true" href="#cb5-83" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> name - Tag name.</span></span>
+<span id="cb5-84"><a aria-hidden="true" href="#cb5-84" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-85"><a aria-hidden="true" href="#cb5-85" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> {CloseTag}</span></span>
+<span id="cb5-86"><a aria-hidden="true" href="#cb5-86" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-87"><a aria-hidden="true" href="#cb5-87" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">parseCloseTag</span>(html<span class="op">,</span> name) {</span>
+<span id="cb5-88"><a aria-hidden="true" href="#cb5-88" tabindex="-1"></a>  <span class="co">// Tag itself</span></span>
+<span id="cb5-89"><a aria-hidden="true" href="#cb5-89" tabindex="-1"></a>  <span class=
+"kw">const</span> tag <span class="op">=</span> <span class="vs">`&lt;/</span><span class=
+"sc">${</span>name<span class="sc">}</span><span class="vs">&gt;`</span><span class="op">;</span></span>
+<span id="cb5-90"><a aria-hidden="true" href="#cb5-90" tabindex="-1"></a></span>
+<span id="cb5-91"><a aria-hidden="true" href="#cb5-91" tabindex="-1"></a>  <span class=
+"co">// End tag positions</span></span>
+<span id="cb5-92"><a aria-hidden="true" href="#cb5-92" tabindex="-1"></a>  <span class=
+"kw">const</span> start <span class="op">=</span> html<span class="op">.</span><span class=
+"fu">indexOf</span>(tag)<span class="op">;</span></span>
+<span id="cb5-93"><a aria-hidden="true" href="#cb5-93" tabindex="-1"></a>  <span class=
+"kw">const</span> end <span class="op">=</span> start <span class="op">+</span> tag<span class=
+"op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb5-94"><a aria-hidden="true" href="#cb5-94" tabindex="-1"></a></span>
+<span id="cb5-95"><a aria-hidden="true" href="#cb5-95" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb5-96"><a aria-hidden="true" href="#cb5-96" tabindex="-1"></a>    start<span class="op">,</span></span>
+<span id="cb5-97"><a aria-hidden="true" href="#cb5-97" tabindex="-1"></a>    end<span class="op">,</span></span>
+<span id="cb5-98"><a aria-hidden="true" href="#cb5-98" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb5-99"><a aria-hidden="true" href="#cb5-99" tabindex="-1"></a>}</span>
+<span id="cb5-100"><a aria-hidden="true" href="#cb5-100" tabindex="-1"></a></span>
+<span id="cb5-101"><a aria-hidden="true" href="#cb5-101" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-102"><a aria-hidden="true" href="#cb5-102" tabindex="-1"></a><span class=
+"co"> * Get the contents of a tag, returning the content and a flag of it has inner HTML.</span></span>
+<span id="cb5-103"><a aria-hidden="true" href="#cb5-103" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-104"><a aria-hidden="true" href="#cb5-104" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> html - Raw HTML to parse.</span></span>
+<span id="cb5-105"><a aria-hidden="true" href="#cb5-105" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{object}</span><span class=
+"co"> openTag - Open tag parsed result.</span></span>
+<span id="cb5-106"><a aria-hidden="true" href="#cb5-106" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{object}</span><span class=
+"co"> closeTag - Close tag parsed result.</span></span>
+<span id="cb5-107"><a aria-hidden="true" href="#cb5-107" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-108"><a aria-hidden="true" href="#cb5-108" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> {TagContents}</span></span>
+<span id="cb5-109"><a aria-hidden="true" href="#cb5-109" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-110"><a aria-hidden="true" href="#cb5-110" tabindex="-1"></a><span class=
+"kw">function</span> <span class="fu">parseContentOfTag</span>(html<span class="op">,</span> openTag<span class=
+"op">,</span> closeTag) {</span>
+<span id="cb5-111"><a aria-hidden="true" href="#cb5-111" tabindex="-1"></a>  <span class=
+"kw">const</span> contents <span class="op">=</span> html<span class="op">.</span><span class=
+"fu">substring</span>(openTag<span class="op">.</span><span class="at">end</span><span class=
+"op">,</span> closeTag<span class="op">.</span><span class="at">start</span>)<span class="op">.</span><span class=
+"fu">trim</span>()<span class="op">;</span></span>
+<span id="cb5-112"><a aria-hidden="true" href="#cb5-112" tabindex="-1"></a>  <span class=
+"kw">const</span> hasInnerHtml <span class="op">=</span> contents<span class="op">.</span><span class=
+"fu">match</span>(<span class="ss">/&lt;.</span><span class="sc">*</span><span class="ss">&gt;.</span><span class=
+"sc">*</span><span class="ss">&lt;</span><span class="sc">\/</span><span class="ss">.</span><span class=
+"sc">*</span><span class="ss">&gt;/g</span>)<span class="op">;</span></span>
+<span id="cb5-113"><a aria-hidden="true" href="#cb5-113" tabindex="-1"></a></span>
+<span id="cb5-114"><a aria-hidden="true" href="#cb5-114" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb5-115"><a aria-hidden="true" href="#cb5-115" tabindex="-1"></a>    contents<span class="op">,</span></span>
+<span id="cb5-116"><a aria-hidden="true" href="#cb5-116" tabindex="-1"></a>    hasInnerHtml<span class=
+"op">,</span></span>
+<span id="cb5-117"><a aria-hidden="true" href="#cb5-117" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb5-118"><a aria-hidden="true" href="#cb5-118" tabindex="-1"></a>}</span>
+<span id="cb5-119"><a aria-hidden="true" href="#cb5-119" tabindex="-1"></a></span>
+<span id="cb5-120"><a aria-hidden="true" href="#cb5-120" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-121"><a aria-hidden="true" href="#cb5-121" tabindex="-1"></a><span class=
+"co"> * Default transformer.</span></span>
+<span id="cb5-122"><a aria-hidden="true" href="#cb5-122" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-123"><a aria-hidden="true" href="#cb5-123" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{ParsedElement}</span><span class=
+"co"> element - Parsed element.</span></span>
+<span id="cb5-124"><a aria-hidden="true" href="#cb5-124" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{JSX.Element</span><span class=
+"co">[]} children - React components.</span></span>
+<span id="cb5-125"><a aria-hidden="true" href="#cb5-125" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class=
+"co"> index - Parsed element index in loop.</span></span>
+<span id="cb5-126"><a aria-hidden="true" href="#cb5-126" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-127"><a aria-hidden="true" href="#cb5-127" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> {JSX.Element}</span></span>
+<span id="cb5-128"><a aria-hidden="true" href="#cb5-128" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-129"><a aria-hidden="true" href="#cb5-129" tabindex="-1"></a><span class=
+"kw">function</span> <span class="fu">defaultTransformer</span>(element<span class="op">,</span> children<span class=
+"op">,</span> index) {</span>
+<span id="cb5-130"><a aria-hidden="true" href="#cb5-130" tabindex="-1"></a>  <span class="co">/** </span><span class=
+"an">@type</span><span class="co"> JSX.Element */</span></span>
+<span id="cb5-131"><a aria-hidden="true" href="#cb5-131" tabindex="-1"></a>  <span class=
+"kw">let</span> reactElement<span class="op">;</span></span>
+<span id="cb5-132"><a aria-hidden="true" href="#cb5-132" tabindex="-1"></a></span>
+<span id="cb5-133"><a aria-hidden="true" href="#cb5-133" tabindex="-1"></a>  <span class=
+"co">// No transformer result, handle defaults</span></span>
+<span id="cb5-134"><a aria-hidden="true" href="#cb5-134" tabindex="-1"></a>  <span class=
+"cf">switch</span> (element<span class="op">.</span><span class="at">name</span>) {</span>
+<span id="cb5-135"><a aria-hidden="true" href="#cb5-135" tabindex="-1"></a>    <span class=
+"cf">case</span> <span class="st">"ul"</span><span class="op">:</span> {</span>
+<span id="cb5-136"><a aria-hidden="true" href="#cb5-136" tabindex="-1"></a>      reactElement <span class=
+"op">= </span><span class="fu">&lt;List</span> <span class="ot">key</span><span class="op">=</span><span class=
+"va">{</span>index<span class="va">}</span><span class="fu">&gt;</span><span class="va">{</span>children<span class=
+"va">}</span><span class="fu">&lt;/List&gt;</span><span class="op">;</span></span>
+<span id="cb5-137"><a aria-hidden="true" href="#cb5-137" tabindex="-1"></a>      <span class=
+"cf">break</span><span class="op">;</span></span>
+<span id="cb5-138"><a aria-hidden="true" href="#cb5-138" tabindex="-1"></a>    }</span>
+<span id="cb5-139"><a aria-hidden="true" href="#cb5-139" tabindex="-1"></a>    <span class=
+"cf">case</span> <span class="st">"li"</span><span class="op">:</span> {</span>
+<span id="cb5-140"><a aria-hidden="true" href="#cb5-140" tabindex="-1"></a>      reactElement <span class=
+"op">= </span><span class="fu">&lt;ListItem</span> <span class="ot">key</span><span class="op">=</span><span class=
+"va">{</span>index<span class="va">}</span><span class="fu">&gt;</span><span class="va">{</span>children<span class=
+"va">}</span><span class="fu">&lt;/ListItem&gt;</span><span class="op">;</span></span>
+<span id="cb5-141"><a aria-hidden="true" href="#cb5-141" tabindex="-1"></a>      <span class=
+"cf">break</span><span class="op">;</span></span>
+<span id="cb5-142"><a aria-hidden="true" href="#cb5-142" tabindex="-1"></a>    }</span>
+<span id="cb5-143"><a aria-hidden="true" href="#cb5-143" tabindex="-1"></a>    <span class=
+"cf">case</span> <span class="st">"div"</span><span class="op">:</span> {</span>
+<span id="cb5-144"><a aria-hidden="true" href="#cb5-144" tabindex="-1"></a>      reactElement <span class=
+"op">= </span><span class="fu">&lt;TextBlock</span> <span class="ot">key</span><span class="op">=</span><span class=
+"va">{</span>index<span class="va">}</span><span class="fu">&gt;</span><span class="va">{</span>children<span class=
+"va">}</span><span class="fu">&lt;/TextBlock&gt;</span><span class="op">;</span></span>
+<span id="cb5-145"><a aria-hidden="true" href="#cb5-145" tabindex="-1"></a>      <span class=
+"cf">break</span><span class="op">;</span></span>
+<span id="cb5-146"><a aria-hidden="true" href="#cb5-146" tabindex="-1"></a>    }</span>
+<span id="cb5-147"><a aria-hidden="true" href="#cb5-147" tabindex="-1"></a>    <span class=
+"cf">default</span><span class="op">:</span> {</span>
+<span id="cb5-148"><a aria-hidden="true" href="#cb5-148" tabindex="-1"></a>      reactElement <span class=
+"op">= </span><span class="kw">&lt;&gt;</span>No transformer to handle <span class="dv">&amp;quot;</span><span class=
+"va">{</span>element<span class="op">.</span><span class="at">name</span><span class="va">}</span><span class=
+"dv">&amp;quot;</span><span class="kw">&lt;/&gt;</span><span class="op">;</span></span>
+<span id="cb5-149"><a aria-hidden="true" href="#cb5-149" tabindex="-1"></a>    }</span>
+<span id="cb5-150"><a aria-hidden="true" href="#cb5-150" tabindex="-1"></a>  }</span>
+<span id="cb5-151"><a aria-hidden="true" href="#cb5-151" tabindex="-1"></a></span>
+<span id="cb5-152"><a aria-hidden="true" href="#cb5-152" tabindex="-1"></a>  <span class=
+"cf">return</span> reactElement<span class="op">;</span></span>
+<span id="cb5-153"><a aria-hidden="true" href="#cb5-153" tabindex="-1"></a>}</span>
+<span id="cb5-154"><a aria-hidden="true" href="#cb5-154" tabindex="-1"></a></span>
+<span id="cb5-155"><a aria-hidden="true" href="#cb5-155" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-156"><a aria-hidden="true" href="#cb5-156" tabindex="-1"></a><span class=
+"co"> * Walk through the HTML and parse it into an array of tag name, classes, and nested content.</span></span>
+<span id="cb5-157"><a aria-hidden="true" href="#cb5-157" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-158"><a aria-hidden="true" href="#cb5-158" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> html - Raw HTML to parse.</span></span>
+<span id="cb5-159"><a aria-hidden="true" href="#cb5-159" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> {ParsedElement[]}</span></span>
+<span id="cb5-160"><a aria-hidden="true" href="#cb5-160" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-161"><a aria-hidden="true" href="#cb5-161" tabindex="-1"></a><span class=
+"kw">function</span> <span class="fu">walk</span>(html) {</span>
+<span id="cb5-162"><a aria-hidden="true" href="#cb5-162" tabindex="-1"></a>  <span class=
+"co">// Store elements parsed</span></span>
+<span id="cb5-163"><a aria-hidden="true" href="#cb5-163" tabindex="-1"></a>  <span class="co">/** </span><span class=
+"an">@type</span><span class="co"> ParsedElement[] */</span></span>
+<span id="cb5-164"><a aria-hidden="true" href="#cb5-164" tabindex="-1"></a>  <span class=
+"kw">const</span> elements <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb5-165"><a aria-hidden="true" href="#cb5-165" tabindex="-1"></a></span>
+<span id="cb5-166"><a aria-hidden="true" href="#cb5-166" tabindex="-1"></a>  <span class=
+"co">// Loop until no open tag is found</span></span>
+<span id="cb5-167"><a aria-hidden="true" href="#cb5-167" tabindex="-1"></a>  <span class=
+"kw">let</span> shiftedHtml <span class="op">=</span> html<span class="op">;</span></span>
+<span id="cb5-168"><a aria-hidden="true" href="#cb5-168" tabindex="-1"></a>  <span class=
+"cf">while</span> (shiftedHtml<span class="op">.</span><span class="fu">indexOf</span>(<span class=
+"st">"&lt;"</span>) <span class="op">!==</span> <span class="op">-</span><span class="dv">1</span>) {</span>
+<span id="cb5-169"><a aria-hidden="true" href="#cb5-169" tabindex="-1"></a>    <span class=
+"co">// Open tag and close tag</span></span>
+<span id="cb5-170"><a aria-hidden="true" href="#cb5-170" tabindex="-1"></a>    <span class=
+"kw">const</span> openTag <span class="op">=</span> <span class="fu">parseOpenTag</span>(shiftedHtml)<span class=
+"op">;</span></span>
+<span id="cb5-171"><a aria-hidden="true" href="#cb5-171" tabindex="-1"></a>    <span class=
+"kw">const</span> closeTag <span class="op">=</span> <span class="fu">parseCloseTag</span>(shiftedHtml<span class=
+"op">,</span> openTag<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
+<span id="cb5-172"><a aria-hidden="true" href="#cb5-172" tabindex="-1"></a></span>
+<span id="cb5-173"><a aria-hidden="true" href="#cb5-173" tabindex="-1"></a>    <span class=
+"co">// Contents</span></span>
+<span id="cb5-174"><a aria-hidden="true" href="#cb5-174" tabindex="-1"></a>    <span class=
+"kw">const</span> content <span class="op">=</span> <span class="fu">parseContentOfTag</span>(shiftedHtml<span class=
+"op">,</span> openTag<span class="op">,</span> closeTag)<span class="op">;</span></span>
+<span id="cb5-175"><a aria-hidden="true" href="#cb5-175" tabindex="-1"></a>    <span class=
+"kw">const</span> contents <span class="op">=</span> content<span class="op">.</span><span class=
+"at">hasInnerHtml</span> <span class="op">?</span> <span class="fu">walk</span>(content<span class=
+"op">.</span><span class="at">contents</span>) <span class="op">:</span> content<span class="op">.</span><span class=
+"at">contents</span><span class="op">;</span></span>
+<span id="cb5-176"><a aria-hidden="true" href="#cb5-176" tabindex="-1"></a></span>
+<span id="cb5-177"><a aria-hidden="true" href="#cb5-177" tabindex="-1"></a>    <span class=
+"co">// Save, move to next part of the HTML</span></span>
+<span id="cb5-178"><a aria-hidden="true" href="#cb5-178" tabindex="-1"></a>    elements<span class=
+"op">.</span><span class="fu">push</span>({</span>
+<span id="cb5-179"><a aria-hidden="true" href="#cb5-179" tabindex="-1"></a>      contents<span class=
+"op">,</span></span>
+<span id="cb5-180"><a aria-hidden="true" href="#cb5-180" tabindex="-1"></a>      <span class=
+"dt">name</span><span class="op">:</span> openTag<span class="op">.</span><span class="at">name</span><span class=
+"op">,</span></span>
+<span id="cb5-181"><a aria-hidden="true" href="#cb5-181" tabindex="-1"></a>      <span class=
+"dt">classes</span><span class="op">:</span> openTag<span class="op">.</span><span class=
+"at">classes</span><span class="op">,</span></span>
+<span id="cb5-182"><a aria-hidden="true" href="#cb5-182" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb5-183"><a aria-hidden="true" href="#cb5-183" tabindex="-1"></a>    shiftedHtml <span class=
+"op">=</span> shiftedHtml<span class="op">.</span><span class="fu">substring</span>(closeTag<span class=
+"op">.</span><span class="at">end</span>)<span class="op">.</span><span class="fu">trim</span>()<span class=
+"op">;</span></span>
+<span id="cb5-184"><a aria-hidden="true" href="#cb5-184" tabindex="-1"></a>  }</span>
+<span id="cb5-185"><a aria-hidden="true" href="#cb5-185" tabindex="-1"></a></span>
+<span id="cb5-186"><a aria-hidden="true" href="#cb5-186" tabindex="-1"></a>  <span class=
+"cf">return</span> elements<span class="op">;</span></span>
+<span id="cb5-187"><a aria-hidden="true" href="#cb5-187" tabindex="-1"></a>}</span>
+<span id="cb5-188"><a aria-hidden="true" href="#cb5-188" tabindex="-1"></a></span>
+<span id="cb5-189"><a aria-hidden="true" href="#cb5-189" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-190"><a aria-hidden="true" href="#cb5-190" tabindex="-1"></a><span class=
+"co"> * Convert parsed HTML into React elements.</span></span>
+<span id="cb5-191"><a aria-hidden="true" href="#cb5-191" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-192"><a aria-hidden="true" href="#cb5-192" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{ParsedElement</span><span class=
+"co">[]} elements - Elements to convert to React components.</span></span>
+<span id="cb5-193"><a aria-hidden="true" href="#cb5-193" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{Transformer</span><span class=
+"co"> | undefined} transformer - Custom transformation function.</span></span>
+<span id="cb5-194"><a aria-hidden="true" href="#cb5-194" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-195"><a aria-hidden="true" href="#cb5-195" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> {JSX.Element[]}</span></span>
+<span id="cb5-196"><a aria-hidden="true" href="#cb5-196" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-197"><a aria-hidden="true" href="#cb5-197" tabindex="-1"></a><span class=
+"kw">function</span> <span class="fu">transform</span>(elements<span class="op">,</span> transformer) {</span>
+<span id="cb5-198"><a aria-hidden="true" href="#cb5-198" tabindex="-1"></a>  <span class=
+"kw">let</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-199"><a aria-hidden="true" href="#cb5-199" tabindex="-1"></a>  <span class=
+"kw">const</span> reactElements <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb5-200"><a aria-hidden="true" href="#cb5-200" tabindex="-1"></a>  <span class="cf">for</span> (<span class=
+"kw">const</span> element <span class="kw">of</span> elements) {</span>
+<span id="cb5-201"><a aria-hidden="true" href="#cb5-201" tabindex="-1"></a>    <span class=
+"cf">if</span> (element<span class="op">.</span><span class="at">contents</span> <span class=
+"op">!==</span> <span class="st">""</span>) {</span>
+<span id="cb5-202"><a aria-hidden="true" href="#cb5-202" tabindex="-1"></a>      <span class=
+"co">// Parse nested elements, if nessessary</span></span>
+<span id="cb5-203"><a aria-hidden="true" href="#cb5-203" tabindex="-1"></a>      <span class=
+"kw">const</span> children <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class=
+"fu">isArray</span>(element<span class="op">.</span><span class="at">contents</span>) <span class=
+"op">?</span> (</span>
+<span id="cb5-204"><a aria-hidden="true" href="#cb5-204" tabindex="-1"></a>        <span class=
+"fu">transform</span>(element<span class="op">.</span><span class="at">contents</span><span class=
+"op">,</span> transformer)</span>
+<span id="cb5-205"><a aria-hidden="true" href="#cb5-205" tabindex="-1"></a>      ) <span class="op">:</span> (</span>
+<span id="cb5-206"><a aria-hidden="true" href="#cb5-206" tabindex="-1"></a>        <span class=
+"kw">&lt;&gt;</span><span class="va">{</span>element<span class="op">.</span><span class=
+"at">contents</span><span class="va">}</span><span class="kw">&lt;/&gt;</span></span>
+<span id="cb5-207"><a aria-hidden="true" href="#cb5-207" tabindex="-1"></a>      )<span class="op">;</span></span>
+<span id="cb5-208"><a aria-hidden="true" href="#cb5-208" tabindex="-1"></a></span>
+<span id="cb5-209"><a aria-hidden="true" href="#cb5-209" tabindex="-1"></a>      <span class=
+"co">// Transform to React</span></span>
+<span id="cb5-210"><a aria-hidden="true" href="#cb5-210" tabindex="-1"></a>      <span class=
+"kw">const</span> reactElement <span class="op">=</span> transformer</span>
+<span id="cb5-211"><a aria-hidden="true" href="#cb5-211" tabindex="-1"></a>        <span class=
+"op">?</span> <span class="fu">transformer</span>(</span>
+<span id="cb5-212"><a aria-hidden="true" href="#cb5-212" tabindex="-1"></a>            element<span class=
+"op">,</span></span>
+<span id="cb5-213"><a aria-hidden="true" href="#cb5-213" tabindex="-1"></a>            children<span class=
+"op">,</span></span>
+<span id="cb5-214"><a aria-hidden="true" href="#cb5-214" tabindex="-1"></a>            index<span class=
+"op">,</span></span>
+<span id="cb5-215"><a aria-hidden="true" href="#cb5-215" tabindex="-1"></a>            (</span>
+<span id="cb5-216"><a aria-hidden="true" href="#cb5-216" tabindex="-1"></a>              (e<span class=
+"op">,</span> c<span class="op">,</span> i) <span class="kw">=&gt;</span> () <span class="kw">=&gt;</span></span>
+<span id="cb5-217"><a aria-hidden="true" href="#cb5-217" tabindex="-1"></a>                <span class=
+"fu">defaultTransformer</span>(e<span class="op">,</span> c<span class="op">,</span> i)</span>
+<span id="cb5-218"><a aria-hidden="true" href="#cb5-218" tabindex="-1"></a>            )(element<span class=
+"op">,</span> children<span class="op">,</span> index)<span class="op">,</span></span>
+<span id="cb5-219"><a aria-hidden="true" href="#cb5-219" tabindex="-1"></a>          )</span>
+<span id="cb5-220"><a aria-hidden="true" href="#cb5-220" tabindex="-1"></a>        <span class=
+"op">:</span> <span class="fu">defaultTransformer</span>(element<span class="op">,</span> children<span class=
+"op">,</span> index)<span class="op">;</span></span>
+<span id="cb5-221"><a aria-hidden="true" href="#cb5-221" tabindex="-1"></a></span>
+<span id="cb5-222"><a aria-hidden="true" href="#cb5-222" tabindex="-1"></a>      reactElements<span class=
+"op">.</span><span class="fu">push</span>(reactElement)<span class="op">;</span></span>
+<span id="cb5-223"><a aria-hidden="true" href="#cb5-223" tabindex="-1"></a>      index <span class=
+"op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb5-224"><a aria-hidden="true" href="#cb5-224" tabindex="-1"></a>    }</span>
+<span id="cb5-225"><a aria-hidden="true" href="#cb5-225" tabindex="-1"></a>  }</span>
+<span id="cb5-226"><a aria-hidden="true" href="#cb5-226" tabindex="-1"></a></span>
+<span id="cb5-227"><a aria-hidden="true" href="#cb5-227" tabindex="-1"></a>  <span class=
+"cf">return</span> reactElements<span class="op">;</span></span>
+<span id="cb5-228"><a aria-hidden="true" href="#cb5-228" tabindex="-1"></a>}</span>
+<span id="cb5-229"><a aria-hidden="true" href="#cb5-229" tabindex="-1"></a></span>
+<span id="cb5-230"><a aria-hidden="true" href="#cb5-230" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-231"><a aria-hidden="true" href="#cb5-231" tabindex="-1"></a><span class=
+"co"> * Parse description HTML of a product into Shopify React elements.</span></span>
+<span id="cb5-232"><a aria-hidden="true" href="#cb5-232" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-233"><a aria-hidden="true" href="#cb5-233" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> rawHtml - Raw HTML to parse and transform.</span></span>
+<span id="cb5-234"><a aria-hidden="true" href="#cb5-234" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{Transformer</span><span class=
+"co"> | undefined} transformer - Custom transformation function.</span></span>
+<span id="cb5-235"><a aria-hidden="true" href="#cb5-235" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-236"><a aria-hidden="true" href="#cb5-236" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@example</span></span>
+<span id="cb5-237"><a aria-hidden="true" href="#cb5-237" tabindex="-1"></a><span class="co"> * ```</span></span>
+<span id="cb5-238"><a aria-hidden="true" href="#cb5-238" tabindex="-1"></a><span class=
+"co"> * const parsed = descriptionTransformer(html);</span></span>
+<span id="cb5-239"><a aria-hidden="true" href="#cb5-239" tabindex="-1"></a><span class="co"> * // ...</span></span>
+<span id="cb5-240"><a aria-hidden="true" href="#cb5-240" tabindex="-1"></a><span class=
+"co"> * &lt;&gt;{parsed}&lt;/&gt;</span></span>
+<span id="cb5-241"><a aria-hidden="true" href="#cb5-241" tabindex="-1"></a><span class="co"> * ```</span></span>
+<span id="cb5-242"><a aria-hidden="true" href="#cb5-242" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-243"><a aria-hidden="true" href="#cb5-243" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@example</span></span>
+<span id="cb5-244"><a aria-hidden="true" href="#cb5-244" tabindex="-1"></a><span class="co"> * ```</span></span>
+<span id="cb5-245"><a aria-hidden="true" href="#cb5-245" tabindex="-1"></a><span class=
+"co"> * const parsed = descriptionTransformer(html, (element, children, index, defaultTransformer) =&gt; {</span></span>
+<span id="cb5-246"><a aria-hidden="true" href="#cb5-246" tabindex="-1"></a><span class=
+"co"> *  if (element.classes.join(' ').indexOf("RichQuote") &gt; -1) {</span></span>
+<span id="cb5-247"><a aria-hidden="true" href="#cb5-247" tabindex="-1"></a><span class=
+"co"> *    return (</span></span>
+<span id="cb5-248"><a aria-hidden="true" href="#cb5-248" tabindex="-1"></a><span class=
+"co"> *       </span><span class="kw">&lt;BlockStack</span><span class="ot"> key={index}&gt;</span></span>
+<span id="cb5-249"><a aria-hidden="true" href="#cb5-249" tabindex="-1"></a><span class=
+"ot"> *          &lt;Text&gt;Quote&lt;/Text&gt;</span></span>
+<span id="cb5-250"><a aria-hidden="true" href="#cb5-250" tabindex="-1"></a><span class=
+"ot"> *          {children}</span></span>
+<span id="cb5-251"><a aria-hidden="true" href="#cb5-251" tabindex="-1"></a><span class=
+"ot"> *       &lt;/BlockStack&gt;</span></span>
+<span id="cb5-252"><a aria-hidden="true" href="#cb5-252" tabindex="-1"></a><span class="ot"> *    );</span></span>
+<span id="cb5-253"><a aria-hidden="true" href="#cb5-253" tabindex="-1"></a><span class="ot"> *  }</span></span>
+<span id="cb5-254"><a aria-hidden="true" href="#cb5-254" tabindex="-1"></a><span class=
+"ot"> *  return defaultTransformer();</span></span>
+<span id="cb5-255"><a aria-hidden="true" href="#cb5-255" tabindex="-1"></a><span class="ot"> * });</span></span>
+<span id="cb5-256"><a aria-hidden="true" href="#cb5-256" tabindex="-1"></a><span class="ot"> * // ...</span></span>
+<span id="cb5-257"><a aria-hidden="true" href="#cb5-257" tabindex="-1"></a><span class=
+"ot"> * &lt;&gt;{parsed}&lt;/&gt;</span></span>
+<span id="cb5-258"><a aria-hidden="true" href="#cb5-258" tabindex="-1"></a><span class="ot"> * ```</span></span>
+<span id="cb5-259"><a aria-hidden="true" href="#cb5-259" tabindex="-1"></a><span class="ot"> *</span></span>
+<span id="cb5-260"><a aria-hidden="true" href="#cb5-260" tabindex="-1"></a><span class=
+"ot"> * @returns {JSX.Element[]}</span></span>
+<span id="cb5-261"><a aria-hidden="true" href="#cb5-261" tabindex="-1"></a><span class="ot"> </span><span class=
+"co">*/</span></span>
+<span id="cb5-262"><a aria-hidden="true" href="#cb5-262" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> <span class="kw">function</span> <span class="fu">descriptionTransformer</span>(rawHtml<span class=
+"op">,</span> transformer) {</span>
+<span id="cb5-263"><a aria-hidden="true" href="#cb5-263" tabindex="-1"></a>  <span class=
+"kw">const</span> cleanedRawHtml <span class="op">=</span> rawHtml<span class="op">.</span><span class=
+"fu">replace</span>(<span class="ss">/&lt;br&gt;/g</span><span class="op">,</span> <span class=
+"st">""</span>)<span class="op">.</span><span class="fu">trim</span>()<span class="op">;</span></span>
+<span id="cb5-264"><a aria-hidden="true" href="#cb5-264" tabindex="-1"></a>  <span class=
+"cf">return</span> <span class="fu">transform</span>(<span class="fu">walk</span>(cleanedRawHtml)<span class=
+"op">,</span> transformer)<span class="op">;</span></span>
+<span id="cb5-265"><a aria-hidden="true" href="#cb5-265" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-/**
- * Represents open tag.
- * @typedef {Object} OpenTag
- * @property {number} start - Indicates the start position of the open tag.
- * @property {number} end - Indicates the end position of the open tag.
- * @property {string} name - Name of the tag.
- * @property {string[]} classes - Classes of the tag.
- */
-
-/**
- * Represents close tag.
- * @typedef {Object} CloseTag
- * @property {number} start - Indicates the start position of the end tag.
- * @property {number} end - Indicates the end position of the end tag.
- */
-
-/**
- * Represents contents of a tag.
- * @typedef {Object} TagContents
- * @property {string} contents - Contents between the open and close tag.
- * @property {boolean} hasInnerHtml - Indicates if the contents has nested HTML.
- */
-
-/**
- * Represents a parsed element.
- * @typedef {Object} ParsedElement
- * @property {string | ParsedElement[]} contents - Contents between the open and close tag.
- * @property {string} name - Name of the tag.
- * @property {string[]} classes - Classes of the tag.
- */
-
-/**
- * Represents transformer callback.
- *
- * @callback Transformer
- * @param {ParsedElement} element - Parsed element.
- * @param {JSX.Element[]} children - React components parsed from element.
- * @param {number} index - Current index in transforming loop, to use for `key` prop on component.
- * @param {CallableFunction} defaultTransformer - Pre-filled default transformer.
- */
-
-/**
- * Parses open tag to return that start position, end position, tag name, and classes.
- *
- * @param {string} html - Raw HTML to parse.
- *
- * @returns {OpenTag}
- */
-function parseOpenTag(html) {
-  // Open tag positions
-  const start = html.indexOf("&lt;");
-  const end = html.indexOf("&gt;") + 1;
-
-  // Open tag's contents
-  const contents = html.substring(start, end);
-
-  // Extract tag name
-  const name = html.substring(
-    start + 1,
-    // Until next space or end of tag
-    contents.indexOf(" ") &gt; -1 ? contents.indexOf(" ") : end - 1,
-  );
-
-  // Extract classes
-  const classMatch = contents.match(/class="([^"]+)"/);
-  const classes = classMatch === null ? [] : classMatch[1].split(" ");
-
-  return {
-    start,
-    end,
-    name,
-    classes,
-  };
-}
-
-/**
- * Parses close tag to return that start position and end position.
- *
- * @param {string} html - Raw HTML to parse.
- * @param {string} name - Tag name.
- *
- * @returns {CloseTag}
- */
-function parseCloseTag(html, name) {
-  // Tag itself
-  const tag = `&lt;/&gt;`;
-
-  // End tag positions
-  const start = html.indexOf(tag);
-  const end = start + tag.length;
-
-  return {
-    start,
-    end,
-  };
-}
-
-/**
- * Get the contents of a tag, returning the content and a flag of it has inner HTML.
- *
- * @param {string} html - Raw HTML to parse.
- * @param {object} openTag - Open tag parsed result.
- * @param {object} closeTag - Close tag parsed result.
- *
- * @returns {TagContents}
- */
-function parseContentOfTag(html, openTag, closeTag) {
-  const contents = html.substring(openTag.end, closeTag.start).trim();
-  const hasInnerHtml = contents.match(/&lt;.*&gt;.*&lt;\/.*&gt;/g);
-
-  return {
-    contents,
-    hasInnerHtml,
-  };
-}
-
-/**
- * Default transformer.
- *
- * @param {ParsedElement} element - Parsed element.
- * @param {JSX.Element[]} children - React components.
- * @param {number} index - Parsed element index in loop.
- *
- * @returns {JSX.Element}
- */
-function defaultTransformer(element, children, index) {
-  /** @type JSX.Element */
-  let reactElement;
-
-  // No transformer result, handle defaults
-  switch (element.name) {
-    case "ul": {
-      reactElement = &lt;List key={index}&gt;{children}&lt;/List&gt;;
-      break;
-    }
-    case "li": {
-      reactElement = &lt;ListItem key={index}&gt;{children}&lt;/ListItem&gt;;
-      break;
-    }
-    case "div": {
-      reactElement = &lt;TextBlock key={index}&gt;{children}&lt;/TextBlock&gt;;
-      break;
-    }
-    default: {
-      reactElement = &lt;&gt;No transformer to handle &amp;quot;{element.name}&amp;quot;&lt;/&gt;;
-    }
-  }
-
-  return reactElement;
-}
-
-/**
- * Walk through the HTML and parse it into an array of tag name, classes, and nested content.
- *
- * @param {string} html - Raw HTML to parse.
- * @returns {ParsedElement[]}
- */
-function walk(html) {
-  // Store elements parsed
-  /** @type ParsedElement[] */
-  const elements = [];
-
-  // Loop until no open tag is found
-  let shiftedHtml = html;
-  while (shiftedHtml.indexOf("&lt;") !== -1) {
-    // Open tag and close tag
-    const openTag = parseOpenTag(shiftedHtml);
-    const closeTag = parseCloseTag(shiftedHtml, openTag.name);
-
-    // Contents
-    const content = parseContentOfTag(shiftedHtml, openTag, closeTag);
-    const contents = content.hasInnerHtml ? walk(content.contents) : content.contents;
-
-    // Save, move to next part of the HTML
-    elements.push({
-      contents,
-      name: openTag.name,
-      classes: openTag.classes,
-    });
-    shiftedHtml = shiftedHtml.substring(closeTag.end).trim();
-  }
-
-  return elements;
-}
-
-/**
- * Convert parsed HTML into React elements.
- *
- * @param {ParsedElement[]} elements - Elements to convert to React components.
- * @param {Transformer | undefined} transformer - Custom transformation function.
- *
- * @returns {JSX.Element[]}
- */
-function transform(elements, transformer) {
-  let index = 0;
-  const reactElements = [];
-  for (const element of elements) {
-    if (element.contents !== "") {
-      // Parse nested elements, if nessessary
-      const children = Array.isArray(element.contents) ? (
-        transform(element.contents, transformer)
-      ) : (
-        &lt;&gt;{element.contents}&lt;/&gt;
-      );
-
-      // Transform to React
-      const reactElement = transformer
-        ? transformer(
-            element,
-            children,
-            index,
-            (
-              (e, c, i) &amp;ge; () &amp;ge;
-                defaultTransformer(e, c, i)
-            )(element, children, index),
-          )
-        : defaultTransformer(element, children, index);
-
-      reactElements.push(reactElement);
-      index += 1;
-    }
-  }
-
-  return reactElements;
-}
-
-/**
- * Parse description HTML of a product into Shopify React elements.
- *
- * @param {string} rawHtml - Raw HTML to parse and transform.
- * @param {Transformer | undefined} transformer - Custom transformation function.
- *
- * @example
- * ```
- * const parsed = descriptionTransformer(html);
- * // ...
- * &lt;&gt;{parsed}&lt;/&gt;
- * ```
- *
- * @example
- * ```
- * const parsed = descriptionTransformer(html, (element, children, index, defaultTransformer) &amp;ge; {
- *  if (element.classes.join(' ').indexOf("RichQuote") &gt; -1) {
- *    return (
- *       &lt;BlockStack key={index}&gt;
- *          &lt;Text&gt;Quote&lt;/Text&gt;
- *          {children}
- *       &lt;/BlockStack&gt;
- *    );
- *  }
- *  return defaultTransformer();
- * });
- * // ...
- * &lt;&gt;{parsed}&lt;/&gt;
- * ```
- *
- * @returns {JSX.Element[]}
- */
-export default function descriptionTransformer(rawHtml, transformer) {
-  const cleanedRawHtml = rawHtml.replace(/&lt;br&gt;/g, "").trim();
-  return transform(walk(cleanedRawHtml), transformer);
-}
-</code></pre>
         <p>
-          Hopefully this can help point you in the right direction if you're attempting to use product descriptions in
+          Hopefully this can help point you in the right direction if you’re attempting to use product descriptions in
           a Shopify Checkout UI Extension.
         </p>
 
@@ -609,7 +1023,7 @@ export default function descriptionTransformer(rawHtml, transformer) {
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

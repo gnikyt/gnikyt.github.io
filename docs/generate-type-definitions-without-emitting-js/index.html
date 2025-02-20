@@ -75,7 +75,7 @@
 
         <p>
           There are several posts around about people having issues figuring out how to send a fetch request from their
-          checkout extension to their app backend (Remix). Shopify's documentation around this is rather limited as
+          checkout extension to their app backend (Remix). Shopify’s documentation around this is rather limited as
           well. So, I have put together a small example of how you can achieve this!
         </p>
 
@@ -89,94 +89,157 @@
       package.json
       tsconfig.json
       shopify.extension.toml
-      README.md
-</code></pre>
+      README.md</code></pre>
         <p>
           Create a new file in your extension directory called <code>useSessionFetch.ts</code> and paste the following
           contents:
         </p>
 
-        <pre><code>// extensions/[your-ext]/useSessionFetch.ts
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a aria-hidden="true"
+          href="#cb2-1" tabindex="-1"></a><span class="co">// extensions/[your-ext]/useSessionFetch.ts</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="im">import</span> <span class=
+"im">type</span> { SessionToken } <span class="im">from</span> <span class=
+"st">"@shopify/ui-extensions/checkout"</span><span class="op">;</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class=
+"co"> * Fetch using session token.</span></span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">sessionToken</span><span class=
+"co"> - Session token service.</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> <span class="kw">function</span> <span class="fu">useSessionFetch</span>(sessionToken<span class=
+"op">:</span> SessionToken) {</span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a><span class=
+"co">   * Fetch resource.</span></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a><span class="co">   *</span></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a><span class=
+"co">   * @param url - URL or request object for fetch.</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a><span class=
+"co">   * @param init - Configuration for fetch.</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"kw">async</span> <span class="kw">function</span> (url<span class="op">:</span> <span class=
+"dt">string</span> <span class="op">|</span> URL <span class="op">|</span> Request<span class=
+"op">,</span> init<span class="op">?:</span> RequestInit) {</span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>    <span class=
+"kw">const</span> token <span class="op">=</span> <span class="cf">await</span> sessionToken<span class=
+"op">.</span><span class="fu">get</span>()<span class="op">;</span></span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="fu">fetch</span>(url<span class="op">,</span> {</span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>      <span class=
+"op">...</span>(init <span class="op">||</span> {})<span class="op">,</span></span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>      headers<span class=
+"op">:</span> {</span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>        <span class=
+"op">...</span>(init <span class="op">&amp;&</span> init<span class="op">.</span><span class=
+"at">headers</span> <span class="op">?</span> init<span class="op">.</span><span class="at">headers</span> <span class=
+"op">:</span> {})<span class="op">,</span></span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>        Authorization<span class=
+"op">:</span> <span class="vs">`Bearer </span><span class="sc">${</span>token<span class="sc">}</span><span class=
+"vs">`</span><span class="op">,</span></span>
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-import type { SessionToken } from "@shopify/ui-extensions/checkout";
-
-/**
- * Fetch using session token.
- *
- * @param sessionToken - Session token service.
- */
-export default function useSessionFetch(sessionToken: SessionToken) {
-  /*
-   * Fetch resource.
-   *
-   * @param url - URL or request object for fetch.
-   * @param init - Configuration for fetch.
-   */
-  return async function (url: string | URL | Request, init?: RequestInit) {
-    const token = await sessionToken.get();
-    return fetch(url, {
-      ...(init || {}),
-      headers: {
-        ...(init &amp;& init.headers ? init.headers : {}),
-        Authorization: `Bearer `,
-      },
-    });
-  };
-}
-</code></pre>
         <p>
           This function will accept the session token service and return a function you can use instead of
           <code>fetch</code>. Upon calling it, the code will automatically get a session token to append to the fetch
-          request's headers. Its really just a small but helpful hook to wrap around <code>fetch</code>.
+          request’s headers. Its really just a small but helpful hook to wrap around <code>fetch</code>.
         </p>
 
         <p>
           To utilize this in your extension, example:
         </p>
 
-        <pre><code>// extensions/[your-ext]/Checkout.tsx
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a aria-hidden="true"
+          href="#cb3-1" tabindex="-1"></a><span class="co">// extensions/[your-ext]/Checkout.tsx</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class=
+"im">import</span> { useSessionToken } <span class="im">from</span> <span class=
+"st">"@shopify/ui-extensions-react/checkout"</span><span class="op">;</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a><span class=
+"im">import</span> useSessionFetch <span class="im">from</span> <span class="st">"./useSessionFetch"</span><span class=
+"op">;</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">Extension</span>() {</span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>  <span class=
+"kw">const</span> sessionToken <span class="op">=</span> <span class="fu">useSessionToken</span>()<span class=
+"op">;</span></span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>  <span class=
+"kw">const</span> sessionFetch <span class="op">=</span> <span class=
+"fu">useSessionFetch</span>(sessionToken)<span class="op">;</span></span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>  <span class=
+"fu">useEffect</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>    (<span class=
+"kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>      <span class=
+"co">// Use `sessionFetch` instead of `fetch`</span></span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a>      <span class=
+"kw">const</span> response <span class="op">=</span> <span class="cf">await</span> <span class=
+"fu">sessionFetch</span>(<span class="st">"/some/path/to/remix/backend"</span>)<span class="op">;</span></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>      <span class=
+"cf">if</span> (response<span class="op">.</span><span class="at">ok</span>) {</span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>        <span class=
+"kw">const</span> { data } <span class="op">=</span> <span class="cf">await</span> response<span class=
+"op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>        <span class=
+"fu">setData</span>(data)<span class="op">;</span></span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a>      }}</span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>    })()<span class="op">;</span></span>
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>  }<span class="op">,</span> [])<span class=
+"op">;</span></span>
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a></span>
+<span id="cb3-21"><a aria-hidden="true" href="#cb3-21" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb3-22"><a aria-hidden="true" href="#cb3-22" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-import { useSessionToken } from "@shopify/ui-extensions-react/checkout";
-import useSessionFetch from "./useSessionFetch";
-
-function Extension() {
-  const sessionToken = useSessionToken();
-  const sessionFetch = useSessionFetch(sessionToken);
-
-  useEffect(() &amp;ge; {
-    (async () &amp;ge; {
-      // Use `sessionFetch` instead of `fetch`
-      const response = await sessionFetch("/some/path/to/remix/backend");
-      if (response.ok) {
-        const { data } = await response.json();
-        setData(data);
-      }}
-    })();
-  }, []);
-
-  // ...
-}
-</code></pre>
         <p>
           On your backend:
         </p>
 
-        <pre><code>// routes/some.path.to.remix.backend
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a aria-hidden="true"
+          href="#cb4-1" tabindex="-1"></a><span class="co">// routes/some.path.to.remix.backend</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class=
+"im">import</span> { authenticate } <span class="im">from</span> <span class=
+"st">"../shopify.server"</span><span class="op">;</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a><span class=
+"im">import</span> { json<span class="op">,</span> <span class="kw">type</span> LoaderFunctionArgs } <span class=
+"im">from</span> <span class="st">"@remix-run/node"</span><span class="op">;</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a><span class="im">export</span> <span class=
+"kw">async</span> <span class="kw">function</span> <span class="fu">loader</span>({ request<span class=
+"op">,</span> params }<span class="op">:</span> LoaderFunctionArgs) {</span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>  <span class=
+"kw">const</span> { sessionToken<span class="op">,</span> cors } <span class="op">=</span> <span class=
+"cf">await</span> authenticate<span class="op">.</span><span class="at">public</span><span class=
+"op">.</span><span class="fu">checkout</span>(request)<span class="op">;</span></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>  <span class=
+"kw">const</span> shop <span class="op">=</span> <span class="fu">ShopDomain</span>(sessionToken<span class=
+"op">.</span><span class="at">dest</span>)<span class="op">;</span></span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"fu">cors</span>(<span class="fu">json</span>({</span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>    data<span class=
+"op">:</span> { hello<span class="op">:</span> <span class="st">"world"</span> }<span class="op">,</span></span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a>  }))<span class="op">;</span></span>
+<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-import { authenticate } from "../shopify.server";
-import { json, type LoaderFunctionArgs } from "@remix-run/node";
-
-export async function loader({ request, params }: LoaderFunctionArgs) {
-  const { sessionToken, cors } = await authenticate.public.checkout(request);
-  const shop = ShopDomain(sessionToken.dest);
-
-  // ...
-
-  return cors(json({
-    data: { hello: "world" },
-  }));
-}
-</code></pre>
         <p>
           Now, with this hook, the token, and utilization of <code>authenticate.public.checkout</code>, you can easily
           make a fetch request from your extension to your backend.
@@ -208,7 +271,7 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

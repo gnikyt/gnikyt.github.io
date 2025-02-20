@@ -90,7 +90,7 @@
           I have been struggling recently to find a good match of the following:
         </p>
 
-        <ol>
+        <ol type="1">
           <li>Productivity
           </li>
 
@@ -112,23 +112,23 @@
 
         <p>
           However, all the major desktop environments are geared towards floating and manually managing windows like
-          you would with Windows or OSX. You end up spending a good chunk of time attached to your mouse... moving,
+          you would with Windows or OSX. You end up spending a good chunk of time attached to your mouse… moving,
           resizing, and managing those windows to do your work. Yes, you could tweak the settings of these desktop
           environments to semi-simulate what a good window manager can do, but it is not the <em>same</em>.
         </p>
 
         <p>
-          With a configurable window manager, such as i3, sway, bspwm, and others, you're able to solely use your
-          keyboard to manage windows in a way that's efficient, natural, and powerful.
+          With a configurable window manager, such as i3, sway, bspwm, and others, you’re able to solely use your
+          keyboard to manage windows in a way that’s efficient, natural, and powerful.
         </p>
 
         <p>
-          For someone like me, who doesn't use a mouse (I use my Thinkpad dot only) and has back/neck issues... the
-          less I move around (reaching for mice), the better!
+          For someone like me, who doesn’t use a mouse (I use my Thinkpad dot only) and has back/neck issues… the less
+          I move around (reaching for mice), the better!
         </p>
 
         <p>
-          So, to hit all points above... a combo of Plasma and i3 works wonders. And the best thing is that it takes no
+          So, to hit all points above… a combo of Plasma and i3 works wonders. And the best thing is that it takes no
           time at all to setup.
         </p>
 
@@ -141,27 +141,47 @@
           Since I use OpenSUSE, I did the following for my system (slightly different paths):
         </p>
 
-        <pre><code># Install i3
-sudo zypper in i3
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="co"># Install i3</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="fu">sudo</span> zypper in i3</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class=
+"co"># Create a Plasma + i3 launcher script</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="ex">$</span> echo <span class=
+"at">-e</span> <span class="st">'#!/bin/sh\n\nKDEWM=/usr/bin/i3 startkde'</span> <span class=
+"op">&gt;</span> /usr/local/bin/startkde-i3</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class=
+"ex">$</span> sudo chown root.root /usr/local/bin/startkde-i3</span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class=
+"ex">$</span> sudo chmod 755 /usr/local/bin/startkde-i3</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class=
+"co"># Create a custom desktop sessions directory</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="ex">$</span> sudo cp <span class=
+"at">-a</span> /usr/share/xsessions /usr/local/share/xsessions</span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class=
+"co"># Create a new desktop session file for plasma + i3</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a><span class=
+"ex">$</span> cp /usr/local/share/xsessions/default.desktop /usr/local/share/xsessions/plasma-i3.desktop</span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class=
+"ex">$</span> sudo sed <span class="at">-i</span> <span class=
+"st">'s|/usr/bin/startkde|/usr/local/bin/startkde-i3|'</span> /usr/local/share/xsessions/plasma-i3.desktop</span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a><span class=
+"ex">$</span> sudo sed <span class="at">-i</span> <span class=
+"st">'/Name.*=/ s/$/-i3/'</span> /usr/local/share/xsessions/plasma-i3.desktop</span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class=
+"co"># Configure sddm (the login screen) to use our new desktop sessions directory</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a><span class="ex">$</span> echo <span class=
+"at">-e</span> <span class="st">'\n\n[X11]\nSessionDir=/usr/local/share/xsessions'</span> <span class=
+"kw">|</span> <span class="fu">sudo</span> tee <span class=
+"at">-a</span> /usr/lib/sddm/sddm.conf.d/00-general.conf</span></code></pre>
+        </div>
 
-# Create a Plasma + i3 launcher script
-$ echo -e '#!/bin/sh\n\nKDEWM=/usr/bin/i3 startkde' &gt; /usr/local/bin/startkde-i3
-$ sudo chown root.root /usr/local/bin/startkde-i3
-$ sudo chmod 755 /usr/local/bin/startkde-i3
-
-# Create a custom desktop sessions directory
-$ sudo cp -a /usr/share/xsessions /usr/local/share/xsessions
-
-# Create a new desktop session file for plasma + i3
-$ cp /usr/local/share/xsessions/default.desktop /usr/local/share/xsessions/plasma-i3.desktop
-$ sudo sed -i 's|/usr/bin/startkde|/usr/local/bin/startkde-i3|' /usr/local/share/xsessions/plasma-i3.desktop
-$ sudo sed -i '/Name.*=/ s/$/-i3/' /usr/local/share/xsessions/plasma-i3.desktop
-
-# Configure sddm (the login screen) to use our new desktop sessions directory
-$ echo -e '\n\n[X11]\nSessionDir=/usr/local/share/xsessions' | sudo tee -a /usr/lib/sddm/sddm.conf.d/00-general.conf
-</code></pre>
         <p>
-          Logging out, you'll be presented with an option in SDDM for <code>Plasma-i3</code>.
+          Logging out, you’ll be presented with an option in SDDM for <code>Plasma-i3</code>.
         </p>
 
         <h2 id="tweaking">
@@ -190,7 +210,7 @@ $ echo -e '\n\n[X11]\nSessionDir=/usr/local/share/xsessions' | sudo tee -a /usr/
         <p>
           <a href="https://github.com/gnikyt/dots/blob/master/.config/i3/config">Here is my i3 config</a>, which has
           pre-defined settings for handling the different Plasma windows. I have several standard keybindings defined,
-          launchers, and window management. You can go in-depth as you like... you can target certain
+          launchers, and window management. You can go in-depth as you like… you can target certain
           windows/popups/window-titles and more to do anything you like. You can have certain windows float, certain
           windows open on a monitor or workspace, certain windows have priorities, certain windows that open next to
           other certain windows, and so forth; you can go nuts!
@@ -201,14 +221,14 @@ $ echo -e '\n\n[X11]\nSessionDir=/usr/local/share/xsessions' | sudo tee -a /usr/
         </h3>
 
         <p>
-          You're able to use any "bar" or panel you like with this setup.. weather it be i3bar, polybar, or plain
+          You’re able to use any “bar” or panel you like with this setup.. weather it be i3bar, polybar, or plain
           Plasma panel as I have.
         </p>
 
         <p>
           If you decide to use Plasma panels, definitely install <a href="https://store.kde.org/p/1315319/">Virtual
           Desktop Bar Widget</a>, its a virtual desktop pager which is configurable and simple, and mimics how most
-          other "bars" handle workspaces (its the widget in the screenshot above with "web", "code", "mail", etc).
+          other “bars” handle workspaces (its the widget in the screenshot above with “web”, “code”, “mail”, etc).
         </p>
 
         <h2 id="conclusion">
@@ -249,7 +269,7 @@ $ echo -e '\n\n[X11]\nSessionDir=/usr/local/share/xsessions' | sudo tee -a /usr/
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

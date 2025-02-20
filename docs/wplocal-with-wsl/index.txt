@@ -32,11 +32,11 @@ Installation
    [3]WP Local Running inside WSL
 
    Although its open and running, if you immediately tried to connect to
-   WP Engine and pull down a project, youʼll have displays with errors pop
+   WP Engine and pull down a project, you’ll have displays with errors pop
    up such as the inability for WP Local to ask for priviliages (sudo) and
    issues for it to properly configure NGINX.
 
-   With a lot of digging around the web to solve both issues... I came
+   With a lot of digging around the web to solve both issues… I came
    across a great post by [4]robert77 on the WP Local Community Forums
    which I will outline below.
 
@@ -45,12 +45,13 @@ Fixing Dependencies
    As mentioned earlier, not all dependencies we actually end up being
    installed. I am unsure if the Debian package defines the dependencies
    to be installed, or they error upon installing (I did not see an error
-   in my case), but... we need more packages regardless!
+   in my case), but… we need more packages regardless!
 
    Run sudo apt-get update && sudo apt-get upgrade to ensure package
    information is updated and accurate.
 
    Next, run:
+
 sudo apt-get -y install libaio1 libncurses5 libnss3-tools rsync shared-mime-info
  desktop-file-utils libxshmfence1 libglu1 libatk1.0-0 libatk-bridge2.0-0 libgtk2
 .0-0 libgtk-3-0 libgbm-dev libasound2 libnuma-dev libxslt1.1 lxqt-sudo libzip4
@@ -59,6 +60,7 @@ sudo apt-get -y install libaio1 libncurses5 libnss3-tools rsync shared-mime-info
    requests, rync is installed for Local to use, and other items.
 
    Next we need to download a couple packages manually:
+
 curl -O http://snapshot.debian.org/archive/debian/20190501T215844Z/pool/main/g/g
 libc/multiarch-support_2.28-10_amd64.deb
 sudo dpkg -i multiarch-support_2.28-10_amd64.deb
@@ -77,7 +79,8 @@ Priviliaged Requests
    Local to spawn a GUI to ask for a password.
 
    Running sudo nano /usr/bin/kdesudo should open a new file. Inside the
-   file, paste the following to use LxQTʼs prompt:
+   file, paste the following to use LxQT’s prompt:
+
 #!/bin/bash
 /usr/bin/lxqt-sudo $7
 
@@ -92,7 +95,8 @@ NGINX Fix
    If you are pulling down a project from WP Engine which uses NGINX, it
    will attempt to set capabilities but be unable to. To fix this, run the
    following:
-sudo setcap ʼcap_net_bind_service=+epʼ /opt/Local/resources/extraResources/light
+
+sudo setcap 'cap_net_bind_service=+ep' /opt/Local/resources/extraResources/light
 ning-services/nginx-[version]/bin/linux/sbin/nginx`
 
    Replacing [version] with the current NGINX version listed in the
@@ -101,11 +105,11 @@ ning-services/nginx-[version]/bin/linux/sbin/nginx`
 Recommended
 
    Once completed, recommendation would be to change WP Local to use
-   "localhost" instead of "Site Domains", but should you choose to use
-   "Site Domains", you will need to add an entry to your Windowsʼ hosts
-   file (C:Windowssystem32driversetchosts) for the domain. For example, if
-   your project was jumping-bean.local you would need to add 127.0.0.1
-   jumping-bean.local to the hosts file.
+   “localhost” instead of “Site Domains”, but should you choose to use
+   “Site Domains”, you will need to add an entry to your Windows’ hosts
+   file (C:\Windows\system32\drivers\etc\hosts) for the domain. For
+   example, if your project was jumping-bean.local you would need to add
+   127.0.0.1 jumping-bean.local to the hosts file.
 
    I chose localhost because it was easier to communicate with a custom
    frontend that was built for this specific project, but it comes down to
@@ -115,7 +119,7 @@ Recommended
 
 Bonus: Git Integration
 
-   If youʼre curious on how you can pull down a project with WP Local and
+   If you’re curious on how you can pull down a project with WP Local and
    connect it to either a new or existing repository, then it can be
    achieved by doing the following steps, at a high level:
     1. Pull down the project with WP Local
@@ -126,13 +130,14 @@ Bonus: Git Integration
     6. (if applicable) Pull down repository changes
 
    Script:
+
 cs app/public && \
 git init && \
 git remote add origin [url] && \
 git fetch origin master && \
 git reset --hard origin/master
 
-   Replacing [url] with your repositoryʼs URL.
+   Replacing [url] with your repository’s URL.
 
    Once completed, this will allow you to make changes to your code and
    have it synced with WP Local, and additionally deploy the code with WP
@@ -140,7 +145,7 @@ git reset --hard origin/master
 
 Conclusion
 
-   Thatʼs it! A very helpful post from robert77 leads to a working WP
+   That’s it! A very helpful post from robert77 leads to a working WP
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
@@ -167,11 +172,12 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
-   3. /assets/images/posts/wplocal<em>running.png
+   3. /assets/images/posts/wplocal_running.png
    4. https://community.localwp.com/u/robert77
-   5. /assets/images/posts/wplocal<em>sudo.png
+   5. /assets/images/posts/wplocal_sudo.png
    6. /wplocal-with-wsl/index.md
    7. /wplocal-with-wsl/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
@@ -180,3 +186,19 @@ References
   11. /about
   12. /assets/files/cv.pdf
   13. /rss.xml
+
+   Hidden links:
+  15. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb2-1
+  17. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb2-2
+  18. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb3-1
+  19. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb3-2
+  20. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb3-3
+  21. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb4-1
+  22. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb4-2
+  23. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb5-1
+  24. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb6-1
+  25. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb6-2
+  26. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb6-3
+  27. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb6-4
+  28. localhost/tmp/lynxXXXX0BMFeI/L3269167-9251TMP.html#cb6-5

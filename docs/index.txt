@@ -127,13 +127,13 @@ References
   29. file:///thunderbird-with-gsuite-exchange
   30. file:///thinkpad-t580-on-linux
   31. file:///apply-verify-and-validate-shopify-discount-codes
-  32. file:///laravel-Shopify-billing
+  32. file:///laravel-shopify-billing
   33. file:///setting-up-lumen-with-redis
   34. file:///setting-up-lumen-with-mail
-  35. file:///Pomodoro-method
-  36. file:///introducing-Shopify-for-laravel
+  35. file:///pomodoro-method
+  36. file:///introducing-shopify-for-laravel
   37. file:///reactive-vuejs-plugins
-  38. file:///WordPress-under-docker
+  38. file:///wordpress-under-docker
   39. file:///developing-sanely-on-windows-revisited
   40. file:///moving-away-from-cancancan-to-pundit
   41. file:///when-to-use-a-vps-vs-pass

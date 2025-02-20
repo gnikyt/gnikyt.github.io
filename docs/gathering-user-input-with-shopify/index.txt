@@ -10,10 +10,10 @@
    including free web-based store building software, unlimited ecommerce
    website hosting, and more. It is a great tool for both users and
    developers. It offers a great API which has libraries for many
-   languages (PHP, Python, Ruby, ...) and a great back-end for
-   customization of a store; templates, snippets, assets and more.
+   languages (PHP, Python, Ruby, …) and a great back-end for customization
+   of a store; templates, snippets, assets and more.
 
-   A few times now, Iʼve had to develop private Shopify Apps where the
+   A few times now, I’ve had to develop private Shopify Apps where the
    client would request the ability to gather custom user-inputted data
    from a product page, which they could see on their order form to
    full-fill. As recently, I developed a Shopify modification which needed
@@ -24,48 +24,48 @@
    the product page besides [3]variants which does not offer text input
    and is really not suited for this type of application.
 
-   The solution - itʼs simple, Shopify has product properties which you
-   can simply modify the the productʼs liquid template and add in your
+   The solution - it’s simple, Shopify has product properties which you
+   can simply modify the the product’s liquid template and add in your
    custom product fields; it will automatically show up on the order form
    when submitted in your Shopify back-end.
 
-   Letʼs take this example; like I said above, I recently did this for a
+   Let’s take this example; like I said above, I recently did this for a
    client where he could capture custom dimensions from a customer. All
    below actions will affect all products in your store. If you wish to
    affect only certain ones you will have to modify the liquid code more
-   or use the API. But for exampleʼs sake letʼs do it for all products.
+   or use the API. But for example’s sake let’s do it for all products.
 
-   First, we open product.liquid of your current shopʼs theme, from here
+   First, we open product.liquid of your current shop’s theme, from here
    find the add cart form which looks similar to the form code below.
+
 <form id="add-item-form" action="/cart/add" method="post">
 
    Next, we add our property HTML. Shopify looks for input fields which
-   contain the name "properties". Anything inside the braces will be the
+   contain the name “properties”. Anything inside the braces will be the
    label of what you want to capture; you can change Dimensions to
    something like Size, Hex Color, etc.
 Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
 ]">
 
-   Screenshot 1
+   Screenshot 1 Screenshot 1
 
-   In the image above (click to enlarge) Iʼve added the code just below
+   In the image above (click to enlarge) I’ve added the code just below
    the variant definitions for the product. This is a very basic example
    with no styling, so you may style it how you please later. As you can
-   see, Iʼve set a name for the customer to see "Dimensions (W x L)" and
-   the input which Shopify can see using the properties HTML array. The
-   cool thing about it is, you can add more than one - even add file
+   see, I’ve set a name for the customer to see “Dimensions (W x L)” and
+   the input which Shopify can see using the __properties __HTML array.
+   The cool thing about it is, you can add more than one - even add file
    uploads!
 
    Next, save the liquid template and view a product you have in your
    store. You should see the dimensions field we just added and it should
    be usable.
+   Screenshot 2 Screenshot 2
 
-   Screenshot 2
-
-   Now that our dimensions input shows up. Letʼs go ahead and have it show
+   Now that our dimensions input shows up. Let’s go ahead and have it show
    up on the cart page (for when they add it to their cart). Open
-   cart.liquid in your current shopʼs theme, find a line which contains
-   the productʼs title for example "{{ item.product.title }}". Below this,
+   cart.liquid in your current shop’s theme, find a line which contains
+   the product’s title for example “{{ item.product.title }}”. Below this,
    we will add the liquid code which will list all of the properties that
    the user has entered, because remember, you can add more than one.
 {% raw %}
@@ -74,32 +74,30 @@ Dimensions (W x L)<input type="text" id="dimensions" name="properties[Dimensions
 {% endfor %}
 {% endraw %}
 
-   Screenshot 3
+   Screenshot 3 Screenshot 3
 
    This will allow the customer to see what they have entered or uploaded
    as well when they visit their cart page. So go ahead and save the
    template, go back to a product, enter some data into the dimensions
    field we added then add it to your cart. Once added, view your cart and
    you should now see what you entered on the previous page.
-
-   Screenshot 4
+   Screenshot 4 Screenshot 4
 
    As you can see, on your cart page you can now see what you have
    entered. Again, this is just an example and is completely customizable
    by you in any way. Now go ahead and submit the order, we will view what
    you will see in your Shopify admin dashboard for the order.
+   Screenshot 5 Screenshot 5
 
-   Screenshot 5
-
-   Itʼs captured and itʼs that easy. Now you have an easy way to gather
-   the customerʼs input on products of your shop. This is only a bare
+   It’s captured and it’s that easy. Now you have an easy way to gather
+   the customer’s input on products of your shop. This is only a bare
    example, you can of course, style it, customize the HTML, add
    javascript and validation, and even tack on the captured data to the
-   customerʼs email order confirmation.
+   customer’s email order confirmation.
 
    I hope this tutorial will help others, it seems to be a frequently
    asked question among Shopify users and developers. For more information
-   see Shopifyʼs wiki entry for the subject [4]here.
+   see Shopify’s wiki entry for the subject [4]here.
 
    [5]MD | [6]TXT | [7]CC-4.0
 
@@ -126,10 +124,11 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. http://wiki.shopify.com/Variant
-   4. http://wiki.shopify.com/Line<em>Item</em>Properties
+   4. http://wiki.shopify.com/Line_Item_Properties
    5. /gathering-user-input-with-shopify/index.md
    6. /gathering-user-input-with-shopify/index.txt
    7. https://creativecommons.org/licenses/by/4.0/
@@ -138,3 +137,6 @@ References
   10. /about
   11. /assets/files/cv.pdf
   12. /rss.xml
+
+   Hidden links:
+  14. localhost/tmp/lynxXXXX2GgJRu/L3282969-3028TMP.html#cb1-1

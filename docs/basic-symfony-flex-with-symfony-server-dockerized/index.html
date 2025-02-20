@@ -71,13 +71,13 @@
         </header>
 
         <p>
-          Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes". It
+          Symfony Flex allows you to tailor a Symfony application to your needs by building it with “recipes”. It
           provides a way to create a very lean and clean Symfony application with only the bells and whistles you
           choose.
         </p>
 
         <p>
-          In this post, I'll show you how to create a Dockerized version of your Flex application that utilizes the
+          In this post, I’ll show you how to create a Dockerized version of your Flex application that utilizes the
           Symfony local server for use during local development.
         </p>
 
@@ -108,7 +108,7 @@
         </p>
 
         <p>
-          You're now free to create any entities, repositories, controllers, services, etc. that you require, or you
+          You’re now free to create any entities, repositories, controllers, services, etc. that you require, or you
           can come back to that at a later time, it is not required.
         </p>
 
@@ -121,94 +121,55 @@
         </h3>
 
         <p>
-          For this example, we'll simply set up a MySQL server, Redis server, and PHP CLI. We will manage all this
+          For this example, we’ll simply set up a MySQL server, Redis server, and PHP CLI. We will manage all this
           through Docker Compose.
         </p>
 
-        <h1 id="docker-compose-yml-version-3">
-          docker-compose.yml version: '3'
-        </h1>
+        <pre><code># docker-compose.yml
+version: '3'
 
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pwd
+      MYSQL_DATABASE: api_db
+      MYSQL_USER: api_user
+      MYSQL_PASSWORD: api_pass
+    volumes:
+      - ./docker/db:/var/lib/mysql/data
+    ports:
+      - '3306:3306'
+    restart: always
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./docker/redis:/data
+    entrypoint: redis-server --appendonly yes
+    restart: always
+  web:
+    build:
+      context: .
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - '8080:80'
+    stdin_open: true
+    tty: true</code></pre>
         <p>
-          services: db: image: mysql:5.7 environment: MYSQL<em>ROOT</em>PASSWORD: root_pwd MYSQL<em>DATABASE:
-          api</em>db MYSQL<em>USER: api</em>user MYSQL<em>PASSWORD: api</em>pass volumes:
-        </p>
-
-        <ul>
-          <li>./docker/db:/var/lib/mysql/data
-          </li>
-        </ul>
-
-        <p>
-          ports:
-        </p>
-
-        <ul>
-          <li>'3306:3306'
-          </li>
-        </ul>
-
-        <p>
-          restart: always redis: image: redis ports:
-        </p>
-
-        <ul>
-          <li>'6379:6379'
-          </li>
-        </ul>
-
-        <p>
-          volumes:
-        </p>
-
-        <ul>
-          <li>./docker/redis:/data
-          </li>
-        </ul>
-
-        <p>
-          entrypoint: redis-server --appendonly yes restart: always web: build: context: . depends_on:
-        </p>
-
-        <ul>
-          <li>db
-          </li>
-
-          <li>redis
-          </li>
-        </ul>
-
-        <p>
-          volumes:
-        </p>
-
-        <ul>
-          <li>./:/var/www/html/
-          </li>
-        </ul>
-
-        <p>
-          ports:
-        </p>
-
-        <ul>
-          <li>'8080:80'
-          </li>
-        </ul>
-
-        <p>
-          stdin_open: true tty: true
-        </p>
-
-        <p>
-          The above will pull in the <code>mysql:5.7</code> image with some initial environment variables <em>(you're
+          The above will pull in the <code>mysql:5.7</code> image with some initial environment variables <em>(you’re
           free to replace them)</em>. It will mount its data volume to <code>./docker/db</code> of your
           <code>myapi</code> directory for persistence. It will also map port <code>3306</code> on your host machine to
           forward to <code>3306</code> in the container.
         </p>
 
         <p>
-          Below that, we pull in the <code>redis</code> image and mount it's volume to <code>./docker/redis</code> of
+          Below that, we pull in the <code>redis</code> image and mount it’s volume to <code>./docker/redis</code> of
           your <code>myapi</code> directory for storage. It will also map port <code>6379</code> of your host machine
           to forward to <code>6379</code> in the container. You can adjust the entrypoint to your needs.
         </p>
@@ -228,40 +189,28 @@
           Dockerfile
         </h3>
 
-        <h1 id="dockerfile-from-php-7-3-cli">
-          Dockerfile FROM php:7.3-cli
-        </h1>
+        <pre><code># Dockerfile
+FROM php:7.3-cli
 
-        <h1 id="remove-restirction-from-installing-php-packages-run-rm-etc-apt-preferences-d-no-debian-php">
-          Remove restirction from installing PHP packages RUN rm /etc/apt/preferences.d/no-debian-php
-        </h1>
+# Remove restirction from installing PHP packages
+RUN rm /etc/apt/preferences.d/no-debian-php
 
-        <h1 id=
-        "install-required-packages-run-apt-update-apt-install-wget-php-mysql-php-json-php-mbstring-php-xml-php-curl-y">
-          Install required packages RUN apt update &amp;& apt install wget php-mysql php-json php-mbstring php-xml
-          php-curl -y
-        </h1>
+# Install required packages
+RUN apt update &amp;& apt install wget php-mysql php-json php-mbstring php-xml php-curl -y
 
-        <h1 id="extension-install-run-docker-php-ext-install-mysqli-pdo-pdo-mysql">
-          Extension install RUN docker-php-ext-install mysqli pdo pdo_mysql
-        </h1>
+# Extension install
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-        <h1 id=
-        "install-symfony-package-run-wget-https-get-symfony-com-cli-installer-o-bash-mv-root-symfony-bin-symfony-usr-local-bin-symfony">
-          Install Symfony package RUN wget https://get.symfony.com/cli/installer -O - | bash &amp;& mv
-          /root/.symfony/bin/symfony /usr/local/bin/symfony
-        </h1>
+# Install Symfony package
+RUN wget https://get.symfony.com/cli/installer -O - | bash &amp;& mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
-        <h1 id="open-port-80-expose-80">
-          Open port 80 EXPOSE 80
-        </h1>
+# Open port 80
+EXPOSE 80
 
-        <h1 id="run-it-cmd-cd-var-www-html-symfony-server-start-no-tls-port-80">
-          Run it CMD cd /var/www/html &amp;& symfony server:start --no-tls --port=80
-        </h1>
-
+# Run it
+CMD cd /var/www/html &amp;& symfony server:start --no-tls --port=80</code></pre>
         <p>
-          The above Dockerfile will pull in the <code>php:7.3-cli</code> image. Since Symfony's local server will be
+          The above Dockerfile will pull in the <code>php:7.3-cli</code> image. Since Symfony’s local server will be
           handling the requests, we do not need Nginx, Apache, mod_php, or php-fpm.
         </p>
 
@@ -277,7 +226,7 @@
         </h2>
 
         <p>
-          It is a good idea to now modify your <code>.env.local</code> file to connect to the container's MySQL
+          It is a good idea to now modify your <code>.env.local</code> file to connect to the container’s MySQL
           instance and Redis instance with the credentials set up in the <code>docker-compose.yml</code> file and the
           special mapping keywords, <code>redis</code> and <code>db</code> for the address.
         </p>
@@ -288,7 +237,7 @@
 
         <ul>
           <li>
-            <code>DATABASE<em>URL=mysql://${DATABASE</em>USER}:${DATABASE<em>PASSWORD}@mysql:3306/${DATABASE</em>NAME}?serverVersion=5.7</code>
+            <code>DATABASE_URL=mysql://:@mysql:3306/?serverVersion=5.7</code>
           </li>
 
           <li>
@@ -297,7 +246,7 @@
         </ul>
 
         <p>
-          Finally, executing <code>docker-compose up</code> will build and boot the containers. If you're successful...
+          Finally, executing <code>docker-compose up</code> will build and boot the containers. If you’re successful…
           you should see the Symfony local server running with a message similar to:
         </p>
 
@@ -311,7 +260,7 @@
         </p>
 
         <p>
-          As a side note, it would be a good idea to set up a hosts file entry so you don't need to type your localhost
+          As a side note, it would be a good idea to set up a hosts file entry so you don’t need to type your localhost
           every time, and also enabling HTTPS would be a good measure, but not necessarily needed for local
           development.
         </p>
@@ -326,8 +275,8 @@
 
         <p>
           For more information on Symfony Flex, <a href=
-          "https://symfony.com/doc/current/quick%3Cem%3Etour/flex%3C/em%3Erecipes.html">click here</a>; or information
-          on Symfony Server, <a href="https://symfony.com/doc/current/setup/symfony_server.html">click here</a>.
+          "https://symfony.com/doc/current/quick_tour/flex_recipes.html">click here</a>; or information on Symfony
+          Server, <a href="https://symfony.com/doc/current/setup/symfony_server.html">click here</a>.
         </p>
 
         <footer class="post__tail">
@@ -360,7 +309,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

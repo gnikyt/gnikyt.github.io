@@ -4,60 +4,16 @@
 
                                      About
 
-   Hello World. Iʼm Ty(ler) King — A self-taught, seasoned, and versatile
-   developer from Newfoundland. Crafting innovative solutions with care
-   and expertise.
-
-   Outside of that, its gnikyt (nɪkɪt).
-
-   You can reach me through [3]me@gnikyt.com.
-
-My Rundown
-
-  I specialize with
-
-     * Backend systems
-     * Integrations between systems
-     * Shopify themes, apps, integrations, and extensions
-     * Development/technical consulting
-
-  I regularly develop with
-
-     * Go
-     * Javascript/Typescript (and itʼs frameworks)
-
-  I dabble with
-
-     * Python
-     * PHP
-     * React Native/Flutter
-     * Hardware development with BLE and NFC communications
-     * Open source contributions
-
-  Random Open Source work
-
-     * [4]cq - Golang; A function-based composible queue.
-     * [5]Laravel Shopify - PHP; A full-featured Laravel package for
-       aiding in Shopify App development
-     * [6]Basic Shopify API - PHP; A simple sync/async API wrapper for
-       Shopify using Guzzle for REST and GraphQL.
-     * [7]basic_shopify_api - Python; A sync/async REST and GraphQL client
-       for Shopify API using HTTPX.
-     * [8]gowith - Golang; Pythonʼs "with" implemented in Go.
-     * [9]with - PHP; Pythonʼs "with" implemented in PHP.
-     * [10]http_shopify_webhook - Golang; Webhook verification for
-       Shopify.
-
-   [11]MD | [12]TXT | [13]CC-4.0
+   [3]MD | [4]TXT | [5]CC-4.0
      __________________________________________________________________
 
-   [14]Ty King
+   [6]Ty King
 
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
-   [15]Github [16]About Me [17]CV [18]RSS
+   [7]Github [8]About Me [9]CV [10]RSS
      *
      *
      *
@@ -73,19 +29,11 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. mailto:me@gnikyt.com
-   4. https://github.com/gnikyt/cq
-   5. https://github.com/gnikyt/laravel-shopify
-   6. https://github.com/gnikyt/Basic-Shopify-API
-   7. https://github.com/gnikyt/basic<em>shopify</em>api
-   8. https://github.com/gnikyt/gowith
-   9. https://github.com/gnikyt/with
-  10. https://github.com/gnikyt/http<em>shopify</em>webhook
-  11. file:///about/index.md
-  12. file:///about/index.txt
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///about
-  15. https://github.com/gnikyt
-  16. file:///about
-  17. file:///assets/files/cv.pdf
-  18. file:///rss.xml
+   3. file:///about/index.md
+   4. file:///about/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///about
+   7. https://github.com/gnikyt
+   8. file:///about
+   9. file:///assets/files/cv.pdf
+  10. file:///rss.xml

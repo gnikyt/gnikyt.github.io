@@ -6,19 +6,18 @@
 
    /* Oct 19, 2018 — 737B */
 
-   Shopify doesnʼt have an API to verify discounts, however, I have found
+   Shopify doesn’t have an API to verify discounts, however, I have found
    a little workaround.
 
    By making an AJAX call to /discount/(code), Shopify will set a cookie
    telling the checkout to auto-apply a discount on a visit to the
    checkout page.
 
-   Next, making an AJAX call to /checkout, weʼre able to parse the HTML
+   Next, making an AJAX call to /checkout, we’re able to parse the HTML
    and determine if the discount code worked!
 
-   Hereʼs an example of it in action:
-
-   promo-verify
+   Here’s an example of it in action:
+   promo-verify promo-verify
 
    For the source code of this script, please see [3]this repository.
 

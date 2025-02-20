@@ -12,19 +12,18 @@
    of e-mails sent out by WordPress.
 
    During our upgrading of the code, we discovered [3]PHPMailer (the
-   component WordPress uses for mailing [4]wpmail, has been changed since
-   we last wrote the plugin. The class properties "to", "bcc", "cc",
-   "ReplyTo", and "all
-   recipients" of PHPMailer went from public to protected over the last
-   couple years.
+   component WordPress uses for mailing [4]wp_mail, has been changed since
+   we last wrote the plugin. The class properties “to”, “bcc”, “cc”,
+   “ReplyTo”, and “all_recipients” of PHPMailer went from public to
+   protected over the last couple years.
 
-   So our issue was $mailer->to simply wouldnʼt work anymore, and there
+   So our issue was $mailer->to simply wouldn’t work anymore, and there
    appeared to be no public access methods to get the addresses such as
    $mailer->getToAddresses().
 
-   I addressed the issue on PHPMailerʼs Github page, and [5]provided a
+   I addressed the issue on PHPMailer’s Github page, and [5]provided a
    pull request which has been merged into the master :) So in short, you
-   can now access "to", "bcc", "cc", "ReplyTo", and "all_recipients" by
+   can now access “to”, “bcc”, “cc”, “ReplyTo”, and “all_recipients” by
    using getToAddresses(), getBccAddresses(), getCcAddresses(),
    getReplyToAddresses() and getAllRecipientAddresses().
 
@@ -56,7 +55,7 @@ References
    1. /rss.xml
    2. /
    3. http://phpmailer.worxware.com/
-   4. http://codex.wordpress.org/Function<em>Reference/wp</em>mail
+   4. http://codex.wordpress.org/Function_Reference/wp_mail
    5. https://github.com/PHPMailer/PHPMailer/issues/180
    6. /phpmailer-contrib/index.md
    7. /phpmailer-contrib/index.txt

@@ -77,7 +77,7 @@
         </h2>
 
         <p>
-          Shopify's theme system currently lacks the ability to define custom "functions". As a result, many Shopify
+          Shopify’s theme system currently lacks the ability to define custom “functions”. As a result, many Shopify
           developers use Liquid snippets to accept inputs and echo an output result, to create a pseudo-function within
           Shopify.
         </p>
@@ -86,31 +86,30 @@
           A very basic example:
         </p>
 
-        <pre><code>{%- raw -%}
+        <pre class="liquid"><code>{%- raw -%}
 # snippets/fn-remove-prefix.liquid
 {%- comment -%}
   Removes tag prefix.
 
   Parameters:
     tag, string, required: Tag string to remove prefix on.
-
+  
   Syntax:
     {%- render 'fn-remove-prefix', tag: [string] -%}
-
+  
   Example:
     {%- render 'fn-remove-prefix', tag: 'Type:Cannabis' -%}
-
+  
   Output:
     Cannabis
 {%- endcomment -%}
 {%- liquid
   echo tag | split: ':' | last
 -%}
-{% endraw %}
-</code></pre>
+{% endraw %}</code></pre>
         <p>
-          For such a small "function", no one would second guess, however, working with merchant data is sometimes a
-          challenge... What if there is multiple <code>:</code> in the tag string? What if we need the resulting value
+          For such a small “function”, no one would second guess, however, working with merchant data is sometimes a
+          challenge… What if there is multiple <code>:</code> in the tag string? What if we need the resulting value
           converted to something else, consistently?
         </p>
 
@@ -159,7 +158,7 @@
 
         <p>
           You extend the base test class which does all the heavy lifting. You have freedom to define setup, teardown,
-          and tap into various events documented in the repository's README to further customize your tests.
+          and tap into various events documented in the repository’s README to further customize your tests.
         </p>
 
         <p>
@@ -167,19 +166,18 @@
         </p>
 
         <p>
-          Previously, I had attempted a similar setup with Ruby, since Shopify's Liquid library is a Ruby package
+          Previously, I had attempted a similar setup with Ruby, since Shopify’s Liquid library is a Ruby package
           (Gem).
         </p>
 
         <p>
-          While the implementation worked great, it had flaws of not being able to utilize Shopify data or Shopify's
-          custom Liquid filters such as <code>asset<em>url</em></code><em>, <code>img</code></em><code>tag</code>,
-          <code>money</code>, etc. which could lead to some snippets not producing a true result to what it would on
-          Shopify's servers.
+          While the implementation worked great, it had flaws of not being able to utilize Shopify data or Shopify’s
+          custom Liquid filters such as <code>asset_url</code>, <code>img_tag</code>, <code>money</code>, etc. which
+          could lead to some snippets not producing a true result to what it would on Shopify’s servers.
         </p>
 
         <p>
-          Given the process to get a result of the snippet rendering, the tool really could've been developed in any
+          Given the process to get a result of the snippet rendering, the tool really could’ve been developed in any
           language such as Go, or Python, etc. however, given majority of Shopify developers most likely know their way
           around Javascript, then it made sense to go down that path.
         </p>
@@ -192,8 +190,8 @@
           Similarly stated in the README of the repository, if you place your Liquid function snippet into the
           <code>tests</code> directory, with a defined test suite to match, you will be able to unit test the result of
           the snippet. Because its executed on the Shopify store, the snippet you wish to test will have access to
-          everything for Shopify's Liquid and the store itself; such as <code>request</code>,
-          <code>all<em>products</em></code><em>, <code>| asset</code></em><code>url</code>, etc.
+          everything for Shopify’s Liquid and the store itself; such as <code>request</code>,
+          <code>all_products</code>, <code>| asset_url</code>, etc.
         </p>
 
         <p>
@@ -201,18 +199,19 @@
         </p>
 
         <p>
-          The repository's <a href="https://github.com/gnikyt/liquid-fn-tester/tree/master/tests">provided examples</a>
+          The repository’s <a href="https://github.com/gnikyt/liquid-fn-tester/tree/master/tests">provided examples</a>
           is a great guide for how everything comes together and how you can test a single snippet against multiple
           values.
         </p>
 
-        <p>
+        <figure>
           <img alt="Liquid Fn Example" src="/assets/images/posts/liquid-fn.png">
-        </p>
+          <figcaption aria-hidden="true">
+            Liquid Fn Example
+          </figcaption>
+        </figure>
 
-        <p>
-          ____
-        </p>
+        <hr>
 
         <p>
           Hopefully this tool will continue to grow and is helpful to those who are looking to try and test their
@@ -248,7 +247,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

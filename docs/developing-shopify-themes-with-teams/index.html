@@ -75,27 +75,30 @@
 
         <p>
           This is a simple write up to explain how a team can utilize Git versioning to manage a Shopify theme
-          successfully. It's not a complicated process but will require patience! As a side-note, this is simply a
+          successfully. It’s not a complicated process but will require patience! As a side-note, this is simply a
           personal recommendation based on my experiences, there are of course other ways to go about this process.
         </p>
 
-        <h2 id="step-one-installing-shopify-apos-s-theme-manager">
-          Step One: Installing Shopify's Theme Manager
+        <h2 id="step-one-installing-shopifys-theme-manager">
+          Step One: Installing Shopify’s Theme Manager
         </h2>
 
         <p>
-          No, not the GUI - that doesn't work very well for what we need to do (many GUIs don't!). What you're going to
+          No, not the GUI - that doesn’t work very well for what we need to do (many GUIs don’t!). What you’re going to
           do instead is open your Terminal.
         </p>
 
         <p>
-          Run <code>gem install shopify_theme</code> - it's Shopify's Ruby Gem for managing themes with advanced
+          Run <code>gem install shopify_theme</code> - it’s Shopify’s Ruby Gem for managing themes with advanced
           options.
         </p>
 
-        <p>
+        <figure>
           <img alt="terminal shopify" src="/assets/images/posts/shopify-1.png">
-        </p>
+          <figcaption aria-hidden="true">
+            terminal shopify
+          </figcaption>
+        </figure>
 
         <h2 id="step-two-creating-your-own-shop">
           Step Two: Creating your own shop
@@ -116,21 +119,24 @@
         </p>
 
         <p>
-          It's time to register a private app in your development shop to let the Shopify Theme Manager communicate. Go
+          It’s time to register a private app in your development shop to let the Shopify Theme Manager communicate. Go
           to <strong>https://[your store].myshopify.com/admin/apps/private</strong> and generate a private application;
-          call it anything you like… "Theme Dev", "Rickyisms", doesn't matter. What Shopify will give you API
+          call it anything you like… “Theme Dev”, “Rickyisms”, doesn’t matter. What Shopify will give you API
           information. <strong>Keep that API key and password on hand for step three</strong>.
         </p>
 
-        <p>
+        <figure>
           <img alt="api setup" src="/assets/images/posts/shopify-2.png">
-        </p>
+          <figcaption aria-hidden="true">
+            api setup
+          </figcaption>
+        </figure>
 
         <h2 id="step-three-setting-up-the-theme-files">
           Step Three: Setting up the theme files
         </h2>
 
-        <h3 id="strong-step-three-a-setting-up-a-new-dev-theme-strong">
+        <h3 id="step-three-a-setting-up-a-new-dev-theme">
           <strong>Step Three-A: Setting up a new dev theme</strong>
         </h3>
 
@@ -139,38 +145,44 @@
           into the directory where you wish to develop.
         </p>
 
-        <p>
+        <figure>
           <img alt="terminal output" src="/assets/images/posts/shopify-3.png">
+          <figcaption aria-hidden="true">
+            terminal output
+          </figcaption>
+        </figure>
+
+        <p>
+          Now that we’re in our place of development, let’s pull Shopify’s Timber theme using the gem.
         </p>
 
         <p>
-          Now that we're in our place of development, let's pull Shopify's Timber theme using the gem.
-        </p>
-
-        <p>
-          Run <code>theme bootstrap api<em>key password shop</em>name theme_name master</code>
+          Run <code>theme bootstrap api_key password shop_name theme_name master</code>
         </p>
 
         <ul>
-          <li>Replace __api_key__ in the command with the API key you had in step two
+          <li>Replace <strong>api_key</strong> in the command with the API key you had in step two
           </li>
 
           <li>Replace <strong>password</strong> in the command with the API password you had in step two
           </li>
 
-          <li>Replace __shop_name__ in the command with the Shopify URL of your shop
+          <li>Replace <strong>shop_name</strong> in the command with the Shopify URL of your shop
           </li>
 
-          <li>Replace __theme_name__ in the command with what you will name the theme
+          <li>Replace <strong>theme_name</strong> in the command with what you will name the theme
           </li>
         </ul>
 
-        <p>
+        <figure>
           <img alt="theme setup output" src="/assets/images/posts/shopify-4.png">
-        </p>
+          <figcaption aria-hidden="true">
+            theme setup output
+          </figcaption>
+        </figure>
 
         <p>
-          In my case, I called my theme __porte_mode__. This command will do three things…
+          In my case, I called my theme <strong>porte_mode</strong>. This command will do three things…
         </p>
 
         <ul>
@@ -191,12 +203,15 @@
 
         <p>
           Be sure to create a <strong>.gitignore</strong> file and add <strong>config.yml</strong> to it. This ensures
-          no developer's Shopify Theme Manager configurations will clash when working on the repository code.
+          no developer’s Shopify Theme Manager configurations will clash when working on the repository code.
         </p>
 
-        <p>
+        <figure>
           <img alt="theme gitignore output" src="/assets/images/posts/shopify-5.png">
-        </p>
+          <figcaption aria-hidden="true">
+            theme gitignore output
+          </figcaption>
+        </figure>
 
         <p>
           Now commit this code to the repository (ex: <code>git add -A &amp;& git commit -m “First commit” &amp;& git
@@ -204,7 +219,7 @@
         </p>
 
         <p>
-          That's it. In under 5 minutes, you're ready to develop with other developers. A review of what we did…
+          That’s it. In under 5 minutes, you’re ready to develop with other developers. A review of what we did…
         </p>
 
         <ul>
@@ -228,7 +243,7 @@
           <em>Note: You may need to publish the newly uploaded theme in your Shopify backend to see it.</em>
         </p>
 
-        <h3 id="strong-step-three-b-using-an-already-created-dev-theme-strong">
+        <h3 id="step-three-b-using-an-already-created-dev-theme">
           <strong>Step Three-B: Using an already created dev theme</strong>
         </h3>
 
@@ -238,12 +253,12 @@
         </p>
 
         <p>
-          Next, we need to configure Shopify's Theme Manager to use our dev shop. Open the Terminal to the repository
-          location and run <code>theme configure api<em>key password shop</em>name</code>
+          Next, we need to configure Shopify’s Theme Manager to use our dev shop. Open the Terminal to the repository
+          location and run <code>theme configure api_key password shop_name</code>
         </p>
 
         <ul>
-          <li>Replace __api_key__ in the command with the API key you had in step two
+          <li>Replace <strong>api_key</strong> in the command with the API key you had in step two
           </li>
 
           <li>Replace <strong>password</strong> in the command with the API password you had in step two
@@ -259,12 +274,15 @@
           take some time).
         </p>
 
-        <p>
+        <figure>
           <img alt="theme replace output" src="/assets/images/posts/shopify-6.png">
-        </p>
+          <figcaption aria-hidden="true">
+            theme replace output
+          </figcaption>
+        </figure>
 
         <p>
-          That's it, you're done. In a couple of minutes, we've downloaded the dev theme from Github/Bitbucket and
+          That’s it, you’re done. In a couple of minutes, we’ve downloaded the dev theme from Github/Bitbucket and
           pushed it to our dev shop to work on.
         </p>
 
@@ -315,7 +333,7 @@
         </p>
 
         <ul>
-          <li>This mass replaces everything in your dev shop with what's in your local repository. Useful for if you
+          <li>This mass replaces everything in your dev shop with what’s in your local repository. Useful for if you
           <code>git pull/fetch/merge</code> changes and want to push them to your dev shop.
           </li>
         </ul>
@@ -339,7 +357,7 @@
         </h2>
 
         <p>
-          So that's it! This document simply outlines how to set up a development theme on GitHub/Bitbucket and
+          So that’s it! This document simply outlines how to set up a development theme on GitHub/Bitbucket and
           Shopify, how to pull a theme from Github/Bitbucket, and develop with it as well as a list of useful commands
           to manage the theme as a team.
         </p>
@@ -349,9 +367,12 @@
           https://docs.google.com/document/d/1fRCxDG7fCE4YjCVSXFZ5CsGhhpvj-PgrDPauDdjrwW8/edit?usp=sharing
         </p>
 
-        <p>
+        <figure>
           <img alt="yes!" src="/assets/images/posts/shopify-7.png">
-        </p>
+          <figcaption aria-hidden="true">
+            yes!
+          </figcaption>
+        </figure>
 
         <footer class="post__tail">
           <div class="sources">
@@ -382,7 +403,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -8,29 +8,29 @@
 
 The Start
 
-   Youʼre assigned a backend project to kick-off and setup, great! You
+   You’re assigned a backend project to kick-off and setup, great! You
    know the requirements and goals, so you set off to build the structure
-   and prototype "quick and dirty" code as a proof-of-concept
+   and prototype “quick and dirty” code as a proof-of-concept
    implementation.
 
-   Before you know it... youʼve got the ball rolling on the project and
+   Before you know it… you’ve got the ball rolling on the project and
    making good headway! Other developers may be introduced to assist, and
    they pick up right along with you in the development flow. Then, it
    snowballs.
 
-   Eventually, youʼll realize your original "quick and dirty" way, is now
-   "the way", and it is going to be tough to correct due to the size or
+   Eventually, you’ll realize your original “quick and dirty” way, is now
+   “the way”, and it is going to be tough to correct due to the size or
    timeline of the project now. Whoops!
 
    My personal opinion from being in this situation of beginning large
    backend projects: Do it right once. It is better to bite the bullet and
-   properly set up the project in a way thatʼs abstract and scalable; even
+   properly set up the project in a way that’s abstract and scalable; even
    if you have to refactor many times in the early stages, its easier to
    refactor a couple files/directories compared to dozens.
 
 What To Do
 
-   Sit down and plan out your entire structure and with good olʼ pen and
+   Sit down and plan out your entire structure and with good ol’ pen and
    paper.
      * What type of project is it?
      * Do you require a database?
@@ -42,16 +42,16 @@ What To Do
      * Do you need external file storage?
      * Object storage?
      * Do you need views or presenters?
-     * etc...
+     * etc…
 
    When you sit back and think about the longer term for the project,
-   itʼll help guide your thoughts into compartments which will help you
+   it’ll help guide your thoughts into compartments which will help you
    mentally map things out for a better start.
 
 Abstraction & Responsibility
 
    Now, the rest of this article is purely my own opinion from experience.
-   Thereʼs usually a good debate on what code should do what, and how much
+   There’s usually a good debate on what code should do what, and how much
    abstraction is needed. Every developer has their own opinion and
    feelings towards what they view as too much or too little.
 
@@ -62,7 +62,7 @@ Abstraction & Responsibility
 
   Interfaces
 
-   A lot of new developers are put off from interfaces. They donʼt exactly
+   A lot of new developers are put off from interfaces. They don’t exactly
    see the point of them in their projects, even if they are the sole
    developer working on it.
 
@@ -74,14 +74,15 @@ Abstraction & Responsibility
    method, or so on.
 
    You may think its silly to define an interface for a single class, but
-   thatʼs not the case. It allows you to decouple your dependencies and
+   that’s not the case. It allows you to decouple your dependencies and
    swap out those dependencies. It allows another developer to know how to
    define a structure to match that interface so there will be no
    compatibility issues.
 
-   For the sake of using a more common language, PHP, letʼs take a look at
+   For the sake of using a more common language, PHP, let’s take a look at
    how an interface can be useful with a simple silly example. Of course,
    this can be done with any other language.
+
 <?php
 
 // src/Services/BundleDirectory.php
@@ -109,16 +110,16 @@ class BundleDirectory
    This decouples the implementation.
 
    Now, DirectoryStorage interface would define how locate method should
-   be. BundleDirectory doesnʼt care about the storage lookup... maybe
-   locate pulls from SQLite, or S3, or plain-ol text files. The point is,
-   it just doesnʼt care, so long as the interface matches and does as itʼs
+   be. BundleDirectory doesn’t care about the storage lookup… maybe locate
+   pulls from SQLite, or S3, or plain-ol text files. The point is, it just
+   doesn’t care, so long as the interface matches and does as it’s
    supposed to.
 
-   When youʼre testing, you can now inject a mock implementation into
+   When you’re testing, you can now inject a mock implementation into
    BundleDirectory and test without the need to hit an actual storage
    container.
 
-   Nice right? Thatʼs just a very basic example of how an interface can be
+   Nice right? That’s just a very basic example of how an interface can be
    useful.
 
   SRP / CQR
@@ -138,7 +139,7 @@ class BundleDirectory
    Tieing this in with interfaces, you can produce code that follows DRY
    and is clean to look at as well as work with.
 
-   Combining both, letʼs take a look at a file storage cache. In
+   Combining both, let’s take a look at a file storage cache. In
    NextCloud, which I use heavily with AWS S3 for a storage backend, it
    stores the information about the files in the database so it does not
    have to hit S3 for the information constantly, as well as provide a
@@ -146,6 +147,7 @@ class BundleDirectory
 
    If we were to build something that followed SRP and CQR, we could
    create something like this (again using PHP for examples):
+
 <?php
 
 // src/Interfaces/FileQueries.php
@@ -215,18 +217,18 @@ class ProcessImageFiles implements AbstractOperation
   Service Classes
 
    While creating many interfaces, operations, commands, queries, etc may
-   seem disjointed... thatʼs the point, because everything should do one
+   seem disjointed… that’s the point, because everything should do one
    thing and do it right!
 
-   That being said, you donʼt have to reference everything singularly just
+   That being said, you don’t have to reference everything singularly just
    because you defined it with a singular purpose. You can create a
    service class to glue the operations, commands, and queries together
    into a group of common methods.
 
-   Maybe its a response handler class for the files... taking a request,
+   Maybe its a response handler class for the files… taking a request,
    using that request to form a query, and providing a response. Maybe it
-   is a plain old class for the files... having a common place to access
-   the files, transform the data, etc.
+   is a plain old class for the files… having a common place to access the
+   files, transform the data, etc.
 
    This allows you to have decoupled code, that have singular
    responsibilities, but still commonly accessible if need be. This avoids
@@ -268,6 +270,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /when-quick-and-dirty-becomes-permanent/index.md
@@ -278,3 +281,76 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-1
+  13. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-2
+  14. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-3
+  15. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-4
+  16. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-6
+  18. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-7
+  19. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-8
+  20. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-9
+  21. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-10
+  22. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-11
+  23. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-12
+  24. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-13
+  25. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-14
+  26. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-15
+  27. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-16
+  28. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-17
+  29. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-18
+  30. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-19
+  31. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-20
+  32. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb1-21
+  33. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-1
+  34. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-2
+  35. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-3
+  36. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-4
+  37. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-5
+  38. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-6
+  39. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-7
+  40. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-8
+  41. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-9
+  42. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-10
+  43. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-11
+  44. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-12
+  45. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-13
+  46. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-14
+  47. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-15
+  48. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-16
+  49. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-17
+  50. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-18
+  51. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-19
+  52. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-20
+  53. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-21
+  54. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-22
+  55. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-23
+  56. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-24
+  57. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-25
+  58. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-26
+  59. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-27
+  60. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-28
+  61. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-29
+  62. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-30
+  63. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-31
+  64. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-32
+  65. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-33
+  66. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-34
+  67. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-35
+  68. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-36
+  69. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-37
+  70. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-38
+  71. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-39
+  72. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-40
+  73. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-41
+  74. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-42
+  75. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-43
+  76. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-44
+  77. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-45
+  78. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-46
+  79. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-47
+  80. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-48
+  81. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-49
+  82. localhost/tmp/lynxXXXXrXeqiE/L3273132-2690TMP.html#cb2-50

@@ -75,7 +75,7 @@
 
         <p>
           Qr codes and matrices are a great way to share content to an audience, it allows anybody to simply put their
-          phone up to the Qr image, scan it, and see what's inside. The premise of QrInColor.com was to provide a free
+          phone up to the Qr image, scan it, and see what’s inside. The premise of QrInColor.com was to provide a free
           way for users to not only create linked Qr codes, but to customize them as well - with color
         </p>
 
@@ -85,18 +85,21 @@
           features of the app into <a href="http://symfony.com">Symfony</a> from <a href=
           "http://silex.sensiolabs.org/">Silex</a>, we wanted to allow users to generate not only colored Qr codes, but
           two-tone gradient colors as well. I wanted to accomplish this without modifying the Endroid package as its
-          not really it's purpose to do such a thing.
+          not really it’s purpose to do such a thing.
         </p>
 
         <p>
-          This created a problem... <em>how do I create a gradient on the Qr code?</em> I came up with a solution:
+          This created a problem… <em>how do I create a gradient on the Qr code?</em> I came up with a solution:
           colorize the Qr with <a href="http://www.imagemagick.org/script/index.php">Imagick</a> using their top and
-          bottom colors the user picked then, "blend" the two images together to create a gradient effect.
+          bottom colors the user picked then, “blend” the two images together to create a gradient effect.
         </p>
 
-        <p>
+        <figure>
           <img alt="qr code base" src="/assets/images/posts/qr.png">
-        </p>
+          <figcaption aria-hidden="true">
+            qr code base
+          </figcaption>
+        </figure>
 
         <p>
           We would first take the Qr data the user entered and generate a black, basic, Qr code. Which is our canvas to
@@ -104,11 +107,19 @@
           shell command below.
         </p>
 
-        <pre><code>/usr/bin/convert qr.png -fuzz 60% -fill 'rgb(161,161,163)' -opaque black qr_top.png
-</code></pre>
-        <p>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="ex">/usr/bin/convert</span> qr.png <span class=
+          "at">-fuzz</span> 60% <span class="at">-fill</span> <span class="st">'rgb(161,161,163)'</span> <span class=
+          "at">-opaque</span> black qr_top.png</span></code></pre>
+        </div>
+
+        <figure>
           <img alt="qr code top" src="/assets/images/posts/qr_top.png">
-        </p>
+          <figcaption aria-hidden="true">
+            qr code top
+          </figcaption>
+        </figure>
 
         <p>
           This is the result of the above command. It replaces all <strong>black</strong> with a fuzz of
@@ -116,15 +127,23 @@
         </p>
 
         <p>
-          It's nothing spectacular; but it works. Now, we need to do the same for the bottom color the user chose.
+          It’s nothing spectacular; but it works. Now, we need to do the same for the bottom color the user chose.
           Again we use the base Qr render to apply the color to.
         </p>
 
-        <pre><code>/usr/bin/convert qr.png -fuzz 60% -fill 'rgb(248,150,39)' -opaque black qr_bottom.png
-</code></pre>
-        <p>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="ex">/usr/bin/convert</span> qr.png <span class=
+          "at">-fuzz</span> 60% <span class="at">-fill</span> <span class="st">'rgb(248,150,39)'</span> <span class=
+          "at">-opaque</span> black qr_bottom.png</span></code></pre>
+        </div>
+
+        <figure>
           <img alt="qr code bottom" src="/assets/images/posts/qr_bottom.png">
-        </p>
+          <figcaption aria-hidden="true">
+            qr code bottom
+          </figcaption>
+        </figure>
 
         <p>
           This is the result of the above command. It replaces all <strong>black</strong> with a fuzz of
@@ -132,30 +151,39 @@
         </p>
 
         <p>
-          Finally, we need to blend them together as if they we're two layers in gimp. To accomplish this, we need to
+          Finally, we need to blend them together as if they we’re two layers in gimp. To accomplish this, we need to
           set the gray Qr we just rendered, to go from a gray color to complete transparency.
         </p>
 
-        <pre><code>/usr/bin/convert qr_top.png -size 150x150 gradient: -compose copy_opacity -composite qr_gradient.png
-</code></pre>
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="ex">/usr/bin/convert</span> qr_top.png <span class=
+          "at">-size</span> 150x150 gradient: <span class="at">-compose</span> copy_opacity <span class=
+          "at">-composite</span> qr_gradient.png</span></code></pre>
+        </div>
+
         <p>
           This creates the effect we are looking for. Color at top, transparent at bottom. Now we place the gray
           transparent Qr on top of the orange Qr. Finally, here is the result!
         </p>
 
-        <pre><code>/usr/bin/composite qr_bottom.png -compose Dst_Over qr_gradient.png result.png
-</code></pre>
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href=
+          "#cb4-1" tabindex="-1"></a><span class="ex">/usr/bin/composite</span> qr_bottom.png <span class=
+          "at">-compose</span> Dst_Over qr_gradient.png result.png</span></code></pre>
+        </div>
+
         <p>
           <img alt="result" src="/assets/images/posts/qr_together.png"> <img alt="result 2" src=
           "/assets/images/posts/qr_together2.png">
         </p>
 
         <p>
-          Unfortunately, I did not choose very vibrant colors to blend (gray and orange) but the effect is there, I've
-          included another example with <em>two better colors</em>. Now, I'm sure there are better ways to produce
-          these gradients, but the point of this post is that there was a problem I faced with a client's website, I
-          used my brain to come up with a solution and it worked. A road block can always be passed; just don't pass
-          the ones with cops posted, that won't end well.
+          Unfortunately, I did not choose very vibrant colors to blend (gray and orange) but the effect is there, I’ve
+          included another example with <em>two better colors</em>. Now, I’m sure there are better ways to produce
+          these gradients, but the point of this post is that there was a problem I faced with a client’s website, I
+          used my brain to come up with a solution and it worked. A road block can always be passed; just don’t pass
+          the ones with cops posted, that won’t end well.
         </p>
 
         <footer class="post__tail">
@@ -187,7 +215,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

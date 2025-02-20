@@ -77,9 +77,9 @@
         </h2>
 
         <p>
-          You might think, <em>"Why are you trying to develop on Windows? Why not use OSX or (insert Linux
-          distro)"</em>. Its because I'm preparing for a stable future. With the decisions of Apple the past year with
-          the iPhone and new Macbook, I no longer like the direction the company is taking. I won't go into depth, but
+          You might think, <em>“Why are you trying to develop on Windows? Why not use OSX or (insert Linux
+          distro)”</em>. Its because I’m preparing for a stable future. With the decisions of Apple the past year with
+          the iPhone and new Macbook, I no longer like the direction the company is taking. I won’t go into depth, but
           the entire lineup is a laughing stock, to be honest. I will no longer be continuing with Apple for my next
           upgrades.
         </p>
@@ -94,17 +94,17 @@
         </h2>
 
         <p>
-          I used Linux on/off for close to 15 years now. Don't get me wrong, I <strong>love</strong> Linux, I always
-          will. I don't care how many people say otherwise, its software support for many apps lacks compared to the
-          Windows/Mac version. Many people will say, <em>"So switch to using (insert some different standard or app not
-          many people use)"</em>, its not that easy especially in the business world. I can't just tell all my
-          co-workers to start using random apps that have little backing. There's a suite of software I require daily
-          which many do not work or lack proper implementation in Linux… and I'm not talking about the Adobe suite.
+          I used Linux on/off for close to 15 years now. Don’t get me wrong, I <strong>love</strong> Linux, I always
+          will. I don’t care how many people say otherwise, its software support for many apps lacks compared to the
+          Windows/Mac version. Many people will say, <em>“So switch to using (insert some different standard or app not
+          many people use)”</em>, its not that easy especially in the business world. I can’t just tell all my
+          co-workers to start using random apps that have little backing. There’s a suite of software I require daily
+          which many do not work or lack proper implementation in Linux… and I’m not talking about the Adobe suite.
         </p>
 
         <p>
           Apps in Windows normally get the first-class implementation — it just works. This is something important to
-          me. I don't want to fix issues daily, I want to work. With OSX out of the picture, Windows was the next best
+          me. I don’t want to fix issues daily, I want to work. With OSX out of the picture, Windows was the next best
           thing for me that would <em>just work</em> and keep me <em>productive</em> in my mind.
         </p>
 
@@ -113,29 +113,28 @@
         </h3>
 
         <p>
-          <em>One warning about this post... I used Windows on my MacBook via Bootcamp. I feel its not the proper
-          experience I could get out of Windows if I used a proper Windows laptop for work (XPS, Thinkpad, etc). I'll
+          <em>One warning about this post… I used Windows on my MacBook via Bootcamp. I feel its not the proper
+          experience I could get out of Windows if I used a proper Windows laptop for work (XPS, Thinkpad, etc). I’ll
           note more later why I say I did not get a proper experience.</em>
         </p>
 
         <ul>
           <li>
             <strong>Computer</strong>:
+            <ul>
+              <li>
+                <em>Model</em>: 2014 Macbook Pro Retina
+              </li>
+
+              <li>
+                <em>RAM</em>: 8GB
+              </li>
+
+              <li>
+                <em>Space:</em> 256GB SSD
+              </li>
+            </ul>
           </li>
-
-          <ul>
-            <li>
-              <em>Model</em>: 2014 Macbook Pro Retina
-            </li>
-
-            <li>
-              <em>RAM</em>: 8GB
-            </li>
-
-            <li>
-              <em>Space:</em> 256GB SSD
-            </li>
-          </ul>
 
           <li>
             <strong>Windows</strong>: 10 — Home Edition
@@ -151,8 +150,8 @@
         </h3>
 
         <p>
-          Development on Windows is a mess. If anyone's ever done Ruby, Python, etc, development on a Windows machine,
-          it's usually a hit or miss. You run into issues with libs, compiling, support, mystic errors, and a pile of
+          Development on Windows is a mess. If anyone’s ever done Ruby, Python, etc, development on a Windows machine,
+          it’s usually a hit or miss. You run into issues with libs, compiling, support, mystic errors, and a pile of
           workarounds. A lot of people try to get around some issues by using tools like <strong><a href=
           "https://www.cygwin.com/">Cygwin</a></strong>, or some other shell implementation but they still run into
           issues. I wanted to avoid all these issues by essentially taking Windows out of the equation.
@@ -168,9 +167,9 @@
           I decided to use <strong>VMWare Player</strong> and install <strong><a href=
           "https://www.ubuntu.com/download/server">Ubuntu Server 16.04 LTS</a></strong>. I chose Ubuntu over something
           like Arch simply for the time-sake of my experiment. From what I read, Ubuntu and VMWare have perfect support
-          for one another. I require no desktop experience... simply a VM I can "talk" to, so something minimal like
-          the Ubuntu Server was a good fit. I chose the fast install offered by VMWare Player and I had a working VM
-          within 5 minutes.
+          for one another. I require no desktop experience… simply a VM I can “talk” to, so something minimal like the
+          Ubuntu Server was a good fit. I chose the fast install offered by VMWare Player and I had a working VM within
+          5 minutes.
         </p>
 
         <h4 id="performance">
@@ -183,16 +182,16 @@
 
         <p>
           Post-boot, just idling, VMWare Player and the VM instance itself totaled to ~45mb of RAM in-use. The CPU was
-          negligible as well. Even during an intensive process in the VM, the CPU only reached 21% and RAM didn't
+          negligible as well. Even during an intensive process in the VM, the CPU only reached 21% and RAM didn’t
           increase by much.
         </p>
 
         <p>
-          So my system was chugging along happily, the VM didn't seem to affect my computer's performance one bit from
+          So my system was chugging along happily, the VM didn’t seem to affect my computer’s performance one bit from
           what I could tell.
         </p>
 
-        <h3 id="vm-communication-amp-ssh">
+        <h3 id="vm-communication-ssh">
           VM Communication & SSH
         </h3>
 
@@ -227,7 +226,7 @@
         </p>
 
         <p>
-          In the end... I landed on <strong><a href="http://smartty.sysprogs.com/">SmarTTY</a></strong>. An app I
+          In the end… I landed on <strong><a href="http://smartty.sysprogs.com/">SmarTTY</a></strong>. An app I
           discovered while surfing Reddit for suggestions. It provided me with good configuration options, tabbed
           interface, sub-connections, lightweight, and more.
         </p>
@@ -237,8 +236,8 @@
         </h4>
 
         <p>
-          I created an SSH key on the Windows side using Putty's keygen. I plugged the SSH key into the VM and fired up
-          SmarTTY. I created a connection using my username, key file, and the VM's IP address.
+          I created an SSH key on the Windows side using Putty’s keygen. I plugged the SSH key into the VM and fired up
+          SmarTTY. I created a connection using my username, key file, and the VM’s IP address.
         </p>
 
         <p>
@@ -258,14 +257,14 @@
         </p>
 
         <p>
-          Workflow-wise — I'm happy. I'd edit my files in Atom, have my sessions opened in SmarTTY watching files (for
+          Workflow-wise — I’m happy. I’d edit my files in Atom, have my sessions opened in SmarTTY watching files (for
           Grunt or Rails, etc), edit my databases with workbench. Everything seemed to work fine without a hitch.
         </p>
 
         <p>
           Although the setup took a bit time, I believe its a great path to take given Bash for Windows, is not fully
           ready yet for use. I actually, surprisingly found the Windows install to be snappier than OSX… I suspect
-          that's due to it being a new install, however. The battery-life was on-par with OSX despite what I heard
+          that’s due to it being a new install, however. The battery-life was on-par with OSX despite what I heard
           online of Windows draining MacBook batteries in no-time.
         </p>
 
@@ -273,7 +272,7 @@
           Overall I was happy with the Windows experience as a whole. Both as a developer and a PC user.
         </p>
 
-        <h3 id="misc-issues">
+        <h3 id="misc.-issues">
           Misc. Issues
         </h3>
 
@@ -282,7 +281,7 @@
           mentioned previously.
         </p>
 
-        <h4 id="1-keyboard">
+        <h4 id="keyboard">
           1. Keyboard
         </h4>
 
@@ -296,7 +295,7 @@
           natural posture for using CTRL functions due to the spacing for cutting, copying, pasting, etc.
         </p>
 
-        <h4 id="2-mouse-amp-trackpad">
+        <h4 id="mouse-trackpad">
           2. Mouse & Trackpad
         </h4>
 
@@ -319,16 +318,15 @@
         </h3>
 
         <p>
-          I'll have my current MacBook and iPhone for a couple of years to come but my next upgrade in the future will
+          I’ll have my current MacBook and iPhone for a couple of years to come but my next upgrade in the future will
           move away from this company. This experience was a good lesson that yes, I can develop in Windows just fine,
           without any drawbacks that I can see to my flow. This will heavily weigh my decision for purchases in the
           future.
         </p>
 
         <p>
-          <a href="/assets/images/kitty%3Cem%3Evmrails.png"><img alt=
-          "Trying Kitty with Ubuntu Server on a VM with Rails" src=
-          "/assets/images/posts/kitty%3C/em%3Evmrails.png"></a>
+          <a href="/assets/images/kitty_vmrails.png"><img alt="Trying Kitty with Ubuntu Server on a VM with Rails" src=
+          "/assets/images/posts/kitty_vmrails.png"></a>
         </p>
 
         <footer class="post__tail">
@@ -360,7 +358,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

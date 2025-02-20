@@ -3,7 +3,6 @@
 cwd=$(dirname "$0")
 . $cwd/parse_md
 . $cwd/parse_tpl
-. $cwd/transform_md
 
 # count tracks the number of generated posts and pages.
 declare -i count=0
@@ -40,7 +39,7 @@ process_posts() {
     parse_md "$(cat "$i")"
 
     # Parse Markdown body and convert to HTML.
-    globals["parsed_md"]=$(transform_md "${globals["body"]}")
+    globals["parsed_md"]=$(pandoc -f markdown -t html "$i")
 
     # Setup the dating variables.
     start_ts=$(date -d "${globals["date"]}" +"%s")

@@ -10,11 +10,12 @@
    use-case recently where I needed to allow the app user to modify a
    specific template. [3]Liquid templates (what Jekyll and Shopify use)
    was perfect for this situation because it has a simple syntax for
-   anyone to pick up and itʼs also safe due to its scope limited to whatʼs
+   anyone to pick up and it’s also safe due to its scope limited to what’s
    passed to the template.
 
-   Letʼs suppose you have two models in your Sinatra application --
-   Student and Book.
+   Let’s suppose you have two models in your Sinatra application – Student
+   and Book.
+
 # app/models/student_model.rb
 module MyApp
   module Model
@@ -35,12 +36,13 @@ end
 
    Now, Liquid has what they call a [4]Drop, where you can easily build a
    plain class which Liquid can then use directly when rendering the
-   template. As the [5]Drop Introduction states, it acts "like" a hash so
+   template. As the [5]Drop Introduction states, it acts “like” a hash so
    the methods you create can be accessed with dot-notation in the
    template. Example: {% raw %}{{ student.full_name }}{% endraw %}
 
-   So letʼs create a Student drop and a Book drop and give the templates
+   So let’s create a Student drop and a Book drop and give the templates
    some basic variables from the model to access.
+
 # app/drops/student_drop.rb
 module MyApp
   module Drop
@@ -54,7 +56,7 @@ module MyApp
       end
 
       def allergies
-        @student.allergies.split ʼ,ʼ
+        @student.allergies.split ','
       end
 
       def books
@@ -88,15 +90,15 @@ module MyApp
 end
 
    Ok so now we have our models and drops setup. As you can see above
-   weʼve set up methods for accessing the studentʼs name, their books, the
+   we’ve set up methods for accessing the student’s name, their books, the
    book title, barcode, etc. All of these methods can be used in a Liquid
    template now.
 
-   But now, how do we easily combine the two? Easy, we utilize toliquid
+   But now, how do we easily combine the two? Easy, we utilize to_liquid
    method by adding it to our model which Liquid calls when rendering the
    template. We then return the proper drop for the model inside the new
-   toliquid
-   method.
+   to_liquid method.
+
 # app/models/student_model.rb
 module MyApp
   module Model
@@ -123,23 +125,24 @@ module MyApp
   end
 end
 
-   Thatʼs pretty much it. Weʼve now:
+   That’s pretty much it. We’ve now:
     1. Created our models
     2. Created our drops
     3. Modified our models to return a drop
 
    With all this combined we can then use it all together as such:
+
 # app/controllers/front_controller.rb
 ...
 student = Model::Student.find params[:id]
-liquid :ʼfront/testʼ, layout: :layout_front, locals: {ʼstudentʼ &ge; student}
+liquid :'front/test', layout: :layout_front, locals: {'student' => student}
 
 {% raw %}
 # app/views/front/test.liquid
 My name is {{ student.full_name }}. I have {{ student.books.size }} books!
 {% endraw %}
 
-   Thatʼs it for this little how-to. I will note there are other ways to
+   That’s it for this little how-to. I will note there are other ways to
    expose your ActiveRecord models to work automatically with Liquid but
    this article just shows you a more expanded and controlled version.
 
@@ -168,6 +171,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. http://liquidmarkup.org/
@@ -181,3 +185,96 @@ References
   11. /about
   12. /assets/files/cv.pdf
   13. /rss.xml
+
+   Hidden links:
+  15. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-2
+  17. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-3
+  18. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-4
+  19. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-5
+  20. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-6
+  21. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-7
+  22. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-8
+  23. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-9
+  24. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-10
+  25. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-11
+  26. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-12
+  27. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-13
+  28. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-14
+  29. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-15
+  30. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-16
+  31. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb1-17
+  32. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-1
+  33. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-2
+  34. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-3
+  35. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-4
+  36. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-5
+  37. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-6
+  38. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-7
+  39. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-8
+  40. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-9
+  41. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-10
+  42. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-11
+  43. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-12
+  44. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-13
+  45. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-14
+  46. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-15
+  47. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-16
+  48. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-17
+  49. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-18
+  50. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-19
+  51. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-20
+  52. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-21
+  53. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-22
+  54. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-23
+  55. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-24
+  56. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-25
+  57. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-26
+  58. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-27
+  59. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-28
+  60. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-29
+  61. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-30
+  62. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-31
+  63. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-32
+  64. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-33
+  65. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-34
+  66. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-35
+  67. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-36
+  68. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-37
+  69. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-38
+  70. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-39
+  71. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-40
+  72. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-41
+  73. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-42
+  74. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-43
+  75. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-44
+  76. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb2-45
+  77. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-1
+  78. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-2
+  79. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-3
+  80. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-4
+  81. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-5
+  82. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-6
+  83. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-7
+  84. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-8
+  85. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-9
+  86. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-10
+  87. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-11
+  88. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-12
+  89. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-13
+  90. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-14
+  91. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-15
+  92. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-16
+  93. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-17
+  94. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-18
+  95. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-19
+  96. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-20
+  97. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-21
+  98. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-22
+  99. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-23
+ 100. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-24
+ 101. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb3-25
+ 102. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb4-1
+ 103. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb4-2
+ 104. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb4-3
+ 105. localhost/tmp/lynxXXXX9iX7MW/L3280257-4892TMP.html#cb4-4

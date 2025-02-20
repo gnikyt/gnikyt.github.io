@@ -6,7 +6,7 @@
 
    /* Jul 18, 2014 — 1.1KB */
 
-   Iʼve released a new GitHub repo. Itʼs an add-on for popular [3]ACF
+   I’ve released a new GitHub repo. It’s an add-on for popular [3]ACF
    (Advanced Custom Fields) for WordPress which allows you to create
    really custom post/taxonomy pages and more.
 
@@ -23,7 +23,7 @@
    representing a table).
 
    To see some screenshots and sample usage of this add-on please [4]click
-   here and youʼre free to use this in any commercial or personal project!
+   here and you’re free to use this in any commercial or personal project!
 
    [5]MD | [6]TXT | [7]CC-4.0
 

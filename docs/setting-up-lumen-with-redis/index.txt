@@ -6,8 +6,8 @@
 
    /* Nov 19, 2017 — 1.2KB */
 
-   This is more of an extension of my previous post "Setting Up Lumen +
-   Mail". I wanted to take it a step further and show the basic setup for
+   This is more of an extension of my previous post “Setting Up Lumen +
+   Mail”. I wanted to take it a step further and show the basic setup for
    getting Redis to work, so you can queue not only mail, but jobs.
 
    First, run composer require illuminate/redis:5.5 to grab the Redis
@@ -15,38 +15,39 @@
 
    Next, open app/Providers/AppServiceProvider.php and add the following
    to the register method:
+
 <?php
 // ...
 
 // Configs
-$this->app->configure(ʼdatabaseʼ);
+$this->app->configure('database');
 
 // Enable queues
-$this->app->make(ʼqueueʼ);
+$this->app->make('queue');
 
    Next, create config/database.php and add the following:
+
 <?php
 
 return [
-  ʼredisʼ &ge; [
-    ʼclientʼ &ge; ʼpredisʼ,
-    ʼdefaultʼ &ge; [
-      ʼhostʼ &ge; env(ʼREDIS_HOSTʼ, ʼ127.0.0.1ʼ),
-      ʼpasswordʼ &ge; env(ʼREDIS_PASSWORDʼ, null),
-      ʼportʼ &ge; env(ʼREDIS_PORTʼ, 6379),
-      ʼdatabaseʼ &ge; 0
+  'redis' => [
+    'client' => 'predis',
+    'default' => [
+      'host' => env('REDIS_HOST', '127.0.0.1'),
+      'password' => env('REDIS_PASSWORD', null),
+      'port' => env('REDIS_PORT', 6379),
+      'database' => 0
     ]
   ]
 ];
 
-
-   Donʼt forget to set up all your environment variables for Redis, as
+   Don’t forget to set up all your environment variables for Redis, as
    well, to enable Redis for job processing and cache, set the following
    environment variables:
 CACHE_DRIVER=redis
 QUEUE_DRIVER=redis
 
-   Thatʼs it! You can now queue mail or process jobs.
+   That’s it! You can now queue mail or process jobs.
 
    [3]MD | [4]TXT | [5]CC-4.0
 
@@ -73,6 +74,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /setting-up-lumen-with-redis/index.md
@@ -83,3 +85,26 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-1
+  13. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-2
+  14. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-3
+  15. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-4
+  16. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-6
+  18. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-7
+  19. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb1-8
+  20. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-1
+  21. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-2
+  22. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-3
+  23. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-4
+  24. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-5
+  25. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-6
+  26. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-7
+  27. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-8
+  28. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-9
+  29. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-10
+  30. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-11
+  31. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-12
+  32. localhost/tmp/lynxXXXXMGLv79/L3275355-8024TMP.html#cb2-13

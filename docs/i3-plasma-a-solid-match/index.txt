@@ -23,31 +23,32 @@ Introduction
 
    However, all the major desktop environments are geared towards floating
    and manually managing windows like you would with Windows or OSX. You
-   end up spending a good chunk of time attached to your mouse... moving,
+   end up spending a good chunk of time attached to your mouse… moving,
    resizing, and managing those windows to do your work. Yes, you could
    tweak the settings of these desktop environments to semi-simulate what
    a good window manager can do, but it is not the same.
 
    With a configurable window manager, such as i3, sway, bspwm, and
-   others, youʼre able to solely use your keyboard to manage windows in a
-   way thatʼs efficient, natural, and powerful.
+   others, you’re able to solely use your keyboard to manage windows in a
+   way that’s efficient, natural, and powerful.
 
-   For someone like me, who doesnʼt use a mouse (I use my Thinkpad dot
-   only) and has back/neck issues... the less I move around (reaching for
+   For someone like me, who doesn’t use a mouse (I use my Thinkpad dot
+   only) and has back/neck issues… the less I move around (reaching for
    mice), the better!
 
-   So, to hit all points above... a combo of Plasma and i3 works wonders.
+   So, to hit all points above… a combo of Plasma and i3 works wonders.
    And the best thing is that it takes no time at all to setup.
 
 Setup
 
    I followed [4]this guide originally with some tweaks. Since I use
    OpenSUSE, I did the following for my system (slightly different paths):
+
 # Install i3
 sudo zypper in i3
 
 # Create a Plasma + i3 launcher script
-$ echo -e ʼ#!/bin/sh\n\nKDEWM=/usr/bin/i3 startkdeʼ > /usr/local/bin/startkde-i3
+$ echo -e '#!/bin/sh\n\nKDEWM=/usr/bin/i3 startkde' > /usr/local/bin/startkde-i3
 $ sudo chown root.root /usr/local/bin/startkde-i3
 $ sudo chmod 755 /usr/local/bin/startkde-i3
 
@@ -57,15 +58,15 @@ $ sudo cp -a /usr/share/xsessions /usr/local/share/xsessions
 # Create a new desktop session file for plasma + i3
 $ cp /usr/local/share/xsessions/default.desktop /usr/local/share/xsessions/plasm
 a-i3.desktop
-$ sudo sed -i ʼs|/usr/bin/startkde|/usr/local/bin/startkde-i3|ʼ /usr/local/share
+$ sudo sed -i 's|/usr/bin/startkde|/usr/local/bin/startkde-i3|' /usr/local/share
 /xsessions/plasma-i3.desktop
-$ sudo sed -i ʼ/Name.*=/ s/$/-i3/ʼ /usr/local/share/xsessions/plasma-i3.desktop
+$ sudo sed -i '/Name.*=/ s/$/-i3/' /usr/local/share/xsessions/plasma-i3.desktop
 
 # Configure sddm (the login screen) to use our new desktop sessions directory
-$ echo -e ʼ\n\n[X11]\nSessionDir=/usr/local/share/xsessionsʼ | sudo tee -a /usr/
+$ echo -e '\n\n[X11]\nSessionDir=/usr/local/share/xsessions' | sudo tee -a /usr/
 lib/sddm/sddm.conf.d/00-general.conf
 
-   Logging out, youʼll be presented with an option in SDDM for Plasma-i3.
+   Logging out, you’ll be presented with an option in SDDM for Plasma-i3.
 
 Tweaking
 
@@ -84,7 +85,7 @@ Tweaking
    [6]Here is my i3 config, which has pre-defined settings for handling
    the different Plasma windows. I have several standard keybindings
    defined, launchers, and window management. You can go in-depth as you
-   like... you can target certain windows/popups/window-titles and more to
+   like… you can target certain windows/popups/window-titles and more to
    do anything you like. You can have certain windows float, certain
    windows open on a monitor or workspace, certain windows have
    priorities, certain windows that open next to other certain windows,
@@ -92,13 +93,13 @@ Tweaking
 
   Bars
 
-   Youʼre able to use any "bar" or panel you like with this setup..
+   You’re able to use any “bar” or panel you like with this setup..
    weather it be i3bar, polybar, or plain Plasma panel as I have.
 
    If you decide to use Plasma panels, definitely install [7]Virtual
    Desktop Bar Widget, its a virtual desktop pager which is configurable
-   and simple, and mimics how most other "bars" handle workspaces (its the
-   widget in the screenshot above with "web", "code", "mail", etc).
+   and simple, and mimics how most other “bars” handle workspaces (its the
+   widget in the screenshot above with “web”, “code”, “mail”, etc).
 
 Conclusion
 
@@ -130,6 +131,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /assets/images/posts/screenshot.png
@@ -145,3 +147,23 @@ References
   13. /about
   14. /assets/files/cv.pdf
   15. /rss.xml
+
+   Hidden links:
+  17. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-1
+  18. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-2
+  19. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-3
+  20. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-4
+  21. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-5
+  22. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-6
+  23. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-7
+  24. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-8
+  25. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-9
+  26. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-10
+  27. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-11
+  28. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-12
+  29. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-13
+  30. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-14
+  31. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-15
+  32. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-16
+  33. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-17
+  34. localhost/tmp/lynxXXXXwbOgIn/L3273372-1814TMP.html#cb1-18

@@ -19,12 +19,13 @@ What is Pundit & CanCanCan
 
 Inner Workings
 
-   Pundit relies on POROs… "Policy" classes. Each model can have a policy
+   Pundit relies on POROs… “Policy” classes. Each model can have a policy
    where you can define the methods accessible to the object attempting to
    access it (a user, a group, …). Each policy can have its own scope as
-   well, for example, an "admin" scope can see all entries in the
-   database, while a "manager" can only see published entries in the
+   well, for example, an “admin” scope can see all entries in the
+   database, while a “manager” can only see published entries in the
    database.
+
 class ArticlePolicy
   #...
   def create?
@@ -55,18 +56,19 @@ end
 
 #...
 
-<%= link_to(ʼAdd Articleʼ, new_article_path) if policy(:article).create? %>
+<%= link_to('Add Article', new_article_path) if policy(:article).create? %>
 
    So in the above example, we set up our simple policy. All policy
    methods return a boolean to determine if the object requesting access
    can perform the action. In the controller, we scope the articles using
    the scope defined in the policy. Then in the view, we can call the
-   Articleʼs policy and check if the current user is able to create an
+   Article’s policy and check if the current user is able to create an
    article. Very clear logic.
 
    CanCanCan, in all my past experiences, relies on a single Ability class
-   tied to the object weʼre checking authorizations on. Its DSL is very
+   tied to the object we’re checking authorizations on. Its DSL is very
    simple and effective.
+
 class Ability
   #...
   if user.role? :admin
@@ -81,15 +83,15 @@ end
 
 #...
 
-<%= link_to(ʼAdd Articleʼ, new_article_path) if can? :create, Article %>
+<%= link_to('Add Article', new_article_path) if can? :create, Article %>
 
-   So in the above example, the userʼs abilities will be defined by the
+   So in the above example, the user’s abilities will be defined by the
    class. Scoping can be handled here as well. In the view, we then check
    if the user is able to create an article.
 
 Why I Switched
 
-   Iʼm currently reviewing my own CMSʼ pull request for moving to Pundit.
+   I’m currently reviewing my own CMS’ pull request for moving to Pundit.
    [5]It is a long one… but worth it.
 
    CanCanCan is awesome. It provides quick boilerplate to bust out an
@@ -111,18 +113,18 @@ Why I Switched
    With Pundit… everything has its own class, a simple PORO, and their own
    scopes… very easy to look up and see at a glance what is happening.
    Although with Pundit you are writing more explicitly in the
-   controllers, itʼs actually more beneficial because another person can
-   easily read your controllers/views and know exactly whatʼs happening
-   without "magic" that comes with CanCanCan.
+   controllers, it’s actually more beneficial because another person can
+   easily read your controllers/views and know exactly what’s happening
+   without “magic” that comes with CanCanCan.
 
    I simply switched because I felt Pundit is more manageable and a better
    long-term solution than CanCanCan. I now have more readable code, more
-   maintainable code, and code thatʼs easily overridable by others.
+   maintainable code, and code that’s easily overridable by others.
 
 When to use each
 
    Both libraries are great and both get the job done. In my opinion, if
-   you need something quick and donʼt have a lot of logic at play,
+   you need something quick and don’t have a lot of logic at play,
    CanCanCan will fit right in your flow. If you want more fine-grained
    control and separation, give Pundit a try!
 
@@ -155,6 +157,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/elabs/pundit
@@ -168,3 +171,51 @@ References
   11. /about
   12. /assets/files/cv.pdf
   13. /rss.xml
+
+   Hidden links:
+  15. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-2
+  17. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-3
+  18. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-4
+  19. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-5
+  20. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-6
+  21. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-7
+  22. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-8
+  23. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-9
+  24. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-10
+  25. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-11
+  26. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-12
+  27. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-13
+  28. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-14
+  29. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-15
+  30. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-16
+  31. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-17
+  32. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-18
+  33. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-19
+  34. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-20
+  35. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-21
+  36. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-22
+  37. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-23
+  38. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-24
+  39. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-25
+  40. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-26
+  41. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-27
+  42. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-28
+  43. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-29
+  44. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-30
+  45. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb1-31
+  46. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-1
+  47. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-2
+  48. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-3
+  49. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-4
+  50. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-5
+  51. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-6
+  52. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-7
+  53. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-8
+  54. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-9
+  55. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-10
+  56. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-11
+  57. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-12
+  58. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-13
+  59. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-14
+  60. localhost/tmp/lynxXXXXaCH7Fs/L3277068-1169TMP.html#cb2-15

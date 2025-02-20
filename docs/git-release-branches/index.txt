@@ -6,7 +6,7 @@
 
    /* Mar 10, 2021 — 3.4KB */
 
-   A method I like to utilize internally, which Iʼve been slowly pushing
+   A method I like to utilize internally, which I’ve been slowly pushing
    into my open source work, is to create branches for each major/minor
    release. Many developers will say branches are meant to be short-lived,
    to be eventually merged into your main branch. I believe this is true
@@ -15,11 +15,12 @@
 
    Essentially, if you follow symver ([major].[minor].[patch]) for
    versioning, you would create and maintain a branch for each
-   [major].[minor] release. For example... if I tagged the production
-   branch with v9.0.0, a new major release, I would create a supplementary
-   branch 9.0. If I then released a bugfix, v9.0.1, I would then issue a
-   pull request to merge code for v9.0.1 into branch 9.0 to keep it
-   updated with patches.
+   [major].[minor] release. For example… if I tagged the production branch
+   with v9.0.0, a new major release, I would create a supplementary branch
+   9.0. If I then released a bugfix, v9.0.1, I would then issue a pull
+   request to merge code for v9.0.1 into branch 9.0 to keep it updated
+   with patches.
+
 $ git branch -l | sort -V
 # ...
 8.2
@@ -34,13 +35,14 @@ master
      * Have the ability to support multiple versions easily
      * Have a easily navigable snapshot of previous releases
 
-   This may be overkill for small and personal projects, but when youʼre
+   This may be overkill for small and personal projects, but when you’re
    working with a team and potentially have to support multiple versions
    of a codebase, then this flow is easy to adopt.
 
    Below is a script you can use to walk through your existing repository
    (assuming everything is tagged in symver format) and create the
    [major].[minor] branches for you.
+
 #!/usr/bin/env python
 #
 # Usage: `python release_branches.py`
@@ -79,7 +81,7 @@ def major_minor_list(tags: List[str]) -> Dict[str, str]:
         # Strip off patch from tag
         cleaned_tag = ".".join(tag.split(".")[:-1])
         if cleaned_tag not in mm:
-            # Add to dict if major.minor doesnʼt exist yet
+            # Add to dict if major.minor doesn't exist yet
             mm[cleaned_tag] = tag
     return mm
 
@@ -98,12 +100,12 @@ def make_branch(branch: str, tag: str) -> None:
 tags = get_tag_list()
 mm = major_minor_list(tags)
 for branch, tag in mm.items():
-    print(f"Making branch ʼ{branch}ʼ based on tag of ʼ{tag}ʼ...")
-    if environ.get(ʼDRY_RUNʼ) is None:
+    print(f"Making branch '{branch}' based on tag of '{tag}'...")
+    if environ.get('DRY_RUN') is None:
         make_branch(branch, tag)
     print(">> Complete")
 
-   Running with the DRY_RUN env supplied, youʼll be able to see the
+   Running with the DRY_RUN env supplied, you’ll be able to see the
    branches it will created based on your existing tags before proceeding
    with the creation.
 
@@ -132,6 +134,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /git-release-branches/index.md
@@ -142,3 +145,73 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-1
+  13. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-2
+  14. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-3
+  15. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-4
+  16. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-6
+  18. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb1-7
+  19. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-1
+  20. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-2
+  21. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-3
+  22. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-4
+  23. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-5
+  24. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-6
+  25. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-7
+  26. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-8
+  27. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-9
+  28. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-10
+  29. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-11
+  30. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-12
+  31. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-13
+  32. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-14
+  33. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-15
+  34. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-16
+  35. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-17
+  36. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-18
+  37. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-19
+  38. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-20
+  39. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-21
+  40. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-22
+  41. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-23
+  42. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-24
+  43. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-25
+  44. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-26
+  45. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-27
+  46. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-28
+  47. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-29
+  48. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-30
+  49. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-31
+  50. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-32
+  51. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-33
+  52. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-34
+  53. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-35
+  54. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-36
+  55. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-37
+  56. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-38
+  57. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-39
+  58. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-40
+  59. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-41
+  60. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-42
+  61. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-43
+  62. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-44
+  63. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-45
+  64. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-46
+  65. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-47
+  66. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-48
+  67. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-49
+  68. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-50
+  69. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-51
+  70. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-52
+  71. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-53
+  72. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-54
+  73. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-55
+  74. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-56
+  75. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-57
+  76. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-58
+  77. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-59
+  78. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-60
+  79. localhost/tmp/lynxXXXXd0l8Wy/L3271407-9606TMP.html#cb2-61

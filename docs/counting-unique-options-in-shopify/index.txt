@@ -8,16 +8,18 @@
 
    Ever wanted to quickly display how many of an option a product
    contains?
+Available in 4 sizes
+...
+Available in Red, Blue, Green
+...
+Available in 10 colors
 
-   Available in 4 sizes ... Available in Red, Blue, Green ... Available in
-   10 colors
-
-   Hereʼs an example of how to do just that (for color). Simply open your
-   productʼs loop liquid and add this block at the top:
+   Here’s an example of how to do just that (for color). Simply open your
+   product’s loop liquid and add this block at the top:
 # snippets/product_loop.liquid
 {% raw %}
 {% assign color_index = nil %}
-{% assign color_label = ʼColorʼ %}
+{% assign color_label = 'Color' %}
 {% if product.options[0] == color_label %}
   {% capture color_index %}option1{% endcapture %}
 {% elsif product.options[1] == color_label %}
@@ -28,43 +30,40 @@
 
 {% assign colors = product.variants | map: color_index | uniq %}
 
-This product is available in {{ colors.size }} {{ colors.size | pluralize: ʼcolo
-rʼ, ʼcolorsʼ }}
+This product is available in {{ colors.size }} {{ colors.size | pluralize: 'colo
+r', 'colors' }}
 {% endraw %}
 
    Now you should get a result (given you have a color option for your
    variants), showing you how many unique colors there are for the
-   product. Hereʼs what happened:
+   product. Here’s what happened:
     1. First, we determined which index the Color option was. Because
        Shopify only allows for three options, this makes it a quick check.
-    2. We grab the variants with product.variants and use
-       [map](https://help.shopify.com/themes/liquid/filters/array-filters#
-       map) to return the results for only option1, option2, or option3
-       depending on the color_index value.
-    3. We then run the results through
-       [uniq](https://help.shopify.com/themes/liquid/filters/array-filters
-       #uniq) to filter out duplicates.
+    2. We grab the variants with product.variants and use [3]map to return
+       the results for only option1, option2, or option3 depending on the
+       color_index value.
+    3. We then run the results through [4]uniq to filter out duplicates.
 
    You can now apply the same logic to any options you want. Change the
    color_label variable to Size and you can get the same results but for
    sizes.
 
-   Allowing the customer to quickly scan what theyʼre looking for and
-   selecting the product appropriate to their needs... this little bit of
+   Allowing the customer to quickly scan what they’re looking for and
+   selecting the product appropriate to their needs… this little bit of
    Liquid can easily help with conversion rates.
 
-   [3]MD | [4]TXT | [5]CC-4.0
+   [5]MD | [6]TXT | [7]CC-4.0
 
    This post is 8 years old and may contain outdated information.
      __________________________________________________________________
 
-   [6]Ty King
+   [8]Ty King
 
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
-   [7]Github [8]About Me [9]CV [10]RSS
+   [9]Github [10]About Me [11]CV [12]RSS
      *
      *
      *
@@ -80,11 +79,13 @@ References
 
    1. /rss.xml
    2. /
-   3. /counting-unique-options-in-shopify/index.md
-   4. /counting-unique-options-in-shopify/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. /about
-   7. https://github.com/gnikyt
+   3. https://help.shopify.com/themes/liquid/filters/array-filters#map
+   4. https://help.shopify.com/themes/liquid/filters/array-filters#uniq
+   5. /counting-unique-options-in-shopify/index.md
+   6. /counting-unique-options-in-shopify/index.txt
+   7. https://creativecommons.org/licenses/by/4.0/
    8. /about
-   9. /assets/files/cv.pdf
-  10. /rss.xml
+   9. https://github.com/gnikyt
+  10. /about
+  11. /assets/files/cv.pdf
+  12. /rss.xml

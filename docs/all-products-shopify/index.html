@@ -86,12 +86,17 @@
         </p>
 
         <p>
-          There's no documentation yet for the new variable but as the Github comment states, simply use
+          There’s no documentation yet for the new variable but as the Github comment states, simply use
           <code>all_products['handle-here']</code>
         </p>
 
-        <pre><code>&lt;img src="{% raw %}{{ all_products['mario-party-game'].featured_image.src | img_url: 'medium' }}{% endraw %}"&gt;
-</code></pre>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span> <span class=
+          "er">src</span><span class="ot">=</span><span class=
+          "st">"{% raw %}{{ all_products['mario-party-game'].featured_image.src | img_url: 'medium' }}{% endraw %}"</span><span class="dt">&gt;</span></span></code></pre>
+        </div>
+
         <footer class="post__tail">
           <div class="sources">
             <a class="sources__link" href="/all-products-shopify/index.md">MD</a> | <a class="sources__link" href=
@@ -121,7 +126,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

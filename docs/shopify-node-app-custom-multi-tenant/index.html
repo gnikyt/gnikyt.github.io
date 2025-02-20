@@ -80,7 +80,7 @@
         </h2>
 
         <p>
-          Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the
+          Shopify’s new boilerplate for app development with Node works well. It gets a lot of small details out of the
           way, allowing you to code an app with built in Polaris support, verification, and more.
         </p>
 
@@ -129,11 +129,10 @@
           add:
         </p>
 
-        <pre><code>SHOPIFY_API_KEY_HELLOWORLD=xyz123
+        <pre class="conf"><code>SHOPIFY_API_KEY_HELLOWORLD=xyz123
 SHOPIFY_API_SECRET_HELLOWORLD=123xyz
 SHOPIFY_API_KEY_WELCOME123=abc123
-SHOPIFY_API_SECRET_WELCOME123=123abc
-</code></pre>
+SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
         <h3 id="nextjs">
           NextJS
         </h3>
@@ -146,52 +145,104 @@ SHOPIFY_API_SECRET_WELCOME123=123abc
           By default, it looks like this:
         </p>
 
-        <pre><code>const { parsed: localEnv } = require("dotenv").config();
-const webpack = require("webpack");
-const apiKey = JSON.stringify(process.env.SHOPIFY_API_KEY);
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden="true"
+          href="#cb2-1" tabindex="-1"></a><span class="kw">const</span> { <span class="dt">parsed</span><span class=
+          "op">:</span> localEnv } <span class="op">=</span> <span class="pp">require</span>(<span class=
+          "st">"dotenv"</span>)<span class="op">.</span><span class="fu">config</span>()<span class=
+          "op">;</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class=
+"kw">const</span> webpack <span class="op">=</span> <span class="pp">require</span>(<span class=
+"st">"webpack"</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class=
+"kw">const</span> apiKey <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class=
+"fu">stringify</span>(<span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class=
+"op">.</span><span class="at">SHOPIFY_API_KEY</span>)<span class="op">;</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>module<span class="op">.</span><span class=
+"at">exports</span> <span class="op">=</span> {</span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>  <span class="dt">webpack</span><span class=
+"op">:</span> (config) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>    <span class=
+"kw">const</span> env <span class="op">=</span> { <span class="dt">API_KEY</span><span class=
+"op">:</span> apiKey }<span class="op">;</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>    config<span class="op">.</span><span class=
+"at">plugins</span><span class="op">.</span><span class="fu">push</span>(<span class=
+"kw">new</span> webpack<span class="op">.</span><span class="fu">DefinePlugin</span>(env))<span class=
+"op">;</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>    <span class=
+"co">// Add ESM support for .mjs files in webpack 4</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>    config<span class=
+"op">.</span><span class="at">module</span><span class="op">.</span><span class="at">rules</span><span class=
+"op">.</span><span class="fu">push</span>({</span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>      <span class="dt">test</span><span class=
+"op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">mjs</span><span class=
+"sc">$</span><span class="ss">/</span><span class="op">,</span></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>      <span class=
+"dt">include</span><span class="op">:</span> <span class="ss">/node_modules/</span><span class="op">,</span></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>      <span class="dt">type</span><span class=
+"op">:</span> <span class="st">"javascript/auto"</span><span class="op">,</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a></span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>    <span class=
+"cf">return</span> config<span class="op">;</span></span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
 
-module.exports = {
-  webpack: (config) &amp;ge; {
-    const env = { API_KEY: apiKey };
-    config.plugins.push(new webpack.DefinePlugin(env));
-
-    // Add ESM support for .mjs files in webpack 4
-    config.module.rules.push({
-      test: /\.mjs$/,
-      include: /node_modules/,
-      type: "javascript/auto",
-    });
-
-    return config;
-  },
-};
-
-</code></pre>
         <p>
           We need to remove <code>API_KEY</code> and add a new <code>HOST</code> value.
         </p>
 
-        <pre><code># ./next.config.js
-const { parsed: localEnv } = require("dotenv").config();
-const webpack = require("webpack");
-const host = JSON.stringify(process.env.HOST);
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true"
+          href="#cb3-1" tabindex="-1"></a># <span class="op">./</span>next<span class="op">.</span><span class=
+          "at">config</span><span class="op">.</span><span class="at">js</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="kw">const</span> { <span class=
+"dt">parsed</span><span class="op">:</span> localEnv } <span class="op">=</span> <span class=
+"pp">require</span>(<span class="st">"dotenv"</span>)<span class="op">.</span><span class=
+"fu">config</span>()<span class="op">;</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class=
+"kw">const</span> webpack <span class="op">=</span> <span class="pp">require</span>(<span class=
+"st">"webpack"</span>)<span class="op">;</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a><span class="kw">const</span> host <span class=
+"op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(<span class=
+"bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class=
+"at">HOST</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>module<span class="op">.</span><span class=
+"at">exports</span> <span class="op">=</span> {</span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>  <span class="dt">webpack</span><span class=
+"op">:</span> (config) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>    <span class=
+"kw">const</span> env <span class="op">=</span> { <span class="dt">HOST</span><span class=
+"op">:</span> host }<span class="op">;</span></span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a>    config<span class="op">.</span><span class=
+"at">plugins</span><span class="op">.</span><span class="fu">push</span>(<span class=
+"kw">new</span> webpack<span class="op">.</span><span class="fu">DefinePlugin</span>(env))<span class=
+"op">;</span></span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a></span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>    <span class=
+"co">// Add ESM support for .mjs files in webpack 4</span></span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>    config<span class=
+"op">.</span><span class="at">module</span><span class="op">.</span><span class="at">rules</span><span class=
+"op">.</span><span class="fu">push</span>({</span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a>      <span class="dt">test</span><span class=
+"op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">mjs</span><span class=
+"sc">$</span><span class="ss">/</span><span class="op">,</span></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>      <span class=
+"dt">include</span><span class="op">:</span> <span class="ss">/node_modules/</span><span class="op">,</span></span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>      <span class="dt">type</span><span class=
+"op">:</span> <span class="st">"javascript/auto"</span><span class="op">,</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a></span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>    <span class=
+"cf">return</span> config<span class="op">;</span></span>
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
 
-module.exports = {
-  webpack: (config) &amp;ge; {
-    const env = { HOST: host };
-    config.plugins.push(new webpack.DefinePlugin(env));
-
-    // Add ESM support for .mjs files in webpack 4
-    config.module.rules.push({
-      test: /\.mjs$/,
-      include: /node_modules/,
-      type: "javascript/auto",
-    });
-
-    return config;
-  },
-};
-</code></pre>
         <h3 id="utils">
           Utils
         </h3>
@@ -200,49 +251,101 @@ module.exports = {
           Create a file to hold some utility functions which we will use to support multi-tentant.
         </p>
 
-        <pre><code># ./src/services/utils.js
-import crypto from "crypto";
-import querystring from "querystring"; // Can use URLSearchParams instead
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a aria-hidden="true"
+          href="#cb4-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>services<span class=
+          "op">/</span>utils<span class="op">.</span><span class="at">js</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class=
+"im">import</span> crypto <span class="im">from</span> <span class="st">"crypto"</span><span class="op">;</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class=
+"im">import</span> querystring <span class="im">from</span> <span class="st">"querystring"</span><span class=
+"op">;</span> <span class="co">// Can use URLSearchParams instead</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a><span class=
+"co"> * Clean the domain. Used for ENV access.</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class=
+"co"> domain The Shopify myshopify.com domain.</span></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{boolean}</span><span class=
+"co"> upcase Upcase the result or not.</span></span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> string</span></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a><span class=
+"kw">const</span> cleanDomain <span class="op">=</span> (domain<span class="op">,</span> upcase <span class=
+"op">=</span> <span class="kw">true</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a>  <span class=
+"kw">const</span> result <span class="op">=</span> domain<span class="op">.</span><span class=
+"fu">replace</span>(<span class="st">".myshopify.com"</span><span class="op">,</span> <span class=
+"st">""</span>)<span class="op">.</span><span class="fu">replace</span>(<span class="ss">/_</span><span class=
+"sc">|</span><span class="ss">-/g</span><span class="op">,</span> <span class="st">""</span>)<span class=
+"op">;</span></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>  <span class=
+"cf">return</span> upcase <span class="op">?</span> result<span class="op">.</span><span class=
+"fu">toUpperCase</span>() <span class="op">:</span> result<span class="op">;</span></span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a></span>
+<span id="cb4-16"><a aria-hidden="true" href="#cb4-16" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a><span class=
+"co"> * Fix and order query strings.</span></span>
+<span id="cb4-18"><a aria-hidden="true" href="#cb4-18" tabindex="-1"></a><span class=
+"co"> * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validator.ts</span></span>
+<span id="cb4-19"><a aria-hidden="true" href="#cb4-19" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{object}</span><span class=
+"co"> query The query params.</span></span>
+<span id="cb4-20"><a aria-hidden="true" href="#cb4-20" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> string</span></span>
+<span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb4-22"><a aria-hidden="true" href="#cb4-22" tabindex="-1"></a><span class="im">export</span> <span class=
+"kw">function</span> <span class="fu">stringifyQuery</span>(query) {</span>
+<span id="cb4-23"><a aria-hidden="true" href="#cb4-23" tabindex="-1"></a>  <span class=
+"kw">const</span> orderedObj <span class="op">=</span> <span class="bu">Object</span><span class=
+"op">.</span><span class="fu">keys</span>(query)</span>
+<span id="cb4-24"><a aria-hidden="true" href="#cb4-24" tabindex="-1"></a>    <span class="op">.</span><span class=
+"fu">sort</span>((val1<span class="op">,</span> val2) <span class="kw">=&gt;</span> val1<span class=
+"op">.</span><span class="fu">localeCompare</span>(val2))</span>
+<span id="cb4-25"><a aria-hidden="true" href="#cb4-25" tabindex="-1"></a>    <span class="op">.</span><span class=
+"fu">reduce</span>((obj<span class="op">,</span> key) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a>      obj[key] <span class=
+"op">=</span> query[key]<span class="op">;</span></span>
+<span id="cb4-27"><a aria-hidden="true" href="#cb4-27" tabindex="-1"></a>      <span class=
+"cf">return</span> obj<span class="op">;</span></span>
+<span id="cb4-28"><a aria-hidden="true" href="#cb4-28" tabindex="-1"></a>    }<span class="op">,</span> {})<span class=
+"op">;</span></span>
+<span id="cb4-29"><a aria-hidden="true" href="#cb4-29" tabindex="-1"></a>  <span class=
+"cf">return</span> querystring<span class="op">.</span><span class="fu">stringify</span>(orderedObj)<span class=
+"op">;</span></span>
+<span id="cb4-30"><a aria-hidden="true" href="#cb4-30" tabindex="-1"></a>}</span>
+<span id="cb4-31"><a aria-hidden="true" href="#cb4-31" tabindex="-1"></a></span>
+<span id="cb4-32"><a aria-hidden="true" href="#cb4-32" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb4-33"><a aria-hidden="true" href="#cb4-33" tabindex="-1"></a><span class=
+"co"> * Create a local HMAC string based upon query params.</span></span>
+<span id="cb4-34"><a aria-hidden="true" href="#cb4-34" tabindex="-1"></a><span class=
+"co"> * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validator.ts</span></span>
+<span id="cb4-35"><a aria-hidden="true" href="#cb4-35" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{object}</span><span class=
+"co"> query The query params.</span></span>
+<span id="cb4-36"><a aria-hidden="true" href="#cb4-36" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{strin}</span><span class=
+"co"> secret The API secret.</span></span>
+<span id="cb4-37"><a aria-hidden="true" href="#cb4-37" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> string</span></span>
+<span id="cb4-38"><a aria-hidden="true" href="#cb4-38" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb4-39"><a aria-hidden="true" href="#cb4-39" tabindex="-1"></a><span class="im">export</span> <span class=
+"kw">function</span> <span class="fu">generateLocalHmac</span>(query<span class="op">,</span> secret) {</span>
+<span id="cb4-40"><a aria-hidden="true" href="#cb4-40" tabindex="-1"></a>  <span class=
+"kw">const</span> queryString <span class="op">=</span> <span class="fu">stringifyQuery</span>(query)<span class=
+"op">;</span></span>
+<span id="cb4-41"><a aria-hidden="true" href="#cb4-41" tabindex="-1"></a>  <span class=
+"cf">return</span> crypto<span class="op">.</span><span class="fu">createHmac</span>(<span class=
+"st">"sha256"</span><span class="op">,</span> secret)<span class="op">.</span><span class=
+"fu">update</span>(queryString)<span class="op">.</span><span class="fu">digest</span>(<span class=
+"st">"hex"</span>)<span class="op">;</span></span>
+<span id="cb4-42"><a aria-hidden="true" href="#cb4-42" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-/**
- * Clean the domain. Used for ENV access.
- * @param {string} domain The Shopify myshopify.com domain.
- * @param {boolean} upcase Upcase the result or not.
- * @returns string
- */
-const cleanDomain = (domain, upcase = true) &amp;ge; {
-  const result = domain.replace(".myshopify.com", "").replace(/_|-/g, "");
-  return upcase ? result.toUpperCase() : result;
-};
-
-/**
- * Fix and order query strings.
- * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validator.ts
- * @param {object} query The query params.
- * @returns string
- */
-export function stringifyQuery(query) {
-  const orderedObj = Object.keys(query)
-    .sort((val1, val2) &amp;ge; val1.localeCompare(val2))
-    .reduce((obj, key) &amp;ge; {
-      obj[key] = query[key];
-      return obj;
-    }, {});
-  return querystring.stringify(orderedObj);
-}
-
-/**
- * Create a local HMAC string based upon query params.
- * https://github.com/Shopify/shopify-node-api/blob/main/src/utils/hmac-validator.ts
- * @param {object} query The query params.
- * @param {strin} secret The API secret.
- * @returns string
- */
-export function generateLocalHmac(query, secret) {
-  const queryString = stringifyQuery(query);
-  return crypto.createHmac("sha256", secret).update(queryString).digest("hex");
-}
-</code></pre>
         <h3 id="middleware-additions">
           Middleware Additions
         </h3>
@@ -255,69 +358,131 @@ export function generateLocalHmac(query, secret) {
           This middleware file for Koa will create the Shopify context.
         </p>
 
-        <pre><code># ./src/server/middleware/shopContext.js
-import Shopify, { ApiVersion } from "@shopify/shopify-api";
-import { cleanDomain } from "../../services/utils";
+        <div class="sourceCode" id="cb5">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a aria-hidden="true"
+          href="#cb5-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>server<span class=
+          "op">/</span>middleware<span class="op">/</span>shopContext<span class="op">.</span><span class=
+          "at">js</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class=
+"im">import</span> Shopify<span class="op">,</span> { ApiVersion } <span class="im">from</span> <span class=
+"st">"@shopify/shopify-api"</span><span class="op">;</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a><span class=
+"im">import</span> { cleanDomain } <span class="im">from</span> <span class=
+"st">"../../services/utils"</span><span class="op">;</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a><span class=
+"co"> * Set the Shopify context based upon the shop.</span></span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{*}</span><span class=
+"co"> ctx The Koa context.</span></span>
+<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{*}</span><span class=
+"co"> next The next code to hit.</span></span>
+<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> any</span></span>
+<span id="cb5-10"><a aria-hidden="true" href="#cb5-10" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb5-11"><a aria-hidden="true" href="#cb5-11" tabindex="-1"></a><span class=
+"kw">const</span> shopContext <span class="op">=</span> <span class="kw">async</span> (ctx<span class=
+"op">,</span> next) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-12"><a aria-hidden="true" href="#cb5-12" tabindex="-1"></a>  <span class=
+"co">// Find the Shopify domain</span></span>
+<span id="cb5-13"><a aria-hidden="true" href="#cb5-13" tabindex="-1"></a>  <span class=
+"kw">const</span> { shop } <span class="op">=</span> ctx<span class="op">.</span><span class=
+"at">query</span><span class="op">;</span></span>
+<span id="cb5-14"><a aria-hidden="true" href="#cb5-14" tabindex="-1"></a>  <span class=
+"kw">const</span> shopDomain <span class="op">=</span> ctx<span class="op">.</span><span class=
+"at">request</span><span class="op">.</span><span class="at">headers</span>[<span class=
+"st">"x-shopify-shop-domain"</span>]<span class="op">;</span></span>
+<span id="cb5-15"><a aria-hidden="true" href="#cb5-15" tabindex="-1"></a></span>
+<span id="cb5-16"><a aria-hidden="true" href="#cb5-16" tabindex="-1"></a>  <span class=
+"co">// Use shop domain to get env values</span></span>
+<span id="cb5-17"><a aria-hidden="true" href="#cb5-17" tabindex="-1"></a>  <span class=
+"kw">const</span> domain <span class="op">=</span> <span class="fu">cleanDomain</span>(shop <span class=
+"op">||</span> shopDomain)<span class="op">;</span></span>
+<span id="cb5-18"><a aria-hidden="true" href="#cb5-18" tabindex="-1"></a>  Shopify<span class="op">.</span><span class=
+"at">Context</span><span class="op">.</span><span class="fu">initialize</span>({</span>
+<span id="cb5-19"><a aria-hidden="true" href="#cb5-19" tabindex="-1"></a>    <span class=
+"dt">API_KEY</span><span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class=
+"at">env</span>[<span class="vs">`SHOPIFY_API_KEY_</span><span class="sc">${</span>domain<span class=
+"sc">}</span><span class="vs">`</span>]<span class="op">,</span></span>
+<span id="cb5-20"><a aria-hidden="true" href="#cb5-20" tabindex="-1"></a>    <span class=
+"dt">API_SECRET_KEY</span><span class="op">:</span> <span class="bu">process</span><span class=
+"op">.</span><span class="at">env</span>[<span class="vs">`SHOPIFY_API_SECRET_</span><span class=
+"sc">${</span>domain<span class="sc">}</span><span class="vs">`</span>]<span class="op">,</span></span>
+<span id="cb5-21"><a aria-hidden="true" href="#cb5-21" tabindex="-1"></a>    <span class="dt">SCOPES</span><span class=
+"op">:</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class=
+"op">.</span><span class="at">SCOPES</span><span class="op">.</span><span class="fu">split</span>(<span class=
+"st">","</span>)<span class="op">,</span></span>
+<span id="cb5-22"><a aria-hidden="true" href="#cb5-22" tabindex="-1"></a>    <span class=
+"dt">HOST_NAME</span><span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class=
+"at">env</span><span class="op">.</span><span class="at">HOST</span><span class="op">.</span><span class=
+"fu">replace</span>(<span class="ss">/https:</span><span class="sc">\/\/</span><span class="ss">/</span><span class=
+"op">,</span> <span class="st">""</span>)<span class="op">,</span></span>
+<span id="cb5-23"><a aria-hidden="true" href="#cb5-23" tabindex="-1"></a>    <span class=
+"dt">API_VERSION</span><span class="op">:</span> ApiVersion<span class="op">.</span><span class=
+"at">October20</span><span class="op">,</span></span>
+<span id="cb5-24"><a aria-hidden="true" href="#cb5-24" tabindex="-1"></a>    <span class=
+"dt">IS_EMBEDDED_APP</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb5-25"><a aria-hidden="true" href="#cb5-25" tabindex="-1"></a>    <span class=
+"dt">SESSION_STORAGE</span><span class="op">:</span> <span class="kw">new</span> Shopify<span class=
+"op">.</span><span class="at">Session</span><span class="op">.</span><span class=
+"fu">MemorySessionStorage</span>()<span class="op">,</span></span>
+<span id="cb5-26"><a aria-hidden="true" href="#cb5-26" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb5-27"><a aria-hidden="true" href="#cb5-27" tabindex="-1"></a></span>
+<span id="cb5-28"><a aria-hidden="true" href="#cb5-28" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"cf">await</span> <span class="fu">next</span>()<span class="op">;</span></span>
+<span id="cb5-29"><a aria-hidden="true" href="#cb5-29" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb5-30"><a aria-hidden="true" href="#cb5-30" tabindex="-1"></a></span>
+<span id="cb5-31"><a aria-hidden="true" href="#cb5-31" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> shopContext<span class="op">;</span></span></code></pre>
+        </div>
 
-/**
- * Set the Shopify context based upon the shop.
- * @param {*} ctx The Koa context.
- * @param {*} next The next code to hit.
- * @returns any
- */
-const shopContext = async (ctx, next) &amp;ge; {
-  // Find the Shopify domain
-  const { shop } = ctx.query;
-  const shopDomain = ctx.request.headers["x-shopify-shop-domain"];
-
-  // Use shop domain to get env values
-  const domain = cleanDomain(shop || shopDomain);
-  Shopify.Context.initialize({
-    API_KEY: process.env[`SHOPIFY_API_KEY_`],
-    API_SECRET_KEY: process.env[`SHOPIFY_API_SECRET_`],
-    SCOPES: process.env.SCOPES.split(","),
-    HOST_NAME: process.env.HOST.replace(/https:\/\//, ""),
-    API_VERSION: ApiVersion.October20,
-    IS_EMBEDDED_APP: true,
-    SESSION_STORAGE: new Shopify.Session.MemorySessionStorage(),
-  });
-
-  return await next();
-};
-
-export default shopContext;
-</code></pre>
         <p>
           Now open your <code>server/server.js</code> file and include the middleware for use on every backend route.
           Example:
         </p>
 
-        <pre><code># ./server/server.js
-// ...
-import shopEnv from "../src/server/middleware/shopEnv";
-// ...
+        <div class="sourceCode" id="cb6">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true"
+          href="#cb6-1" tabindex="-1"></a># <span class="op">./</span>server<span class="op">/</span>server<span class=
+          "op">.</span><span class="at">js</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class=
+"im">import</span> shopEnv <span class="im">from</span> <span class=
+"st">"../src/server/middleware/shopEnv"</span><span class="op">;</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a><span class="co">// Example</span></span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a>router<span class="op">.</span><span class=
+"fu">post</span>(</span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a>    <span class=
+"st">"/customer/register"</span><span class="op">,</span></span>
+<span id="cb6-9"><a aria-hidden="true" href="#cb6-9" tabindex="-1"></a>    shopContext<span class=
+"op">,</span> # <span class="op">&lt;----</span> middleware</span>
+<span id="cb6-10"><a aria-hidden="true" href="#cb6-10" tabindex="-1"></a>    shopState<span class="op">,</span></span>
+<span id="cb6-11"><a aria-hidden="true" href="#cb6-11" tabindex="-1"></a>    <span class=
+"fu">errWrap</span>(customerRegister)</span>
+<span id="cb6-12"><a aria-hidden="true" href="#cb6-12" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb6-13"><a aria-hidden="true" href="#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a aria-hidden="true" href="#cb6-14" tabindex="-1"></a><span class="co">// Example</span></span>
+<span id="cb6-15"><a aria-hidden="true" href="#cb6-15" tabindex="-1"></a>router<span class="op">.</span><span class=
+"fu">get</span>(</span>
+<span id="cb6-16"><a aria-hidden="true" href="#cb6-16" tabindex="-1"></a>    <span class="st">"(.*)"</span><span class=
+"op">,</span></span>
+<span id="cb6-17"><a aria-hidden="true" href="#cb6-17" tabindex="-1"></a>    shopContext<span class=
+"op">,</span> # <span class="op">&lt;----</span> middleware</span>
+<span id="cb6-18"><a aria-hidden="true" href="#cb6-18" tabindex="-1"></a>    <span class=
+"fu">defaultRequest</span>(handle)</span>
+<span id="cb6-19"><a aria-hidden="true" href="#cb6-19" tabindex="-1"></a>)<span class="op">;</span></span></code></pre>
+        </div>
 
-// Example
-router.post(
-    "/customer/register",
-    shopContext, # &lt;---- middleware
-    shopState,
-    errWrap(customerRegister)
-);
-
-// Example
-router.get(
-    "(.*)",
-    shopContext, # &lt;---- middleware
-    defaultRequest(handle)
-);
-</code></pre>
         <p>
           As well, remove the default <code>Shopify.Context</code> declaration in the <code>server.js</code> file.
         </p>
 
         <p>
-          Now, all API requests in your handlers will use the shop's API key and secret.
+          Now, all API requests in your handlers will use the shop’s API key and secret.
         </p>
 
         <h4 id="verifyhmac">
@@ -328,44 +493,85 @@ router.get(
           This middleware file for Koa will verify HMAC strings.
         </p>
 
-        <pre><code># ./src/server/middleare/verifyHmac.js
-import Shopify from "@shopify/shopify-api";
-import { generateLocalHmac, cleanDomain } from "../../services/utils";
+        <div class="sourceCode" id="cb7">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true"
+          href="#cb7-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>server<span class=
+          "op">/</span>middleare<span class="op">/</span>verifyHmac<span class="op">.</span><span class=
+          "at">js</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class=
+"im">import</span> Shopify <span class="im">from</span> <span class="st">"@shopify/shopify-api"</span><span class=
+"op">;</span></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a><span class=
+"im">import</span> { generateLocalHmac<span class="op">,</span> cleanDomain } <span class="im">from</span> <span class=
+"st">"../../services/utils"</span><span class="op">;</span></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a><span class="co"> * Verify HMAC.</span></span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{*}</span><span class=
+"co"> ctx The Koa context.</span></span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{*}</span><span class=
+"co"> next The next code to hit.</span></span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> any</span></span>
+<span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb7-11"><a aria-hidden="true" href="#cb7-11" tabindex="-1"></a><span class=
+"kw">const</span> verifyHmac <span class="op">=</span> <span class="kw">async</span> (ctx<span class=
+"op">,</span> next) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a>  <span class=
+"co">// Remove HMAC</span></span>
+<span id="cb7-13"><a aria-hidden="true" href="#cb7-13" tabindex="-1"></a>  <span class=
+"kw">const</span> { query } <span class="op">=</span> ctx<span class="op">;</span></span>
+<span id="cb7-14"><a aria-hidden="true" href="#cb7-14" tabindex="-1"></a>  <span class=
+"kw">const</span> { hmac<span class="op">,</span> shop } <span class="op">=</span> query<span class=
+"op">;</span></span>
+<span id="cb7-15"><a aria-hidden="true" href="#cb7-15" tabindex="-1"></a>  <span class=
+"kw">delete</span> ctx<span class="op">.</span><span class="at">query</span><span class="op">.</span><span class=
+"at">hmac</span><span class="op">;</span></span>
+<span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a></span>
+<span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a>  <span class=
+"co">// Generate a local HMAC</span></span>
+<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>  <span class=
+"kw">const</span> domain <span class="op">=</span> <span class="fu">cleanDomain</span>(shop)<span class=
+"op">;</span></span>
+<span id="cb7-19"><a aria-hidden="true" href="#cb7-19" tabindex="-1"></a>  <span class=
+"kw">const</span> localHmac <span class="op">=</span> <span class="fu">generateLocalHmac</span>(</span>
+<span id="cb7-20"><a aria-hidden="true" href="#cb7-20" tabindex="-1"></a>    query<span class="op">,</span></span>
+<span id="cb7-21"><a aria-hidden="true" href="#cb7-21" tabindex="-1"></a>    <span class=
+"bu">process</span><span class="op">.</span><span class="at">env</span>[<span class=
+"vs">`SHOPIFY_API_SECRET_</span><span class="sc">${</span>domain<span class="sc">}</span><span class=
+"vs">`</span>]</span>
+<span id="cb7-22"><a aria-hidden="true" href="#cb7-22" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb7-23"><a aria-hidden="true" href="#cb7-23" tabindex="-1"></a></span>
+<span id="cb7-24"><a aria-hidden="true" href="#cb7-24" tabindex="-1"></a>  <span class=
+"co">// Validate the HMAC</span></span>
+<span id="cb7-25"><a aria-hidden="true" href="#cb7-25" tabindex="-1"></a>  <span class=
+"kw">const</span> valid <span class="op">=</span> Shopify<span class="op">.</span><span class=
+"at">Utils</span><span class="op">.</span><span class="fu">safeCompare</span>(hmac<span class=
+"op">,</span> localHmac)<span class="op">;</span></span>
+<span id="cb7-26"><a aria-hidden="true" href="#cb7-26" tabindex="-1"></a>  <span class="cf">if</span> (<span class=
+"op">!</span>valid) {</span>
+<span id="cb7-27"><a aria-hidden="true" href="#cb7-27" tabindex="-1"></a>    <span class=
+"co">// HMAC did not validate</span></span>
+<span id="cb7-28"><a aria-hidden="true" href="#cb7-28" tabindex="-1"></a>    <span class=
+"co">// const err = createError("ValidationError");</span></span>
+<span id="cb7-29"><a aria-hidden="true" href="#cb7-29" tabindex="-1"></a>    <span class=
+"co">// throw new err("Invalid HMAC");</span></span>
+<span id="cb7-30"><a aria-hidden="true" href="#cb7-30" tabindex="-1"></a>    ctx<span class="op">.</span><span class=
+"at">status</span> <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb7-31"><a aria-hidden="true" href="#cb7-31" tabindex="-1"></a>    <span class="cf">return</span><span class=
+"op">;</span></span>
+<span id="cb7-32"><a aria-hidden="true" href="#cb7-32" tabindex="-1"></a>  }</span>
+<span id="cb7-33"><a aria-hidden="true" href="#cb7-33" tabindex="-1"></a></span>
+<span id="cb7-34"><a aria-hidden="true" href="#cb7-34" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"cf">await</span> <span class="fu">next</span>()<span class="op">;</span></span>
+<span id="cb7-35"><a aria-hidden="true" href="#cb7-35" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb7-36"><a aria-hidden="true" href="#cb7-36" tabindex="-1"></a></span>
+<span id="cb7-37"><a aria-hidden="true" href="#cb7-37" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> verifyHmac<span class="op">;</span></span></code></pre>
+        </div>
 
-/**
- * Verify HMAC.
- * @param {*} ctx The Koa context.
- * @param {*} next The next code to hit.
- * @returns any
- */
-const verifyHmac = async (ctx, next) &amp;ge; {
-  // Remove HMAC
-  const { query } = ctx;
-  const { hmac, shop } = query;
-  delete ctx.query.hmac;
-
-  // Generate a local HMAC
-  const domain = cleanDomain(shop);
-  const localHmac = generateLocalHmac(
-    query,
-    process.env[`SHOPIFY_API_SECRET_`]
-  );
-
-  // Validate the HMAC
-  const valid = Shopify.Utils.safeCompare(hmac, localHmac);
-  if (!valid) {
-    // HMAC did not validate
-    // const err = createError("ValidationError");
-    // throw new err("Invalid HMAC");
-    ctx.status = 400;
-    return;
-  }
-
-  return await next();
-};
-
-export default verifyHmac;
-</code></pre>
         <h3 id="handler-addition">
           Handler Addition
         </h3>
@@ -374,40 +580,72 @@ export default verifyHmac;
           We need to pass the proper API key to AppBridge.
         </p>
 
-        <pre><code># ./src/server/handlers/backend/appbridge.js
-import { cleanDomain } from "../../../services/utils";
+        <div class="sourceCode" id="cb8">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true"
+          href="#cb8-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>server<span class=
+          "op">/</span>handlers<span class="op">/</span>backend<span class="op">/</span>appbridge<span class=
+          "op">.</span><span class="at">js</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class=
+"im">import</span> { cleanDomain } <span class="im">from</span> <span class=
+"st">"../../../services/utils"</span><span class="op">;</span></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a><span class=
+"co"> * AppBridge setup.</span></span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{*}</span><span class="co"> ctx Koa context.</span></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@returns</span><span class="co"> void</span></span>
+<span id="cb8-8"><a aria-hidden="true" href="#cb8-8" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb8-9"><a aria-hidden="true" href="#cb8-9" tabindex="-1"></a><span class=
+"kw">const</span> appbridge <span class="op">=</span> <span class="kw">async</span> (ctx) <span class=
+"kw">=&gt;</span> {</span>
+<span id="cb8-10"><a aria-hidden="true" href="#cb8-10" tabindex="-1"></a>  <span class=
+"co">// Get the API key for the shop</span></span>
+<span id="cb8-11"><a aria-hidden="true" href="#cb8-11" tabindex="-1"></a>  <span class=
+"kw">const</span> domain <span class="op">=</span> <span class="fu">cleanDomain</span>(ctx<span class=
+"op">.</span><span class="at">query</span><span class="op">.</span><span class="at">shop</span>)<span class=
+"op">;</span></span>
+<span id="cb8-12"><a aria-hidden="true" href="#cb8-12" tabindex="-1"></a>  <span class=
+"kw">const</span> key <span class="op">=</span> <span class="bu">process</span><span class="op">.</span><span class=
+"at">env</span>[<span class="vs">`SHOPIFY_API_KEY_</span><span class="sc">${</span>domain<span class=
+"sc">}</span><span class="vs">`</span>]<span class="op">;</span></span>
+<span id="cb8-13"><a aria-hidden="true" href="#cb8-13" tabindex="-1"></a></span>
+<span id="cb8-14"><a aria-hidden="true" href="#cb8-14" tabindex="-1"></a>  ctx<span class="op">.</span><span class=
+"at">status</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb8-15"><a aria-hidden="true" href="#cb8-15" tabindex="-1"></a>  ctx<span class="op">.</span><span class=
+"at">body</span> <span class="op">=</span> { key }<span class="op">;</span></span>
+<span id="cb8-16"><a aria-hidden="true" href="#cb8-16" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb8-17"><a aria-hidden="true" href="#cb8-17" tabindex="-1"></a></span>
+<span id="cb8-18"><a aria-hidden="true" href="#cb8-18" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> appbridge<span class="op">;</span></span></code></pre>
+        </div>
 
-/**
- * AppBridge setup.
- * @param {*} ctx Koa context.
- * @returns void
- */
-const appbridge = async (ctx) &amp;ge; {
-  // Get the API key for the shop
-  const domain = cleanDomain(ctx.query.shop);
-  const key = process.env[`SHOPIFY_API_KEY_`];
-
-  ctx.status = 200;
-  ctx.body = { key };
-};
-
-export default appbridge;
-
-</code></pre>
         <p>
           Now open <code>server/server.js</code> to add a route for this as well as the <code>VerifyHmac</code>
           middleware.
         </p>
 
-        <pre><code># ./server/server.js
-// ...
-import appbridge from "../src/server/handlers/backend/appbridge";
-import verifyHmac from "../src/server/middleware/verifyHmac";
-// ...
+        <div class="sourceCode" id="cb9">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true"
+          href="#cb9-1" tabindex="-1"></a># <span class="op">./</span>server<span class="op">/</span>server<span class=
+          "op">.</span><span class="at">js</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a><span class=
+"im">import</span> appbridge <span class="im">from</span> <span class=
+"st">"../src/server/handlers/backend/appbridge"</span><span class="op">;</span></span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a><span class=
+"im">import</span> verifyHmac <span class="im">from</span> <span class=
+"st">"../src/server/middleware/verifyHmac"</span><span class="op">;</span></span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a aria-hidden="true" href="#cb9-7" tabindex="-1"></a><span class=
+"co">// Route: AppBridge API key</span></span>
+<span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a>router<span class="op">.</span><span class=
+"fu">get</span>(<span class="st">"/_appbridge"</span><span class="op">,</span> verifyHmac<span class=
+"op">,</span> appbridge)<span class="op">;</span></span></code></pre>
+        </div>
 
-// Route: AppBridge API key
-router.get("/_appbridge", verifyHmac, appbridge);
-</code></pre>
         <h3 id="appbridge-integration">
           AppBridge Integration
         </h3>
@@ -422,85 +660,150 @@ router.get("/_appbridge", verifyHmac, appbridge);
           this:
         </p>
 
-        <pre><code>MyApp.getInitialProps = async ({ ctx }) &amp;ge; {
-  return {
-    host: ctx.query.host,
-  };
-};
-</code></pre>
+        <div class="sourceCode" id="cb10">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a aria-hidden=
+          "true" href="#cb10-1" tabindex="-1"></a>MyApp<span class="op">.</span><span class=
+          "at">getInitialProps</span> <span class="op">=</span> <span class="kw">async</span> ({ ctx }) <span class=
+          "kw">=&gt;</span> {</span>
+<span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>    <span class="dt">host</span><span class=
+"op">:</span> ctx<span class="op">.</span><span class="at">query</span><span class="op">.</span><span class=
+"at">host</span><span class="op">,</span></span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb10-5"><a aria-hidden="true" href="#cb10-5" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
+
         <p>
           We will now modify it to this:
         </p>
 
-        <pre><code>MyApp.getInitialProps = async ({ ctx }) &amp;ge; {
-  let key = "";
-  try {
-    // Get the API key for the shop
-    const query = new URLSearchParams(ctx.query).toString();
-    const response = await fetch(`/_appbridge?`);
-    const body = await response.json();
-    key = body.key;
-  } catch (e) {
-    // This usually will only fire when running `npm run build`
-    console.error("Unable to obtain AppBridge key.");
-  }
+        <div class="sourceCode" id="cb11">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden=
+          "true" href="#cb11-1" tabindex="-1"></a>MyApp<span class="op">.</span><span class=
+          "at">getInitialProps</span> <span class="op">=</span> <span class="kw">async</span> ({ ctx }) <span class=
+          "kw">=&gt;</span> {</span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a>  <span class="kw">let</span> key <span class=
+"op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb11-3"><a aria-hidden="true" href="#cb11-3" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb11-4"><a aria-hidden="true" href="#cb11-4" tabindex="-1"></a>    <span class=
+"co">// Get the API key for the shop</span></span>
+<span id="cb11-5"><a aria-hidden="true" href="#cb11-5" tabindex="-1"></a>    <span class=
+"kw">const</span> query <span class="op">=</span> <span class="kw">new</span> <span class=
+"fu">URLSearchParams</span>(ctx<span class="op">.</span><span class="at">query</span>)<span class=
+"op">.</span><span class="fu">toString</span>()<span class="op">;</span></span>
+<span id="cb11-6"><a aria-hidden="true" href="#cb11-6" tabindex="-1"></a>    <span class=
+"kw">const</span> response <span class="op">=</span> <span class="cf">await</span> <span class=
+"fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>HOST<span class="sc">}</span><span class=
+"vs">/_appbridge?</span><span class="sc">${</span>query<span class="sc">}</span><span class="vs">`</span>)<span class=
+"op">;</span></span>
+<span id="cb11-7"><a aria-hidden="true" href="#cb11-7" tabindex="-1"></a>    <span class=
+"kw">const</span> body <span class="op">=</span> <span class="cf">await</span> response<span class=
+"op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb11-8"><a aria-hidden="true" href="#cb11-8" tabindex="-1"></a>    key <span class=
+"op">=</span> body<span class="op">.</span><span class="at">key</span><span class="op">;</span></span>
+<span id="cb11-9"><a aria-hidden="true" href="#cb11-9" tabindex="-1"></a>  } <span class="cf">catch</span> (e) {</span>
+<span id="cb11-10"><a aria-hidden="true" href="#cb11-10" tabindex="-1"></a>    <span class=
+"co">// This usually will only fire when running `npm run build`</span></span>
+<span id="cb11-11"><a aria-hidden="true" href="#cb11-11" tabindex="-1"></a>    <span class=
+"bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class=
+"st">"Unable to obtain AppBridge key."</span>)<span class="op">;</span></span>
+<span id="cb11-12"><a aria-hidden="true" href="#cb11-12" tabindex="-1"></a>  }</span>
+<span id="cb11-13"><a aria-hidden="true" href="#cb11-13" tabindex="-1"></a></span>
+<span id="cb11-14"><a aria-hidden="true" href="#cb11-14" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb11-15"><a aria-hidden="true" href="#cb11-15" tabindex="-1"></a>    <span class=
+"dt">apiKey</span><span class="op">:</span> key<span class="op">,</span></span>
+<span id="cb11-16"><a aria-hidden="true" href="#cb11-16" tabindex="-1"></a>    <span class="dt">host</span><span class=
+"op">:</span> ctx<span class="op">.</span><span class="at">query</span><span class="op">.</span><span class=
+"at">host</span><span class="op">,</span></span>
+<span id="cb11-17"><a aria-hidden="true" href="#cb11-17" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb11-18"><a aria-hidden="true" href="#cb11-18" tabindex="-1"></a>}<span class=
+"op">;</span></span></code></pre>
+        </div>
 
-  return {
-    apiKey: key,
-    host: ctx.query.host,
-  };
-};
-</code></pre>
         <p>
           Next, modify your <code>MyApp</code> class, which will look something like this:
         </p>
 
-        <pre><code>class MyApp extends App {
-  render() {
-    const { Component, pageProps, host } = this.props;
+        <div class="sourceCode" id="cb12">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden=
+          "true" href="#cb12-1" tabindex="-1"></a><span class="kw">class</span> MyApp <span class=
+          "kw">extends</span> App {</span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a>  <span class="fu">render</span>() {</span>
+<span id="cb12-3"><a aria-hidden="true" href="#cb12-3" tabindex="-1"></a>    <span class=
+"kw">const</span> { Component<span class="op">,</span> pageProps<span class="op">,</span> host } <span class=
+"op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">props</span><span class=
+"op">;</span></span>
+<span id="cb12-4"><a aria-hidden="true" href="#cb12-4" tabindex="-1"></a></span>
+<span id="cb12-5"><a aria-hidden="true" href="#cb12-5" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb12-6"><a aria-hidden="true" href="#cb12-6" tabindex="-1"></a>      <span class=
+"op">&lt;</span>AppProvider i18n<span class="op">=</span>{translations}<span class="op">&gt;</span></span>
+<span id="cb12-7"><a aria-hidden="true" href="#cb12-7" tabindex="-1"></a>        <span class=
+"op">&lt;</span>Provider</span>
+<span id="cb12-8"><a aria-hidden="true" href="#cb12-8" tabindex="-1"></a>          config<span class=
+"op">=</span>{ {</span>
+<span id="cb12-9"><a aria-hidden="true" href="#cb12-9" tabindex="-1"></a>            <span class=
+"dt">apiKey</span><span class="op">:</span> API_KEY<span class="op">,</span></span>
+<span id="cb12-10"><a aria-hidden="true" href="#cb12-10" tabindex="-1"></a>            <span class=
+"dt">host</span><span class="op">:</span> host<span class="op">,</span></span>
+<span id="cb12-11"><a aria-hidden="true" href="#cb12-11" tabindex="-1"></a>            <span class=
+"dt">forceRedirect</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb12-12"><a aria-hidden="true" href="#cb12-12" tabindex="-1"></a>          } }</span>
+<span id="cb12-13"><a aria-hidden="true" href="#cb12-13" tabindex="-1"></a>        <span class="op">&gt;</span></span>
+<span id="cb12-14"><a aria-hidden="true" href="#cb12-14" tabindex="-1"></a>          <span class=
+"op">&lt;</span>MyProvider Component<span class="op">=</span>{Component} {<span class=
+"op">...</span>pageProps} <span class="op">/&gt;</span></span>
+<span id="cb12-15"><a aria-hidden="true" href="#cb12-15" tabindex="-1"></a>        <span class=
+"op">&lt;/</span>Provider<span class="op">&gt;</span></span>
+<span id="cb12-16"><a aria-hidden="true" href="#cb12-16" tabindex="-1"></a>      <span class=
+"op">&lt;/</span>AppProvider<span class="op">&gt;</span></span>
+<span id="cb12-17"><a aria-hidden="true" href="#cb12-17" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb12-18"><a aria-hidden="true" href="#cb12-18" tabindex="-1"></a>  }</span>
+<span id="cb12-19"><a aria-hidden="true" href="#cb12-19" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-    return (
-      &lt;AppProvider i18n={translations}&gt;
-        &lt;Provider
-          config={ {
-            apiKey: API_KEY,
-            host: host,
-            forceRedirect: true,
-          } }
-        &gt;
-          &lt;MyProvider Component={Component} {...pageProps} /&gt;
-        &lt;/Provider&gt;
-      &lt;/AppProvider&gt;
-    );
-  }
-}
-</code></pre>
         <p>
           We will now modify it to this, to use the new prop:
         </p>
 
-        <pre><code>class MyApp extends App {
-  render() {
-    const { Component, pageProps, host, apiKey } = this.props;
+        <div class="sourceCode" id="cb13">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a aria-hidden=
+          "true" href="#cb13-1" tabindex="-1"></a><span class="kw">class</span> MyApp <span class=
+          "kw">extends</span> App {</span>
+<span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a>  <span class="fu">render</span>() {</span>
+<span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>    <span class=
+"kw">const</span> { Component<span class="op">,</span> pageProps<span class="op">,</span> host<span class=
+"op">,</span> apiKey } <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class=
+"at">props</span><span class="op">;</span></span>
+<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a aria-hidden="true" href="#cb13-5" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb13-6"><a aria-hidden="true" href="#cb13-6" tabindex="-1"></a>      <span class=
+"op">&lt;</span>AppProvider i18n<span class="op">=</span>{translations}<span class="op">&gt;</span></span>
+<span id="cb13-7"><a aria-hidden="true" href="#cb13-7" tabindex="-1"></a>        <span class=
+"op">&lt;</span>Provider</span>
+<span id="cb13-8"><a aria-hidden="true" href="#cb13-8" tabindex="-1"></a>          config<span class=
+"op">=</span>{ {</span>
+<span id="cb13-9"><a aria-hidden="true" href="#cb13-9" tabindex="-1"></a>            <span class=
+"dt">apiKey</span><span class="op">:</span> apiKey<span class="op">,</span></span>
+<span id="cb13-10"><a aria-hidden="true" href="#cb13-10" tabindex="-1"></a>            <span class=
+"dt">host</span><span class="op">:</span> host<span class="op">,</span></span>
+<span id="cb13-11"><a aria-hidden="true" href="#cb13-11" tabindex="-1"></a>            <span class=
+"dt">forceRedirect</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb13-12"><a aria-hidden="true" href="#cb13-12" tabindex="-1"></a>          } }</span>
+<span id="cb13-13"><a aria-hidden="true" href="#cb13-13" tabindex="-1"></a>        <span class="op">&gt;</span></span>
+<span id="cb13-14"><a aria-hidden="true" href="#cb13-14" tabindex="-1"></a>          <span class=
+"op">&lt;</span>MyProvider Component<span class="op">=</span>{Component} {<span class=
+"op">...</span>pageProps} <span class="op">/&gt;</span></span>
+<span id="cb13-15"><a aria-hidden="true" href="#cb13-15" tabindex="-1"></a>        <span class=
+"op">&lt;/</span>Provider<span class="op">&gt;</span></span>
+<span id="cb13-16"><a aria-hidden="true" href="#cb13-16" tabindex="-1"></a>      <span class=
+"op">&lt;/</span>AppProvider<span class="op">&gt;</span></span>
+<span id="cb13-17"><a aria-hidden="true" href="#cb13-17" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb13-18"><a aria-hidden="true" href="#cb13-18" tabindex="-1"></a>  }</span>
+<span id="cb13-19"><a aria-hidden="true" href="#cb13-19" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-    return (
-      &lt;AppProvider i18n={translations}&gt;
-        &lt;Provider
-          config={ {
-            apiKey: apiKey,
-            host: host,
-            forceRedirect: true,
-          } }
-        &gt;
-          &lt;MyProvider Component={Component} {...pageProps} /&gt;
-        &lt;/Provider&gt;
-      &lt;/AppProvider&gt;
-    );
-  }
-}
-</code></pre>
         <p>
-          You're now completed.
+          You’re now completed.
         </p>
 
         <h2 id="conculsion">
@@ -509,7 +812,7 @@ router.get("/_appbridge", verifyHmac, appbridge);
 
         <p>
           In two parts, we created middleware to handle modifying/setting up the <code>Shopify.Context</code> object
-          and also created a handler to verify the shop's request and supply back an API key to pass to AppBridge.
+          and also created a handler to verify the shop’s request and supply back an API key to pass to AppBridge.
         </p>
 
         <p>
@@ -546,7 +849,7 @@ router.get("/_appbridge", verifyHmac, appbridge);
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

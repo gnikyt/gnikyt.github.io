@@ -80,14 +80,14 @@
         </h2>
 
         <p>
-          Vuex is a state management library, centralized storage of data for your whole application. It's well
+          Vuex is a state management library, centralized storage of data for your whole application. It’s well
           documented, beautiful, and easy to use with Vue. The part I want to talk about today is the
           <strong>data</strong> portion.
         </p>
 
         <p>
           I have increasingly seen cases where the <strong>data</strong> state of Vuex gets transformed and represents
-          something more than just plain-old <strong>data</strong> ; that's a problem in the long run.
+          something more than just plain-old <strong>data</strong> ; that’s a problem in the long run.
         </p>
 
         <h2 id="the-problem">
@@ -95,7 +95,7 @@
         </h2>
 
         <p>
-          A simple example...
+          A simple example…
         </p>
 
         <h3 id="step-1">
@@ -112,7 +112,7 @@
 
         <p>
           That book data is then sent to the <strong>mutation</strong> handler where the developer would map the data
-          to a model class: <code>const bookCollection = books.map(book &amp;ge; new Book(book));</code>.
+          to a model class: <code>const bookCollection = books.map(book =&gt; new Book(book));</code>.
         </p>
 
         <h3 id="step-3">
@@ -130,8 +130,8 @@
 
         <p>
           At first, this seems convenient to the developer, because in any part of their code, they can utilize their
-          models such as: <code>const authorsNotOnSale = state.books.filter(book &amp;ge; !book.isOnSale()).map(book
-          &amp;ge; book.getAuthor())</code>.
+          models such as: <code>const authorsNotOnSale = state.books.filter(book =&gt; !book.isOnSale()).map(book =&gt;
+          book.getAuthor())</code>.
         </p>
 
         <p>
@@ -140,7 +140,7 @@
         </p>
 
         <p>
-          You'll immediately loose all those nice model functions you've built out and you can not easily restore the
+          You’ll immediately loose all those nice model functions you’ve built out and you can not easily restore the
           state because its more than just <strong>data</strong> at this point.
         </p>
 
@@ -154,7 +154,7 @@
         </p>
 
         <p>
-          <code>const bookCollection = state &amp;ge; state.books.map(book &amp;ge; new Book(book));</code>
+          <code>const bookCollection = state =&gt; state.books.map(book =&gt; new Book(book));</code>
         </p>
 
         <p>
@@ -191,7 +191,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

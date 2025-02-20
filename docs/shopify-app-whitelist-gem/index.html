@@ -74,33 +74,33 @@
         </header>
 
         <p>
-          I regularly use <a href="https://github.com/Shopify/shopify%3Cem%3Eapp">shopifyapp</a>. It's a great way to
-          get an app, embedded or not, up and running with Rails.
+          I regularly use <a href="https://github.com/Shopify/shopify_app">shopify_app</a>. It’s a great way to get an
+          app, embedded or not, up and running with Rails.
         </p>
 
         <p>
-          Sometimes I'll create apps with <code>shopify_app</code> which are to be used by only one store. These apps
-          sometimes have a front-end component for the themes... proxy integration, or JSON data fetching. I'd hate to
-          have someone poke around and install the client's app to their shop.
+          Sometimes I’ll create apps with <code>shopify_app</code> which are to be used by only one store. These apps
+          sometimes have a front-end component for the themes… proxy integration, or JSON data fetching. I’d hate to
+          have someone poke around and install the client’s app to their shop.
         </p>
 
         <p>
-          In the past, I limited access to <code>shopify<em>app</em></code><em>'s session controller by having a
-          <code>before</code></em><code>action</code> callback to confirm the shop. This gets repetitive quick and its
-          not a central solution meaning its hard to update should the Gem change.
+          In the past, I limited access to <code>shopify_app</code>’s session controller by having a
+          <code>before_action</code> callback to confirm the shop. This gets repetitive quick and its not a central
+          solution meaning its hard to update should the Gem change.
         </p>
 
         <p>
           I decided to create a Gem for this problem which allows you to whitelist shops to have access to installing
-          or accessing the app's backend. <a href=
-          "https://github.com/gnikyt/shopify%3Cem%3Eapp%3C/em%3Ewhitelist">shopify<em>app</em>whitelist</a> adds a
-          Railite which automatically injects a controller concern into your ApplicationController. It also adds a
-          couple of settings to <code>shopify_app</code>'s config so you can define your whitelist settings. I figured
-          I would make it as easy as possible.
+          or accessing the app’s backend. <a href=
+          "https://github.com/gnikyt/shopify_app_whitelist">shopify_app_whitelist</a> adds a Railite which
+          automatically injects a controller concern into your ApplicationController. It also adds a couple of settings
+          to <code>shopify_app</code>’s config so you can define your whitelist settings. I figured I would make it as
+          easy as possible.
         </p>
 
         <p>
-          You simply need to add the Gem to your Gemfile, add two configuration lines, and you're set. The Gem is fully
+          You simply need to add the Gem to your Gemfile, add two configuration lines, and you’re set. The Gem is fully
           tested and documented if you want to dig into the code. I hope someone will find it useful!
         </p>
 
@@ -133,7 +133,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

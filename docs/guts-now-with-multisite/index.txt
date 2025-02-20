@@ -6,13 +6,13 @@
 
    /* Apr 24, 2016 — 2.9KB */
 
-   This is just a quick and proud update that Iʼve released a lengthy
+   This is just a quick and proud update that I’ve released a lengthy
    update to [3]Guts which includes multisite abilities. Meaning, you can
    run the same Guts admin interface for multiple domains. It also
    includes a handy concern for enabling multisite support on your
    application.
 
-   Right from the docs is the full details below. Besides that, Iʼve
+   Right from the docs is the full details below. Besides that, I’ve
    introduced a CHANGELOG file, multiple fixes, and more tests from the
    [4]multisite pull request. The Gem is now at version 1.1.0 with a
    passing build. As a cool note, because Guts is on [5]rubydoc.info, you
@@ -31,14 +31,14 @@ Getting Started
 
   Admin Setup
 
-   Open Gutsʼ dashboard and head to Sites in the sidebar. From here, there
-   are two ways to handle your situation...
-    1. The current domain is the "default", you add the extra domains
-    2. No current "default", you add a default domain and the extra
+   Open Guts’ dashboard and head to Sites in the sidebar. From here, there
+   are two ways to handle your situation…
+    1. The current domain is the “default”, you add the extra domains
+    2. No current “default”, you add a default domain and the extra
        domains
 
-   In most cases, youʼll use options one and have example.com pointing for
-   Guts (meaning you donʼt add it in the section of the site), then youʼd
+   In most cases, you’ll use options one and have example.com pointing for
+   Guts (meaning you don’t add it in the section of the site), then you’d
    add your secondary domains such as fr.example.com.
 
   Code Setup
@@ -47,9 +47,9 @@ Getting Started
    Guts::MultisiteConcern.
 
    This will do two things:
-    1. Adds a beforeaction to set the current site (@currentsite) based on
-       the domain, which is also usable in your views
-    2. Adds a around_action which tells the Site model which site ID weʼre
+    1. Adds a before_action to set the current site (@current_site) based
+       on the domain, which is also usable in your views
+    2. Adds a around_action which tells the Site model which site ID we’re
        requesting so the models can be scoped to only show data for the
        current site.
 
@@ -58,11 +58,11 @@ Getting Started
 
 Misc. Notes
 
-  "Set as Default" option
+  “Set as Default” option
 
    The Set as Default option the in sites section internally means nothing
    to Guts. It simply flags the site a boolean value to determine if
-   youʼve set it as the default which you can then use in your application
+   you’ve set it as the default which you can then use in your application
    (maybe to query it, etc).
 
   Users & Groups
@@ -76,6 +76,7 @@ Misc. Notes
    remove this scope in some use-cases (such as pulling content from all
    sites, not just the current site). Simply add unscoped to your
    ActiveRecord queries.
+
 # For current site
 Guts::Content.where(type: @type)
 
@@ -107,6 +108,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/gnikyt/guts
@@ -121,3 +123,10 @@ References
   12. /about
   13. /assets/files/cv.pdf
   14. /rss.xml
+
+   Hidden links:
+  16. localhost/tmp/lynxXXXXjkjZ16/L3279273-5674TMP.html#cb1-1
+  17. localhost/tmp/lynxXXXXjkjZ16/L3279273-5674TMP.html#cb1-2
+  18. localhost/tmp/lynxXXXXjkjZ16/L3279273-5674TMP.html#cb1-3
+  19. localhost/tmp/lynxXXXXjkjZ16/L3279273-5674TMP.html#cb1-4
+  20. localhost/tmp/lynxXXXXjkjZ16/L3279273-5674TMP.html#cb1-5

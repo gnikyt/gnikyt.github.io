@@ -6,7 +6,7 @@
 
    /* Aug 28, 2013 — 4.1KB */
 
-   Recently for a project, a co-developer wanted to validate someoneʼs
+   Recently for a project, a co-developer wanted to validate someone’s
    record in the database from an Android application and the website was
    using Symfony 2.3 with FOS User Bundle. Specifically, this developer
    did not want to log the user in, only to check their login against the
@@ -14,7 +14,7 @@
    to the problem.
 
    We were going to tackle this by an HTTP POST request to /login_check,
-   with the userʼs email and password. Now, FOS User Bundle is highly
+   with the user’s email and password. Now, FOS User Bundle is highly
    configurable. At first, I considered extending the authentication
    handler and tapping into onAuthenticationSuccess and
    onAuthenticationFailure. By extending the authentication handler, I
@@ -31,17 +31,18 @@
    On top of that, then we have a security issue where we have no CSRF
    protection.
 
-   Thatʼs a lot of work just to respond to a HTTP request and let the
+   That’s a lot of work just to respond to a HTTP request and let the
    application know of the email and password match the database.
 
-   So my solution was simple; take the userʼs email, validate it, then
-   take the password and use Symfonyʼs encoder service to hash the
-   password sent to the controller for that email and check if itʼs valid.
+   So my solution was simple; take the user’s email, validate it, then
+   take the password and use Symfony’s encoder service to hash the
+   password sent to the controller for that email and check if it’s valid.
 
    Here is the controller code below. In my code, I added an
-   "android_secret" parameter read from app/parameters.yml which is a hash
+   “android_secret” parameter read from app/parameters.yml which is a hash
    that just ensures the request came from the Android application - this
    is unnecessary and can be removed if you please.
+
 <?php
 
 namespace Acme\WebsiteBundle\Controller;
@@ -55,54 +56,54 @@ class AndroidController extends Controller
   public function checkLoginAction(Request $request)
   {
   // Get our POST data.
-    $email    = $request->request->get(ʼemailʼ);
-    $password = $request->request->get(ʼpasswordʼ);
-    $secret   = $request->request->get(ʼsecretʼ);
+    $email    = $request->request->get('email');
+    $password = $request->request->get('password');
+    $secret   = $request->request->get('secret');
 
   // Setup the JSON messages.
     $messages = [
-      ʼsuccessʼ &ge; [
-        ʼsuccessʼ &ge; true,
-        ʼmessageʼ &ge; ʼVALID_LOGINʼ
+      'success' => [
+        'success' => true,
+        'message' => 'VALID_LOGIN'
       ],
-      ʼfailʼ    &ge; [
-        ʼsuccessʼ &ge; false,
-        ʼmessageʼ &ge; ʼINVALID_LOGINʼ
+      'fail'    => [
+        'success' => false,
+        'message' => 'INVALID_LOGIN'
       ],
-      ʼsecretʼ  &ge; [
-        ʼsuccessʼ &ge; false,
-        ʼmessageʼ &ge; ʼINVALID_AUTHʼ
+      'secret'  => [
+        'success' => false,
+        'message' => 'INVALID_AUTH'
       ]
     ];
 
-    $type           = ʼapplication/jsonʼ;
-    $return_success = json_encode($messages[ʼsuccessʼ]);
-    $return_fail    = json_encode($messages[ʼfailʼ]);
-    $return_secret  = json_encode($messages[ʼsecretʼ]);
+    $type           = 'application/json';
+    $return_success = json_encode($messages['success']);
+    $return_fail    = json_encode($messages['fail']);
+    $return_secret  = json_encode($messages['secret']);
 
   // Ensure this is from the Android application.
-    if ($this->container->getParameter(ʼandroid_secretʼ) !== $secret) {
-      return new Response($return_secret, 200, [ʼContent-Typeʼ &ge; $type]);
+    if ($this->container->getParameter('android_secret') !== $secret) {
+      return new Response($return_secret, 200, ['Content-Type' => $type]);
     }
 
   // Check the email sent to us.
-    $user = $this->get(ʼfos_user.user_managerʼ)->findUserByEmail($email);
+    $user = $this->get('fos_user.user_manager')->findUserByEmail($email);
     if (null === $user) {
-      return new Response($return_fail, 200, [ʼContent-Typeʼ &ge; $type]);
+      return new Response($return_fail, 200, ['Content-Type' => $type]);
     }
 
-  // Email passed. Letʼs encode the password sent to us using the userʼs salt.
-    $encoder      = $this->get(ʼsecurity.encoder_factoryʼ)->getEncoder($user);
+  // Email passed. Let's encode the password sent to us using the user's salt.
+    $encoder      = $this->get('security.encoder_factory')->getEncoder($user);
     $encoded_pass = $encoder->encodePassword($password, $user->getSalt());
 
   // Check if the password sent to us matches encoded_pass we just created.
     if ($encoded_pass === $user->getPassword()) {
     // Passed!
-      return new Response($return_success, 200, [ʼContent-Typeʼ &ge; $type]);
+      return new Response($return_success, 200, ['Content-Type' => $type]);
     }
 
   // Failed!
-    return new Response($return_fail, 200, [ʼContent-Typeʼ &ge; $type]);
+    return new Response($return_fail, 200, ['Content-Type' => $type]);
   }
 }
 
@@ -131,6 +132,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /simple-password-checking-with-symfony-and-fos-user-bundle/index.md
@@ -141,3 +143,68 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-1
+  13. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-2
+  14. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-3
+  15. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-4
+  16. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-6
+  18. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-7
+  19. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-8
+  20. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-9
+  21. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-10
+  22. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-11
+  23. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-12
+  24. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-13
+  25. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-14
+  26. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-15
+  27. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-16
+  28. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-17
+  29. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-18
+  30. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-19
+  31. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-20
+  32. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-21
+  33. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-22
+  34. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-23
+  35. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-24
+  36. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-25
+  37. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-26
+  38. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-27
+  39. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-28
+  40. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-29
+  41. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-30
+  42. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-31
+  43. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-32
+  44. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-33
+  45. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-34
+  46. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-35
+  47. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-36
+  48. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-37
+  49. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-38
+  50. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-39
+  51. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-40
+  52. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-41
+  53. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-42
+  54. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-43
+  55. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-44
+  56. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-45
+  57. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-46
+  58. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-47
+  59. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-48
+  60. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-49
+  61. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-50
+  62. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-51
+  63. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-52
+  64. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-53
+  65. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-54
+  66. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-55
+  67. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-56
+  68. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-57
+  69. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-58
+  70. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-59
+  71. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-60
+  72. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-61
+  73. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-62
+  74. localhost/tmp/lynxXXXXCwkOqr/L3282729-6651TMP.html#cb1-63

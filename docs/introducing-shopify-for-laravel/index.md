@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing Laravel Shopify
-permalink: introducing-Shopify-for-laravel
+permalink: introducing-shopify-for-laravel
 date: '2017-08-09 16:35:00'
 ---
 

@@ -79,21 +79,16 @@
         </p>
 
         <p>
-          First, to calculate the percentage saved, let's look at the basic math for this in plain text.
+          First, to calculate the percentage saved, let’s look at the basic math for this in plain text.
         </p>
 
-        <p>
-          percent saved = ((old price - new price) / old price) * 100
-        </p>
-
+        <pre><code>percent saved = ((old price - new price) / old price) * 100</code></pre>
         <p>
           If we were to replace the values with some real numbers we can see the result:
         </p>
 
-        <p>
-          ((231.99 - 200.00) / 231.99) * 100 = 13.789 A savings of about 14% when rounded up
-        </p>
-
+        <pre><code>((231.99 - 200.00) / 231.99) * 100 = 13.789
+A savings of about 14% when rounded up</code></pre>
         <h2 id="the-snippet">
           The Snippet
         </h2>
@@ -102,14 +97,13 @@
           Create a new snippet in Shopify called <code>percent-savings.liquid</code> and use the following code:
         </p>
 
-        <pre><code>{% raw %}
+        <pre class="liquid"><code>{% raw %}
 {% assign _compare_price  = compare_price | plus: 0.00 %}
 {% assign _price          = price | plus: 0.00 %}
 {% assign difference      = _compare_price | minus: _price %}
 {% assign percent         = difference | divided_by: _compare_price | times: 100 | round %}
 {{ percent }}%
-{% endraw %}
-</code></pre>
+{% endraw %}</code></pre>
         <p>
           As an explanation of the code:
         </p>
@@ -133,7 +127,7 @@
           Pass two parameters to the include tag.
         </p>
 
-        <ol>
+        <ol type="1">
           <li>
             <code>price</code> being the current price of the product
           </li>
@@ -143,22 +137,18 @@
           </li>
         </ol>
 
-        <pre><code>{% raw %}
+        <pre class="liquid"><code>{% raw %}
 {% if product.price_min &lt; product.compare_at_price_min %}
   Old price {{ product.compare_at_price_min | money }} &amp;ndash; {% include 'percent-savings', price: product.price, compare_price: product.compare_at_price_min %} savings!
 {% endif %}
-{% endraw %}
-</code></pre>
+{% endraw %}</code></pre>
         <p>
           With the above example, if a product was $15.99 and is now $11.99 you should see it display:
         </p>
 
+        <pre><code>Old price $15.99 - 25% savings!</code></pre>
         <p>
-          Old price $15.99 - 25% savings!
-        </p>
-
-        <p>
-          That's all - Happy coding!
+          That’s all - Happy coding!
         </p>
 
         <footer class="post__tail">
@@ -190,7 +180,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -7,8 +7,8 @@
    /* Feb 06, 2019 — 4.0KB */
 
    It is a couple of months into 2019 already! I sat down and thought
-   about all Iʼve done in 2018 in regards to my digital landscape. On
-   initial spark of this, I didnʼt think of much therefore, I didnʼt do
+   about all I’ve done in 2018 in regards to my digital landscape. On
+   initial spark of this, I didn’t think of much therefore, I didn’t do
    much; but, I was wrong!
 
 Software
@@ -23,15 +23,15 @@ Software
 
    Focusing on my open source work has not only allowed me to refine my
    existing public code (which some of it has aged), keep self-improving,
-   but also help others whoʼve faced similar issues.
+   but also help others who’ve faced similar issues.
 
    In regards to Laravel Shopify in particular, I hinged on learning the
    core of Laravel, and coming from a previous Symfony background, this
    was not hard - just different. Laravel feels more like Rails for PHP -
    a framework to get things done quickly. Laravel was missing a decent
    Shopify boilerplate package at the time so I created the package from
-   the ground-up to follow similar practices to how Railsʼ version,
-   shopifyapp gem_ does.
+   the ground-up to follow similar practices to how Rails’ version,
+   shopify_app gem does.
 
    It has since gained a lot of popularity with many helpful contributors
    both in pull requests and general questions people post in the issue
@@ -40,8 +40,8 @@ Software
    to create Laravel-powered Shopify apps fairly quickly, letting them
    focus on their apps code and not the setup.
 
-   Open-source ecosystems are always great to be involved with. Iʼm glad
-   Iʼve had the late nights this year to give back to it.
+   Open-source ecosystems are always great to be involved with. I’m glad
+   I’ve had the late nights this year to give back to it.
 
 Operating
 
@@ -49,14 +49,14 @@ Operating
    time Linux user, I broke the streak in 2014 when I purchased my
    Macbook. However, last year my Macbook finally hit the grave and I
    purchased a Thinkpad T580 to replace it (with some great specs too!),
-   leading me to use Windows for a few months, but now Iʼm back on Linux!
+   leading me to use Windows for a few months, but now I’m back on Linux!
 
    Thankfully for software like Vagrant, Docker, WSL, VSCode, and more, my
-   productivity hasnʼt been impacted between these transitions since most
+   productivity hasn’t been impacted between these transitions since most
    everything I write these days is either fairly portable or easily setup
    on another system.
 
-   Iʼve opted for [8]PopOS on my T580 given its great support for dual
+   I’ve opted for [8]PopOS on my T580 given its great support for dual
    graphics cards and customizations. I even have a [9]recent post
    outlining some steps I took to optimize the T580 for daily-driver
    usage.
@@ -64,18 +64,18 @@ Operating
 Code
 
    Besides moving away from Ruby/Rails due to less demand, and focusing
-   back to PHP/Laravel/Symfony and Python, Iʼve also taken a great focus
+   back to PHP/Laravel/Symfony and Python, I’ve also taken a great focus
    on modern Javascript/Node and Typescript.
 
-   Iʼve fallen in love with Typescript (compared to plain Javascript). Not
+   I’ve fallen in love with Typescript (compared to plain Javascript). Not
    only is it backed by Microsoft, but its integration with VSCode has
    been great. It allows you to write code you can trust by ensuring
-   values in, out and across, are correct and properly formed... something
+   values in, out and across, are correct and properly formed… something
    greatly missing from plain Javascript.
 
-   From a pure web-perspective... a good Typescript setup with
+   From a pure web-perspective… a good Typescript setup with
    Babel/Browserify and some polyfills, can allow you to write modern
-   Javascript that transpiles down to something thatʼs able to work even
+   Javascript that transpiles down to something that’s able to work even
    on older browsers. Keeping a nice, clean, modern source code.
 
    I currently have a large Typescript library assisting an enterprise

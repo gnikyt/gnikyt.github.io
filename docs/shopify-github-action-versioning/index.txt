@@ -7,8 +7,8 @@
    /* May 20, 2022 — 2.4KB */
 
    Shopify recently updated their admin panel again and started to display
-   the value of themeversion from config/settingsschema.json
-   onto the theme listing page. Example (yellow highlight):
+   the value of theme_version from config/settings_schema.json onto the
+   theme listing page. Example (yellow highlight):
 
    [3]Shopify theme version example
 
@@ -16,13 +16,14 @@
    release gets tagged a version in SYMVER format.
 
    Depending on a developer or release manager to manually update
-   config/settingsschema.json before releasing is not ideal; even with a
+   config/settings_schema.json before releasing is not ideal; even with a
    process guide or release checklist, there is a chance it can be missed.
-   We wanted an automated solution to update the themeversion
-   value upon a tag being pushed to the master branch.
+   We wanted an automated solution to update the theme_version value upon
+   a tag being pushed to the master branch.
 
    We have come up with the following solution
    (.github/workflows/schema_version.yml):
+
 name: Schema version
 
 on:
@@ -32,14 +33,14 @@ on:
 jobs:
   replacement:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, ʼrefs/tags/vʼ)
+    if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
       - name: Update settings_schema.json
         run: |
-          sed -i ʼs/"theme_version": ".*"/"theme_version": "ʼʼ"/gʼ config/settin
+          sed -i 's/"theme_version": ".*"/"theme_version": "''"/g' config/settin
 gs_schema.json
 
       - name: Commit changes
@@ -47,8 +48,8 @@ gs_schema.json
         with:
           push: origin HEAD:master
           default_author: github_actions
-          message: "Updated settings_schema.json to version {% raw %}ʼ${{ github
-.ref_name }}ʼ{% endraw %}"
+          message: "Updated settings_schema.json to version {% raw %}'${{ github
+.ref_name }}'{% endraw %}"
           add: config/settings_schema.json
 
    Now, anytime a version tag gets pushed to the master branch, the action
@@ -56,8 +57,8 @@ gs_schema.json
     1. Confirm the action to only run upon tagging; lines 3-5
     2. Confirm the steps will only run if tagging happened; line 10
     3. Checkout the repository; lines 12-13
-    4. Utilize sed to inline-replace the themeversion value to
-       ${GITHUBREF_NAME} (removes the v); line 17
+    4. Utilize sed to inline-replace the theme_version value to (removes
+       the v); line 17
     5. Commit the changes to the schema with a commit message containing
        the version; lines 19-25
 
@@ -91,6 +92,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /assets/images/posts/shopify-versioning.png
@@ -103,3 +105,30 @@ References
   10. /about
   11. /assets/files/cv.pdf
   12. /rss.xml
+
+   Hidden links:
+  14. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-1
+  15. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-2
+  16. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-3
+  17. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-4
+  18. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-5
+  19. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-6
+  20. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-7
+  21. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-8
+  22. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-9
+  23. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-10
+  24. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-11
+  25. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-12
+  26. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-13
+  27. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-14
+  28. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-15
+  29. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-16
+  30. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-17
+  31. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-18
+  32. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-19
+  33. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-20
+  34. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-21
+  35. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-22
+  36. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-23
+  37. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-24
+  38. localhost/tmp/lynxXXXXmBW5YB/L3270406-9688TMP.html#cb1-25

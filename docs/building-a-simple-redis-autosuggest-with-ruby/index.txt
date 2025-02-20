@@ -13,39 +13,40 @@
 
 Planning
 
-   Letʼs say we have a bunch of products:
-     * Tommyʼs Ray Gun - ID: 1
+   Let’s say we have a bunch of products:
+     * Tommy’s Ray Gun - ID: 1
      * 1990 Blaster Ray!! - ID: 2
      * (Nuke) Bomb Gun #8 - ID: 3
 
    Looking at our products, we can see there is a different and
    unpredictable title. We have punctuation, special characters, numbers,
-   and letters. If someone types Gun weʼd like to see our search suggest
-   (Nuke) Bomb Gun #8 and Tommyʼs Ray Gun.
+   and letters. If someone types Gun we’d like to see our search suggest
+   (Nuke) Bomb Gun #8 and Tommy's Ray Gun.
 
    Redis does not offer a full-text search solution like ElasticSearch, so
-   we simply canʼt drop Tommyʼs Ray Gun string into Redis and expect to
+   we simply can’t drop Tommy's Ray Gun string into Redis and expect to
    search it. We need to come up with a clever way.
 
    My solution was to split each letter up of each word in each product.
    For each letter set, we store the products which contain those letters.
    So common sets of letters in titles will be stored together.
 
-   As a basic example, letʼs look at a singular word. RUBY we can split
+   As a basic example, let’s look at a singular word. RUBY we can split
    this up into R then RU then RUB and finally RUBY.
 
    Lets store these product titles in this manner with the values being
    the title and ID for the product into a [3]Redis sorted set. Now, when
    someone types gun in your search box we should be able to call p:gun
    key on Redis and get:
-     * Tommyʼs Ray Gun//1
+     * Tommy's Ray Gun//1
      * (Nuke) Bomb Gun #8//3
 
 Processing the Objects
 
-   So now we have a plan in place, letʼs write a quick script to import
+   So now we have a plan in place, let’s write a quick script to import
    the objects you wish to autosuggest, into your Redis database. As
    before, we need to split each word up of each object.
+
 # autosuggest.rb
 require "redis"
 
@@ -59,7 +60,7 @@ end
 
 # Our list of products
 products = [
-  {id: 1, title: "Tommyʼs Ray Gun"},
+  {id: 1, title: "Tommy's Ray Gun"},
   {id: 2, title: "1990 Blaster Ray!!"},
   {id: 3, title: "(Nuke) Bomb Gun #8"}
 ]
@@ -80,7 +81,7 @@ end
 
    If you run this into your terminal it should output:
 > ruby autosuggest.rb
-Processing Tommy's Ray Gun...
+Processing Tommy\'s Ray Gun...
 "to" "tom" "tomm" "tommy" "tommys" "ra" "ray" "gu" "gun"
 Processing 1990 Blaster Ray!!...
 "19" "199" "1990" "bl" "bla" "blas" "blast" "blaste" "blaster" "ra" "ray"
@@ -89,8 +90,9 @@ Processing (Nuke) Bomb Gun #8...
 
    Here we can see how the script cleans the titles, then breaks them down
    to produce key names for Redis to use as we had hoped for in the
-   planning section. Now, letʼs import this into Redis. Simply change line
+   planning section. Now, let’s import this into Redis. Simply change line
    27:
+
 # BEFORE
 puts part[0...len]
 
@@ -101,16 +103,16 @@ redis.zadd "p:#{part[0...len]}", 0, "#{product[:title]}//#{product[:id]}"
    list on Redis, where common sets of parts will group objects together.
    Go ahead and run your script again.
 > ruby autosuggest.rb
-Processing Tommyʼs Ray Gun...
+Processing Tommy's Ray Gun...
 Processing 1990 Blaster Ray!!...
 Processing (Nuke) Bomb Gun #8...
 
-   Login to Redis and letʼs check if it works as planned. Since this is a
+   Login to Redis and let’s check if it works as planned. Since this is a
    sorted set we need to use [4]ZRANGE.
 > redis-cli
 127.0.0.1:6379> ZRANGE p:gun 0 -1
 1) "(Nuke) Bomb Gun #8//3"
-2) "Tommyʼs Ray Gun//1"
+2) "Tommy's Ray Gun//1"
 127.0.0.1:6379> ZRANGE p:nuke 0 -1
 1) "(Nuke) Bomb Gun #8//3"
 
@@ -120,11 +122,12 @@ Processing (Nuke) Bomb Gun #8...
 Frontend
 
    Now that we have a script (that you should expand on into a proper
-   lib), we need to now show results to the user for when theyʼre
+   lib), we need to now show results to the user for when they’re
    searching.
 
-   Hereʼs a quick Sinatra example (of course you can use more advanced
+   Here’s a quick Sinatra example (of course you can use more advanced
    techniques as well)
+
 require "redis"
 require "json"
 require "securerandom"
@@ -197,6 +200,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. http://redis.io/commands/ZADD
@@ -210,3 +214,76 @@ References
   11. /about
   12. /assets/files/cv.pdf
   13. /rss.xml
+
+   Hidden links:
+  15. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-2
+  17. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-3
+  18. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-4
+  19. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-5
+  20. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-6
+  21. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-7
+  22. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-8
+  23. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-9
+  24. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-10
+  25. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-11
+  26. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-12
+  27. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-13
+  28. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-14
+  29. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-15
+  30. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-16
+  31. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-17
+  32. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-18
+  33. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-19
+  34. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-20
+  35. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-21
+  36. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-22
+  37. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-23
+  38. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-24
+  39. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-25
+  40. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-26
+  41. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-27
+  42. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-28
+  43. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-29
+  44. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-30
+  45. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-31
+  46. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb1-32
+  47. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb3-1
+  48. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb3-2
+  49. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb3-3
+  50. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb3-4
+  51. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb3-5
+  52. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-1
+  53. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-2
+  54. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-3
+  55. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-4
+  56. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-5
+  57. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-6
+  58. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-7
+  59. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-8
+  60. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-9
+  61. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-10
+  62. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-11
+  63. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-12
+  64. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-13
+  65. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-14
+  66. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-15
+  67. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-16
+  68. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-17
+  69. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-18
+  70. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-19
+  71. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-20
+  72. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-21
+  73. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-22
+  74. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-23
+  75. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-24
+  76. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-25
+  77. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-26
+  78. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-27
+  79. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-28
+  80. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-29
+  81. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-30
+  82. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-31
+  83. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-32
+  84. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-33
+  85. localhost/tmp/lynxXXXXQNNFoU/L3279537-9949TMP.html#cb6-34

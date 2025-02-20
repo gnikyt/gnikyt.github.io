@@ -81,7 +81,7 @@
         </p>
 
         <p>
-          Follow that post to get to its current state, and we'll modify the existing files to support MySQL.
+          Follow that post to get to its current state, and we’ll modify the existing files to support MySQL.
         </p>
 
         <h2 id="changes">
@@ -89,78 +89,149 @@
         </h2>
 
         <p>
-          Change <code>app/<strong>mocks</strong>/db.server.ts</code> to:
+          Change <code>app/__mocks__/db.server.ts</code> to:
         </p>
 
-        <pre><code>/* app/__mocks__/db.server.ts */
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true"
+          href="#cb1-1" tabindex="-1"></a><span class="co">/* app/__mocks__/db.server.ts */</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class=
+"co">// eslint-disable-next-line import/no-extraneous-dependencies</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class=
+"im">import</span> { afterEach<span class="op">,</span> beforeEach } <span class="im">from</span> <span class=
+"st">"@jest/globals"</span><span class="op">;</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"im">import</span> { PrismaClient } <span class="im">from</span> <span class="st">"@prisma/client"</span><span class=
+"op">;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class=
+"im">import</span> { execSync } <span class="im">from</span> <span class="st">"child_process"</span><span class=
+"op">;</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class=
+"im">import</span> { existsSync } <span class="im">from</span> <span class="st">"fs"</span><span class=
+"op">;</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="im">import</span> <span class=
+"op">*</span> <span class="im">as</span> path <span class="im">from</span> <span class="st">"path"</span><span class=
+"op">;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class=
+"co"> * Run an NPM command.</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">script</span><span class=
+"co"> - Script to run.</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">npm</span>(script<span class="op">:</span> string)<span class="op">:</span> <span class=
+"bu">Buffer</span> {</span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"fu">execSync</span>([<span class="st">"npm"</span><span class="op">,</span> <span class="st">"run"</span><span class=
+"op">,</span> script]<span class="op">.</span><span class="fu">join</span>(<span class="st">" "</span>)<span class=
+"op">,</span> {</span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a>    <span class="dt">env</span><span class=
+"op">:</span> {</span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>      <span class="op">...</span><span class=
+"bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">,</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>      <span class=
+"dt">NODE_ENV</span><span class="op">:</span> <span class="st">"test"</span><span class="op">,</span></span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>      <span class=
+"dt">DATABASE_URL</span><span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class=
+"at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span><span class="op">,</span></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>}</span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a></span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a><span class=
+"co"> * Seeds the database with initial data.</span></span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">seedDatabase</span>() {</span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a>  <span class="cf">return</span> <span class=
+"bu">Promise</span><span class="op">.</span><span class="fu">allSettled</span>([</span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a>    <span class=
+"co">// Seed shop session</span></span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>    prisma<span class=
+"op">.</span><span class="at">session</span><span class="op">.</span><span class="fu">create</span>({</span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a>      <span class="dt">data</span><span class=
+"op">:</span> {</span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a>        <span class="dt">id</span><span class=
+"op">:</span> <span class="st">"example.myshopify.com_id"</span><span class="op">,</span></span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a>        <span class=
+"dt">shop</span><span class="op">:</span> <span class="st">"example.myshopify.com"</span><span class=
+"op">,</span></span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>        <span class=
+"dt">accessToken</span><span class="op">:</span> <span class="st">"token"</span><span class="op">,</span></span>
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a>        <span class=
+"dt">state</span><span class="op">:</span> <span class="st">""</span><span class="op">,</span></span>
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a>        <span class=
+"dt">isOnline</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a>    <span class=
+"co">// Add more seed data</span></span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a>  ])<span class="op">;</span></span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a>}</span>
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a></span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a><span class=
+"co">// Path to generated types</span></span>
+<span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a><span class=
+"kw">const</span> typesPath <span class="op">=</span> path<span class="op">.</span><span class=
+"fu">resolve</span>(<span class="st">"node_modules"</span><span class="op">,</span> <span class=
+"st">".prisma"</span><span class="op">,</span> <span class="st">"client"</span><span class="op">,</span> <span class=
+"st">"index.d.ts"</span>)<span class="op">;</span></span>
+<span id="cb1-46"><a aria-hidden="true" href="#cb1-46" tabindex="-1"></a><span class="cf">if</span> (<span class=
+"op">!</span><span class="fu">existsSync</span>(typesPath)) {</span>
+<span id="cb1-47"><a aria-hidden="true" href="#cb1-47" tabindex="-1"></a>  <span class="fu">npm</span>(<span class=
+"st">"test:db:generate"</span>)<span class="op">;</span></span>
+<span id="cb1-48"><a aria-hidden="true" href="#cb1-48" tabindex="-1"></a>}</span>
+<span id="cb1-49"><a aria-hidden="true" href="#cb1-49" tabindex="-1"></a></span>
+<span id="cb1-50"><a aria-hidden="true" href="#cb1-50" tabindex="-1"></a><span class=
+"co">// Prisma setup... generate a unique database for MySQL, override existing Prisma implementation via Jest mock</span></span>
+<span id="cb1-51"><a aria-hidden="true" href="#cb1-51" tabindex="-1"></a><span class=
+"kw">const</span> dbName <span class="op">=</span> <span class="vs">`test-</span><span class="sc">${</span><span class=
+"kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getTime</span>()<span class=
+"sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a><span class="bu">process</span><span class=
+"op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span> <span class=
+"op">=</span> <span class="vs">`</span><span class="sc">${</span><span class="bu">process</span><span class=
+"op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span><span class=
+"sc">}</span><span class="vs">/</span><span class="sc">${</span>dbName<span class="sc">}</span><span class=
+"vs">`</span><span class="op">;</span></span>
+<span id="cb1-53"><a aria-hidden="true" href="#cb1-53" tabindex="-1"></a><span class=
+"kw">const</span> prisma <span class="op">=</span> <span class="kw">new</span> <span class=
+"fu">PrismaClient</span>({</span>
+<span id="cb1-54"><a aria-hidden="true" href="#cb1-54" tabindex="-1"></a>  <span class=
+"dt">datasources</span><span class="op">:</span> { <span class="dt">db</span><span class="op">:</span> { <span class=
+"dt">url</span><span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class=
+"at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span> } }<span class="op">,</span></span>
+<span id="cb1-55"><a aria-hidden="true" href="#cb1-55" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-56"><a aria-hidden="true" href="#cb1-56" tabindex="-1"></a></span>
+<span id="cb1-57"><a aria-hidden="true" href="#cb1-57" tabindex="-1"></a><span class=
+"fu">beforeEach</span>(<span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-58"><a aria-hidden="true" href="#cb1-58" tabindex="-1"></a>  <span class="fu">npm</span>(<span class=
+"st">"test:db:deploy"</span>)<span class="op">;</span></span>
+<span id="cb1-59"><a aria-hidden="true" href="#cb1-59" tabindex="-1"></a>  <span class="cf">await</span> <span class=
+"fu">seedDatabase</span>()<span class="op">;</span></span>
+<span id="cb1-60"><a aria-hidden="true" href="#cb1-60" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-61"><a aria-hidden="true" href="#cb1-61" tabindex="-1"></a></span>
+<span id="cb1-62"><a aria-hidden="true" href="#cb1-62" tabindex="-1"></a><span class="fu">afterEach</span>(<span class=
+"kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-63"><a aria-hidden="true" href="#cb1-63" tabindex="-1"></a>  <span class=
+"co">// Drop the database and disconnect</span></span>
+<span id="cb1-64"><a aria-hidden="true" href="#cb1-64" tabindex="-1"></a>  <span class=
+"cf">await</span> prisma<span class="op">.</span><span class="fu">$executeRawUnsafe</span>(<span class=
+"vs">`DROP DATABASE </span><span class="sc">\`${</span>dbName<span class="sc">}\`</span><span class=
+"vs">;`</span>)<span class="op">;</span></span>
+<span id="cb1-65"><a aria-hidden="true" href="#cb1-65" tabindex="-1"></a>  <span class=
+"cf">await</span> prisma<span class="op">.</span><span class="fu">$disconnect</span>()<span class="op">;</span></span>
+<span id="cb1-66"><a aria-hidden="true" href="#cb1-66" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-67"><a aria-hidden="true" href="#cb1-67" tabindex="-1"></a></span>
+<span id="cb1-68"><a aria-hidden="true" href="#cb1-68" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> prisma<span class="op">;</span></span></code></pre>
+        </div>
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { afterEach, beforeEach } from "@jest/globals";
-import { PrismaClient } from "@prisma/client";
-import { execSync } from "child_process";
-import { existsSync } from "fs";
-import * as path from "path";
-
-/**
- * Run an NPM command.
- *
- * @param script - Script to run.
- */
-function npm(script: string): Buffer {
-  return execSync(["npm", "run", script].join(" "), {
-    env: {
-      ...process.env,
-      NODE_ENV: "test",
-      DATABASE_URL: process.env.DATABASE_URL,
-    },
-  });
-}
-
-/**
- * Seeds the database with initial data.
- */
-function seedDatabase() {
-  return Promise.allSettled([
-    // Seed shop session
-    prisma.session.create({
-      data: {
-        id: "example.myshopify.com_id",
-        shop: "example.myshopify.com",
-        accessToken: "token",
-        state: "",
-        isOnline: false,
-      },
-    }),
-    // Add more seed data
-  ]);
-}
-
-// Path to generated types
-const typesPath = path.resolve("node_modules", ".prisma", "client", "index.d.ts");
-if (!existsSync(typesPath)) {
-  npm("test⭐generate");
-}
-
-// Prisma setup... generate a unique database for MySQL, override existing Prisma implementation via Jest mock
-const dbName = `test-${new Date().getTime()}`;
-process.env.DATABASE_URL = `/`;
-const prisma = new PrismaClient({
-  datasources: { db: { url: process.env.DATABASE_URL } },
-});
-
-beforeEach(async () &amp;ge; {
-  npm("test⭐deploy");
-  await seedDatabase();
-});
-
-afterEach(async () &amp;ge; {
-  // Drop the database and disconnect
-  await prisma.$executeRawUnsafe(`DROP DATABASE \`\`;`);
-  await prisma.$disconnect();
-});
-
-export default prisma;
-</code></pre>
         <p>
           This will create a unique database in MySQL for each test, then destroy it.
         </p>
@@ -171,71 +242,133 @@ export default prisma;
 
         <p>
           You reference the existing <code>db.server.ts</code> file normally in your tests, as Jest will swap it out
-          with our <code><strong>mocks</strong>/db.server.ts</code> version.
+          with our <code>__mocks__/db.server.ts</code> version.
         </p>
 
-        <pre><code>/* app/order/processor.test.ts */
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden="true"
+          href="#cb2-1" tabindex="-1"></a><span class="co">/* app/order/processor.test.ts */</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class=
+"im">import</span> { describe<span class="op">,</span> expect<span class="op">,</span> it } <span class=
+"im">from</span> <span class="st">"@jest/globals"</span><span class="op">;</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class="im">import</span> db <span class=
+"im">from</span> <span class="st">"../db.server"</span><span class="op">;</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class=
+"im">import</span> { prismaHooks } <span class="im">from</span> <span class="st">"../mocks.prisma"</span><span class=
+"op">;</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class=
+"im">import</span> { ShopifyClient<span class="op">,</span> ShopifyFixture } <span class="im">from</span> <span class=
+"st">"../mocks.clients"</span><span class="op">;</span></span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a><span class="co">// etc...</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a><span class=
+"co">/* just an example... */</span></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a><span class="fu">describe</span>(<span class=
+"st">"order processor"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>  <span class="fu">it</span>(<span class=
+"st">"should insert order"</span><span class="op">,</span> <span class="kw">async</span> () <span class=
+"kw">=&gt;</span> {</span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>    <span class=
+"kw">const</span> orderId <span class="op">=</span> <span class="fu">OrderId</span>(<span class=
+"st">"gid://shopify/Order/1"</span>)<span class="op">;</span></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>    <span class=
+"kw">const</span> customerId <span class="op">=</span> <span class="fu">CustomerId</span>(<span class=
+"st">"gid://shopify/Customer/1"</span>)<span class="op">;</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>    <span class=
+"kw">const</span> product1 <span class="op">=</span> <span class="fu">ProductId</span>(<span class=
+"st">"gid://shopify/Product/1"</span>)<span class="op">;</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a>    <span class=
+"kw">const</span> prodcut2 <span class="op">=</span> <span class="fu">ProductId</span>(<span class=
+"st">"gid://shopify/Product/2"</span>)<span class="op">;</span></span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a></span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>    <span class="co">// Job data</span></span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>    <span class=
+"kw">const</span> jobData <span class="op">=</span> {</span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>      <span class=
+"dt">order</span><span class="op">:</span> {</span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>        <span class="dt">id</span><span class=
+"op">:</span> orderId<span class="op">.</span><span class="fu">toInt</span>()<span class="op">,</span></span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>        <span class=
+"dt">admin_graphql_id</span><span class="op">:</span> orderId<span class="op">.</span><span class=
+"fu">toGql</span>()<span class="op">,</span></span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>        <span class=
+"dt">tags</span><span class="op">:</span> []<span class="op">,</span></span>
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>        <span class=
+"dt">total_price</span><span class="op">:</span> <span class="st">"115.00"</span><span class="op">,</span></span>
+<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>        <span class=
+"dt">customer</span><span class="op">:</span> {</span>
+<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>          <span class=
+"dt">id</span><span class="op">:</span> customerId<span class="op">.</span><span class="fu">toInt</span>()<span class=
+"op">,</span></span>
+<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a>        }<span class="op">,</span></span>
+<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a>        <span class=
+"dt">line_items</span><span class="op">:</span> [</span>
+<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a>          {</span>
+<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a>            <span class=
+"dt">product_id</span><span class="op">:</span> p1<span class="op">.</span><span class="fu">toInt</span>()<span class=
+"op">,</span></span>
+<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a>            <span class=
+"dt">price</span><span class="op">:</span> <span class="st">"100.00"</span><span class="op">,</span></span>
+<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a>            <span class=
+"dt">quantity</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb2-33"><a aria-hidden="true" href="#cb2-33" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb2-34"><a aria-hidden="true" href="#cb2-34" tabindex="-1"></a>          {</span>
+<span id="cb2-35"><a aria-hidden="true" href="#cb2-35" tabindex="-1"></a>            <span class=
+"dt">product_id</span><span class="op">:</span> p2<span class="op">.</span><span class="fu">toInt</span>()<span class=
+"op">,</span></span>
+<span id="cb2-36"><a aria-hidden="true" href="#cb2-36" tabindex="-1"></a>            <span class=
+"dt">price</span><span class="op">:</span> <span class="st">"15.00"</span><span class="op">,</span></span>
+<span id="cb2-37"><a aria-hidden="true" href="#cb2-37" tabindex="-1"></a>            <span class=
+"dt">quantity</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb2-38"><a aria-hidden="true" href="#cb2-38" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb2-39"><a aria-hidden="true" href="#cb2-39" tabindex="-1"></a>        ]<span class="op">,</span></span>
+<span id="cb2-40"><a aria-hidden="true" href="#cb2-40" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb2-41"><a aria-hidden="true" href="#cb2-41" tabindex="-1"></a>      <span class="dt">shop</span><span class=
+"op">:</span> <span class="st">"example.myshopify.com"</span><span class="op">,</span></span>
+<span id="cb2-42"><a aria-hidden="true" href="#cb2-42" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb2-43"><a aria-hidden="true" href="#cb2-43" tabindex="-1"></a></span>
+<span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a>    <span class=
+"co">// Shopify GraphQL mock client</span></span>
+<span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a>    <span class=
+"kw">const</span> client <span class="op">=</span> <span class="fu">ShopifyClient</span>(</span>
+<span id="cb2-46"><a aria-hidden="true" href="#cb2-46" tabindex="-1"></a>      <span class=
+"fu">ShopifyFixture</span>(<span class="st">"product-no-tag"</span><span class="op">,</span> <span class=
+"st">"product/no-override-tag"</span>)<span class="op">,</span></span>
+<span id="cb2-47"><a aria-hidden="true" href="#cb2-47" tabindex="-1"></a>      <span class=
+"fu">ShopifyFixture</span>(<span class="st">"product-with-tag"</span><span class="op">,</span> <span class=
+"st">"product/with-override-tag"</span>)<span class="op">,</span></span>
+<span id="cb2-48"><a aria-hidden="true" href="#cb2-48" tabindex="-1"></a>      <span class=
+"fu">ShopifyFixture</span>(<span class="st">"add-tag"</span><span class="op">,</span> <span class=
+"st">"tags-add-customer"</span>)<span class="op">,</span></span>
+<span id="cb2-49"><a aria-hidden="true" href="#cb2-49" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb2-50"><a aria-hidden="true" href="#cb2-50" tabindex="-1"></a></span>
+<span id="cb2-51"><a aria-hidden="true" href="#cb2-51" tabindex="-1"></a>    <span class=
+"co">// Run the processor</span></span>
+<span id="cb2-52"><a aria-hidden="true" href="#cb2-52" tabindex="-1"></a>    <span class=
+"kw">const</span> [retOrderId<span class="op">,</span> retOustomerId<span class="op">,</span> retSum]<span class=
+"op">:</span> JobReturn <span class="op">=</span> <span class="cf">await</span> <span class=
+"fu">processor</span>({</span>
+<span id="cb2-53"><a aria-hidden="true" href="#cb2-53" tabindex="-1"></a>      db<span class="op">,</span></span>
+<span id="cb2-54"><a aria-hidden="true" href="#cb2-54" tabindex="-1"></a>      client<span class="op">,</span></span>
+<span id="cb2-55"><a aria-hidden="true" href="#cb2-55" tabindex="-1"></a>      <span class="dt">job</span><span class=
+"op">:</span> { <span class="dt">data</span><span class="op">:</span> jobData }<span class="op">,</span></span>
+<span id="cb2-56"><a aria-hidden="true" href="#cb2-56" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-57"><a aria-hidden="true" href="#cb2-57" tabindex="-1"></a>    <span class=
+"fu">expect</span>(retOrderId<span class="op">.</span><span class="fu">isSame</span>(orderId))<span class=
+"op">.</span><span class="fu">toBe</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-58"><a aria-hidden="true" href="#cb2-58" tabindex="-1"></a>    <span class=
+"fu">expect</span>(retCustomerId<span class="op">.</span><span class="fu">isSame</span>(customerId))<span class=
+"op">.</span><span class="fu">toBe</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-59"><a aria-hidden="true" href="#cb2-59" tabindex="-1"></a>    <span class=
+"fu">expect</span>(retSum<span class="op">.</span><span class="fu">isSame</span>(<span class=
+"fu">Cents</span>(<span class="dv">3000</span>)))<span class="op">;</span></span>
+<span id="cb2-60"><a aria-hidden="true" href="#cb2-60" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-61"><a aria-hidden="true" href="#cb2-61" tabindex="-1"></a>})<span class=
+"op">;</span></span></code></pre>
+        </div>
 
-import { describe, expect, it } from "@jest/globals";
-import db from "../db.server";
-import { prismaHooks } from "../mocks.prisma";
-import { ShopifyClient, ShopifyFixture } from "../mocks.clients";
-// etc...
-
-/* just an example... */
-
-describe("order processor", () &amp;ge; {
-  it("should insert order", async () &amp;ge; {
-    const orderId = OrderId("gid://shopify/Order/1");
-    const customerId = CustomerId("gid://shopify/Customer/1");
-    const product1 = ProductId("gid://shopify/Product/1");
-    const prodcut2 = ProductId("gid://shopify/Product/2");
-
-    // Job data
-    const jobData = {
-      order: {
-        id: orderId.toInt(),
-        admin_graphql_id: orderId.toGql(),
-        tags: [],
-        total_price: "115.00",
-        customer: {
-          id: customerId.toInt(),
-        },
-        line_items: [
-          {
-            product_id: p1.toInt(),
-            price: "100.00",
-            quantity: 1,
-          },
-          {
-            product_id: p2.toInt(),
-            price: "15.00",
-            quantity: 1,
-          },
-        ],
-      },
-      shop: "example.myshopify.com",
-    };
-
-    // Shopify GraphQL mock client
-    const client = ShopifyClient(
-      ShopifyFixture("product-no-tag", "product/no-override-tag"),
-      ShopifyFixture("product-with-tag", "product/with-override-tag"),
-      ShopifyFixture("add-tag", "tags-add-customer"),
-    );
-
-    // Run the processor
-    const [retOrderId, retOustomerId, retSum]: JobReturn = await processor({
-      db,
-      client,
-      job: { data: jobData },
-    });
-    expect(retOrderId.isSame(orderId)).toBe(true);
-    expect(retCustomerId.isSame(customerId)).toBe(true);
-    expect(retSum.isSame(Cents(3000)));
-  });
-});
-</code></pre>
         <h2 id="usage">
           Usage
         </h2>
@@ -261,7 +394,7 @@ describe("order processor", () &amp;ge; {
           Create a <code>Dockerfile-test</code> and <code>docker-compose.test.yml</code> in your app root.
         </p>
 
-        <pre><code># Dockerfile-test
+        <pre class="conf"><code># Dockerfile-test
 
 # Stage 1: Node modules installation
 FROM node:18-alpine as testcache
@@ -293,44 +426,75 @@ COPY jest.config.js ./jest.config.js
 COPY tsconfig.json ./tsconfig.json
 COPY --from=testcache /cache .
 
-CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]
-</code></pre>
+CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]</code></pre>
         <p>
-          This Dockerfile uses Alpine Linux with two stage build... one to install dependencies and cache them, and a
+          This Dockerfile uses Alpine Linux with two stage build… one to install dependencies and cache them, and a
           second step which uses the cached dependencies and runs the tests.
         </p>
 
-        <pre><code>version: '3.9'
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a aria-hidden="true" href=
+          "#cb4-1" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class=
+          "at"> </span><span class="st">'3.9'</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="fu">services</span><span class=
+"kw">:</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a><span class="at">  </span><span class=
+"fu">db</span><span class="kw">:</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">image</span><span class="kw">:</span><span class="at"> mysql:8.0</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">restart</span><span class="kw">:</span><span class="at"> always</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">environment</span><span class="kw">:</span></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a><span class="at">      </span><span class=
+"fu">MYSQL_ROOT_PASSWORD</span><span class="kw">:</span><span class="at"> </span><span class=
+"st">"password"</span></span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">ports</span><span class="kw">:</span></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> 3306:3306</span></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">expose</span><span class="kw">:</span></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> </span><span class="dv">3306</span></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">volumes</span><span class="kw">:</span></span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> dbdata:/var/lib/mysql</span></span>
+<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a><span class="at">  </span><span class=
+"fu">test</span><span class="kw">:</span></span>
+<span id="cb4-16"><a aria-hidden="true" href="#cb4-16" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">build</span><span class="kw">:</span></span>
+<span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a><span class="at">      </span><span class=
+"fu">context</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb4-18"><a aria-hidden="true" href="#cb4-18" tabindex="-1"></a><span class="at">      </span><span class=
+"fu">dockerfile</span><span class="kw">:</span><span class="at"> Dockerfile-test</span></span>
+<span id="cb4-19"><a aria-hidden="true" href="#cb4-19" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">depends_on</span><span class="kw">:</span></span>
+<span id="cb4-20"><a aria-hidden="true" href="#cb4-20" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> db</span></span>
+<span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">environment</span><span class="kw">:</span></span>
+<span id="cb4-22"><a aria-hidden="true" href="#cb4-22" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> NODE_ENV=test</span></span>
+<span id="cb4-23"><a aria-hidden="true" href="#cb4-23" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> DATABASE_URL=mysql://root:password@db:3306</span></span>
+<span id="cb4-24"><a aria-hidden="true" href="#cb4-24" tabindex="-1"></a><span class="at">    </span><span class=
+"fu">volumes</span><span class="kw">:</span></span>
+<span id="cb4-25"><a aria-hidden="true" href="#cb4-25" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> ./jest.config.js:/app/jest.config.js</span></span>
+<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> ./app:/app/app</span></span>
+<span id="cb4-27"><a aria-hidden="true" href="#cb4-27" tabindex="-1"></a><span class="at">      </span><span class=
+"kw">-</span><span class="at"> ./prisma:/app/prisma</span></span>
+<span id="cb4-28"><a aria-hidden="true" href="#cb4-28" tabindex="-1"></a></span>
+<span id="cb4-29"><a aria-hidden="true" href="#cb4-29" tabindex="-1"></a><span class="fu">volumes</span><span class=
+"kw">:</span></span>
+<span id="cb4-30"><a aria-hidden="true" href="#cb4-30" tabindex="-1"></a><span class="at">  </span><span class=
+"fu">dbdata</span><span class="kw">:</span></span></code></pre>
+        </div>
 
-services:
-  db:
-    image: mysql:8.0
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: "password"
-    ports:
-      - 3306:3306
-    expose:
-      - 3306
-    volumes:
-      - dbdata:/var/lib/mysql
-  test:
-    build:
-      context: .
-      dockerfile: Dockerfile-test
-    depends_on:
-      - db
-    environment:
-      - NODE_ENV=test
-      - DATABASE_URL=mysql://root:password@db:3306
-    volumes:
-      - ./jest.config.js:/app/jest.config.js
-      - ./app:/app/app
-      - ./prisma:/app/prisma
-
-volumes:
-  dbdata:
-</code></pre>
         <p>
           This Docker Compile file will setup MySQL v8 with a basic password and expose the port, as well as persist
           our database volume.
@@ -379,7 +543,7 @@ volumes:
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -214,11 +214,19 @@ ul {
   background: var(--article-link-color);
 }
 
-/* .post .highlighter-rouge {
+.post p > code {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left-style: solid;
+  border-left-width: 3px;
   border-radius: 5px;
-  border-color: #9b968c;
-  background: #1a253a;
-} */
+  border-color: var(--article-link-color);
+  border-left-color: var(--article-link-color);
+  background: var(--background-alt-color);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 
 .post code .err {
   visibility: hidden;

@@ -7,7 +7,7 @@
    /* Jan 08, 2019 — 3.7KB */
 
    Its true desktop clients are on the decline in favor of easily
-   accessible web clients (such as GMail, Outlook.com). However, if youʼve
+   accessible web clients (such as GMail, Outlook.com). However, if you’ve
    ever used a complete native desktop client before such as the star of
    it all, Outlook, then you know nothing on the web can come close.
 
@@ -19,12 +19,12 @@
 
 Why Thunderbird
 
-   Well, Iʼm on Linux to start, but its also a great well-tested
+   Well, I’m on Linux to start, but its also a great well-tested
    application suite backed by Mozilla. It features a large helpful
    community, a wealth of add-ons, and its open-source. I considered using
-   Evolution but it didnʼt quite meet my standards of needs. &nbsp;Other
+   Evolution but it didn’t quite meet my standards of needs.  Other
    clients such as the popular Geary, are simply too basic to work with
-   when youʼre dealing with business activities.
+   when you’re dealing with business activities.
 
 Setup for GSuite
 
@@ -32,7 +32,7 @@ Setup for GSuite
 
    Google implements its own standards when it comes to a lot of things,
    IMAP is one of them. Instead of folders, Google chose to implement
-   "labels" which translates poorly on my clients.
+   “labels” which translates poorly on my clients.
 
    Luckily Thunderbird handles this well. Simply add your Google account
    to Thunderbird as normal and configure the account settings to your
@@ -40,21 +40,20 @@ Setup for GSuite
 
   Calendar
 
-   Youʼll need two addons for this to work.
-    1. "Lightning" - The integrated calendar & scheduling addon for
+   You’ll need two addons for this to work.
+    1. “Lightning” - The integrated calendar & scheduling addon for
        Thunderbird
-    2. "Provider for Google Calendar" - Allows bidirectional access to
+    2. “Provider for Google Calendar” - Allows bidirectional access to
        Google Calendar.
 
    Once both are installed, simply click the menu icon for Thunderbird >
-   "New Message >" > Calendar.., to open the calendar dialog. From here,
-   select "From network...", then "Google Calendar". You should now be
-   able to enter your Google account information and your calendars will
-   sync.
+   “New Message >” > Calendar.., to open the calendar dialog. From here,
+   select “From network…”, then “Google Calendar”. You should now be able
+   to enter your Google account information and your calendars will sync.
 
   Contacts
 
-   For contacts, youʼll need to install "gContactSync". Once installed,
+   For contacts, you’ll need to install “gContactSync”. Once installed,
    click the menu icon for Thunderbird, go to Addons > gContactSync. Enter
    your Google account information, choose the lists you wish to sync, and
    hit save.
@@ -65,31 +64,31 @@ Setup for Exchange / Outlook
 
   Mail
 
-   Thunderbird supports this out of the box, if youʼre using Outlook.com
+   Thunderbird supports this out of the box, if you’re using Outlook.com
    you may need to generate an app password for your account to connect.
    Enter your account information and your mail will begin to sync.
 
   Calendar & Contacts
 
-   For this to work, youʼll need the following addons:
-    1. "TbSync" - Sync contacts, tasks, and calendars for Exchange
-    2. "Provider for Exchange" - Adds sync support for Exchange accounts
+   For this to work, you’ll need the following addons:
+    1. “TbSync” - Sync contacts, tasks, and calendars for Exchange
+    2. “Provider for Exchange” - Adds sync support for Exchange accounts
        for TbSync
-    3. "Lightning" - The integrated calendar & scheduling addon for
+    3. “Lightning” - The integrated calendar & scheduling addon for
        Thunderbird
 
    Once installed, click the menu icon for Thunderbird, go to Addons >
    TbSync > Account Actions > Add a new account. Enter your account
    information and a dialog will appear allowing you to select which
    contact lists to sync and which calendars to sync. Once chosen, click
-   "Synchronize this account".
+   “Synchronize this account”.
 
    Done! Now your contacts and calendars will appear once syncing is
    complete.
 
-   One note, the contact images do not seem to work though (for me)...
+   One note, the contact images do not seem to work though (for me)…
 
-Screenshots or it didnʼt happen
+Screenshots or it didn’t happen
 
    Fine!
 

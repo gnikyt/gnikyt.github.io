@@ -6,7 +6,7 @@
 
    /* May 21, 2015 — 320B */
 
-   Iʼve released a unit-tested plugin called Wp User Themes.
+   I’ve released a unit-tested plugin called Wp User Themes.
 
    It allows users to switch themes in their profile section (useful for
    development!)

@@ -85,73 +85,46 @@
         </p>
 
         <p>
-          Extensions with Shopify's setup does not allow importing relative packages. For example, if this was the
+          Extensions with Shopify’s setup does not allow importing relative packages. For example, if this was the
           loose structure:
         </p>
 
-        <ul>
-          <li>app/
-          </li>
-
-          <li>paginate/
-          </li>
-        </ul>
-
-        <p>
-          index.ts index.test.ts
-        </p>
-
-        <ul>
-          <li>value/
-          </li>
-        </ul>
-
-        <p>
-          amount.ts amount.test.ts id.ts id.test.ts
-        </p>
-
-        <ul>
-          <li>[etc]
-          </li>
-        </ul>
-
-        <ul>
-          <li>extensions/
-          </li>
-
-          <li>order-stats/
-          </li>
-
-          <li>src/
-          </li>
-        </ul>
-
-        <p>
-          BlockExtension.tsx
-        </p>
-
-        <ul>
-          <li>[etc]
-          </li>
-        </ul>
-
-        <ul>
-          <li>[etc]
-          </li>
-        </ul>
-
+        <pre><code> - app/
+     - paginate/
+         index.ts
+         index.test.ts
+     - value/
+         amount.ts
+         amount.test.ts
+         id.ts
+         id.test.ts
+     - [etc]  
+ - extensions/
+     - order-stats/
+         - src/
+            BlockExtension.tsx
+         - [etc]
+ - [etc]</code></pre>
         <p>
           We would not be able to do something such as:
         </p>
 
-        <pre><code>// extensions/order-stats/src/BlockExtension.tsx
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a aria-hidden="true"
+          href="#cb2-1" tabindex="-1"></a><span class=
+          "co">// extensions/order-stats/src/BlockExtension.tsx</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="im">import</span> { <span class=
+"kw">type</span> PaginatedRecords } <span class="im">from</span> <span class=
+"st">"../../../app/paginate"</span><span class="op">;</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class="im">import</span> { <span class=
+"kw">type</span> ShopifyOrderIdValue } <span class="im">from</span> <span class=
+"st">"../../../app/value/id"</span><span class="op">;</span></span></code></pre>
+        </div>
 
-import { type PaginatedRecords } from "../../../app/paginate";
-import { type ShopifyOrderIdValue } from "../../../app/value/id";
-</code></pre>
         <p>
           This would produce an error and not compile. You could copy/paste the type definitions into the extension
-          manually, but this is not a great idea.. what if the types you're importing change? They would be out of sync
+          manually, but this is not a great idea.. what if the types you’re importing change? They would be out of sync
           if you did not manually correct it.
         </p>
 
@@ -168,14 +141,20 @@ import { type ShopifyOrderIdValue } from "../../../app/value/id";
           init</code>. Once done, you should have a <code>package.json</code> inside similar to this:
         </p>
 
-        <pre><code>{
-  "name": "app-types",
-  "private": true,
-  "version": "1.0.0"
-}
-</code></pre>
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>  <span class="dt">"name"</span><span class=
+"fu">:</span> <span class="st">"app-types"</span><span class="fu">,</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="dt">"private"</span><span class=
+"fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>  <span class="dt">"version"</span><span class=
+"fu">:</span> <span class="st">"1.0.0"</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre>
+        </div>
+
         <p>
-          In my case, I named the package <code>app-types</code>, but you're free to name as you please.
+          In my case, I named the package <code>app-types</code>, but you’re free to name as you please.
         </p>
 
         <h2 id="generation">
@@ -186,21 +165,41 @@ import { type ShopifyOrderIdValue } from "../../../app/value/id";
           Create a <code>bin/app-typegen</code> with the following contents:
         </p>
 
-        <pre><code>#!/usr/bin/env bash
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href=
+          "#cb4-1" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class=
+"co"># List the files you would like to generate types for</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a><span class="va">srcs</span><span class=
+"op">=</span><span class="va">(</span><span class="st">"paginate/index"</span> <span class=
+"st">"value/id"</span>, <span class="st">"value/amount"</span><span class="va">)</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a><span class="cf">for</span> src <span class=
+"kw">in</span> <span class="st">"</span><span class="va">${srcs</span><span class="op">[@]</span><span class=
+"va">}</span><span class="st">"</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>  <span class=
+"co"># Generation to the types/ directory</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>  <span class="ex">tsc</span> <span class=
+"at">-d</span> <span class="st">"app/</span><span class="va">$src</span><span class="st">.ts"</span> <span class=
+"at">--declarationDir</span> types</span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>  <span class=
+"co"># Remove Typescript-generated .js files</span></span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a>  <span class="cf">for</span> file <span class=
+"kw">in</span> <span class="va">$(</span><span class="fu">git</span> status <span class="at">-s</span><span class=
+"va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>    <span class="cf">if</span> <span class=
+"kw">[[</span> <span class="va">$file</span> <span class="ot">==</span> <span class="pp">*</span><span class=
+"st">"app/"</span><span class="pp">*</span> <span class="kw">]]</span> <span class="kw">&amp;&</span> <span class=
+"kw">[[</span> <span class="va">$file</span> <span class="ot">==</span> <span class="pp">*</span><span class=
+"st">".js"</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a>      <span class="fu">rm</span> <span class=
+"st">"</span><span class="va">$file</span><span class="st">"</span></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>  <span class="cf">done</span></span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a><span class=
+"cf">done</span></span></code></pre>
+        </div>
 
-# List the files you would like to generate types for
-srcs=("paginate/index" "value/id", "value/amount")
-for src in "${srcs[@]}"; do
-  # Generation to the types/ directory
-  tsc -d "app/$src.ts" --declarationDir types
-  # Remove Typescript-generated .js files
-  for file in $(git status -s); do
-    if [[ $file == *"app/"* ]] &amp;& [[ $file == *".js"* ]]; then
-      rm "$file"
-    fi
-  done
-done
-</code></pre>
         <p>
           What this script does is allow you to list out the files you would like to generate types for. It will then
           utilize <code>tsc</code> to generate the types and dump the <code>d.ts</code> files into the
@@ -213,8 +212,12 @@ done
           Additionally, you can add a slot into your root <code>package.json</code> scripts:
         </p>
 
-        <pre><code>"generate:app-types": "bin/app-typegen"
-</code></pre>
+        <div class="sourceCode" id="cb5">
+          <pre class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a aria-hidden="true" href=
+          "#cb5-1" tabindex="-1"></a><span class="er">"generate:app-types":</span> <span class=
+          "er">"bin/app-typegen"</span></span></code></pre>
+        </div>
+
         <p>
           Then, you can simply run <code>npm run generate:app-types</code> manually or with your CI setup to
           (re)generate the types.
@@ -235,14 +238,22 @@ done
         </p>
 
         <p>
-          Now, you'll be able to import the types without compilation errors or warnings as such:
+          Now, you’ll be able to import the types without compilation errors or warnings as such:
         </p>
 
-        <pre><code>// extensions/order-stats/src/BlockExtension.tsx
+        <div class="sourceCode" id="cb6">
+          <pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a aria-hidden="true"
+          href="#cb6-1" tabindex="-1"></a><span class=
+          "co">// extensions/order-stats/src/BlockExtension.tsx</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class="im">import</span> { <span class=
+"kw">type</span> PaginatedRecords } <span class="im">from</span> <span class=
+"st">"app-types/paginate/index"</span><span class="op">;</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a><span class="im">import</span> { <span class=
+"kw">type</span> ShopifyOrderIdValue } <span class="im">from</span> <span class=
+"st">"app-types/value/id"</span><span class="op">;</span></span></code></pre>
+        </div>
 
-import { type PaginatedRecords } from "app-types/paginate/index";
-import { type ShopifyOrderIdValue } from "app-types/value/id";
-</code></pre>
         <footer class="post__tail">
           <div class="sources">
             <a class="sources__link" href="/type-definitions-without-emitting/index.md">MD</a> | <a class=
@@ -268,7 +279,7 @@ import { type ShopifyOrderIdValue } from "app-types/value/id";
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

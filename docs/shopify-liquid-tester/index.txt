@@ -8,8 +8,8 @@
 
 Introduction
 
-   Shopifyʼs theme system currently lacks the ability to define custom
-   "functions". As a result, many Shopify developers use Liquid snippets
+   Shopify’s theme system currently lacks the ability to define custom
+   “functions”. As a result, many Shopify developers use Liquid snippets
    to accept inputs and echo an output result, to create a pseudo-function
    within Shopify.
 
@@ -23,21 +23,21 @@ Introduction
     tag, string, required: Tag string to remove prefix on.
 
   Syntax:
-    {%- render ʼfn-remove-prefixʼ, tag: [string] -%}
+    {%- render 'fn-remove-prefix', tag: [string] -%}
 
   Example:
-    {%- render ʼfn-remove-prefixʼ, tag: ʼType:Cannabisʼ -%}
+    {%- render 'fn-remove-prefix', tag: 'Type:Cannabis' -%}
 
   Output:
     Cannabis
 {%- endcomment -%}
 {%- liquid
-  echo tag | split: ʼ:ʼ | last
+  echo tag | split: ':' | last
 -%}
 {% endraw %}
 
-   For such a small "function", no one would second guess, however,
-   working with merchant data is sometimes a challenge... What if there is
+   For such a small “function”, no one would second guess, however,
+   working with merchant data is sometimes a challenge… What if there is
    multiple : in the tag string? What if we need the resulting value
    converted to something else, consistently?
 
@@ -69,21 +69,20 @@ How it works
 
    You extend the base test class which does all the heavy lifting. You
    have freedom to define setup, teardown, and tap into various events
-   documented in the repositoryʼs README to further customize your tests.
+   documented in the repository’s README to further customize your tests.
 
    Why NodeJS?
 
-   Previously, I had attempted a similar setup with Ruby, since Shopifyʼs
+   Previously, I had attempted a similar setup with Ruby, since Shopify’s
    Liquid library is a Ruby package (Gem).
 
    While the implementation worked great, it had flaws of not being able
-   to utilize Shopify data or Shopifyʼs custom Liquid filters such as
-   asseturl, imgtag
-   , money, etc. which could lead to some snippets not producing a true
-   result to what it would on Shopifyʼs servers.
+   to utilize Shopify data or Shopify’s custom Liquid filters such as
+   asset_url, img_tag, money, etc. which could lead to some snippets not
+   producing a true result to what it would on Shopify’s servers.
 
    Given the process to get a result of the snippet rendering, the tool
-   really couldʼve been developed in any language such as Go, or Python,
+   really could’ve been developed in any language such as Go, or Python,
    etc. however, given majority of Shopify developers most likely know
    their way around Javascript, then it made sense to go down that path.
 
@@ -93,20 +92,17 @@ Utilization
    Liquid function snippet into the tests directory, with a defined test
    suite to match, you will be able to unit test the result of the
    snippet. Because its executed on the Shopify store, the snippet you
-   wish to test will have access to everything for Shopifyʼs Liquid and
-   the store itself; such as request, allproducts, | asseturl
-   , etc.
+   wish to test will have access to everything for Shopify’s Liquid and
+   the store itself; such as request, all_products, | asset_url, etc.
 
    Your test suite will have full control over setup, snippet
    initilization, teardown, output, and more.
 
-   The repositoryʼs [4]provided examples is a great guide for how
+   The repository’s [4]provided examples is a great guide for how
    everything comes together and how you can test a single snippet against
    multiple values.
-
-   Liquid Fn Example
-
-   ____
+   Liquid Fn Example Liquid Fn Example
+     __________________________________________________________________
 
    Hopefully this tool will continue to grow and is helpful to those who
    are looking to try and test their snippets; both small and complex.

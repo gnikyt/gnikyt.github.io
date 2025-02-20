@@ -74,14 +74,14 @@
         </header>
 
         <p>
-          Recently for a project, a co-developer wanted to validate someone's record in the database from an Android
+          Recently for a project, a co-developer wanted to validate someone’s record in the database from an Android
           application and the website was using Symfony 2.3 with FOS User Bundle. Specifically, this developer did not
           want to log the user in, only to check their login against the database. So this seemed like a special enough
           case to show my solution to the problem.
         </p>
 
         <p>
-          We were going to tackle this by an HTTP POST request to /login_check, with the user's email and password.
+          We were going to tackle this by an HTTP POST request to /login_check, with the user’s email and password.
           Now, FOS User Bundle is highly configurable. At first, I considered extending the authentication handler and
           tapping into <code>onAuthenticationSuccess</code> and <code>onAuthenticationFailure</code>. By extending the
           authentication handler, I could now check for an external request from the Android application, and provide a
@@ -97,85 +97,152 @@
         </p>
 
         <p>
-          That's a lot of work just to respond to a HTTP request and let the application know of the email and password
+          That’s a lot of work just to respond to a HTTP request and let the application know of the email and password
           match the database.
         </p>
 
         <p>
-          So my solution was simple; take the user's email, validate it, then take the password and use Symfony's
-          encoder service to hash the password sent to the controller for that email and check if it's valid.
+          So my solution was simple; take the user’s email, validate it, then take the password and use Symfony’s
+          encoder service to hash the password sent to the controller for that email and check if it’s valid.
         </p>
 
         <p>
-          Here is the controller code below. In my code, I added an "android_secret" parameter read from
+          Here is the controller code below. In my code, I added an “android_secret” parameter read from
           app/parameters.yml which is a hash that just ensures the request came from the Android application - this is
           unnecessary and can be removed if you please.
         </p>
 
-        <pre><code>&lt;?php
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="kw">namespace</span> <span class=
+"cn">A</span>cme\<span class="cn">W</span>ebsiteBundle\<span class="cn">C</span>ontroller<span class=
+"ot">;</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">S</span>ymfony\<span class="cn">B</span>undle\<span class="cn">F</span>rameworkBundle\<span class=
+"cn">C</span>ontroller\<span class="cn">C</span>ontroller<span class="ot">;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">S</span>ymfony\<span class="cn">C</span>omponent\<span class="cn">H</span>ttpFoundation\<span class=
+"cn">R</span>equest<span class="ot">;</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">S</span>ymfony\<span class="cn">C</span>omponent\<span class="cn">H</span>ttpFoundation\<span class=
+"cn">R</span>esponse<span class="ot">;</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="kw">class</span> <span class=
+"cn">A</span>ndroidController <span class="kw">extends</span> <span class="cn">C</span>ontroller</span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>{</span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>  <span class="kw">public</span> <span class=
+"kw">function</span> checkLoginAction(<span class="cn">R</span>equest <span class="va">$request</span>)</span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a>  {</span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>  <span class=
+"co">// Get our POST data.</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>    <span class=
+"va">$email</span>    <span class="op">=</span> <span class="va">$request</span>-&gt;request-&gt;get(<span class=
+"st">'email'</span>)<span class="ot">;</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class=
+"va">$password</span> <span class="op">=</span> <span class="va">$request</span>-&gt;request-&gt;get(<span class=
+"st">'password'</span>)<span class="ot">;</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>    <span class=
+"va">$secret</span>   <span class="op">=</span> <span class="va">$request</span>-&gt;request-&gt;get(<span class=
+"st">'secret'</span>)<span class="ot">;</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>  <span class=
+"co">// Setup the JSON messages.</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>    <span class=
+"va">$messages</span> <span class="op">=</span> [</span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>      <span class=
+"st">'success'</span> =&gt; [</span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>        <span class=
+"st">'success'</span> =&gt; <span class="kw">true</span><span class="ot">,</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a>        <span class=
+"st">'message'</span> =&gt; <span class="st">'VALID_LOGIN'</span></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>      ]<span class="ot">,</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a>      <span class=
+"st">'fail'</span>    =&gt; [</span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a>        <span class=
+"st">'success'</span> =&gt; <span class="kw">false</span><span class="ot">,</span></span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a>        <span class=
+"st">'message'</span> =&gt; <span class="st">'INVALID_LOGIN'</span></span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a>      ]<span class="ot">,</span></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a>      <span class=
+"st">'secret'</span>  =&gt; [</span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a>        <span class=
+"st">'success'</span> =&gt; <span class="kw">false</span><span class="ot">,</span></span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a>        <span class=
+"st">'message'</span> =&gt; <span class="st">'INVALID_AUTH'</span></span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>      ]</span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a>    ]<span class="ot">;</span></span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a></span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a>    <span class=
+"va">$type</span>           <span class="op">=</span> <span class="st">'application/json'</span><span class=
+"ot">;</span></span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>    <span class=
+"va">$return_success</span> <span class="op">=</span> <span class="fu">json_encode</span>(<span class=
+"va">$messages</span>[<span class="st">'success'</span>])<span class="ot">;</span></span>
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a>    <span class=
+"va">$return_fail</span>    <span class="op">=</span> <span class="fu">json_encode</span>(<span class=
+"va">$messages</span>[<span class="st">'fail'</span>])<span class="ot">;</span></span>
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a>    <span class=
+"va">$return_secret</span>  <span class="op">=</span> <span class="fu">json_encode</span>(<span class=
+"va">$messages</span>[<span class="st">'secret'</span>])<span class="ot">;</span></span>
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a></span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a>  <span class=
+"co">// Ensure this is from the Android application.</span></span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a>    <span class="cf">if</span> (<span class=
+"va">$this</span>-&gt;container-&gt;getParameter(<span class="st">'android_secret'</span>) <span class=
+"op">!==</span> <span class="va">$secret</span>) {</span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a>      <span class=
+"cf">return</span> <span class="kw">new</span> <span class="cn">R</span>esponse(<span class=
+"va">$return_secret</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">,</span> [<span class=
+"st">'Content-Type'</span> =&gt; <span class="va">$type</span>])<span class="ot">;</span></span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a>    }</span>
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a></span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a>  <span class=
+"co">// Check the email sent to us.</span></span>
+<span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a>    <span class="va">$user</span> <span class=
+"op">=</span> <span class="va">$this</span>-&gt;get(<span class=
+"st">'fos_user.user_manager'</span>)-&gt;findUserByEmail(<span class="va">$email</span>)<span class=
+"ot">;</span></span>
+<span id="cb1-46"><a aria-hidden="true" href="#cb1-46" tabindex="-1"></a>    <span class="cf">if</span> (<span class=
+"kw">null</span> <span class="op">===</span> <span class="va">$user</span>) {</span>
+<span id="cb1-47"><a aria-hidden="true" href="#cb1-47" tabindex="-1"></a>      <span class=
+"cf">return</span> <span class="kw">new</span> <span class="cn">R</span>esponse(<span class=
+"va">$return_fail</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">,</span> [<span class=
+"st">'Content-Type'</span> =&gt; <span class="va">$type</span>])<span class="ot">;</span></span>
+<span id="cb1-48"><a aria-hidden="true" href="#cb1-48" tabindex="-1"></a>    }</span>
+<span id="cb1-49"><a aria-hidden="true" href="#cb1-49" tabindex="-1"></a></span>
+<span id="cb1-50"><a aria-hidden="true" href="#cb1-50" tabindex="-1"></a>  <span class=
+"co">// Email passed. Let's encode the password sent to us using the user's salt.</span></span>
+<span id="cb1-51"><a aria-hidden="true" href="#cb1-51" tabindex="-1"></a>    <span class=
+"va">$encoder</span>      <span class="op">=</span> <span class="va">$this</span>-&gt;get(<span class=
+"st">'security.encoder_factory'</span>)-&gt;getEncoder(<span class="va">$user</span>)<span class="ot">;</span></span>
+<span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a>    <span class=
+"va">$encoded_pass</span> <span class="op">=</span> <span class="va">$encoder</span>-&gt;encodePassword(<span class=
+"va">$password</span><span class="ot">,</span> <span class="va">$user</span>-&gt;getSalt())<span class=
+"ot">;</span></span>
+<span id="cb1-53"><a aria-hidden="true" href="#cb1-53" tabindex="-1"></a></span>
+<span id="cb1-54"><a aria-hidden="true" href="#cb1-54" tabindex="-1"></a>  <span class=
+"co">// Check if the password sent to us matches encoded_pass we just created.</span></span>
+<span id="cb1-55"><a aria-hidden="true" href="#cb1-55" tabindex="-1"></a>    <span class="cf">if</span> (<span class=
+"va">$encoded_pass</span> <span class="op">===</span> <span class="va">$user</span>-&gt;getPassword()) {</span>
+<span id="cb1-56"><a aria-hidden="true" href="#cb1-56" tabindex="-1"></a>    <span class="co">// Passed!</span></span>
+<span id="cb1-57"><a aria-hidden="true" href="#cb1-57" tabindex="-1"></a>      <span class=
+"cf">return</span> <span class="kw">new</span> <span class="cn">R</span>esponse(<span class=
+"va">$return_success</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">,</span> [<span class=
+"st">'Content-Type'</span> =&gt; <span class="va">$type</span>])<span class="ot">;</span></span>
+<span id="cb1-58"><a aria-hidden="true" href="#cb1-58" tabindex="-1"></a>    }</span>
+<span id="cb1-59"><a aria-hidden="true" href="#cb1-59" tabindex="-1"></a></span>
+<span id="cb1-60"><a aria-hidden="true" href="#cb1-60" tabindex="-1"></a>  <span class="co">// Failed!</span></span>
+<span id="cb1-61"><a aria-hidden="true" href="#cb1-61" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="kw">new</span> <span class="cn">R</span>esponse(<span class=
+"va">$return_fail</span><span class="ot">,</span> <span class="dv">200</span><span class="ot">,</span> [<span class=
+"st">'Content-Type'</span> =&gt; <span class="va">$type</span>])<span class="ot">;</span></span>
+<span id="cb1-62"><a aria-hidden="true" href="#cb1-62" tabindex="-1"></a>  }</span>
+<span id="cb1-63"><a aria-hidden="true" href="#cb1-63" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-namespace Acme\WebsiteBundle\Controller;
-
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
-class AndroidController extends Controller
-{
-  public function checkLoginAction(Request $request)
-  {
-  // Get our POST data.
-    $email    = $request-&gt;request-&gt;get('email');
-    $password = $request-&gt;request-&gt;get('password');
-    $secret   = $request-&gt;request-&gt;get('secret');
-
-  // Setup the JSON messages.
-    $messages = [
-      'success' &amp;ge; [
-        'success' &amp;ge; true,
-        'message' &amp;ge; 'VALID_LOGIN'
-      ],
-      'fail'    &amp;ge; [
-        'success' &amp;ge; false,
-        'message' &amp;ge; 'INVALID_LOGIN'
-      ],
-      'secret'  &amp;ge; [
-        'success' &amp;ge; false,
-        'message' &amp;ge; 'INVALID_AUTH'
-      ]
-    ];
-
-    $type           = 'application/json';
-    $return_success = json_encode($messages['success']);
-    $return_fail    = json_encode($messages['fail']);
-    $return_secret  = json_encode($messages['secret']);
-
-  // Ensure this is from the Android application.
-    if ($this-&gt;container-&gt;getParameter('android_secret') !== $secret) {
-      return new Response($return_secret, 200, ['Content-Type' &amp;ge; $type]);
-    }
-
-  // Check the email sent to us.
-    $user = $this-&gt;get('fos_user.user_manager')-&gt;findUserByEmail($email);
-    if (null === $user) {
-      return new Response($return_fail, 200, ['Content-Type' &amp;ge; $type]);
-    }
-
-  // Email passed. Let's encode the password sent to us using the user's salt.
-    $encoder      = $this-&gt;get('security.encoder_factory')-&gt;getEncoder($user);
-    $encoded_pass = $encoder-&gt;encodePassword($password, $user-&gt;getSalt());
-
-  // Check if the password sent to us matches encoded_pass we just created.
-    if ($encoded_pass === $user-&gt;getPassword()) {
-    // Passed!
-      return new Response($return_success, 200, ['Content-Type' &amp;ge; $type]);
-    }
-
-  // Failed!
-    return new Response($return_fail, 200, ['Content-Type' &amp;ge; $type]);
-  }
-}
-</code></pre>
         <footer class="post__tail">
           <div class="sources">
             <a class="sources__link" href="/simple-password-checking-with-symfony-and-fos-user-bundle/index.md">MD</a>
@@ -206,7 +273,7 @@ class AndroidController extends Controller
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -79,7 +79,7 @@
         </p>
 
         <p>
-          I noticed that since the upgrade from Windows 10 to Windows 11... general "starting" of VSCode and remote
+          I noticed that since the upgrade from Windows 10 to Windows 11… general “starting” of VSCode and remote
           connecting to WSL was slow. Additonally, internal network request serving was slow; things such as Webpack
           dev server would take upwards of 5 minutes to serve a small-to-medium application.
         </p>
@@ -91,7 +91,7 @@
         </p>
 
         <p>
-          I decided to try some solutions listed in the issue and here are my personal results...
+          I decided to try some solutions listed in the issue and here are my personal results…
         </p>
 
         <h2 id="potential-solution-1">
@@ -103,14 +103,21 @@
           autogenerating the <code>resolv.conf</code> file each time and overwriting our new settings.
         </p>
 
-        <pre><code>sudo rm /etc/resolv.conf
-sudo bash -c 'echo "nameserver 8.8.8.8" &gt; /etc/resolv.conf'
-sudo bash -c 'echo "[network]" &gt; /etc/wsl.conf'
-sudo bash -c 'echo "generateResolvConf = false" &gt;&gt; /etc/wsl.conf'
-sudo chattr +i /etc/resolv.conf
-</code></pre>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="fu">sudo</span> rm /etc/resolv.conf</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="fu">sudo</span> bash <span class=
+"at">-c</span> <span class="st">'echo "nameserver 8.8.8.8" &gt; /etc/resolv.conf'</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="fu">sudo</span> bash <span class=
+"at">-c</span> <span class="st">'echo "[network]" &gt; /etc/wsl.conf'</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="fu">sudo</span> bash <span class=
+"at">-c</span> <span class="st">'echo "generateResolvConf = false" &gt;&gt; /etc/wsl.conf'</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"fu">sudo</span> chattr +i /etc/resolv.conf</span></code></pre>
+        </div>
+
         <p>
-          For the above, this didn't change anything for me when re-running <code>speedtest-cli</code>, I was still
+          For the above, this didn’t change anything for me when re-running <code>speedtest-cli</code>, I was still
           seeing very slow upload speeds.
         </p>
 
@@ -157,7 +164,7 @@ sudo chattr +i /etc/resolv.conf
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

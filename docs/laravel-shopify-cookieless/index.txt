@@ -20,7 +20,7 @@ This Issue
    surprise, the community as well as Shopify themselves, helped lend a
    hand in getting this issue closed.
 
-   It was a large undertaking... to remove complete dependency on cookies,
+   It was a large undertaking… to remove complete dependency on cookies,
    switch authentication and checks to use session tokens instead.
    Additionally, many internal improvements on top.
 
@@ -48,7 +48,7 @@ Community
 
    For the community, we had a ton of support in every area! In total
    (hopefully not missing anyone), there were 23 community members helping
-   to diagnose and solve this issue through comments or pull requests, Iʼd
+   to diagnose and solve this issue through comments or pull requests, I’d
    like to thank you all!
      * @Enmaboya
      * @alexweissman
@@ -74,7 +74,7 @@ Community
      * @jayShopTO
      * @mattias
 
-Whatʼs next?
+What’s next?
 
    You can [6]view the release for v17.0.0. For the package, we will be
    watching for upcoming issues and attempting to place back per-user

@@ -75,7 +75,7 @@
 
         <p>
           The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic
-          modal/route/controller. Let's start with the basics...
+          modal/route/controller. Let’s start with the basics…
         </p>
 
         <h2 id="polymorphic">
@@ -95,76 +95,111 @@
         </h2>
 
         <p>
-          These are used in routing for Rails where you're able to declare common routes for resources. An example of
+          These are used in routing for Rails where you’re able to declare common routes for resources. An example of
           this can be a <em>picture</em> concern, where many resources can have a picture route.
         </p>
 
-        <pre><code>concern :picturable do
-  resources :pictures
-end
-# ...
-resources :users, concerns: [:picturable]
-resources :customers, concerns: [:picturable]
-</code></pre>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a>concern <span class="wa">:picturable</span> <span class="cf">do</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  resources <span class=
+"wa">:pictures</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>resources <span class=
+"wa">:users</span>, <span class="wa">concerns: </span><span class="kw">[</span><span class=
+"wa">:picturable</span><span class="kw">]</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>resources <span class=
+"wa">:customers</span>, <span class="wa">concerns: </span><span class="kw">[</span><span class=
+"wa">:picturable</span><span class="kw">]</span></span></code></pre>
+        </div>
+
         <h2 id="the-problem">
           The problem
         </h2>
 
         <p>
           If your polymorphic modal has a controller, how do you know what object is using it? How do you get the
-          object itself? Let's start and assume I have a polymorphic modal for Metafields, so many models can have
-          metafields and we'll call it <em>fieldable</em>.
+          object itself? Let’s start and assume I have a polymorphic modal for Metafields, so many models can have
+          metafields and we’ll call it <em>fieldable</em>.
         </p>
 
-        <pre><code># modals/metafield.rb
-module MyCoolApp
-  class Metafield &lt; ActiveRecord::Base
-    belongs_to :fieldable, polymorphic: true
-  end
-end
-</code></pre>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="co"># modals/metafield.rb</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyCoolApp</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>  <span class="cf">class</span> <span class=
+"dt">Metafield</span> <span class="kw">&lt;</span> <span class="dt">ActiveRecord</span><span class=
+"kw">::</span><span class="dt">Base</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>    belongs_to <span class=
+"wa">:fieldable</span>, <span class="wa">polymorphic: </span><span class="dv">true</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+        </div>
 
-        <pre><code># modals/user.rb
-module MyCoolApp
-  class User &lt; ActiveRecord::Base
-    # ...
-    has_many :metafields, as: :fieldable, dependent: :destroy
-    # ...
-  end
-end
-</code></pre>
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="co"># modals/user.rb</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyCoolApp</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="cf">class</span> <span class=
+"dt">User</span> <span class="kw">&lt;</span> <span class="dt">ActiveRecord</span><span class=
+"kw">::</span><span class="dt">Base</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>    has_many <span class=
+"wa">:metafields</span>, <span class="wa">as: :fieldable</span>, <span class="wa">dependent: :destroy</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+        </div>
 
-        <pre><code># modals/movie.rb
-module MyCoolApp
-  class Movie &lt; ActiveRecord::Base
-    # ...
-    has_many :metafields, as: :fieldable, dependent: :destroy
-    # ...
-  end
-end
-</code></pre>
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
+          "#cb4-1" tabindex="-1"></a><span class="co"># modals/movie.rb</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyCoolApp</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>  <span class="cf">class</span> <span class=
+"dt">Movie</span> <span class="kw">&lt;</span> <span class="dt">ActiveRecord</span><span class=
+"kw">::</span><span class="dt">Base</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a>    has_many <span class=
+"wa">:metafields</span>, <span class="wa">as: :fieldable</span>, <span class="wa">dependent: :destroy</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+        </div>
+
         <p>
           So now, we have three models. The <em>Metafield</em> modal which is polymorphic and a <em>User</em> and a
           <em>Movie</em> modal which can have these metafields. The <em>Metafield</em> modal will create a table in the
-          database with <code>fieldable<em>type</em></code> <em>and <code>fieldable</code></em><code>id</code> which
-          should reference the modal class and the object's ID.
+          database with <code>fieldable_type</code> and <code>fieldable_id</code> which should reference the modal
+          class and the object’s ID.
         </p>
 
         <p>
-          Along with this, I've set up a Metafield controller so we can add, edit, and delete metafields for these
-          other models. With all this put together, we'll set up the routing concerns.
+          Along with this, I’ve set up a Metafield controller so we can add, edit, and delete metafields for these
+          other models. With all this put together, we’ll set up the routing concerns.
         </p>
 
-        <pre><code>concern(:fieldable) { resources :metafields }
-# ...
-resources :users do
-  concerns :fieldable
-end
-# ...
-resouces :movies do
-  concerns :fieldable
-end
-</code></pre>
+        <div class="sourceCode" id="cb5">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a aria-hidden="true" href=
+          "#cb5-1" tabindex="-1"></a>concern(<span class="wa">:fieldable</span>) <span class=
+          "kw">{</span> resources <span class="wa">:metafields</span> <span class="kw">}</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>resources <span class=
+"wa">:users</span> <span class="cf">do</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>  concerns <span class=
+"wa">:fieldable</span></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a>resouces <span class=
+"wa">:movies</span> <span class="cf">do</span></span>
+<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a>  concerns <span class=
+"wa">:fieldable</span></span>
+<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+        </div>
+
         <p>
           Now, the user and movie resource routes will have metafield resource routes added to them. Which will create
           routes such as <code>/users/metafields</code>, <code>/users/metafields/new</code>,
@@ -172,58 +207,91 @@ end
         </p>
 
         <p>
-          However, for the metafield controller, how is it supposed to know if we're accessing User metafields or Movie
-          metafields when you're adding and editing? You could do things such as base it on the URL, or manual section,
-          but that's not a great solution in the long run. There are easier and cleaner ways... by utilizing a mix of
-          the routing concerns and a private method in the Metafield controller. Let's change our concern in the
-          routing now to accept options and parameters.
+          However, for the metafield controller, how is it supposed to know if we’re accessing User metafields or Movie
+          metafields when you’re adding and editing? You could do things such as base it on the URL, or manual section,
+          but that’s not a great solution in the long run. There are easier and cleaner ways… by utilizing a mix of the
+          routing concerns and a private method in the Metafield controller. Let’s change our concern in the routing
+          now to accept options and parameters.
         </p>
 
-        <pre><code># Before
-concern(:fieldable) { resources :metafields }
-# After
-concern(:fieldable) {|opts| resources :metafields, opts}
-</code></pre>
+        <div class="sourceCode" id="cb6">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a aria-hidden="true" href=
+          "#cb6-1" tabindex="-1"></a><span class="co"># Before</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a>concern(<span class=
+"wa">:fieldable</span>) <span class="kw">{</span> resources <span class="wa">:metafields</span> <span class=
+"kw">}</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class="co"># After</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a>concern(<span class=
+"wa">:fieldable</span>) <span class="kw">{|</span>opts<span class="kw">|</span> resources <span class=
+"wa">:metafields</span>, opts<span class="kw">}</span></span></code></pre>
+        </div>
+
         <p>
-          Now let's pass a parameter to the concern per resource route.
+          Now let’s pass a parameter to the concern per resource route.
         </p>
 
-        <pre><code>concern(:fieldable) {|opts| resources :metafields, opts}
-# ...
-resources :users do
-  concerns :fieldable, fieldable_type: "MyCoolApp::Users"
-end
-# ...
-resouces :movies do
-  concerns :fieldable, fieldable_type: "MyCoolApp::Movies"
-end
-</code></pre>
+        <div class="sourceCode" id="cb7">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a aria-hidden="true" href=
+          "#cb7-1" tabindex="-1"></a>concern(<span class="wa">:fieldable</span>) <span class=
+          "kw">{|</span>opts<span class="kw">|</span> resources <span class="wa">:metafields</span>, opts<span class=
+          "kw">}</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a>resources <span class=
+"wa">:users</span> <span class="cf">do</span></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a>  concerns <span class=
+"wa">:fieldable</span>, <span class="wa">fieldable_type: </span><span class="st">"MyCoolApp::Users"</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a>resouces <span class=
+"wa">:movies</span> <span class="cf">do</span></span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a>  concerns <span class=
+"wa">:fieldable</span>, <span class="wa">fieldable_type: </span><span class="st">"MyCoolApp::Movies"</span></span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+        </div>
+
         <p>
-          So now we're passing <code>fieldable_type</code> with the modal class to the concern which gets passed to the
-          resource for metafields. We can now grab this parameter in the controller and it'll help us figure out what
-          modal is trying to access the metafields. Let's add a method to the metafield controller now which will do
+          So now we’re passing <code>fieldable_type</code> with the modal class to the concern which gets passed to the
+          resource for metafields. We can now grab this parameter in the controller and it’ll help us figure out what
+          modal is trying to access the metafields. Let’s add a method to the metafield controller now which will do
           this work for us.
         </p>
 
-        <pre><code>module MyCoolApp
-  class MetafieldsController &lt; ApplicationController
-      before_action :set_object
-      # ...
+        <div class="sourceCode" id="cb8">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a aria-hidden="true" href=
+          "#cb8-1" tabindex="-1"></a><span class="cf">module</span> <span class="dt">MyCoolApp</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a>  <span class="cf">class</span> <span class=
+"dt">MetafieldsController</span> <span class="kw">&lt;</span> <span class="dt">ApplicationController</span></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>      before_action <span class=
+"wa">:set_object</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>      <span class="co"># ...</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a>      </span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a>      <span class="at">private</span></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a>      <span class=
+"cf">def</span> set_object</span>
+<span id="cb8-8"><a aria-hidden="true" href="#cb8-8" tabindex="-1"></a>        <span class=
+"co"># Converts (as example) "MyCoolApp::Movies" string to "movies_id"</span></span>
+<span id="cb8-9"><a aria-hidden="true" href="#cb8-9" tabindex="-1"></a>        param_name   <span class=
+"kw">=</span> <span class="st">"</span><span class="sc">#{</span>params<span class="kw">[</span><span class=
+"wa">:fieldable_type</span><span class="kw">]</span><span class="at">.demodulize.underscore</span><span class=
+"sc">}</span><span class="st">_id"</span></span>
+<span id="cb8-10"><a aria-hidden="true" href="#cb8-10" tabindex="-1"></a>        </span>
+<span id="cb8-11"><a aria-hidden="true" href="#cb8-11" tabindex="-1"></a>        <span class=
+"co"># Converts (as example) "MyCoolApp::Movies" string into a module reference</span></span>
+<span id="cb8-12"><a aria-hidden="true" href="#cb8-12" tabindex="-1"></a>        param_object <span class=
+"kw">=</span> params<span class="kw">[</span><span class="wa">:fieldable_type</span><span class=
+"kw">]</span><span class="at">.constantize</span></span>
+<span id="cb8-13"><a aria-hidden="true" href="#cb8-13" tabindex="-1"></a>        </span>
+<span id="cb8-14"><a aria-hidden="true" href="#cb8-14" tabindex="-1"></a>        <span class=
+"co"># Grab the object now, as example: (object.find movie_id) -&gt; MyCoolApp::Movies.find 3</span></span>
+<span id="cb8-15"><a aria-hidden="true" href="#cb8-15" tabindex="-1"></a>        <span class=
+"ot">@object</span> <span class="kw">=</span> param_object<span class="at">.find</span> params<span class=
+"kw">[</span>param_name<span class="kw">]</span></span>
+<span id="cb8-16"><a aria-hidden="true" href="#cb8-16" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb8-17"><a aria-hidden="true" href="#cb8-17" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb8-18"><a aria-hidden="true" href="#cb8-18" tabindex="-1"></a><span class=
+"cf">end</span></span></code></pre>
+        </div>
 
-      private
-      def set_object
-        # Converts (as example) "MyCoolApp::Movies" string to "movies_id"
-        param_name   = "#{params[:fieldable_type].demodulize.underscore}_id"
-
-        # Converts (as example) "MyCoolApp::Movies" string into a module reference
-        param_object = params[:fieldable_type].constantize
-
-        # Grab the object now, as example: (object.find movie_id) -&gt; MyCoolApp::Movies.find 3
-        @object = param_object.find params[param_name]
-      end
-  end
-end
-</code></pre>
         <p>
           As you can see above, everything is now in place. We convert the <code>fieldable_type</code> value we passed
           in the concern into a module reference and an ID for whose trying to access it. <code>@object</code> will not
@@ -234,12 +302,20 @@ end
           Lastly, we can tie this into the forms for metafields creation/editing:
         </p>
 
-        <pre><code># ...
-&lt;div class="hide"&gt;
-  &lt;%= f.text_field :fieldable_id, value: @object.id %&gt;
-  &lt;%= f.text_field :fieldable_type, value: @object.class %&gt;
-&lt;/div&gt;
-</code></pre>
+        <div class="sourceCode" id="cb9">
+          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a aria-hidden="true" href=
+          "#cb9-1" tabindex="-1"></a># ...</span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="dt">&lt;</span><span class=
+"kw">div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"hide"</span><span class=
+"dt">&gt;</span></span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>  <span class=
+"er">&lt;</span>%= f.text_field :fieldable_id, value: @object.id %&gt;</span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>  <span class=
+"er">&lt;</span>%= f.text_field :fieldable_type, value: @object.class %&gt;</span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span></code></pre>
+        </div>
+
         <p>
           Now when saved, the metafield record in the database will automatically set the modal class and the ID for
           the object.
@@ -274,7 +350,7 @@ end
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

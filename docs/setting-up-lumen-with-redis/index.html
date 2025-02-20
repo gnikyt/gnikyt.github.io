@@ -71,7 +71,7 @@
         </header>
 
         <p>
-          This is more of an extension of my previous post "Setting Up Lumen + Mail". I wanted to take it a step
+          This is more of an extension of my previous post “Setting Up Lumen + Mail”. I wanted to take it a step
           further and show the basic setup for getting Redis to work, so you can queue not only mail, but jobs.
         </p>
 
@@ -84,44 +84,59 @@
           <code>register</code> method:
         </p>
 
-        <pre><code>&lt;?php
-// ...
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="co">// Configs</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;configure(<span class="st">'database'</span>)<span class="ot">;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="co">// Enable queues</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;make(<span class="st">'queue'</span>)<span class="ot">;</span></span></code></pre>
+        </div>
 
-// Configs
-$this-&gt;app-&gt;configure('database');
-
-// Enable queues
-$this-&gt;app-&gt;make('queue');
-</code></pre>
         <p>
           Next, create <code>config/database.php</code> and add the following:
         </p>
 
-        <pre><code>&lt;?php
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="cf">return</span> [</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  <span class="st">'redis'</span> =&gt; [</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>    <span class=
+"st">'client'</span> =&gt; <span class="st">'predis'</span><span class="ot">,</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>    <span class=
+"st">'default'</span> =&gt; [</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>      <span class=
+"st">'host'</span> =&gt; env(<span class="st">'REDIS_HOST'</span><span class="ot">,</span> <span class=
+"st">'127.0.0.1'</span>)<span class="ot">,</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>      <span class=
+"st">'password'</span> =&gt; env(<span class="st">'REDIS_PASSWORD'</span><span class="ot">,</span> <span class=
+"kw">null</span>)<span class="ot">,</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>      <span class=
+"st">'port'</span> =&gt; env(<span class="st">'REDIS_PORT'</span><span class="ot">,</span> <span class=
+"dv">6379</span>)<span class="ot">,</span></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>      <span class=
+"st">'database'</span> =&gt; <span class="dv">0</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>    ]</span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>  ]</span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>]<span class="ot">;</span></span></code></pre>
+        </div>
 
-return [
-  'redis' &amp;ge; [
-    'client' &amp;ge; 'predis',
-    'default' &amp;ge; [
-      'host' &amp;ge; env('REDIS_HOST', '127.0.0.1'),
-      'password' &amp;ge; env('REDIS_PASSWORD', null),
-      'port' &amp;ge; env('REDIS_PORT', 6379),
-      'database' &amp;ge; 0
-    ]
-  ]
-];
-
-</code></pre>
         <p>
-          Don't forget to set up all your environment variables for Redis, as well, to enable Redis for job processing
+          Don’t forget to set up all your environment variables for Redis, as well, to enable Redis for job processing
           and cache, set the following environment variables:
         </p>
 
-        <pre><code>CACHE_DRIVER=redis
-QUEUE_DRIVER=redis
-</code></pre>
+        <pre class="conf"><code>CACHE_DRIVER=redis
+QUEUE_DRIVER=redis</code></pre>
         <p>
-          That's it! You can now queue mail or process jobs.
+          That’s it! You can now queue mail or process jobs.
         </p>
 
         <footer class="post__tail">
@@ -153,7 +168,7 @@ QUEUE_DRIVER=redis
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

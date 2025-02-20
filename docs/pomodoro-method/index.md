@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pomodoro Method
-permalink: Pomodoro-method
+permalink: pomodoro-method
 date: '2017-10-20 14:00:00'
 ---
 

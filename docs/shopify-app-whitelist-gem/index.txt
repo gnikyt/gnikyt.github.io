@@ -6,28 +6,28 @@
 
    /* Nov 26, 2016 — 1.5KB */
 
-   I regularly use [3]shopifyapp. Itʼs a great way to get an app, embedded
-   or not, up and running with Rails.
+   I regularly use [3]shopify_app. It’s a great way to get an app,
+   embedded or not, up and running with Rails.
 
-   Sometimes Iʼll create apps with shopify_app which are to be used by
+   Sometimes I’ll create apps with shopify_app which are to be used by
    only one store. These apps sometimes have a front-end component for the
-   themes... proxy integration, or JSON data fetching. Iʼd hate to have
-   someone poke around and install the clientʼs app to their shop.
+   themes… proxy integration, or JSON data fetching. I’d hate to have
+   someone poke around and install the client’s app to their shop.
 
-   In the past, I limited access to shopifyappʼs session controller by
-   having a beforeaction
-   callback to confirm the shop. This gets repetitive quick and its not a
-   central solution meaning its hard to update should the Gem change.
+   In the past, I limited access to shopify_app’s session controller by
+   having a before_action callback to confirm the shop. This gets
+   repetitive quick and its not a central solution meaning its hard to
+   update should the Gem change.
 
    I decided to create a Gem for this problem which allows you to
-   whitelist shops to have access to installing or accessing the appʼs
-   backend. [4]shopifyappwhitelist adds a Railite which automatically
+   whitelist shops to have access to installing or accessing the app’s
+   backend. [4]shopify_app_whitelist adds a Railite which automatically
    injects a controller concern into your ApplicationController. It also
-   adds a couple of settings to shopify_appʼs config so you can define
+   adds a couple of settings to shopify_app’s config so you can define
    your whitelist settings. I figured I would make it as easy as possible.
 
    You simply need to add the Gem to your Gemfile, add two configuration
-   lines, and youʼre set. The Gem is fully tested and documented if you
+   lines, and you’re set. The Gem is fully tested and documented if you
    want to dig into the code. I hope someone will find it useful!
 
    [5]MD | [6]TXT | [7]CC-4.0
@@ -57,8 +57,8 @@ References
 
    1. /rss.xml
    2. /
-   3. https://github.com/Shopify/shopify<em>app
-   4. https://github.com/gnikyt/shopify<em>app</em>whitelist
+   3. https://github.com/Shopify/shopify_app
+   4. https://github.com/gnikyt/shopify_app_whitelist
    5. /shopify-app-whitelist-gem/index.md
    6. /shopify-app-whitelist-gem/index.txt
    7. https://creativecommons.org/licenses/by/4.0/

@@ -74,7 +74,7 @@
         </header>
 
         <p>
-          A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create
+          A method I like to utilize internally, which I’ve been slowly pushing into my open source work, is to create
           branches for each major/minor release. Many developers will say branches are meant to be short-lived, to be
           eventually merged into your main branch. I believe this is true for features and bugfixes, but there is a
           benefit to keeping branches around for the long term.
@@ -82,20 +82,25 @@
 
         <p>
           Essentially, if you follow symver (<em>[major].[minor].[patch]</em>) for versioning, you would create and
-          maintain a branch for each <em>[major].[minor]</em> release. For example... if I tagged the production branch
+          maintain a branch for each <em>[major].[minor]</em> release. For example… if I tagged the production branch
           with <code>v9.0.0</code>, a new major release, I would create a supplementary branch <code>9.0</code>. If I
           then released a bugfix, <code>v9.0.1</code>, I would then issue a pull request to merge code for
           <code>v9.0.1</code> into branch <code>9.0</code> to keep it updated with patches.
         </p>
 
-        <pre><code>$ git branch -l | sort -V
-# ...
-8.2
-8.3
-9.0
-develop
-master
-</code></pre>
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">-l</span> <span class=
+          "kw">|</span> <span class="fu">sort</span> <span class="at">-V</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="ex">8.2</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="ex">8.3</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="ex">9.0</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="ex">develop</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class=
+"ex">master</span></span></code></pre>
+        </div>
+
         <p>
           By having your releases tagged and supplementing it with release branches, you will:
         </p>
@@ -112,7 +117,7 @@ master
         </ul>
 
         <p>
-          This may be overkill for small and personal projects, but when you're working with a team and potentially
+          This may be overkill for small and personal projects, but when you’re working with a team and potentially
           have to support multiple versions of a codebase, then this flow is easy to adopt.
         </p>
 
@@ -121,70 +126,119 @@ master
           symver format) and create the <em>[major].[minor]</em> branches for you.
         </p>
 
-        <pre><code>#!/usr/bin/env python
-#
-# Usage: `python release_branches.py`
-#   For a "dry run": `DRY_RUN=1 python release_branches.py`
-#
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="co">#!/usr/bin/env python</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class=
+"co"># Usage: `python release_branches.py`</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class=
+"co">#   For a "dry run": `DRY_RUN=1 python release_branches.py`</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a><span class="im">import</span> subprocess</span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a><span class="im">from</span> os <span class=
+"im">import</span> environ</span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a><span class=
+"im">from</span> typing <span class="im">import</span> List, Dict</span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a><span class=
+"kw">def</span> get_tag_list() <span class="op">-&gt;</span> List[<span class="bu">str</span>]:</span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a><span class=
+"co">        Get list of tags, sorted.</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a></span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>    <span class=
+"co"># Ensure tags are in vX.Y.Z format</span></span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>    mmp <span class=
+"op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"^v([0-9]+).([0-9]+).([0-9]+)$"</span>)</span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a></span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>    <span class=
+"co"># Get all tags that match the format</span></span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>    tags <span class=
+"op">=</span> subprocess.getoutput(<span class="st">" "</span>.join((<span class="st">"git"</span>, <span class=
+"st">"tag"</span>, <span class="st">"-l"</span>))).split(<span class="st">"</span><span class=
+"ch">\n</span><span class="st">"</span>)</span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>    result <span class=
+"op">=</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class=
+"kw">lambda</span> tag: (mmp.match(tag) <span class="kw">is</span> <span class="kw">not</span> <span class=
+"va">None</span>), tags))</span>
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>    result <span class=
+"op">=</span> [tag[<span class="dv">1</span>:] <span class="cf">for</span> tag <span class=
+"kw">in</span> result]</span>
+<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>    result.sort(reverse<span class=
+"op">=</span><span class="va">True</span>)</span>
+<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>    <span class=
+"cf">return</span> result</span>
+<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a></span>
+<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a></span>
+<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a><span class=
+"kw">def</span> major_minor_list(tags: List[<span class="bu">str</span>]) <span class=
+"op">-&gt;</span> Dict[<span class="bu">str</span>, <span class="bu">str</span>]:</span>
+<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a><span class=
+"co">        Create a list of major.minor versions.</span></span>
+<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-33"><a aria-hidden="true" href="#cb2-33" tabindex="-1"></a></span>
+<span id="cb2-34"><a aria-hidden="true" href="#cb2-34" tabindex="-1"></a>    mm <span class="op">=</span> {}</span>
+<span id="cb2-35"><a aria-hidden="true" href="#cb2-35" tabindex="-1"></a>    <span class=
+"cf">for</span> tag <span class="kw">in</span> tags:</span>
+<span id="cb2-36"><a aria-hidden="true" href="#cb2-36" tabindex="-1"></a>        <span class=
+"co"># Strip off patch from tag</span></span>
+<span id="cb2-37"><a aria-hidden="true" href="#cb2-37" tabindex="-1"></a>        cleaned_tag <span class=
+"op">=</span> <span class="st">"."</span>.join(tag.split(<span class="st">"."</span>)[:<span class=
+"op">-</span><span class="dv">1</span>])</span>
+<span id="cb2-38"><a aria-hidden="true" href="#cb2-38" tabindex="-1"></a>        <span class=
+"cf">if</span> cleaned_tag <span class="kw">not</span> <span class="kw">in</span> mm:</span>
+<span id="cb2-39"><a aria-hidden="true" href="#cb2-39" tabindex="-1"></a>            <span class=
+"co"># Add to dict if major.minor doesn't exist yet</span></span>
+<span id="cb2-40"><a aria-hidden="true" href="#cb2-40" tabindex="-1"></a>            mm[cleaned_tag] <span class=
+"op">=</span> tag</span>
+<span id="cb2-41"><a aria-hidden="true" href="#cb2-41" tabindex="-1"></a>    <span class="cf">return</span> mm</span>
+<span id="cb2-42"><a aria-hidden="true" href="#cb2-42" tabindex="-1"></a></span>
+<span id="cb2-43"><a aria-hidden="true" href="#cb2-43" tabindex="-1"></a></span>
+<span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a><span class=
+"kw">def</span> make_branch(branch: <span class="bu">str</span>, tag: <span class="bu">str</span>) <span class=
+"op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-46"><a aria-hidden="true" href="#cb2-46" tabindex="-1"></a><span class=
+"co">        Make a branch from a tag.</span></span>
+<span id="cb2-47"><a aria-hidden="true" href="#cb2-47" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-48"><a aria-hidden="true" href="#cb2-48" tabindex="-1"></a></span>
+<span id="cb2-49"><a aria-hidden="true" href="#cb2-49" tabindex="-1"></a>    <span class=
+"co"># Checkout tag, create branch of major.minor based on tag, push to BB</span></span>
+<span id="cb2-50"><a aria-hidden="true" href="#cb2-50" tabindex="-1"></a>    subprocess.run([<span class=
+"st">"git"</span>, <span class="st">"checkout"</span>, <span class="ss">f"v</span><span class=
+"sc">{</span>tag<span class="sc">}</span><span class="ss">"</span>])</span>
+<span id="cb2-51"><a aria-hidden="true" href="#cb2-51" tabindex="-1"></a>    subprocess.run([<span class=
+"st">"git"</span>, <span class="st">"checkout"</span>, <span class="st">"-b"</span>, branch])</span>
+<span id="cb2-52"><a aria-hidden="true" href="#cb2-52" tabindex="-1"></a>    subprocess.run([<span class=
+"st">"git"</span>, <span class="st">"push"</span>, <span class="st">"origin"</span>, branch])</span>
+<span id="cb2-53"><a aria-hidden="true" href="#cb2-53" tabindex="-1"></a></span>
+<span id="cb2-54"><a aria-hidden="true" href="#cb2-54" tabindex="-1"></a></span>
+<span id="cb2-55"><a aria-hidden="true" href="#cb2-55" tabindex="-1"></a>tags <span class=
+"op">=</span> get_tag_list()</span>
+<span id="cb2-56"><a aria-hidden="true" href="#cb2-56" tabindex="-1"></a>mm <span class=
+"op">=</span> major_minor_list(tags)</span>
+<span id="cb2-57"><a aria-hidden="true" href="#cb2-57" tabindex="-1"></a><span class=
+"cf">for</span> branch, tag <span class="kw">in</span> mm.items():</span>
+<span id="cb2-58"><a aria-hidden="true" href="#cb2-58" tabindex="-1"></a>    <span class="bu">print</span>(<span class=
+"ss">f"Making branch '</span><span class="sc">{</span>branch<span class="sc">}</span><span class=
+"ss">' based on tag of '</span><span class="sc">{</span>tag<span class="sc">}</span><span class=
+"ss">'..."</span>)</span>
+<span id="cb2-59"><a aria-hidden="true" href="#cb2-59" tabindex="-1"></a>    <span class=
+"cf">if</span> environ.get(<span class="st">'DRY_RUN'</span>) <span class="kw">is</span> <span class=
+"va">None</span>:</span>
+<span id="cb2-60"><a aria-hidden="true" href="#cb2-60" tabindex="-1"></a>        make_branch(branch, tag)</span>
+<span id="cb2-61"><a aria-hidden="true" href="#cb2-61" tabindex="-1"></a>    <span class="bu">print</span>(<span class=
+"st">"&gt;&gt; Complete"</span>)</span></code></pre>
+        </div>
 
-import subprocess
-import re
-from os import environ
-from typing import List, Dict
-
-
-def get_tag_list() -&gt; List[str]:
-    """
-        Get list of tags, sorted.
-    """
-
-    # Ensure tags are in vX.Y.Z format
-    mmp = re.compile(r"^v([0-9]+).([0-9]+).([0-9]+)$")
-
-    # Get all tags that match the format
-    tags = subprocess.getoutput(" ".join(("git", "tag", "-l"))).split("\n")
-    result = list(filter(lambda tag: (mmp.match(tag) is not None), tags))
-    result = [tag[1:] for tag in result]
-    result.sort(reverse=True)
-    return result
-
-
-def major_minor_list(tags: List[str]) -&gt; Dict[str, str]:
-    """
-        Create a list of major.minor versions.
-    """
-
-    mm = {}
-    for tag in tags:
-        # Strip off patch from tag
-        cleaned_tag = ".".join(tag.split(".")[:-1])
-        if cleaned_tag not in mm:
-            # Add to dict if major.minor doesn't exist yet
-            mm[cleaned_tag] = tag
-    return mm
-
-
-def make_branch(branch: str, tag: str) -&gt; None:
-    """
-        Make a branch from a tag.
-    """
-
-    # Checkout tag, create branch of major.minor based on tag, push to BB
-    subprocess.run(["git", "checkout", f"v{tag}"])
-    subprocess.run(["git", "checkout", "-b", branch])
-    subprocess.run(["git", "push", "origin", branch])
-
-
-tags = get_tag_list()
-mm = major_minor_list(tags)
-for branch, tag in mm.items():
-    print(f"Making branch '{branch}' based on tag of '{tag}'...")
-    if environ.get('DRY_RUN') is None:
-        make_branch(branch, tag)
-    print("&gt;&gt; Complete")
-</code></pre>
         <p>
-          Running with the <code>DRY_RUN</code> env supplied, you'll be able to see the branches it will created based
+          Running with the <code>DRY_RUN</code> env supplied, you’ll be able to see the branches it will created based
           on your existing tags before proceeding with the creation.
         </p>
 
@@ -217,7 +271,7 @@ for branch, tag in mm.items():
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

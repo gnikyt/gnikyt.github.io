@@ -87,14 +87,14 @@
         </h2>
 
         <p>
-          If you have a Blink setup at work or home, you've probably run into a common issue of getting notifications
+          If you have a Blink setup at work or home, you’ve probably run into a common issue of getting notifications
           for cameras which you do not care to have notifications for. For example, you may have six cameras recording
-          motion, but you may only care about receiving notifications for two of them; but with Blink's app, there is
+          motion, but you may only care about receiving notifications for two of them; but with Blink’s app, there is
           no way to control this.
         </p>
 
         <p>
-          It's all or nothing with Blink. This is because (at time of writing), Blink uses a single channel to push
+          It’s all or nothing with Blink. This is because (at time of writing), Blink uses a single channel to push
           notifications to called <code>Motion detection</code>. Because of this, you are unable to silence
           notifications for specific cameras, you only have the option of silencing the whole notification channel,
           which would leave you without <strong>any</strong> motion notifications to your device.
@@ -110,7 +110,7 @@
 
         <p>
           Since an update earlier this year, Amazon has added a snooze feature displayed as an icon next to each
-          camera's name.
+          camera’s name.
         </p>
 
         <p>
@@ -119,13 +119,13 @@
 
         <p>
           This seemed like a viable solution on the surface, but in practice, it fails. Even with selecting 4 hours, it
-          appears to be bugged... I would get notifications just 20 minutes later, but the snooze icon would still be
+          appears to be bugged… I would get notifications just 20 minutes later, but the snooze icon would still be
           active. Additionally, repeating this action for every camera, every 4 hours, was a little annoying.
         </p>
 
         <p>
-          Given it was buggy and was not automated, I abandoned this as a solution. Plus, why couldn't Amazon add a
-          <em>"Until I turn off"</em> option to the list of times? That would be an ideal built-in solution.
+          Given it was buggy and was not automated, I abandoned this as a solution. Plus, why couldn’t Amazon add a
+          <em>“Until I turn off”</em> option to the list of times? That would be an ideal built-in solution.
         </p>
 
         <h3 id="macrodroid">
@@ -135,7 +135,7 @@
         <p>
           I previously installed an app called <a href=
           "https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid&amp;hl=en_CA&amp;gl=US&amp;pli=1">Macrodroid</a>,
-          for automating some "Do Not Disturb" rules.
+          for automating some “Do Not Disturb” rules.
         </p>
 
         <p>
@@ -162,7 +162,7 @@
           Setup
         </h4>
 
-        <ol>
+        <ol type="1">
           <li>Install Macrodroid
           </li>
 
@@ -193,14 +193,14 @@
             <code>Motion detected at your [CAMERA_NAME]</code>
           </li>
 
-          <li>Replace <code>[CAMERA NAME]</code> with the camera's name
+          <li>Replace <code>[CAMERA NAME]</code> with the camera’s name
           </li>
 
           <li>Example: <code>Motion detected at your Porch</code>
           </li>
         </ul>
 
-        <ol>
+        <ol start="9" type="1">
           <li>Save, then in the <strong>Actions</strong> panel, click the <strong>+</strong> icon
           </li>
 
@@ -222,14 +222,14 @@
             <code>Motion detected at your [CAMERA_NAME]</code>
           </li>
 
-          <li>Replace <code>[CAMERA NAME]</code> with the camera's name
+          <li>Replace <code>[CAMERA NAME]</code> with the camera’s name
           </li>
 
           <li>Example: <code>Motion detected at your Porch</code>
           </li>
         </ul>
 
-        <ol>
+        <ol start="14" type="1">
           <li>Check off <strong>Ignore ongoing notifications</strong>
           </li>
 
@@ -245,13 +245,16 @@
           Once configured, your macro should be similar to this:
         </p>
 
-        <p>
+        <figure>
           <img alt="Macro" src="/assets/images/posts/blink.png">
-        </p>
+          <figcaption aria-hidden="true">
+            Macro
+          </figcaption>
+        </figure>
 
         <p>
           You can additionally use regular expressions on the text contains input to apply it to multiple camera names,
-          or you can duplicate the macro and change the text contains for each camera... both options work fine in my
+          or you can duplicate the macro and change the text contains for each camera… both options work fine in my
           testing.
         </p>
 
@@ -294,7 +297,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

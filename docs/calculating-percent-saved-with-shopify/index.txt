@@ -10,16 +10,14 @@
    help to driving them towards a purchase. This is a simple snippet and
    guide to help you achieve this functionality in your Shopify stores.
 
-   First, to calculate the percentage saved, letʼs look at the basic math
+   First, to calculate the percentage saved, let’s look at the basic math
    for this in plain text.
-
-   percent saved = ((old price - new price) / old price) * 100
+percent saved = ((old price - new price) / old price) * 100
 
    If we were to replace the values with some real numbers we can see the
    result:
-
-   ((231.99 - 200.00) / 231.99) * 100 = 13.789 A savings of about 14% when
-   rounded up
+((231.99 - 200.00) / 231.99) * 100 = 13.789
+A savings of about 14% when rounded up
 
 The Snippet
 
@@ -50,18 +48,17 @@ Usage
 
 {% raw %}
 {% if product.price_min < product.compare_at_price_min %}
-  Old price {{ product.compare_at_price_min | money }} &ndash; {% include ʼperce
-nt-savingsʼ, price: product.price, compare_price: product.compare_at_price_min %
+  Old price {{ product.compare_at_price_min | money }} &ndash; {% include 'perce
+nt-savings', price: product.price, compare_price: product.compare_at_price_min %
 } savings!
 {% endif %}
 {% endraw %}
 
    With the above example, if a product was $15.99 and is now $11.99 you
    should see it display:
+Old price $15.99 - 25% savings!
 
-   Old price $15.99 - 25% savings!
-
-   Thatʼs all - Happy coding!
+   That’s all - Happy coding!
 
    [3]MD | [4]TXT | [5]CC-4.0
 

@@ -82,7 +82,7 @@
         <p>
           <a href="https://lumen.laravel.com/">Lumen</a> is a micro-framework built by Laravel. Its geared towards
           small services like APIs, job handling, or very small projects. Laravel is all-inclusive, whereas Lumen is
-          more bare-bones but moderately featured; however, it doesn't feel as lean as something like Slim.
+          more bare-bones but moderately featured; however, it doesn’t feel as lean as something like Slim.
         </p>
 
         <h2 id="setting-up-mailing">
@@ -96,7 +96,7 @@
         </p>
 
         <p>
-          One issue I ran into was mailing, it's not enabled by default in Lumen, and there are many posts throughout
+          One issue I ran into was mailing, it’s not enabled by default in Lumen, and there are many posts throughout
           Google of people attempting to set it up. There are also many outdated ways which only worked for the old
           version of Lumen.
         </p>
@@ -115,7 +115,7 @@
 
         <p>
           Next, open <code>bootstrap/app.php</code>, find
-          <code>$app-&gt;register(AppProvidersAppServiceProvider::class);</code> and uncomment it, if not already.
+          <code>$app-&gt;register(App\Providers\AppServiceProvider::class);</code> and uncomment it, if not already.
         </p>
 
         <p>
@@ -126,30 +126,46 @@
           At the bottom of the <code>register</code> method, paste in the following:
         </p>
 
-        <pre><code>&lt;?php
-// ...
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="co">// Init mailer</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;singleton(</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>    <span class="st">'mailer'</span><span class=
+"ot">,</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>    <span class=
+"kw">function</span> (<span class="va">$app</span>) {</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>        <span class=
+"cf">return</span> <span class="va">$app</span>-&gt;loadComponent(<span class="st">'mail'</span><span class=
+"ot">,</span> <span class="st">'Illuminate\Mail\MailServiceProvider'</span><span class="ot">,</span> <span class=
+"st">'mailer'</span>)<span class="ot">;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>    }</span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>)<span class="ot">;</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="co">// Aliases</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;alias(<span class="st">'mailer'</span><span class="ot">,</span> \<span class=
+"cn">I</span>lluminate\<span class="cn">C</span>ontracts\<span class="fu">Mail</span>\<span class=
+"cn">M</span>ailer::<span class="kw">class</span>)<span class="ot">;</span></span></code></pre>
+        </div>
 
-// Init mailer
-$this-&gt;app-&gt;singleton(
-    'mailer',
-    function ($app) {
-        return $app-&gt;loadComponent('mail', 'Illuminate\Mail\MailServiceProvider', 'mailer');
-    }
-);
-
-// Aliases
-$this-&gt;app-&gt;alias('mailer', \Illuminate\Contracts\Mail\Mailer::class);
-</code></pre>
         <p>
           To make mailing queue-able and able to be processed in the background, simply add:
         </p>
 
-        <pre><code>&lt;?php
-// ...
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class="co">// Enable queues</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;make(<span class="st">'queue'</span>)<span class="ot">;</span>  </span></code></pre>
+        </div>
 
-// Enable queues
-$this-&gt;app-&gt;make('queue');  
-</code></pre>
         <p>
           And see my Lumen Redis tutorial to setup Redis for processing.
         </p>
@@ -158,30 +174,45 @@ $this-&gt;app-&gt;make('queue');
           Next, setup the basic config <code>config/mail.php</code>:
         </p>
 
-        <pre><code>&lt;?php
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class="cf">return</span> [</span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>    <span class=
+"st">'driver'</span> =&gt; env(<span class="st">'MAIL_DRIVER'</span>)<span class="ot">,</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>    <span class=
+"st">'host'</span> =&gt; env(<span class="st">'MAIL_HOST'</span>)<span class="ot">,</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class=
+"st">'port'</span> =&gt; env(<span class="st">'MAIL_PORT'</span>)<span class="ot">,</span></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>    <span class=
+"st">'from'</span> =&gt; [</span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>        <span class=
+"st">'address'</span> =&gt; env(<span class="st">'MAIL_FROM_ADDRESS'</span>)<span class="ot">,</span></span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a>        <span class=
+"st">'name'</span> =&gt; env(<span class="st">'MAIL_FROM_NAME'</span>)<span class="ot">,</span></span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>    ]<span class="ot">,</span></span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>    <span class=
+"st">'encryption'</span> =&gt; env(<span class="st">'MAIL_ENCRYPTION'</span>)<span class="ot">,</span></span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>    <span class=
+"st">'username'</span> =&gt; env(<span class="st">'MAIL_USERNAME'</span>)<span class="ot">,</span></span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a>    <span class=
+"st">'password'</span> =&gt; env(<span class="st">'MAIL_PASSWORD'</span>)<span class="ot">,</span></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>    <span class=
+"st">'markdown'</span> =&gt; [</span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>        <span class=
+"st">'theme'</span> =&gt; <span class="st">'default'</span><span class="ot">,</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>        <span class=
+"st">'paths'</span> =&gt; [</span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a>            resource_path(<span class=
+"st">'views/vendor/mail'</span>)<span class="ot">,</span></span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>        ]<span class="ot">,</span></span>
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>    ]<span class="ot">,</span></span>
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a>]<span class="ot">;</span></span></code></pre>
+        </div>
 
-return [
-    'driver' &amp;ge; env('MAIL_DRIVER'),
-    'host' &amp;ge; env('MAIL_HOST'),
-    'port' &amp;ge; env('MAIL_PORT'),
-    'from' &amp;ge; [
-        'address' &amp;ge; env('MAIL_FROM_ADDRESS'),
-        'name' &amp;ge; env('MAIL_FROM_NAME'),
-    ],
-    'encryption' &amp;ge; env('MAIL_ENCRYPTION'),
-    'username' &amp;ge; env('MAIL_USERNAME'),
-    'password' &amp;ge; env('MAIL_PASSWORD'),
-    'markdown' &amp;ge; [
-        'theme' &amp;ge; 'default',
-        'paths' &amp;ge; [
-            resource_path('views/vendor/mail'),
-        ],
-    ],
-];
-
-</code></pre>
         <p>
-          That's it, you're done the setup! Don't forget to set up your environment variables for production.
+          That’s it, you’re done the setup! Don’t forget to set up your environment variables for production.
         </p>
 
         <h3 id="creating-a-mailer">
@@ -189,66 +220,109 @@ return [
         </h3>
 
         <p>
-          Now that we're setup, you can create a mailer in <code>app/Mail/</code>, here's an example to go by
+          Now that we’re setup, you can create a mailer in <code>app/Mail/</code>, here’s an example to go by
           (<code>app/Mail/Winnings</code>):
         </p>
 
-        <pre><code>&lt;?php namespace App\Mail;
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span> <span class="kw">namespace</span> <span class=
+          "cn">A</span>pp\<span class="fu">Mail</span><span class="ot">;</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">I</span>lluminate\<span class="cn">B</span>us\<span class="cn">Q</span>ueueable<span class="ot">;</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">I</span>lluminate\<span class="fu">Mail</span>\<span class="cn">M</span>ailable<span class="ot">;</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">I</span>lluminate\<span class="cn">Q</span>ueue\<span class="cn">S</span>erializesModels<span class=
+"ot">;</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a><span class="kw">class</span> <span class=
+"cn">W</span>innings <span class="kw">extends</span> <span class="cn">M</span>ailable</span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>{</span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a>    <span class="kw">use</span> <span class=
+"cn">Q</span>ueueable<span class="ot">,</span> <span class="cn">S</span>erializesModels<span class="ot">;</span></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a>    <span class="co">/** </span><span class=
+"an">@var</span><span class="co"> </span><span class="do">string</span><span class="co"> </span><span class=
+"do">the</span><span class="co"> </span><span class="do">address</span><span class="co"> </span><span class=
+"do">to</span><span class="co"> </span><span class="do">send</span><span class="co"> </span><span class=
+"do">the</span><span class="co"> </span><span class="do">email</span><span class="co"> */</span></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a>    <span class=
+"kw">protected</span> <span class="va">$to_address</span><span class="ot">;</span></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a>    <span class="co">/** </span><span class=
+"an">@var</span><span class="co"> </span><span class="do">float</span><span class="co"> </span><span class=
+"do">the</span><span class="co"> </span><span class="do">winnings</span><span class="co"> </span><span class=
+"do">they</span><span class="co"> </span><span class="do">won</span><span class="co"> */</span></span>
+<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a>    <span class=
+"kw">protected</span> <span class="va">$winnings</span><span class="ot">;</span></span>
+<span id="cb4-16"><a aria-hidden="true" href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb4-18"><a aria-hidden="true" href="#cb4-18" tabindex="-1"></a><span class=
+"co">     * Create a new message instance.</span></span>
+<span id="cb4-19"><a aria-hidden="true" href="#cb4-19" tabindex="-1"></a><span class="co">     *</span></span>
+<span id="cb4-20"><a aria-hidden="true" href="#cb4-20" tabindex="-1"></a><span class="co">     * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">string</span><span class=
+"co"> $to_address the address to send the email</span></span>
+<span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a><span class="co">     * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">float</span><span class=
+"co"> $winnings   the winnings they won</span></span>
+<span id="cb4-22"><a aria-hidden="true" href="#cb4-22" tabindex="-1"></a><span class="co">     * </span></span>
+<span id="cb4-23"><a aria-hidden="true" href="#cb4-23" tabindex="-1"></a><span class="co">     * </span><span class=
+"an">@return</span><span class="co"> void</span></span>
+<span id="cb4-24"><a aria-hidden="true" href="#cb4-24" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb4-25"><a aria-hidden="true" href="#cb4-25" tabindex="-1"></a>    <span class=
+"kw">public</span> <span class="kw">function</span> <span class="bu">__construct</span>(<span class=
+"va">$to_address</span><span class="ot">,</span> <span class="va">$winnings</span>)</span>
+<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a>    {</span>
+<span id="cb4-27"><a aria-hidden="true" href="#cb4-27" tabindex="-1"></a>        <span class=
+"va">$this</span>-&gt;to_address <span class="op">=</span> <span class="va">$to_address</span><span class=
+"ot">;</span></span>
+<span id="cb4-28"><a aria-hidden="true" href="#cb4-28" tabindex="-1"></a>        <span class=
+"va">$this</span>-&gt;winnings <span class="op">=</span> <span class="va">$winnings</span><span class=
+"ot">;</span></span>
+<span id="cb4-29"><a aria-hidden="true" href="#cb4-29" tabindex="-1"></a>    }</span>
+<span id="cb4-30"><a aria-hidden="true" href="#cb4-30" tabindex="-1"></a></span>
+<span id="cb4-31"><a aria-hidden="true" href="#cb4-31" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb4-32"><a aria-hidden="true" href="#cb4-32" tabindex="-1"></a><span class=
+"co">     * Build the message.</span></span>
+<span id="cb4-33"><a aria-hidden="true" href="#cb4-33" tabindex="-1"></a><span class="co">     *</span></span>
+<span id="cb4-34"><a aria-hidden="true" href="#cb4-34" tabindex="-1"></a><span class="co">     * </span><span class=
+"an">@return</span><span class="co"> $this</span></span>
+<span id="cb4-35"><a aria-hidden="true" href="#cb4-35" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb4-36"><a aria-hidden="true" href="#cb4-36" tabindex="-1"></a>    <span class=
+"kw">public</span> <span class="kw">function</span> build()</span>
+<span id="cb4-37"><a aria-hidden="true" href="#cb4-37" tabindex="-1"></a>    {</span>
+<span id="cb4-38"><a aria-hidden="true" href="#cb4-38" tabindex="-1"></a>        <span class=
+"cf">return</span> <span class="va">$this</span></span>
+<span id="cb4-39"><a aria-hidden="true" href="#cb4-39" tabindex="-1"></a>            -&gt;to(<span class=
+"va">$this</span>-&gt;to_address)</span>
+<span id="cb4-40"><a aria-hidden="true" href="#cb4-40" tabindex="-1"></a>            -&gt;subject(<span class=
+"st">'Your winnings!'</span>)</span>
+<span id="cb4-41"><a aria-hidden="true" href="#cb4-41" tabindex="-1"></a>            -&gt;view(<span class=
+"st">'emails.winnings'</span>)</span>
+<span id="cb4-42"><a aria-hidden="true" href="#cb4-42" tabindex="-1"></a>            -&gt;with(</span>
+<span id="cb4-43"><a aria-hidden="true" href="#cb4-43" tabindex="-1"></a>                [</span>
+<span id="cb4-44"><a aria-hidden="true" href="#cb4-44" tabindex="-1"></a>                    <span class=
+"st">'winnings'</span> =&gt; <span class="va">$this</span>-&gt;winnings</span>
+<span id="cb4-45"><a aria-hidden="true" href="#cb4-45" tabindex="-1"></a>                ]</span>
+<span id="cb4-46"><a aria-hidden="true" href="#cb4-46" tabindex="-1"></a>            )<span class="ot">;</span></span>
+<span id="cb4-47"><a aria-hidden="true" href="#cb4-47" tabindex="-1"></a>    }</span>
+<span id="cb4-48"><a aria-hidden="true" href="#cb4-48" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
-
-class Winnings extends Mailable
-{
-    use Queueable, SerializesModels;
-
-    /** @var string the address to send the email */
-    protected $to_address;
-
-    /** @var float the winnings they won */
-    protected $winnings;
-
-    /**
-     * Create a new message instance.
-     *
-     * @param string $to_address the address to send the email
-     * @param float $winnings   the winnings they won
-     * 
-     * @return void
-     */
-    public function __construct($to_address, $winnings)
-    {
-        $this-&gt;to_address = $to_address;
-        $this-&gt;winnings = $winnings;
-    }
-
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this
-            -&gt;to($this-&gt;to_address)
-            -&gt;subject('Your winnings!')
-            -&gt;view('emails.winnings')
-            -&gt;with(
-                [
-                    'winnings' &amp;ge; $this-&gt;winnings
-                ]
-            );
-    }
-}
-
-</code></pre>
         <p>
           Now, create a view, <code>resources/views/emails/winnings.blade.php</code> for simply HTML-only,:
         </p>
 
-        <pre><code>{% raw %}&lt;strong&gt;You won {{ $winnings }}&lt;/strong&gt;!{% endraw %}
-</code></pre>
+        <div class="sourceCode" id="cb5">
+          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a aria-hidden="true" href=
+          "#cb5-1" tabindex="-1"></a>{% raw %}<span class="dt">&lt;</span><span class="kw">strong</span><span class=
+          "dt">&gt;</span>You won {{ $winnings }}<span class="dt">&lt;/</span><span class="kw">strong</span><span class=
+          "dt">&gt;</span>!{% endraw %}</span></code></pre>
+        </div>
+
         <h2 id="sending-mail">
           Sending Mail
         </h2>
@@ -258,22 +332,31 @@ class Winnings extends Mailable
           need it:
         </p>
 
-        <pre><code>&lt;?php
-use App\Mail\Winnings as WinningsMail;
+        <div class="sourceCode" id="cb6">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a aria-hidden="true" href="#cb6-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">A</span>pp\<span class="fu">Mail</span>\<span class="cn">W</span>innings <span class="kw">as</span> <span class=
+"cn">W</span>inningsMail<span class="ot">;</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a><span class=
+"co">// $to_email = 'john@doe.com'; $winnings = 130.00;</span></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a><span class="fu">Mail</span>::send(</span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a>    <span class="kw">new</span> <span class=
+"cn">W</span>inningsMail(</span>
+<span id="cb6-9"><a aria-hidden="true" href="#cb6-9" tabindex="-1"></a>        <span class=
+"va">$to_email</span><span class="ot">,</span></span>
+<span id="cb6-10"><a aria-hidden="true" href="#cb6-10" tabindex="-1"></a>        <span class=
+"va">$winnings</span></span>
+<span id="cb6-11"><a aria-hidden="true" href="#cb6-11" tabindex="-1"></a>    )</span>
+<span id="cb6-12"><a aria-hidden="true" href="#cb6-12" tabindex="-1"></a>)<span class="ot">;</span></span></code></pre>
+        </div>
 
-// ...
-// $to_email = 'john@doe.com'; $winnings = 130.00;
-
-Mail::send(
-    new WinningsMail(
-        $to_email,
-        $winnings
-    )
-);
-</code></pre>
         <p>
-          If you're queuing mail, replace <code>send</code> with <code>queue</code>. You can also see <a href=
-          "https://laravel.com/docs/5.5/mail#sending-mail">Laravel's mail documentation</a> for more information on
+          If you’re queuing mail, replace <code>send</code> with <code>queue</code>. You can also see <a href=
+          "https://laravel.com/docs/5.5/mail#sending-mail">Laravel’s mail documentation</a> for more information on
           sending.
         </p>
 
@@ -285,32 +368,52 @@ Mail::send(
           Of course, we need to test (<code>tests/WinningsMailTest.php</code>):
         </p>
 
-        <pre><code>&lt;?php
+        <div class="sourceCode" id="cb7">
+          <pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1"
+          tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">A</span>pp\<span class="fu">Mail</span>\<span class="cn">W</span>innings<span class="ot">;</span></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a><span class="kw">use</span> <span class=
+"cn">I</span>lluminate\<span class="cn">S</span>upport\<span class="cn">F</span>acades\<span class=
+"fu">Mail</span><span class="ot">;</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a><span class="kw">class</span> <span class=
+"cn">W</span>inningsMailTest <span class="kw">extends</span> <span class="cn">T</span>estCase</span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a>{</span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a>    <span class="kw">public</span> <span class=
+"kw">function</span> testItWorks()</span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a>    {</span>
+<span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a>        <span class=
+"fu">Mail</span>::fake()<span class="ot">;</span></span>
+<span id="cb7-11"><a aria-hidden="true" href="#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a>        <span class=
+"fu">Mail</span>::send(</span>
+<span id="cb7-13"><a aria-hidden="true" href="#cb7-13" tabindex="-1"></a>            (<span class=
+"kw">new</span> <span class="cn">W</span>innings(<span class="st">'john@doe.com'</span><span class=
+"ot">,</span> <span class="fl">15.00</span>))-&gt;build()</span>
+<span id="cb7-14"><a aria-hidden="true" href="#cb7-14" tabindex="-1"></a>        )<span class="ot">;</span></span>
+<span id="cb7-15"><a aria-hidden="true" href="#cb7-15" tabindex="-1"></a></span>
+<span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a>        <span class=
+"fu">Mail</span>::assertSent(<span class="cn">W</span>innings::<span class="kw">class</span><span class=
+"ot">,</span> <span class="kw">function</span> (<span class="va">$mail</span>) {</span>
+<span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a>            <span class=
+"cf">return</span> <span class="va">$mail</span>-&gt;hasTo(<span class="st">'john@doe.com'</span>) <span class=
+"op">&amp;&</span></span>
+<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>                   <span class=
+"va">$mail</span>-&gt;subject <span class="op">===</span> <span class="st">'Your winnings!'</span> <span class=
+"op">&amp;&</span></span>
+<span id="cb7-19"><a aria-hidden="true" href="#cb7-19" tabindex="-1"></a>                   <span class=
+"va">$mail</span>-&gt;viewData[<span class="st">'winnings'</span>] <span class="op">===</span> <span class=
+"fl">15.00</span><span class="ot">;</span></span>
+<span id="cb7-20"><a aria-hidden="true" href="#cb7-20" tabindex="-1"></a>        })<span class="ot">;</span></span>
+<span id="cb7-21"><a aria-hidden="true" href="#cb7-21" tabindex="-1"></a>    }</span>
+<span id="cb7-22"><a aria-hidden="true" href="#cb7-22" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-use App\Mail\Winnings;
-use Illuminate\Support\Facades\Mail;
-
-class WinningsMailTest extends TestCase
-{
-    public function testItWorks()
-    {
-        Mail::fake();
-
-        Mail::send(
-            (new Winnings('john@doe.com', 15.00))-&gt;build()
-        );
-
-        Mail::assertSent(Winnings::class, function ($mail) {
-            return $mail-&gt;hasTo('john@doe.com') &amp;&
-                   $mail-&gt;subject === 'Your winnings!' &amp;&
-                   $mail-&gt;viewData['winnings'] === 15.00;
-        });
-    }
-}
-</code></pre>
         <p>
           Running the tests should pass if everything is set up correctly. For more information on testing mailables,
-          see <a href="https://laravel.com/docs/5.5/mocking#mail-fake">Laravel's documentation on faking</a>.
+          see <a href="https://laravel.com/docs/5.5/mocking#mail-fake">Laravel’s documentation on faking</a>.
         </p>
 
         <p>
@@ -346,7 +449,7 @@ class WinningsMailTest extends TestCase
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -15,7 +15,7 @@ Plugins & Reactivity
    [3]Plugins in Vue, allow you to extract code into a reusable module.
    The plugins allow you to create global mixins, methods, properties, and
    more. It has the added benefit of keeping your code modularized, clean,
-   and doesnʼt pollute your appʼs main instance.
+   and doesn’t pollute your app’s main instance.
 
    [4]Reactivity in Vue is simply a way of describing something that
    watches for changes in state/data and reacts to it. Vue watches for
@@ -25,21 +25,22 @@ Plugins & Reactivity
 Use Case
 
    As mentioned, creating plugins can keep your code modularized and your
-   main app instance clean. There could be many reasons youʼd need a
+   main app instance clean. There could be many reasons you’d need a
    plugin to track data (be reactive).
 
-   One example is if youʼre depending on a third-party service for data.
+   One example is if you’re depending on a third-party service for data.
    You need to request this data, process it, save it, and display it.
    This takes time. By the time the request is completed your Vue instance
    may be rendered and your data will not display.
 
 Building
 
-   Letʼs build a sports ticker to show the latest score result from some
+   Let’s build a sports ticker to show the latest score result from some
    sports teams.
 
-   The key to making your data reactive in your plugin is simple... create
-   a new Vue instance that holds the data.
+   The key to making your data reactive in your plugin is simple… create a
+   new Vue instance that holds the data.
+
 // plugins/sports-ticker.js
 
 /**
@@ -82,9 +83,9 @@ class SportsTicker {
    * Simple fetch to grab the data
    */
   fetchData() {
-    fetch(`https://some-api.com/games//last`)
-      .then(resp &ge; resp.json())
-      .then((data) &ge; {
+    fetch(`https://some-api.com/games/${this.team}/last`)
+      .then(resp => resp.json())
+      .then((data) => {
         this.state.gameTime = data.game_time;
         this.state.score = {
           home: data.home_score,
@@ -101,7 +102,7 @@ export default {
    * @param {Vue} Vue - Vue instance
    * @param {Object} options - Options for the plugin
    */
-  install: (Vue, options = {}) &ge; {
+  install: (Vue, options = {}) => {
     Vue.prototype.$SportsTicker = new SportsTicker(
       Vue,
       options.team
@@ -109,13 +110,12 @@ export default {
   },
 };
 
-// Usage: import SportsTicker from ʼplugins/sports-ticketʼ; Vue.use(SportsTicker
+// Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker
 );
 
+   That’s all that’s to it.
 
-   Thatʼs all thatʼs to it.
-
-   What weʼve done is created a class to keep our logic separate from the
+   What we’ve done is created a class to keep our logic separate from the
    Vue plugin installation code. Then, we register the plugin with the
    options (in this case, just the team name). In the SportsTicker class,
    we create a new Vue instance with its own data store filled with
@@ -124,9 +124,10 @@ export default {
    data, process it, and write it back to our Vue instance.
 
    With all this in play, our data is now reactive.
+
 <template v-if="$SportsTicker.state.gameTime">
   {% raw %}
-  {{ $SportsTicker.state.team }}ʼs last game results: {{ $SportsTicker.state.sco
+  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.sco
 re.home }} - {{ $SportsTicker.state.score.away }}
   {% endraw %}
 </template>
@@ -164,6 +165,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://vuejs.org/v2/guide/plugins.html
@@ -176,3 +178,80 @@ References
   10. /about
   11. /assets/files/cv.pdf
   12. /rss.xml
+
+   Hidden links:
+  14. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-1
+  15. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-2
+  16. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-3
+  17. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-4
+  18. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-5
+  19. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-6
+  20. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-7
+  21. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-8
+  22. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-9
+  23. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-10
+  24. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-11
+  25. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-12
+  26. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-13
+  27. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-14
+  28. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-15
+  29. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-16
+  30. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-17
+  31. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-18
+  32. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-19
+  33. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-20
+  34. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-21
+  35. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-22
+  36. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-23
+  37. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-24
+  38. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-25
+  39. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-26
+  40. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-27
+  41. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-28
+  42. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-29
+  43. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-30
+  44. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-31
+  45. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-32
+  46. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-33
+  47. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-34
+  48. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-35
+  49. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-36
+  50. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-37
+  51. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-38
+  52. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-39
+  53. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-40
+  54. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-41
+  55. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-42
+  56. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-43
+  57. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-44
+  58. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-45
+  59. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-46
+  60. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-47
+  61. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-48
+  62. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-49
+  63. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-50
+  64. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-51
+  65. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-52
+  66. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-53
+  67. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-54
+  68. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-55
+  69. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-56
+  70. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-57
+  71. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-58
+  72. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-59
+  73. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-60
+  74. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-61
+  75. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-62
+  76. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-63
+  77. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-64
+  78. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-65
+  79. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-66
+  80. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-67
+  81. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-68
+  82. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-69
+  83. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb1-70
+  84. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb2-1
+  85. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb2-2
+  86. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb2-3
+  87. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb2-4
+  88. localhost/tmp/lynxXXXXxnQcdg/L3276325-4317TMP.html#cb2-5

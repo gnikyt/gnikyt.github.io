@@ -9,11 +9,11 @@
 Introduction
 
    Shopify has (once again) changed up their app framework and templates.
-   This time, theyʼre utilizing Remix which is a React-based web
+   This time, they’re utilizing Remix which is a React-based web
    framework, and Prisma which is an ORM.
 
    Recently, I developed a large loyalty application utlizing the new
-   framework. Because this app is critical to the merchantʼs shop, I
+   framework. Because this app is critical to the merchant’s shop, I
    wanted to ensure the business logic was working correctly.
 
    For my needs, I wanted to do both unit tests on specific code and
@@ -23,6 +23,7 @@ Introduction
 
    With Prisma, you can mock the database returns from Prisma (example
    findMany) out of the box [3]for unit tests.
+
 const record = {
   id: 1,
   title: "Example",
@@ -56,15 +57,17 @@ Testing Setup
 /* package.json */
 "test": "jest",
 "test:coverage": "jest --coverage",
-"test⭐generate": "prisma generate",
-"test⭐deploy": "prisma migrate deploy",
-"test⭐reset": "prisma db push --force-reset --accept-data-loss --skip-generate"
+"test:db:generate": "prisma generate",
+"test:db:deploy": "prisma migrate deploy",
+"test:db:reset": "prisma db push --force-reset --accept-data-loss --skip-generat
+e"
 
    These commands will be utilized later.
 
   Jest
 
    Open (or create) jest.config.js and input:
+
 /* jest.config.js */
 module.exports = {
   preset: "ts-jest",
@@ -95,6 +98,7 @@ Mocks Setup
     mocks.prisma.ts
 
    Create a file app/mocks.prisma.ts with the following contents:
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { afterAll, afterEach, beforeEach } from "@jest/globals";
 import type { PrismaClient } from "@prisma/client";
@@ -126,10 +130,10 @@ function npm(script: string) {
  */
 async function createDatabase(client: PrismaClient) {
   if (!existsSync(typesPath)) {
-    npm("test⭐generate");
+    npm("test:db:generate");
   }
 
-  npm("test⭐deploy");
+  npm("test:db:deploy");
   await client.$connect();
 }
 
@@ -145,9 +149,9 @@ async function destroyDatabase(client: PrismaClient) {
   // Remove database
   try {
     const dbPath = (process.env.DATABASE_URL as string).replace("file:", "");
-    await Promise.allSettled([unlink(dbPath), unlink(`-journal`)]);
+    await Promise.allSettled([unlink(dbPath), unlink(`${dbPath}-journal`)]);
   } catch (e) {
-    // Do nothing, we donʼt care
+    // Do nothing, we don't care
   }
 }
 
@@ -155,7 +159,7 @@ async function destroyDatabase(client: PrismaClient) {
  * Resets the database in between each test.
  */
 // function resetDatabase() {
-//   npm("test⭐reset");
+//   npm("test:db:reset");
 // }
 
 /**
@@ -180,14 +184,14 @@ function seedDatabase(client: PrismaClient) {
  * To be used on test suites which need this Prisma setup.
  */
 export function prismaHooks(client: PrismaClient) {
-  beforeEach(async () &ge; {
+  beforeEach(async () => {
     await createDatabase(client);
     await seedDatabase(client);
   });
-  afterEach(() &ge; destroyDatabase(client));
+  afterEach(() => destroyDatabase(client));
 }
 
-   What this file does is utilizeʼs Jestʼs global hooks (beforeAll,
+   What this file does is utilize’s Jest’s global hooks (beforeAll,
    afterAll, etc) to setup and teardown the database for each test suite,
    if you invoke prismaHooks.
 
@@ -198,8 +202,9 @@ export function prismaHooks(client: PrismaClient) {
 
   db.server.ts
 
-   Create a file app/mocks/db.server.ts with the following content. This
-   will be used by Jest to replace app/db.server.ts with this file.
+   Create a file app/__mocks__/db.server.ts with the following content.
+   This will be used by Jest to replace app/db.server.ts with this file.
+
 import { PrismaClient } from "@prisma/client";
 import * as path from "path";
 
@@ -208,7 +213,7 @@ const dbPath = path.resolve(__dirname, "..", "..", "prisma", `test-${new Date().
 getTime()}.sqlite`);
 
 // Set database URL override
-process.env.DATABASE_URL = `file:`;
+process.env.DATABASE_URL = `file:${dbPath}`;
 
 // Prisma client
 const prisma = new PrismaClient();
@@ -224,6 +229,7 @@ export default prisma;
 
    Create a file app/mocks.ts with the following contents to tell Jest to
    use the mock Prisma setup.
+
 /* app/mocks.ts */
 import { jest } from "@jest/globals";
 
@@ -232,6 +238,7 @@ jest.mock("./db.server");
 Usage
 
    You are now ready to do integration tests!
+
 /* app/order/processor.test.ts */
 import { describe, expect, it } from "@jest/globals";
 import db from "../db.server";
@@ -241,11 +248,11 @@ import { ShopifyClient, ShopifyFixture } from "../mocks.clients";
 
 /* just an example... */
 
-describe("order processor", () &ge; {
+describe("order processor", () => {
   // Add our hooks for this suite
   prismaMocks(db);
 
-  it("should insert order", async () &ge; {
+  it("should insert order", async () => {
     const orderId = OrderId("gid://shopify/Order/1");
     const customerId = CustomerId("gid://shopify/Customer/1");
     const product1 = ProductId("gid://shopify/Product/1");
@@ -297,6 +304,7 @@ describe("order processor", () &ge; {
 });
 
    Now, running npm run test will give us a testing result!
+
 npm run test
 
 > test:coverage
@@ -322,7 +330,7 @@ Tests running slow?
     2. runInBand flag: Add --runInBand which runs test in sync, example:
        npm run test -- --runInBand
     3. Remove ts-node: ts-node is slow, you can try swapping to swc with
-       itʼs Jest support
+       it’s Jest support
 
    My app is fairly chunky, and in my testing of speeds the results are as
    followed:
@@ -353,6 +361,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
@@ -364,3 +373,203 @@ References
    9. /about
   10. /assets/files/cv.pdf
   11. /rss.xml
+
+   Hidden links:
+  13. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-1
+  14. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-2
+  15. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-3
+  16. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-4
+  17. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-5
+  18. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-6
+  19. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-7
+  20. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-8
+  21. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-9
+  22. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-10
+  23. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-11
+  24. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb1-12
+  25. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb3-1
+  26. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb3-2
+  27. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb3-3
+  28. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb3-4
+  29. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb3-5
+  30. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb3-6
+  31. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-1
+  32. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-2
+  33. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-3
+  34. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-4
+  35. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-5
+  36. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-6
+  37. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-7
+  38. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-8
+  39. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-9
+  40. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-10
+  41. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-11
+  42. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-12
+  43. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-13
+  44. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-14
+  45. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-15
+  46. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-16
+  47. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-17
+  48. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-18
+  49. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-19
+  50. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-20
+  51. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-21
+  52. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-22
+  53. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-23
+  54. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-24
+  55. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-25
+  56. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-26
+  57. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-27
+  58. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-28
+  59. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-29
+  60. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-30
+  61. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-31
+  62. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-32
+  63. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-33
+  64. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-34
+  65. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-35
+  66. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-36
+  67. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-37
+  68. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-38
+  69. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-39
+  70. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-40
+  71. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-41
+  72. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-42
+  73. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-43
+  74. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-44
+  75. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-45
+  76. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-46
+  77. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-47
+  78. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-48
+  79. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-49
+  80. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-50
+  81. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-51
+  82. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-52
+  83. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-53
+  84. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-54
+  85. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-55
+  86. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-56
+  87. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-57
+  88. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-58
+  89. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-59
+  90. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-60
+  91. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-61
+  92. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-62
+  93. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-63
+  94. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-64
+  95. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-65
+  96. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-66
+  97. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-67
+  98. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-68
+  99. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-69
+ 100. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-70
+ 101. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-71
+ 102. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-72
+ 103. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-73
+ 104. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-74
+ 105. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-75
+ 106. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-76
+ 107. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-77
+ 108. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-78
+ 109. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-79
+ 110. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-80
+ 111. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-81
+ 112. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-82
+ 113. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-83
+ 114. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-84
+ 115. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-85
+ 116. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-86
+ 117. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-87
+ 118. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-88
+ 119. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-89
+ 120. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb6-90
+ 121. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-1
+ 122. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-2
+ 123. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-3
+ 124. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-4
+ 125. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-5
+ 126. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-6
+ 127. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-7
+ 128. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-8
+ 129. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-9
+ 130. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-10
+ 131. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-11
+ 132. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb7-12
+ 133. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb8-1
+ 134. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb8-2
+ 135. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb8-3
+ 136. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb8-4
+ 137. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-1
+ 138. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-2
+ 139. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-3
+ 140. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-4
+ 141. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-5
+ 142. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-6
+ 143. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-7
+ 144. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-8
+ 145. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-9
+ 146. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-10
+ 147. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-11
+ 148. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-12
+ 149. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-13
+ 150. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-14
+ 151. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-15
+ 152. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-16
+ 153. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-17
+ 154. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-18
+ 155. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-19
+ 156. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-20
+ 157. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-21
+ 158. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-22
+ 159. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-23
+ 160. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-24
+ 161. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-25
+ 162. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-26
+ 163. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-27
+ 164. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-28
+ 165. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-29
+ 166. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-30
+ 167. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-31
+ 168. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-32
+ 169. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-33
+ 170. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-34
+ 171. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-35
+ 172. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-36
+ 173. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-37
+ 174. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-38
+ 175. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-39
+ 176. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-40
+ 177. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-41
+ 178. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-42
+ 179. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-43
+ 180. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-44
+ 181. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-45
+ 182. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-46
+ 183. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-47
+ 184. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-48
+ 185. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-49
+ 186. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-50
+ 187. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-51
+ 188. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-52
+ 189. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-53
+ 190. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-54
+ 191. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-55
+ 192. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-56
+ 193. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-57
+ 194. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-58
+ 195. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-59
+ 196. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-60
+ 197. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-61
+ 198. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-62
+ 199. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb9-63
+ 200. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-1
+ 201. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-2
+ 202. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-3
+ 203. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-4
+ 204. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-5
+ 205. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-6
+ 206. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-7
+ 207. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-8
+ 208. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-9
+ 209. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-10
+ 210. localhost/tmp/lynxXXXXWYMAr4/L3268932-6755TMP.html#cb10-11

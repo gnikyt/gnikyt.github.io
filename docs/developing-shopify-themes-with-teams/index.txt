@@ -7,21 +7,20 @@
    /* Sep 16, 2014 — 6.1KB */
 
    This is a simple write up to explain how a team can utilize Git
-   versioning to manage a Shopify theme successfully. Itʼs not a
+   versioning to manage a Shopify theme successfully. It’s not a
    complicated process but will require patience! As a side-note, this is
    simply a personal recommendation based on my experiences, there are of
    course other ways to go about this process.
 
-Step One: Installing Shopifyʼs Theme Manager
+Step One: Installing Shopify’s Theme Manager
 
-   No, not the GUI - that doesnʼt work very well for what we need to do
-   (many GUIs donʼt!). What youʼre going to do instead is open your
+   No, not the GUI - that doesn’t work very well for what we need to do
+   (many GUIs don’t!). What you’re going to do instead is open your
    Terminal.
 
-   Run gem install shopify_theme - itʼs Shopifyʼs Ruby Gem for managing
+   Run gem install shopify_theme - it’s Shopify’s Ruby Gem for managing
    themes with advanced options.
-
-   terminal shopify
+   terminal shopify terminal shopify
 
 Step Two: Creating your own shop
 
@@ -36,14 +35,13 @@ Step Two: Creating your own shop
    So creating your own shop will allow each developer to be independent
    but still work on the same codebase.
 
-   Itʼs time to register a private app in your development shop to let the
+   It’s time to register a private app in your development shop to let the
    Shopify Theme Manager communicate. Go to https://[your
    store].myshopify.com/admin/apps/private and generate a private
-   application; call it anything you like… "Theme Dev", "Rickyisms",
-   doesnʼt matter. What Shopify will give you API information. Keep that
+   application; call it anything you like… “Theme Dev”, “Rickyisms”,
+   doesn’t matter. What Shopify will give you API information. Keep that
    API key and password on hand for step three.
-
-   api setup
+   api setup api setup
 
 Step Three: Setting up the theme files
 
@@ -51,26 +49,22 @@ Step Three: Setting up the theme files
 
    If there is no theme created for your development team yet, simply open
    the Terminal and cd into the directory where you wish to develop.
+   terminal output terminal output
 
-   terminal output
-
-   Now that weʼre in our place of development, letʼs pull Shopifyʼs Timber
+   Now that we’re in our place of development, let’s pull Shopify’s Timber
    theme using the gem.
 
-   Run theme bootstrap apikey password shopname theme_name master
-     * Replace __api_key__ in the command with the API key you had in step
-       two
+   Run theme bootstrap api_key password shop_name theme_name master
+     * Replace api_key in the command with the API key you had in step two
      * Replace password in the command with the API password you had in
        step two
-     * Replace __shop_name__ in the command with the Shopify URL of your
-       shop
-     * Replace __theme_name__ in the command with what you will name the
-       theme
+     * Replace shop_name in the command with the Shopify URL of your shop
+     * Replace theme_name in the command with what you will name the theme
 
-   theme setup output
+   theme setup output theme setup output
 
-   In my case, I called my theme __porte_mode__. This command will do
-   three things…
+   In my case, I called my theme porte_mode. This command will do three
+   things…
      * Create you a config.yml which Shopify Theme Manager uses to connect
        to your shop
      * Download the latest Timber theme files
@@ -81,15 +75,14 @@ Step Three: Setting up the theme files
    name the same as your theme name).
 
    Be sure to create a .gitignore file and add config.yml to it. This
-   ensures no developerʼs Shopify Theme Manager configurations will clash
+   ensures no developer’s Shopify Theme Manager configurations will clash
    when working on the repository code.
-
-   theme gitignore output
+   theme gitignore output theme gitignore output
 
    Now commit this code to the repository (ex: git add -A && git commit -m
    “First commit” && git push -u origin master).
 
-   Thatʼs it. In under 5 minutes, youʼre ready to develop with other
+   That’s it. In under 5 minutes, you’re ready to develop with other
    developers. A review of what we did…
      * Chose a development location locally
      * Pulled Timber theme from Shopify using theme bootstrap
@@ -106,11 +99,10 @@ Step Three: Setting up the theme files
    GitHub/Bitbucket already, simply clone it (ex: git clone
    git@bitbucket.org:[your-username]/[theme_name].git</span>)
 
-   Next, we need to configure Shopifyʼs Theme Manager to use our dev shop.
+   Next, we need to configure Shopify’s Theme Manager to use our dev shop.
    Open the Terminal to the repository location and run theme configure
-   apikey password shopname
-     * Replace __api_key__ in the command with the API key you had in step
-       two
+   api_key password shop_name
+     * Replace api_key in the command with the API key you had in step two
      * Replace password in the command with the API password you had in
        step two
      * Replace __shop_name__in the command with the Shopify URL of your
@@ -120,10 +112,9 @@ Step Three: Setting up the theme files
    dev shop. Open the Terminal and run theme replace this will push all
    changes and register the theme on your shop (this command will take
    some time).
+   theme replace output theme replace output
 
-   theme replace output
-
-   Thatʼs it, youʼre done. In a couple of minutes, weʼve downloaded the
+   That’s it, you’re done. In a couple of minutes, we’ve downloaded the
    dev theme from Github/Bitbucket and pushed it to our dev shop to work
    on.
 
@@ -148,7 +139,7 @@ Using the Shopify Theme Manager
    Completely replace shop theme assets with the local assets
 
    theme replace
-     * This mass replaces everything in your dev shop with whatʼs in your
+     * This mass replaces everything in your dev shop with what’s in your
        local repository. Useful for if you git pull/fetch/merge changes
        and want to push them to your dev shop.
 
@@ -161,7 +152,7 @@ Using the Shopify Theme Manager
 
 Final Thoughts
 
-   So thatʼs it! This document simply outlines how to set up a development
+   So that’s it! This document simply outlines how to set up a development
    theme on GitHub/Bitbucket and Shopify, how to pull a theme from
    Github/Bitbucket, and develop with it as well as a list of useful
    commands to manage the theme as a team.
@@ -169,8 +160,7 @@ Final Thoughts
    The viewable Google Doc of this is available here:
    https://docs.google.com/document/d/1fRCxDG7fCE4YjCVSXFZ5CsGhhpvj-PgrDPa
    uDdjrwW8/edit?usp=sharing
-
-   yes!
+   yes! yes!
 
    [3]MD | [4]TXT | [5]CC-4.0
 

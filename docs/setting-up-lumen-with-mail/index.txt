@@ -11,7 +11,7 @@ What is Lumen
    [3]Lumen is a micro-framework built by Laravel. Its geared towards
    small services like APIs, job handling, or very small projects. Laravel
    is all-inclusive, whereas Lumen is more bare-bones but moderately
-   featured; however, it doesnʼt feel as lean as something like Slim.
+   featured; however, it doesn’t feel as lean as something like Slim.
 
 Setting Up Mailing
 
@@ -21,7 +21,7 @@ Setting Up Mailing
    later. It needed to be fast, as, like other webhook-focused apps, it
    has to keep up with the high demand.
 
-   One issue I ran into was mailing, itʼs not enabled by default in Lumen,
+   One issue I ran into was mailing, it’s not enabled by default in Lumen,
    and there are many posts throughout Google of people attempting to set
    it up. There are also many outdated ways which only worked for the old
    version of Lumen.
@@ -35,67 +35,70 @@ Setting Up Mailing
    component.
 
    Next, open bootstrap/app.php, find
-   $app->register(AppProvidersAppServiceProvider::class); and uncomment
+   $app->register(App\Providers\AppServiceProvider::class); and uncomment
    it, if not already.
 
    After this is done, open the app provider in app/Providers/.
 
    At the bottom of the register method, paste in the following:
+
 <?php
 // ...
 
 // Init mailer
 $this->app->singleton(
-    ʼmailerʼ,
+    'mailer',
     function ($app) {
-        return $app->loadComponent(ʼmailʼ, ʼIlluminate\Mail\MailServiceProvider
-ʼ, ʼmailerʼ);
+        return $app->loadComponent('mail', 'Illuminate\Mail\MailServiceProvider'
+, 'mailer');
     }
 );
 
 // Aliases
-$this->app->alias(ʼmailerʼ, \Illuminate\Contracts\Mail\Mailer::class);
+$this->app->alias('mailer', \Illuminate\Contracts\Mail\Mailer::class);
 
    To make mailing queue-able and able to be processed in the background,
    simply add:
+
 <?php
 // ...
 
 // Enable queues
-$this->app->make(ʼqueueʼ);
+$this->app->make('queue');
 
    And see my Lumen Redis tutorial to setup Redis for processing.
 
    Next, setup the basic config config/mail.php:
+
 <?php
 
 return [
-    ʼdriverʼ &ge; env(ʼMAIL_DRIVERʼ),
-    ʼhostʼ &ge; env(ʼMAIL_HOSTʼ),
-    ʼportʼ &ge; env(ʼMAIL_PORTʼ),
-    ʼfromʼ &ge; [
-        ʼaddressʼ &ge; env(ʼMAIL_FROM_ADDRESSʼ),
-        ʼnameʼ &ge; env(ʼMAIL_FROM_NAMEʼ),
+    'driver' => env('MAIL_DRIVER'),
+    'host' => env('MAIL_HOST'),
+    'port' => env('MAIL_PORT'),
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name' => env('MAIL_FROM_NAME'),
     ],
-    ʼencryptionʼ &ge; env(ʼMAIL_ENCRYPTIONʼ),
-    ʼusernameʼ &ge; env(ʼMAIL_USERNAMEʼ),
-    ʼpasswordʼ &ge; env(ʼMAIL_PASSWORDʼ),
-    ʼmarkdownʼ &ge; [
-        ʼthemeʼ &ge; ʼdefaultʼ,
-        ʼpathsʼ &ge; [
-            resource_path(ʼviews/vendor/mailʼ),
+    'encryption' => env('MAIL_ENCRYPTION'),
+    'username' => env('MAIL_USERNAME'),
+    'password' => env('MAIL_PASSWORD'),
+    'markdown' => [
+        'theme' => 'default',
+        'paths' => [
+            resource_path('views/vendor/mail'),
         ],
     ],
 ];
 
-
-   Thatʼs it, youʼre done the setup! Donʼt forget to set up your
+   That’s it, you’re done the setup! Don’t forget to set up your
    environment variables for production.
 
   Creating a Mailer
 
-   Now that weʼre setup, you can create a mailer in app/Mail/, hereʼs an
+   Now that we’re setup, you can create a mailer in app/Mail/, here’s an
    example to go by (app/Mail/Winnings):
+
 <?php namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -135,30 +138,31 @@ class Winnings extends Mailable
     {
         return $this
             ->to($this->to_address)
-            ->subject(ʼYour winnings!ʼ)
-            ->view(ʼemails.winningsʼ)
+            ->subject('Your winnings!')
+            ->view('emails.winnings')
             ->with(
                 [
-                    ʼwinningsʼ &ge; $this->winnings
+                    'winnings' => $this->winnings
                 ]
             );
     }
 }
 
-
    Now, create a view, resources/views/emails/winnings.blade.php for
    simply HTML-only,:
+
 {% raw %}<strong>You won {{ $winnings }}</strong>!{% endraw %}
 
 Sending Mail
 
    Now that we have it setup, and a mailable created, we can send. In your
    job, controller, or where ever you need it:
+
 <?php
 use App\Mail\Winnings as WinningsMail;
 
 // ...
-// $to_email = ʼjohn@doe.comʼ; $winnings = 130.00;
+// $to_email = 'john@doe.com'; $winnings = 130.00;
 
 Mail::send(
     new WinningsMail(
@@ -167,12 +171,13 @@ Mail::send(
     )
 );
 
-   If youʼre queuing mail, replace send with queue. You can also see
-   [4]Laravelʼs mail documentation for more information on sending.
+   If you’re queuing mail, replace send with queue. You can also see
+   [4]Laravel’s mail documentation for more information on sending.
 
 Testing
 
    Of course, we need to test (tests/WinningsMailTest.php):
+
 <?php
 
 use App\Mail\Winnings;
@@ -185,19 +190,19 @@ class WinningsMailTest extends TestCase
         Mail::fake();
 
         Mail::send(
-            (new Winnings(ʼjohn@doe.comʼ, 15.00))->build()
+            (new Winnings('john@doe.com', 15.00))->build()
         );
 
         Mail::assertSent(Winnings::class, function ($mail) {
-            return $mail->hasTo(ʼjohn@doe.comʼ) &&
-                   $mail->subject === ʼYour winnings!ʼ &&
-                   $mail->viewData[ʼwinningsʼ] === 15.00;
+            return $mail->hasTo('john@doe.com') &&
+                   $mail->subject === 'Your winnings!' &&
+                   $mail->viewData['winnings'] === 15.00;
         });
     }
 }
 
    Running the tests should pass if everything is set up correctly. For
-   more information on testing mailables, see [5]Laravelʼs documentation
+   more information on testing mailables, see [5]Laravel’s documentation
    on faking.
 
    I hope this was a quick and useful setup for anyone having issues. Good
@@ -228,6 +233,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://lumen.laravel.com/
@@ -241,3 +247,126 @@ References
   11. /about
   12. /assets/files/cv.pdf
   13. /rss.xml
+
+   Hidden links:
+  15. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-2
+  17. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-3
+  18. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-4
+  19. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-5
+  20. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-6
+  21. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-7
+  22. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-8
+  23. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-9
+  24. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-10
+  25. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-11
+  26. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-12
+  27. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb1-13
+  28. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb2-1
+  29. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb2-2
+  30. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb2-3
+  31. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb2-4
+  32. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb2-5
+  33. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-1
+  34. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-2
+  35. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-3
+  36. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-4
+  37. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-5
+  38. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-6
+  39. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-7
+  40. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-8
+  41. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-9
+  42. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-10
+  43. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-11
+  44. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-12
+  45. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-13
+  46. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-14
+  47. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-15
+  48. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-16
+  49. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-17
+  50. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-18
+  51. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-19
+  52. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb3-20
+  53. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-1
+  54. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-2
+  55. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-3
+  56. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-4
+  57. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-5
+  58. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-6
+  59. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-7
+  60. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-8
+  61. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-9
+  62. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-10
+  63. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-11
+  64. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-12
+  65. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-13
+  66. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-14
+  67. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-15
+  68. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-16
+  69. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-17
+  70. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-18
+  71. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-19
+  72. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-20
+  73. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-21
+  74. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-22
+  75. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-23
+  76. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-24
+  77. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-25
+  78. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-26
+  79. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-27
+  80. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-28
+  81. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-29
+  82. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-30
+  83. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-31
+  84. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-32
+  85. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-33
+  86. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-34
+  87. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-35
+  88. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-36
+  89. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-37
+  90. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-38
+  91. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-39
+  92. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-40
+  93. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-41
+  94. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-42
+  95. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-43
+  96. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-44
+  97. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-45
+  98. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-46
+  99. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-47
+ 100. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb4-48
+ 101. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb5-1
+ 102. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-1
+ 103. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-2
+ 104. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-3
+ 105. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-4
+ 106. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-5
+ 107. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-6
+ 108. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-7
+ 109. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-8
+ 110. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-9
+ 111. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-10
+ 112. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-11
+ 113. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb6-12
+ 114. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-1
+ 115. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-2
+ 116. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-3
+ 117. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-4
+ 118. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-5
+ 119. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-6
+ 120. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-7
+ 121. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-8
+ 122. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-9
+ 123. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-10
+ 124. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-11
+ 125. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-12
+ 126. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-13
+ 127. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-14
+ 128. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-15
+ 129. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-16
+ 130. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-17
+ 131. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-18
+ 132. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-19
+ 133. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-20
+ 134. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-21
+ 135. localhost/tmp/lynxXXXXNzimhP/L3275604-9945TMP.html#cb7-22

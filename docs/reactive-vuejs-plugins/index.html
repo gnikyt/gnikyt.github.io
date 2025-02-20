@@ -78,14 +78,14 @@
           simply great - easy to develop with and able to plug into existing systems as a simple view layer.
         </p>
 
-        <h2 id="plugins-amp-reactivity">
+        <h2 id="plugins-reactivity">
           Plugins & Reactivity
         </h2>
 
         <p>
           <a href="https://vuejs.org/v2/guide/plugins.html">Plugins in Vue</a>, allow you to extract code into a
           reusable module. The plugins allow you to create global mixins, methods, properties, and more. It has the
-          added benefit of keeping your code modularized, clean, and doesn't pollute your app's main instance.
+          added benefit of keeping your code modularized, clean, and doesn’t pollute your app’s main instance.
         </p>
 
         <p>
@@ -100,11 +100,11 @@
 
         <p>
           As mentioned, creating plugins can keep your code modularized and your main app instance clean. There could
-          be many reasons you'd need a plugin to track data (be reactive).
+          be many reasons you’d need a plugin to track data (be reactive).
         </p>
 
         <p>
-          One example is if you're depending on a third-party service for data. You need to request this data, process
+          One example is if you’re depending on a third-party service for data. You need to request this data, process
           it, save it, and display it. This takes time. By the time the request is completed your Vue instance may be
           rendered and your data will not display.
         </p>
@@ -114,92 +114,138 @@
         </h2>
 
         <p>
-          Let's build a sports ticker to show the latest score result from some sports teams.
+          Let’s build a sports ticker to show the latest score result from some sports teams.
         </p>
 
         <p>
-          The key to making your data reactive in your plugin is simple... create a new Vue instance that holds the
-          data.
+          The key to making your data reactive in your plugin is simple… create a new Vue instance that holds the data.
         </p>
 
-        <pre><code>// plugins/sports-ticker.js
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true"
+          href="#cb1-1" tabindex="-1"></a><span class="co">// plugins/sports-ticker.js</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class=
+"co"> * Simple sports ticker class</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class=
+"kw">class</span> SportsTicker {</span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="co">   * </span><span class=
+"an">@constructor</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>  <span class=
+"fu">constructor</span>(Vue<span class="op">,</span> team) {</span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>    <span class="kw">this</span><span class=
+"op">.</span><span class="at">team</span> <span class="op">=</span> team<span class="op">;</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>    <span class=
+"co">// Lets make a new instance to store the data</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>    <span class="kw">this</span><span class=
+"op">.</span><span class="at">storeVM</span> <span class="op">=</span> <span class="kw">new</span> <span class=
+"fu">Vue</span>({</span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>      <span class="fu">data</span>() {</span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>        <span class=
+"cf">return</span> {</span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a>          team<span class="op">,</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>          <span class=
+"dt">gameTime</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>          <span class=
+"dt">score</span><span class="op">:</span> {</span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>            <span class=
+"dt">home</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a>            <span class=
+"dt">away</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>        }<span class="op">;</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a>    </span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a>    <span class=
+"co">// Fetch the scores</span></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a>    <span class="kw">this</span><span class=
+"op">.</span><span class="fu">fetchData</span>()<span class="op">;</span></span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a>  }</span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a></span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a><span class=
+"co">   * Gets the state of the data</span></span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a><span class="co">   * </span><span class=
+"an">@return</span><span class="co"> {Object}</span></span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>  <span class="kw">get</span> <span class=
+"fu">state</span>() {</span>
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">storeVM</span><span class=
+"op">.</span><span class="at">$data</span><span class="op">;</span></span>
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a>  }</span>
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a>  </span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a><span class=
+"co">   * Simple fetch to grab the data</span></span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a>  <span class="fu">fetchData</span>() {</span>
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a>    <span class="fu">fetch</span>(<span class=
+"vs">`https://some-api.com/games/</span><span class="sc">${</span><span class="kw">this</span><span class=
+"op">.</span><span class="at">team</span><span class="sc">}</span><span class="vs">/last`</span>)</span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a>      <span class="op">.</span><span class=
+"fu">then</span>(resp <span class="kw">=&gt;</span> resp<span class="op">.</span><span class="fu">json</span>())</span>
+<span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a>      <span class="op">.</span><span class=
+"fu">then</span>((data) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-46"><a aria-hidden="true" href="#cb1-46" tabindex="-1"></a>        <span class=
+"kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class=
+"at">gameTime</span> <span class="op">=</span> data<span class="op">.</span><span class=
+"at">game_time</span><span class="op">;</span></span>
+<span id="cb1-47"><a aria-hidden="true" href="#cb1-47" tabindex="-1"></a>        <span class=
+"kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class=
+"at">score</span> <span class="op">=</span> {</span>
+<span id="cb1-48"><a aria-hidden="true" href="#cb1-48" tabindex="-1"></a>          <span class=
+"dt">home</span><span class="op">:</span> data<span class="op">.</span><span class="at">home_score</span><span class=
+"op">,</span></span>
+<span id="cb1-49"><a aria-hidden="true" href="#cb1-49" tabindex="-1"></a>          <span class=
+"dt">away</span><span class="op">:</span> data<span class="op">.</span><span class="at">away_score</span></span>
+<span id="cb1-50"><a aria-hidden="true" href="#cb1-50" tabindex="-1"></a>        }<span class="op">;</span></span>
+<span id="cb1-51"><a aria-hidden="true" href="#cb1-51" tabindex="-1"></a>      })</span>
+<span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a>    <span class="op">;</span></span>
+<span id="cb1-53"><a aria-hidden="true" href="#cb1-53" tabindex="-1"></a>  }</span>
+<span id="cb1-54"><a aria-hidden="true" href="#cb1-54" tabindex="-1"></a>}</span>
+<span id="cb1-55"><a aria-hidden="true" href="#cb1-55" tabindex="-1"></a></span>
+<span id="cb1-56"><a aria-hidden="true" href="#cb1-56" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> {</span>
+<span id="cb1-57"><a aria-hidden="true" href="#cb1-57" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb1-58"><a aria-hidden="true" href="#cb1-58" tabindex="-1"></a><span class=
+"co">   * Install sports ticker plugin</span></span>
+<span id="cb1-59"><a aria-hidden="true" href="#cb1-59" tabindex="-1"></a><span class="co">   * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{Vue}</span><span class=
+"co"> Vue - Vue instance</span></span>
+<span id="cb1-60"><a aria-hidden="true" href="#cb1-60" tabindex="-1"></a><span class="co">   * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">{Object}</span><span class=
+"co"> options - Options for the plugin</span></span>
+<span id="cb1-61"><a aria-hidden="true" href="#cb1-61" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb1-62"><a aria-hidden="true" href="#cb1-62" tabindex="-1"></a>  <span class="dt">install</span><span class=
+"op">:</span> (Vue<span class="op">,</span> options <span class="op">=</span> {}) <span class=
+"kw">=&gt;</span> {</span>
+<span id="cb1-63"><a aria-hidden="true" href="#cb1-63" tabindex="-1"></a>    Vue<span class="op">.</span><span class=
+"at">prototype</span><span class="op">.</span><span class="at">$SportsTicker</span> <span class=
+"op">=</span> <span class="kw">new</span> <span class="fu">SportsTicker</span>(</span>
+<span id="cb1-64"><a aria-hidden="true" href="#cb1-64" tabindex="-1"></a>      Vue<span class="op">,</span></span>
+<span id="cb1-65"><a aria-hidden="true" href="#cb1-65" tabindex="-1"></a>      options<span class=
+"op">.</span><span class="at">team</span></span>
+<span id="cb1-66"><a aria-hidden="true" href="#cb1-66" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb1-67"><a aria-hidden="true" href="#cb1-67" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb1-68"><a aria-hidden="true" href="#cb1-68" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb1-69"><a aria-hidden="true" href="#cb1-69" tabindex="-1"></a></span>
+<span id="cb1-70"><a aria-hidden="true" href="#cb1-70" tabindex="-1"></a><span class=
+"co">// Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker);</span></span></code></pre>
+        </div>
 
-/**
- * Simple sports ticker class
- */
-class SportsTicker {
-  /**
-   * @constructor
-   */
-  constructor(Vue, team) {
-    this.team = team;
-
-    // Lets make a new instance to store the data
-    this.storeVM = new Vue({
-      data() {
-        return {
-          team,
-          gameTime: null,
-          score: {
-            home: null,
-            away: null,
-          },
-        };
-      },
-    });
-
-    // Fetch the scores
-    this.fetchData();
-  }
-
-  /**
-   * Gets the state of the data
-   * @return {Object}
-   */
-  get state() {
-    return this.storeVM.$data;
-  }
-
-  /**
-   * Simple fetch to grab the data
-   */
-  fetchData() {
-    fetch(`https://some-api.com/games//last`)
-      .then(resp &amp;ge; resp.json())
-      .then((data) &amp;ge; {
-        this.state.gameTime = data.game_time;
-        this.state.score = {
-          home: data.home_score,
-          away: data.away_score
-        };
-      })
-    ;
-  }
-}
-
-export default {
-  /**
-   * Install sports ticker plugin
-   * @param {Vue} Vue - Vue instance
-   * @param {Object} options - Options for the plugin
-   */
-  install: (Vue, options = {}) &amp;ge; {
-    Vue.prototype.$SportsTicker = new SportsTicker(
-      Vue,
-      options.team
-    );
-  },
-};
-
-// Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker);
-
-</code></pre>
         <p>
-          That's all that's to it.
+          That’s all that’s to it.
         </p>
 
         <p>
-          What we've done is created a class to keep our logic separate from the Vue plugin installation code. Then, we
+          What we’ve done is created a class to keep our logic separate from the Vue plugin installation code. Then, we
           register the plugin with the options (in this case, just the team name). In the SportsTicker class, we create
           a new Vue instance with its own data store filled with dummy/default data. We create a <code>get state</code>
           method so we can quickly access the data of the Vue instance we created. Next, we fetch the data, process it,
@@ -210,12 +256,19 @@ export default {
           With all this in play, our data is now reactive.
         </p>
 
-        <pre><code>&lt;template v-if="$SportsTicker.state.gameTime"&gt;
-  {% raw %}
-  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}
-  {% endraw %}
-&lt;/template&gt;
-</code></pre>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">template</span> <span class=
+          "er">v-if</span><span class="ot">=</span><span class="st">"$SportsTicker.state.gameTime"</span><span class=
+          "dt">&gt;</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  {% raw %}</span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex=
+"-1"></a>  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  {% endraw %}</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">template</span><span class="dt">&gt;</span></span></code></pre>
+        </div>
+
         <p>
           Because the data is reactive, the above view snippet will not show until we have data (checking
           <code>gameTime</code> is not null in this case). When the data is processed, it will trigger Vue to render
@@ -256,7 +309,7 @@ export default {
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

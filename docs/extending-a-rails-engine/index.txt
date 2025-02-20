@@ -13,7 +13,7 @@
    methods of controllers, models, helpers, etc.
 
    The [3]Rails Engine Guide is excellent and it has two main points on
-   extending the engine functionality. One is by use of "decorators" and
+   extending the engine functionality. One is by use of “decorators” and
    the other is by abstracting all your controller and model code into
    concerns inside your engine. While I like the concern method, as it
    gives more flexibility for complex extensions, its overkill in my
@@ -23,6 +23,7 @@
    The first step as the Rails guide shows you, is to add support for
    decorator loading inside your engine lib. Below is how I did it in my
    CMS engine called Guts:
+
 # lib/guts/engine.rb
 # ... etc ...
 isolate_namespace Guts
@@ -35,8 +36,8 @@ end
 # ... etc ...
 
    This will look for all decorators in the main Rails apps for the path
-   app/decorators/{controllers,models,concerns,helpers,etc}/guts/{file}dec
-   orator(s).rb and load them in using [5]require_dependency.
+   app/decorators/{controllers,models,concerns,helpers,etc}/guts/{file}_de
+   corator(s).rb and load them in using [5]require_dependency.
 
    Now the engine has support to load the decorators, lets move on to some
    examples. All following examples from here-on-out will be using my
@@ -48,6 +49,7 @@ Controllers
    type_decorator.rb
 
    Add in the following code using class_eval from Ruby:
+
 Guts::TypesController.class_eval do
   # Decorator action is explode.. we will route this as: guts/types#explode
   def explode
@@ -60,6 +62,7 @@ end
    engine in the Rails.application.routes.draw block.
 
    As an example:
+
 Guts::Engine.routes.prepend do
   # Create a route of /guts/types/explode
   # Map it to types controller and the explode method
@@ -69,7 +72,7 @@ end
 
 Rails.application.routes.draw do
   # Mount the Guts engine
-  mount Guts::Engine &ge; "/guts"
+  mount Guts::Engine => "/guts"
 end
 
    This will now prepend our new route to the engine and map
@@ -82,9 +85,10 @@ end
 Models
 
    As in controllers, create a file in app/decorators/models/guts/ such as
-   typemodaldecorator.rb
+   type_modal_decorator.rb
 
    Add in the following code using class_eval from Ruby:
+
 Guts::Type.class_eval do
   # Override title setter
   def title=(title)
@@ -102,7 +106,7 @@ Views
    As stated above for the controller example, since Rails looks in the
    main app for views first, you simply need to match the correct path.
 
-   If your engineʼs view for CoolController#jumps is
+   If your engine’s view for CoolController#jumps is
    app/views/{engine}/cool/jumps.html.erb you will duplicate this in your
    main Rails apps by creating a file in
    app/views/{engine}/cool/jumps.html.erb. You can then enter anything you
@@ -117,7 +121,7 @@ Views
 
    [8]MD | [9]TXT | [10]CC-4.0
 
-   This post is 8 years old and may contain outdated information.
+   This post is 9 years old and may contain outdated information.
      __________________________________________________________________
 
    [11]Ty King
@@ -140,13 +144,14 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality
    4. http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers
-   5. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require</em>dependency
-   6. http://guides.rubyonrails.org/layouts<em>and</em>rendering.html#understanding-yield
-   7. http://guides.rubyonrails.org/layouts<em>and</em>rendering.html#using-the-content-for-method
+   5. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require_dependency
+   6. http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield
+   7. http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method
    8. /extending-a-rails-engine/index.md
    9. /extending-a-rails-engine/index.txt
   10. https://creativecommons.org/licenses/by/4.0/
@@ -155,3 +160,43 @@ References
   13. /about
   14. /assets/files/cv.pdf
   15. /rss.xml
+
+   Hidden links:
+  17. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-1
+  18. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-2
+  19. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-3
+  20. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-4
+  21. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-5
+  22. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-6
+  23. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-7
+  24. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-8
+  25. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-9
+  26. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb1-10
+  27. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb2-1
+  28. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb2-2
+  29. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb2-3
+  30. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb2-4
+  31. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb2-5
+  32. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb2-6
+  33. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-1
+  34. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-2
+  35. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-3
+  36. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-4
+  37. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-5
+  38. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-6
+  39. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-7
+  40. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-8
+  41. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-9
+  42. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-10
+  43. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb3-11
+  44. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-1
+  45. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-2
+  46. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-3
+  47. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-4
+  48. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-5
+  49. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-6
+  50. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-7
+  51. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-8
+  52. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-9
+  53. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-10
+  54. localhost/tmp/lynxXXXX20sVjY/L3279777-53TMP.html#cb4-11

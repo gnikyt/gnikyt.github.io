@@ -6,7 +6,7 @@
     <title>
       WordPress Under Docker guide | gnikyt
     </title>
-    <link href="https://gnikyt.com/WordPress-under-docker" rel="canonical">
+    <link href="https://gnikyt.com/wordpress-under-docker" rel="canonical">
     <meta content="Custom" name="generator">
     <meta content=
     "## Purpose There are many lengthy guides out there for the official Docker image for WordPress. However, some people have a little trou..."
@@ -17,7 +17,7 @@
     <meta content=
     "## Purpose There are many lengthy guides out there for the official Docker image for WordPress. However, some people have a little trou..."
     property="og:description">
-    <meta content="https://gnikyt.com/WordPress-under-docker" property="og:url">
+    <meta content="https://gnikyt.com/wordpress-under-docker" property="og:url">
     <meta content="gnikyt" property="og:site_name">
     <meta content="article" property="og:type">
     <meta content="summary" name="twitter:card">
@@ -37,7 +37,7 @@
     "headline": "WordPress Under Docker guide",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://gnikyt.com/WordPress-under-docker"
+      "@id": "https://gnikyt.com/wordpress-under-docker"
     },
     "publisher": {
       "@type": "Organization",
@@ -46,7 +46,7 @@
         "url": "https://gnikyt.com/assets/favicon-32x32.png"
       }
     },
-    "url": "https://gnikyt.com/WordPress-under-docker"
+    "url": "https://gnikyt.com/wordpress-under-docker"
     }
     </script>
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -56,7 +56,7 @@
     <link href="/assets/styles/concrete.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="WordPress-under-docker">
+  <body class="layout layout--post" data-handle="wordpress-under-docker">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item">Code ramblings.</span>
@@ -85,7 +85,7 @@
         </p>
 
         <p>
-          I haven't used WordPress professionally in a long time, but I decided to do some weekend digging to keep my
+          I haven’t used WordPress professionally in a long time, but I decided to do some weekend digging to keep my
           brain fresh, so forgive any errors ;)
         </p>
 
@@ -98,33 +98,31 @@
         </h3>
 
         <p>
-          Let's create a basic directory structure to use. Keep in mind, this is geared for theme development.
+          Let’s create a basic directory structure to use. Keep in mind, this is geared for theme development.
         </p>
 
         <ul>
           <li>{your_theme}/
-          </li>
-
-          <ul>
-            <li>wordpress/
-            </li>
-
             <ul>
-              <li>wp-content/
+              <li>wordpress/
+                <ul>
+                  <li>wp-content/
+                    <ul>
+                      <li>themes/
+                        <ul>
+                          <li>(your-theme)/
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>uploads/
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
-
-              <ul>
-                <li>themes/
-                </li>
-
-                <li>(your-theme)/
-                </li>
-
-                <li>uploads/
-                </li>
-              </ul>
             </ul>
-          </ul>
+          </li>
         </ul>
 
         <p>
@@ -141,19 +139,19 @@
         </h3>
 
         <p>
-          Next, let's get Docker ready. The simplest way is to use a <a href="https://docs.docker.com/compose/">Docker
-          Compose file</a>. It's a simple YML-formatted file that's easy to read for anyone.
+          Next, let’s get Docker ready. The simplest way is to use a <a href="https://docs.docker.com/compose/">Docker
+          Compose file</a>. It’s a simple YML-formatted file that’s easy to read for anyone.
         </p>
 
         <p>
-          Based on <a href="https://hub.docker.com/_/wordpress/">Wordpress' Offical Image</a>, I've compiled the
+          Based on <a href="https://hub.docker.com/_/wordpress/">Wordpress’ Offical Image</a>, I’ve compiled the
           following <code>docker-compose.yml</code> <a href=
           "https://github.com/gnikyt/wordpress-docker-quickstart">file you can use</a>.
         </p>
 
         <p>
-          Simply replace <code>{YOUR<em>THEME}</em></code> <em>with your theme name and save it to the root of
-          <code>{your</code></em><code>theme}/</code> directory.
+          Simply replace <code>{YOUR_THEME}</code> with your theme name and save it to the root of
+          <code>{your_theme}/</code> directory.
         </p>
 
         <h3 id="volumes">
@@ -161,11 +159,11 @@
         </h3>
 
         <p>
-          In the <code>docker-compose.yml</code> file you'll notice two entries under <code>volumes</code>.
+          In the <code>docker-compose.yml</code> file you’ll notice two entries under <code>volumes</code>.
         </p>
 
         <p>
-          One maps the theme folder to the WordPress install so it's visible to WordPress, the other maps, read-write,
+          One maps the theme folder to the WordPress install so it’s visible to WordPress, the other maps, read-write,
           <code>wp-content/uploads</code> to the WordPress install as well so it can write and read media from a
           location accessible.
         </p>
@@ -175,7 +173,7 @@
         </h3>
 
         <p>
-          Now that you have the directories set up, Docker Compose ready, volumes mapped... its time to setup Git.
+          Now that you have the directories set up, Docker Compose ready, volumes mapped… its time to setup Git.
         </p>
 
         <p>
@@ -191,14 +189,14 @@
         </h2>
 
         <p>
-          Once you're done the quick setup simply run <code>docker-compose up</code> in the main directory. On the
-          first run, you'll have to run through the WordPress installation process.
+          Once you’re done the quick setup simply run <code>docker-compose up</code> in the main directory. On the
+          first run, you’ll have to run through the WordPress installation process.
         </p>
 
         <p>
-          After it's done, simply log in and visit Appearance. If you have your theme setup as per WordPress
+          After it’s done, simply log in and visit Appearance. If you have your theme setup as per WordPress
           requirements (<code>style.css</code> (with info) and <code>index.php</code>) then you will see it in the
-          theme list. Hit "Activate" and you're ready to go.
+          theme list. Hit “Activate” and you’re ready to go.
         </p>
 
         <h2 id="windows-wsl1-tips">
@@ -206,39 +204,37 @@
         </h2>
 
         <p>
-          If you're running this under WSL1, be sure you have Docker on Windows settings set to expose Docker daemon
-          without TLS (it's under General panel).
+          If you’re running this under WSL1, be sure you have Docker on Windows settings set to expose Docker daemon
+          without TLS (it’s under General panel).
         </p>
 
         <p>
-          Also, WSL1 accesses your C: drive via <code>/mnt/c</code> but Docker requires <code>/c</code>. To resolve
-          this issue simply create a symlink via <code>ln -s /mnt/c /c</code>. If this is not done, you'll have issues
-          with Docker under WSL trying to find files and map volumes. This means you also need to run
+          Also, WSL1 accesses your C:&nbsp;drive via <code>/mnt/c</code> but Docker requires <code>/c</code>. To
+          resolve this issue simply create a symlink via <code>ln -s /mnt/c /c</code>. If this is not done, you’ll have
+          issues with Docker under WSL trying to find files and map volumes. This means you also need to run
           <code>docker-compose</code> commands under <code>/c</code> as well.
         </p>
 
         <p>
-          To quickly switch to <code>/c</code> no matter what directory you're under, open
+          To quickly switch to <code>/c</code> no matter what directory you’re under, open
           <code>$HOME/.bash_aliases</code> and add this entry:
         </p>
 
-        <pre><code>alias cswap='cd `pwd | sed 's,/mnt,,g'`'
-</code></pre>
+        <pre class="shell"><code>alias cswap='cd `pwd | sed 's,/mnt,,g'`'</code></pre>
         <p>
-          Now, any directory you're in, simply run <code>cswap</code> and it'll move you to <code>/c</code>
+          Now, any directory you’re in, simply run <code>cswap</code> and it’ll move you to <code>/c</code>
         </p>
 
-        <pre><code>tyler@bash[/mnt/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ cswap
+        <pre class="shell"><code>tyler@bash[/mnt/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ cswap
 tyler@bash[/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ docker-compose up
-Starting...
-</code></pre>
+Starting...</code></pre>
         <h2 id="further-exploring">
           Further Exploring
         </h2>
 
         <p>
-          <a href="https://github.com/gnikyt/wordpress-docker-quickstart">I've set up a repo on Github</a> which
-          contains all I've talked about above plus some extras like a basic Grunt setup for managing asset files. Feel
+          <a href="https://github.com/gnikyt/wordpress-docker-quickstart">I’ve set up a repo on Github</a> which
+          contains all I’ve talked about above plus some extras like a basic Grunt setup for managing asset files. Feel
           free to clone, run <code>docker-compose up</code>, and play around!
         </p>
 
@@ -248,8 +244,8 @@ Starting...
 
         <footer class="post__tail">
           <div class="sources">
-            <a class="sources__link" href="/WordPress-under-docker/index.md">MD</a> | <a class="sources__link" href=
-            "/WordPress-under-docker/index.txt">TXT</a> | <a class="sources__link" href=
+            <a class="sources__link" href="/wordpress-under-docker/index.md">MD</a> | <a class="sources__link" href=
+            "/wordpress-under-docker/index.txt">TXT</a> | <a class="sources__link" href=
             "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
           </div>
 
@@ -275,7 +271,7 @@ Starting...
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

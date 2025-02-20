@@ -14,7 +14,7 @@
    31 was a different case altogether due to the 5.4.7 packaged kernel
    where Fedora 30 had 5.0 (later updated to 5.3.x).
 
-   There have been several reports of usersʼ WIFI completely dropping,
+   There have been several reports of users’ WIFI completely dropping,
    Ethernet not working, audio not working, and so on.
 
    While I normally wait a few months after a major release for the dust
@@ -41,7 +41,7 @@ System Upgrade
    31, while excluding any kernel updates.
 
    You will be asked to accept various keys and accept the package
-   summary. Once youʼre ready, continue the update.
+   summary. Once you’re ready, continue the update.
 
    Your system will reboot to a Plymouth screen with a progress bar
    showing the current status of the upgrade.
@@ -50,11 +50,11 @@ System Upgrade
 
 Reboot
 
-   Upon reboot, youʼll be booting into Fedora 31, the GRUB screen should
-   show your 5.3.x kernel still there. If youʼve missed it, run uname -r
+   Upon reboot, you’ll be booting into Fedora 31, the GRUB screen should
+   show your 5.3.x kernel still there. If you’ve missed it, run uname -r
    in the terminal to confirm the version.
 
-   Thatʼs it. Please be sure to check out the [3]release notes and keep an
+   That’s it. Please be sure to check out the [3]release notes and keep an
    eye out for new kernel updates and reports to know when its safe to
    upgrade your kernel.
 

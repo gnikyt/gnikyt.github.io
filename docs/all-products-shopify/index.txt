@@ -14,10 +14,11 @@
    by its handle collections.my-cool-toys.products. However, it always
    lacked the ability to look up products by their handle until now.
 
-   Thereʼs no documentation yet for the new variable but as the Github
-   comment states, simply use all_products[ʼhandle-hereʼ]
-<img src="{% raw %}{{ all_products[ʼmario-party-gameʼ].featured_image.src | img_
-url: ʼmediumʼ }}{% endraw %}">
+   There’s no documentation yet for the new variable but as the Github
+   comment states, simply use all_products['handle-here']
+
+<img src="{% raw %}{{ all_products['mario-party-game'].featured_image.src | img_
+url: 'medium' }}{% endraw %}">
 
    [5]MD | [6]TXT | [7]CC-4.0
 
@@ -44,6 +45,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/Shopify/liquid/issues/438#issuecomment-108981467
@@ -56,3 +58,6 @@ References
   10. /about
   11. /assets/files/cv.pdf
   12. /rss.xml
+
+   Hidden links:
+  14. localhost/tmp/lynxXXXXF55YeM/L3280761-8452TMP.html#cb1-1

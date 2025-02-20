@@ -37,6 +37,8 @@ parse_md() {
       if [ "$key" = "permalink" ]; then
         # Change "permalink" to "handle".
         key="handle"
+        # Ensure lowercase
+        val=${val,,}
       fi
 
       # Assign to variable for later use.

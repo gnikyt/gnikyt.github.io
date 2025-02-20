@@ -10,17 +10,17 @@ Introduction
 
    I maintain a fairly used [3]PHP library for Shopify API which uses
    Guzzle for sync/async requests. It was also recently featured as a
-   recommended third-party library on Shopifyʼs dev docs.
+   recommended third-party library on Shopify’s dev docs.
 
-   For Python, which I also use with Shopify work, I didnʼt notice a
-   library which provides async abilities. Normally I use Shopifyʼs Python
+   For Python, which I also use with Shopify work, I didn’t notice a
+   library which provides async abilities. Normally I use Shopify’s Python
    library which provides a nice ActiveResource implementation. However,
    their library has no plans to support async.
 
    I decided to create a tested library that can do both,
-   [4]basicshopifyapi. It is a loose port of my PHP version which supports
-   sync, async, HMAC validation, rate limiting, automatic retries, REST,
-   and GraphQL; all backed by the HTTPX package.
+   [4]basic_shopify_api. It is a loose port of my PHP version which
+   supports sync, async, HMAC validation, rate limiting, automatic
+   retries, REST, and GraphQL; all backed by the HTTPX package.
 
    You simply need to set up some basic options and create a session for a
    shop to get started.
@@ -125,7 +125,7 @@ Conclusion
 
    Feel free to give it a try with your projects, with the continual rise
    of async within Python, I hope the library will serve some use to you.
-   Iʼve recently paired it with [5]FastAPI and it performed well.
+   I’ve recently paired it with [5]FastAPI and it performed well.
 
    [6]MD | [7]TXT | [8]CC-4.0
 
@@ -152,10 +152,11 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/gnikyt/Basic-Shopify-API
-   4. https://github.com/gnikyt/basic<em>shopify</em>api
+   4. https://github.com/gnikyt/basic_shopify_api
    5. https://fastapi.tiangolo.com/
    6. /async-shopify-api-for-python/index.md
    7. /async-shopify-api-for-python/index.txt
@@ -165,3 +166,75 @@ References
   11. /about
   12. /assets/files/cv.pdf
   13. /rss.xml
+
+   Hidden links:
+  15. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-2
+  17. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-3
+  18. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-4
+  19. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-5
+  20. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-6
+  21. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-7
+  22. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-8
+  23. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-9
+  24. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-10
+  25. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-11
+  26. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-12
+  27. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-13
+  28. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-14
+  29. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-15
+  30. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-16
+  31. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-17
+  32. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb1-18
+  33. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-1
+  34. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-2
+  35. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-3
+  36. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-4
+  37. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-5
+  38. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-6
+  39. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-7
+  40. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-8
+  41. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-9
+  42. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-10
+  43. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-11
+  44. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-12
+  45. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-13
+  46. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-14
+  47. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-15
+  48. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-16
+  49. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb2-17
+  50. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-1
+  51. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-2
+  52. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-3
+  53. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-4
+  54. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-5
+  55. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-6
+  56. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-7
+  57. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-8
+  58. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-9
+  59. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-10
+  60. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-11
+  61. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-12
+  62. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-13
+  63. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-14
+  64. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-15
+  65. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-16
+  66. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-17
+  67. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb3-18
+  68. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-1
+  69. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-2
+  70. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-3
+  71. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-4
+  72. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-5
+  73. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-6
+  74. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-7
+  75. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-8
+  76. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-9
+  77. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-10
+  78. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-11
+  79. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-12
+  80. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-13
+  81. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-14
+  82. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-15
+  83. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-16
+  84. localhost/tmp/lynxXXXXMhqmyz/L3272163-6984TMP.html#cb4-17

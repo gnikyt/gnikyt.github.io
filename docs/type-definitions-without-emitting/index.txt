@@ -12,27 +12,27 @@ Introduction
    frontend extensions. After completion of the backend, it was realized
    that the frontend extensions needed types from the backend.
 
-   Extensions with Shopifyʼs setup does not allow importing relative
+   Extensions with Shopify’s setup does not allow importing relative
    packages. For example, if this was the loose structure:
-     * app/
-     * paginate/
-
-   index.ts index.test.ts
-     * value/
-
-   amount.ts amount.test.ts id.ts id.test.ts
-     * [etc]
-
-     * extensions/
-     * order-stats/
-     * src/
-
-   BlockExtension.tsx
-     * [etc]
-
-     * [etc]
+ - app/
+     - paginate/
+         index.ts
+         index.test.ts
+     - value/
+         amount.ts
+         amount.test.ts
+         id.ts
+         id.test.ts
+     - [etc]
+ - extensions/
+     - order-stats/
+         - src/
+            BlockExtension.tsx
+         - [etc]
+ - [etc]
 
    We would not be able to do something such as:
+
 // extensions/order-stats/src/BlockExtension.tsx
 
 import { type PaginatedRecords } from "../../../app/paginate";
@@ -40,7 +40,7 @@ import { type ShopifyOrderIdValue } from "../../../app/value/id";
 
    This would produce an error and not compile. You could copy/paste the
    type definitions into the extension manually, but this is not a great
-   idea.. what if the types youʼre importing change? They would be out of
+   idea.. what if the types you’re importing change? They would be out of
    sync if you did not manually correct it.
 
    A solution is to generate types based upon the app into a local package
@@ -50,18 +50,20 @@ types package
 
    Create a directory at the root called types, then cd inside and run npm
    init. Once done, you should have a package.json inside similar to this:
+
 {
   "name": "app-types",
   "private": true,
   "version": "1.0.0"
 }
 
-   In my case, I named the package app-types, but youʼre free to name as
+   In my case, I named the package app-types, but you’re free to name as
    you please.
 
 Generation
 
    Create a bin/app-typegen with the following contents:
+
 #!/usr/bin/env bash
 
 # List the files you would like to generate types for
@@ -85,6 +87,7 @@ done
    files during generation.
 
    Additionally, you can add a slot into your root package.json scripts:
+
 "generate:app-types": "bin/app-typegen"
 
    Then, you can simply run npm run generate:app-types manually or with
@@ -98,8 +101,9 @@ Importing
    Adding, "app-types": "file:../../../types" to devDependencies, then
    running npm install.
 
-   Now, youʼll be able to import the types without compilation errors or
+   Now, you’ll be able to import the types without compilation errors or
    warnings as such:
+
 // extensions/order-stats/src/BlockExtension.tsx
 
 import { type PaginatedRecords } from "app-types/paginate/index";
@@ -128,6 +132,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /type-definitions-without-emitting/index.md
@@ -138,3 +143,33 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb2-1
+  13. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb2-2
+  14. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb2-3
+  15. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb2-4
+  16. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb3-1
+  17. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb3-2
+  18. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb3-3
+  19. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb3-4
+  20. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb3-5
+  21. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-1
+  22. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-2
+  23. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-3
+  24. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-4
+  25. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-5
+  26. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-6
+  27. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-7
+  28. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-8
+  29. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-9
+  30. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-10
+  31. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-11
+  32. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-12
+  33. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-13
+  34. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb4-14
+  35. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb5-1
+  36. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb6-1
+  37. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb6-2
+  38. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb6-3
+  39. localhost/tmp/lynxXXXXYukWUz/L3268678-3181TMP.html#cb6-4

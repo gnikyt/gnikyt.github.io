@@ -81,28 +81,26 @@
 
         <p>
           Recently a project came up where special front-end actions and structures had to take place within the view
-          of the Twig template once an error occurred on specific fields. It also didn't require enough attention to
+          of the Twig template once an error occurred on specific fields. It also didn’t require enough attention to
           warrant creating a form theme.
         </p>
 
         <p>
-          This is a quick way to test if a field has errors; Simply do this inside your Twig template...
+          This is a quick way to test if a field has errors; Simply do this inside your Twig template…
         </p>
 
-        <pre><code>{% raw %}{{ form.__field_name__.vars.errors|length }}{% endraw %}
-</code></pre>
+        <pre class="liquid"><code>{% raw %}{{ form.__field_name__.vars.errors|length }}{% endraw %}</code></pre>
         <p>
-          The above code will show how many errors a certain field has. A usage example...
+          The above code will show how many errors a certain field has. A usage example…
         </p>
 
-        <pre><code>{% raw %}
+        <pre class="liquid"><code>{% raw %}
 {% if form.__field_name__.vars.errors|length &gt; 0 %}
   &lt;div class="special-class-for-jquery"&gt;{{ form_errors(__field_name__) }}&lt;/div&gt;
 {% endif %}
-{% endraw %}
-</code></pre>
+{% endraw %}</code></pre>
         <p>
-          Just replace __field_name__ with the field name you wish to use!
+          Just replace <strong>field_name</strong> with the field name you wish to use!
         </p>
 
         <footer class="post__tail">
@@ -134,7 +132,7 @@
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

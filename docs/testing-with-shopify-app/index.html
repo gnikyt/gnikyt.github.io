@@ -74,9 +74,9 @@
         </header>
 
         <p>
-          <a href="https://github.com/Shopify/shopify%3Cem%3Eapp">shopifyapp</a> is a great Gem to quickly build a
-          Shopify App with Rails. It handles all the verifications, authorizations, webhook, and more; leaving you to
-          focus on developing your app. This post is to serve as a quick tip on how to unit-test your app with the Gem.
+          <a href="https://github.com/Shopify/shopify_app">shopify_app</a> is a great Gem to quickly build a Shopify
+          App with Rails. It handles all the verifications, authorizations, webhook, and more; leaving you to focus on
+          developing your app. This post is to serve as a quick tip on how to unit-test your app with the Gem.
         </p>
 
         <p>
@@ -86,52 +86,80 @@
         </p>
 
         <p>
-          Inspecting it you will see it's filled with one shop, <code>regular-shop.myshopify.com</code>, and a simple
+          Inspecting it you will see it’s filled with one shop, <code>regular-shop.myshopify.com</code>, and a simple
           token. When running <code>bundle exec rake test</code> (after migrations are done for a test environment of
           course), it will populate the shop database table with the fixture data in <code>shop.yml</code>.
         </p>
 
         <p>
-          Now that we have a shop we can "log into", let's create a support module for the unit tests. Create a file
-          called <code>shopify<em>session</em>support.rb</code> inside <code>test/support</code>.
+          Now that we have a shop we can “log into”, let’s create a support module for the unit tests. Create a file
+          called <code>shopify_session_support.rb</code> inside <code>test/support</code>.
         </p>
 
-        <pre><code># test/support/shopify_session_support.rb
-module ShopifySessionSupport
-  # Make this module concernable
-  extend ActiveSupport::Concern
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="co"># test/support/shopify_session_support.rb</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">ShopifySessionSupport</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class=
+"co"># Make this module concernable</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>  <span class="fu">extend</span> <span class=
+"dt">ActiveSupport</span><span class="kw">::</span><span class="dt">Concern</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>  included <span class="cf">do</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>    <span class=
+"co"># On include, tell TestCase to use this setup block</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>    setup <span class="cf">do</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>      <span class=
+"co"># Set the shop to the test shop from fixtures</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>      <span class=
+"co"># The key is `:shopify` and `:shopify_domain` which shopify_app needs</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>      <span class=
+"co"># See: https://github.com/Shopify/shopify_app/blob/c7e50247a72a52b1d1e4d9009ba997196a64e7e8/lib/shopify_app/login_protection.rb#L22</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a>      session<span class=
+"kw">[</span><span class="wa">:shopify</span><span class="kw">]</span>        <span class=
+"kw">=</span> shops(<span class="wa">:regular_shop</span>)<span class="at">.id</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>      session<span class=
+"kw">[</span><span class="wa">:shopify_domain</span><span class="kw">]</span> <span class=
+"kw">=</span> shops(<span class="wa">:regular_shop</span>)<span class="at">.shopify_domain</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a><span class=
+"cf">end</span></span></code></pre>
+        </div>
 
-  included do
-    # On include, tell TestCase to use this setup block
-    setup do
-      # Set the shop to the test shop from fixtures
-      # The key is `:shopify` and `:shopify_domain` which shopify_app needs
-      # See: https://github.com/Shopify/shopify_app/blob/c7e50247a72a52b1d1e4d9009ba997196a64e7e8/lib/shopify_app/login_protection.rb#L22
-      session[:shopify]        = shops(:regular_shop).id
-      session[:shopify_domain] = shops(:regular_shop).shopify_domain
-    end
-  end
-end
-</code></pre>
         <p>
           Next, include your new support module in <code>test_helper.rb</code> before <code>class
           ActiveSupport::TestCase</code> with:
         </p>
 
-        <pre><code># Include support modules
-Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
-</code></pre>
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="co"># Include support modules</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="dt">Dir</span><span class=
+"kw">[</span><span class="dt">Rails</span><span class="at">.root.join</span>(<span class=
+"vs">'test/support/**/*.rb'</span>)<span class="kw">]</span><span class="at">.each</span> <span class=
+"kw">{</span> <span class="kw">|</span>f<span class="kw">|</span> <span class="fu">require</span> f <span class=
+"kw">}</span></span></code></pre>
+        </div>
+
         <p>
           Finally, in any of your controller tests where you require an authenticated shop, simply add <code>include
           ShopifySessionSupport</code> to your class as such:
         </p>
 
-        <pre><code># ...
-class ImageControllerTest &lt; ActionController::TestCase
-  include ShopifySessionSupport
-  # ...
-end
-</code></pre>
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="cf">class</span> <span class=
+"dt">ImageControllerTest</span> <span class="kw">&lt;</span> <span class="dt">ActionController</span><span class=
+"kw">::</span><span class="dt">TestCase</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="fu">include</span> <span class=
+"dt">ShopifySessionSupport</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>  <span class="co"># ...</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+        </div>
+
         <p>
           Running <code>bundle exec rake test</code> should now pass your tests with the shop.
         </p>
@@ -165,7 +193,7 @@ end
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

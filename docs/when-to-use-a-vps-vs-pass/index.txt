@@ -11,10 +11,10 @@ Introduction
   What is a VPS
 
    A VPS is a Virtual Private Server. A server running on more powerful
-   hardware than the standard "shared hosting" plans (usually). Every
-   "account" has its own physical space on the server in virtual
+   hardware than the standard “shared hosting” plans (usually). Every
+   “account” has its own physical space on the server in virtual
    compartments with super-level access. Software is set up independently
-   in each space. Itʼs like your own piece of pie on the server.
+   in each space. It’s like your own piece of pie on the server.
 
    Most VPS providers offer both managed (host manages for you) or
    unmanaged (clean slate for you to break!) plans. There are many pricing
@@ -53,12 +53,12 @@ Introduction
    part. It comes with several add-ons that are point-and-click setups
    like Redis, Postgres, Loader.io, and more.
 
-   These services allow you to focus on code, not the server. You donʼt
+   These services allow you to focus on code, not the server. You don’t
    need to worry about the command line, resource scaling, migrations,
-   errors... its all taken care of you. This, of course, comes at a cost
-   to you though compared to a VPS.
+   errors… its all taken care of you. This, of course, comes at a cost to
+   you though compared to a VPS.
 
-   Heroku is billed by the usage time of the server (how long itʼs
+   Heroku is billed by the usage time of the server (how long it’s
    running). They have free hobby plans to get you going, but once you
    need more resources, the price will jump. A small app on Heroku could
    start out as $10 a month. A medium-sized medium-load app could quickly
@@ -66,19 +66,19 @@ Introduction
 
   What to Choose
 
-   Well, itʼs up to your needs. Go "cheap", manage the server yourself,
-   then youʼd pick a VPS. Focus on code and not worry about the server,
-   youʼd pick a PaaS.
+   Well, it’s up to your needs. Go “cheap”, manage the server yourself,
+   then you’d pick a VPS. Focus on code and not worry about the server,
+   you’d pick a PaaS.
 
-   Personally, if its a minimal load and minimal traffic app, Iʼd spin up
+   Personally, if its a minimal load and minimal traffic app, I’d spin up
    a DigitalOcean instance, spend the time to configure it properly,
    deploy the app and let it be. Sometimes, this is all the client is
    willing to afford anyways.
 
    If its an app that is going to experience high traffic, high load, and
-   needs to stay dependable… Iʼd choose a PaaS every time. I donʼt need to
+   needs to stay dependable… I’d choose a PaaS every time. I don’t need to
    worry about recourses and I can easily scale the databases, CPU, RAM,
-   etc. as needed with a click of a button. When itʼs crunch time... this
+   etc. as needed with a click of a button. When it’s crunch time… this
    can be a big help.
 
    [9]MD | [10]TXT | [11]CC-4.0

@@ -8,8 +8,9 @@
 
    Recently, I was working on a project where I needed to modify an
    existing page that had multiple galleries. This change required me to
-   have access to the original uploaded images. Hereʼs a simple function I
+   have access to the original uploaded images. Here’s a simple function I
    wrote which returns the images easily in an array format.
+
 # Input
 Hey comes see my gallery! [gallery ids="12,124,342]
 
@@ -18,9 +19,9 @@ $images = getGalleryImages(get_the_content());
 
 # Output
 Array (
-  [0] &ge; http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
-  [1] &ge; http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
-  [2] &ge; http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
+  [0] => http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
+  [1] => http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
+  [2] => http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
 );
 
 /*
@@ -32,13 +33,13 @@ Array (
  * @param $return_size size of image to return
  * @return array
  */
-function getGalleryImages($content, $return_size = ʼlargeʼ) {
+function getGalleryImages($content, $return_size = 'large') {
   // Gallery is in format of [gallery link="..." ids="12,124,342"]
-  preg_match(ʼ/ids="([^"]*)"/iʼ, $content, $matches);
+  preg_match('/ids="([^"]*)"/i', $content, $matches);
 
   $images = [];
   if (isset($matches[1])) {
-    foreach(explode(ʼ,ʼ, $matches[1]) as $id) {
+    foreach(explode(',', $matches[1]) as $id) {
       // For each image in the gallery, get its WP data (url, width, height)
       $images[] = wp_get_attachment_image_src($id, $return_size);
     }
@@ -72,6 +73,7 @@ Ty King
 
 References
 
+   Visible links:
    1. /rss.xml
    2. /
    3. /get-original-sized-images-from-a-wordpress-post-gallery/index.md
@@ -82,3 +84,40 @@ References
    8. /about
    9. /assets/files/cv.pdf
   10. /rss.xml
+
+   Hidden links:
+  12. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-1
+  13. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-2
+  14. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-3
+  15. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-4
+  16. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-6
+  18. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-7
+  19. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-8
+  20. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-9
+  21. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-10
+  22. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-11
+  23. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb1-12
+  24. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-1
+  25. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-2
+  26. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-3
+  27. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-4
+  28. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-5
+  29. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-6
+  30. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-7
+  31. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-8
+  32. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-9
+  33. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-10
+  34. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-11
+  35. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-12
+  36. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-13
+  37. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-14
+  38. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-15
+  39. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-16
+  40. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-17
+  41. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-18
+  42. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-19
+  43. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-20
+  44. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-21
+  45. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-22
+  46. localhost/tmp/lynxXXXXvHtXVT/L3281253-4301TMP.html#cb2-23

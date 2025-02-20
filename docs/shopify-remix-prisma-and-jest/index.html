@@ -80,13 +80,13 @@
         </h2>
 
         <p>
-          Shopify has <em>(once again)</em> changed up their app framework and templates. This time, they're utilizing
+          Shopify has <em>(once again)</em> changed up their app framework and templates. This time, they’re utilizing
           Remix which is a React-based web framework, and Prisma which is an ORM.
         </p>
 
         <p>
           Recently, I developed a large loyalty application utlizing the new framework. Because this app is critical to
-          the merchant's shop, I wanted to ensure the business logic was working correctly.
+          the merchant’s shop, I wanted to ensure the business logic was working correctly.
         </p>
 
         <p>
@@ -100,19 +100,35 @@
           <a href="https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing">for unit tests</a>.
         </p>
 
-        <pre><code>const record = {
-  id: 1,
-  title: "Example",
-  isDeleted: false,
-  deletedAt: ...,
-  createdAt: ...,
-  updatedAt: ...,
-};
-prismaMock.places.create.mockResolvedValue(record);
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="kw">const</span> record <span class="op">=</span> {</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  <span class="dt">id</span><span class=
+"op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="dt">title</span><span class=
+"op">:</span> <span class="st">"Example"</span><span class="op">,</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>  <span class="dt">isDeleted</span><span class=
+"op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>  <span class="dt">deletedAt</span><span class=
+"op">:</span> <span class="op">...,</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>  <span class="dt">createdAt</span><span class=
+"op">:</span> <span class="op">...,</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>  <span class="dt">updatedAt</span><span class=
+"op">:</span> <span class="op">...,</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>prismaMock<span class="op">.</span><span class=
+"at">places</span><span class="op">.</span><span class="at">create</span><span class="op">.</span><span class=
+"fu">mockResolvedValue</span>(record)<span class="op">;</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class=
+"kw">const</span> result <span class="op">=</span> <span class="cf">await</span> <span class=
+"fu">PlacesRepository</span>(prismaMock)<span class="op">.</span><span class="fu">create</span>(record<span class=
+"op">.</span><span class="at">title</span>)<span class="op">;</span> <span class="co">// returns a model</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class=
+"fu">expect</span>(result<span class="op">.</span><span class="fu">toJSON</span>())<span class=
+"op">.</span><span class="fu">toEqual</span>(record)<span class="op">;</span></span></code></pre>
+        </div>
 
-const result = await PlacesRepository(prismaMock).create(record.title); // returns a model
-expect(result.toJSON()).toEqual(record);
-</code></pre>
         <p>
           However, in terms of integration tests, a setup would be required to actually setup Prisma to communicate
           with a test database. It took a while to get working properly so I thought I would share the process.
@@ -142,13 +158,12 @@ expect(result.toJSON()).toEqual(record);
           Open <code>package.json</code> and add the following to the end of your <code>scripts</code> object:
         </p>
 
-        <pre><code>/* package.json */
+        <pre class="conf"><code>/* package.json */
 "test": "jest",
 "test:coverage": "jest --coverage",
-"test⭐generate": "prisma generate",
-"test⭐deploy": "prisma migrate deploy",
-"test⭐reset": "prisma db push --force-reset --accept-data-loss --skip-generate"
-</code></pre>
+"test:db:generate": "prisma generate",
+"test:db:deploy": "prisma migrate deploy",
+"test:db:reset": "prisma db push --force-reset --accept-data-loss --skip-generate"</code></pre>
         <p>
           These commands will be utilized later.
         </p>
@@ -161,13 +176,21 @@ expect(result.toJSON()).toEqual(record);
           Open (or create) <code>jest.config.js</code> and input:
         </p>
 
-        <pre><code>/* jest.config.js */
-module.exports = {
-  preset: "ts-jest",
-  testEnvironment: "node",
-  setupFilesAfterEnv: ["./app/mocks.ts"],
-};
-</code></pre>
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="co">/* jest.config.js */</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>module<span class="op">.</span><span class=
+"at">exports</span> <span class="op">=</span> {</span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="dt">preset</span><span class=
+"op">:</span> <span class="st">"ts-jest"</span><span class="op">,</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>  <span class=
+"dt">testEnvironment</span><span class="op">:</span> <span class="st">"node"</span><span class="op">,</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>  <span class=
+"dt">setupFilesAfterEnv</span><span class="op">:</span> [<span class="st">"./app/mocks.ts"</span>]<span class=
+"op">,</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
+
         <h3 id="git-ignore">
           Git Ignore
         </h3>
@@ -176,10 +199,9 @@ module.exports = {
           Add the following to your <code>.gitignore</code>:
         </p>
 
-        <pre><code>/prisma/*.sqlite
+        <pre class="conf"><code>/prisma/*.sqlite
 /prisma/*.sqlite-journal
-/coverage
-</code></pre>
+/coverage</code></pre>
         <h3 id="schema">
           Schema
         </h3>
@@ -189,11 +211,10 @@ module.exports = {
           <code>env("DATABASE_URL)</code>:
         </p>
 
-        <pre><code>datasource db {
+        <pre class="conf"><code>datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
-}
-</code></pre>
+}</code></pre>
         <h2 id="mocks-setup">
           Mocks Setup
         </h2>
@@ -202,7 +223,7 @@ module.exports = {
           Prisma
         </h3>
 
-        <h4 id="mocks-prisma-ts">
+        <h4 id="mocks.prisma.ts">
           mocks.prisma.ts
         </h4>
 
@@ -210,99 +231,176 @@ module.exports = {
           Create a file <code>app/mocks.prisma.ts</code> with the following contents:
         </p>
 
-        <pre><code>// eslint-disable-next-line import/no-extraneous-dependencies
-import { afterAll, afterEach, beforeEach } from "@jest/globals";
-import type { PrismaClient } from "@prisma/client";
-import { execSync } from "child_process";
-import { unlink } from "fs/promises";
-import { existsSync } from "fs";
-import * as path from "path";
+        <div class="sourceCode" id="cb6">
+          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true" href=
+          "#cb6-1" tabindex="-1"></a><span class=
+          "co">// eslint-disable-next-line import/no-extraneous-dependencies</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class=
+"im">import</span> { afterAll<span class="op">,</span> afterEach<span class="op">,</span> beforeEach } <span class=
+"im">from</span> <span class="st">"@jest/globals"</span><span class="op">;</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class=
+"im">import</span> type { PrismaClient } <span class="im">from</span> <span class=
+"st">"@prisma/client"</span><span class="op">;</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a><span class=
+"im">import</span> { execSync } <span class="im">from</span> <span class="st">"child_process"</span><span class=
+"op">;</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a><span class=
+"im">import</span> { unlink } <span class="im">from</span> <span class="st">"fs/promises"</span><span class=
+"op">;</span></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a><span class=
+"im">import</span> { existsSync } <span class="im">from</span> <span class="st">"fs"</span><span class=
+"op">;</span></span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a><span class="im">import</span> <span class=
+"op">*</span> <span class="im">as</span> path <span class="im">from</span> <span class="st">"path"</span><span class=
+"op">;</span></span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a aria-hidden="true" href="#cb6-9" tabindex="-1"></a><span class=
+"co">// Path to generated types</span></span>
+<span id="cb6-10"><a aria-hidden="true" href="#cb6-10" tabindex="-1"></a><span class=
+"kw">const</span> typesPath <span class="op">=</span> path<span class="op">.</span><span class=
+"fu">resolve</span>(<span class="st">"node_modules"</span><span class="op">,</span> <span class=
+"st">".prisma"</span><span class="op">,</span> <span class="st">"client"</span><span class="op">,</span> <span class=
+"st">"index.d.ts"</span>)<span class="op">;</span></span>
+<span id="cb6-11"><a aria-hidden="true" href="#cb6-11" tabindex="-1"></a></span>
+<span id="cb6-12"><a aria-hidden="true" href="#cb6-12" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb6-13"><a aria-hidden="true" href="#cb6-13" tabindex="-1"></a><span class=
+"co"> * Run an NPM command.</span></span>
+<span id="cb6-14"><a aria-hidden="true" href="#cb6-14" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb6-15"><a aria-hidden="true" href="#cb6-15" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">script</span><span class=
+"co"> - Script to run.</span></span>
+<span id="cb6-16"><a aria-hidden="true" href="#cb6-16" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-17"><a aria-hidden="true" href="#cb6-17" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">npm</span>(script<span class="op">:</span> string) {</span>
+<span id="cb6-18"><a aria-hidden="true" href="#cb6-18" tabindex="-1"></a>  <span class=
+"fu">execSync</span>([<span class="st">"npm"</span><span class="op">,</span> <span class="st">"run"</span><span class=
+"op">,</span> script]<span class="op">.</span><span class="fu">join</span>(<span class="st">" "</span>)<span class=
+"op">,</span> {</span>
+<span id="cb6-19"><a aria-hidden="true" href="#cb6-19" tabindex="-1"></a>    <span class="dt">env</span><span class=
+"op">:</span> {</span>
+<span id="cb6-20"><a aria-hidden="true" href="#cb6-20" tabindex="-1"></a>      <span class="op">...</span><span class=
+"bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">,</span></span>
+<span id="cb6-21"><a aria-hidden="true" href="#cb6-21" tabindex="-1"></a>      <span class=
+"dt">NODE_ENV</span><span class="op">:</span> <span class="st">"test"</span><span class="op">,</span></span>
+<span id="cb6-22"><a aria-hidden="true" href="#cb6-22" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb6-23"><a aria-hidden="true" href="#cb6-23" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb6-24"><a aria-hidden="true" href="#cb6-24" tabindex="-1"></a>}</span>
+<span id="cb6-25"><a aria-hidden="true" href="#cb6-25" tabindex="-1"></a></span>
+<span id="cb6-26"><a aria-hidden="true" href="#cb6-26" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb6-27"><a aria-hidden="true" href="#cb6-27" tabindex="-1"></a><span class=
+"co"> * Generates the types, creates the database.</span></span>
+<span id="cb6-28"><a aria-hidden="true" href="#cb6-28" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-29"><a aria-hidden="true" href="#cb6-29" tabindex="-1"></a><span class="kw">async</span> <span class=
+"kw">function</span> <span class="fu">createDatabase</span>(client<span class="op">:</span> PrismaClient) {</span>
+<span id="cb6-30"><a aria-hidden="true" href="#cb6-30" tabindex="-1"></a>  <span class="cf">if</span> (<span class=
+"op">!</span><span class="fu">existsSync</span>(typesPath)) {</span>
+<span id="cb6-31"><a aria-hidden="true" href="#cb6-31" tabindex="-1"></a>    <span class="fu">npm</span>(<span class=
+"st">"test:db:generate"</span>)<span class="op">;</span></span>
+<span id="cb6-32"><a aria-hidden="true" href="#cb6-32" tabindex="-1"></a>  }</span>
+<span id="cb6-33"><a aria-hidden="true" href="#cb6-33" tabindex="-1"></a></span>
+<span id="cb6-34"><a aria-hidden="true" href="#cb6-34" tabindex="-1"></a>  <span class="fu">npm</span>(<span class=
+"st">"test:db:deploy"</span>)<span class="op">;</span></span>
+<span id="cb6-35"><a aria-hidden="true" href="#cb6-35" tabindex="-1"></a>  <span class=
+"cf">await</span> client<span class="op">.</span><span class="fu">$connect</span>()<span class="op">;</span></span>
+<span id="cb6-36"><a aria-hidden="true" href="#cb6-36" tabindex="-1"></a>}</span>
+<span id="cb6-37"><a aria-hidden="true" href="#cb6-37" tabindex="-1"></a></span>
+<span id="cb6-38"><a aria-hidden="true" href="#cb6-38" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb6-39"><a aria-hidden="true" href="#cb6-39" tabindex="-1"></a><span class=
+"co"> * Destroy the database.</span></span>
+<span id="cb6-40"><a aria-hidden="true" href="#cb6-40" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb6-41"><a aria-hidden="true" href="#cb6-41" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">client</span><span class=
+"co"> - Prisma client.</span></span>
+<span id="cb6-42"><a aria-hidden="true" href="#cb6-42" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-43"><a aria-hidden="true" href="#cb6-43" tabindex="-1"></a><span class="kw">async</span> <span class=
+"kw">function</span> <span class="fu">destroyDatabase</span>(client<span class="op">:</span> PrismaClient) {</span>
+<span id="cb6-44"><a aria-hidden="true" href="#cb6-44" tabindex="-1"></a>  <span class=
+"co">// Disconnects Prisma</span></span>
+<span id="cb6-45"><a aria-hidden="true" href="#cb6-45" tabindex="-1"></a>  <span class=
+"cf">await</span> client<span class="op">.</span><span class="fu">$disconnect</span>()<span class="op">;</span></span>
+<span id="cb6-46"><a aria-hidden="true" href="#cb6-46" tabindex="-1"></a></span>
+<span id="cb6-47"><a aria-hidden="true" href="#cb6-47" tabindex="-1"></a>  <span class=
+"co">// Remove database</span></span>
+<span id="cb6-48"><a aria-hidden="true" href="#cb6-48" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb6-49"><a aria-hidden="true" href="#cb6-49" tabindex="-1"></a>    <span class=
+"kw">const</span> dbPath <span class="op">=</span> (<span class="bu">process</span><span class=
+"op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span> <span class=
+"im">as</span> string)<span class="op">.</span><span class="fu">replace</span>(<span class=
+"st">"file:"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">;</span></span>
+<span id="cb6-50"><a aria-hidden="true" href="#cb6-50" tabindex="-1"></a>    <span class="cf">await</span> <span class=
+"bu">Promise</span><span class="op">.</span><span class="fu">allSettled</span>([<span class=
+"fu">unlink</span>(dbPath)<span class="op">,</span> <span class="fu">unlink</span>(<span class=
+"vs">`</span><span class="sc">${</span>dbPath<span class="sc">}</span><span class="vs">-journal`</span>)])<span class=
+"op">;</span></span>
+<span id="cb6-51"><a aria-hidden="true" href="#cb6-51" tabindex="-1"></a>  } <span class="cf">catch</span> (e) {</span>
+<span id="cb6-52"><a aria-hidden="true" href="#cb6-52" tabindex="-1"></a>    <span class=
+"co">// Do nothing, we don't care</span></span>
+<span id="cb6-53"><a aria-hidden="true" href="#cb6-53" tabindex="-1"></a>  }</span>
+<span id="cb6-54"><a aria-hidden="true" href="#cb6-54" tabindex="-1"></a>}</span>
+<span id="cb6-55"><a aria-hidden="true" href="#cb6-55" tabindex="-1"></a></span>
+<span id="cb6-56"><a aria-hidden="true" href="#cb6-56" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb6-57"><a aria-hidden="true" href="#cb6-57" tabindex="-1"></a><span class=
+"co"> * Resets the database in between each test.</span></span>
+<span id="cb6-58"><a aria-hidden="true" href="#cb6-58" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-59"><a aria-hidden="true" href="#cb6-59" tabindex="-1"></a><span class=
+"co">// function resetDatabase() {</span></span>
+<span id="cb6-60"><a aria-hidden="true" href="#cb6-60" tabindex="-1"></a><span class=
+"co">//   npm("test:db:reset");</span></span>
+<span id="cb6-61"><a aria-hidden="true" href="#cb6-61" tabindex="-1"></a><span class="co">// }</span></span>
+<span id="cb6-62"><a aria-hidden="true" href="#cb6-62" tabindex="-1"></a></span>
+<span id="cb6-63"><a aria-hidden="true" href="#cb6-63" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb6-64"><a aria-hidden="true" href="#cb6-64" tabindex="-1"></a><span class=
+"co"> * Seeds the database with initial data.</span></span>
+<span id="cb6-65"><a aria-hidden="true" href="#cb6-65" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb6-66"><a aria-hidden="true" href="#cb6-66" tabindex="-1"></a><span class="co"> * </span><span class=
+"an">@param</span><span class="co"> </span><span class="cv">client</span><span class=
+"co"> - Prisma client.</span></span>
+<span id="cb6-67"><a aria-hidden="true" href="#cb6-67" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-68"><a aria-hidden="true" href="#cb6-68" tabindex="-1"></a><span class="kw">function</span> <span class=
+"fu">seedDatabase</span>(client<span class="op">:</span> PrismaClient) {</span>
+<span id="cb6-69"><a aria-hidden="true" href="#cb6-69" tabindex="-1"></a>  <span class=
+"co">// Seed shop session</span></span>
+<span id="cb6-70"><a aria-hidden="true" href="#cb6-70" tabindex="-1"></a>  <span class=
+"cf">await</span> client<span class="op">.</span><span class="at">session</span><span class="op">.</span><span class=
+"fu">create</span>({</span>
+<span id="cb6-71"><a aria-hidden="true" href="#cb6-71" tabindex="-1"></a>    <span class="dt">data</span><span class=
+"op">:</span> {</span>
+<span id="cb6-72"><a aria-hidden="true" href="#cb6-72" tabindex="-1"></a>      <span class="dt">id</span><span class=
+"op">:</span> <span class="st">"example.myshopify.com_id"</span><span class="op">,</span></span>
+<span id="cb6-73"><a aria-hidden="true" href="#cb6-73" tabindex="-1"></a>      <span class="dt">shop</span><span class=
+"op">:</span> <span class="st">"example.myshopify.com"</span><span class="op">,</span></span>
+<span id="cb6-74"><a aria-hidden="true" href="#cb6-74" tabindex="-1"></a>      <span class=
+"dt">accessToken</span><span class="op">:</span> <span class="st">"token"</span><span class="op">,</span></span>
+<span id="cb6-75"><a aria-hidden="true" href="#cb6-75" tabindex="-1"></a>      <span class=
+"dt">state</span><span class="op">:</span> <span class="st">""</span><span class="op">,</span></span>
+<span id="cb6-76"><a aria-hidden="true" href="#cb6-76" tabindex="-1"></a>      <span class=
+"dt">isOnline</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb6-77"><a aria-hidden="true" href="#cb6-77" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb6-78"><a aria-hidden="true" href="#cb6-78" tabindex="-1"></a>  ])<span class="op">;</span></span>
+<span id="cb6-79"><a aria-hidden="true" href="#cb6-79" tabindex="-1"></a>}</span>
+<span id="cb6-80"><a aria-hidden="true" href="#cb6-80" tabindex="-1"></a></span>
+<span id="cb6-81"><a aria-hidden="true" href="#cb6-81" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb6-82"><a aria-hidden="true" href="#cb6-82" tabindex="-1"></a><span class=
+"co"> * To be used on test suites which need this Prisma setup.</span></span>
+<span id="cb6-83"><a aria-hidden="true" href="#cb6-83" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb6-84"><a aria-hidden="true" href="#cb6-84" tabindex="-1"></a><span class="im">export</span> <span class=
+"kw">function</span> <span class="fu">prismaHooks</span>(<span class="dt">client</span><span class=
+"op">:</span> PrismaClient) {</span>
+<span id="cb6-85"><a aria-hidden="true" href="#cb6-85" tabindex="-1"></a>  <span class=
+"fu">beforeEach</span>(<span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb6-86"><a aria-hidden="true" href="#cb6-86" tabindex="-1"></a>    <span class="cf">await</span> <span class=
+"fu">createDatabase</span>(client)<span class="op">;</span></span>
+<span id="cb6-87"><a aria-hidden="true" href="#cb6-87" tabindex="-1"></a>    <span class="cf">await</span> <span class=
+"fu">seedDatabase</span>(client)<span class="op">;</span></span>
+<span id="cb6-88"><a aria-hidden="true" href="#cb6-88" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb6-89"><a aria-hidden="true" href="#cb6-89" tabindex="-1"></a>  <span class=
+"fu">afterEach</span>(() <span class="kw">=&gt;</span> <span class="fu">destroyDatabase</span>(client))<span class=
+"op">;</span></span>
+<span id="cb6-90"><a aria-hidden="true" href="#cb6-90" tabindex="-1"></a>}</span></code></pre>
+        </div>
 
-// Path to generated types
-const typesPath = path.resolve("node_modules", ".prisma", "client", "index.d.ts");
-
-/**
- * Run an NPM command.
- *
- * @param script - Script to run.
- */
-function npm(script: string) {
-  execSync(["npm", "run", script].join(" "), {
-    env: {
-      ...process.env,
-      NODE_ENV: "test",
-    },
-  });
-}
-
-/**
- * Generates the types, creates the database.
- */
-async function createDatabase(client: PrismaClient) {
-  if (!existsSync(typesPath)) {
-    npm("test⭐generate");
-  }
-
-  npm("test⭐deploy");
-  await client.$connect();
-}
-
-/**
- * Destroy the database.
- *
- * @param client - Prisma client.
- */
-async function destroyDatabase(client: PrismaClient) {
-  // Disconnects Prisma
-  await client.$disconnect();
-
-  // Remove database
-  try {
-    const dbPath = (process.env.DATABASE_URL as string).replace("file:", "");
-    await Promise.allSettled([unlink(dbPath), unlink(`-journal`)]);
-  } catch (e) {
-    // Do nothing, we don't care
-  }
-}
-
-/**
- * Resets the database in between each test.
- */
-// function resetDatabase() {
-//   npm("test⭐reset");
-// }
-
-/**
- * Seeds the database with initial data.
- *
- * @param client - Prisma client.
- */
-function seedDatabase(client: PrismaClient) {
-  // Seed shop session
-  await client.session.create({
-    data: {
-      id: "example.myshopify.com_id",
-      shop: "example.myshopify.com",
-      accessToken: "token",
-      state: "",
-      isOnline: false,
-    },
-  ]);
-}
-
-/**
- * To be used on test suites which need this Prisma setup.
- */
-export function prismaHooks(client: PrismaClient) {
-  beforeEach(async () &amp;ge; {
-    await createDatabase(client);
-    await seedDatabase(client);
-  });
-  afterEach(() &amp;ge; destroyDatabase(client));
-}
-</code></pre>
         <p>
-          What this file does is utilize's Jest's global hooks (<code>beforeAll</code>, <code>afterAll</code>, etc) to
+          What this file does is utilize’s Jest’s global hooks (<code>beforeAll</code>, <code>afterAll</code>, etc) to
           setup and teardown the database for each test suite, if you invoke <code>prismaHooks</code>.
         </p>
 
@@ -312,28 +410,49 @@ export function prismaHooks(client: PrismaClient) {
           Prisma, it will be done once only.
         </p>
 
-        <h3 id="db-server-ts">
+        <h3 id="db.server.ts">
           db.server.ts
         </h3>
 
         <p>
-          Create a file <code>app/<strong>mocks</strong>/db.server.ts</code> with the following content. This will be
-          used by Jest to replace <code>app/db.server.ts</code> with this file.
+          Create a file <code>app/__mocks__/db.server.ts</code> with the following content. This will be used by Jest
+          to replace <code>app/db.server.ts</code> with this file.
         </p>
 
-        <pre><code>import { PrismaClient } from "@prisma/client";
-import * as path from "path";
+        <div class="sourceCode" id="cb7">
+          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true" href=
+          "#cb7-1" tabindex="-1"></a><span class="im">import</span> { PrismaClient } <span class=
+          "im">from</span> <span class="st">"@prisma/client"</span><span class="op">;</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class="im">import</span> <span class=
+"op">*</span> <span class="im">as</span> path <span class="im">from</span> <span class="st">"path"</span><span class=
+"op">;</span></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a><span class=
+"co">// Database path to ../prisma/test-[time].sqlite</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a><span class=
+"kw">const</span> dbPath <span class="op">=</span> path<span class="op">.</span><span class=
+"fu">resolve</span>(<span class="bu">__dirname</span><span class="op">,</span> <span class="st">".."</span><span class=
+"op">,</span> <span class="st">".."</span><span class="op">,</span> <span class="st">"prisma"</span><span class=
+"op">,</span> <span class="vs">`test-</span><span class="sc">${</span><span class="kw">new</span> <span class=
+"bu">Date</span>()<span class="op">.</span><span class="fu">getTime</span>()<span class="sc">}</span><span class=
+"vs">.sqlite`</span>)<span class="op">;</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a><span class=
+"co">// Set database URL override</span></span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a><span class="bu">process</span><span class=
+"op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span> <span class=
+"op">=</span> <span class="vs">`file:</span><span class="sc">${</span>dbPath<span class="sc">}</span><span class=
+"vs">`</span><span class="op">;</span></span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a><span class=
+"co">// Prisma client</span></span>
+<span id="cb7-11"><a aria-hidden="true" href="#cb7-11" tabindex="-1"></a><span class=
+"kw">const</span> prisma <span class="op">=</span> <span class="kw">new</span> <span class=
+"fu">PrismaClient</span>()<span class="op">;</span></span>
+<span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a><span class="im">export</span> <span class=
+"im">default</span> prisma<span class="op">;</span></span></code></pre>
+        </div>
 
-// Database path to ../prisma/test-[time].sqlite
-const dbPath = path.resolve(__dirname, "..", "..", "prisma", `test-${new Date().getTime()}.sqlite`);
-
-// Set database URL override
-process.env.DATABASE_URL = `file:`;
-
-// Prisma client
-const prisma = new PrismaClient();
-export default prisma;
-</code></pre>
         <ul>
           <li>
             <code>dbPath</code> sets the path of where our test SQLite database will live,
@@ -349,7 +468,7 @@ export default prisma;
           This ensures a unique database for each test suite.
         </p>
 
-        <h3 id="jest">
+        <h3 id="jest-1">
           Jest
         </h3>
 
@@ -358,11 +477,17 @@ export default prisma;
           setup.
         </p>
 
-        <pre><code>/* app/mocks.ts */
-import { jest } from "@jest/globals";
+        <div class="sourceCode" id="cb8">
+          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true" href=
+          "#cb8-1" tabindex="-1"></a><span class="co">/* app/mocks.ts */</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class=
+"im">import</span> { jest } <span class="im">from</span> <span class="st">"@jest/globals"</span><span class=
+"op">;</span></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>jest<span class="op">.</span><span class=
+"fu">mock</span>(<span class="st">"./db.server"</span>)<span class="op">;</span></span></code></pre>
+        </div>
 
-jest.mock("./db.server");
-</code></pre>
         <h2 id="usage">
           Usage
         </h2>
@@ -371,86 +496,160 @@ jest.mock("./db.server");
           You are now ready to do integration tests!
         </p>
 
-        <pre><code>/* app/order/processor.test.ts */
-import { describe, expect, it } from "@jest/globals";
-import db from "../db.server";
-import { prismaHooks } from "../mocks.prisma";
-import { ShopifyClient, ShopifyFixture } from "../mocks.clients";
-// etc...
+        <div class="sourceCode" id="cb9">
+          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true" href=
+          "#cb9-1" tabindex="-1"></a><span class="co">/* app/order/processor.test.ts */</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class=
+"im">import</span> { describe<span class="op">,</span> expect<span class="op">,</span> it } <span class=
+"im">from</span> <span class="st">"@jest/globals"</span><span class="op">;</span></span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a><span class="im">import</span> db <span class=
+"im">from</span> <span class="st">"../db.server"</span><span class="op">;</span></span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a><span class=
+"im">import</span> { prismaHooks } <span class="im">from</span> <span class="st">"../mocks.prisma"</span><span class=
+"op">;</span></span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a><span class=
+"im">import</span> { ShopifyClient<span class="op">,</span> ShopifyFixture } <span class="im">from</span> <span class=
+"st">"../mocks.clients"</span><span class="op">;</span></span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a><span class="co">// etc...</span></span>
+<span id="cb9-7"><a aria-hidden="true" href="#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a><span class=
+"co">/* just an example... */</span></span>
+<span id="cb9-9"><a aria-hidden="true" href="#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a aria-hidden="true" href="#cb9-10" tabindex="-1"></a><span class="fu">describe</span>(<span class=
+"st">"order processor"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb9-11"><a aria-hidden="true" href="#cb9-11" tabindex="-1"></a>  <span class=
+"co">// Add our hooks for this suite</span></span>
+<span id="cb9-12"><a aria-hidden="true" href="#cb9-12" tabindex="-1"></a>  <span class=
+"fu">prismaMocks</span>(db)<span class="op">;</span></span>
+<span id="cb9-13"><a aria-hidden="true" href="#cb9-13" tabindex="-1"></a></span>
+<span id="cb9-14"><a aria-hidden="true" href="#cb9-14" tabindex="-1"></a>  <span class="fu">it</span>(<span class=
+"st">"should insert order"</span><span class="op">,</span> <span class="kw">async</span> () <span class=
+"kw">=&gt;</span> {</span>
+<span id="cb9-15"><a aria-hidden="true" href="#cb9-15" tabindex="-1"></a>    <span class=
+"kw">const</span> orderId <span class="op">=</span> <span class="fu">OrderId</span>(<span class=
+"st">"gid://shopify/Order/1"</span>)<span class="op">;</span></span>
+<span id="cb9-16"><a aria-hidden="true" href="#cb9-16" tabindex="-1"></a>    <span class=
+"kw">const</span> customerId <span class="op">=</span> <span class="fu">CustomerId</span>(<span class=
+"st">"gid://shopify/Customer/1"</span>)<span class="op">;</span></span>
+<span id="cb9-17"><a aria-hidden="true" href="#cb9-17" tabindex="-1"></a>    <span class=
+"kw">const</span> product1 <span class="op">=</span> <span class="fu">ProductId</span>(<span class=
+"st">"gid://shopify/Product/1"</span>)<span class="op">;</span></span>
+<span id="cb9-18"><a aria-hidden="true" href="#cb9-18" tabindex="-1"></a>    <span class=
+"kw">const</span> prodcut2 <span class="op">=</span> <span class="fu">ProductId</span>(<span class=
+"st">"gid://shopify/Product/2"</span>)<span class="op">;</span></span>
+<span id="cb9-19"><a aria-hidden="true" href="#cb9-19" tabindex="-1"></a></span>
+<span id="cb9-20"><a aria-hidden="true" href="#cb9-20" tabindex="-1"></a>    <span class="co">// Job data</span></span>
+<span id="cb9-21"><a aria-hidden="true" href="#cb9-21" tabindex="-1"></a>    <span class=
+"kw">const</span> jobData <span class="op">=</span> {</span>
+<span id="cb9-22"><a aria-hidden="true" href="#cb9-22" tabindex="-1"></a>      <span class=
+"dt">order</span><span class="op">:</span> {</span>
+<span id="cb9-23"><a aria-hidden="true" href="#cb9-23" tabindex="-1"></a>        <span class="dt">id</span><span class=
+"op">:</span> orderId<span class="op">.</span><span class="fu">toInt</span>()<span class="op">,</span></span>
+<span id="cb9-24"><a aria-hidden="true" href="#cb9-24" tabindex="-1"></a>        <span class=
+"dt">admin_graphql_id</span><span class="op">:</span> orderId<span class="op">.</span><span class=
+"fu">toGql</span>()<span class="op">,</span></span>
+<span id="cb9-25"><a aria-hidden="true" href="#cb9-25" tabindex="-1"></a>        <span class=
+"dt">tags</span><span class="op">:</span> []<span class="op">,</span></span>
+<span id="cb9-26"><a aria-hidden="true" href="#cb9-26" tabindex="-1"></a>        <span class=
+"dt">total_price</span><span class="op">:</span> <span class="st">"115.00"</span><span class="op">,</span></span>
+<span id="cb9-27"><a aria-hidden="true" href="#cb9-27" tabindex="-1"></a>        <span class=
+"dt">customer</span><span class="op">:</span> {</span>
+<span id="cb9-28"><a aria-hidden="true" href="#cb9-28" tabindex="-1"></a>          <span class=
+"dt">id</span><span class="op">:</span> customerId<span class="op">.</span><span class="fu">toInt</span>()<span class=
+"op">,</span></span>
+<span id="cb9-29"><a aria-hidden="true" href="#cb9-29" tabindex="-1"></a>        }<span class="op">,</span></span>
+<span id="cb9-30"><a aria-hidden="true" href="#cb9-30" tabindex="-1"></a>        <span class=
+"dt">line_items</span><span class="op">:</span> [</span>
+<span id="cb9-31"><a aria-hidden="true" href="#cb9-31" tabindex="-1"></a>          {</span>
+<span id="cb9-32"><a aria-hidden="true" href="#cb9-32" tabindex="-1"></a>            <span class=
+"dt">product_id</span><span class="op">:</span> p1<span class="op">.</span><span class="fu">toInt</span>()<span class=
+"op">,</span></span>
+<span id="cb9-33"><a aria-hidden="true" href="#cb9-33" tabindex="-1"></a>            <span class=
+"dt">price</span><span class="op">:</span> <span class="st">"100.00"</span><span class="op">,</span></span>
+<span id="cb9-34"><a aria-hidden="true" href="#cb9-34" tabindex="-1"></a>            <span class=
+"dt">quantity</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb9-35"><a aria-hidden="true" href="#cb9-35" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb9-36"><a aria-hidden="true" href="#cb9-36" tabindex="-1"></a>          {</span>
+<span id="cb9-37"><a aria-hidden="true" href="#cb9-37" tabindex="-1"></a>            <span class=
+"dt">product_id</span><span class="op">:</span> p2<span class="op">.</span><span class="fu">toInt</span>()<span class=
+"op">,</span></span>
+<span id="cb9-38"><a aria-hidden="true" href="#cb9-38" tabindex="-1"></a>            <span class=
+"dt">price</span><span class="op">:</span> <span class="st">"15.00"</span><span class="op">,</span></span>
+<span id="cb9-39"><a aria-hidden="true" href="#cb9-39" tabindex="-1"></a>            <span class=
+"dt">quantity</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb9-40"><a aria-hidden="true" href="#cb9-40" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb9-41"><a aria-hidden="true" href="#cb9-41" tabindex="-1"></a>        ]<span class="op">,</span></span>
+<span id="cb9-42"><a aria-hidden="true" href="#cb9-42" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb9-43"><a aria-hidden="true" href="#cb9-43" tabindex="-1"></a>      <span class="dt">shop</span><span class=
+"op">:</span> <span class="st">"example.myshopify.com"</span><span class="op">,</span></span>
+<span id="cb9-44"><a aria-hidden="true" href="#cb9-44" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb9-45"><a aria-hidden="true" href="#cb9-45" tabindex="-1"></a></span>
+<span id="cb9-46"><a aria-hidden="true" href="#cb9-46" tabindex="-1"></a>    <span class=
+"co">// Shopify GraphQL mock client</span></span>
+<span id="cb9-47"><a aria-hidden="true" href="#cb9-47" tabindex="-1"></a>    <span class=
+"kw">const</span> client <span class="op">=</span> <span class="fu">ShopifyClient</span>(</span>
+<span id="cb9-48"><a aria-hidden="true" href="#cb9-48" tabindex="-1"></a>      <span class=
+"fu">ShopifyFixture</span>(<span class="st">"product-no-tag"</span><span class="op">,</span> <span class=
+"st">"product/no-override-tag"</span>)<span class="op">,</span></span>
+<span id="cb9-49"><a aria-hidden="true" href="#cb9-49" tabindex="-1"></a>      <span class=
+"fu">ShopifyFixture</span>(<span class="st">"product-with-tag"</span><span class="op">,</span> <span class=
+"st">"product/with-override-tag"</span>)<span class="op">,</span></span>
+<span id="cb9-50"><a aria-hidden="true" href="#cb9-50" tabindex="-1"></a>      <span class=
+"fu">ShopifyFixture</span>(<span class="st">"add-tag"</span><span class="op">,</span> <span class=
+"st">"tags-add-customer"</span>)<span class="op">,</span></span>
+<span id="cb9-51"><a aria-hidden="true" href="#cb9-51" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb9-52"><a aria-hidden="true" href="#cb9-52" tabindex="-1"></a></span>
+<span id="cb9-53"><a aria-hidden="true" href="#cb9-53" tabindex="-1"></a>    <span class=
+"co">// Run the processor</span></span>
+<span id="cb9-54"><a aria-hidden="true" href="#cb9-54" tabindex="-1"></a>    <span class=
+"kw">const</span> [retOrderId<span class="op">,</span> retOustomerId<span class="op">,</span> retSum]<span class=
+"op">:</span> JobReturn <span class="op">=</span> <span class="cf">await</span> <span class=
+"fu">processor</span>({</span>
+<span id="cb9-55"><a aria-hidden="true" href="#cb9-55" tabindex="-1"></a>      db<span class="op">,</span></span>
+<span id="cb9-56"><a aria-hidden="true" href="#cb9-56" tabindex="-1"></a>      client<span class="op">,</span></span>
+<span id="cb9-57"><a aria-hidden="true" href="#cb9-57" tabindex="-1"></a>      <span class="dt">job</span><span class=
+"op">:</span> { <span class="dt">data</span><span class="op">:</span> jobData }<span class="op">,</span></span>
+<span id="cb9-58"><a aria-hidden="true" href="#cb9-58" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb9-59"><a aria-hidden="true" href="#cb9-59" tabindex="-1"></a>    <span class=
+"fu">expect</span>(retOrderId<span class="op">.</span><span class="fu">isSame</span>(orderId))<span class=
+"op">.</span><span class="fu">toBe</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb9-60"><a aria-hidden="true" href="#cb9-60" tabindex="-1"></a>    <span class=
+"fu">expect</span>(retCustomerId<span class="op">.</span><span class="fu">isSame</span>(customerId))<span class=
+"op">.</span><span class="fu">toBe</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb9-61"><a aria-hidden="true" href="#cb9-61" tabindex="-1"></a>    <span class=
+"fu">expect</span>(retSum<span class="op">.</span><span class="fu">isSame</span>(<span class=
+"fu">Cents</span>(<span class="dv">3000</span>)))<span class="op">;</span></span>
+<span id="cb9-62"><a aria-hidden="true" href="#cb9-62" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb9-63"><a aria-hidden="true" href="#cb9-63" tabindex="-1"></a>})<span class=
+"op">;</span></span></code></pre>
+        </div>
 
-/* just an example... */
-
-describe("order processor", () &amp;ge; {
-  // Add our hooks for this suite
-  prismaMocks(db);
-
-  it("should insert order", async () &amp;ge; {
-    const orderId = OrderId("gid://shopify/Order/1");
-    const customerId = CustomerId("gid://shopify/Customer/1");
-    const product1 = ProductId("gid://shopify/Product/1");
-    const prodcut2 = ProductId("gid://shopify/Product/2");
-
-    // Job data
-    const jobData = {
-      order: {
-        id: orderId.toInt(),
-        admin_graphql_id: orderId.toGql(),
-        tags: [],
-        total_price: "115.00",
-        customer: {
-          id: customerId.toInt(),
-        },
-        line_items: [
-          {
-            product_id: p1.toInt(),
-            price: "100.00",
-            quantity: 1,
-          },
-          {
-            product_id: p2.toInt(),
-            price: "15.00",
-            quantity: 1,
-          },
-        ],
-      },
-      shop: "example.myshopify.com",
-    };
-
-    // Shopify GraphQL mock client
-    const client = ShopifyClient(
-      ShopifyFixture("product-no-tag", "product/no-override-tag"),
-      ShopifyFixture("product-with-tag", "product/with-override-tag"),
-      ShopifyFixture("add-tag", "tags-add-customer"),
-    );
-
-    // Run the processor
-    const [retOrderId, retOustomerId, retSum]: JobReturn = await processor({
-      db,
-      client,
-      job: { data: jobData },
-    });
-    expect(retOrderId.isSame(orderId)).toBe(true);
-    expect(retCustomerId.isSame(customerId)).toBe(true);
-    expect(retSum.isSame(Cents(3000)));
-  });
-});
-</code></pre>
         <p>
           Now, running <code>npm run test</code> will give us a testing result!
         </p>
 
-        <pre><code>npm run test
+        <div class="sourceCode" id="cb10">
+          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a aria-hidden="true" href=
+          "#cb10-1" tabindex="-1"></a><span class="ex">npm</span> run test</span>
+<span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a><span class=
+"op">&gt;</span> test:coverage</span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a><span class="op">&gt;</span> jest</span>
+<span id="cb10-5"><a aria-hidden="true" href="#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a aria-hidden="true" href="#cb10-6" tabindex="-1"></a> <span class=
+"ex">PASS</span>  app/order/processor.test.ts <span class="er">(</span><span class="ex">10.12</span> s<span class=
+"kw">)</span></span>
+<span id="cb10-7"><a aria-hidden="true" href="#cb10-7" tabindex="-1"></a></span>
+<span id="cb10-8"><a aria-hidden="true" href="#cb10-8" tabindex="-1"></a><span class=
+"ex">Test</span> Suites: 1 passed, 1 total</span>
+<span id="cb10-9"><a aria-hidden="true" href="#cb10-9" tabindex="-1"></a><span class=
+"ex">Tests:</span>       3 passed, 3 total</span>
+<span id="cb10-10"><a aria-hidden="true" href="#cb10-10" tabindex="-1"></a><span class=
+"ex">Snapshots:</span>   0 total</span>
+<span id="cb10-11"><a aria-hidden="true" href="#cb10-11" tabindex="-1"></a><span class=
+"ex">Time:</span>        10.44 s</span></code></pre>
+        </div>
 
-&gt; test:coverage
-&gt; jest
-
- PASS  app/order/processor.test.ts (10.12 s)
-
-Test Suites: 1 passed, 1 total
-Tests:       3 passed, 3 total
-Snapshots:   0 total
-Time:        10.44 s
-</code></pre>
         <p>
           Success! I hope this helps you run integrations tests with Prisma and Jest.
         </p>
@@ -464,7 +663,7 @@ Time:        10.44 s
           several solutions offered. Example:
         </p>
 
-        <ol>
+        <ol type="1">
           <li>
             <strong><code>maxWorkers</code> flag</strong>: Add <code>--maxWorkers=[num]</code>, example: <code>npm run
             test -- --maxWorkers=3</code>
@@ -477,7 +676,7 @@ Time:        10.44 s
 
           <li>
             <strong>Remove ts-node</strong>: <code>ts-node</code> is slow, you can try swapping to <code>swc</code>
-            with it's Jest support
+            with it’s Jest support
           </li>
         </ol>
 
@@ -524,7 +723,7 @@ Time:        10.44 s
         <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
         href="/about">About Me</a> <a class="button" href="/assets/files/cv.pdf" target="_blank">CV</a> <a class=
         "button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors">
+        <ul class="site-colors" data-scheme="cobalt">
           <li class="site-colors__color color--a">
           </li>
 

@@ -25,7 +25,7 @@ docs/hello-world/
 ## Requirements
 
 * `bash` - For processing and generation.
-* `sed` - For HTML generation support from Markdown.
+* `pandoc` - For HTML generation support from Markdown.
 * `lynx` - For TXT generation support from HTML.
 * `tidy` - For cleaning resulting HTML and XML.
 
