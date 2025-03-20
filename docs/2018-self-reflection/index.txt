@@ -96,8 +96,9 @@ Code
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [14]Github [15]About Me [16]CV [17]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [14]about me.
+   [15]Github [16]LinkedIn [17]CV [18]RSS
      *
      *
      *
@@ -124,7 +125,8 @@ References
   11. /2018-self-reflection/index.txt
   12. https://creativecommons.org/licenses/by/4.0/
   13. /about
-  14. https://github.com/gnikyt
-  15. /about
-  16. /assets/files/cv.pdf
-  17. /rss.xml
+  14. /about
+  15. https://github.com/gnikyt
+  16. https://linkedin.com/in/gnikyt
+  17. /assets/files/cv.pdf
+  18. /rss.xml

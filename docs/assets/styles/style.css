@@ -338,6 +338,31 @@ body[data-handle="404"] .sources {
 }
 
 /**
+ * About
+ */
+body[data-handle="about"] .about__heads {
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+body[data-handle="about"] .about__heads img {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  border-radius: 50%;
+  border: 5px solid var(--site-head-color);
+}
+
+body[data-handle="about"] .post figure {
+  margin-top: 0;
+  margin-bottom: 6rem;
+}
+
+body[data-handle="about"] .post figcaption {
+  display: none;
+}
+
+/**
  * Site colors.
  */
 .site-colors {

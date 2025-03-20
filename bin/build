@@ -102,7 +102,7 @@ process_pages() {
     parse_md "$(cat "$i")"
 
     # Parse Markdown body and convert to HTML.
-    globals["parsed_md"]=$(transform_md "${globals["body"]}")
+    globals["parsed_md"]=$(pandoc -f markdown -t html "$i")
 
     if [[ "$source" = "404.md" ]]; then
       # Parse the page template and save the result.

@@ -157,8 +157,9 @@ Conclusion
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [10]Github [11]About Me [12]CV [13]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [10]about me.
+   [11]Github [12]LinkedIn [13]CV [14]RSS
      *
      *
      *
@@ -182,23 +183,24 @@ References
    7. /wplocal-with-wsl/index.txt
    8. https://creativecommons.org/licenses/by/4.0/
    9. /about
-  10. https://github.com/gnikyt
-  11. /about
-  12. /assets/files/cv.pdf
-  13. /rss.xml
+  10. /about
+  11. https://github.com/gnikyt
+  12. https://linkedin.com/in/gnikyt
+  13. /assets/files/cv.pdf
+  14. /rss.xml
 
    Hidden links:
-  15. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb1-1
-  16. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb2-1
-  17. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb2-2
-  18. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb3-1
-  19. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb3-2
-  20. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb3-3
-  21. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb4-1
-  22. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb4-2
-  23. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb5-1
-  24. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb6-1
-  25. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb6-2
-  26. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb6-3
-  27. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb6-4
-  28. localhost/tmp/lynxXXXXIFYnsT/L373947-2426TMP.html#cb6-5
+  16. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb1-1
+  17. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb2-1
+  18. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb2-2
+  19. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb3-1
+  20. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb3-2
+  21. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb3-3
+  22. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb4-1
+  23. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb4-2
+  24. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb5-1
+  25. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb6-1
+  26. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb6-2
+  27. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb6-3
+  28. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb6-4
+  29. localhost/tmp/lynxXXXXjWIRNJ/L758410-6468TMP.html#cb6-5

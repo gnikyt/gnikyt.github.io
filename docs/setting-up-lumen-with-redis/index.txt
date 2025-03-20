@@ -59,8 +59,9 @@ QUEUE_DRIVER=redis
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [7]Github [8]About Me [9]CV [10]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [7]about me.
+   [8]Github [9]LinkedIn [10]CV [11]RSS
      *
      *
      *
@@ -81,30 +82,31 @@ References
    4. /setting-up-lumen-with-redis/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
    6. /about
-   7. https://github.com/gnikyt
-   8. /about
-   9. /assets/files/cv.pdf
-  10. /rss.xml
+   7. /about
+   8. https://github.com/gnikyt
+   9. https://linkedin.com/in/gnikyt
+  10. /assets/files/cv.pdf
+  11. /rss.xml
 
    Hidden links:
-  12. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-1
-  13. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-2
-  14. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-3
-  15. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-4
-  16. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-5
-  17. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-6
-  18. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-7
-  19. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb1-8
-  20. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-1
-  21. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-2
-  22. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-3
-  23. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-4
-  24. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-5
-  25. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-6
-  26. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-7
-  27. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-8
-  28. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-9
-  29. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-10
-  30. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-11
-  31. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-12
-  32. localhost/tmp/lynxXXXXnnxqSH/L379992-2074TMP.html#cb2-13
+  13. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-1
+  14. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-2
+  15. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-3
+  16. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-4
+  17. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-5
+  18. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-6
+  19. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-7
+  20. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb1-8
+  21. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-1
+  22. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-2
+  23. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-3
+  24. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-4
+  25. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-5
+  26. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-6
+  27. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-7
+  28. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-8
+  29. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-9
+  30. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-10
+  31. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-11
+  32. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-12
+  33. localhost/tmp/lynxXXXXZ7kz4X/L764566-1309TMP.html#cb2-13

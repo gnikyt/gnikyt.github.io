@@ -117,8 +117,9 @@ class AndroidController extends Controller
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [7]Github [8]About Me [9]CV [10]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [7]about me.
+   [8]Github [9]LinkedIn [10]CV [11]RSS
      *
      *
      *
@@ -139,72 +140,73 @@ References
    4. /simple-password-checking-with-symfony-and-fos-user-bundle/index.txt
    5. https://creativecommons.org/licenses/by/4.0/
    6. /about
-   7. https://github.com/gnikyt
-   8. /about
-   9. /assets/files/cv.pdf
-  10. /rss.xml
+   7. /about
+   8. https://github.com/gnikyt
+   9. https://linkedin.com/in/gnikyt
+  10. /assets/files/cv.pdf
+  11. /rss.xml
 
    Hidden links:
-  12. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-1
-  13. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-2
-  14. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-3
-  15. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-4
-  16. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-5
-  17. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-6
-  18. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-7
-  19. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-8
-  20. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-9
-  21. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-10
-  22. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-11
-  23. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-12
-  24. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-13
-  25. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-14
-  26. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-15
-  27. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-16
-  28. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-17
-  29. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-18
-  30. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-19
-  31. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-20
-  32. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-21
-  33. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-22
-  34. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-23
-  35. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-24
-  36. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-25
-  37. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-26
-  38. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-27
-  39. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-28
-  40. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-29
-  41. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-30
-  42. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-31
-  43. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-32
-  44. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-33
-  45. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-34
-  46. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-35
-  47. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-36
-  48. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-37
-  49. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-38
-  50. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-39
-  51. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-40
-  52. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-41
-  53. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-42
-  54. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-43
-  55. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-44
-  56. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-45
-  57. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-46
-  58. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-47
-  59. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-48
-  60. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-49
-  61. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-50
-  62. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-51
-  63. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-52
-  64. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-53
-  65. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-54
-  66. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-55
-  67. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-56
-  68. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-57
-  69. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-58
-  70. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-59
-  71. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-60
-  72. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-61
-  73. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-62
-  74. localhost/tmp/lynxXXXXalWrXs/L387211-4736TMP.html#cb1-63
+  13. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-1
+  14. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-2
+  15. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-3
+  16. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-4
+  17. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-5
+  18. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-6
+  19. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-7
+  20. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-8
+  21. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-9
+  22. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-10
+  23. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-11
+  24. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-12
+  25. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-13
+  26. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-14
+  27. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-15
+  28. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-16
+  29. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-17
+  30. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-18
+  31. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-19
+  32. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-20
+  33. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-21
+  34. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-22
+  35. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-23
+  36. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-24
+  37. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-25
+  38. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-26
+  39. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-27
+  40. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-28
+  41. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-29
+  42. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-30
+  43. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-31
+  44. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-32
+  45. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-33
+  46. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-34
+  47. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-35
+  48. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-36
+  49. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-37
+  50. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-38
+  51. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-39
+  52. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-40
+  53. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-41
+  54. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-42
+  55. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-43
+  56. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-44
+  57. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-45
+  58. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-46
+  59. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-47
+  60. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-48
+  61. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-49
+  62. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-50
+  63. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-51
+  64. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-52
+  65. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-53
+  66. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-54
+  67. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-55
+  68. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-56
+  69. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-57
+  70. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-58
+  71. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-59
+  72. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-60
+  73. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-61
+  74. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-62
+  75. localhost/tmp/lynxXXXXNnitr4/L772057-5996TMP.html#cb1-63

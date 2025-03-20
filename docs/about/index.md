@@ -3,11 +3,11 @@ title: About
 permalink: about
 ---
 
-_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care and expertise.
+<div class="about__heads">![Headshot](/assets/images/me-headshot.png)![Headshot](/assets/images/me.jpg)</div>
 
-Outside of that, its **_gnikyt_** (_nɪkɪt_).
+_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care and expertise. With over a decade in Shopify experience, I have a great eye and passion for ecommerce-focused initiatives.
 
-You can reach me through [me@gnikyt.com](mailto:me@gnikyt.com).
+You can reach me several ways &mdash; through [me@gnikyt.com](mailto:me@gnikyt.com), through [Github](https://github.com/gnikyt), or let's connect on [LinkedIn](https://linkedin.com/in/gnikyt).
 
 ## My Rundown
 

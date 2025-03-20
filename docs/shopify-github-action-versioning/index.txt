@@ -77,8 +77,9 @@ gs_schema.json
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [9]Github [10]About Me [11]CV [12]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [9]about me.
+   [10]Github [11]LinkedIn [12]CV [13]RSS
      *
      *
      *
@@ -101,34 +102,35 @@ References
    6. /shopify-github-action-versioning/index.txt
    7. https://creativecommons.org/licenses/by/4.0/
    8. /about
-   9. https://github.com/gnikyt
-  10. /about
-  11. /assets/files/cv.pdf
-  12. /rss.xml
+   9. /about
+  10. https://github.com/gnikyt
+  11. https://linkedin.com/in/gnikyt
+  12. /assets/files/cv.pdf
+  13. /rss.xml
 
    Hidden links:
-  14. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-1
-  15. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-2
-  16. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-3
-  17. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-4
-  18. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-5
-  19. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-6
-  20. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-7
-  21. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-8
-  22. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-9
-  23. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-10
-  24. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-11
-  25. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-12
-  26. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-13
-  27. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-14
-  28. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-15
-  29. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-16
-  30. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-17
-  31. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-18
-  32. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-19
-  33. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-20
-  34. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-21
-  35. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-22
-  36. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-23
-  37. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-24
-  38. localhost/tmp/lynxXXXXMRxBZn/L375163-7576TMP.html#cb1-25
+  15. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-1
+  16. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-2
+  17. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-3
+  18. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-4
+  19. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-5
+  20. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-6
+  21. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-7
+  22. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-8
+  23. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-9
+  24. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-10
+  25. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-11
+  26. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-12
+  27. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-13
+  28. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-14
+  29. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-15
+  30. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-16
+  31. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-17
+  32. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-18
+  33. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-19
+  34. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-20
+  35. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-21
+  36. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-22
+  37. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-23
+  38. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-24
+  39. localhost/tmp/lynxXXXX11uxzO/L759639-1472TMP.html#cb1-25

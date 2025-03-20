@@ -93,8 +93,9 @@ Guts::Content.unscoped.where(type: @type)
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [11]Github [12]About Me [13]CV [14]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [11]about me.
+   [12]Github [13]LinkedIn [14]CV [15]RSS
      *
      *
      *
@@ -119,14 +120,15 @@ References
    8. /guts-now-with-multisite/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
   10. /about
-  11. https://github.com/gnikyt
-  12. /about
-  13. /assets/files/cv.pdf
-  14. /rss.xml
+  11. /about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. /assets/files/cv.pdf
+  15. /rss.xml
 
    Hidden links:
-  16. localhost/tmp/lynxXXXXyt6APL/L383841-9263TMP.html#cb1-1
-  17. localhost/tmp/lynxXXXXyt6APL/L383841-9263TMP.html#cb1-2
-  18. localhost/tmp/lynxXXXXyt6APL/L383841-9263TMP.html#cb1-3
-  19. localhost/tmp/lynxXXXXyt6APL/L383841-9263TMP.html#cb1-4
-  20. localhost/tmp/lynxXXXXyt6APL/L383841-9263TMP.html#cb1-5
+  17. localhost/tmp/lynxXXXXW9xxpk/L768507-109TMP.html#cb1-1
+  18. localhost/tmp/lynxXXXXW9xxpk/L768507-109TMP.html#cb1-2
+  19. localhost/tmp/lynxXXXXW9xxpk/L768507-109TMP.html#cb1-3
+  20. localhost/tmp/lynxXXXXW9xxpk/L768507-109TMP.html#cb1-4
+  21. localhost/tmp/lynxXXXXW9xxpk/L768507-109TMP.html#cb1-5

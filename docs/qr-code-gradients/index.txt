@@ -85,8 +85,9 @@ site qr_gradient.png
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-   [11]Github [12]About Me [13]CV [14]RSS
+   Crafting innovative solutions with care and expertise. See more
+   [11]about me.
+   [12]Github [13]LinkedIn [14]CV [15]RSS
      *
      *
      *
@@ -111,13 +112,14 @@ References
    8. /qr-code-gradients/index.txt
    9. https://creativecommons.org/licenses/by/4.0/
   10. /about
-  11. https://github.com/gnikyt
-  12. /about
-  13. /assets/files/cv.pdf
-  14. /rss.xml
+  11. /about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. /assets/files/cv.pdf
+  15. /rss.xml
 
    Hidden links:
-  16. localhost/tmp/lynxXXXXvGgXFX/L387691-4914TMP.html#cb1-1
-  17. localhost/tmp/lynxXXXXvGgXFX/L387691-4914TMP.html#cb2-1
-  18. localhost/tmp/lynxXXXXvGgXFX/L387691-4914TMP.html#cb3-1
-  19. localhost/tmp/lynxXXXXvGgXFX/L387691-4914TMP.html#cb4-1
+  17. localhost/tmp/lynxXXXX11ZBsE/L772558-4965TMP.html#cb1-1
+  18. localhost/tmp/lynxXXXX11ZBsE/L772558-4965TMP.html#cb2-1
+  19. localhost/tmp/lynxXXXX11ZBsE/L772558-4965TMP.html#cb3-1
+  20. localhost/tmp/lynxXXXX11ZBsE/L772558-4965TMP.html#cb4-1
