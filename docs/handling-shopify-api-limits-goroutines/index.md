@@ -87,6 +87,13 @@ func (pts *Point) AtThreshold() bool {
 // regulator/regulator.go
 package regulator
 
+import (
+	"sync"
+	"time"
+)
+
+var AquireBuffer = 200 * time.Millisecond // Buffer of time to wait before attempting to re-aquire a spot.
+
 // Regulator is responsible regulating when to pause and resume processing of Goroutines.
 // Points remaining, point thresholds, and point refill rates are taken into
 // consideration. If remaining points go below the threshold, a pause is initiated

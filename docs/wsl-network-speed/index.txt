@@ -88,8 +88,8 @@ References
   12. /rss.xml
 
    Hidden links:
-  14. localhost/tmp/lynxXXXXiuMU79/L1347956-6158TMP.html#cb1-1
-  15. localhost/tmp/lynxXXXXiuMU79/L1347956-6158TMP.html#cb1-2
-  16. localhost/tmp/lynxXXXXiuMU79/L1347956-6158TMP.html#cb1-3
-  17. localhost/tmp/lynxXXXXiuMU79/L1347956-6158TMP.html#cb1-4
-  18. localhost/tmp/lynxXXXXiuMU79/L1347956-6158TMP.html#cb1-5
+  14. localhost/tmp/lynxXXXXTSoi9T/L1369947-2288TMP.html#cb1-1
+  15. localhost/tmp/lynxXXXXTSoi9T/L1369947-2288TMP.html#cb1-2
+  16. localhost/tmp/lynxXXXXTSoi9T/L1369947-2288TMP.html#cb1-3
+  17. localhost/tmp/lynxXXXXTSoi9T/L1369947-2288TMP.html#cb1-4
+  18. localhost/tmp/lynxXXXXTSoi9T/L1369947-2288TMP.html#cb1-5

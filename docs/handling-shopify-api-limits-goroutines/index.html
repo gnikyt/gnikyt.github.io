@@ -253,229 +253,241 @@
           tabindex="-1"></a><span class="co">// regulator/regulator.go</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="kw">package</span> regulator</span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a></span>
-<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a><span class=
-"co">// Regulator is responsible regulating when to pause and resume processing of Goroutines.</span></span>
-<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a><span class=
-"co">// Points remaining, point thresholds, and point refill rates are taken into</span></span>
-<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a><span class=
-"co">// consideration. If remaining points go below the threshold, a pause is initiated</span></span>
-<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a><span class=
-"co">// which will also calculate how long a pause should happen based on the refill rate.</span></span>
-<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a><span class=
-"co">// Once pause is completed, the processing will resume. A PauceFunc and ResumeFunc</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a><span class="kw">import</span> <span class=
+"op">(</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>    <span class="st">"sync"</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class="st">"time"</span></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a></span>
 <span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a><span class=
-"co">// can optionally be passed in which will fire respectively when a pause happens</span></span>
-<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a><span class=
-"co">// and when a resume happens.</span></span>
+"kw">var</span> AquireBuffer <span class="op">=</span> <span class="dv">200</span> <span class=
+"op">*</span> time<span class="op">.</span>Millisecond <span class=
+"co">// Buffer of time to wait before attempting to re-aquire a spot.</span></span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a></span>
 <span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a><span class=
+"co">// Regulator is responsible regulating when to pause and resume processing of Goroutines.</span></span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a><span class=
+"co">// Points remaining, point thresholds, and point refill rates are taken into</span></span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a><span class=
+"co">// consideration. If remaining points go below the threshold, a pause is initiated</span></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a><span class=
+"co">// which will also calculate how long a pause should happen based on the refill rate.</span></span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a><span class=
+"co">// Once pause is completed, the processing will resume. A PauceFunc and ResumeFunc</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a><span class=
+"co">// can optionally be passed in which will fire respectively when a pause happens</span></span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a><span class=
+"co">// and when a resume happens.</span></span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a><span class=
 "kw">type</span> Regulator <span class="kw">struct</span> <span class="op">{</span></span>
-<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>    <span class=
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>    <span class=
 "op">*</span>Point <span class="co">// Point information and tracking.</span></span>
-<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a></span>
-<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>    PauseFunc  <span class=
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a></span>
+<span id="cb3-21"><a aria-hidden="true" href="#cb3-21" tabindex="-1"></a>    PauseFunc  <span class=
 "kw">func</span><span class="op">(</span><span class="dt">int32</span><span class="op">,</span> time<span class=
 "op">.</span>Duration<span class="op">)</span> <span class=
 "co">// Optional callback for when pause happens.</span></span>
-<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>    ResumeFunc <span class=
+<span id="cb3-22"><a aria-hidden="true" href="#cb3-22" tabindex="-1"></a>    ResumeFunc <span class=
 "kw">func</span><span class="op">()</span>                     <span class=
 "co">// Optional callback for when resume happens.</span></span>
-<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a></span>
-<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a>    pausedAt time<span class=
+<span id="cb3-23"><a aria-hidden="true" href="#cb3-23" tabindex="-1"></a></span>
+<span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a>    pausedAt time<span class=
 "op">.</span>Time     <span class="co">// When paused last happened.</span></span>
-<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>    sema     <span class=
+<span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a>    sema     <span class=
 "kw">chan</span> <span class="kw">struct</span><span class="op">{}</span> <span class=
 "co">// Semaphore for controlling the number of Goroutines running.</span></span>
-<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a></span>
-<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a>    mu     sync<span class=
+<span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a></span>
+<span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a>    mu     sync<span class=
 "op">.</span>Mutex <span class="co">// For handling paused flag control.</span></span>
-<span id="cb3-21"><a aria-hidden="true" href="#cb3-21" tabindex="-1"></a>    paused <span class=
+<span id="cb3-28"><a aria-hidden="true" href="#cb3-28" tabindex="-1"></a>    paused <span class=
 "dt">bool</span>       <span class="co">// Pause flag.</span></span>
-<span id="cb3-22"><a aria-hidden="true" href="#cb3-22" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-23"><a aria-hidden="true" href="#cb3-23" tabindex="-1"></a></span>
-<span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a><span class=
+<span id="cb3-29"><a aria-hidden="true" href="#cb3-29" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-30"><a aria-hidden="true" href="#cb3-30" tabindex="-1"></a></span>
+<span id="cb3-31"><a aria-hidden="true" href="#cb3-31" tabindex="-1"></a><span class=
 "co">// NewRegulator returns a pointer to a Regulator. It accepts a cap which represents the</span></span>
-<span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a><span class=
+<span id="cb3-32"><a aria-hidden="true" href="#cb3-32" tabindex="-1"></a><span class=
 "co">// capacity of how many Goroutines can run at a time, it also accepts information</span></span>
-<span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a><span class=
+<span id="cb3-33"><a aria-hidden="true" href="#cb3-33" tabindex="-1"></a><span class=
 "co">// about the point parameters and lastly, optional paramters.</span></span>
-<span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a><span class="kw">func</span> New<span class=
+<span id="cb3-34"><a aria-hidden="true" href="#cb3-34" tabindex="-1"></a><span class="kw">func</span> New<span class=
 "op">(</span><span class="bu">cap</span> <span class="dt">int</span><span class="op">,</span> point <span class=
 "op">*</span>Point<span class="op">,</span> opts <span class="op">...</span><span class="kw">func</span><span class=
 "op">(*</span>Regulator<span class="op">))</span> <span class="op">*</span>Regulator <span class="op">{</span></span>
-<span id="cb3-28"><a aria-hidden="true" href="#cb3-28" tabindex="-1"></a>    reg <span class=
+<span id="cb3-35"><a aria-hidden="true" href="#cb3-35" tabindex="-1"></a>    reg <span class=
 "op">:=</span> <span class="op">&</span>Regulator<span class="op">{</span></span>
-<span id="cb3-29"><a aria-hidden="true" href="#cb3-29" tabindex="-1"></a>        Point<span class=
+<span id="cb3-36"><a aria-hidden="true" href="#cb3-36" tabindex="-1"></a>        Point<span class=
 "op">:</span> point<span class="op">,</span></span>
-<span id="cb3-30"><a aria-hidden="true" href="#cb3-30" tabindex="-1"></a>        sema<span class=
+<span id="cb3-37"><a aria-hidden="true" href="#cb3-37" tabindex="-1"></a>        sema<span class=
 "op">:</span>  <span class="bu">make</span><span class="op">(</span><span class="kw">chan</span> <span class=
 "kw">struct</span><span class="op">{},</span> <span class="bu">cap</span><span class="op">),</span></span>
-<span id="cb3-31"><a aria-hidden="true" href="#cb3-31" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-32"><a aria-hidden="true" href="#cb3-32" tabindex="-1"></a>    <span class="cf">for</span> _<span class=
+<span id="cb3-38"><a aria-hidden="true" href="#cb3-38" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-39"><a aria-hidden="true" href="#cb3-39" tabindex="-1"></a>    <span class="cf">for</span> _<span class=
 "op">,</span> opt <span class="op">:=</span> <span class="kw">range</span> opts <span class="op">{</span></span>
-<span id="cb3-33"><a aria-hidden="true" href="#cb3-33" tabindex="-1"></a>        opt<span class=
+<span id="cb3-40"><a aria-hidden="true" href="#cb3-40" tabindex="-1"></a>        opt<span class=
 "op">(</span>reg<span class="op">)</span></span>
-<span id="cb3-34"><a aria-hidden="true" href="#cb3-34" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-35"><a aria-hidden="true" href="#cb3-35" tabindex="-1"></a>    <span class="cf">if</span> reg<span class=
+<span id="cb3-41"><a aria-hidden="true" href="#cb3-41" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-42"><a aria-hidden="true" href="#cb3-42" tabindex="-1"></a>    <span class="cf">if</span> reg<span class=
 "op">.</span>PauseFunc <span class="op">==</span> <span class="ot">nil</span> <span class="op">{</span></span>
-<span id="cb3-36"><a aria-hidden="true" href="#cb3-36" tabindex="-1"></a>        <span class=
+<span id="cb3-43"><a aria-hidden="true" href="#cb3-43" tabindex="-1"></a>        <span class=
 "co">// Provide default PauseFunc.</span></span>
-<span id="cb3-37"><a aria-hidden="true" href="#cb3-37" tabindex="-1"></a>        withPauseFunc<span class=
+<span id="cb3-44"><a aria-hidden="true" href="#cb3-44" tabindex="-1"></a>        withPauseFunc<span class=
 "op">(</span><span class="kw">func</span><span class="op">(</span>_ <span class="dt">int32</span><span class=
 "op">,</span> _ time<span class="op">.</span>Duration<span class="op">)</span> <span class=
 "op">{})(</span>reg<span class="op">)</span></span>
-<span id="cb3-38"><a aria-hidden="true" href="#cb3-38" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-39"><a aria-hidden="true" href="#cb3-39" tabindex="-1"></a>    <span class="cf">if</span> reg<span class=
+<span id="cb3-45"><a aria-hidden="true" href="#cb3-45" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-46"><a aria-hidden="true" href="#cb3-46" tabindex="-1"></a>    <span class="cf">if</span> reg<span class=
 "op">.</span>ResumeFunc <span class="op">==</span> <span class="ot">nil</span> <span class="op">{</span></span>
-<span id="cb3-40"><a aria-hidden="true" href="#cb3-40" tabindex="-1"></a>        <span class=
+<span id="cb3-47"><a aria-hidden="true" href="#cb3-47" tabindex="-1"></a>        <span class=
 "co">// Provide default ResumeFunc.</span></span>
-<span id="cb3-41"><a aria-hidden="true" href="#cb3-41" tabindex="-1"></a>        withResumeFunc<span class=
+<span id="cb3-48"><a aria-hidden="true" href="#cb3-48" tabindex="-1"></a>        withResumeFunc<span class=
 "op">(</span><span class="kw">func</span><span class="op">()</span> <span class="op">{})(</span>reg<span class=
 "op">)</span></span>
-<span id="cb3-42"><a aria-hidden="true" href="#cb3-42" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-43"><a aria-hidden="true" href="#cb3-43" tabindex="-1"></a>    <span class=
+<span id="cb3-49"><a aria-hidden="true" href="#cb3-49" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-50"><a aria-hidden="true" href="#cb3-50" tabindex="-1"></a>    <span class=
 "co">// Set the remaining points to the limit of points.</span></span>
-<span id="cb3-44"><a aria-hidden="true" href="#cb3-44" tabindex="-1"></a>    reg<span class=
+<span id="cb3-51"><a aria-hidden="true" href="#cb3-51" tabindex="-1"></a>    reg<span class=
 "op">.</span>Update<span class="op">(</span>point<span class="op">.</span>Limit<span class="op">)</span></span>
-<span id="cb3-45"><a aria-hidden="true" href="#cb3-45" tabindex="-1"></a>    <span class="cf">return</span> reg</span>
-<span id="cb3-46"><a aria-hidden="true" href="#cb3-46" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-47"><a aria-hidden="true" href="#cb3-47" tabindex="-1"></a></span>
-<span id="cb3-48"><a aria-hidden="true" href="#cb3-48" tabindex="-1"></a><span class=
+<span id="cb3-52"><a aria-hidden="true" href="#cb3-52" tabindex="-1"></a>    <span class="cf">return</span> reg</span>
+<span id="cb3-53"><a aria-hidden="true" href="#cb3-53" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-54"><a aria-hidden="true" href="#cb3-54" tabindex="-1"></a></span>
+<span id="cb3-55"><a aria-hidden="true" href="#cb3-55" tabindex="-1"></a><span class=
 "co">// Aquire will attempt to aquire a spot to run the Goroutine.</span></span>
-<span id="cb3-49"><a aria-hidden="true" href="#cb3-49" tabindex="-1"></a><span class=
+<span id="cb3-56"><a aria-hidden="true" href="#cb3-56" tabindex="-1"></a><span class=
 "co">// It will continue in a loop until it does aquire also pausing</span></span>
-<span id="cb3-50"><a aria-hidden="true" href="#cb3-50" tabindex="-1"></a><span class=
+<span id="cb3-57"><a aria-hidden="true" href="#cb3-57" tabindex="-1"></a><span class=
 "co">// if the pause flag has been enabled. Aquiring is throttled at</span></span>
-<span id="cb3-51"><a aria-hidden="true" href="#cb3-51" tabindex="-1"></a><span class=
+<span id="cb3-58"><a aria-hidden="true" href="#cb3-58" tabindex="-1"></a><span class=
 "co">// the value for AquireBuffer.</span></span>
-<span id="cb3-52"><a aria-hidden="true" href="#cb3-52" tabindex="-1"></a><span class="kw">func</span> <span class=
+<span id="cb3-59"><a aria-hidden="true" href="#cb3-59" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>reg <span class="op">*</span>Regulator<span class="op">)</span> Aquire<span class=
 "op">()</span> <span class="op">{</span></span>
-<span id="cb3-53"><a aria-hidden="true" href="#cb3-53" tabindex="-1"></a>    <span class=
+<span id="cb3-60"><a aria-hidden="true" href="#cb3-60" tabindex="-1"></a>    <span class=
 "kw">var</span> aquired <span class="dt">bool</span></span>
-<span id="cb3-54"><a aria-hidden="true" href="#cb3-54" tabindex="-1"></a>    <span class="cf">for</span> <span class=
+<span id="cb3-61"><a aria-hidden="true" href="#cb3-61" tabindex="-1"></a>    <span class="cf">for</span> <span class=
 "op">!</span>aquired <span class="op">{</span></span>
-<span id="cb3-55"><a aria-hidden="true" href="#cb3-55" tabindex="-1"></a>        <span class=
-"co">// Factor in pause flag. Looping will cause a "pause".</span></span>
-<span id="cb3-56"><a aria-hidden="true" href="#cb3-56" tabindex="-1"></a>        <span class=
-"cf">for</span> <span class="op">{</span></span>
-<span id="cb3-57"><a aria-hidden="true" href="#cb3-57" tabindex="-1"></a>            <span class=
-"cf">if</span> <span class="op">!</span>reg<span class="op">.</span>paused <span class="op">{</span></span>
-<span id="cb3-58"><a aria-hidden="true" href="#cb3-58" tabindex="-1"></a>                <span class=
-"cf">break</span></span>
-<span id="cb3-59"><a aria-hidden="true" href="#cb3-59" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb3-60"><a aria-hidden="true" href="#cb3-60" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-61"><a aria-hidden="true" href="#cb3-61" tabindex="-1"></a></span>
 <span id="cb3-62"><a aria-hidden="true" href="#cb3-62" tabindex="-1"></a>        <span class=
-"co">// Attempt to aquire a spot, if not we will throttle the next loop.</span></span>
+"co">// Factor in pause flag. Looping will cause a "pause".</span></span>
 <span id="cb3-63"><a aria-hidden="true" href="#cb3-63" tabindex="-1"></a>        <span class=
+"cf">for</span> <span class="op">{</span></span>
+<span id="cb3-64"><a aria-hidden="true" href="#cb3-64" tabindex="-1"></a>            <span class=
+"cf">if</span> <span class="op">!</span>reg<span class="op">.</span>paused <span class="op">{</span></span>
+<span id="cb3-65"><a aria-hidden="true" href="#cb3-65" tabindex="-1"></a>                <span class=
+"cf">break</span></span>
+<span id="cb3-66"><a aria-hidden="true" href="#cb3-66" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-67"><a aria-hidden="true" href="#cb3-67" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-68"><a aria-hidden="true" href="#cb3-68" tabindex="-1"></a></span>
+<span id="cb3-69"><a aria-hidden="true" href="#cb3-69" tabindex="-1"></a>        <span class=
+"co">// Attempt to aquire a spot, if not we will throttle the next loop.</span></span>
+<span id="cb3-70"><a aria-hidden="true" href="#cb3-70" tabindex="-1"></a>        <span class=
 "cf">select</span> <span class="op">{</span></span>
-<span id="cb3-64"><a aria-hidden="true" href="#cb3-64" tabindex="-1"></a>        <span class=
+<span id="cb3-71"><a aria-hidden="true" href="#cb3-71" tabindex="-1"></a>        <span class=
 "cf">case</span> reg<span class="op">.</span>sema <span class="op">&lt;-</span> <span class=
 "kw">struct</span><span class="op">{}{}:</span></span>
-<span id="cb3-65"><a aria-hidden="true" href="#cb3-65" tabindex="-1"></a>            aquired <span class=
+<span id="cb3-72"><a aria-hidden="true" href="#cb3-72" tabindex="-1"></a>            aquired <span class=
 "op">=</span> <span class="ot">true</span></span>
-<span id="cb3-66"><a aria-hidden="true" href="#cb3-66" tabindex="-1"></a>        <span class=
+<span id="cb3-73"><a aria-hidden="true" href="#cb3-73" tabindex="-1"></a>        <span class=
 "cf">default</span><span class="op">:</span></span>
-<span id="cb3-67"><a aria-hidden="true" href="#cb3-67" tabindex="-1"></a>            time<span class=
+<span id="cb3-74"><a aria-hidden="true" href="#cb3-74" tabindex="-1"></a>            time<span class=
 "op">.</span>Sleep<span class="op">(</span>AquireBuffer<span class="op">)</span></span>
-<span id="cb3-68"><a aria-hidden="true" href="#cb3-68" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-69"><a aria-hidden="true" href="#cb3-69" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-70"><a aria-hidden="true" href="#cb3-70" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-71"><a aria-hidden="true" href="#cb3-71" tabindex="-1"></a></span>
-<span id="cb3-72"><a aria-hidden="true" href="#cb3-72" tabindex="-1"></a><span class=
+<span id="cb3-75"><a aria-hidden="true" href="#cb3-75" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-76"><a aria-hidden="true" href="#cb3-76" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-77"><a aria-hidden="true" href="#cb3-77" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-78"><a aria-hidden="true" href="#cb3-78" tabindex="-1"></a></span>
+<span id="cb3-79"><a aria-hidden="true" href="#cb3-79" tabindex="-1"></a><span class=
 "co">// Release will release a spot for another Goroutine to take.</span></span>
-<span id="cb3-73"><a aria-hidden="true" href="#cb3-73" tabindex="-1"></a><span class=
+<span id="cb3-80"><a aria-hidden="true" href="#cb3-80" tabindex="-1"></a><span class=
 "co">// It accepts a current value of remaining points, to which the</span></span>
-<span id="cb3-74"><a aria-hidden="true" href="#cb3-74" tabindex="-1"></a><span class=
+<span id="cb3-81"><a aria-hidden="true" href="#cb3-81" tabindex="-1"></a><span class=
 "co">// remaining points will only be updated if the count is greater than -1.</span></span>
-<span id="cb3-75"><a aria-hidden="true" href="#cb3-75" tabindex="-1"></a><span class=
+<span id="cb3-82"><a aria-hidden="true" href="#cb3-82" tabindex="-1"></a><span class=
 "co">// If the remaining points is below the set threshold, a pause will be</span></span>
-<span id="cb3-76"><a aria-hidden="true" href="#cb3-76" tabindex="-1"></a><span class=
+<span id="cb3-83"><a aria-hidden="true" href="#cb3-83" tabindex="-1"></a><span class=
 "co">// initiated and a duration of this pause will be calculated based</span></span>
-<span id="cb3-77"><a aria-hidden="true" href="#cb3-77" tabindex="-1"></a><span class=
+<span id="cb3-84"><a aria-hidden="true" href="#cb3-84" tabindex="-1"></a><span class=
 "co">// upon several factors surrouding the point information such as limit,</span></span>
-<span id="cb3-78"><a aria-hidden="true" href="#cb3-78" tabindex="-1"></a><span class=
+<span id="cb3-85"><a aria-hidden="true" href="#cb3-85" tabindex="-1"></a><span class=
 "co">// threshold, and the refull rate.</span></span>
-<span id="cb3-79"><a aria-hidden="true" href="#cb3-79" tabindex="-1"></a><span class="kw">func</span> <span class=
+<span id="cb3-86"><a aria-hidden="true" href="#cb3-86" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>reg <span class="op">*</span>Regulator<span class="op">)</span> Release<span class=
 "op">(</span>points <span class="dt">int32</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-80"><a aria-hidden="true" href="#cb3-80" tabindex="-1"></a>    <span class=
+<span id="cb3-87"><a aria-hidden="true" href="#cb3-87" tabindex="-1"></a>    <span class=
 "cf">defer</span> reg<span class="op">.</span>mu<span class="op">.</span>Unlock<span class="op">()</span></span>
-<span id="cb3-81"><a aria-hidden="true" href="#cb3-81" tabindex="-1"></a>    reg<span class="op">.</span>mu<span class=
+<span id="cb3-88"><a aria-hidden="true" href="#cb3-88" tabindex="-1"></a>    reg<span class="op">.</span>mu<span class=
 "op">.</span>Lock<span class="op">()</span></span>
-<span id="cb3-82"><a aria-hidden="true" href="#cb3-82" tabindex="-1"></a></span>
-<span id="cb3-83"><a aria-hidden="true" href="#cb3-83" tabindex="-1"></a>    reg<span class=
+<span id="cb3-89"><a aria-hidden="true" href="#cb3-89" tabindex="-1"></a></span>
+<span id="cb3-90"><a aria-hidden="true" href="#cb3-90" tabindex="-1"></a>    reg<span class=
 "op">.</span>Update<span class="op">(</span>points<span class="op">)</span></span>
-<span id="cb3-84"><a aria-hidden="true" href="#cb3-84" tabindex="-1"></a>    <span class="cf">if</span> reg<span class=
+<span id="cb3-91"><a aria-hidden="true" href="#cb3-91" tabindex="-1"></a>    <span class="cf">if</span> reg<span class=
 "op">.</span>AtThreshold<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-85"><a aria-hidden="true" href="#cb3-85" tabindex="-1"></a>        <span class=
+<span id="cb3-92"><a aria-hidden="true" href="#cb3-92" tabindex="-1"></a>        <span class=
 "co">// Calculate the duration required to refill and that duration time has passed</span></span>
-<span id="cb3-86"><a aria-hidden="true" href="#cb3-86" tabindex="-1"></a>        <span class=
+<span id="cb3-93"><a aria-hidden="true" href="#cb3-93" tabindex="-1"></a>        <span class=
 "co">// before we call for a pause.</span></span>
-<span id="cb3-87"><a aria-hidden="true" href="#cb3-87" tabindex="-1"></a>        ra <span class=
+<span id="cb3-94"><a aria-hidden="true" href="#cb3-94" tabindex="-1"></a>        ra <span class=
 "op">:=</span> reg<span class="op">.</span>RefillDuration<span class="op">()</span> <span class=
 "op">+</span> PauseBuffer</span>
-<span id="cb3-88"><a aria-hidden="true" href="#cb3-88" tabindex="-1"></a>        <span class=
+<span id="cb3-95"><a aria-hidden="true" href="#cb3-95" tabindex="-1"></a>        <span class=
 "cf">if</span> reg<span class="op">.</span>pausedAt<span class="op">.</span>Add<span class="op">(</span>ra<span class=
 "op">).</span>Before<span class="op">(</span>time<span class="op">.</span>Now<span class="op">())</span> <span class=
 "op">{</span></span>
-<span id="cb3-89"><a aria-hidden="true" href="#cb3-89" tabindex="-1"></a>            reg<span class=
+<span id="cb3-96"><a aria-hidden="true" href="#cb3-96" tabindex="-1"></a>            reg<span class=
 "op">.</span>paused <span class="op">=</span> <span class="ot">true</span></span>
-<span id="cb3-90"><a aria-hidden="true" href="#cb3-90" tabindex="-1"></a>            reg<span class=
+<span id="cb3-97"><a aria-hidden="true" href="#cb3-97" tabindex="-1"></a>            reg<span class=
 "op">.</span>pausedAt <span class="op">=</span> time<span class="op">.</span>Now<span class="op">()</span></span>
-<span id="cb3-91"><a aria-hidden="true" href="#cb3-91" tabindex="-1"></a>            reg<span class=
+<span id="cb3-98"><a aria-hidden="true" href="#cb3-98" tabindex="-1"></a>            reg<span class=
 "op">.</span>PauseFunc<span class="op">(</span>points<span class="op">,</span> ra<span class="op">)</span></span>
-<span id="cb3-92"><a aria-hidden="true" href="#cb3-92" tabindex="-1"></a></span>
-<span id="cb3-93"><a aria-hidden="true" href="#cb3-93" tabindex="-1"></a>            <span class=
+<span id="cb3-99"><a aria-hidden="true" href="#cb3-99" tabindex="-1"></a></span>
+<span id="cb3-100"><a aria-hidden="true" href="#cb3-100" tabindex="-1"></a>            <span class=
 "cf">go</span> <span class="kw">func</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-94"><a aria-hidden="true" href="#cb3-94" tabindex="-1"></a>                time<span class=
+<span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a>                time<span class=
 "op">.</span>Sleep<span class="op">(</span>ra<span class="op">)</span></span>
-<span id="cb3-95"><a aria-hidden="true" href="#cb3-95" tabindex="-1"></a>                reg<span class=
+<span id="cb3-102"><a aria-hidden="true" href="#cb3-102" tabindex="-1"></a>                reg<span class=
 "op">.</span>paused <span class="op">=</span> <span class="ot">false</span></span>
-<span id="cb3-96"><a aria-hidden="true" href="#cb3-96" tabindex="-1"></a>                reg<span class=
+<span id="cb3-103"><a aria-hidden="true" href="#cb3-103" tabindex="-1"></a>                reg<span class=
 "op">.</span>ResumeFunc<span class="op">()</span></span>
-<span id="cb3-97"><a aria-hidden="true" href="#cb3-97" tabindex="-1"></a>            <span class="op">}()</span></span>
-<span id="cb3-98"><a aria-hidden="true" href="#cb3-98" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-99"><a aria-hidden="true" href="#cb3-99" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-100"><a aria-hidden="true" href="#cb3-100" tabindex="-1"></a></span>
-<span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a>    <span class=
+<span id="cb3-104"><a aria-hidden="true" href="#cb3-104" tabindex="-1"></a>            <span class=
+"op">}()</span></span>
+<span id="cb3-105"><a aria-hidden="true" href="#cb3-105" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-106"><a aria-hidden="true" href="#cb3-106" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-107"><a aria-hidden="true" href="#cb3-107" tabindex="-1"></a></span>
+<span id="cb3-108"><a aria-hidden="true" href="#cb3-108" tabindex="-1"></a>    <span class=
 "op">&lt;-</span>reg<span class="op">.</span>sema</span>
-<span id="cb3-102"><a aria-hidden="true" href="#cb3-102" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-103"><a aria-hidden="true" href="#cb3-103" tabindex="-1"></a></span>
-<span id="cb3-104"><a aria-hidden="true" href="#cb3-104" tabindex="-1"></a><span class=
+<span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a></span>
+<span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a><span class=
 "co">// withPauseFunc is a functional option for the Regulator to</span></span>
-<span id="cb3-105"><a aria-hidden="true" href="#cb3-105" tabindex="-1"></a><span class=
+<span id="cb3-112"><a aria-hidden="true" href="#cb3-112" tabindex="-1"></a><span class=
 "co">// call when a pause happens. The points remaining and the</span></span>
-<span id="cb3-106"><a aria-hidden="true" href="#cb3-106" tabindex="-1"></a><span class=
+<span id="cb3-113"><a aria-hidden="true" href="#cb3-113" tabindex="-1"></a><span class=
 "co">// duration of the pause will passed into the function.</span></span>
-<span id="cb3-107"><a aria-hidden="true" href="#cb3-107" tabindex="-1"></a><span class=
+<span id="cb3-114"><a aria-hidden="true" href="#cb3-114" tabindex="-1"></a><span class=
 "kw">func</span> withPauseFunc<span class="op">(</span>fn <span class="kw">func</span><span class=
 "op">(</span><span class="dt">int32</span><span class="op">,</span> time<span class="op">.</span>Duration<span class=
 "op">))</span> <span class="kw">func</span><span class="op">(*</span>Regulator<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb3-108"><a aria-hidden="true" href="#cb3-108" tabindex="-1"></a>    <span class=
+<span id="cb3-115"><a aria-hidden="true" href="#cb3-115" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">func</span><span class="op">(</span>reg <span class=
 "op">*</span>Regulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a>        reg<span class=
+<span id="cb3-116"><a aria-hidden="true" href="#cb3-116" tabindex="-1"></a>        reg<span class=
 "op">.</span>PauseFunc <span class="op">=</span> fn</span>
-<span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-112"><a aria-hidden="true" href="#cb3-112" tabindex="-1"></a></span>
-<span id="cb3-113"><a aria-hidden="true" href="#cb3-113" tabindex="-1"></a><span class=
+<span id="cb3-117"><a aria-hidden="true" href="#cb3-117" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-118"><a aria-hidden="true" href="#cb3-118" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-119"><a aria-hidden="true" href="#cb3-119" tabindex="-1"></a></span>
+<span id="cb3-120"><a aria-hidden="true" href="#cb3-120" tabindex="-1"></a><span class=
 "co">// withResumeunc is a functional option for the Regulator to</span></span>
-<span id="cb3-114"><a aria-hidden="true" href="#cb3-114" tabindex="-1"></a><span class=
+<span id="cb3-121"><a aria-hidden="true" href="#cb3-121" tabindex="-1"></a><span class=
 "co">// call when resume from a pause happens.</span></span>
-<span id="cb3-115"><a aria-hidden="true" href="#cb3-115" tabindex="-1"></a><span class=
+<span id="cb3-122"><a aria-hidden="true" href="#cb3-122" tabindex="-1"></a><span class=
 "kw">func</span> withResumeFunc<span class="op">(</span>fn <span class="kw">func</span><span class=
 "op">())</span> <span class="kw">func</span><span class="op">(*</span>Regulator<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb3-116"><a aria-hidden="true" href="#cb3-116" tabindex="-1"></a>    <span class=
+<span id="cb3-123"><a aria-hidden="true" href="#cb3-123" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">func</span><span class="op">(</span>reg <span class=
 "op">*</span>Regulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-117"><a aria-hidden="true" href="#cb3-117" tabindex="-1"></a>        reg<span class=
+<span id="cb3-124"><a aria-hidden="true" href="#cb3-124" tabindex="-1"></a>        reg<span class=
 "op">.</span>ResumeFunc <span class="op">=</span> fn</span>
-<span id="cb3-118"><a aria-hidden="true" href="#cb3-118" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-119"><a aria-hidden="true" href="#cb3-119" tabindex="-1"></a><span class=
+<span id="cb3-125"><a aria-hidden="true" href="#cb3-125" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-126"><a aria-hidden="true" href="#cb3-126" tabindex="-1"></a><span class=
 "op">}</span></span></code></pre>
         </div>
 
