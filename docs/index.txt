@@ -2,88 +2,89 @@
 
    [2]gnikyt Code ramblings.
 
-     * [3]Shopify checkout extension with product HTML /* May 10, 2024 */
-     * [4]Prisma, Jest, and MySQL testing /* Mar 28, 2024 */
-     * [5]Shopify Checkout Extension to backend fetching /* Feb 27, 2024
+     * [3]Handling Shopify API limits and Goroutines /* Apr 10, 2025 */
+     * [4]Shopify checkout extension with product HTML /* May 10, 2024 */
+     * [5]Prisma, Jest, and MySQL testing /* Mar 28, 2024 */
+     * [6]Shopify Checkout Extension to backend fetching /* Feb 27, 2024
        */
-     * [6]Type definitions without emitting /* Feb 07, 2024 */
-     * [7]Shopify Remix, Prisma, and Jest /* Jan 10, 2024 */
-     * [8]WP Local with WSL /* Dec 07, 2023 */
-     * [9]New desktop setup /* Dec 11, 2022 */
-     * [10]Blink - Tuned camera notifications /* Nov 28, 2022 */
-     * [11]Shopify Liquid Tester /* Nov 20, 2022 */
-     * [12]Joint Venture with LFL /* Nov 15, 2022 */
-     * [13]Shopify Github Action for versioning /* May 20, 2022 */
-     * [14]WSL network speed /* Nov 16, 2021 */
-     * [15]Shopify Node App - Custom multi-tenant support /* Nov 15, 2021
+     * [7]Type definitions without emitting /* Feb 07, 2024 */
+     * [8]Shopify Remix, Prisma, and Jest /* Jan 10, 2024 */
+     * [9]WP Local with WSL /* Dec 07, 2023 */
+     * [10]New desktop setup /* Dec 11, 2022 */
+     * [11]Blink - Tuned camera notifications /* Nov 28, 2022 */
+     * [12]Shopify Liquid Tester /* Nov 20, 2022 */
+     * [13]Joint Venture with LFL /* Nov 15, 2022 */
+     * [14]Shopify Github Action for versioning /* May 20, 2022 */
+     * [15]WSL network speed /* Nov 16, 2021 */
+     * [16]Shopify Node App - Custom multi-tenant support /* Nov 15, 2021
        */
-     * [16]Laravel Shopify - Cookieless /* Jun 29, 2021 */
-     * [17]Git release branches /* Mar 10, 2021 */
-     * [18]Laravel Shopify featured on Shopify Dev Blog /* Mar 04, 2021 */
-     * [19]Laravel Shopify ITP /* Feb 03, 2021 */
-     * [20]Async Shopify API for Python /* Jun 29, 2020 */
-     * [21]Microservices... don't create a problem /* Apr 20, 2020 */
-     * [22]Basic Symfony Flex with Symfony Server Dockerized /* Feb 04,
+     * [17]Laravel Shopify - Cookieless /* Jun 29, 2021 */
+     * [18]Git release branches /* Mar 10, 2021 */
+     * [19]Laravel Shopify featured on Shopify Dev Blog /* Mar 04, 2021 */
+     * [20]Laravel Shopify ITP /* Feb 03, 2021 */
+     * [21]Async Shopify API for Python /* Jun 29, 2020 */
+     * [22]Microservices... don't create a problem /* Apr 20, 2020 */
+     * [23]Basic Symfony Flex with Symfony Server Dockerized /* Feb 04,
        2020 */
-     * [23]Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7 /* Jan
+     * [24]Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7 /* Jan
        15, 2020 */
-     * [24]When quick and dirty becomes permanent /* Nov 14, 2019 */
-     * [25]i3 & Plasma - A solid match /* Aug 28, 2019 */
-     * [26]Vuex & Data - Keeping it clean /* Jul 19, 2019 */
-     * [27]Go is nice /* Apr 22, 2019 */
-     * [28]2018 Self reflection /* Feb 06, 2019 */
-     * [29]Thunderbird with GSuite & Exchange /* Jan 08, 2019 */
-     * [30]Thinkpad T580 on Linux /* Jan 08, 2019 */
-     * [31]Apply, verify, and validate Shopify discount codes /* Oct 19,
+     * [25]When quick and dirty becomes permanent /* Nov 14, 2019 */
+     * [26]i3 & Plasma - A solid match /* Aug 28, 2019 */
+     * [27]Vuex & Data - Keeping it clean /* Jul 19, 2019 */
+     * [28]Go is nice /* Apr 22, 2019 */
+     * [29]2018 Self reflection /* Feb 06, 2019 */
+     * [30]Thunderbird with GSuite & Exchange /* Jan 08, 2019 */
+     * [31]Thinkpad T580 on Linux /* Jan 08, 2019 */
+     * [32]Apply, verify, and validate Shopify discount codes /* Oct 19,
        2018 */
-     * [32]Laravel Shopify billing /* Jan 26, 2018 */
-     * [33]Setting up Lumen with Redis /* Nov 19, 2017 */
-     * [34]Setting Up Lumen with Mailer /* Nov 19, 2017 */
-     * [35]Pomodoro Method /* Oct 20, 2017 */
-     * [36]Introducing Laravel Shopify /* Aug 09, 2017 */
-     * [37]Reactive VueJS plugins /* Jun 29, 2017 */
-     * [38]WordPress Under Docker guide /* Jun 15, 2017 */
-     * [39]Developing sanely on Windows revisited /* May 10, 2017 */
-     * [40]Moving away from CanCanCan to Pundit /* Mar 30, 2017 */
-     * [41]When to use a VPS vs PaaS /* Mar 08, 2017 */
-     * [42]Toggling TinyMCE v4 /* Dec 06, 2016 */
-     * [43]shopify_app_whitelist Gem /* Nov 26, 2016 */
-     * [44]Journey to Sucker Punch /* Nov 26, 2016 */
-     * [45]Developing sanely on Windows /* Nov 07, 2016 */
-     * [46]Testing with shopify_app /* Jun 21, 2016 */
-     * [47]Counting unique options in Shopify /* Jun 21, 2016 */
-     * [48]Precompiling assets in your Rails Engine /* May 03, 2016 */
-     * [49]Guts with multisite /* Apr 24, 2016 */
-     * [50]Building a simple Redis autosuggest with Ruby /* Mar 02, 2016
+     * [33]Laravel Shopify billing /* Jan 26, 2018 */
+     * [34]Setting up Lumen with Redis /* Nov 19, 2017 */
+     * [35]Setting Up Lumen with Mailer /* Nov 19, 2017 */
+     * [36]Pomodoro Method /* Oct 20, 2017 */
+     * [37]Introducing Laravel Shopify /* Aug 09, 2017 */
+     * [38]Reactive VueJS plugins /* Jun 29, 2017 */
+     * [39]WordPress Under Docker guide /* Jun 15, 2017 */
+     * [40]Developing sanely on Windows revisited /* May 10, 2017 */
+     * [41]Moving away from CanCanCan to Pundit /* Mar 30, 2017 */
+     * [42]When to use a VPS vs PaaS /* Mar 08, 2017 */
+     * [43]Toggling TinyMCE v4 /* Dec 06, 2016 */
+     * [44]shopify_app_whitelist Gem /* Nov 26, 2016 */
+     * [45]Journey to Sucker Punch /* Nov 26, 2016 */
+     * [46]Developing sanely on Windows /* Nov 07, 2016 */
+     * [47]Testing with shopify_app /* Jun 21, 2016 */
+     * [48]Counting unique options in Shopify /* Jun 21, 2016 */
+     * [49]Precompiling assets in your Rails Engine /* May 03, 2016 */
+     * [50]Guts with multisite /* Apr 24, 2016 */
+     * [51]Building a simple Redis autosuggest with Ruby /* Mar 02, 2016
        */
-     * [51]Extending a Rails Engine /* Feb 20, 2016 */
-     * [52]Polymorphic and Route Concerns... who is who? /* Jan 01, 2016
+     * [52]Extending a Rails Engine /* Feb 20, 2016 */
+     * [53]Polymorphic and Route Concerns... who is who? /* Jan 01, 2016
        */
-     * [53]ActiveRecord and Liquid Drops with Sinatra /* Oct 15, 2015 */
-     * [54]Calculating percent saved with Shopify /* Sep 24, 2015 */
-     * [55]all_products... finally /* Jun 24, 2015 */
-     * [56]WP User Themes /* May 21, 2015 */
-     * [57]Get original sized images from a Wordpress Post Gallery /* Nov
+     * [54]ActiveRecord and Liquid Drops with Sinatra /* Oct 15, 2015 */
+     * [55]Calculating percent saved with Shopify /* Sep 24, 2015 */
+     * [56]all_products... finally /* Jun 24, 2015 */
+     * [57]WP User Themes /* May 21, 2015 */
+     * [58]Get original sized images from a Wordpress Post Gallery /* Nov
        08, 2014 */
-     * [58]Developing Shopify themes with teams /* Sep 16, 2014 */
-     * [59]ACF Simple Table /* Jul 18, 2014 */
-     * [60]PHPMailer contrib /* Feb 09, 2014 */
-     * [61]Get single field error in Symfony /* Dec 12, 2013 */
-     * [62]Woocommerce - Sorting product by category /* Oct 05, 2013 */
-     * [63]Simple password checking with Symfony and FOS User Bundle /*
+     * [59]Developing Shopify themes with teams /* Sep 16, 2014 */
+     * [60]ACF Simple Table /* Jul 18, 2014 */
+     * [61]PHPMailer contrib /* Feb 09, 2014 */
+     * [62]Get single field error in Symfony /* Dec 12, 2013 */
+     * [63]Woocommerce - Sorting product by category /* Oct 05, 2013 */
+     * [64]Simple password checking with Symfony and FOS User Bundle /*
        Aug 28, 2013 */
-     * [64]Gathering user input with Shopify /* Aug 05, 2013 */
-     * [65]QR Code gradients /* Jul 13, 2013 */
+     * [65]Gathering user input with Shopify /* Aug 05, 2013 */
+     * [66]QR Code gradients /* Jul 13, 2013 */
      __________________________________________________________________
 
-   [66]Ty King
+   [67]Ty King
 
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise. See more
-   [67]about me.
-   [68]Github [69]LinkedIn [70]CV [71]RSS
+   [68]about me.
+   [69]Github [70]LinkedIn [71]CV [72]RSS
      *
      *
      *
@@ -99,72 +100,73 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///shopify-checkout-ui-product-html
-   4. file:///prisma-jest-mysql-testing
-   5. file:///generate-type-definitions-without-emitting-js
-   6. file:///type-definitions-without-emitting
-   7. file:///shopify-remix-prisma-and-jest
-   8. file:///wplocal-with-wsl
-   9. file:///new-desktop-setup
-  10. file:///blink-tuned-camera-notifications
-  11. file:///shopify-liquid-tester
-  12. file:///joint-venture-lfl
-  13. file:///shopify-github-action-versioning
-  14. file:///wsl-network-speed
-  15. file:///shopify-node-app-custom-multi-tenant
-  16. file:///laravel-shopify-cookieless
-  17. file:///git-release-branches
-  18. file:///laravel-shopify-featured-shopify-blog
-  19. file:///laravel-shopify-itp
-  20. file:///async-shopify-api-for-python
-  21. file:///microservices-dont-create-a-problem
-  22. file:///basic-symfony-flex-with-symfony-server-dockerized
-  23. file:///upgrading-fedora-30-to-31-avoiding-kernel
-  24. file:///when-quick-and-dirty-becomes-permanent
-  25. file:///i3-plasma-a-solid-match
-  26. file:///vuex-data-keeping-it-clean
-  27. file:///go-is-nice
-  28. file:///2018-self-reflection
-  29. file:///thunderbird-with-gsuite-exchange
-  30. file:///thinkpad-t580-on-linux
-  31. file:///apply-verify-and-validate-shopify-discount-codes
-  32. file:///laravel-shopify-billing
-  33. file:///setting-up-lumen-with-redis
-  34. file:///setting-up-lumen-with-mail
-  35. file:///pomodoro-method
-  36. file:///introducing-shopify-for-laravel
-  37. file:///reactive-vuejs-plugins
-  38. file:///wordpress-under-docker
-  39. file:///developing-sanely-on-windows-revisited
-  40. file:///moving-away-from-cancancan-to-pundit
-  41. file:///when-to-use-a-vps-vs-pass
-  42. file:///toggling-tinymce-v4
-  43. file:///shopify-app-whitelist-gem
-  44. file:///journey-to-sucker-punch
-  45. file:///developing-sanely-on-windows
-  46. file:///testing-with-shopify-app
-  47. file:///counting-unique-options-in-shopify
-  48. file:///precompiling-assets-in-your-rails-engine
-  49. file:///guts-now-with-multisite
-  50. file:///building-a-simple-redis-autosuggest-with-ruby
-  51. file:///extending-a-rails-engine
-  52. file:///polymorphic-and-route-concerns
-  53. file:///activerecord-and-liquid-drops-with-sinatra
-  54. file:///calculating-percent-saved-with-shopify
-  55. file:///all-products-shopify
-  56. file:///wp-user-themes
-  57. file:///get-original-sized-images-from-a-wordpress-post-gallery
-  58. file:///developing-shopify-themes-with-teams
-  59. file:///acf-simple-table
-  60. file:///phpmailer-contrib
-  61. file:///get-single-field-error-in-symfony
-  62. file:///woocommerce-sorting-products-by-category
-  63. file:///simple-password-checking-with-symfony-and-fos-user-bundle
-  64. file:///gathering-user-input-with-shopify
-  65. file:///qr-code-gradients
-  66. file:///about
+   3. file:///handling-shopify-api-limits-goroutines
+   4. file:///shopify-checkout-ui-product-html
+   5. file:///prisma-jest-mysql-testing
+   6. file:///generate-type-definitions-without-emitting-js
+   7. file:///type-definitions-without-emitting
+   8. file:///shopify-remix-prisma-and-jest
+   9. file:///wplocal-with-wsl
+  10. file:///new-desktop-setup
+  11. file:///blink-tuned-camera-notifications
+  12. file:///shopify-liquid-tester
+  13. file:///joint-venture-lfl
+  14. file:///shopify-github-action-versioning
+  15. file:///wsl-network-speed
+  16. file:///shopify-node-app-custom-multi-tenant
+  17. file:///laravel-shopify-cookieless
+  18. file:///git-release-branches
+  19. file:///laravel-shopify-featured-shopify-blog
+  20. file:///laravel-shopify-itp
+  21. file:///async-shopify-api-for-python
+  22. file:///microservices-dont-create-a-problem
+  23. file:///basic-symfony-flex-with-symfony-server-dockerized
+  24. file:///upgrading-fedora-30-to-31-avoiding-kernel
+  25. file:///when-quick-and-dirty-becomes-permanent
+  26. file:///i3-plasma-a-solid-match
+  27. file:///vuex-data-keeping-it-clean
+  28. file:///go-is-nice
+  29. file:///2018-self-reflection
+  30. file:///thunderbird-with-gsuite-exchange
+  31. file:///thinkpad-t580-on-linux
+  32. file:///apply-verify-and-validate-shopify-discount-codes
+  33. file:///laravel-shopify-billing
+  34. file:///setting-up-lumen-with-redis
+  35. file:///setting-up-lumen-with-mail
+  36. file:///pomodoro-method
+  37. file:///introducing-shopify-for-laravel
+  38. file:///reactive-vuejs-plugins
+  39. file:///wordpress-under-docker
+  40. file:///developing-sanely-on-windows-revisited
+  41. file:///moving-away-from-cancancan-to-pundit
+  42. file:///when-to-use-a-vps-vs-pass
+  43. file:///toggling-tinymce-v4
+  44. file:///shopify-app-whitelist-gem
+  45. file:///journey-to-sucker-punch
+  46. file:///developing-sanely-on-windows
+  47. file:///testing-with-shopify-app
+  48. file:///counting-unique-options-in-shopify
+  49. file:///precompiling-assets-in-your-rails-engine
+  50. file:///guts-now-with-multisite
+  51. file:///building-a-simple-redis-autosuggest-with-ruby
+  52. file:///extending-a-rails-engine
+  53. file:///polymorphic-and-route-concerns
+  54. file:///activerecord-and-liquid-drops-with-sinatra
+  55. file:///calculating-percent-saved-with-shopify
+  56. file:///all-products-shopify
+  57. file:///wp-user-themes
+  58. file:///get-original-sized-images-from-a-wordpress-post-gallery
+  59. file:///developing-shopify-themes-with-teams
+  60. file:///acf-simple-table
+  61. file:///phpmailer-contrib
+  62. file:///get-single-field-error-in-symfony
+  63. file:///woocommerce-sorting-products-by-category
+  64. file:///simple-password-checking-with-symfony-and-fos-user-bundle
+  65. file:///gathering-user-input-with-shopify
+  66. file:///qr-code-gradients
   67. file:///about
-  68. https://github.com/gnikyt
-  69. https://linkedin.com/in/gnikyt
-  70. file:///assets/files/cv.pdf
-  71. file:///rss.xml
+  68. file:///about
+  69. https://github.com/gnikyt
+  70. https://linkedin.com/in/gnikyt
+  71. file:///assets/files/cv.pdf
+  72. file:///rss.xml

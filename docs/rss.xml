@@ -6,6 +6,14 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Handling Shopify API limits and Goroutines</title>
+      <link>https://gnikyt.com/handling-shopify-api-limits-goroutines</link>
+      <description>I frequently build integration applications with Shopify, and I thought it would be helpful to
+      highlight one approach (of many) for hand...</description>
+      <guid isPermaLink="true">https://gnikyt.com/handling-shopify-api-limits-goroutines</guid>
+      <pubDate>2025-04-10T16:26:22-0230</pubDate>
+    </item>
+    <item>
       <title>Shopify checkout extension with product HTML</title>
       <link>https://gnikyt.com/shopify-checkout-ui-product-html</link>
       <description>## Background A project last month required a build of an upselling checkout UI extension for

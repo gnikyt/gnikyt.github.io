@@ -3,6 +3,7 @@
 cwd=$(dirname "$0")
 . $cwd/parse_md
 . $cwd/parse_tpl
+. $cwd/highlight
 
 # count tracks the number of generated posts and pages.
 declare -i count=0
@@ -39,7 +40,7 @@ process_posts() {
     parse_md "$(cat "$i")"
 
     # Parse Markdown body and convert to HTML.
-    globals["parsed_md"]=$(pandoc -f markdown -t html "$i")
+    globals["parsed_md"]=$(pandoc --highlight=breezedark -f markdown -t html "$i")
 
     # Setup the dating variables.
     start_ts=$(date -d "${globals["date"]}" +"%s")
@@ -175,6 +176,14 @@ process_sitemap() {
   echo -e "Completed\n"
 }
 
+# create_highlight will use Pandoc to generate the CSS for highlighting code.
+create_highlight() {
+  echo "Generating highlighting..."
+  css=$(highlight)
+  echo "$css" > static/assets/styles/highlight.css
+  echo -e "Completed\n"
+}
+
 # tidy_markup will tidy the HTML and XML.
 tidy_markup() {
   local result
@@ -229,6 +238,7 @@ main() {
   process_index
   process_rss
   process_sitemap
+  create_highlight
   tidy_markup
 
   # Copy static files to docs.

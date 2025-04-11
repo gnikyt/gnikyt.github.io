@@ -134,7 +134,7 @@ When to use each
 
    [6]MD | [7]TXT | [8]CC-4.0
 
-   This post is 7 years old and may contain outdated information.
+   This post is 8 years old and may contain outdated information.
      __________________________________________________________________
 
    [9]Ty King
@@ -175,49 +175,49 @@ References
   14. /rss.xml
 
    Hidden links:
-  16. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-1
-  17. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-2
-  18. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-3
-  19. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-4
-  20. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-5
-  21. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-6
-  22. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-7
-  23. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-8
-  24. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-9
-  25. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-10
-  26. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-11
-  27. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-12
-  28. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-13
-  29. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-14
-  30. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-15
-  31. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-16
-  32. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-17
-  33. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-18
-  34. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-19
-  35. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-20
-  36. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-21
-  37. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-22
-  38. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-23
-  39. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-24
-  40. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-25
-  41. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-26
-  42. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-27
-  43. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-28
-  44. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-29
-  45. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-30
-  46. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb1-31
-  47. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-1
-  48. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-2
-  49. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-3
-  50. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-4
-  51. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-5
-  52. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-6
-  53. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-7
-  54. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-8
-  55. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-9
-  56. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-10
-  57. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-11
-  58. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-12
-  59. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-13
-  60. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-14
-  61. localhost/tmp/lynxXXXXWpMhPx/L766280-3652TMP.html#cb2-15
+  16. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-1
+  17. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-2
+  18. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-3
+  19. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-4
+  20. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-5
+  21. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-6
+  22. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-7
+  23. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-8
+  24. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-9
+  25. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-10
+  26. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-11
+  27. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-12
+  28. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-13
+  29. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-14
+  30. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-15
+  31. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-16
+  32. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-17
+  33. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-18
+  34. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-19
+  35. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-20
+  36. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-21
+  37. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-22
+  38. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-23
+  39. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-24
+  40. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-25
+  41. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-26
+  42. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-27
+  43. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-28
+  44. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-29
+  45. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-30
+  46. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb1-31
+  47. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-1
+  48. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-2
+  49. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-3
+  50. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-4
+  51. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-5
+  52. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-6
+  53. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-7
+  54. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-8
+  55. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-9
+  56. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-10
+  57. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-11
+  58. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-12
+  59. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-13
+  60. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-14
+  61. localhost/tmp/lynxXXXXxPCudm/L1354335-5213TMP.html#cb2-15

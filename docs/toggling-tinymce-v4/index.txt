@@ -71,17 +71,17 @@ References
   11. /rss.xml
 
    Hidden links:
-  13. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-1
-  14. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-2
-  15. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-3
-  16. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-4
-  17. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-5
-  18. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-6
-  19. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-7
-  20. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-8
-  21. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-9
-  22. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-10
-  23. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-11
-  24. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-12
-  25. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb1-13
-  26. localhost/tmp/lynxXXXX8frWk5/L766772-5418TMP.html#cb2-1
+  13. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-1
+  14. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-2
+  15. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-3
+  16. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-4
+  17. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-5
+  18. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-6
+  19. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-7
+  20. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-8
+  21. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-9
+  22. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-10
+  23. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-11
+  24. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-12
+  25. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb1-13
+  26. localhost/tmp/lynxXXXXx3rHcX/L1354847-8550TMP.html#cb2-1

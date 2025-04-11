@@ -197,20 +197,24 @@ ul {
   background: var(--background-alt-color);
 }
 
-.post pre::-webkit-scrollbar {
+.post div.sourceCode {
+  background-color: var(--background-alt-color);
+}
+
+.post div.sourceCode::-webkit-scrollbar {
   height: 5px;
   width: 5px;
 }
 
-.post pre::-webkit-scrollbar-thumb:horizontal {
+.post div.sourceCode::-webkit-scrollbar-thumb:horizontal {
   border-radius: 10px;
 }
 
-.post pre::-webkit-scrollbar {
+.post div.sourceCode::-webkit-scrollbar {
   background: var(--background-color);
 }
 
-.post pre::-webkit-scrollbar-thumb:horizontal {
+.post div.sourceCode::-webkit-scrollbar-thumb:horizontal {
   background: var(--article-link-color);
 }
 
@@ -315,7 +319,7 @@ ul {
 /**
  * Post/page sources.
  */
- .sources {
+.sources {
   font-size: 0.75em;
   margin-top: 5rem;
   text-align: right;
