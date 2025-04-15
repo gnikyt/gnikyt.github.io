@@ -4,49 +4,51 @@
 
                    Handling Shopify API limits and Goroutines
 
-   /* Apr 10, 2025 — 12KB */
+   /* Apr 10, 2025 — 13KB */
 
-   I frequently build integration applications with Shopify, and I thought
-   it would be helpful to highlight one approach (of many) for handling
-   rate limits with Shopify’s GraphQL API using Go that I often use
-   (depending on the project). In this case, the integration was
-   originally handled by a third-party provider. However, after they were
-   acquired, they shut down their service and the integration needed to be
-   rebuilt from scratch.
+   I frequently build integration applications with Shopify and I thought
+   it would be helpful to highlight one approach (of many) that I commonly
+   use for handling API rate limits with Shopify’s GraphQL API using Go.
+   The integration in question was originally developed and maintained by
+   a third-party provider. However, after their company was acquired, they
+   decided to shut down their service and stop all servicing of the
+   integration. Now it would be needed to be rebuilt from scratch.
 
-   The original integration accepted a standardized CSV file from a
-   third-party service. This file contained a list of SKUs and their
-   inventory levels, which needed to be synced with the Shopify store. The
-   same CSV format was used by the service for multiple merchants and
-   typically contained between 3,000–3,500 rows. Not every SKU in the CSV
-   necessarily existed in the store, so that had to be accounted for
-   during processing.
+   The original integration worked by accepting a standardized CSV file
+   from a third-party service through a webhook. The CSV file contained a
+   list of SKUs and their current inventory levels, which needed to be
+   synced with the Shopify store. This same CSV format was used by the
+   service for multiple merchants at once and typically contained between
+   3,000–3,500 rows. Not every SKU in the CSV necessarily existed in the
+   store, so that had to be accounted for during processing.
 
-   The new application had to handle the following steps:
+   In summary, the rebuild of the integration had to handle the following:
     1. Read each line from the CSV
     2. Check if the SKU exists in the store
     3. If it does, update its inventory to the specified value
 
-   Format of the CSV:
+   Format example of the CSV:
 ITEM_CODE,QTY
 00288,5
 22991,1
 23211,18
 ...
 
-   Shopify’s GraphQL API limits would obviously be high priority to factor
-   in. In the case for this specific Shopify store, the limits were:
+   Additionally, Shopify’s GraphQL API limits would obviously be high
+   priority to factor in. In the case for this specific Shopify store, the
+   limits were:
      * 2000 available points
      * 100 points refilled per second
 
    Each row in the CSV required one to two GraphQL calls to Shopify,
    depending on whether the SKU existed in the store. A query was needed
    to fetch the SKU, and if it was found, a mutation followed which would
-   update the inventory. By analyzing the query and mutation costs in
-   Shopify’s GraphQL app, it was determined that each query consumed 2
-   points, while each mutation consumed 10 points. This meant, in the
-   worst case senario, where every SKU existed, a total of 12 points would
-   be consumed per row.
+   update the inventory.
+
+   By analyzing the query and mutation costs in Shopify’s GraphQL app, it
+   was determined that each query consumed 2 points, while each mutation
+   consumed 10 points. This meant, in the worst case senario, where every
+   SKU existed, a total of 12 points would be consumed per row.
 
    My goal was to maximize the number of concurrent queries and mutations
    without blowing through the available points too quickly. At the same
@@ -55,35 +57,41 @@ ITEM_CODE,QTY
    updates could continue without having a bad request returned by
    Shopify.
 
-   With the point consumption determined, I developed a script to simulate
-   depleating the available points by 12, multiplied by the potential
-   concurrent running updates, while also increasing the available points
-   at a rate of 100 points per second. This simulation also counted the
-   number of requests per second. The result of this testing with a
-   different number of potential concurrent running jobs, I came to the
-   conclusion that between 15-20 concurrent jobs would be a safe balance;
-   potientially draining 180 points per second or more and refilling at a
-   rate of 100 per second, would result in an average net decrease of 80
-   points per second from the available points. Given a safeguard would be
-   in place to handle potentially hitting the threshold of available
-   points, this was a great balance to continue with.
+   With the point consumption determined, I previously developed a script
+   to simulate depleating the available points, which I reused for this
+   project. I modified the simulation script to depleat the available
+   points by 12, multiplied by a different number concurrent running
+   updates, while also increasing the available points at a rate of 100
+   points per second. This simulation script also kept track of the number
+   of requests happening per second.
+
+   The result of this simulation with a different number of potential
+   concurrent running updates, I came to the conclusion that between 15-20
+   concurrent jobs would be a safe balance; potientially draining 180
+   points per second or more and refilling at a rate of 100 per second,
+   would result in an average net decrease of 80 points per second from
+   the available points. Given a safeguard would be in place to handle
+   potentially hitting the threshold of available points, this was a great
+   balance to continue with.
 
    Now, there are several methods a developer can take to craft a solution
-   preventing draining the available points down to zero… some may simply
-   call each job in sequence or a batch of jobs in sequence and sleep for
-   a set time afterwards, some may develop a worker pool system with a
-   small set capacity, etc.
+   preventing draining the available points down to zero… some developers
+   may call each job in sequence, some developers may call each job with a
+   sleep in between, some developers may run it as a batch of jobs in
+   sequence, some developers may utilize a worker pool system with a set
+   capacity, etc.
 
-   I decided to develop a semaphore approach. If you’re not familiar, a
-   semaphore is essentially a concurrency control method to maintain a set
-   capacity of “how many” of something is permitted to run at a time. A
-   process would “aquire” a spot and when completed it’s work, it would
-   “release” the spot, so another process can aquire it.
+   For me, I decided to develop a semaphore approach. If you’re not
+   familiar with that, a semaphore is essentially a concurrency control
+   method to maintain a set capacity of “how many” of something is
+   permitted to run at a time. A process would first “aquire” a spot and
+   when completed it’s work, it would “release” the spot, so another
+   process can aquire it.
 
-   Since there was only between 3,000-3,500 rows in the CSV on average, I
-   decided to skip a worker pool setup and simply spin up each row of the
-   CSV as a Goroutine, where each Goroutine would attempt to aquire a spot
-   with the semaphore control and upon release of that spot, we would
+   Since there would be between 3,000-3,500 rows in the CSV (on average),
+   I decided to skip a worker pool setup and simply spin up each row of
+   the CSV as a Goroutine, where each Goroutine would attempt to aquire a
+   spot with the semaphore control and upon release of that spot, we would
    check the remaining available points and handle accordingly.
 
    Additionally, the capacity of this semaphore would be set to the 15-20
@@ -109,9 +117,10 @@ import (
 // track of the remaining points, threshold, limit, and refill rate.
 type Point struct {
     Remaining  atomic.Int32 // Points remaining.
-    Threshold  int32        // Point value to which we would begin sleeping.
-    Limit      int32        // Upper limit of points available.
-    RefillRate int32        // Rate of refill of number of points per second.
+    Threshold  int32        // Minimum point balance of which we would consider
+handling with a "pause".
+    Limit      int32        // Maximum points available.
+    RefillRate int32        // Number of points refilled, per second.
 }
 
 // Update accepts a new value of remaining points to store.
@@ -123,13 +132,13 @@ func (pts *Point) Update(points int32) {
 ate to
 // determine how many seconds it would take to refill to remaining points back t
 o full.
-// It will return a duration which can be used to sleep.
+// It will return a duration which can be used to "pause" operations.
 func (pts *Point) RefillDuration() time.Duration {
     return time.Duration((tp.Limit-tp.Remaining.Load())/tp.RefillRate) * time.Se
 cond
 }
 
-// AtThreshold will return true or false if we have reached or surpassed the set
+// AtThreshold will return a boolean if we have reached or surpassed the set
 // threshold of remaining points or not.
 func (pts *Point) AtThreshold() bool {
     return tp.Remaining.Load() <= tp.Threshold
@@ -202,7 +211,7 @@ func New(cap int, point *Point, opts ...func(*Regulator)) *Regulator {
 // Aquire will attempt to aquire a spot to run the Goroutine.
 // It will continue in a loop until it does aquire also pausing
 // if the pause flag has been enabled. Aquiring is throttled at
-// the value for AquireBuffer.
+// the value of AquireBuffer.
 func (reg *Regulator) Aquire() {
     var aquired bool
     for !aquired {
@@ -245,14 +254,17 @@ passed
             reg.pausedAt = time.Now()
             reg.PauseFunc(points, ra)
 
-            go func() {
-                time.Sleep(ra)
+            // Unflag as paused after the determined duration and run the Resume
+Func.
+            taf := time.AfterFunc(ra, func() {
                 reg.paused = false
                 reg.ResumeFunc()
-            }()
+            })
+            defer taf.Stop()
         }
     }
 
+    // Perform the actual release.
     <-reg.sema
 }
 
@@ -305,10 +317,11 @@ p.Regulator := regulator.New(
 //
 
 func (proc *processor) runJob(row []string) {
-    proc.regulator.Aquire()
+    proc.regulator.Aquire() // <-- Aquire happens here.
     points, err := retry(proc.processJob(row))
     proc.postProcessJob(row, err)
-    proc.regulator.Release(points)
+    proc.regulator.Release(points) // <-- Release happens here, passing in the c
+urrent available points from Shopify's response.
 }
 
 //
@@ -381,7 +394,8 @@ func (proc *processor) Run() {
 
    The result was a success for this project… the inventory updates we’re
    able to complete between 3 1/2 to 4 1/2 minutes without hitting the
-   threshold often. Hopefully this helpful to those looking to do similar.
+   threshold very often. Hopefully this helpful to those looking to do
+   similar.
 
    [3]MD | [4]TXT | [5]CC-4.0
      __________________________________________________________________
@@ -421,261 +435,263 @@ References
   11. /rss.xml
 
    Hidden links:
-  13. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-1
-  14. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-2
-  15. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-3
-  16. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-4
-  17. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-5
-  18. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-6
-  19. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-7
-  20. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-8
-  21. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-9
-  22. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-10
-  23. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-11
-  24. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-12
-  25. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-13
-  26. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-14
-  27. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-15
-  28. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-16
-  29. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-17
-  30. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-18
-  31. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-19
-  32. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-20
-  33. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-21
-  34. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-22
-  35. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-23
-  36. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-24
-  37. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-25
-  38. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-26
-  39. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-27
-  40. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-28
-  41. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-29
-  42. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-30
-  43. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-31
-  44. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-32
-  45. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-33
-  46. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb2-34
-  47. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-1
-  48. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-2
-  49. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-3
-  50. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-4
-  51. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-5
-  52. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-6
-  53. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-7
-  54. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-8
-  55. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-9
-  56. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-10
-  57. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-11
-  58. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-12
-  59. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-13
-  60. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-14
-  61. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-15
-  62. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-16
-  63. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-17
-  64. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-18
-  65. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-19
-  66. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-20
-  67. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-21
-  68. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-22
-  69. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-23
-  70. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-24
-  71. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-25
-  72. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-26
-  73. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-27
-  74. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-28
-  75. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-29
-  76. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-30
-  77. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-31
-  78. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-32
-  79. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-33
-  80. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-34
-  81. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-35
-  82. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-36
-  83. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-37
-  84. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-38
-  85. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-39
-  86. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-40
-  87. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-41
-  88. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-42
-  89. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-43
-  90. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-44
-  91. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-45
-  92. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-46
-  93. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-47
-  94. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-48
-  95. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-49
-  96. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-50
-  97. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-51
-  98. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-52
-  99. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-53
- 100. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-54
- 101. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-55
- 102. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-56
- 103. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-57
- 104. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-58
- 105. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-59
- 106. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-60
- 107. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-61
- 108. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-62
- 109. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-63
- 110. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-64
- 111. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-65
- 112. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-66
- 113. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-67
- 114. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-68
- 115. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-69
- 116. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-70
- 117. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-71
- 118. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-72
- 119. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-73
- 120. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-74
- 121. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-75
- 122. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-76
- 123. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-77
- 124. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-78
- 125. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-79
- 126. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-80
- 127. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-81
- 128. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-82
- 129. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-83
- 130. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-84
- 131. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-85
- 132. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-86
- 133. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-87
- 134. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-88
- 135. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-89
- 136. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-90
- 137. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-91
- 138. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-92
- 139. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-93
- 140. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-94
- 141. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-95
- 142. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-96
- 143. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-97
- 144. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-98
- 145. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-99
- 146. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-100
- 147. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-101
- 148. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-102
- 149. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-103
- 150. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-104
- 151. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-105
- 152. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-106
- 153. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-107
- 154. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-108
- 155. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-109
- 156. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-110
- 157. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-111
- 158. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-112
- 159. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-113
- 160. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-114
- 161. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-115
- 162. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-116
- 163. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-117
- 164. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-118
- 165. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-119
- 166. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-120
- 167. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-121
- 168. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-122
- 169. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-123
- 170. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-124
- 171. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-125
- 172. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb3-126
- 173. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-1
- 174. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-2
- 175. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-3
- 176. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-4
- 177. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-5
- 178. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-6
- 179. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-7
- 180. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-8
- 181. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-9
- 182. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-10
- 183. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-11
- 184. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-12
- 185. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-13
- 186. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-14
- 187. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-15
- 188. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-16
- 189. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-17
- 190. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-18
- 191. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-19
- 192. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-20
- 193. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-21
- 194. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-22
- 195. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-23
- 196. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-24
- 197. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-25
- 198. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-26
- 199. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-27
- 200. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-28
- 201. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-29
- 202. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-30
- 203. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-31
- 204. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-32
- 205. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-33
- 206. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-34
- 207. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-35
- 208. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-36
- 209. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-37
- 210. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-38
- 211. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-39
- 212. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-40
- 213. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-41
- 214. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-42
- 215. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-43
- 216. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-44
- 217. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-45
- 218. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-46
- 219. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-47
- 220. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-48
- 221. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-49
- 222. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-50
- 223. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-51
- 224. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-52
- 225. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-53
- 226. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-54
- 227. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-55
- 228. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-56
- 229. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-57
- 230. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-58
- 231. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-59
- 232. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-60
- 233. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-61
- 234. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-62
- 235. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-63
- 236. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-64
- 237. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-65
- 238. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-66
- 239. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-67
- 240. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-68
- 241. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-69
- 242. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-70
- 243. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-71
- 244. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-72
- 245. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-73
- 246. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-74
- 247. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-75
- 248. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-76
- 249. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-77
- 250. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-78
- 251. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-79
- 252. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-80
- 253. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-81
- 254. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-82
- 255. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-83
- 256. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-84
- 257. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-85
- 258. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-86
- 259. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-87
- 260. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-88
- 261. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-89
- 262. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-90
- 263. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-91
- 264. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-92
- 265. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-93
- 266. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-94
- 267. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-95
- 268. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-96
- 269. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-97
- 270. localhost/tmp/lynxXXXXOmu7Kk/L1367018-7683TMP.html#cb4-98
+  13. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-1
+  14. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-2
+  15. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-3
+  16. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-4
+  17. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-5
+  18. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-6
+  19. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-7
+  20. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-8
+  21. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-9
+  22. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-10
+  23. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-11
+  24. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-12
+  25. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-13
+  26. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-14
+  27. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-15
+  28. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-16
+  29. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-17
+  30. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-18
+  31. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-19
+  32. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-20
+  33. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-21
+  34. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-22
+  35. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-23
+  36. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-24
+  37. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-25
+  38. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-26
+  39. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-27
+  40. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-28
+  41. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-29
+  42. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-30
+  43. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-31
+  44. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-32
+  45. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-33
+  46. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb2-34
+  47. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-1
+  48. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-2
+  49. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-3
+  50. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-4
+  51. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-5
+  52. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-6
+  53. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-7
+  54. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-8
+  55. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-9
+  56. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-10
+  57. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-11
+  58. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-12
+  59. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-13
+  60. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-14
+  61. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-15
+  62. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-16
+  63. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-17
+  64. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-18
+  65. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-19
+  66. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-20
+  67. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-21
+  68. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-22
+  69. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-23
+  70. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-24
+  71. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-25
+  72. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-26
+  73. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-27
+  74. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-28
+  75. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-29
+  76. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-30
+  77. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-31
+  78. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-32
+  79. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-33
+  80. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-34
+  81. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-35
+  82. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-36
+  83. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-37
+  84. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-38
+  85. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-39
+  86. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-40
+  87. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-41
+  88. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-42
+  89. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-43
+  90. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-44
+  91. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-45
+  92. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-46
+  93. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-47
+  94. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-48
+  95. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-49
+  96. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-50
+  97. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-51
+  98. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-52
+  99. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-53
+ 100. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-54
+ 101. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-55
+ 102. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-56
+ 103. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-57
+ 104. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-58
+ 105. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-59
+ 106. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-60
+ 107. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-61
+ 108. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-62
+ 109. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-63
+ 110. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-64
+ 111. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-65
+ 112. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-66
+ 113. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-67
+ 114. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-68
+ 115. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-69
+ 116. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-70
+ 117. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-71
+ 118. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-72
+ 119. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-73
+ 120. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-74
+ 121. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-75
+ 122. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-76
+ 123. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-77
+ 124. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-78
+ 125. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-79
+ 126. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-80
+ 127. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-81
+ 128. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-82
+ 129. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-83
+ 130. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-84
+ 131. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-85
+ 132. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-86
+ 133. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-87
+ 134. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-88
+ 135. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-89
+ 136. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-90
+ 137. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-91
+ 138. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-92
+ 139. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-93
+ 140. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-94
+ 141. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-95
+ 142. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-96
+ 143. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-97
+ 144. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-98
+ 145. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-99
+ 146. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-100
+ 147. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-101
+ 148. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-102
+ 149. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-103
+ 150. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-104
+ 151. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-105
+ 152. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-106
+ 153. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-107
+ 154. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-108
+ 155. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-109
+ 156. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-110
+ 157. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-111
+ 158. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-112
+ 159. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-113
+ 160. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-114
+ 161. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-115
+ 162. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-116
+ 163. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-117
+ 164. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-118
+ 165. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-119
+ 166. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-120
+ 167. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-121
+ 168. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-122
+ 169. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-123
+ 170. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-124
+ 171. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-125
+ 172. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-126
+ 173. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-127
+ 174. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb3-128
+ 175. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-1
+ 176. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-2
+ 177. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-3
+ 178. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-4
+ 179. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-5
+ 180. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-6
+ 181. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-7
+ 182. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-8
+ 183. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-9
+ 184. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-10
+ 185. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-11
+ 186. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-12
+ 187. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-13
+ 188. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-14
+ 189. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-15
+ 190. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-16
+ 191. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-17
+ 192. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-18
+ 193. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-19
+ 194. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-20
+ 195. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-21
+ 196. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-22
+ 197. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-23
+ 198. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-24
+ 199. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-25
+ 200. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-26
+ 201. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-27
+ 202. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-28
+ 203. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-29
+ 204. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-30
+ 205. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-31
+ 206. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-32
+ 207. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-33
+ 208. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-34
+ 209. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-35
+ 210. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-36
+ 211. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-37
+ 212. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-38
+ 213. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-39
+ 214. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-40
+ 215. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-41
+ 216. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-42
+ 217. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-43
+ 218. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-44
+ 219. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-45
+ 220. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-46
+ 221. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-47
+ 222. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-48
+ 223. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-49
+ 224. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-50
+ 225. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-51
+ 226. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-52
+ 227. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-53
+ 228. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-54
+ 229. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-55
+ 230. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-56
+ 231. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-57
+ 232. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-58
+ 233. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-59
+ 234. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-60
+ 235. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-61
+ 236. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-62
+ 237. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-63
+ 238. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-64
+ 239. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-65
+ 240. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-66
+ 241. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-67
+ 242. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-68
+ 243. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-69
+ 244. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-70
+ 245. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-71
+ 246. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-72
+ 247. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-73
+ 248. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-74
+ 249. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-75
+ 250. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-76
+ 251. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-77
+ 252. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-78
+ 253. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-79
+ 254. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-80
+ 255. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-81
+ 256. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-82
+ 257. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-83
+ 258. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-84
+ 259. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-85
+ 260. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-86
+ 261. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-87
+ 262. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-88
+ 263. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-89
+ 264. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-90
+ 265. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-91
+ 266. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-92
+ 267. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-93
+ 268. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-94
+ 269. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-95
+ 270. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-96
+ 271. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-97
+ 272. localhost/tmp/lynxXXXXXzpss8/L1627518-2312TMP.html#cb4-98

@@ -9,20 +9,20 @@
     <link href="https://gnikyt.com/handling-shopify-api-limits-goroutines" rel="canonical">
     <meta content="Custom" name="generator">
     <meta content=
-    "I frequently build integration applications with Shopify, and I thought it would be helpful to highlight one approach (of many) for hand..."
+    "I frequently build integration applications with Shopify and I thought it would be helpful to highlight one approach (of many) that I co..."
     name="description">
     <meta content="2025-04-10T16:26:22-0230" property="article:published_time">
     <meta content="Handling Shopify API limits and Goroutines" property="og:title">
     <meta content="en" property="og:locale">
     <meta content=
-    "I frequently build integration applications with Shopify, and I thought it would be helpful to highlight one approach (of many) for hand..."
+    "I frequently build integration applications with Shopify and I thought it would be helpful to highlight one approach (of many) that I co..."
     property="og:description">
     <meta content="https://gnikyt.com/handling-shopify-api-limits-goroutines" property="og:url">
     <meta content="gnikyt" property="og:site_name">
     <meta content="article" property="og:type">
     <meta content="summary" name="twitter:card">
     <meta content=
-    "I frequently build integration applications with Shopify, and I thought it would be helpful to highlight one approach (of many) for hand..."
+    "I frequently build integration applications with Shopify and I thought it would be helpful to highlight one approach (of many) that I co..."
     property="twitter:title">
     <script type="application/ld+json">
     {
@@ -31,7 +31,7 @@
     "dateModified": "2025-04-10T16:26:22-0230",
     "datePublished": "2025-04-10T16:26:22-0230",
     "description": "
-    I frequently build integration applications with Shopify, and I thought it would be helpful to highlight one approach (of many) for hand...",
+    I frequently build integration applications with Shopify and I thought it would be helpful to highlight one approach (of many) that I co...",
     "headline": "Handling Shopify API limits and Goroutines",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -70,26 +70,28 @@
 
           <p class="post__meta">
             /* <time class="post__time" datetime="2025-04-10">Apr 10, 2025</time> — <span class=
-            "post__size">12KB</span> */
+            "post__size">13KB</span> */
           </p>
         </header>
 
         <p>
-          I frequently build integration applications with Shopify, and I thought it would be helpful to highlight one
-          approach (of many) for handling rate limits with Shopify’s GraphQL API using Go that I often use (depending
-          on the project). In this case, the integration was originally handled by a third-party provider. However,
-          after they were acquired, they shut down their service and the integration needed to be rebuilt from scratch.
+          I frequently build integration applications with Shopify and I thought it would be helpful to highlight one
+          approach (of many) that I commonly use for handling API rate limits with Shopify’s GraphQL API using Go. The
+          integration in question was originally developed and maintained by a third-party provider. However, after
+          their company was acquired, they decided to shut down their service and stop all servicing of the
+          integration. Now it would be needed to be rebuilt from scratch.
         </p>
 
         <p>
-          The original integration accepted a standardized CSV file from a third-party service. This file contained a
-          list of SKUs and their inventory levels, which needed to be synced with the Shopify store. The same CSV
-          format was used by the service for multiple merchants and typically contained between 3,000–3,500 rows. Not
-          every SKU in the CSV necessarily existed in the store, so that had to be accounted for during processing.
+          The original integration worked by accepting a standardized CSV file from a third-party service through a
+          webhook. The CSV file contained a list of SKUs and their current inventory levels, which needed to be synced
+          with the Shopify store. This same CSV format was used by the service for multiple merchants at once and
+          typically contained between 3,000–3,500 rows. Not every SKU in the CSV necessarily existed in the store, so
+          that had to be accounted for during processing.
         </p>
 
         <p>
-          The new application had to handle the following steps:
+          In summary, the rebuild of the integration had to handle the following:
         </p>
 
         <ol type="1">
@@ -104,7 +106,7 @@
         </ol>
 
         <p>
-          Format of the CSV:
+          Format example of the CSV:
         </p>
 
         <pre class="csv"><code>ITEM_CODE,QTY
@@ -113,8 +115,8 @@
 23211,18
 ...</code></pre>
         <p>
-          Shopify’s GraphQL API limits would obviously be high priority to factor in. In the case for this specific
-          Shopify store, the limits were:
+          Additionally, Shopify’s GraphQL API limits would obviously be high priority to factor in. In the case for
+          this specific Shopify store, the limits were:
         </p>
 
         <ul>
@@ -128,9 +130,13 @@
         <p>
           Each row in the CSV required one to two GraphQL calls to Shopify, depending on whether the SKU existed in the
           store. A query was needed to fetch the SKU, and if it was found, a mutation followed which would update the
-          inventory. By analyzing the query and mutation costs in Shopify’s GraphQL app, it was determined that each
-          query consumed 2 points, while each mutation consumed 10 points. This meant, in the worst case senario, where
-          every SKU existed, a total of 12 points would be consumed per row.
+          inventory.
+        </p>
+
+        <p>
+          By analyzing the query and mutation costs in Shopify’s GraphQL app, it was determined that each query
+          consumed 2 points, while each mutation consumed 10 points. This meant, in the worst case senario, where every
+          SKU existed, a total of 12 points would be consumed per row.
         </p>
 
         <p>
@@ -141,31 +147,37 @@
         </p>
 
         <p>
-          With the point consumption determined, I developed a script to simulate depleating the available points by
-          12, multiplied by the potential concurrent running updates, while also increasing the available points at a
-          rate of 100 points per second. This simulation also counted the number of requests per second. The result of
-          this testing with a different number of potential concurrent running jobs, I came to the conclusion that
-          between 15-20 concurrent jobs would be a safe balance; potientially draining 180 points per second or more
-          and refilling at a rate of 100 per second, would result in an average net decrease of 80 points per second
-          from the available points. Given a safeguard would be in place to handle potentially hitting the threshold of
-          available points, this was a great balance to continue with.
+          With the point consumption determined, I previously developed a script to simulate depleating the available
+          points, which I reused for this project. I modified the simulation script to depleat the available points by
+          12, multiplied by a different number concurrent running updates, while also increasing the available points
+          at a rate of 100 points per second. This simulation script also kept track of the number of requests
+          happening per second.
+        </p>
+
+        <p>
+          The result of this simulation with a different number of potential concurrent running updates, I came to the
+          conclusion that between 15-20 concurrent jobs would be a safe balance; potientially draining 180 points per
+          second or more and refilling at a rate of 100 per second, would result in an average net decrease of 80
+          points per second from the available points. Given a safeguard would be in place to handle potentially
+          hitting the threshold of available points, this was a great balance to continue with.
         </p>
 
         <p>
           Now, there are several methods a developer can take to craft a solution preventing draining the available
-          points down to zero… some may simply call each job in sequence or a batch of jobs in sequence and sleep for a
-          set time afterwards, some may develop a worker pool system with a small set capacity, etc.
+          points down to zero… some developers may call each job in sequence, some developers may call each job with a
+          sleep in between, some developers may run it as a batch of jobs in sequence, some developers may utilize a
+          worker pool system with a set capacity, etc.
         </p>
 
         <p>
-          I decided to develop a semaphore approach. If you’re not familiar, a semaphore is essentially a concurrency
-          control method to maintain a set capacity of “how many” of something is permitted to run at a time. A process
-          would “aquire” a spot and when completed it’s work, it would “release” the spot, so another process can
-          aquire it.
+          For me, I decided to develop a semaphore approach. If you’re not familiar with that, a semaphore is
+          essentially a concurrency control method to maintain a set capacity of “how many” of something is permitted
+          to run at a time. A process would first “aquire” a spot and when completed it’s work, it would “release” the
+          spot, so another process can aquire it.
         </p>
 
         <p>
-          Since there was only between 3,000-3,500 rows in the CSV on average, I decided to skip a worker pool setup
+          Since there would be between 3,000-3,500 rows in the CSV (on average), I decided to skip a worker pool setup
           and simply spin up each row of the CSV as a Goroutine, where each Goroutine would attempt to aquire a spot
           with the semaphore control and upon release of that spot, we would check the remaining available points and
           handle accordingly.
@@ -203,11 +215,12 @@
 <span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>    Remaining  atomic<span class=
 "op">.</span>Int32 <span class="co">// Points remaining.</span></span>
 <span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>    Threshold  <span class=
-"dt">int32</span>        <span class="co">// Point value to which we would begin sleeping.</span></span>
+"dt">int32</span>        <span class=
+"co">// Minimum point balance of which we would consider handling with a "pause".</span></span>
 <span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>    Limit      <span class=
-"dt">int32</span>        <span class="co">// Upper limit of points available.</span></span>
+"dt">int32</span>        <span class="co">// Maximum points available.</span></span>
 <span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>    RefillRate <span class=
-"dt">int32</span>        <span class="co">// Rate of refill of number of points per second.</span></span>
+"dt">int32</span>        <span class="co">// Number of points refilled, per second.</span></span>
 <span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a></span>
 <span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a><span class=
@@ -224,7 +237,7 @@
 <span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a><span class=
 "co">// determine how many seconds it would take to refill to remaining points back to full.</span></span>
 <span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a><span class=
-"co">// It will return a duration which can be used to sleep.</span></span>
+"co">// It will return a duration which can be used to "pause" operations.</span></span>
 <span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>pts <span class="op">*</span>Point<span class="op">)</span> RefillDuration<span class=
 "op">()</span> time<span class="op">.</span>Duration <span class="op">{</span></span>
@@ -236,7 +249,7 @@
 <span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a></span>
 <span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a><span class=
-"co">// AtThreshold will return true or false if we have reached or surpassed the set</span></span>
+"co">// AtThreshold will return a boolean if we have reached or surpassed the set</span></span>
 <span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a><span class=
 "co">// threshold of remaining points or not.</span></span>
 <span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a><span class="kw">func</span> <span class=
@@ -357,7 +370,7 @@
 <span id="cb3-57"><a aria-hidden="true" href="#cb3-57" tabindex="-1"></a><span class=
 "co">// if the pause flag has been enabled. Aquiring is throttled at</span></span>
 <span id="cb3-58"><a aria-hidden="true" href="#cb3-58" tabindex="-1"></a><span class=
-"co">// the value for AquireBuffer.</span></span>
+"co">// the value of AquireBuffer.</span></span>
 <span id="cb3-59"><a aria-hidden="true" href="#cb3-59" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>reg <span class="op">*</span>Regulator<span class="op">)</span> Aquire<span class=
 "op">()</span> <span class="op">{</span></span>
@@ -438,56 +451,61 @@
 "op">.</span>PauseFunc<span class="op">(</span>points<span class="op">,</span> ra<span class="op">)</span></span>
 <span id="cb3-99"><a aria-hidden="true" href="#cb3-99" tabindex="-1"></a></span>
 <span id="cb3-100"><a aria-hidden="true" href="#cb3-100" tabindex="-1"></a>            <span class=
-"cf">go</span> <span class="kw">func</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a>                time<span class=
-"op">.</span>Sleep<span class="op">(</span>ra<span class="op">)</span></span>
+"co">// Unflag as paused after the determined duration and run the ResumeFunc.</span></span>
+<span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a>            taf <span class=
+"op">:=</span> time<span class="op">.</span>AfterFunc<span class="op">(</span>ra<span class="op">,</span> <span class=
+"kw">func</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb3-102"><a aria-hidden="true" href="#cb3-102" tabindex="-1"></a>                reg<span class=
 "op">.</span>paused <span class="op">=</span> <span class="ot">false</span></span>
 <span id="cb3-103"><a aria-hidden="true" href="#cb3-103" tabindex="-1"></a>                reg<span class=
 "op">.</span>ResumeFunc<span class="op">()</span></span>
 <span id="cb3-104"><a aria-hidden="true" href="#cb3-104" tabindex="-1"></a>            <span class=
-"op">}()</span></span>
-<span id="cb3-105"><a aria-hidden="true" href="#cb3-105" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-106"><a aria-hidden="true" href="#cb3-106" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-107"><a aria-hidden="true" href="#cb3-107" tabindex="-1"></a></span>
-<span id="cb3-108"><a aria-hidden="true" href="#cb3-108" tabindex="-1"></a>    <span class=
+"op">})</span></span>
+<span id="cb3-105"><a aria-hidden="true" href="#cb3-105" tabindex="-1"></a>            <span class=
+"cf">defer</span> taf<span class="op">.</span>Stop<span class="op">()</span></span>
+<span id="cb3-106"><a aria-hidden="true" href="#cb3-106" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-107"><a aria-hidden="true" href="#cb3-107" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-108"><a aria-hidden="true" href="#cb3-108" tabindex="-1"></a></span>
+<span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a>    <span class=
+"co">// Perform the actual release.</span></span>
+<span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a>    <span class=
 "op">&lt;-</span>reg<span class="op">.</span>sema</span>
-<span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a></span>
-<span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a><span class=
-"co">// withPauseFunc is a functional option for the Regulator to</span></span>
-<span id="cb3-112"><a aria-hidden="true" href="#cb3-112" tabindex="-1"></a><span class=
-"co">// call when a pause happens. The points remaining and the</span></span>
+<span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-112"><a aria-hidden="true" href="#cb3-112" tabindex="-1"></a></span>
 <span id="cb3-113"><a aria-hidden="true" href="#cb3-113" tabindex="-1"></a><span class=
-"co">// duration of the pause will passed into the function.</span></span>
+"co">// withPauseFunc is a functional option for the Regulator to</span></span>
 <span id="cb3-114"><a aria-hidden="true" href="#cb3-114" tabindex="-1"></a><span class=
+"co">// call when a pause happens. The points remaining and the</span></span>
+<span id="cb3-115"><a aria-hidden="true" href="#cb3-115" tabindex="-1"></a><span class=
+"co">// duration of the pause will passed into the function.</span></span>
+<span id="cb3-116"><a aria-hidden="true" href="#cb3-116" tabindex="-1"></a><span class=
 "kw">func</span> withPauseFunc<span class="op">(</span>fn <span class="kw">func</span><span class=
 "op">(</span><span class="dt">int32</span><span class="op">,</span> time<span class="op">.</span>Duration<span class=
 "op">))</span> <span class="kw">func</span><span class="op">(*</span>Regulator<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb3-115"><a aria-hidden="true" href="#cb3-115" tabindex="-1"></a>    <span class=
+<span id="cb3-117"><a aria-hidden="true" href="#cb3-117" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">func</span><span class="op">(</span>reg <span class=
 "op">*</span>Regulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-116"><a aria-hidden="true" href="#cb3-116" tabindex="-1"></a>        reg<span class=
+<span id="cb3-118"><a aria-hidden="true" href="#cb3-118" tabindex="-1"></a>        reg<span class=
 "op">.</span>PauseFunc <span class="op">=</span> fn</span>
-<span id="cb3-117"><a aria-hidden="true" href="#cb3-117" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-118"><a aria-hidden="true" href="#cb3-118" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-119"><a aria-hidden="true" href="#cb3-119" tabindex="-1"></a></span>
-<span id="cb3-120"><a aria-hidden="true" href="#cb3-120" tabindex="-1"></a><span class=
-"co">// withResumeunc is a functional option for the Regulator to</span></span>
-<span id="cb3-121"><a aria-hidden="true" href="#cb3-121" tabindex="-1"></a><span class=
-"co">// call when resume from a pause happens.</span></span>
+<span id="cb3-119"><a aria-hidden="true" href="#cb3-119" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-120"><a aria-hidden="true" href="#cb3-120" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-121"><a aria-hidden="true" href="#cb3-121" tabindex="-1"></a></span>
 <span id="cb3-122"><a aria-hidden="true" href="#cb3-122" tabindex="-1"></a><span class=
+"co">// withResumeunc is a functional option for the Regulator to</span></span>
+<span id="cb3-123"><a aria-hidden="true" href="#cb3-123" tabindex="-1"></a><span class=
+"co">// call when resume from a pause happens.</span></span>
+<span id="cb3-124"><a aria-hidden="true" href="#cb3-124" tabindex="-1"></a><span class=
 "kw">func</span> withResumeFunc<span class="op">(</span>fn <span class="kw">func</span><span class=
 "op">())</span> <span class="kw">func</span><span class="op">(*</span>Regulator<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb3-123"><a aria-hidden="true" href="#cb3-123" tabindex="-1"></a>    <span class=
+<span id="cb3-125"><a aria-hidden="true" href="#cb3-125" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">func</span><span class="op">(</span>reg <span class=
 "op">*</span>Regulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-124"><a aria-hidden="true" href="#cb3-124" tabindex="-1"></a>        reg<span class=
+<span id="cb3-126"><a aria-hidden="true" href="#cb3-126" tabindex="-1"></a>        reg<span class=
 "op">.</span>ResumeFunc <span class="op">=</span> fn</span>
-<span id="cb3-125"><a aria-hidden="true" href="#cb3-125" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-126"><a aria-hidden="true" href="#cb3-126" tabindex="-1"></a><span class=
+<span id="cb3-127"><a aria-hidden="true" href="#cb3-127" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-128"><a aria-hidden="true" href="#cb3-128" tabindex="-1"></a><span class=
 "op">}</span></span></code></pre>
         </div>
 
@@ -546,14 +564,17 @@
 "op">(</span>row <span class="op">[]</span><span class="dt">string</span><span class="op">)</span> <span class=
 "op">{</span></span>
 <span id="cb4-32"><a aria-hidden="true" href="#cb4-32" tabindex="-1"></a>    proc<span class=
-"op">.</span>regulator<span class="op">.</span>Aquire<span class="op">()</span></span>
+"op">.</span>regulator<span class="op">.</span>Aquire<span class="op">()</span> <span class=
+"co">// &lt;-- Aquire happens here.</span></span>
 <span id="cb4-33"><a aria-hidden="true" href="#cb4-33" tabindex="-1"></a>    points<span class=
 "op">,</span> err <span class="op">:=</span> retry<span class="op">(</span>proc<span class=
 "op">.</span>processJob<span class="op">(</span>row<span class="op">))</span></span>
 <span id="cb4-34"><a aria-hidden="true" href="#cb4-34" tabindex="-1"></a>    proc<span class=
 "op">.</span>postProcessJob<span class="op">(</span>row<span class="op">,</span> err<span class="op">)</span></span>
 <span id="cb4-35"><a aria-hidden="true" href="#cb4-35" tabindex="-1"></a>    proc<span class=
-"op">.</span>regulator<span class="op">.</span>Release<span class="op">(</span>points<span class="op">)</span></span>
+"op">.</span>regulator<span class="op">.</span>Release<span class="op">(</span>points<span class=
+"op">)</span> <span class=
+"co">// &lt;-- Release happens here, passing in the current available points from Shopify's response.</span></span>
 <span id="cb4-36"><a aria-hidden="true" href="#cb4-36" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb4-37"><a aria-hidden="true" href="#cb4-37" tabindex="-1"></a></span>
 <span id="cb4-38"><a aria-hidden="true" href="#cb4-38" tabindex="-1"></a><span class="co">//</span></span>
@@ -675,7 +696,7 @@
 
         <p>
           The result was a success for this project… the inventory updates we’re able to complete between 3 1/2 to 4
-          1/2 minutes without hitting the threshold often. Hopefully this helpful to those looking to do similar.
+          1/2 minutes without hitting the threshold very often. Hopefully this helpful to those looking to do similar.
         </p>
 
         <footer class="post__tail">
