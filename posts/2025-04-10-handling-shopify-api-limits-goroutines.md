@@ -185,11 +185,7 @@ func (reg *Regulator) Release(points int32) {
 		if reg.pausedAt.Add(ra).Before(time.Now()) {
 			reg.paused = true
 			reg.pausedAt = time.Now()
-
-			// Run PauseFunc in a Goroutine to not hang anything else up.
-			go func() {
-				reg.PauseFunc(points, ra)
-			}()
+			go reg.PauseFunc(points, ra)
 
 			// Unflag as paused after the determined duration and run the ResumeFunc.
 			go func() {
