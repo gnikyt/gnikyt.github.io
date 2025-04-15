@@ -57,6 +57,9 @@ Completed
 Generating sitemap...
 Completed
 
+Generating highlighting...
+Completed
+
 Tidying markup...
 Completed
 ```

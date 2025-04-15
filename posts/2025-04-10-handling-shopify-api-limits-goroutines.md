@@ -5,17 +5,17 @@ permalink: handling-shopify-api-limits-goroutines
 date: '2025-04-10 16:26:22'
 ---
 
-I frequently build integration applications with Shopify, and I thought it would be helpful to highlight one approach (of many) for handling rate limits with Shopify’s GraphQL API using Go that I often use (depending on the project). In this case, the integration was originally handled by a third-party provider. However, after they were acquired, they shut down their service and the integration needed to be rebuilt from scratch.
+I frequently build integration applications with Shopify and I thought it would be helpful to highlight one approach (of many) that I commonly use for handling API rate limits with Shopify’s GraphQL API using Go. The integration in question was originally developed and maintained by a third-party provider. However, after their company was acquired, they decided to shut down their service and stop all servicing of the integration. Now it would be needed to be rebuilt from scratch.
 
-The original integration accepted a standardized CSV file from a third-party service. This file contained a list of SKUs and their inventory levels, which needed to be synced with the Shopify store. The same CSV format was used by the service for multiple merchants and typically contained between 3,000–3,500 rows. Not every SKU in the CSV necessarily existed in the store, so that had to be accounted for during processing.
+The original integration worked by accepting a standardized CSV file from a third-party service through a webhook. The CSV file contained a list of SKUs and their current inventory levels, which needed to be synced with the Shopify store. This same CSV format was used by the service for multiple merchants at once and typically contained between 3,000–3,500 rows. Not every SKU in the CSV necessarily existed in the store, so that had to be accounted for during processing.
 
-The new application had to handle the following steps:
+In summary, the rebuild of the integration had to handle the following:
 
 1. Read each line from the CSV
 2. Check if the SKU exists in the store
 3. If it does, update its inventory to the specified value
 
-Format of the CSV:
+Format example of the CSV:
 
 ```csv
 ITEM_CODE,QTY
@@ -25,22 +25,26 @@ ITEM_CODE,QTY
 ...
 ```
 
-Shopify's GraphQL API limits would obviously be high priority to factor in. In the case for this specific Shopify store, the limits were:
+Additionally, Shopify's GraphQL API limits would obviously be high priority to factor in. In the case for this specific Shopify store, the limits were:
 
 * 2000 available points
 * 100 points refilled per second
 
-Each row in the CSV required one to two GraphQL calls to Shopify, depending on whether the SKU existed in the store. A query was needed to fetch the SKU, and if it was found, a mutation followed which would update the inventory. By analyzing the query and mutation costs in Shopify’s GraphQL app, it was determined that each query consumed 2 points, while each mutation consumed 10 points. This meant, in the worst case senario, where every SKU existed, a total of 12 points would be consumed per row.
+Each row in the CSV required one to two GraphQL calls to Shopify, depending on whether the SKU existed in the store. A query was needed to fetch the SKU, and if it was found, a mutation followed which would update the inventory.
+
+By analyzing the query and mutation costs in Shopify’s GraphQL app, it was determined that each query consumed 2 points, while each mutation consumed 10 points. This meant, in the worst case senario, where every SKU existed, a total of 12 points would be consumed per row.
 
 My goal was to maximize the number of concurrent queries and mutations without blowing through the available points too quickly. At the same time, maintain a safeguard to throttle requests if the point threshold was reached, allowing time for points to refill and ensuring the updates could continue without having a bad request returned by Shopify.
 
-With the point consumption determined, I developed a script to simulate depleating the available points by 12, multiplied by the potential concurrent running updates, while also increasing the available points at a rate of 100 points per second. This simulation also counted the number of requests per second. The result of this testing with a different number of potential concurrent running jobs, I came to the conclusion that between 15-20 concurrent jobs would be a safe balance; potientially draining 180 points per second or more and refilling at a rate of 100 per second, would result in an average net decrease of 80 points per second from the available points. Given a safeguard would be in place to handle potentially hitting the threshold of available points, this was a great balance to continue with.
+With the point consumption determined, I previously developed a script to simulate depleating the available points, which I reused for this project. I modified the simulation script to depleat the available points by 12, multiplied by a different number concurrent running updates, while also increasing the available points at a rate of 100 points per second. This simulation script also kept track of the number of requests happening per second.
 
-Now, there are several methods a developer can take to craft a solution preventing draining the available points down to zero... some may simply call each job in sequence or a batch of jobs in sequence and sleep for a set time afterwards, some may develop a worker pool system with a small set capacity, etc.
+The result of this simulation with a different number of potential concurrent running updates, I came to the conclusion that between 15-20 concurrent jobs would be a safe balance; potientially draining 180 points per second or more and refilling at a rate of 100 per second, would result in an average net decrease of 80 points per second from the available points. Given a safeguard would be in place to handle potentially hitting the threshold of available points, this was a great balance to continue with.
 
-I decided to develop a semaphore approach. If you're not familiar, a semaphore is essentially a concurrency control method to maintain a set capacity of "how many" of something is permitted to run at a time. A process would "aquire" a spot and when completed it's work, it would "release" the spot, so another process can aquire it.
+Now, there are several methods a developer can take to craft a solution preventing draining the available points down to zero... some developers may call each job in sequence, some developers may call each job with a sleep in between, some developers may run it as a batch of jobs in sequence, some developers may utilize a worker pool system with a set capacity, etc.
 
-Since there was only between 3,000-3,500 rows in the CSV on average, I decided to skip a worker pool setup and simply spin up each row of the CSV as a Goroutine, where each Goroutine would attempt to aquire a spot with the semaphore control and upon release of that spot, we would check the remaining available points and handle accordingly. 
+For me, I decided to develop a semaphore approach. If you're not familiar with that, a semaphore is essentially a concurrency control method to maintain a set capacity of "how many" of something is permitted to run at a time. A process would first "aquire" a spot and when completed it's work, it would "release" the spot, so another process can aquire it.
+
+Since there would be between 3,000-3,500 rows in the CSV (on average), I decided to skip a worker pool setup and simply spin up each row of the CSV as a Goroutine, where each Goroutine would attempt to aquire a spot with the semaphore control and upon release of that spot, we would check the remaining available points and handle accordingly. 
 
 Additionally, the capacity of this semaphore would be set to the 15-20 limit previously determined from the simulated script. If the remaining available points dipped below a set threshold, the release mechanism would cause a "pause" in releasing, calculating the time it would take to refill the available points back to maximum, then resuming the release. This would allow 15-20 concurrent jobs to be running at a time, while the release mechanism acted as the safe guard to ensure the available points were not totally drained.
 
@@ -59,9 +63,9 @@ import (
 // track of the remaining points, threshold, limit, and refill rate.
 type Point struct {
 	Remaining  atomic.Int32 // Points remaining.
-	Threshold  int32        // Point value to which we would begin sleeping.
-	Limit      int32        // Upper limit of points available.
-	RefillRate int32        // Rate of refill of number of points per second.
+	Threshold  int32        // Minimum point balance of which we would consider handling with a "pause".
+	Limit      int32        // Maximum points available.
+	RefillRate int32        // Number of points refilled, per second.
 }
 
 // Update accepts a new value of remaining points to store.
@@ -71,12 +75,12 @@ func (pts *Point) Update(points int32) {
 
 // RefillDuration accounts for the remaining points, the limit, and the refill rate to
 // determine how many seconds it would take to refill to remaining points back to full.
-// It will return a duration which can be used to sleep.
+// It will return a duration which can be used to "pause" operations.
 func (pts *Point) RefillDuration() time.Duration {
 	return time.Duration((tp.Limit-tp.Remaining.Load())/tp.RefillRate) * time.Second
 }
 
-// AtThreshold will return true or false if we have reached or surpassed the set
+// AtThreshold will return a boolean if we have reached or surpassed the set
 // threshold of remaining points or not.
 func (pts *Point) AtThreshold() bool {
 	return tp.Remaining.Load() <= tp.Threshold
@@ -141,7 +145,7 @@ func New(cap int, point *Point, opts ...func(*Regulator)) *Regulator {
 // Aquire will attempt to aquire a spot to run the Goroutine.
 // It will continue in a loop until it does aquire also pausing
 // if the pause flag has been enabled. Aquiring is throttled at
-// the value for AquireBuffer.
+// the value of AquireBuffer.
 func (reg *Regulator) Aquire() {
 	var aquired bool
 	for !aquired {
@@ -183,14 +187,16 @@ func (reg *Regulator) Release(points int32) {
 			reg.pausedAt = time.Now()
 			reg.PauseFunc(points, ra)
 
-			go func() {
-				time.Sleep(ra)
+			// Unflag as paused after the determined duration and run the ResumeFunc.
+			taf := time.AfterFunc(ra, func() {
 				reg.paused = false
 				reg.ResumeFunc()
-			}()
+			})
+			defer taf.Stop()
 		}
 	}
 
+	// Perform the actual release.
 	<-reg.sema
 }
 
@@ -244,10 +250,10 @@ p.Regulator := regulator.New(
 //
 
 func (proc *processor) runJob(row []string) {
-	proc.regulator.Aquire()
+	proc.regulator.Aquire() // <-- Aquire happens here.
 	points, err := retry(proc.processJob(row))
 	proc.postProcessJob(row, err)
-	proc.regulator.Release(points)
+	proc.regulator.Release(points) // <-- Release happens here, passing in the current available points from Shopify's response.
 }
 
 //
@@ -315,4 +321,4 @@ func (proc *processor) Run() {
 
 Using our above semaphore method, we are allowing 15 Goroutines to run concurrently out of the 3,000-3,500 Goroutines, where each upon each Goroutine's completion, the Goroutine will report the remaining points back to the release mechanism, which will determine if a pause is needed before actually issuing the release.
 
-The result was a success for this project... the inventory updates we're able to complete between 3 1/2 to 4 1/2 minutes without hitting the threshold often. Hopefully this helpful to those looking to do similar.
+The result was a success for this project... the inventory updates we're able to complete between 3 1/2 to 4 1/2 minutes without hitting the threshold very often. Hopefully this helpful to those looking to do similar.
