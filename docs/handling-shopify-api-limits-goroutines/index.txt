@@ -252,15 +252,19 @@ passed
         if reg.pausedAt.Add(ra).Before(time.Now()) {
             reg.paused = true
             reg.pausedAt = time.Now()
-            reg.PauseFunc(points, ra)
+
+            // Run PauseFunc in a Goroutine to not hang anything else up.
+            go func() {
+                reg.PauseFunc(points, ra)
+            }()
 
             // Unflag as paused after the determined duration and run the Resume
 Func.
-            taf := time.AfterFunc(ra, func() {
+            go func() {
+                time.Sleep(ra)
                 reg.paused = false
                 reg.ResumeFunc()
-            })
-            defer taf.Stop()
+            }()
         }
     }
 

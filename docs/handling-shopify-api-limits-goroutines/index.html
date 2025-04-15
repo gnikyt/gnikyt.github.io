@@ -447,65 +447,71 @@
 "op">.</span>paused <span class="op">=</span> <span class="ot">true</span></span>
 <span id="cb3-97"><a aria-hidden="true" href="#cb3-97" tabindex="-1"></a>            reg<span class=
 "op">.</span>pausedAt <span class="op">=</span> time<span class="op">.</span>Now<span class="op">()</span></span>
-<span id="cb3-98"><a aria-hidden="true" href="#cb3-98" tabindex="-1"></a>            reg<span class=
-"op">.</span>PauseFunc<span class="op">(</span>points<span class="op">,</span> ra<span class="op">)</span></span>
-<span id="cb3-99"><a aria-hidden="true" href="#cb3-99" tabindex="-1"></a></span>
+<span id="cb3-98"><a aria-hidden="true" href="#cb3-98" tabindex="-1"></a></span>
+<span id="cb3-99"><a aria-hidden="true" href="#cb3-99" tabindex="-1"></a>            <span class=
+"co">// Run PauseFunc in a Goroutine to not hang anything else up.</span></span>
 <span id="cb3-100"><a aria-hidden="true" href="#cb3-100" tabindex="-1"></a>            <span class=
-"co">// Unflag as paused after the determined duration and run the ResumeFunc.</span></span>
-<span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a>            taf <span class=
-"op">:=</span> time<span class="op">.</span>AfterFunc<span class="op">(</span>ra<span class="op">,</span> <span class=
-"kw">func</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-102"><a aria-hidden="true" href="#cb3-102" tabindex="-1"></a>                reg<span class=
-"op">.</span>paused <span class="op">=</span> <span class="ot">false</span></span>
-<span id="cb3-103"><a aria-hidden="true" href="#cb3-103" tabindex="-1"></a>                reg<span class=
-"op">.</span>ResumeFunc<span class="op">()</span></span>
+"cf">go</span> <span class="kw">func</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a>                reg<span class=
+"op">.</span>PauseFunc<span class="op">(</span>points<span class="op">,</span> ra<span class="op">)</span></span>
+<span id="cb3-102"><a aria-hidden="true" href="#cb3-102" tabindex="-1"></a>            <span class=
+"op">}()</span></span>
+<span id="cb3-103"><a aria-hidden="true" href="#cb3-103" tabindex="-1"></a></span>
 <span id="cb3-104"><a aria-hidden="true" href="#cb3-104" tabindex="-1"></a>            <span class=
-"op">})</span></span>
+"co">// Unflag as paused after the determined duration and run the ResumeFunc.</span></span>
 <span id="cb3-105"><a aria-hidden="true" href="#cb3-105" tabindex="-1"></a>            <span class=
-"cf">defer</span> taf<span class="op">.</span>Stop<span class="op">()</span></span>
-<span id="cb3-106"><a aria-hidden="true" href="#cb3-106" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-107"><a aria-hidden="true" href="#cb3-107" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-108"><a aria-hidden="true" href="#cb3-108" tabindex="-1"></a></span>
-<span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a>    <span class=
-"co">// Perform the actual release.</span></span>
-<span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a>    <span class=
-"op">&lt;-</span>reg<span class="op">.</span>sema</span>
-<span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a><span class="op">}</span></span>
+"cf">go</span> <span class="kw">func</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-106"><a aria-hidden="true" href="#cb3-106" tabindex="-1"></a>                time<span class=
+"op">.</span>Sleep<span class="op">(</span>ra<span class="op">)</span></span>
+<span id="cb3-107"><a aria-hidden="true" href="#cb3-107" tabindex="-1"></a>                reg<span class=
+"op">.</span>paused <span class="op">=</span> <span class="ot">false</span></span>
+<span id="cb3-108"><a aria-hidden="true" href="#cb3-108" tabindex="-1"></a>                reg<span class=
+"op">.</span>ResumeFunc<span class="op">()</span></span>
+<span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a>            <span class=
+"op">}()</span></span>
+<span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-112"><a aria-hidden="true" href="#cb3-112" tabindex="-1"></a></span>
-<span id="cb3-113"><a aria-hidden="true" href="#cb3-113" tabindex="-1"></a><span class=
+<span id="cb3-113"><a aria-hidden="true" href="#cb3-113" tabindex="-1"></a>    <span class=
+"co">// Perform the actual release.</span></span>
+<span id="cb3-114"><a aria-hidden="true" href="#cb3-114" tabindex="-1"></a>    <span class=
+"op">&lt;-</span>reg<span class="op">.</span>sema</span>
+<span id="cb3-115"><a aria-hidden="true" href="#cb3-115" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-116"><a aria-hidden="true" href="#cb3-116" tabindex="-1"></a></span>
+<span id="cb3-117"><a aria-hidden="true" href="#cb3-117" tabindex="-1"></a><span class=
 "co">// withPauseFunc is a functional option for the Regulator to</span></span>
-<span id="cb3-114"><a aria-hidden="true" href="#cb3-114" tabindex="-1"></a><span class=
+<span id="cb3-118"><a aria-hidden="true" href="#cb3-118" tabindex="-1"></a><span class=
 "co">// call when a pause happens. The points remaining and the</span></span>
-<span id="cb3-115"><a aria-hidden="true" href="#cb3-115" tabindex="-1"></a><span class=
+<span id="cb3-119"><a aria-hidden="true" href="#cb3-119" tabindex="-1"></a><span class=
 "co">// duration of the pause will passed into the function.</span></span>
-<span id="cb3-116"><a aria-hidden="true" href="#cb3-116" tabindex="-1"></a><span class=
+<span id="cb3-120"><a aria-hidden="true" href="#cb3-120" tabindex="-1"></a><span class=
 "kw">func</span> withPauseFunc<span class="op">(</span>fn <span class="kw">func</span><span class=
 "op">(</span><span class="dt">int32</span><span class="op">,</span> time<span class="op">.</span>Duration<span class=
 "op">))</span> <span class="kw">func</span><span class="op">(*</span>Regulator<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb3-117"><a aria-hidden="true" href="#cb3-117" tabindex="-1"></a>    <span class=
+<span id="cb3-121"><a aria-hidden="true" href="#cb3-121" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">func</span><span class="op">(</span>reg <span class=
 "op">*</span>Regulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-118"><a aria-hidden="true" href="#cb3-118" tabindex="-1"></a>        reg<span class=
+<span id="cb3-122"><a aria-hidden="true" href="#cb3-122" tabindex="-1"></a>        reg<span class=
 "op">.</span>PauseFunc <span class="op">=</span> fn</span>
-<span id="cb3-119"><a aria-hidden="true" href="#cb3-119" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-120"><a aria-hidden="true" href="#cb3-120" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-121"><a aria-hidden="true" href="#cb3-121" tabindex="-1"></a></span>
-<span id="cb3-122"><a aria-hidden="true" href="#cb3-122" tabindex="-1"></a><span class=
+<span id="cb3-123"><a aria-hidden="true" href="#cb3-123" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-124"><a aria-hidden="true" href="#cb3-124" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-125"><a aria-hidden="true" href="#cb3-125" tabindex="-1"></a></span>
+<span id="cb3-126"><a aria-hidden="true" href="#cb3-126" tabindex="-1"></a><span class=
 "co">// withResumeunc is a functional option for the Regulator to</span></span>
-<span id="cb3-123"><a aria-hidden="true" href="#cb3-123" tabindex="-1"></a><span class=
+<span id="cb3-127"><a aria-hidden="true" href="#cb3-127" tabindex="-1"></a><span class=
 "co">// call when resume from a pause happens.</span></span>
-<span id="cb3-124"><a aria-hidden="true" href="#cb3-124" tabindex="-1"></a><span class=
+<span id="cb3-128"><a aria-hidden="true" href="#cb3-128" tabindex="-1"></a><span class=
 "kw">func</span> withResumeFunc<span class="op">(</span>fn <span class="kw">func</span><span class=
 "op">())</span> <span class="kw">func</span><span class="op">(*</span>Regulator<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb3-125"><a aria-hidden="true" href="#cb3-125" tabindex="-1"></a>    <span class=
+<span id="cb3-129"><a aria-hidden="true" href="#cb3-129" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">func</span><span class="op">(</span>reg <span class=
 "op">*</span>Regulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-126"><a aria-hidden="true" href="#cb3-126" tabindex="-1"></a>        reg<span class=
+<span id="cb3-130"><a aria-hidden="true" href="#cb3-130" tabindex="-1"></a>        reg<span class=
 "op">.</span>ResumeFunc <span class="op">=</span> fn</span>
-<span id="cb3-127"><a aria-hidden="true" href="#cb3-127" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-128"><a aria-hidden="true" href="#cb3-128" tabindex="-1"></a><span class=
+<span id="cb3-131"><a aria-hidden="true" href="#cb3-131" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-132"><a aria-hidden="true" href="#cb3-132" tabindex="-1"></a><span class=
 "op">}</span></span></code></pre>
         </div>
 
