@@ -133,7 +133,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. /simple-password-checking-with-symfony-and-fos-user-bundle/index.md
@@ -145,68 +144,3 @@ References
    9. https://linkedin.com/in/gnikyt
   10. /assets/files/cv.pdf
   11. /rss.xml
-
-   Hidden links:
-  13. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-1
-  14. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-2
-  15. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-3
-  16. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-4
-  17. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-5
-  18. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-6
-  19. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-7
-  20. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-8
-  21. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-9
-  22. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-10
-  23. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-11
-  24. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-12
-  25. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-13
-  26. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-14
-  27. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-15
-  28. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-16
-  29. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-17
-  30. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-18
-  31. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-19
-  32. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-20
-  33. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-21
-  34. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-22
-  35. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-23
-  36. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-24
-  37. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-25
-  38. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-26
-  39. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-27
-  40. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-28
-  41. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-29
-  42. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-30
-  43. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-31
-  44. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-32
-  45. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-33
-  46. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-34
-  47. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-35
-  48. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-36
-  49. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-37
-  50. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-38
-  51. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-39
-  52. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-40
-  53. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-41
-  54. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-42
-  55. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-43
-  56. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-44
-  57. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-45
-  58. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-46
-  59. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-47
-  60. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-48
-  61. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-49
-  62. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-50
-  63. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-51
-  64. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-52
-  65. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-53
-  66. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-54
-  67. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-55
-  68. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-56
-  69. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-57
-  70. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-58
-  71. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-59
-  72. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-60
-  73. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-61
-  74. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-62
-  75. localhost/tmp/lynxXXXXU9DQyu/L1381888-6840TMP.html#cb1-63

@@ -132,7 +132,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. /assets/images/posts/screenshot.png
@@ -149,23 +148,3 @@ References
   14. https://linkedin.com/in/gnikyt
   15. /assets/files/cv.pdf
   16. /rss.xml
-
-   Hidden links:
-  18. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-1
-  19. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-2
-  20. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-3
-  21. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-4
-  22. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-5
-  23. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-6
-  24. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-7
-  25. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-8
-  26. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-9
-  27. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-10
-  28. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-11
-  29. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-12
-  30. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-13
-  31. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-14
-  32. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-15
-  33. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-16
-  34. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-17
-  35. localhost/tmp/lynxXXXXDrEQ0N/L1372630-8330TMP.html#cb1-18

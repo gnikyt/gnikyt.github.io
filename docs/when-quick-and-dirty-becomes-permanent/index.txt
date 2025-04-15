@@ -271,7 +271,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. /when-quick-and-dirty-becomes-permanent/index.md
@@ -283,76 +282,3 @@ References
    9. https://linkedin.com/in/gnikyt
   10. /assets/files/cv.pdf
   11. /rss.xml
-
-   Hidden links:
-  13. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-1
-  14. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-2
-  15. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-3
-  16. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-4
-  17. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-5
-  18. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-6
-  19. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-7
-  20. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-8
-  21. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-9
-  22. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-10
-  23. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-11
-  24. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-12
-  25. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-13
-  26. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-14
-  27. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-15
-  28. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-16
-  29. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-17
-  30. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-18
-  31. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-19
-  32. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-20
-  33. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb1-21
-  34. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-1
-  35. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-2
-  36. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-3
-  37. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-4
-  38. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-5
-  39. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-6
-  40. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-7
-  41. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-8
-  42. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-9
-  43. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-10
-  44. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-11
-  45. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-12
-  46. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-13
-  47. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-14
-  48. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-15
-  49. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-16
-  50. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-17
-  51. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-18
-  52. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-19
-  53. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-20
-  54. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-21
-  55. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-22
-  56. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-23
-  57. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-24
-  58. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-25
-  59. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-26
-  60. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-27
-  61. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-28
-  62. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-29
-  63. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-30
-  64. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-31
-  65. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-32
-  66. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-33
-  67. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-34
-  68. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-35
-  69. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-36
-  70. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-37
-  71. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-38
-  72. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-39
-  73. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-40
-  74. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-41
-  75. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-42
-  76. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-43
-  77. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-44
-  78. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-45
-  79. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-46
-  80. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-47
-  81. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-48
-  82. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-49
-  83. localhost/tmp/lynxXXXXFncKEq/L1372368-3204TMP.html#cb2-50

@@ -101,7 +101,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/endroid/EndroidQrCodeBundle
@@ -117,9 +116,3 @@ References
   13. https://linkedin.com/in/gnikyt
   14. /assets/files/cv.pdf
   15. /rss.xml
-
-   Hidden links:
-  17. localhost/tmp/lynxXXXXVBzGaA/L1382368-2262TMP.html#cb1-1
-  18. localhost/tmp/lynxXXXXVBzGaA/L1382368-2262TMP.html#cb2-1
-  19. localhost/tmp/lynxXXXXVBzGaA/L1382368-2262TMP.html#cb3-1
-  20. localhost/tmp/lynxXXXXVBzGaA/L1382368-2262TMP.html#cb4-1

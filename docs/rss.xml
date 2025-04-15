@@ -8,8 +8,8 @@
     <item>
       <title>Handling Shopify API limits and Goroutines</title>
       <link>https://gnikyt.com/handling-shopify-api-limits-goroutines</link>
-      <description>I frequently build integration applications with Shopify, and I thought it would be helpful to
-      highlight one approach (of many) for hand...</description>
+      <description>I frequently build integration applications with Shopify and I thought it would be helpful to
+      highlight one approach (of many) that I co...</description>
       <guid isPermaLink="true">https://gnikyt.com/handling-shopify-api-limits-goroutines</guid>
       <pubDate>2025-04-10T16:26:22-0230</pubDate>
     </item>

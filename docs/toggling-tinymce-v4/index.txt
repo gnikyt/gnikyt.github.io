@@ -57,7 +57,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. /toggling-tinymce-v4/index.md
@@ -69,19 +68,3 @@ References
    9. https://linkedin.com/in/gnikyt
   10. /assets/files/cv.pdf
   11. /rss.xml
-
-   Hidden links:
-  13. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-1
-  14. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-2
-  15. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-3
-  16. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-4
-  17. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-5
-  18. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-6
-  19. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-7
-  20. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-8
-  21. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-9
-  22. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-10
-  23. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-11
-  24. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-12
-  25. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb1-13
-  26. localhost/tmp/lynxXXXXdiJGmq/L1376759-5622TMP.html#cb2-1

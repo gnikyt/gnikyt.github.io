@@ -109,7 +109,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/gnikyt/guts
@@ -125,10 +124,3 @@ References
   13. https://linkedin.com/in/gnikyt
   14. /assets/files/cv.pdf
   15. /rss.xml
-
-   Hidden links:
-  17. localhost/tmp/lynxXXXXycBKtT/L1378467-8839TMP.html#cb1-1
-  18. localhost/tmp/lynxXXXXycBKtT/L1378467-8839TMP.html#cb1-2
-  19. localhost/tmp/lynxXXXXycBKtT/L1378467-8839TMP.html#cb1-3
-  20. localhost/tmp/lynxXXXXycBKtT/L1378467-8839TMP.html#cb1-4
-  21. localhost/tmp/lynxXXXXycBKtT/L1378467-8839TMP.html#cb1-5

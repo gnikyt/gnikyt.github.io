@@ -88,7 +88,6 @@ Ty King
 
 References
 
-   Visible links:
    1. /rss.xml
    2. /
    3. https://github.com/Shopify/shopify_app
@@ -101,28 +100,3 @@ References
   10. https://linkedin.com/in/gnikyt
   11. /assets/files/cv.pdf
   12. /rss.xml
-
-   Hidden links:
-  14. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-1
-  15. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-2
-  16. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-3
-  17. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-4
-  18. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-5
-  19. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-6
-  20. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-7
-  21. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-8
-  22. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-9
-  23. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-10
-  24. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-11
-  25. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-12
-  26. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-13
-  27. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-14
-  28. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-15
-  29. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb1-16
-  30. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb2-1
-  31. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb2-2
-  32. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb3-1
-  33. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb3-2
-  34. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb3-3
-  35. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb3-4
-  36. localhost/tmp/lynxXXXX2iKzPT/L1377737-7273TMP.html#cb3-5
