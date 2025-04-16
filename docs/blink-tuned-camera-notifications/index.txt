@@ -6,6 +6,8 @@
 
    /* Nov 28, 2022 — 4.3KB */
 
+   This post is 2 years old and may contain outdated information.
+
    Note: This post is geared towards Android devices. Currently unaware of
    a solution for Apple devices.*
 
@@ -113,8 +115,6 @@ Conclusion
    enabled and record motion.
 
    [4]MD | [5]TXT | [6]CC-4.0
-
-   This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
    [7]Ty King

@@ -6,6 +6,8 @@
 
    /* Jun 29, 2020 — 3.9KB */
 
+   This post is 4 years old and may contain outdated information.
+
 Introduction
 
    I maintain a fairly used [3]PHP library for Shopify API which uses
@@ -128,8 +130,6 @@ Conclusion
    I’ve recently paired it with [5]FastAPI and it performed well.
 
    [6]MD | [7]TXT | [8]CC-4.0
-
-   This post is 4 years old and may contain outdated information.
      __________________________________________________________________
 
    [9]Ty King

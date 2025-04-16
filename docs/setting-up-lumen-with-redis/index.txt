@@ -6,6 +6,8 @@
 
    /* Nov 19, 2017 — 1.2KB */
 
+   This post is 7 years old and may contain outdated information.
+
    This is more of an extension of my previous post “Setting Up Lumen +
    Mail”. I wanted to take it a step further and show the basic setup for
    getting Redis to work, so you can queue not only mail, but jobs.
@@ -50,8 +52,6 @@ QUEUE_DRIVER=redis
    That’s it! You can now queue mail or process jobs.
 
    [3]MD | [4]TXT | [5]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [6]Ty King

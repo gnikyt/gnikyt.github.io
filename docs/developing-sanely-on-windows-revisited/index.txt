@@ -6,6 +6,8 @@
 
    /* May 10, 2017 — 1.9KB */
 
+   This post is 7 years old and may contain outdated information.
+
    Back in November [3]I wrote a post about how to develop sanely on
    Windows. It was a successful experiment that resulted in a usable
    environment to develop.
@@ -46,8 +48,6 @@ Side Note
    Windows = A happy environment.
 
    [7]MD | [8]TXT | [9]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [10]Ty King

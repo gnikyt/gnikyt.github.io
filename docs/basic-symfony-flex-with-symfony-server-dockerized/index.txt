@@ -6,6 +6,8 @@
 
    /* Feb 04, 2020 — 5.5KB */
 
+   This post is 5 years old and may contain outdated information.
+
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with “recipes”. It provides a way to create a very lean
    and clean Symfony application with only the bells and whistles you
@@ -167,8 +169,6 @@ Conclusion
    Symfony Server, [4]click here.
 
    [5]MD | [6]TXT | [7]CC-4.0
-
-   This post is 5 years old and may contain outdated information.
      __________________________________________________________________
 
    [8]Ty King

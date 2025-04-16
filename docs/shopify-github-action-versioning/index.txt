@@ -6,6 +6,8 @@
 
    /* May 20, 2022 — 2.4KB */
 
+   This post is 2 years old and may contain outdated information.
+
    Shopify recently updated their admin panel again and started to display
    the value of theme_version from config/settings_schema.json onto the
    theme listing page. Example (yellow highlight):
@@ -68,8 +70,6 @@ gs_schema.json
    looking to do the same process.
 
    [5]MD | [6]TXT | [7]CC-4.0
-
-   This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
    [8]Ty King

@@ -6,6 +6,8 @@
 
    /* Apr 20, 2020 — 4.7KB */
 
+   This post is 4 years old and may contain outdated information.
+
 Big Fat No
 
    This post is about creating unnecessary problems for yourself.
@@ -15,7 +17,7 @@ Big Fat No
 
      “Should I use {hip language} instead of {well-trusted language}?”
 
-     “New project! Should I create this], {that}, and {those} as
+     “New project! Should I create {this}, {that}, and {those} as
      microservices in {hip language}?”
 
    I don’t know if its some sort of tech-culture pressure to learn these
@@ -114,8 +116,6 @@ A Good Process
    this is when you need to think about microservices, but not before.
 
    [3]MD | [4]TXT | [5]CC-4.0
-
-   This post is 4 years old and may contain outdated information.
      __________________________________________________________________
 
    [6]Ty King

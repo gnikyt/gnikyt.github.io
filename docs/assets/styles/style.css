@@ -174,15 +174,15 @@ ul {
 /**
  * Article/post.
  */
-.post .post__head {
+.post__head {
   padding-bottom: 3rem;
 }
 
-.post .post__meta {
+.post__meta {
   color: var(--article-link-meta-color);
 }
 
-.post .post__title {
+.post__title {
   color: var(--post-title-color);
 }
 

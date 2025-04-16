@@ -1,0 +1,69 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                               PHPMailer contrib
+
+   /* Feb 09, 2014 — 1.3KB */
+
+   This post is 11 years old and may contain outdated information.
+
+   I and a fellow developer were working on updating a two/three-year-old
+   plugin we developed for WordPress this week. Its a fairly complex
+   plugin which is one of its functions relies on getting the recipients
+   of e-mails sent out by WordPress.
+
+   During our upgrading of the code, we discovered [3]PHPMailer (the
+   component WordPress uses for mailing [4]wp_mail, has been changed since
+   we last wrote the plugin. The class properties “to”, “bcc”, “cc”,
+   “ReplyTo”, and “all_recipients” of PHPMailer went from public to
+   protected over the last couple years.
+
+   So our issue was $mailer->to simply wouldn’t work anymore, and there
+   appeared to be no public access methods to get the addresses such as
+   $mailer->getToAddresses().
+
+   I addressed the issue on PHPMailer’s Github page, and [5]provided a
+   pull request which has been merged into the master :) So in short, you
+   can now access “to”, “bcc”, “cc”, “ReplyTo”, and “all_recipients” by
+   using getToAddresses(), getBccAddresses(), getCcAddresses(),
+   getReplyToAddresses() and getAllRecipientAddresses().
+
+   [6]MD | [7]TXT | [8]CC-4.0
+     __________________________________________________________________
+
+   [9]Ty King
+
+Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise. See more
+   [10]about me.
+   [11]Github [12]LinkedIn [13]CV [14]RSS
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. /
+   3. http://phpmailer.worxware.com/
+   4. http://codex.wordpress.org/Function_Reference/wp_mail
+   5. https://github.com/PHPMailer/PHPMailer/issues/180
+   6. /phpmailer-contrib/index.md
+   7. /phpmailer-contrib/index.txt
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. /about
+  10. /about
+  11. https://github.com/gnikyt
+  12. https://linkedin.com/in/gnikyt
+  13. /assets/files/cv.pdf
+  14. /rss.xml

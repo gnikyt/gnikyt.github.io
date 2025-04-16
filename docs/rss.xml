@@ -174,22 +174,6 @@
       <pubDate>2020-02-04T00:56:22-0330</pubDate>
     </item>
     <item>
-      <title>Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7</title>
-      <link>https://gnikyt.com/upgrading-fedora-30-to-31-avoiding-kernel</link>
-      <description>Fedora 30 was released on April 30th, 2019. Fedora 31 was released on October 29th, 2019. While
-      Fedora 30 had minimal reported issues ...</description>
-      <guid isPermaLink="true">https://gnikyt.com/upgrading-fedora-30-to-31-avoiding-kernel</guid>
-      <pubDate>2020-01-15T19:13:27-0330</pubDate>
-    </item>
-    <item>
-      <title>When quick and dirty becomes permanent</title>
-      <link>https://gnikyt.com/when-quick-and-dirty-becomes-permanent</link>
-      <description>## The Start You're assigned a backend project to kick-off and setup, great! You know the
-      requirements and goals, so you set off to bui...</description>
-      <guid isPermaLink="true">https://gnikyt.com/when-quick-and-dirty-becomes-permanent</guid>
-      <pubDate>2019-11-14T20:37:04-0330</pubDate>
-    </item>
-    <item>
       <title>i3 &amp; Plasma - A solid match</title>
       <link>https://gnikyt.com/i3-plasma-a-solid-match</link>
       <description>[![Cover Image](/assets/images/posts/screenshot.png)](/assets/images/posts/screenshot.png) ##
@@ -198,52 +182,12 @@
       <pubDate>2019-08-28T04:06:39-0230</pubDate>
     </item>
     <item>
-      <title>Vuex &amp; Data - Keeping it clean</title>
-      <link>https://gnikyt.com/vuex-data-keeping-it-clean</link>
-      <description>## Introduction Vuex is a state management library, centralized storage of data for your whole
-      application. It's well documented, beaut...</description>
-      <guid isPermaLink="true">https://gnikyt.com/vuex-data-keeping-it-clean</guid>
-      <pubDate>2019-07-19T16:44:52-0230</pubDate>
-    </item>
-    <item>
-      <title>Go is nice</title>
-      <link>https://gnikyt.com/go-is-nice</link>
-      <description>I've been coding with Golang in my spare time for the past year. It's been different from the
-      regular day-to-day Python, PHP, and Typesc...</description>
-      <guid isPermaLink="true">https://gnikyt.com/go-is-nice</guid>
-      <pubDate>2019-04-22T02:32:29-0230</pubDate>
-    </item>
-    <item>
-      <title>2018 Self reflection</title>
-      <link>https://gnikyt.com/2018-self-reflection</link>
-      <description>It is a couple of months into 2019 already! I sat down and thought about all I've done in 2018 in
-      regards to my digital landscape. On in...</description>
-      <guid isPermaLink="true">https://gnikyt.com/2018-self-reflection</guid>
-      <pubDate>2019-02-06T19:09:24-0330</pubDate>
-    </item>
-    <item>
-      <title>Thunderbird with GSuite &amp; Exchange</title>
-      <link>https://gnikyt.com/thunderbird-with-gsuite-exchange</link>
-      <description>Its true desktop clients are on the decline in favor of easily accessible web clients (such as
-      GMail, Outlook.com). However, if you've e...</description>
-      <guid isPermaLink="true">https://gnikyt.com/thunderbird-with-gsuite-exchange</guid>
-      <pubDate>2019-01-08T20:20:24-0330</pubDate>
-    </item>
-    <item>
       <title>Thinkpad T580 on Linux</title>
       <link>https://gnikyt.com/thinkpad-t580-on-linux</link>
       <description>Lenovo is known for creating configurable machines that are great for both business and consumers,
       which are easily extendable or fixabl...</description>
       <guid isPermaLink="true">https://gnikyt.com/thinkpad-t580-on-linux</guid>
       <pubDate>2019-01-08T19:44:11-0330</pubDate>
-    </item>
-    <item>
-      <title>Apply, verify, and validate Shopify discount codes</title>
-      <link>https://gnikyt.com/apply-verify-and-validate-shopify-discount-codes</link>
-      <description>Shopify doesn't have an API to verify discounts, however, I have found a little workaround. By
-      making an AJAX call to `/discount/(code)...</description>
-      <guid isPermaLink="true">https://gnikyt.com/apply-verify-and-validate-shopify-discount-codes</guid>
-      <pubDate>2018-10-19T02:14:59-0230</pubDate>
     </item>
     <item>
       <title>Laravel Shopify billing</title>
@@ -268,14 +212,6 @@
       geared towards small services like APIs...</description>
       <guid isPermaLink="true">https://gnikyt.com/setting-up-lumen-with-mail</guid>
       <pubDate>2017-11-19T11:04:33-0330</pubDate>
-    </item>
-    <item>
-      <title>Pomodoro Method</title>
-      <link>https://gnikyt.com/pomodoro-method</link>
-      <description>I've had a history of a bad back and neck, ever since I was a kid. I've seen a chiropractor
-      countless times about my issues. Sitting all...</description>
-      <guid isPermaLink="true">https://gnikyt.com/pomodoro-method</guid>
-      <pubDate>2017-10-20T14:00:00-0230</pubDate>
     </item>
     <item>
       <title>Introducing Laravel Shopify</title>
@@ -308,30 +244,6 @@
       Windows. It was a successful experiment ...</description>
       <guid isPermaLink="true">https://gnikyt.com/developing-sanely-on-windows-revisited</guid>
       <pubDate>2017-05-10T10:31:22-0230</pubDate>
-    </item>
-    <item>
-      <title>Moving away from CanCanCan to Pundit</title>
-      <link>https://gnikyt.com/moving-away-from-cancancan-to-pundit</link>
-      <description>## What is Pundit &amp; CanCanCan [Pundit](https://github.com/elabs/pundit) is a simple,
-      platform-agnostic, plain-ol-Ruby authorization lib...</description>
-      <guid isPermaLink="true">https://gnikyt.com/moving-away-from-cancancan-to-pundit</guid>
-      <pubDate>2017-03-30T00:00:00-0230</pubDate>
-    </item>
-    <item>
-      <title>When to use a VPS vs PaaS</title>
-      <link>https://gnikyt.com/when-to-use-a-vps-vs-pass</link>
-      <description>## Introduction ### What is a VPS A VPS is a Virtual Private Server. A server running on more
-      powerful hardware than the standard "sha...</description>
-      <guid isPermaLink="true">https://gnikyt.com/when-to-use-a-vps-vs-pass</guid>
-      <pubDate>2017-03-08T11:12:00-0330</pubDate>
-    </item>
-    <item>
-      <title>Toggling TinyMCE v4</title>
-      <link>https://gnikyt.com/toggling-tinymce-v4</link>
-      <description>Here's an easy way to turn on and off the TinyMCE editor for version 4. ```javascript
-      document.getElementById('toggle-tinymce').addEven...</description>
-      <guid isPermaLink="true">https://gnikyt.com/toggling-tinymce-v4</guid>
-      <pubDate>2016-12-06T11:38:32-0330</pubDate>
     </item>
     <item>
       <title>shopify_app_whitelist Gem</title>
@@ -382,14 +294,6 @@
       <pubDate>2016-05-03T23:26:22-0230</pubDate>
     </item>
     <item>
-      <title>Guts with multisite</title>
-      <link>https://gnikyt.com/guts-now-with-multisite</link>
-      <description>This is just a quick and proud update that I've released a lengthy update to
-      [Guts](https://github.com/gnikyt/guts) which includes multi...</description>
-      <guid isPermaLink="true">https://gnikyt.com/guts-now-with-multisite</guid>
-      <pubDate>2016-04-24T23:38:00-0230</pubDate>
-    </item>
-    <item>
       <title>Building a simple Redis autosuggest with Ruby</title>
       <link>https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby</link>
       <description>So you have a search box on your website.. an article search, a product search.. whatever it may be,
@@ -428,14 +332,6 @@
       purchase. This is a simple snippet ...</description>
       <guid isPermaLink="true">https://gnikyt.com/calculating-percent-saved-with-shopify</guid>
       <pubDate>2015-09-24T16:09:00-0230</pubDate>
-    </item>
-    <item>
-      <title>all_products... finally</title>
-      <link>https://gnikyt.com/all-products-shopify</link>
-      <description>[Shopify has finally implemented a global variable for accessing
-      products](https://github.com/Shopify/liquid/issues/438#issuecomment-108...</description>
-      <guid isPermaLink="true">https://gnikyt.com/all-products-shopify</guid>
-      <pubDate>2015-06-24T14:23:00-0230</pubDate>
     </item>
     <item>
       <title>WP User Themes</title>
@@ -492,22 +388,6 @@
       store. What needed to be done on one t...</description>
       <guid isPermaLink="true">https://gnikyt.com/woocommerce-sorting-products-by-category</guid>
       <pubDate>2013-10-05T15:56:26-0230</pubDate>
-    </item>
-    <item>
-      <title>Simple password checking with Symfony and FOS User Bundle</title>
-      <link>https://gnikyt.com/simple-password-checking-with-symfony-and-fos-user-bundle</link>
-      <description>Recently for a project, a co-developer wanted to validate someone's record in the database from an
-      Android application and the website w...</description>
-      <guid isPermaLink="true">https://gnikyt.com/simple-password-checking-with-symfony-and-fos-user-bundle</guid>
-      <pubDate>2013-08-28T16:22:49-0230</pubDate>
-    </item>
-    <item>
-      <title>Gathering user input with Shopify</title>
-      <link>https://gnikyt.com/gathering-user-input-with-shopify</link>
-      <description>Shopify includes everything you need to setup an online store, including free web-based store
-      building software, unlimited ecommerce web...</description>
-      <guid isPermaLink="true">https://gnikyt.com/gathering-user-input-with-shopify</guid>
-      <pubDate>2013-08-05T16:43:02-0230</pubDate>
     </item>
     <item>
       <title>QR Code gradients</title>

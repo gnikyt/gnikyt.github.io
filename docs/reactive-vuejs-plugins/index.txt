@@ -6,6 +6,8 @@
 
    /* Jun 29, 2017 — 4.0KB */
 
+   This post is 7 years old and may contain outdated information.
+
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop
    with and able to plug into existing systems as a simple view layer.
@@ -141,8 +143,6 @@ re.home }} - {{ $SportsTicker.state.score.away }}
    store the data, with a simple method to access it (get state).
 
    [5]MD | [6]TXT | [7]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [8]Ty King

@@ -6,6 +6,8 @@
 
    /* Dec 11, 2022 — 6.5KB */
 
+   This post is 2 years old and may contain outdated information.
+
 Introduction
 
    I haven’t had the time to tweak my desktop in over a year, I’ve been
@@ -151,8 +153,6 @@ Cinnamon
    nostalgia and control again.
 
    [8]MD | [9]TXT | [10]CC-4.0
-
-   This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
    [11]Ty King

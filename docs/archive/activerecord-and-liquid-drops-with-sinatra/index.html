@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      ActiveRecord and Liquid Drops with Sinatra | gnikyt
+    </title>
+    <link href="https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci..."
+    name="description">
+    <meta content="2015-10-15T02:00:00-0230" property="article:published_time">
+    <meta content="ActiveRecord and Liquid Drops with Sinatra" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci..."
+    property="og:description">
+    <meta content="https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2015-10-15T02:00:00-0230",
+    "datePublished": "2015-10-15T02:00:00-0230",
+    "description": "
+    Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci...",
+    "headline": "ActiveRecord and Liquid Drops with Sinatra",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/normalize.css" rel="stylesheet">
+    <link href="/assets/styles/concrete.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="activerecord-and-liquid-drops-with-sinatra">
+    <header class="site-head container">
+      <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+      "site-head__item">Code ramblings.</span>
+    </header>
+
+    <main class="container">
+      <article class="post">
+        <header class="post__head">
+          <h1 class="post__title">
+            ActiveRecord and Liquid Drops with Sinatra
+          </h1>
+
+          <p class="post__meta">
+            /* <time class="post__time" datetime="2015-10-15">Oct 15, 2015</time> — <span class=
+            "post__size">3.7KB</span> */
+          </p>
+
+          <div class="warning warning--post">
+            This post is 9 years old and may contain outdated information.
+          </div>
+        </header>
+
+        <p>
+          Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the
+          app user to modify a specific template. <a href="http://liquidmarkup.org/">Liquid templates</a> (what Jekyll
+          and Shopify use) was perfect for this situation because it has a simple syntax for anyone to pick up and it’s
+          also safe due to its scope limited to what’s passed to the template.
+        </p>
+
+        <p>
+          Let’s suppose you have two models in your Sinatra application – <code>Student</code> and <code>Book</code>.
+        </p>
+
+        <div class="sourceCode" id="cb1">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+          "#cb1-1" tabindex="-1"></a><span class="co"># app/models/student_model.rb</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyApp</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="cf">module</span> <span class=
+"dt">Model</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>    <span class="cf">class</span> <span class=
+"dt">Student</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>      has_many <span class=
+"wa">:books</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class=
+"co"># app/models/book_model.rb</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyApp</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a>  <span class="cf">module</span> <span class=
+"dt">Model</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>    <span class="cf">class</span> <span class=
+"dt">Book</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>      belongs_to <span class=
+"wa">:student</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class=
+"cf">end</span></span></code></pre>
+        </div>
+
+        <p>
+          Now, Liquid has what they call a <a href=
+          "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop</a>, where you can easily build a plain
+          class which Liquid can then use directly when rendering the template. As the <a href=
+          "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop Introduction</a> states, it acts “like” a
+          hash so the methods you create can be accessed with dot-notation in the template. Example: <code>{% raw %}{{
+          student.full_name }}{% endraw %}</code>
+        </p>
+
+        <p>
+          So let’s create a <code>Student</code> drop and a <code>Book</code> drop and give the templates some basic
+          variables from the model to access.
+        </p>
+
+        <div class="sourceCode" id="cb2">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
+          "#cb2-1" tabindex="-1"></a><span class="co"># app/drops/student_drop.rb</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyApp</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>  <span class="cf">module</span> <span class=
+"dt">Drop</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>    <span class="cf">class</span> <span class=
+"dt">Student</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>      <span class=
+"cf">def</span> initialize(student)</span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>        <span class=
+"ot">@student</span> <span class="kw">=</span> student</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>      </span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>      <span class=
+"cf">def</span> full_name</span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>        <span class="st">"</span><span class=
+"sc">#{</span><span class="ot">@student</span><span class="at">.first_name</span><span class="sc">}</span><span class=
+"st"> {@student.last_name}"</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>      </span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>      <span class=
+"cf">def</span> allergies</span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>        <span class=
+"ot">@student</span><span class="at">.allergies.split</span> <span class="ch">','</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a>      </span>
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>      <span class="cf">def</span> books</span>
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>        <span class=
+"ot">@student</span><span class="at">.books</span></span>
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a></span>
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a><span class=
+"co"># app/drops/book_drop.rb</span></span>
+<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyApp</span></span>
+<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>  <span class="cf">module</span> <span class=
+"dt">Drop</span></span>
+<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a>    <span class="cf">class</span> <span class=
+"dt">Book</span></span>
+<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a>      <span class=
+"cf">def</span> initialize(book)</span>
+<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a>        <span class=
+"ot">@book</span> <span class="kw">=</span> book</span>
+<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a></span>
+<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a>      <span class="cf">def</span> title</span>
+<span id="cb2-33"><a aria-hidden="true" href="#cb2-33" tabindex="-1"></a>        <span class=
+"ot">@book</span><span class="at">.title</span></span>
+<span id="cb2-34"><a aria-hidden="true" href="#cb2-34" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-35"><a aria-hidden="true" href="#cb2-35" tabindex="-1"></a>      </span>
+<span id="cb2-36"><a aria-hidden="true" href="#cb2-36" tabindex="-1"></a>      <span class=
+"cf">def</span> barcode</span>
+<span id="cb2-37"><a aria-hidden="true" href="#cb2-37" tabindex="-1"></a>        <span class=
+"ot">@book</span><span class="at">.barcode</span></span>
+<span id="cb2-38"><a aria-hidden="true" href="#cb2-38" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-39"><a aria-hidden="true" href="#cb2-39" tabindex="-1"></a>      </span>
+<span id="cb2-40"><a aria-hidden="true" href="#cb2-40" tabindex="-1"></a>      <span class=
+"cf">def</span> date_printed</span>
+<span id="cb2-41"><a aria-hidden="true" href="#cb2-41" tabindex="-1"></a>        <span class=
+"ot">@book</span><span class="at">.date_printed</span></span>
+<span id="cb2-42"><a aria-hidden="true" href="#cb2-42" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb2-43"><a aria-hidden="true" href="#cb2-43" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a><span class=
+"cf">end</span></span></code></pre>
+        </div>
+
+        <p>
+          Ok so now we have our models and drops setup. As you can see above we’ve set up methods for accessing the
+          student’s name, their books, the book title, barcode, etc. All of these methods can be used in a Liquid
+          template now.
+        </p>
+
+        <p>
+          But now, how do we easily combine the two? Easy, we utilize <code>to_liquid</code> method by adding it to our
+          model which Liquid calls when rendering the template. We then return the proper drop for the model inside the
+          new <code>to_liquid</code> method.
+        </p>
+
+        <div class="sourceCode" id="cb3">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+          "#cb3-1" tabindex="-1"></a><span class="co"># app/models/student_model.rb</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyApp</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="cf">module</span> <span class=
+"dt">Model</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>    <span class="cf">class</span> <span class=
+"dt">Student</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>      has_many <span class=
+"wa">:books</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>      </span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>      <span class=
+"cf">def</span> to_liquid</span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>        <span class="dt">Drop</span><span class=
+"kw">::</span><span class="dt">Student</span><span class="at">.new</span> <span class="dv">self</span></span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a><span class=
+"co"># app/models/book_model.rb</span></span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a><span class="cf">module</span> <span class=
+"dt">MyApp</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>  <span class="cf">module</span> <span class=
+"dt">Model</span></span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a>    <span class="cf">class</span> <span class=
+"dt">Book</span></span>
+<span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>      belongs_to <span class=
+"wa">:student</span></span>
+<span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>      </span>
+<span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a>      <span class=
+"cf">def</span> to_liquid</span>
+<span id="cb3-21"><a aria-hidden="true" href="#cb3-21" tabindex="-1"></a>        <span class=
+"dt">Drop</span><span class="kw">::</span><span class="dt">Book</span><span class="at">.new</span> <span class=
+"dv">self</span></span>
+<span id="cb3-22"><a aria-hidden="true" href="#cb3-22" tabindex="-1"></a>      <span class="cf">end</span></span>
+<span id="cb3-23"><a aria-hidden="true" href="#cb3-23" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a><span class=
+"cf">end</span></span></code></pre>
+        </div>
+
+        <p>
+          That’s pretty much it. We’ve now:
+        </p>
+
+        <ol type="1">
+          <li>Created our models
+          </li>
+
+          <li>Created our drops
+          </li>
+
+          <li>Modified our models to return a drop
+          </li>
+        </ol>
+
+        <p>
+          With all this combined we can then use it all together as such:
+        </p>
+
+        <div class="sourceCode" id="cb4">
+          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
+          "#cb4-1" tabindex="-1"></a><span class="co"># app/controllers/front_controller.rb</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class="kw">...</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>student <span class="kw">=</span> <span class=
+"dt">Model</span><span class="kw">::</span><span class="dt">Student</span><span class=
+"at">.find</span> params<span class="kw">[</span><span class="wa">:id</span><span class="kw">]</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>liquid :<span class=
+"vs">'front/test'</span>, <span class="wa">layout: :layout_front</span>, <span class="wa">locals: </span><span class=
+"kw">{</span><span class="vs">'student'</span> <span class="kw">=&gt;</span> student<span class=
+"kw">}</span></span></code></pre>
+        </div>
+
+        <pre class="erb"><code>{% raw %}
+# app/views/front/test.liquid
+My name is {{ student.full_name }}. I have {{ student.books.size }} books!
+{% endraw %}</code></pre>
+        <p>
+          That’s it for this little how-to. I will note there are other ways to expose your ActiveRecord models to work
+          automatically with Liquid but this article just shows you a more expanded and controlled version.
+        </p>
+
+        <footer class="post__tail">
+          <div class="sources">
+            <a class="sources__link" href="/activerecord-and-liquid-drops-with-sinatra/index.md">MD</a> | <a class=
+            "sources__link" href="/activerecord-and-liquid-drops-with-sinatra/index.txt">TXT</a> | <a class=
+            "sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target=
+            "_blank">CC-4.0</a>
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="site-tail container">
+      <hr class="site-tail__sep">
+      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
+      <div class="site-tail__inner">
+        <h3 class="site-tail__author">
+          Ty King
+        </h3>
+
+        <p class="site-tail__blurb">
+          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
+          and expertise. See more <a href="/about">about me</a>.
+        </p>
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
+        <ul class="site-colors" data-scheme="cobalt">
+          <li class="site-colors__color color--a">
+          </li>
+
+          <li class="site-colors__color color--b">
+          </li>
+
+          <li class="site-colors__color color--c">
+          </li>
+
+          <li class="site-colors__color color--d">
+          </li>
+
+          <li class="site-colors__color color--e">
+          </li>
+
+          <li class="site-colors__color color--f">
+          </li>
+
+          <li class="site-colors__color color--g">
+          </li>
+
+          <li class="site-colors__color color--h">
+          </li>
+
+          <li class="site-colors__color color--i">
+          </li>
+
+          <li class="site-colors__color color--j">
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

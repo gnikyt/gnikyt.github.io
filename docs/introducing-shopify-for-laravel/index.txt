@@ -6,6 +6,8 @@
 
    /* Aug 09, 2017 — 2.5KB */
 
+   This post is 7 years old and may contain outdated information.
+
 Background
 
    As an active Ruby (and Rails) developer, I found myself regularly
@@ -61,8 +63,6 @@ Project
    Happy coding with Shopify + Laravel!
 
    [6]MD | [7]TXT | [8]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [9]Ty King

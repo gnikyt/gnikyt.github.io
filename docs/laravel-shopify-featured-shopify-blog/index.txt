@@ -6,6 +6,8 @@
 
    /* Mar 04, 2021 — 1.7KB */
 
+   This post is 4 years old and may contain outdated information.
+
    A couple of weeks ago, Liam Griffin at Shopify reached out to me about
    the Laravel Shopify package, interested in featuring it on Shopify’s
    development blog with other community-built tools.
@@ -41,8 +43,6 @@
    readers!
 
    [4]MD | [5]TXT | [6]CC-4.0
-
-   This post is 4 years old and may contain outdated information.
      __________________________________________________________________
 
    [7]Ty King

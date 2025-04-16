@@ -3,6 +3,7 @@ layout: post
 title: shopify_app_whitelist Gem
 permalink: shopify-app-whitelist-gem
 date: '2016-11-26 16:45:01'
+acrhive: true
 ---
 
 I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an app, embedded or not, up and running with Rails.

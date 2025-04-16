@@ -34,6 +34,7 @@ You can reach me several ways &mdash; through [me@gnikyt.com](mailto:me@gnikyt.c
 ### Random Open Source work
 
 - [cq](https://github.com/gnikyt/cq) - Golang; A function-based composible queue.
+- [shopifysemaphore](https://github.com/gnikyt/shopifysemaphore) - Golang; A Semaphore implementation accounting for GraphQL API limits.
 - [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) - PHP; A full-featured Laravel package for aiding in Shopify App development
 - [Basic Shopify API](https://github.com/gnikyt/Basic-Shopify-API) - PHP; A simple sync/async API wrapper for Shopify using Guzzle for REST and GraphQL.
 - [basic\_shopify\_api](https://github.com/gnikyt/basic_shopify_api) - Python; A sync/async REST and GraphQL client for Shopify API using HTTPX.

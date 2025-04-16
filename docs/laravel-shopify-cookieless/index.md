@@ -3,6 +3,7 @@ layout: post
 title: Laravel Shopify - Cookieless
 permalink: laravel-shopify-cookieless
 date: '2021-06-29 15:57:18'
+acrhive: true
 ---
 
 ## This Issue

@@ -26,65 +26,28 @@
      * [22]Microservices... don't create a problem /* Apr 20, 2020 */
      * [23]Basic Symfony Flex with Symfony Server Dockerized /* Feb 04,
        2020 */
-     * [24]Upgrading Fedora 30 to 31 while avoiding kernel 5.4.7 /* Jan
-       15, 2020 */
-     * [25]When quick and dirty becomes permanent /* Nov 14, 2019 */
-     * [26]i3 & Plasma - A solid match /* Aug 28, 2019 */
-     * [27]Vuex & Data - Keeping it clean /* Jul 19, 2019 */
-     * [28]Go is nice /* Apr 22, 2019 */
-     * [29]2018 Self reflection /* Feb 06, 2019 */
-     * [30]Thunderbird with GSuite & Exchange /* Jan 08, 2019 */
-     * [31]Thinkpad T580 on Linux /* Jan 08, 2019 */
-     * [32]Apply, verify, and validate Shopify discount codes /* Oct 19,
-       2018 */
-     * [33]Laravel Shopify billing /* Jan 26, 2018 */
-     * [34]Setting up Lumen with Redis /* Nov 19, 2017 */
-     * [35]Setting Up Lumen with Mailer /* Nov 19, 2017 */
-     * [36]Pomodoro Method /* Oct 20, 2017 */
-     * [37]Introducing Laravel Shopify /* Aug 09, 2017 */
-     * [38]Reactive VueJS plugins /* Jun 29, 2017 */
-     * [39]WordPress Under Docker guide /* Jun 15, 2017 */
-     * [40]Developing sanely on Windows revisited /* May 10, 2017 */
-     * [41]Moving away from CanCanCan to Pundit /* Mar 30, 2017 */
-     * [42]When to use a VPS vs PaaS /* Mar 08, 2017 */
-     * [43]Toggling TinyMCE v4 /* Dec 06, 2016 */
-     * [44]shopify_app_whitelist Gem /* Nov 26, 2016 */
-     * [45]Journey to Sucker Punch /* Nov 26, 2016 */
-     * [46]Developing sanely on Windows /* Nov 07, 2016 */
-     * [47]Testing with shopify_app /* Jun 21, 2016 */
-     * [48]Counting unique options in Shopify /* Jun 21, 2016 */
-     * [49]Precompiling assets in your Rails Engine /* May 03, 2016 */
-     * [50]Guts with multisite /* Apr 24, 2016 */
-     * [51]Building a simple Redis autosuggest with Ruby /* Mar 02, 2016
-       */
-     * [52]Extending a Rails Engine /* Feb 20, 2016 */
-     * [53]Polymorphic and Route Concerns... who is who? /* Jan 01, 2016
-       */
-     * [54]ActiveRecord and Liquid Drops with Sinatra /* Oct 15, 2015 */
-     * [55]Calculating percent saved with Shopify /* Sep 24, 2015 */
-     * [56]all_products... finally /* Jun 24, 2015 */
-     * [57]WP User Themes /* May 21, 2015 */
-     * [58]Get original sized images from a Wordpress Post Gallery /* Nov
-       08, 2014 */
-     * [59]Developing Shopify themes with teams /* Sep 16, 2014 */
-     * [60]ACF Simple Table /* Jul 18, 2014 */
-     * [61]PHPMailer contrib /* Feb 09, 2014 */
-     * [62]Get single field error in Symfony /* Dec 12, 2013 */
-     * [63]Woocommerce - Sorting product by category /* Oct 05, 2013 */
-     * [64]Simple password checking with Symfony and FOS User Bundle /*
-       Aug 28, 2013 */
-     * [65]Gathering user input with Shopify /* Aug 05, 2013 */
-     * [66]QR Code gradients /* Jul 13, 2013 */
+     * [24]i3 & Plasma - A solid match /* Aug 28, 2019 */
+     * [25]Thinkpad T580 on Linux /* Jan 08, 2019 */
+     * [26]Laravel Shopify billing /* Jan 26, 2018 */
+     * [27]Setting up Lumen with Redis /* Nov 19, 2017 */
+     * [28]Setting Up Lumen with Mailer /* Nov 19, 2017 */
+     * [29]Introducing Laravel Shopify /* Aug 09, 2017 */
+     * [30]Reactive VueJS plugins /* Jun 29, 2017 */
+     * [31]WordPress Under Docker guide /* Jun 15, 2017 */
+     * [32]Developing sanely on Windows revisited /* May 10, 2017 */
+     * [33]shopify_app_whitelist Gem /* Nov 26, 2016 */
+
+   [34]Archive ›
      __________________________________________________________________
 
-   [67]Ty King
+   [35]Ty King
 
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise. See more
-   [68]about me.
-   [69]Github [70]LinkedIn [71]CV [72]RSS
+   [36]about me.
+   [37]Github [38]LinkedIn [39]CV [40]RSS
      *
      *
      *
@@ -121,52 +84,20 @@ References
   21. file:///async-shopify-api-for-python
   22. file:///microservices-dont-create-a-problem
   23. file:///basic-symfony-flex-with-symfony-server-dockerized
-  24. file:///upgrading-fedora-30-to-31-avoiding-kernel
-  25. file:///when-quick-and-dirty-becomes-permanent
-  26. file:///i3-plasma-a-solid-match
-  27. file:///vuex-data-keeping-it-clean
-  28. file:///go-is-nice
-  29. file:///2018-self-reflection
-  30. file:///thunderbird-with-gsuite-exchange
-  31. file:///thinkpad-t580-on-linux
-  32. file:///apply-verify-and-validate-shopify-discount-codes
-  33. file:///laravel-shopify-billing
-  34. file:///setting-up-lumen-with-redis
-  35. file:///setting-up-lumen-with-mail
-  36. file:///pomodoro-method
-  37. file:///introducing-shopify-for-laravel
-  38. file:///reactive-vuejs-plugins
-  39. file:///wordpress-under-docker
-  40. file:///developing-sanely-on-windows-revisited
-  41. file:///moving-away-from-cancancan-to-pundit
-  42. file:///when-to-use-a-vps-vs-pass
-  43. file:///toggling-tinymce-v4
-  44. file:///shopify-app-whitelist-gem
-  45. file:///journey-to-sucker-punch
-  46. file:///developing-sanely-on-windows
-  47. file:///testing-with-shopify-app
-  48. file:///counting-unique-options-in-shopify
-  49. file:///precompiling-assets-in-your-rails-engine
-  50. file:///guts-now-with-multisite
-  51. file:///building-a-simple-redis-autosuggest-with-ruby
-  52. file:///extending-a-rails-engine
-  53. file:///polymorphic-and-route-concerns
-  54. file:///activerecord-and-liquid-drops-with-sinatra
-  55. file:///calculating-percent-saved-with-shopify
-  56. file:///all-products-shopify
-  57. file:///wp-user-themes
-  58. file:///get-original-sized-images-from-a-wordpress-post-gallery
-  59. file:///developing-shopify-themes-with-teams
-  60. file:///acf-simple-table
-  61. file:///phpmailer-contrib
-  62. file:///get-single-field-error-in-symfony
-  63. file:///woocommerce-sorting-products-by-category
-  64. file:///simple-password-checking-with-symfony-and-fos-user-bundle
-  65. file:///gathering-user-input-with-shopify
-  66. file:///qr-code-gradients
-  67. file:///about
-  68. file:///about
-  69. https://github.com/gnikyt
-  70. https://linkedin.com/in/gnikyt
-  71. file:///assets/files/cv.pdf
-  72. file:///rss.xml
+  24. file:///i3-plasma-a-solid-match
+  25. file:///thinkpad-t580-on-linux
+  26. file:///laravel-shopify-billing
+  27. file:///setting-up-lumen-with-redis
+  28. file:///setting-up-lumen-with-mail
+  29. file:///introducing-shopify-for-laravel
+  30. file:///reactive-vuejs-plugins
+  31. file:///wordpress-under-docker
+  32. file:///developing-sanely-on-windows-revisited
+  33. file:///shopify-app-whitelist-gem
+  34. file:///archive
+  35. file:///about
+  36. file:///about
+  37. https://github.com/gnikyt
+  38. https://linkedin.com/in/gnikyt
+  39. file:///assets/files/cv.pdf
+  40. file:///rss.xml

@@ -6,6 +6,8 @@
 
    /* Mar 10, 2021 — 3.4KB */
 
+   This post is 4 years old and may contain outdated information.
+
    A method I like to utilize internally, which I’ve been slowly pushing
    into my open source work, is to create branches for each major/minor
    release. Many developers will say branches are meant to be short-lived,
@@ -110,8 +112,6 @@ for branch, tag in mm.items():
    with the creation.
 
    [3]MD | [4]TXT | [5]CC-4.0
-
-   This post is 4 years old and may contain outdated information.
      __________________________________________________________________
 
    [6]Ty King

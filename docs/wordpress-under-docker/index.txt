@@ -6,6 +6,8 @@
 
    /* Jun 15, 2017 — 3.6KB */
 
+   This post is 7 years old and may contain outdated information.
+
 Purpose
 
    There are many lengthy guides out there for the official Docker image
@@ -107,8 +109,6 @@ Further Exploring
    I hope this has helped anyone struggling.
 
    [7]MD | [8]TXT | [9]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [10]Ty King

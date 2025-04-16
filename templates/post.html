@@ -6,13 +6,14 @@ ${inc:templates/_layout_head.html}
     <p class="post__meta">
       /* <time class="post__time" datetime="${date_ymd}">${date_human}</time> &mdash; <span class="post__size">${post_size}</span> */
     </p>
+
+    ${inc:templates/_old_warning.html:is_old}
   </header>
 
   ${parsed_md}
 
   <footer class="post__tail">
     ${inc:templates/_sources.html}
-    ${inc:templates/_old_warning.html:is_old}
   </footer>
 </article>
 

@@ -4,7 +4,9 @@
 
                             Laravel Shopify billing
 
-   /* Jan 26, 2018 — 956B */
+   /* Jan 26, 2018 — 970B */
+
+   This post is 7 years old and may contain outdated information.
 
    Version 2.0.0 was [3]just released which features the baked-in ability
    to turn your Shopify app into a billable app with some simple
@@ -24,8 +26,6 @@
    standards within PSR1 and PSR2.
 
    [6]MD | [7]TXT | [8]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [9]Ty King

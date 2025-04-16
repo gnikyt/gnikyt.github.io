@@ -39,28 +39,30 @@ My Rundown
   Random Open Source work
 
      * [6]cq - Golang; A function-based composible queue.
-     * [7]Laravel Shopify - PHP; A full-featured Laravel package for
+     * [7]shopifysemaphore - Golang; A Semaphore implementation accounting
+       for GraphQL API limits.
+     * [8]Laravel Shopify - PHP; A full-featured Laravel package for
        aiding in Shopify App development
-     * [8]Basic Shopify API - PHP; A simple sync/async API wrapper for
+     * [9]Basic Shopify API - PHP; A simple sync/async API wrapper for
        Shopify using Guzzle for REST and GraphQL.
-     * [9]basic_shopify_api - Python; A sync/async REST and GraphQL client
-       for Shopify API using HTTPX.
-     * [10]gowith - Golang; Python’s “with” implemented in Go.
-     * [11]with - PHP; Python’s “with” implemented in PHP.
-     * [12]http_shopify_webhook - Golang; Webhook verification for
+     * [10]basic_shopify_api - Python; A sync/async REST and GraphQL
+       client for Shopify API using HTTPX.
+     * [11]gowith - Golang; Python’s “with” implemented in Go.
+     * [12]with - PHP; Python’s “with” implemented in PHP.
+     * [13]http_shopify_webhook - Golang; Webhook verification for
        Shopify.
 
-   [13]MD | [14]TXT | [15]CC-4.0
+   [14]MD | [15]TXT | [16]CC-4.0
      __________________________________________________________________
 
-   [16]Ty King
+   [17]Ty King
 
 Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise. See more
-   [17]about me.
-   [18]Github [19]LinkedIn [20]CV [21]RSS
+   [18]about me.
+   [19]Github [20]LinkedIn [21]CV [22]RSS
      *
      *
      *
@@ -80,18 +82,19 @@ References
    4. https://github.com/gnikyt
    5. https://linkedin.com/in/gnikyt
    6. https://github.com/gnikyt/cq
-   7. https://github.com/gnikyt/laravel-shopify
-   8. https://github.com/gnikyt/Basic-Shopify-API
-   9. https://github.com/gnikyt/basic_shopify_api
-  10. https://github.com/gnikyt/gowith
-  11. https://github.com/gnikyt/with
-  12. https://github.com/gnikyt/http_shopify_webhook
-  13. file:///about/index.md
-  14. file:///about/index.txt
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///about
+   7. https://github.com/gnikyt/shopifysemaphore
+   8. https://github.com/gnikyt/laravel-shopify
+   9. https://github.com/gnikyt/Basic-Shopify-API
+  10. https://github.com/gnikyt/basic_shopify_api
+  11. https://github.com/gnikyt/gowith
+  12. https://github.com/gnikyt/with
+  13. https://github.com/gnikyt/http_shopify_webhook
+  14. file:///about/index.md
+  15. file:///about/index.txt
+  16. https://creativecommons.org/licenses/by/4.0/
   17. file:///about
-  18. https://github.com/gnikyt
-  19. https://linkedin.com/in/gnikyt
-  20. file:///assets/files/cv.pdf
-  21. file:///rss.xml
+  18. file:///about
+  19. https://github.com/gnikyt
+  20. https://linkedin.com/in/gnikyt
+  21. file:///assets/files/cv.pdf
+  22. file:///rss.xml

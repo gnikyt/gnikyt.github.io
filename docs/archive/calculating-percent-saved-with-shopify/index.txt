@@ -1,0 +1,95 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt Code ramblings.
+
+                     Calculating percent saved with Shopify
+
+   /* Sep 24, 2015 — 2.0KB */
+
+   This post is 9 years old and may contain outdated information.
+
+   Visually displaying to the customer how much they are saving is a big
+   help to driving them towards a purchase. This is a simple snippet and
+   guide to help you achieve this functionality in your Shopify stores.
+
+   First, to calculate the percentage saved, let’s look at the basic math
+   for this in plain text.
+percent saved = ((old price - new price) / old price) * 100
+
+   If we were to replace the values with some real numbers we can see the
+   result:
+((231.99 - 200.00) / 231.99) * 100 = 13.789
+A savings of about 14% when rounded up
+
+The Snippet
+
+   Create a new snippet in Shopify called percent-savings.liquid and use
+   the following code:
+{%-liquid
+    assign _compare_price = compare_price | plus: 0.00 %}
+    assign _price = price | plus: 0.00 %}
+    assign difference = _compare_price | minus: _price %}
+    assign percent = difference | divided_by: _compare_price | times: 100 | roun
+d %}
+    echo percent | append: '%'
+-%}
+
+   As an explanation of the code:
+     * Lines 1 & 2 we are converting the prices to a float so we can use
+       decimal places
+     * Line 3 is getting the difference which is simply subtracting the
+       new price from the old price
+     * Line 4 is dividing the difference by the old price, then
+       multiplying it by 100 and then rounding it
+
+Usage
+
+   Pass two parameters to the include tag.
+    1. price being the current price of the product
+    2. compare_price being the old price of the product.
+
+{% if product.price_min < product.compare_at_price_min %}
+  Old price {{ product.compare_at_price_min | money }} &ndash; {% render 'percen
+t-savings', price: product.price, compare_price: product.compare_at_price_min %}
+ savings!
+{% endif %}
+
+   With the above example, if a product was $15.99 and is now $11.99 you
+   should see it display:
+Old price $15.99 - 25% savings!
+
+   [3]MD | [4]TXT | [5]CC-4.0
+     __________________________________________________________________
+
+   [6]Ty King
+
+Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise. See more
+   [7]about me.
+   [8]Github [9]LinkedIn [10]CV [11]RSS
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. /
+   3. /calculating-percent-saved-with-shopify/index.md
+   4. /calculating-percent-saved-with-shopify/index.txt
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /about
+   7. /about
+   8. https://github.com/gnikyt
+   9. https://linkedin.com/in/gnikyt
+  10. /assets/files/cv.pdf
+  11. /rss.xml

@@ -27,6 +27,7 @@ process_posts() {
     globals["is_post"]="true"
     globals["is_page"]=""
     globals["is_old"]=""
+    globals["is_archived"]=""
 
     local start_ts
     local end_ts
@@ -53,12 +54,24 @@ process_posts() {
       globals["is_old"]="true"
     fi
 
+    # Determine if this post is to be archived.
+    if [[ ${globals["archive"]} = "true" ]]; then
+      globals["is_archived"]="true"
+    fi
+
     # Get post size.
     globals["post_size"]="$(du -h --apparent-size "$i" | cut -f1)B"
 
+    # Determine save location.
+    if [[ ${globals["is_archived"]} = "true" ]]; then
+      mkdir -p "docs/archive"
+      target=docs/archive/"${globals["handle"]}"
+    else
+      target=docs/"${globals["handle"]}"
+    fi
+
     # Parse the post template and save result.
     parsed_tpl=$(parse_tpl "${layouts["post"]}")
-    target=docs/"${globals["handle"]}"
     mkdir "$target"
     echo "$parsed_tpl" > "$target"/index.html
 
@@ -78,9 +91,14 @@ process_posts() {
 
     # Parse the home list template and save result.
     parsed_tpl=$(parse_tpl "${layouts["_index_entry"]}")
-    globals["home_entries"]="${globals["home_entries"]}${newline}${parsed_tpl}"
+    if [[ ${globals["is_archived"]} = "true" ]]; then
+      globals["archive_entries"]="${globals["archive_entries"]}${newline}${parsed_tpl}"
+      echo -e "\033[1A\033[K[$source] Generated (archive)"
+    else
+      globals["home_entries"]="${globals["home_entries"]}${newline}${parsed_tpl}"
+      echo -e "\033[1A\033[K[$source] Generated"
+    fi
 
-    echo -e "\033[1A\033[K[$source] Generated"
     count+=1
   done
   echo -e "Completed: $count posts\n"
@@ -165,6 +183,27 @@ process_index() {
   echo -e "Completed\n"
 }
 
+# process_archive will generate the index of the website archive.
+process_archive() {
+  echo "Generating archive..."
+  globals["layout"]="archive"
+  globals["is_post"]=""
+  globals["is_page"]="true"
+  globals["title"]="gnikyt"
+  globals["handle"]=""
+
+  # Parse the index layout and save the result.
+  parsed_tpl=$(parse_tpl "${layouts["archive"]}")
+  parsed_tpl=${parsed_tpl/gnikyt | gnikyt/gnikyt}
+  echo "$parsed_tpl" > docs/archive/index.html
+
+  # Create text version.
+  text=$(lynx --stdin --dump < docs/archive/index.html)
+  echo "$text" > docs/archive/index.txt
+
+  echo -e "Completed\n"
+}
+
 # process_sitemap will generate a sitemap.
 process_sitemap() {
   echo "Generating sitemap..."
@@ -236,6 +275,7 @@ main() {
   process_posts
   process_pages
   process_index
+  process_archive
   process_rss
   process_sitemap
   create_highlight

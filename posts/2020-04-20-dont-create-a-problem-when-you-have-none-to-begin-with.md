@@ -13,7 +13,7 @@ In browsing the various tech and programming feeds I read weekly, I've seen a tr
 
 > "Should I use {hip language} instead of {well-trusted language}?"
 
-> "New project! Should I create this], {that}, and {those} as microservices in {hip language}?"
+> "New project! Should I create {this}, {that}, and {those} as microservices in {hip language}?"
 
 I don't know if its some sort of tech-culture pressure to learn these languages and create microservices out-of-the-gate for new projects... but it seems to be becoming more commonly asked.
 

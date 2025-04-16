@@ -6,6 +6,8 @@
 
    /* Nov 15, 2021 — 9.9KB */
 
+   This post is 3 years old and may contain outdated information.
+
 Introduction
 
    Shopify’s new boilerplate for app development with Node works well. It
@@ -380,8 +382,6 @@ Conculsion
    setup.
 
    [3]MD | [4]TXT | [5]CC-4.0
-
-   This post is 3 years old and may contain outdated information.
      __________________________________________________________________
 
    [6]Ty King

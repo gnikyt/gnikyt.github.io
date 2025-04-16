@@ -3,6 +3,7 @@ layout: post
 title: Setting up Lumen with Redis
 permalink: setting-up-lumen-with-redis
 date: '2017-11-19 11:43:01'
+acrhive: true
 ---
 
 This is more of an extension of my previous post "Setting Up Lumen + Mail". I wanted to take it a step further and show the basic setup for getting Redis to work, so you can queue not only mail, but jobs.

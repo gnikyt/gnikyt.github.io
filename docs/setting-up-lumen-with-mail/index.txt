@@ -6,6 +6,8 @@
 
    /* Nov 19, 2017 — 5.3KB */
 
+   This post is 7 years old and may contain outdated information.
+
 What is Lumen
 
    [3]Lumen is a micro-framework built by Laravel. Its geared towards
@@ -209,8 +211,6 @@ class WinningsMailTest extends TestCase
    luck!
 
    [6]MD | [7]TXT | [8]CC-4.0
-
-   This post is 7 years old and may contain outdated information.
      __________________________________________________________________
 
    [9]Ty King

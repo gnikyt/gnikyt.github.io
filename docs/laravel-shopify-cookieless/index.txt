@@ -6,6 +6,8 @@
 
    /* Jun 29, 2021 — 2.8KB */
 
+   This post is 3 years old and may contain outdated information.
+
 This Issue
 
    In the beginning part of 2021, Shopify introduced new requirements for
@@ -81,8 +83,6 @@ What’s next?
    authentication support that was in previous versions.
 
    [7]MD | [8]TXT | [9]CC-4.0
-
-   This post is 3 years old and may contain outdated information.
      __________________________________________________________________
 
    [10]Ty King

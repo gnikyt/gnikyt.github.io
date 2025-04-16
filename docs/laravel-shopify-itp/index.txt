@@ -6,6 +6,8 @@
 
    /* Feb 03, 2021 — 3.1KB */
 
+   This post is 4 years old and may contain outdated information.
+
 Background
 
    [3]Laravel Shopify is a package I started a few years ago which gained
@@ -75,8 +77,6 @@ Conclusion
    this large issue.
 
    [7]MD | [8]TXT | [9]CC-4.0
-
-   This post is 4 years old and may contain outdated information.
      __________________________________________________________________
 
    [10]Ty King

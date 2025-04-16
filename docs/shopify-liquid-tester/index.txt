@@ -6,6 +6,8 @@
 
    /* Nov 20, 2022 — 3.8KB */
 
+   This post is 2 years old and may contain outdated information.
+
 Introduction
 
    Shopify’s theme system currently lacks the ability to define custom
@@ -108,8 +110,6 @@ Utilization
    are looking to try and test their snippets; both small and complex.
 
    [5]MD | [6]TXT | [7]CC-4.0
-
-   This post is 2 years old and may contain outdated information.
      __________________________________________________________________
 
    [8]Ty King
