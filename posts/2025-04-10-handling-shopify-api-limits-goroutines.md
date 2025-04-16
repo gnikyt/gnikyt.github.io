@@ -260,118 +260,89 @@ func WithPauseBuffer(dur time.Duration) func(*Semaphore) {
 Example usage:
 
 ```go
-// processor/worker.go
-package processor
+package main
 
-import (
-	ssem "github.com/gnikyt/shopifysemaphore"
-)
+import ssem "github.com/gniktr/shopifysemaphore"
 
-const (
-	Retries    int           = 3               // Number of times to retry a failed row processing.
-	RetryDelay time.Duration = 1 * time.Second // Delay for between the retries.
+func work(id int, wg *sync.WaitGroup, ctx context.Context, sem *ssem.Semaphore) {
+  err := sem.Aquire(ctx)
+  if err != nil {
+    // Context timeout.
+    wg.Done()
+    return
+  }
 
-	Capacity int = 15 // Number of Goroutines to be able to run at once.
-
-	PointThreshold  int32 = 200  // The threshold of when we should pause.
-	PointLimit      int32 = 2000 // Maximum number of points available.
-	PointRefillRate int32 = 100  // Refill rate of points per second.
-)
-
-//
-// ...
-//
-
-p.Regulator := ssem.NewSemaphore(
-	Capacity,
-	ssem.NewBalance(PointThreshold, PointLimit, PointRefillRate)
-)
-
-//
-// ...
-//
-
-func (proc *processor) runJob(row []string) {
-	// Aquire happens here.
-	err := proc.regulator.Aquire(proc.ctx)
-	if err != nil {
-		// Context timeout.
-		proc.postProcessJob(row, err)
-		return
-	}
-
-	points, err := retry(proc.processJob(row))
-	proc.postProcessJob(row, err)
-
-	// Release happens here, passing in the current available points from Shopify's response.
-	proc.regulator.Release(points) 
+  points, err := graphQLCall() // Return remaining points from call.
+  if err != nil {
+    // Handle error.
+  }
+  fmt.Printf("remaining: %d points", points)
+  sem.Release(points)
 }
 
-//
-// ...
-//
+func main() {
+  fmt.Println("started!")
+  done := make(chan bool)
+  ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Minute)
 
-func (proc *processor) Run() {
-	proc.timeStart = time.Now()
+  // Semaphore with a concurrent capacity of 10.
+  // Including a point balance setup with a threshold to pause at 200 points,
+  // a maximum of 2000 points available, and a refill rate of 100 points per second.
+  sem := ssem.NewSemaphore(
+    10,
+    ssem.NewBalance(200, 2000, 100),
+    ssem.WithPauseFunc(func (pts int32, dur time.Duration) {
+      fmt.Printf("pausing for %s due to remaining points of %d...", dur, pts)
+    }),
+    ssem.WithResumeFunc(func () {
+      fmt.Println("resuming...")
+    })
+  )
 
-	read, closer, err := proc.newReader()
-	defer closer()
-	if err != nil {
-		log.Printf("[error] run: read: %s\n", err)
-		proc.ctxCancel()
-		return
-	}
+  // Run 1000 Goroutines.
+  var wg sync.WaitGroup
+  for i := 0; i < 1000; i += 1 {
+    wg.Add(1)
+    go work(i, &wg, ctx, sem)
+  }
 
-	// Skip the header row.
-	_, err = read()
-	if err != nil {
-		log.Printf("[error] run: row: %s\n", err)
-		proc.ctxCancel()
-		return
-	}
+  // Wait for completion of Goroutines.
+  go func() {
+    wg.Wait()
+    done <- true
+  }()
 
-	// Read rest of rows outside of the header.
-	for loop := true; loop; {
-		row, err := read()
-		if errors.Is(err, io.EOF) {
-			break
-		}
-		if err != nil {
-			proc.ctxCancel()
-			log.Fatalf("[error] run: row: %s\n", err)
-		}
-
-		select {
-		case <-proc.ctx.Done():
-			// Context closed, stop processing rows.
-			log.Println("[info] run: ctx exited due to abort or timeout")
-			loop = false
-		default:
-			// Run the job.
-			proc.jwg.Add(1)
-			go proc.runJob(row)
-		}
-	}
-
-	go func() {
-		proc.jwg.Wait()
-		close(proc.done)
-	}()
-	<-proc.done
-
-	proc.timeEnd = time.Now()
-	if err = proc.SendSummary(); err != nil {
-		log.Printf("[error] run: %s\n", err)
-	}
+  select {
+    case <-ctx.Done():
+      fmt.Println("timeout happened.")
+    case <-done:
+      fmt.Println("work finished.")
+  }
+  fmt.Println("completed.")
 }
-
-//
-// ...
-//
 ```
 
-Using our above semaphore method, we are allowing 15 Goroutines to run concurrently out of the 3,000-3,500 Goroutines, where each upon each Goroutine's completion, the Goroutine will report the remaining points back to the release mechanism, which will determine if a pause is needed before actually issuing the release.
+Example output:
 
-The result was a success for this project... the inventory updates we're able to complete between 3 1/2 to 4 1/2 minutes without hitting the threshold very often. Hopefully this helpful to those looking to do similar.
+```
+started!
+remaining: 1840 points
+remaining: 1710 points
+remaining: 1660 points
+...
+remaining: 280 points
+remaining: 190 points
+pausing for 18 seconds due to remaining points of 190...
+resuming...
+remaining: 1890 points
+remaining: 1810 points
+...
+work finished.
+completed.
+```
 
-I have released this as a Go package, which you can find [here on Github](https://github.com/gnikyt/shopify-semaphore).
+Using the example semaphore method above, we are allowing 10 Goroutines to run concurrently out of the 1000 and upon each Goroutine's completion, the Goroutine will report the remaining points back to the release mechanism, which will determine if a pause is needed before actually issuing the release.
+
+In the context of the integration application project, it was a success! The previously mentioned 3,000-3,500 inventory updates were able to process within 3.5-4.5 minutes without hitting the threshold often.
+
+Hopefully this helpful to those looking to do similar. I have released this method as a Go package, which you can find [here on Github](https://github.com/gnikyt/shopify-semaphore).
