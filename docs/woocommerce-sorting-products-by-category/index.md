@@ -9,21 +9,21 @@ This past week I was assigned to heavily customize a Woocommerce install on a cl
 
 ## Sure, this should be easy
 
-Now, reading up on the Woocommerce documentation, I came across the filter named __woocommerce_get_catalog_ordering_args__ which seemed like it would fit the bill and allow you to modify the post query, as shown in [this example snippit](http://docs.woothemes.com/document/custom-sorting-options-ascdesc/). My assumption being, __$args__ was used similar to providing an array of args to __get_posts__ or __WP_Query__. I was wrong - dead wrong. It turns out after all, __$args__passed to the __woocommerce_get_catalog_ordering_args__ filter is more of a _collection of direct SQL commands which WordPress compiles_. This means simply passing __$args['product_cat'] = xxx;__ wasn't going to work as I originally thought. Back to square one...
+Now, reading up on the Woocommerce documentation, I came across the filter named `woocommerce_get_catalog_ordering_args` which seemed like it would fit the bill and allow you to modify the post query, as shown in [this example snippit](http://docs.woothemes.com/document/custom-sorting-options-ascdesc/). My assumption being, `$args` was used similar to providing an array of args to `get_posts` or `WP_Query`. I was wrong - dead wrong. It turns out after all, `$args` passed to the `woocommerce_get_catalog_ordering_args` filter is more of a *collection of direct SQL commands which WordPress compiles*. This means simply passing `$args['product_cat'] = xxx;` wasn't going to work as I originally thought. Back to square one...
 
 ## Finding a clue to the puzzle
 
-That's when I busted out some Google-Fu and tried to find _any_ hook or filter Woocomerce had to directly modify the output of the query. There is no Woocommerce-direct way to do this from what I've found. I did however find a [Wordpress support post](http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161) of people asking a similar question, and a guy by the name of __bheadrick__ in that discussion provided some sample code.
+That's when I busted out some Google-Fu and tried to find *any* hook or filter Woocomerce had to directly modify the output of the query. There is no Woocommerce-direct way to do this from what I've found. I did however find a [Wordpress support post](http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161) of people asking a similar question, and a guy by the name of `bheadrick` in that discussion provided some sample code.
 
 > This works to sort products by category on the main shop page, but it also changes the order of my blog posts AND takes away the ability for any other sort of options, which is a bit of a bummer.
 
-That is the sad key to the great code-snippet he provided in the discussion. Although it worked, it modified_all_ of WordPress' post queries instead of just the Woocomerce product's page. I decided to dig into the Woocomerce code itself.
+That is the sad key to the great code-snippet he provided in the discussion. Although it worked, it modified all of WordPress' post queries instead of just the Woocomerce product's page. I decided to dig into the Woocomerce code itself.
 
 ## Reading the code to find an answer
 
-[In classes/class-Wc-Query.php on line 411](http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411), I found the function that called the __woocommerce_get_catalog_ordering_args__ filter. Looking upwards from that line on __396__, is Woocomerce calling a filter __post_clauses__, bingo!
+[In classes/class-Wc-Query.php on line 411](http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411), I found the function that called the `woocommerce_get_catalog_ordering_args` filter. Looking upwards from that line on `396`, is Woocomerce calling a filter `post_clauses`, bingo!
 
-This is the filter I can use to add clauses (joins, wheres, orders) to the __$args__ passed. So mixing that, with the code __bheadrick__ provided in the discussion is this...  
+This is the filter I can use to add clauses (joins, wheres, orders) to the __$args__ passed. So mixing that, with the code `bheadrick` provided in the discussion is this...  
 
 ```php
 add_filter('woocommerce_default_catalog_orderby_options', 'ty_catalog_orderby');
@@ -82,14 +82,14 @@ JOIN " . $wpdb->woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id
 ```
 
 
-- Lines __1-8__ register the extra filters I want to show in Woocommerce's filter dropdown.
-- Lines __10-33__ adds my custom handler for when my filter is selected and called.
-- Lines __35-43 and 45-53__ is where the magic happens.
+- Lines `1-8` register the extra filters I want to show in Woocommerce's filter dropdown.
+- Lines `10-33` adds my custom handler for when my filter is selected and called.
+- Lines `35-43 and `45-53` is where the magic happens.
 
 ## In conclusion
 
-Looking at the function __ty_get_catalog_ordering_args,__ I check if my filter is being called, and if it is, I register a filter call for __post_clauses__ on lines __21 and 29__. When the post_clauses are called, it will run one of my functions such as __ty_post_clausesdd_originals__. In this function, I add the join provided by _bheadrick_ and add a _where clause_ to tell it to find only posts with a category ID of __13__. Because this filter is being called inside __ty_get_catalog_ordering_args_ function, it will not affect standard WordPress post listings.
+Looking at the function `ty_get_catalog_ordering_args`, I check if my filter is being called, and if it is, I register a filter call for `post_clauses` on lines `21 and 29`. When the post_clauses are called, it will run one of my functions such as `ty_post_clausesdd_originals`. In this function, I add the join provided by *bheadrick* and add a *where clause* to tell it to find only posts with a category ID of `13`. Because this filter is being called inside __ty_get_catalog_ordering_args_ function, it will not affect standard WordPress post listings.
 
-All you need to do if you wish to add this to your project is to change up the titling of the filter names and modify each category ID I provided. You can even do multiples by changing it to __$args['where'] .= " AND t.term_id IN(13, 15, 19)";__ if you wish to get products in multiple categories for one filter action.
+All you need to do if you wish to add this to your project is to change up the titling of the filter names and modify each category ID I provided. You can even do multiples by changing it to `$args['where'] .= " AND t.term_id IN(13, 15, 19)";` if you wish to get products in multiple categories for one filter action.
 
 Anyways, that's my story on the hunt to add such a filter. Feel free to modify this and use it in your code since there doesn't seem to be a more viable option around that I've seen.

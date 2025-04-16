@@ -4,7 +4,7 @@
 
                    Woocommerce - Sorting product by category
 
-   /* Oct 05, 2013 — 6.0KB */
+   /* Oct 05, 2013 — 5.9KB */
 
    This past week I was assigned to heavily customize a Woocommerce
    install on a client’s successful store. What needed to be done on one
@@ -17,13 +17,13 @@ Sure, this should be easy
    Now, reading up on the Woocommerce documentation, I came across the
    filter named woocommerce_get_catalog_ordering_args which seemed like it
    would fit the bill and allow you to modify the post query, as shown in
-   [3]this example snippit. My assumption being, __$args__ was used
-   similar to providing an array of args to __get_posts__ or __WP_Query__.
-   I was wrong - dead wrong. It turns out after all, __$args__passed to
-   the woocommerce_get_catalog_ordering_args filter is more of a
-   collection of direct SQL commands which WordPress compiles. This means
-   simply passing $args[‘product_cat’] = xxx; wasn’t going to work as I
-   originally thought. Back to square one…
+   [3]this example snippit. My assumption being, $args was used similar to
+   providing an array of args to get_posts or WP_Query. I was wrong - dead
+   wrong. It turns out after all, $args passed to the
+   woocommerce_get_catalog_ordering_args filter is more of a collection of
+   direct SQL commands which WordPress compiles. This means simply passing
+   $args['product_cat'] = xxx; wasn’t going to work as I originally
+   thought. Back to square one…
 
 Finding a clue to the puzzle
 
@@ -39,7 +39,7 @@ Finding a clue to the puzzle
      ability for any other sort of options, which is a bit of a bummer.
 
    That is the sad key to the great code-snippet he provided in the
-   discussion. Although it worked, it modifiedall of WordPress’ post
+   discussion. Although it worked, it modified all of WordPress’ post
    queries instead of just the Woocomerce product’s page. I decided to dig
    into the Woocomerce code itself.
 
@@ -123,7 +123,7 @@ JOIN " . $wpdb->woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id
        Woocommerce’s filter dropdown.
      * Lines 10-33 adds my custom handler for when my filter is selected
        and called.
-     * Lines 35-43 and 45-53 is where the magic happens.
+     * Lines 35-43 and45-53` is where the magic happens.
 
 In conclusion
 
@@ -138,8 +138,8 @@ In conclusion
 
    All you need to do if you wish to add this to your project is to change
    up the titling of the filter names and modify each category ID I
-   provided. You can even do multiples by changing it to $args[‘where’] .=
-   ” AND t.term_id IN(13, 15, 19)“; if you wish to get products in
+   provided. You can even do multiples by changing it to $args['where'] .=
+   " AND t.term_id IN(13, 15, 19)"; if you wish to get products in
    multiple categories for one filter action.
 
    Anyways, that’s my story on the hunt to add such a filter. Feel free to

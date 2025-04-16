@@ -292,14 +292,19 @@ p.Regulator := ssem.NewSemaphore(
 //
 
 func (proc *processor) runJob(row []string) {
-	err := proc.regulator.Aquire(proc.ctx) // <-- Aquire happens here.
+	// Aquire happens here.
+	err := proc.regulator.Aquire(proc.ctx)
 	if err != nil {
 		// Context timeout.
+		proc.postProcessJob(row, err)
 		return
 	}
+
 	points, err := retry(proc.processJob(row))
 	proc.postProcessJob(row, err)
-	proc.regulator.Release(points) // <-- Release happens here, passing in the current available points from Shopify's response.
+
+	// Release happens here, passing in the current available points from Shopify's response.
+	proc.regulator.Release(points) 
 }
 
 //
