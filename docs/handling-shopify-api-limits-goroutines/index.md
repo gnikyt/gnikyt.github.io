@@ -51,65 +51,81 @@ Additionally, the capacity of this semaphore would be set to the 15-20 limit pre
 Example code is below.
 
 ```go
-// regulator/point.go
-package regulator
+package shopifysemaphore
 
 import (
 	"sync/atomic"
 	"time"
 )
 
-// Point represents the information of point values and keeps
-// track of the remaining points, threshold, limit, and refill rate.
-type Point struct {
-	Remaining  atomic.Int32 // Points remaining.
-	Threshold  int32        // Minimum point balance of which we would consider handling with a "pause".
+// Balance represents the information of point values and keeps track of
+// items such as the remaining points, threshold, limit, and refill rate.
+type Balance struct {
+	Remaining  atomic.Int32 // Point balance remaining.
+	Threshold  int32        // Minimum point balance where we would consider handling with a "pause".
 	Limit      int32        // Maximum points available.
-	RefillRate int32        // Number of points refilled, per second.
+	RefillRate int32        // Number of points refilled per second.
+}
+
+// NewBalance accepts a threshold (thld) point balance, a maximum (max) point
+// balance, and the refill rate (rr). It will return a pointer to Balance.
+func NewBalance(thld int32, max int32, rr int32) *Balance {
+	b := &Balance{
+		Threshold:  thld,
+		Limit:      max,
+		RefillRate: rr,
+	}
+	b.Update(max)
+	return b
 }
 
 // Update accepts a new value of remaining points to store.
-func (pts *Point) Update(points int32) {
-	pts.Remaining.Store(points)
+func (b *Balance) Update(points int32) {
+	b.Remaining.Store(points)
 }
 
 // RefillDuration accounts for the remaining points, the limit, and the refill rate to
 // determine how many seconds it would take to refill to remaining points back to full.
 // It will return a duration which can be used to "pause" operations.
-func (pts *Point) RefillDuration() time.Duration {
-	return time.Duration((tp.Limit-tp.Remaining.Load())/tp.RefillRate) * time.Second
+func (b *Balance) RefillDuration() time.Duration {
+	return time.Duration((b.Limit-b.Remaining.Load())/b.RefillRate) * time.Second
 }
 
 // AtThreshold will return a boolean if we have reached or surpassed the set
 // threshold of remaining points or not.
-func (pts *Point) AtThreshold() bool {
-	return tp.Remaining.Load() <= tp.Threshold
+func (b *Balance) AtThreshold() bool {
+	return b.Remaining.Load() <= b.Threshold
 }
 ```
 
 ```go
-// regulator/regulator.go
-package regulator
+package shopifysemaphore
 
 import (
+	"context"
 	"sync"
 	"time"
 )
 
-var AquireBuffer = 200 * time.Millisecond // Buffer of time to wait before attempting to re-aquire a spot.
+var (
+	DefaultAquireBuffer = 200 * time.Millisecond
+	DefaultPauseBuffer  = 1 * time.Second
+)
 
-// Regulator is responsible regulating when to pause and resume processing of Goroutines.
+// Semaphore is responsible regulating when to pause and resume processing of Goroutines.
 // Points remaining, point thresholds, and point refill rates are taken into
 // consideration. If remaining points go below the threshold, a pause is initiated
 // which will also calculate how long a pause should happen based on the refill rate.
 // Once pause is completed, the processing will resume. A PauceFunc and ResumeFunc
 // can optionally be passed in which will fire respectively when a pause happens
 // and when a resume happens.
-type Regulator struct {
-	*Point // Point information and tracking.
+type Semaphore struct {
+	*Balance // Point information and tracking.
 
-	PauseFunc  func(int32, time.Duration) // Optional callback for when pause happens.
-	ResumeFunc func()                     // Optional callback for when resume happens.
+	PauseFunc    func(int32, time.Duration) // Optional callback for when pause happens.
+	ResumeFunc   func()                     // Optional callback for when resume happens.
+	PauseBuffer  time.Duration              // Buffer of time to wait before attempting to re-aquire a spot.
+	AquireBuffer time.Duration              // Buffer of time to extend the pause with.
 
 	pausedAt time.Time     // When paused last happened.
 	sema     chan struct{} // Semaphore for controlling the number of Goroutines running.
@@ -118,108 +134,138 @@ type Regulator struct {
 	paused bool       // Pause flag.
 }
 
-// NewRegulator returns a pointer to a Regulator. It accepts a cap which represents the
+// NewSemaphore returns a pointer to Semaphore. It accepts a cap which represents the
 // capacity of how many Goroutines can run at a time, it also accepts information
-// about the point parameters and lastly, optional paramters.
-func New(cap int, point *Point, opts ...func(*Regulator)) *Regulator {
-	reg := &Regulator{
-		Point: point,
-		sema:  make(chan struct{}, cap),
+// about the point balance and lastly, optional parameters.
+func NewSemaphore(cap int, b *Balance, opts ...func(*Semaphore)) *Semaphore {
+	sem := &Semaphore{
+		Balance: b,
+		sema:    make(chan struct{}, cap),
 	}
 	for _, opt := range opts {
-		opt(reg)
+		opt(sem)
 	}
-	if reg.PauseFunc == nil {
+	if sem.PauseFunc == nil {
 		// Provide default PauseFunc.
-		withPauseFunc(func(_ int32, _ time.Duration) {})(reg)
+		WithPauseFunc(func(_ int32, _ time.Duration) {})(sem)
 	}
-	if reg.ResumeFunc == nil {
+	if sem.ResumeFunc == nil {
 		// Provide default ResumeFunc.
-		withResumeFunc(func() {})(reg)
+		WithResumeFunc(func() {})(sem)
 	}
-	// Set the remaining points to the limit of points.
-	reg.Update(point.Limit)
-	return reg
+	if sem.AquireBuffer == 0 {
+		WithAquireBuffer(DefaultAquireBuffer)(sem)
+	}
+	return sem
 }
 
 // Aquire will attempt to aquire a spot to run the Goroutine.
 // It will continue in a loop until it does aquire also pausing
 // if the pause flag has been enabled. Aquiring is throttled at
 // the value of AquireBuffer.
-func (reg *Regulator) Aquire() {
-	var aquired bool
-	for !aquired {
-		// Factor in pause flag. Looping will cause a "pause".
+func (sem *Semaphore) Aquire(ctx context.Context) (err error) {
+	for aquired := false; !aquired; {
 		for {
-			if !reg.paused {
+			if !sem.paused {
+				// Not paused. Break loop.
 				break
 			}
 		}
 
 		// Attempt to aquire a spot, if not we will throttle the next loop.
 		select {
-		case reg.sema <- struct{}{}:
+		case <-ctx.Done():
+			// Context cancelled. Break loop and return error.
+			aquired = true
+			err = ctx.Err()
+		case sem.sema <- struct{}{}:
+			// Spot aquired. Break loop.
 			aquired = true
 		default:
-			time.Sleep(AquireBuffer)
+			// Can not yet aquire a spot. Throttle for a set duration.
+			time.Sleep(sem.AquireBuffer)
 		}
 	}
+	return
 }
 
 // Release will release a spot for another Goroutine to take.
-// It accepts a current value of remaining points, to which the
-// remaining points will only be updated if the count is greater than -1.
+// It accepts a current value of remaining point balance, to which the
+// remaining point balance will only be updated if the count is greater than -1.
 // If the remaining points is below the set threshold, a pause will be
 // initiated and a duration of this pause will be calculated based
 // upon several factors surrouding the point information such as limit,
 // threshold, and the refull rate.
-func (reg *Regulator) Release(points int32) {
-	defer reg.mu.Unlock()
-	reg.mu.Lock()
+func (sem *Semaphore) Release(points int32) {
+	defer sem.mu.Unlock()
+	sem.mu.Lock()
 
-	reg.Update(points)
-	if reg.AtThreshold() {
-		// Calculate the duration required to refill and that duration time has passed
-		// before we call for a pause.
-		ra := reg.RefillDuration() + PauseBuffer
-		if reg.pausedAt.Add(ra).Before(time.Now()) {
-			reg.paused = true
-			reg.pausedAt = time.Now()
-			go reg.PauseFunc(points, ra)
+	sem.Update(points)
+	if sem.AtThreshold() {
+		// Calculate the duration required to refill and that duration time
+		// has passed before we call for a pause.
+		ra := sem.RefillDuration() + sem.PauseBuffer
+		if sem.pausedAt.Add(ra).Before(time.Now()) {
+			sem.paused = true
+			sem.pausedAt = time.Now()
+			go sem.PauseFunc(points, ra)
 
 			// Unflag as paused after the determined duration and run the ResumeFunc.
 			go func() {
 				time.Sleep(ra)
-				reg.paused = false
-				reg.ResumeFunc()
+				sem.paused = false
+				sem.ResumeFunc()
 			}()
 		}
 	}
 
 	// Perform the actual release.
-	<-reg.sema
+	<-sem.sema
 }
 
-// withPauseFunc is a functional option for the Regulator to
-// call when a pause happens. The points remaining and the
-// duration of the pause will passed into the function.
-func withPauseFunc(fn func(int32, time.Duration)) func(*Regulator) {
-	return func(reg *Regulator) {
-		reg.PauseFunc = fn
+// withPauseFunc is a functional option for Semaphore to call when
+// a pause happens. The point balance remaining and the duration of
+// the pause will passed into the function.
+func WithPauseFunc(fn func(int32, time.Duration)) func(*Semaphore) {
+	return func(sem *Semaphore) {
+		sem.PauseFunc = fn
 	}
 }
 
-// withResumeunc is a functional option for the Regulator to
-// call when resume from a pause happens.
-func withResumeFunc(fn func()) func(*Regulator) {
-	return func(reg *Regulator) {
-		reg.ResumeFunc = fn
+// withResumeFunc is a functional option for Semaphore to call when
+// resume from a pause happens.
+func WithResumeFunc(fn func()) func(*Semaphore) {
+	return func(sem *Semaphore) {
+		sem.ResumeFunc = fn
+	}
+}
+
+// WithAquireBuffer is a functional option for Semaphore which
+// will set the throttle duration for attempting to re-aquire a spot.
+func WithAquireBuffer(dur time.Duration) func(*Semaphore) {
+	return func(sem *Semaphore) {
+		sem.AquireBuffer = dur
+	}
+}
+
+// WithPauseBuffer is a functional option for Semaphore which
+// will set an additional duration to append to the pause duration.
+func WithPauseBuffer(dur time.Duration) func(*Semaphore) {
+	return func(sem *Semaphore) {
+		sem.PauseBuffer = dur
 	}
 }
 ```
 
+Example usage:
+
 ```go
+// processor/worker.go
 package processor
+
+import (
+	ssem "github.com/gnikyt/shopifysemaphore"
+)
 
 const (
 	Retries    int           = 3               // Number of times to retry a failed row processing.
@@ -236,13 +282,9 @@ const (
 // ...
 //
 
-p.Regulator := regulator.New(
+p.Regulator := ssem.NewSemaphore(
 	Capacity,
-	regulator.Point{
-		Threshold: PointThreshold,
-		Limit: PointLimit,
-		RefillRate: PointRefillRate,
-	},
+	ssem.NewBalance(PointThreshold, PointLimit, PointRefillRate)
 )
 
 //
@@ -250,7 +292,11 @@ p.Regulator := regulator.New(
 //
 
 func (proc *processor) runJob(row []string) {
-	proc.regulator.Aquire() // <-- Aquire happens here.
+	err := proc.regulator.Aquire(proc.ctx) // <-- Aquire happens here.
+	if err != nil {
+		// Context timeout.
+		return
+	}
 	points, err := retry(proc.processJob(row))
 	proc.postProcessJob(row, err)
 	proc.regulator.Release(points) // <-- Release happens here, passing in the current available points from Shopify's response.
@@ -322,3 +368,5 @@ func (proc *processor) Run() {
 Using our above semaphore method, we are allowing 15 Goroutines to run concurrently out of the 3,000-3,500 Goroutines, where each upon each Goroutine's completion, the Goroutine will report the remaining points back to the release mechanism, which will determine if a pause is needed before actually issuing the release.
 
 The result was a success for this project... the inventory updates we're able to complete between 3 1/2 to 4 1/2 minutes without hitting the threshold very often. Hopefully this helpful to those looking to do similar.
+
+I have released this as a Go package, which you can find [here on Github](https://github.com/gnikyt/shopify-semaphore).
