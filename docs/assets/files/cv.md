@@ -46,6 +46,11 @@ I adhere to the principle of simplicity and focus in all of my code. Each compon
 
 Founded in 2023 by three friends with deep roots in the Shopify ecosystem, with 30 years of combined Shopify agency experience. Valuing client relationships built on trust and communication, we craft development-focused solutions for anything Shopify... themes, apps, integrations, and consulting.
 
+Languages, frameworks, and focus:
+
+* Shopify: Custom apps, custom integrations, custom themes, custom extensions, and consulting
+* Typescript/NodeJS, Golang, React, Remix, Python, HTML/CSS/SASS.
+
 ---
 
 `Jan 2014 - Nov 2023`
@@ -70,6 +75,11 @@ Daily duties included:
 - Creation of automated systems for internal and clients
 - Lead in projection for future implementations and<br>growth within development for the team
 
+Languages, frameworks, and focus:
+
+* Shopify: Custom apps, custom integrations, custom themes, custom extensions, and consulting.
+* Typescript/NodeJS, Golang, React, Remix, Python, HTML/CSS/SASS.
+
 ---
 
 `Sep 2012 - Aug 2013`
@@ -79,7 +89,9 @@ Daily duties included:
 
 Developed a full featured niche custom platform for those in the beauty industry.
 
-Utilized various backend and frontend systems/languages for the website and API such as AWS for deployment, Symfony (PHP), Flask (Python), SASS and Javascript.
+Languages, frameworks, and focus:
+
+* PHP, Python, HTML/CSS, Javascript, Symfony, Flask, Wordpress.
 
 ---
 
@@ -92,6 +104,10 @@ Short term contract to develop and maintain custom websites and plugins for Visi
 
 - Worked in collaboration with other developers
 - Developed Wordpress and WooCommerce websites and plugins
+
+Languages, frameworks, and focus:
+
+* PHP, Python, HTML/CSS, Javascript, Wordpress.
 
 ---
 
@@ -106,11 +122,10 @@ Developed and maintained custom client websites and applications through various
 - Managed and maintained custom client applications and plugins
 - Worked in collaboration with other remote teams as a subcontractor
 - Utilized various languages for builds such as PHP, Python, Ruby on the<br>backend with the standard frontend toolsets
-- Worked with many platforms for websites and apps
-  - CMS systems (Wordpress, Typo3, Drupal)
-  - Forum systems (phpBB, Invision)
-  - Commerce systems (Shopify, BigCommerce)
-  - Misc. projects with Rails, Laravel, Symfony, Django
+
+Languages, frameworks, and focus:
+
+* PHP, Python, HTML/CSS, Javascript, Symfony, Drupal, Typo3, phpBB, Invision, Wordpress, Rails, Laravel, Django, Symfony, Shopify, BigCommerce.
 
 ## Open Source
 
@@ -122,6 +137,9 @@ I love open source - I both use and contribute. You can find my full open source
 
 `Golang`
 **cq**: ([Repo](https://github.com/gnikyt/cq)) A simple, composible, and auto-scaling worker pool queue.
+
+`Golang`
+**shopifysemaphore**: ([Repo](https://github.com/gnikyt/shopifysemaphore)) A semaphore method for working with Shopify GraphQL API limits.
 
 `Golang`
 **gowith**: ([Repo](https://github.com/gnikyt/gowith)) A Python with-statement clone for Golang.
