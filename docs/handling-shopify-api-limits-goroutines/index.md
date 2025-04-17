@@ -58,6 +58,12 @@ import (
 	"time"
 )
 
+// ErrPts is the points value to pass in if a network or other error happens.
+// Essentially to be used for situations where no response containing point
+// information was returned. This is used to know if the Update method should
+// actually update the remaining point balance or not.
+var ErrPts int32 = -1
+
 // Balance represents the information of point values and keeps track of
 // items such as the remaining points, threshold, limit, and refill rate.
 type Balance struct {
@@ -81,7 +87,9 @@ func NewBalance(thld int32, max int32, rr int32) *Balance {
 
 // Update accepts a new value of remaining points to store.
 func (b *Balance) Update(points int32) {
-	b.Remaining.Store(points)
+	if points > ErrPts {
+		b.Remaining.Store(points)
+	}
 }
 
 // RefillDuration accounts for the remaining points, the limit, and the refill rate to
@@ -108,8 +116,8 @@ import (
 )
 
 var (
-	DefaultAquireBuffer = 200 * time.Millisecond
-	DefaultPauseBuffer  = 1 * time.Second
+	DefaultAquireBuffer = 200 * time.Millisecond // Default aquire throttle duration.
+	DefaultPauseBuffer  = 1 * time.Second        // Default pause buffer to append to pause duration calculation.
 )
 
 // Semaphore is responsible regulating when to pause and resume processing of Goroutines.
@@ -196,11 +204,11 @@ func (sem *Semaphore) Aquire(ctx context.Context) (err error) {
 // initiated and a duration of this pause will be calculated based
 // upon several factors surrouding the point information such as limit,
 // threshold, and the refull rate.
-func (sem *Semaphore) Release(points int32) {
+func (sem *Semaphore) Release(pts int32) {
 	defer sem.mu.Unlock()
 	sem.mu.Lock()
 
-	sem.Update(points)
+	sem.Update(pts)
 	if sem.AtThreshold() {
 		// Calculate the duration required to refill and that duration time
 		// has passed before we call for a pause.
@@ -208,7 +216,7 @@ func (sem *Semaphore) Release(points int32) {
 		if sem.pausedAt.Add(ra).Before(time.Now()) {
 			sem.paused = true
 			sem.pausedAt = time.Now()
-			go sem.PauseFunc(points, ra)
+			go sem.PauseFunc(pts, ra)
 
 			// Unflag as paused after the determined duration and run the ResumeFunc.
 			go func() {
@@ -262,26 +270,39 @@ Example usage:
 ```go
 package main
 
-import ssem "github.com/gniktr/shopifysemaphore"
+import (
+  "log"
+  ssem "github.com/gniktr/shopifysemaphore"
+)
 
 func work(id int, wg *sync.WaitGroup, ctx context.Context, sem *ssem.Semaphore) {
   err := sem.Aquire(ctx)
   if err != nil {
-    // Context timeout.
+    // Possible context timeout.
+    log.Printf("work: %w", err)
     wg.Done()
     return
   }
 
-  points, err := graphQLCall() // Return remaining points from call.
+  // Return remaining points from call.
+  points, err := graphQLCall()
   if err != nil {
-    // Handle error.
+    log.Printf("work: %w", err)
+
+    // If error is a network error or bad request for example, essentially
+    // any error which would cause the response to *not* return point information,
+    // then you should set the points to ErrPts to not trigger a point
+    // update in Balance.
+    points := ssem.ErrPts
   }
   fmt.Printf("remaining: %d points", points)
+
+  wg.Done()
   sem.Release(points)
 }
 
 func main() {
-  fmt.Println("started!")
+  log.Println("started!")
   done := make(chan bool)
   ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Minute)
 
@@ -292,16 +313,16 @@ func main() {
     10,
     ssem.NewBalance(200, 2000, 100),
     ssem.WithPauseFunc(func (pts int32, dur time.Duration) {
-      fmt.Printf("pausing for %s due to remaining points of %d...", dur, pts)
+      log.Printf("pausing for %s due to remaining points of %d...", dur, pts)
     }),
     ssem.WithResumeFunc(func () {
-      fmt.Println("resuming...")
+      log.Println("resuming...")
     })
   )
 
-  // Run 1000 Goroutines.
+  // Run 100 Goroutines.
   var wg sync.WaitGroup
-  for i := 0; i < 1000; i += 1 {
+  for i := 0; i < 100; i += 1 {
     wg.Add(1)
     go work(i, &wg, ctx, sem)
   }
@@ -314,11 +335,11 @@ func main() {
 
   select {
     case <-ctx.Done():
-      fmt.Println("timeout happened.")
+      log.Println("timeout happened.")
     case <-done:
-      fmt.Println("work finished.")
+      log.Println("work finished.")
   }
-  fmt.Println("completed.")
+  log.Println("completed.")
 }
 ```
 

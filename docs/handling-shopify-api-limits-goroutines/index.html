@@ -75,7 +75,7 @@
 
           <p class="post__meta">
             /* <time class="post__time" datetime="2025-04-10">Apr 10, 2025</time> — <span class=
-            "post__size">14KB</span> */
+            "post__size">15KB</span> */
           </p>
         </header>
 
@@ -211,80 +211,95 @@
 <span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="op">)</span></span>
 <span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a></span>
 <span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a><span class=
-"co">// Balance represents the information of point values and keeps track of</span></span>
+"co">// ErrPts is the points value to pass in if a network or other error happens.</span></span>
 <span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a><span class=
-"co">// items such as the remaining points, threshold, limit, and refill rate.</span></span>
+"co">// Essentially to be used for situations where no response containing point</span></span>
 <span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a><span class=
+"co">// information was returned. This is used to know if the Update method should</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a><span class=
+"co">// actually update the remaining point balance or not.</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a><span class=
+"kw">var</span> ErrPts <span class="dt">int32</span> <span class="op">=</span> <span class="op">-</span><span class=
+"dv">1</span></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a><span class=
+"co">// Balance represents the information of point values and keeps track of</span></span>
+<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a><span class=
+"co">// items such as the remaining points, threshold, limit, and refill rate.</span></span>
+<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a><span class=
 "kw">type</span> Balance <span class="kw">struct</span> <span class="op">{</span></span>
-<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>    Remaining  atomic<span class=
+<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>    Remaining  atomic<span class=
 "op">.</span>Int32 <span class="co">// Point balance remaining.</span></span>
-<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>    Threshold  <span class=
+<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>    Threshold  <span class=
 "dt">int32</span>        <span class=
 "co">// Minimum point balance where we would consider handling with a "pause".</span></span>
-<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>    Limit      <span class=
+<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>    Limit      <span class=
 "dt">int32</span>        <span class="co">// Maximum points available.</span></span>
-<span id="cb2-14"><a aria-hidden="true" href="#cb2-14" tabindex="-1"></a>    RefillRate <span class=
+<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>    RefillRate <span class=
 "dt">int32</span>        <span class="co">// Number of points refilled per second.</span></span>
-<span id="cb2-15"><a aria-hidden="true" href="#cb2-15" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-16"><a aria-hidden="true" href="#cb2-16" tabindex="-1"></a></span>
-<span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a><span class=
+<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a><span class=
 "co">// NewBalance accepts a threshold (thld) point balance, a maximum (max) point</span></span>
-<span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a><span class=
+<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a><span class=
 "co">// balance, and the refill rate (rr). It will return a pointer to Balance.</span></span>
-<span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a><span class=
+<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a><span class=
 "kw">func</span> NewBalance<span class="op">(</span>thld <span class="dt">int32</span><span class=
 "op">,</span> max <span class="dt">int32</span><span class="op">,</span> rr <span class="dt">int32</span><span class=
 "op">)</span> <span class="op">*</span>Balance <span class="op">{</span></span>
-<span id="cb2-20"><a aria-hidden="true" href="#cb2-20" tabindex="-1"></a>    b <span class="op">:=</span> <span class=
+<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>    b <span class="op">:=</span> <span class=
 "op">&</span>Balance<span class="op">{</span></span>
-<span id="cb2-21"><a aria-hidden="true" href="#cb2-21" tabindex="-1"></a>        Threshold<span class=
+<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a>        Threshold<span class=
 "op">:</span>  thld<span class="op">,</span></span>
-<span id="cb2-22"><a aria-hidden="true" href="#cb2-22" tabindex="-1"></a>        Limit<span class=
+<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a>        Limit<span class=
 "op">:</span>      max<span class="op">,</span></span>
-<span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>        RefillRate<span class=
+<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a>        RefillRate<span class=
 "op">:</span> rr<span class="op">,</span></span>
-<span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>    b<span class=
+<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a>    b<span class=
 "op">.</span>Update<span class="op">(</span>max<span class="op">)</span></span>
-<span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>    <span class="cf">return</span> b</span>
-<span id="cb2-27"><a aria-hidden="true" href="#cb2-27" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-28"><a aria-hidden="true" href="#cb2-28" tabindex="-1"></a></span>
-<span id="cb2-29"><a aria-hidden="true" href="#cb2-29" tabindex="-1"></a><span class=
+<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a>    <span class="cf">return</span> b</span>
+<span id="cb2-33"><a aria-hidden="true" href="#cb2-33" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-34"><a aria-hidden="true" href="#cb2-34" tabindex="-1"></a></span>
+<span id="cb2-35"><a aria-hidden="true" href="#cb2-35" tabindex="-1"></a><span class=
 "co">// Update accepts a new value of remaining points to store.</span></span>
-<span id="cb2-30"><a aria-hidden="true" href="#cb2-30" tabindex="-1"></a><span class="kw">func</span> <span class=
+<span id="cb2-36"><a aria-hidden="true" href="#cb2-36" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>b <span class="op">*</span>Balance<span class="op">)</span> Update<span class=
 "op">(</span>points <span class="dt">int32</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-31"><a aria-hidden="true" href="#cb2-31" tabindex="-1"></a>    b<span class=
+<span id="cb2-37"><a aria-hidden="true" href="#cb2-37" tabindex="-1"></a>    <span class=
+"cf">if</span> points <span class="op">&gt;</span> ErrPts <span class="op">{</span></span>
+<span id="cb2-38"><a aria-hidden="true" href="#cb2-38" tabindex="-1"></a>        b<span class=
 "op">.</span>Remaining<span class="op">.</span>Store<span class="op">(</span>points<span class="op">)</span></span>
-<span id="cb2-32"><a aria-hidden="true" href="#cb2-32" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-33"><a aria-hidden="true" href="#cb2-33" tabindex="-1"></a></span>
-<span id="cb2-34"><a aria-hidden="true" href="#cb2-34" tabindex="-1"></a><span class=
+<span id="cb2-39"><a aria-hidden="true" href="#cb2-39" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-40"><a aria-hidden="true" href="#cb2-40" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-41"><a aria-hidden="true" href="#cb2-41" tabindex="-1"></a></span>
+<span id="cb2-42"><a aria-hidden="true" href="#cb2-42" tabindex="-1"></a><span class=
 "co">// RefillDuration accounts for the remaining points, the limit, and the refill rate to</span></span>
-<span id="cb2-35"><a aria-hidden="true" href="#cb2-35" tabindex="-1"></a><span class=
+<span id="cb2-43"><a aria-hidden="true" href="#cb2-43" tabindex="-1"></a><span class=
 "co">// determine how many seconds it would take to refill to remaining points back to full.</span></span>
-<span id="cb2-36"><a aria-hidden="true" href="#cb2-36" tabindex="-1"></a><span class=
+<span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a><span class=
 "co">// It will return a duration which can be used to "pause" operations.</span></span>
-<span id="cb2-37"><a aria-hidden="true" href="#cb2-37" tabindex="-1"></a><span class="kw">func</span> <span class=
+<span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>b <span class="op">*</span>Balance<span class="op">)</span> RefillDuration<span class=
 "op">()</span> time<span class="op">.</span>Duration <span class="op">{</span></span>
-<span id="cb2-38"><a aria-hidden="true" href="#cb2-38" tabindex="-1"></a>    <span class=
+<span id="cb2-46"><a aria-hidden="true" href="#cb2-46" tabindex="-1"></a>    <span class=
 "cf">return</span> time<span class="op">.</span>Duration<span class="op">((</span>b<span class=
 "op">.</span>Limit<span class="op">-</span>b<span class="op">.</span>Remaining<span class="op">.</span>Load<span class=
 "op">())/</span>b<span class="op">.</span>RefillRate<span class="op">)</span> <span class=
 "op">*</span> time<span class="op">.</span>Second</span>
-<span id="cb2-39"><a aria-hidden="true" href="#cb2-39" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-40"><a aria-hidden="true" href="#cb2-40" tabindex="-1"></a></span>
-<span id="cb2-41"><a aria-hidden="true" href="#cb2-41" tabindex="-1"></a><span class=
+<span id="cb2-47"><a aria-hidden="true" href="#cb2-47" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-48"><a aria-hidden="true" href="#cb2-48" tabindex="-1"></a></span>
+<span id="cb2-49"><a aria-hidden="true" href="#cb2-49" tabindex="-1"></a><span class=
 "co">// AtThreshold will return a boolean if we have reached or surpassed the set</span></span>
-<span id="cb2-42"><a aria-hidden="true" href="#cb2-42" tabindex="-1"></a><span class=
+<span id="cb2-50"><a aria-hidden="true" href="#cb2-50" tabindex="-1"></a><span class=
 "co">// threshold of remaining points or not.</span></span>
-<span id="cb2-43"><a aria-hidden="true" href="#cb2-43" tabindex="-1"></a><span class="kw">func</span> <span class=
+<span id="cb2-51"><a aria-hidden="true" href="#cb2-51" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>b <span class="op">*</span>Balance<span class="op">)</span> AtThreshold<span class=
 "op">()</span> <span class="dt">bool</span> <span class="op">{</span></span>
-<span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a>    <span class=
+<span id="cb2-52"><a aria-hidden="true" href="#cb2-52" tabindex="-1"></a>    <span class=
 "cf">return</span> b<span class="op">.</span>Remaining<span class="op">.</span>Load<span class=
 "op">()</span> <span class="op">&lt;=</span> b<span class="op">.</span>Threshold</span>
-<span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb2-53"><a aria-hidden="true" href="#cb2-53" tabindex="-1"></a><span class="op">}</span></span></code></pre>
         </div>
 
         <div class="sourceCode" id="cb3">
@@ -301,9 +316,12 @@
 <span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a><span class="kw">var</span> <span class=
 "op">(</span></span>
 <span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>    DefaultAquireBuffer <span class=
-"op">=</span> <span class="dv">200</span> <span class="op">*</span> time<span class="op">.</span>Millisecond</span>
+"op">=</span> <span class="dv">200</span> <span class="op">*</span> time<span class=
+"op">.</span>Millisecond <span class="co">// Default aquire throttle duration.</span></span>
 <span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>    DefaultPauseBuffer  <span class=
-"op">=</span> <span class="dv">1</span> <span class="op">*</span> time<span class="op">.</span>Second</span>
+"op">=</span> <span class="dv">1</span> <span class="op">*</span> time<span class=
+"op">.</span>Second        <span class=
+"co">// Default pause buffer to append to pause duration calculation.</span></span>
 <span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a><span class="op">)</span></span>
 <span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a></span>
 <span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a><span class=
@@ -471,14 +489,14 @@
 "co">// threshold, and the refull rate.</span></span>
 <span id="cb3-98"><a aria-hidden="true" href="#cb3-98" tabindex="-1"></a><span class="kw">func</span> <span class=
 "op">(</span>sem <span class="op">*</span>Semaphore<span class="op">)</span> Release<span class=
-"op">(</span>points <span class="dt">int32</span><span class="op">)</span> <span class="op">{</span></span>
+"op">(</span>pts <span class="dt">int32</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-99"><a aria-hidden="true" href="#cb3-99" tabindex="-1"></a>    <span class=
 "cf">defer</span> sem<span class="op">.</span>mu<span class="op">.</span>Unlock<span class="op">()</span></span>
 <span id="cb3-100"><a aria-hidden="true" href="#cb3-100" tabindex="-1"></a>    sem<span class=
 "op">.</span>mu<span class="op">.</span>Lock<span class="op">()</span></span>
 <span id="cb3-101"><a aria-hidden="true" href="#cb3-101" tabindex="-1"></a></span>
 <span id="cb3-102"><a aria-hidden="true" href="#cb3-102" tabindex="-1"></a>    sem<span class=
-"op">.</span>Update<span class="op">(</span>points<span class="op">)</span></span>
+"op">.</span>Update<span class="op">(</span>pts<span class="op">)</span></span>
 <span id="cb3-103"><a aria-hidden="true" href="#cb3-103" tabindex="-1"></a>    <span class=
 "cf">if</span> sem<span class="op">.</span>AtThreshold<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb3-104"><a aria-hidden="true" href="#cb3-104" tabindex="-1"></a>        <span class=
@@ -497,7 +515,7 @@
 <span id="cb3-109"><a aria-hidden="true" href="#cb3-109" tabindex="-1"></a>            sem<span class=
 "op">.</span>pausedAt <span class="op">=</span> time<span class="op">.</span>Now<span class="op">()</span></span>
 <span id="cb3-110"><a aria-hidden="true" href="#cb3-110" tabindex="-1"></a>            <span class=
-"cf">go</span> sem<span class="op">.</span>PauseFunc<span class="op">(</span>points<span class=
+"cf">go</span> sem<span class="op">.</span>PauseFunc<span class="op">(</span>pts<span class=
 "op">,</span> ra<span class="op">)</span></span>
 <span id="cb3-111"><a aria-hidden="true" href="#cb3-111" tabindex="-1"></a></span>
 <span id="cb3-112"><a aria-hidden="true" href="#cb3-112" tabindex="-1"></a>            <span class=
@@ -598,122 +616,145 @@
           <pre class="sourceCode go"><code class="sourceCode go"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1"
           tabindex="-1"></a><span class="kw">package</span> main</span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="kw">import</span> ssem <span class=
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="kw">import</span> <span class=
+"op">(</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>  <span class="st">"log"</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a>  ssem <span class=
 "st">"github.com/gniktr/shopifysemaphore"</span></span>
-<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a><span class="kw">func</span> work<span class=
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a><span class="kw">func</span> work<span class=
 "op">(</span>id <span class="dt">int</span><span class="op">,</span> wg <span class="op">*</span>sync<span class=
 "op">.</span>WaitGroup<span class="op">,</span> ctx context<span class="op">.</span>Context<span class=
 "op">,</span> sem <span class="op">*</span>ssem<span class="op">.</span>Semaphore<span class="op">)</span> <span class=
 "op">{</span></span>
-<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>  err <span class="op">:=</span> sem<span class=
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a>  err <span class="op">:=</span> sem<span class=
 "op">.</span>Aquire<span class="op">(</span>ctx<span class="op">)</span></span>
-<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>  <span class="cf">if</span> err <span class=
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>  <span class="cf">if</span> err <span class=
 "op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
-<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>    <span class=
-"co">// Context timeout.</span></span>
-<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a>    wg<span class="op">.</span>Done<span class=
-"op">()</span></span>
-<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>    <span class="cf">return</span></span>
-<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a></span>
-<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>  points<span class=
-"op">,</span> err <span class="op">:=</span> graphQLCall<span class="op">()</span> <span class=
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a>    <span class=
+"co">// Possible context timeout.</span></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a>    log<span class=
+"op">.</span>Printf<span class="op">(</span><span class="st">"work: %w"</span><span class="op">,</span> err<span class=
+"op">)</span></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>    wg<span class=
+"op">.</span>Done<span class="op">()</span></span>
+<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a>    <span class="cf">return</span></span>
+<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-16"><a aria-hidden="true" href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a>  <span class=
 "co">// Return remaining points from call.</span></span>
-<span id="cb4-14"><a aria-hidden="true" href="#cb4-14" tabindex="-1"></a>  <span class="cf">if</span> err <span class=
+<span id="cb4-18"><a aria-hidden="true" href="#cb4-18" tabindex="-1"></a>  points<span class=
+"op">,</span> err <span class="op">:=</span> graphQLCall<span class="op">()</span></span>
+<span id="cb4-19"><a aria-hidden="true" href="#cb4-19" tabindex="-1"></a>  <span class="cf">if</span> err <span class=
 "op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
-<span id="cb4-15"><a aria-hidden="true" href="#cb4-15" tabindex="-1"></a>    <span class=
-"co">// Handle error.</span></span>
-<span id="cb4-16"><a aria-hidden="true" href="#cb4-16" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a>  fmt<span class=
+<span id="cb4-20"><a aria-hidden="true" href="#cb4-20" tabindex="-1"></a>    log<span class=
+"op">.</span>Printf<span class="op">(</span><span class="st">"work: %w"</span><span class="op">,</span> err<span class=
+"op">)</span></span>
+<span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a></span>
+<span id="cb4-22"><a aria-hidden="true" href="#cb4-22" tabindex="-1"></a>    <span class=
+"co">// If error is a network error or bad request for example, essentially</span></span>
+<span id="cb4-23"><a aria-hidden="true" href="#cb4-23" tabindex="-1"></a>    <span class=
+"co">// any error which would cause the response to *not* return point information,</span></span>
+<span id="cb4-24"><a aria-hidden="true" href="#cb4-24" tabindex="-1"></a>    <span class=
+"co">// then you should set the points to ErrPts to not trigger a point</span></span>
+<span id="cb4-25"><a aria-hidden="true" href="#cb4-25" tabindex="-1"></a>    <span class=
+"co">// update in Balance.</span></span>
+<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a>    points <span class=
+"op">:=</span> ssem<span class="op">.</span>ErrPts</span>
+<span id="cb4-27"><a aria-hidden="true" href="#cb4-27" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-28"><a aria-hidden="true" href="#cb4-28" tabindex="-1"></a>  fmt<span class=
 "op">.</span>Printf<span class="op">(</span><span class="st">"remaining: %d points"</span><span class=
 "op">,</span> points<span class="op">)</span></span>
-<span id="cb4-18"><a aria-hidden="true" href="#cb4-18" tabindex="-1"></a>  sem<span class=
+<span id="cb4-29"><a aria-hidden="true" href="#cb4-29" tabindex="-1"></a></span>
+<span id="cb4-30"><a aria-hidden="true" href="#cb4-30" tabindex="-1"></a>  wg<span class="op">.</span>Done<span class=
+"op">()</span></span>
+<span id="cb4-31"><a aria-hidden="true" href="#cb4-31" tabindex="-1"></a>  sem<span class=
 "op">.</span>Release<span class="op">(</span>points<span class="op">)</span></span>
-<span id="cb4-19"><a aria-hidden="true" href="#cb4-19" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-20"><a aria-hidden="true" href="#cb4-20" tabindex="-1"></a></span>
-<span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a><span class="kw">func</span> main<span class=
+<span id="cb4-32"><a aria-hidden="true" href="#cb4-32" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-33"><a aria-hidden="true" href="#cb4-33" tabindex="-1"></a></span>
+<span id="cb4-34"><a aria-hidden="true" href="#cb4-34" tabindex="-1"></a><span class="kw">func</span> main<span class=
 "op">()</span> <span class="op">{</span></span>
-<span id="cb4-22"><a aria-hidden="true" href="#cb4-22" tabindex="-1"></a>  fmt<span class=
+<span id="cb4-35"><a aria-hidden="true" href="#cb4-35" tabindex="-1"></a>  log<span class=
 "op">.</span>Println<span class="op">(</span><span class="st">"started!"</span><span class="op">)</span></span>
-<span id="cb4-23"><a aria-hidden="true" href="#cb4-23" tabindex="-1"></a>  done <span class="op">:=</span> <span class=
+<span id="cb4-36"><a aria-hidden="true" href="#cb4-36" tabindex="-1"></a>  done <span class="op">:=</span> <span class=
 "bu">make</span><span class="op">(</span><span class="kw">chan</span> <span class="dt">bool</span><span class=
 "op">)</span></span>
-<span id="cb4-24"><a aria-hidden="true" href="#cb4-24" tabindex="-1"></a>  ctx<span class=
+<span id="cb4-37"><a aria-hidden="true" href="#cb4-37" tabindex="-1"></a>  ctx<span class=
 "op">,</span> cancel <span class="op">:=</span> context<span class="op">.</span>WithTimeout<span class=
 "op">(</span>context<span class="op">.</span>Background<span class="op">(),</span> <span class=
 "dv">5</span> <span class="op">*</span> time<span class="op">.</span>Minute<span class="op">)</span></span>
-<span id="cb4-25"><a aria-hidden="true" href="#cb4-25" tabindex="-1"></a></span>
-<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a>  <span class=
+<span id="cb4-38"><a aria-hidden="true" href="#cb4-38" tabindex="-1"></a></span>
+<span id="cb4-39"><a aria-hidden="true" href="#cb4-39" tabindex="-1"></a>  <span class=
 "co">// Semaphore with a concurrent capacity of 10.</span></span>
-<span id="cb4-27"><a aria-hidden="true" href="#cb4-27" tabindex="-1"></a>  <span class=
+<span id="cb4-40"><a aria-hidden="true" href="#cb4-40" tabindex="-1"></a>  <span class=
 "co">// Including a point balance setup with a threshold to pause at 200 points,</span></span>
-<span id="cb4-28"><a aria-hidden="true" href="#cb4-28" tabindex="-1"></a>  <span class=
+<span id="cb4-41"><a aria-hidden="true" href="#cb4-41" tabindex="-1"></a>  <span class=
 "co">// a maximum of 2000 points available, and a refill rate of 100 points per second.</span></span>
-<span id="cb4-29"><a aria-hidden="true" href="#cb4-29" tabindex="-1"></a>  sem <span class=
+<span id="cb4-42"><a aria-hidden="true" href="#cb4-42" tabindex="-1"></a>  sem <span class=
 "op">:=</span> ssem<span class="op">.</span>NewSemaphore<span class="op">(</span></span>
-<span id="cb4-30"><a aria-hidden="true" href="#cb4-30" tabindex="-1"></a>    <span class="dv">10</span><span class=
+<span id="cb4-43"><a aria-hidden="true" href="#cb4-43" tabindex="-1"></a>    <span class="dv">10</span><span class=
 "op">,</span></span>
-<span id="cb4-31"><a aria-hidden="true" href="#cb4-31" tabindex="-1"></a>    ssem<span class=
+<span id="cb4-44"><a aria-hidden="true" href="#cb4-44" tabindex="-1"></a>    ssem<span class=
 "op">.</span>NewBalance<span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class=
 "dv">2000</span><span class="op">,</span> <span class="dv">100</span><span class="op">),</span></span>
-<span id="cb4-32"><a aria-hidden="true" href="#cb4-32" tabindex="-1"></a>    ssem<span class=
+<span id="cb4-45"><a aria-hidden="true" href="#cb4-45" tabindex="-1"></a>    ssem<span class=
 "op">.</span>WithPauseFunc<span class="op">(</span><span class="kw">func</span> <span class=
 "op">(</span>pts <span class="dt">int32</span><span class="op">,</span> dur time<span class=
 "op">.</span>Duration<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-33"><a aria-hidden="true" href="#cb4-33" tabindex="-1"></a>      fmt<span class=
+<span id="cb4-46"><a aria-hidden="true" href="#cb4-46" tabindex="-1"></a>      log<span class=
 "op">.</span>Printf<span class="op">(</span><span class=
 "st">"pausing for %s due to remaining points of %d..."</span><span class="op">,</span> dur<span class=
 "op">,</span> pts<span class="op">)</span></span>
-<span id="cb4-34"><a aria-hidden="true" href="#cb4-34" tabindex="-1"></a>    <span class="op">}),</span></span>
-<span id="cb4-35"><a aria-hidden="true" href="#cb4-35" tabindex="-1"></a>    ssem<span class=
+<span id="cb4-47"><a aria-hidden="true" href="#cb4-47" tabindex="-1"></a>    <span class="op">}),</span></span>
+<span id="cb4-48"><a aria-hidden="true" href="#cb4-48" tabindex="-1"></a>    ssem<span class=
 "op">.</span>WithResumeFunc<span class="op">(</span><span class="kw">func</span> <span class=
 "op">()</span> <span class="op">{</span></span>
-<span id="cb4-36"><a aria-hidden="true" href="#cb4-36" tabindex="-1"></a>      fmt<span class=
+<span id="cb4-49"><a aria-hidden="true" href="#cb4-49" tabindex="-1"></a>      log<span class=
 "op">.</span>Println<span class="op">(</span><span class="st">"resuming..."</span><span class="op">)</span></span>
-<span id="cb4-37"><a aria-hidden="true" href="#cb4-37" tabindex="-1"></a>    <span class="op">})</span></span>
-<span id="cb4-38"><a aria-hidden="true" href="#cb4-38" tabindex="-1"></a>  <span class="op">)</span></span>
-<span id="cb4-39"><a aria-hidden="true" href="#cb4-39" tabindex="-1"></a></span>
-<span id="cb4-40"><a aria-hidden="true" href="#cb4-40" tabindex="-1"></a>  <span class=
-"co">// Run 1000 Goroutines.</span></span>
-<span id="cb4-41"><a aria-hidden="true" href="#cb4-41" tabindex="-1"></a>  <span class=
+<span id="cb4-50"><a aria-hidden="true" href="#cb4-50" tabindex="-1"></a>    <span class="op">})</span></span>
+<span id="cb4-51"><a aria-hidden="true" href="#cb4-51" tabindex="-1"></a>  <span class="op">)</span></span>
+<span id="cb4-52"><a aria-hidden="true" href="#cb4-52" tabindex="-1"></a></span>
+<span id="cb4-53"><a aria-hidden="true" href="#cb4-53" tabindex="-1"></a>  <span class=
+"co">// Run 100 Goroutines.</span></span>
+<span id="cb4-54"><a aria-hidden="true" href="#cb4-54" tabindex="-1"></a>  <span class=
 "kw">var</span> wg sync<span class="op">.</span>WaitGroup</span>
-<span id="cb4-42"><a aria-hidden="true" href="#cb4-42" tabindex="-1"></a>  <span class="cf">for</span> i <span class=
+<span id="cb4-55"><a aria-hidden="true" href="#cb4-55" tabindex="-1"></a>  <span class="cf">for</span> i <span class=
 "op">:=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class=
-"dv">1000</span><span class="op">;</span> i <span class="op">+=</span> <span class="dv">1</span> <span class=
+"dv">100</span><span class="op">;</span> i <span class="op">+=</span> <span class="dv">1</span> <span class=
 "op">{</span></span>
-<span id="cb4-43"><a aria-hidden="true" href="#cb4-43" tabindex="-1"></a>    wg<span class="op">.</span>Add<span class=
+<span id="cb4-56"><a aria-hidden="true" href="#cb4-56" tabindex="-1"></a>    wg<span class="op">.</span>Add<span class=
 "op">(</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb4-44"><a aria-hidden="true" href="#cb4-44" tabindex="-1"></a>    <span class=
+<span id="cb4-57"><a aria-hidden="true" href="#cb4-57" tabindex="-1"></a>    <span class=
 "cf">go</span> work<span class="op">(</span>i<span class="op">,</span> <span class="op">&</span>wg<span class=
 "op">,</span> ctx<span class="op">,</span> sem<span class="op">)</span></span>
-<span id="cb4-45"><a aria-hidden="true" href="#cb4-45" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-46"><a aria-hidden="true" href="#cb4-46" tabindex="-1"></a></span>
-<span id="cb4-47"><a aria-hidden="true" href="#cb4-47" tabindex="-1"></a>  <span class=
+<span id="cb4-58"><a aria-hidden="true" href="#cb4-58" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-59"><a aria-hidden="true" href="#cb4-59" tabindex="-1"></a></span>
+<span id="cb4-60"><a aria-hidden="true" href="#cb4-60" tabindex="-1"></a>  <span class=
 "co">// Wait for completion of Goroutines.</span></span>
-<span id="cb4-48"><a aria-hidden="true" href="#cb4-48" tabindex="-1"></a>  <span class="cf">go</span> <span class=
+<span id="cb4-61"><a aria-hidden="true" href="#cb4-61" tabindex="-1"></a>  <span class="cf">go</span> <span class=
 "kw">func</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-49"><a aria-hidden="true" href="#cb4-49" tabindex="-1"></a>    wg<span class=
+<span id="cb4-62"><a aria-hidden="true" href="#cb4-62" tabindex="-1"></a>    wg<span class=
 "op">.</span>Wait<span class="op">()</span></span>
-<span id="cb4-50"><a aria-hidden="true" href="#cb4-50" tabindex="-1"></a>    done <span class=
+<span id="cb4-63"><a aria-hidden="true" href="#cb4-63" tabindex="-1"></a>    done <span class=
 "op">&lt;-</span> <span class="ot">true</span></span>
-<span id="cb4-51"><a aria-hidden="true" href="#cb4-51" tabindex="-1"></a>  <span class="op">}()</span></span>
-<span id="cb4-52"><a aria-hidden="true" href="#cb4-52" tabindex="-1"></a></span>
-<span id="cb4-53"><a aria-hidden="true" href="#cb4-53" tabindex="-1"></a>  <span class="cf">select</span> <span class=
+<span id="cb4-64"><a aria-hidden="true" href="#cb4-64" tabindex="-1"></a>  <span class="op">}()</span></span>
+<span id="cb4-65"><a aria-hidden="true" href="#cb4-65" tabindex="-1"></a></span>
+<span id="cb4-66"><a aria-hidden="true" href="#cb4-66" tabindex="-1"></a>  <span class="cf">select</span> <span class=
 "op">{</span></span>
-<span id="cb4-54"><a aria-hidden="true" href="#cb4-54" tabindex="-1"></a>    <span class="cf">case</span> <span class=
+<span id="cb4-67"><a aria-hidden="true" href="#cb4-67" tabindex="-1"></a>    <span class="cf">case</span> <span class=
 "op">&lt;-</span>ctx<span class="op">.</span>Done<span class="op">():</span></span>
-<span id="cb4-55"><a aria-hidden="true" href="#cb4-55" tabindex="-1"></a>      fmt<span class=
+<span id="cb4-68"><a aria-hidden="true" href="#cb4-68" tabindex="-1"></a>      log<span class=
 "op">.</span>Println<span class="op">(</span><span class="st">"timeout happened."</span><span class=
 "op">)</span></span>
-<span id="cb4-56"><a aria-hidden="true" href="#cb4-56" tabindex="-1"></a>    <span class="cf">case</span> <span class=
+<span id="cb4-69"><a aria-hidden="true" href="#cb4-69" tabindex="-1"></a>    <span class="cf">case</span> <span class=
 "op">&lt;-</span>done<span class="op">:</span></span>
-<span id="cb4-57"><a aria-hidden="true" href="#cb4-57" tabindex="-1"></a>      fmt<span class=
+<span id="cb4-70"><a aria-hidden="true" href="#cb4-70" tabindex="-1"></a>      log<span class=
 "op">.</span>Println<span class="op">(</span><span class="st">"work finished."</span><span class="op">)</span></span>
-<span id="cb4-58"><a aria-hidden="true" href="#cb4-58" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-59"><a aria-hidden="true" href="#cb4-59" tabindex="-1"></a>  fmt<span class=
+<span id="cb4-71"><a aria-hidden="true" href="#cb4-71" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-72"><a aria-hidden="true" href="#cb4-72" tabindex="-1"></a>  log<span class=
 "op">.</span>Println<span class="op">(</span><span class="st">"completed."</span><span class="op">)</span></span>
-<span id="cb4-60"><a aria-hidden="true" href="#cb4-60" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb4-73"><a aria-hidden="true" href="#cb4-73" tabindex="-1"></a><span class="op">}</span></span></code></pre>
         </div>
 
         <p>
