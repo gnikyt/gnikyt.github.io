@@ -279,7 +279,7 @@ func work(id int, wg *sync.WaitGroup, ctx context.Context, sem *ssem.Semaphore) 
   err := sem.Aquire(ctx)
   if err != nil {
     // Possible context timeout.
-    log.Printf("work: %w", err)
+    log.Printf("work: %w\n", err)
     wg.Done()
     return
   }
@@ -287,7 +287,7 @@ func work(id int, wg *sync.WaitGroup, ctx context.Context, sem *ssem.Semaphore) 
   // Return remaining points from call.
   points, err := graphQLCall()
   if err != nil {
-    log.Printf("work: %w", err)
+    log.Printf("work: %w\n", err)
 
     // If error is a network error or bad request for example, essentially
     // any error which would cause the response to *not* return point information,
@@ -295,7 +295,7 @@ func work(id int, wg *sync.WaitGroup, ctx context.Context, sem *ssem.Semaphore) 
     // update in Balance.
     points := ssem.ErrPts
   }
-  fmt.Printf("remaining: %d points", points)
+  log.Printf("remaining: %d points\n", points)
 
   wg.Done()
   sem.Release(points)
@@ -313,7 +313,7 @@ func main() {
     10,
     ssem.NewBalance(200, 2000, 100),
     ssem.WithPauseFunc(func (pts int32, dur time.Duration) {
-      log.Printf("pausing for %s due to remaining points of %d...", dur, pts)
+      log.Printf("pausing for %s due to remaining points of %d...\n", dur, pts)
     }),
     ssem.WithResumeFunc(func () {
       log.Println("resuming...")
