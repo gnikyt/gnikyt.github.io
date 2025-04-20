@@ -244,7 +244,7 @@ func (sem *Semaphore) Aquire(ctx context.Context) (err error) {
     for aquired := false; !aquired; {
         for {
             if !sem.paused {
-                // Not paused. Break loop.
+                // Not paused, break loop and attempt to aquire a spot.
                 break
             }
         }
@@ -252,14 +252,14 @@ func (sem *Semaphore) Aquire(ctx context.Context) (err error) {
         // Attempt to aquire a spot, if not we will throttle the next loop.
         select {
         case <-ctx.Done():
-            // Context cancelled. Break loop and return error.
+            // Context done/cancelled, break loop, and return the error.
             aquired = true
             err = ctx.Err()
         case sem.sema <- struct{}{}:
-            // Spot aquired. Break loop.
+            // Spot aquired, break loop.
             aquired = true
         default:
-            // Can not yet aquire a spot. Throttle for a set duration.
+            // Can not yet aquire a spot, throttle for a set duration.
             time.Sleep(sem.AquireBuffer)
         }
     }

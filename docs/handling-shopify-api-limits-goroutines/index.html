@@ -437,7 +437,7 @@
 <span id="cb3-68"><a aria-hidden="true" href="#cb3-68" tabindex="-1"></a>            <span class=
 "cf">if</span> <span class="op">!</span>sem<span class="op">.</span>paused <span class="op">{</span></span>
 <span id="cb3-69"><a aria-hidden="true" href="#cb3-69" tabindex="-1"></a>                <span class=
-"co">// Not paused. Break loop.</span></span>
+"co">// Not paused, break loop and attempt to aquire a spot.</span></span>
 <span id="cb3-70"><a aria-hidden="true" href="#cb3-70" tabindex="-1"></a>                <span class=
 "cf">break</span></span>
 <span id="cb3-71"><a aria-hidden="true" href="#cb3-71" tabindex="-1"></a>            <span class="op">}</span></span>
@@ -450,7 +450,7 @@
 <span id="cb3-76"><a aria-hidden="true" href="#cb3-76" tabindex="-1"></a>        <span class=
 "cf">case</span> <span class="op">&lt;-</span>ctx<span class="op">.</span>Done<span class="op">():</span></span>
 <span id="cb3-77"><a aria-hidden="true" href="#cb3-77" tabindex="-1"></a>            <span class=
-"co">// Context cancelled. Break loop and return error.</span></span>
+"co">// Context done/cancelled, break loop, and return the error.</span></span>
 <span id="cb3-78"><a aria-hidden="true" href="#cb3-78" tabindex="-1"></a>            aquired <span class=
 "op">=</span> <span class="ot">true</span></span>
 <span id="cb3-79"><a aria-hidden="true" href="#cb3-79" tabindex="-1"></a>            err <span class=
@@ -459,13 +459,13 @@
 "cf">case</span> sem<span class="op">.</span>sema <span class="op">&lt;-</span> <span class=
 "kw">struct</span><span class="op">{}{}:</span></span>
 <span id="cb3-81"><a aria-hidden="true" href="#cb3-81" tabindex="-1"></a>            <span class=
-"co">// Spot aquired. Break loop.</span></span>
+"co">// Spot aquired, break loop.</span></span>
 <span id="cb3-82"><a aria-hidden="true" href="#cb3-82" tabindex="-1"></a>            aquired <span class=
 "op">=</span> <span class="ot">true</span></span>
 <span id="cb3-83"><a aria-hidden="true" href="#cb3-83" tabindex="-1"></a>        <span class=
 "cf">default</span><span class="op">:</span></span>
 <span id="cb3-84"><a aria-hidden="true" href="#cb3-84" tabindex="-1"></a>            <span class=
-"co">// Can not yet aquire a spot. Throttle for a set duration.</span></span>
+"co">// Can not yet aquire a spot, throttle for a set duration.</span></span>
 <span id="cb3-85"><a aria-hidden="true" href="#cb3-85" tabindex="-1"></a>            time<span class=
 "op">.</span>Sleep<span class="op">(</span>sem<span class="op">.</span>AquireBuffer<span class="op">)</span></span>
 <span id="cb3-86"><a aria-hidden="true" href="#cb3-86" tabindex="-1"></a>        <span class="op">}</span></span>
