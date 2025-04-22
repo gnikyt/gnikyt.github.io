@@ -469,7 +469,7 @@ References
 
    1. /rss.xml
    2. /
-   3. https://github.com/gnikyt/shopify-semaphore
+   3. https://github.com/gnikyt/shopifysemaphore
    4. /handling-shopify-api-limits-goroutines/index.md
    5. /handling-shopify-api-limits-goroutines/index.txt
    6. https://creativecommons.org/licenses/by/4.0/

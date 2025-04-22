@@ -5,6 +5,20 @@ cwd=$(dirname "$0")
 . $cwd/parse_tpl
 . $cwd/highlight
 
+# Determine if libraries we need are installed.
+err=0
+cmds=("pandoc" "tidy" "lynx")
+for cmd in "${!cmds[@]}"; do
+  # shellcheck disable=SC2086
+  if ! [ -x "$(command -v ${cmds[$cmd]})" ]; then
+    echo "Error: \`${cmds[$cmd]}\` not installed." >&2
+    err=1
+  fi
+done
+if [[ $err -eq 1 ]]; then
+  exit 1
+fi
+
 # count tracks the number of generated posts and pages.
 declare -i count=0
 # globals is for keeping a hash table of variables available to the templates.

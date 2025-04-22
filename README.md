@@ -64,6 +64,14 @@ Tidying markup...
 Completed
 ```
 
+## Preview
+
+To preview your site, you can open a terminal instance and utilize Python's webserver.
+
+`cd docs && python -m http.server 8080`
+
+Then, visit `http://localhost:8080/` to view.
+
 ## Misc
 
 * `docs` directory is pointing to Github to use for the hosting of the content on the domain name.

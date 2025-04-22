@@ -366,4 +366,4 @@ Using the example semaphore method above, we are allowing 10 Goroutines to run c
 
 In the context of the integration application project, it was a success! The previously mentioned 3,000-3,500 inventory updates were able to process within 3.5-4.5 minutes without hitting the threshold often.
 
-Hopefully this helpful to those looking to do similar. I have released this method as a Go package, which you can find [here on Github](https://github.com/gnikyt/shopify-semaphore).
+Hopefully this helpful to those looking to do similar. I have released this method as a Go package, which you can find [here on Github](https://github.com/gnikyt/shopifysemaphore).
