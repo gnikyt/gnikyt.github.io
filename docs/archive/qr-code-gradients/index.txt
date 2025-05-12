@@ -77,7 +77,7 @@ site qr_gradient.png
 
    Copyright under [7]CC-4.0.
 
-   Additionally available in alternative formats: [8]MD  /  [9]TXT
+   Available in the following alternative formats: [8]MD  /  [9]TXT
 
    [10]Ty King
 

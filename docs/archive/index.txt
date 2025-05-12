@@ -2,96 +2,96 @@
 
    [2]gnikyt   /  Code ramblings
 
-Archive /
+                               Index of Archive /
 
    Displaying archived entries sorted by creation date in descending
    order.
-     *
+     * $>
 
 [3]Journey to Sucker Punch
        Nov 26, 2016
        4.0KB
-     *
+     * $>
 
 [4]Developing sanely on Windows
        Nov 07, 2016
        8.2KB
-     *
+     * $>
 
 [5]Testing with shopify_app
        Jun 21, 2016
        2.3KB
-     *
+     * $>
 
 [6]Counting unique options in Shopify
        Jun 21, 2016
        2.0KB
-     *
+     * $>
 
 [7]Precompiling assets in your Rails Engine
        May 03, 2016
        2.3KB
-     *
+     * $>
 
 [8]Building a simple Redis autosuggest with Ruby
        Mar 02, 2016
        5.6KB
-     *
+     * $>
 
 [9]Extending a Rails Engine
        Feb 20, 2016
        4.3KB
-     *
+     * $>
 
 [10]Polymorphic and Route Concerns... who is who?
        Jan 01, 2016
        5.1KB
-     *
+     * $>
 
 [11]ActiveRecord and Liquid Drops with Sinatra
        Oct 15, 2015
        3.7KB
-     *
+     * $>
 
 [12]Calculating percent saved with Shopify
        Sep 24, 2015
        2.0KB
-     *
+     * $>
 
 [13]WP User Themes
        May 21, 2015
        320B
-     *
+     * $>
 
 [14]Get original sized images from a Wordpress Post Gallery
        Nov 08, 2014
        1.5KB
-     *
+     * $>
 
 [15]Developing Shopify themes with teams
        Sep 16, 2014
        6.1KB
-     *
+     * $>
 
 [16]ACF Simple Table
        Jul 18, 2014
        1.1KB
-     *
+     * $>
 
 [17]PHPMailer contrib
        Feb 09, 2014
        1.3KB
-     *
+     * $>
 
 [18]Get single field error in Symfony
        Dec 12, 2013
        941B
-     *
+     * $>
 
 [19]Woocommerce - Sorting product by category
        Oct 05, 2013
        6.0KB
-     *
+     * $>
 
 [20]QR Code gradients
        Jul 13, 2013

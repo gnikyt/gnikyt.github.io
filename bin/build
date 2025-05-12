@@ -139,6 +139,7 @@ process_pages() {
 
     if [[ "$source" = "404.md" ]]; then
       # Parse the page template and save the result.
+      globals["handle"]="404"
       parsed_tpl=$(parse_tpl "${layouts["page"]}")
       echo "$parsed_tpl" > docs/404.html
     else
@@ -183,7 +184,7 @@ process_index() {
   globals["is_post"]=""
   globals["is_page"]="true"
   globals["title"]="gnikyt"
-  globals["handle"]=""
+  globals["handle"]="home"
 
   # Parse the index layout and save the result.
   parsed_tpl=$(parse_tpl "${layouts["index"]}")
@@ -204,7 +205,7 @@ process_archive() {
   globals["is_post"]=""
   globals["is_page"]="true"
   globals["title"]="gnikyt"
-  globals["handle"]=""
+  globals["handle"]="archive"
 
   # Parse the index layout and save the result.
   parsed_tpl=$(parse_tpl "${layouts["archive"]}")

@@ -148,7 +148,7 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
 
    Copyright under [6]CC-4.0.
 
-   Additionally available in alternative formats: [7]MD  /  [8]TXT
+   Available in the following alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
