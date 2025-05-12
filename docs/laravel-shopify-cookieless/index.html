@@ -57,254 +57,280 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="laravel-shopify-cookieless">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Laravel Shopify - Cookieless
+          <h1 class="tab__title tab__title--short post__title">
+            Laravel Shopify - Cookieless /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2021-06-29">Jun 29, 2021</time> — <span class=
-            "post__size">2.8KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 3 years old and may contain outdated information.
-          </div>
         </header>
 
-        <h2 id="this-issue">
-          This Issue
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2021-06-29">Jun 29,
+              2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">2.8KB</span> */
+            </p>
 
-        <p>
-          In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session token
-          implementations. Laravel Shopify package at the time, had just gone through a long process of implementing
-          support for ITP to get around cookie issues. Now, with the announcement, that work needed to be scrapped.
-        </p>
+            <div class="content-container">
+              <h2 id="this-issue">
+                This Issue
+              </h2>
 
-        <p>
-          On March 17th, <a href="https://github.com/gnikyt/laravel-shopify/issues/744">I opened an issue</a> to
-          outline the plan for tackling this new support for session tokens, and remove cookies/ITP. To be honest, I
-          expected to tackle the work on my own. However, to my surprise, the community as well as Shopify themselves,
-          helped lend a hand in getting this issue closed.
-        </p>
+              <p>
+                In the beginning part of 2021, Shopify introduced new requirements for apps to utilize the new session
+                token implementations. Laravel Shopify package at the time, had just gone through a long process of
+                implementing support for ITP to get around cookie issues. Now, with the announcement, that work needed
+                to be scrapped.
+              </p>
 
-        <p>
-          It was a large undertaking… to remove complete dependency on cookies, switch authentication and checks to use
-          session tokens instead. Additionally, many internal improvements on top.
-        </p>
+              <p>
+                On March 17th, <a href="https://github.com/gnikyt/laravel-shopify/issues/744">I opened an issue</a> to
+                outline the plan for tackling this new support for session tokens, and remove cookies/ITP. To be
+                honest, I expected to tackle the work on my own. However, to my surprise, the community as well as
+                Shopify themselves, helped lend a hand in getting this issue closed.
+              </p>
 
-        <h2 id="shopify">
-          Shopify
-        </h2>
+              <p>
+                It was a large undertaking… to remove complete dependency on cookies, switch authentication and checks
+                to use session tokens instead. Additionally, many internal improvements on top.
+              </p>
 
-        <p>
-          Shopify reached out to me a few weeks ago to discuss what they can do to help on the issue, as many
-          developers utilize the package and were stuck for approvals due to the lack of session token support.
-        </p>
+              <h2 id="shopify">
+                Shopify
+              </h2>
 
-        <p>
-          Shopify did not yet dabble in being involved with open source projects surrounding their platform, so this
-          was a first for them; and I am proud the package was able to be a part of it!
-        </p>
+              <p>
+                Shopify reached out to me a few weeks ago to discuss what they can do to help on the issue, as many
+                developers utilize the package and were stuck for approvals due to the lack of session token support.
+              </p>
 
-        <p>
-          After a couple quick meetings with their developer advocate team, we settled on <a href=
-          "https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966">offering Shopify swag</a> to
-          gain momentum for anyone in support of closing the issue.
-        </p>
+              <p>
+                Shopify did not yet dabble in being involved with open source projects surrounding their platform, so
+                this was a first for them; and I am proud the package was able to be a part of it!
+              </p>
 
-        <p>
-          This was a great move for Shopify - getting involved with the community open source projects that touch their
-          platform. In addition to the swag, <a href="https://github.com/lucasmichot">Lucas Michot</a> of Shopify
-          generated a number of pull requests to tighten up the CI, cleaniness, code coverage, and testability of the
-          package.
-        </p>
+              <p>
+                After a couple quick meetings with their developer advocate team, we settled on <a href=
+                "https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966">offering Shopify swag</a>
+                to gain momentum for anyone in support of closing the issue.
+              </p>
 
-        <h2 id="community">
-          Community
-        </h2>
+              <p>
+                This was a great move for Shopify - getting involved with the community open source projects that touch
+                their platform. In addition to the swag, <a href="https://github.com/lucasmichot">Lucas Michot</a> of
+                Shopify generated a number of pull requests to tighten up the CI, cleaniness, code coverage, and
+                testability of the package.
+              </p>
 
-        <p>
-          For the community, we had a ton of support in every area! In total (hopefully not missing anyone), there were
-          23 community members helping to diagnose and solve this issue through comments or pull requests, I’d like to
-          thank you all!
-        </p>
+              <h2 id="community">
+                Community
+              </h2>
 
-        <ul>
-          <li>
-            <span class="citation" data-cites="Enmaboya">@Enmaboya</span>
-          </li>
+              <p>
+                For the community, we had a ton of support in every area! In total (hopefully not missing anyone),
+                there were 23 community members helping to diagnose and solve this issue through comments or pull
+                requests, I’d like to thank you all!
+              </p>
 
-          <li>
-            <span class="citation" data-cites="alexweissman">@alexweissman</span>
-          </li>
+              <ul>
+                <li>
+                  <span class="citation" data-cites="Enmaboya">@Enmaboya</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="arvesolland">@arvesolland</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="alexweissman">@alexweissman</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="LHongy">@LHongy</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="arvesolland">@arvesolland</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="diemah77">@diemah77</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="LHongy">@LHongy</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="darrynten">@darrynten</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="diemah77">@diemah77</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="mkmaker">@mkmaker</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="darrynten">@darrynten</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="derickRenwick">@derickRenwick</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="mkmaker">@mkmaker</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="ingalesachin7">@ingalesachin7</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="derickRenwick">@derickRenwick</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="mohinht">@mohinht</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="ingalesachin7">@ingalesachin7</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="davodavodavo3">@davodavodavo3</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="mohinht">@mohinht</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="squatto">@squatto</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="davodavodavo3">@davodavodavo3</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="raibhuwan">@raibhuwan</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="squatto">@squatto</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="thang12l">@thang12l</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="raibhuwan">@raibhuwan</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="vicky92727">@vicky92727</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="thang12l">@thang12l</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="restyler">@restyler</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="vicky92727">@vicky92727</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="muhammadasfar">@muhammadasfar</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="restyler">@restyler</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="LonnyX">@LonnyX</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="muhammadasfar">@muhammadasfar</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="stevesweets">@stevesweets</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="LonnyX">@LonnyX</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="raff-shopify">@raff-shopify</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="stevesweets">@stevesweets</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="andthink">@andthink</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="raff-shopify">@raff-shopify</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="jayShopTO">@jayShopTO</span>
-          </li>
+                <li>
+                  <span class="citation" data-cites="andthink">@andthink</span>
+                </li>
 
-          <li>
-            <span class="citation" data-cites="mattias">@mattias</span>
-          </li>
-        </ul>
+                <li>
+                  <span class="citation" data-cites="jayShopTO">@jayShopTO</span>
+                </li>
 
-        <h2 id="whats-next">
-          What’s next?
-        </h2>
+                <li>
+                  <span class="citation" data-cites="mattias">@mattias</span>
+                </li>
+              </ul>
 
-        <p>
-          You can <a href="https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0">view the release</a> for
-          <code>v17.0.0</code>. For the package, we will be watching for upcoming issues and attempting to place back
-          per-user authentication support that was in previous versions.
-        </p>
+              <h2 id="whats-next">
+                What’s next?
+              </h2>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/laravel-shopify-cookieless/index.md">MD</a> | <a class="sources__link"
-            href="/laravel-shopify-cookieless/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                You can <a href="https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0">view the release</a>
+                for <code>v17.0.0</code>. For the package, we will be watching for upcoming issues and attempting to
+                place back per-user authentication support that was in previous versions.
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 3 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/laravel-shopify-cookieless/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/laravel-shopify-cookieless/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

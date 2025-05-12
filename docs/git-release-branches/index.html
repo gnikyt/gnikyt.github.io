@@ -55,53 +55,50 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="git-release-branches">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Git release branches
+          <h1 class="tab__title tab__title--short post__title">
+            Git release branches /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2021-03-10">Mar 10, 2021</time> — <span class=
-            "post__size">3.4KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 4 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          A method I like to utilize internally, which I’ve been slowly pushing into my open source work, is to create
-          branches for each major/minor release. Many developers will say branches are meant to be short-lived, to be
-          eventually merged into your main branch. I believe this is true for features and bugfixes, but there is a
-          benefit to keeping branches around for the long term.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2021-03-10">Mar 10,
+              2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">3.4KB</span> */
+            </p>
 
-        <p>
-          Essentially, if you follow symver (<em>[major].[minor].[patch]</em>) for versioning, you would create and
-          maintain a branch for each <em>[major].[minor]</em> release. For example… if I tagged the production branch
-          with <code>v9.0.0</code>, a new major release, I would create a supplementary branch <code>9.0</code>. If I
-          then released a bugfix, <code>v9.0.1</code>, I would then issue a pull request to merge code for
-          <code>v9.0.1</code> into branch <code>9.0</code> to keep it updated with patches.
-        </p>
+            <div class="content-container">
+              <p>
+                A method I like to utilize internally, which I’ve been slowly pushing into my open source work, is to
+                create branches for each major/minor release. Many developers will say branches are meant to be
+                short-lived, to be eventually merged into your main branch. I believe this is true for features and
+                bugfixes, but there is a benefit to keeping branches around for the long term.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">-l</span> <span class=
-          "kw">|</span> <span class="fu">sort</span> <span class="at">-V</span></span>
+              <p>
+                Essentially, if you follow symver (<em>[major].[minor].[patch]</em>) for versioning, you would create
+                and maintain a branch for each <em>[major].[minor]</em> release. For example… if I tagged the
+                production branch with <code>v9.0.0</code>, a new major release, I would create a supplementary branch
+                <code>9.0</code>. If I then released a bugfix, <code>v9.0.1</code>, I would then issue a pull request
+                to merge code for <code>v9.0.1</code> into branch <code>9.0</code> to keep it updated with patches.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">-l</span> <span class=
+                "kw">|</span> <span class="fu">sort</span> <span class="at">-V</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="ex">8.2</span></span>
 <span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="ex">8.3</span></span>
@@ -109,36 +106,36 @@
 <span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="ex">develop</span></span>
 <span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class=
 "ex">master</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          By having your releases tagged and supplementing it with release branches, you will:
-        </p>
+              <p>
+                By having your releases tagged and supplementing it with release branches, you will:
+              </p>
 
-        <ul>
-          <li>Have the ability to rollback easily
-          </li>
+              <ul>
+                <li>Have the ability to rollback easily
+                </li>
 
-          <li>Have the ability to support multiple versions easily
-          </li>
+                <li>Have the ability to support multiple versions easily
+                </li>
 
-          <li>Have a easily navigable snapshot of previous releases
-          </li>
-        </ul>
+                <li>Have a easily navigable snapshot of previous releases
+                </li>
+              </ul>
 
-        <p>
-          This may be overkill for small and personal projects, but when you’re working with a team and potentially
-          have to support multiple versions of a codebase, then this flow is easy to adopt.
-        </p>
+              <p>
+                This may be overkill for small and personal projects, but when you’re working with a team and
+                potentially have to support multiple versions of a codebase, then this flow is easy to adopt.
+              </p>
 
-        <p>
-          Below is a script you can use to walk through your existing repository (assuming everything is tagged in
-          symver format) and create the <em>[major].[minor]</em> branches for you.
-        </p>
+              <p>
+                Below is a script you can use to walk through your existing repository (assuming everything is tagged
+                in symver format) and create the <em>[major].[minor]</em> branches for you.
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="co">#!/usr/bin/env python</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true"
+                href="#cb2-1" tabindex="-1"></a><span class="co">#!/usr/bin/env python</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class=
 "co"># Usage: `python release_branches.py`</span></span>
@@ -245,70 +242,98 @@
 <span id="cb2-60"><a aria-hidden="true" href="#cb2-60" tabindex="-1"></a>        make_branch(branch, tag)</span>
 <span id="cb2-61"><a aria-hidden="true" href="#cb2-61" tabindex="-1"></a>    <span class="bu">print</span>(<span class=
 "st">"&gt;&gt; Complete"</span>)</span></code></pre>
+              </div>
+
+              <p>
+                Running with the <code>DRY_RUN</code> env supplied, you’ll be able to see the branches it will created
+                based on your existing tags before proceeding with the creation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Running with the <code>DRY_RUN</code> env supplied, you’ll be able to see the branches it will created based
-          on your existing tags before proceeding with the creation.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 4 years old and may contain outdated information.
+              </div>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/git-release-branches/index.md">MD</a> | <a class="sources__link" href=
-            "/git-release-branches/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/git-release-branches/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/git-release-branches/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

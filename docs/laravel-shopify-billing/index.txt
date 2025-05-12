@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                            Laravel Shopify billing
+                           Laravel Shopify billing /
 
-   /* Jan 26, 2018 — 970B */
-
-   This post is 7 years old and may contain outdated information.
+   /* Jan 26, 2018  —  970B */
 
    Version 2.0.0 was [3]just released which features the baked-in ability
    to turn your Shopify app into a billable app with some simple
@@ -25,19 +23,25 @@
    Other minor updates include integration with StyleCI to keep coding
    standards within PSR1 and PSR2.
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -54,9 +58,9 @@ References
    3. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
    4. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
    5. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
-   6. /laravel-shopify-billing/index.md
-   7. /laravel-shopify-billing/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /laravel-shopify-billing/index.md
+   8. /laravel-shopify-billing/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

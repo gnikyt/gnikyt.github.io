@@ -1,10 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                   Handling Shopify API limits and Goroutines
+                  Handling Shopify API limits and Goroutines /
 
-   /* Apr 10, 2025 — 15KB */
+   /* Apr 10, 2025  —  15KB */
 
    I frequently build integration applications with Shopify and I thought
    it would be helpful to highlight one approach (of many) that I commonly
@@ -104,7 +104,6 @@ ITEM_CODE,QTY
    available points were not totally drained.
 
    Example code is below.
-
 package shopifysemaphore
 
 import (
@@ -335,7 +334,6 @@ func WithPauseBuffer(dur time.Duration) func(*Semaphore) {
 }
 
    Example usage:
-
 package main
 
 import (
@@ -443,19 +441,23 @@ completed.
    Hopefully this helpful to those looking to do similar. I have released
    this method as a Go package, which you can find [3]here on Github.
 
-   [4]MD | [5]TXT | [6]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   Copyright under [4]CC-4.0.
+
+   Additionally available in alternative formats: [5]MD  /  [6]TXT
 
    [7]Ty King
 
-Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [8]about me.
-   [9]Github [10]LinkedIn [11]CV [12]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
      *
      *
      *
@@ -470,9 +472,9 @@ References
    1. /rss.xml
    2. /
    3. https://github.com/gnikyt/shopifysemaphore
-   4. /handling-shopify-api-limits-goroutines/index.md
-   5. /handling-shopify-api-limits-goroutines/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. /handling-shopify-api-limits-goroutines/index.md
+   6. /handling-shopify-api-limits-goroutines/index.txt
    7. /about
    8. /about
    9. https://github.com/gnikyt

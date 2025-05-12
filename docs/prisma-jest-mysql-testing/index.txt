@@ -1,10 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                        Prisma, Jest, and MySQL testing
+                       Prisma, Jest, and MySQL testing /
 
-   /* Mar 28, 2024 — 6.5KB */
+   /* Mar 28, 2024  —  6.5KB */
 
    This is an alternate extension to my previous post, [3]Shopify, Remix,
    Prisma, and Jest.
@@ -15,7 +15,6 @@
 Changes
 
    Change app/__mocks__/db.server.ts to:
-
 /* app/__mocks__/db.server.ts */
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -94,7 +93,6 @@ Example
 
    You reference the existing db.server.ts file normally in your tests, as
    Jest will swap it out with our __mocks__/db.server.ts version.
-
 /* app/order/processor.test.ts */
 
 import { describe, expect, it } from "@jest/globals";
@@ -165,7 +163,7 @@ Usage
    DATABASE_URL=mysql://root:password@localhost:3306 npm run test
    --runInBand
 
-  Docker / Docker-Compose
+Docker / Docker-Compose
 
    If you would like to utilize containers for the testing, this is doable
    as well.
@@ -208,7 +206,6 @@ CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]
    This Dockerfile uses Alpine Linux with two stage build… one to install
    dependencies and cache them, and a second step which uses the cached
    dependencies and runs the tests.
-
 version: '3.9'
 
 services:
@@ -256,19 +253,23 @@ volumes:
    down once Jest exits. Without this, the container stays open and
    running.
 
-   [4]MD | [5]TXT | [6]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   Copyright under [4]CC-4.0.
+
+   Additionally available in alternative formats: [5]MD  /  [6]TXT
 
    [7]Ty King
 
-Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [8]about me.
-   [9]Github [10]LinkedIn [11]CV [12]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
      *
      *
      *
@@ -283,9 +284,9 @@ References
    1. /rss.xml
    2. /
    3. /tmp/shopify-remix-prisma-and-jest
-   4. /prisma-jest-mysql-testing/index.md
-   5. /prisma-jest-mysql-testing/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. /prisma-jest-mysql-testing/index.md
+   6. /prisma-jest-mysql-testing/index.txt
    7. /about
    8. /about
    9. https://github.com/gnikyt

@@ -55,118 +55,143 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="laravel-shopify-billing">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Laravel Shopify billing
+          <h1 class="tab__title tab__title--short post__title">
+            Laravel Shopify billing /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2018-01-26">Jan 26, 2018</time> — <span class=
-            "post__size">970B</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 7 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          Version 2.0.0 was <a href="https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0">just released</a>
-          which features the baked-in ability to turn your Shopify app into a billable app with some simple
-          configuration additions.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2018-01-26">Jan 26,
+              2018</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">970B</span> */
+            </p>
 
-        <p>
-          It has support for the two methods Shopify supports, single and recurring charges. You can set the plan name,
-          price, trial days, and more.
-        </p>
+            <div class="content-container">
+              <p>
+                Version 2.0.0 was <a href="https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0">just
+                released</a> which features the baked-in ability to turn your Shopify app into a billable app with some
+                simple configuration additions.
+              </p>
 
-        <p>
-          You also have to ability to easily upgrade or downgrade a shop’s plan, enable them as a grandfather (skip
-          billing), and more.
-        </p>
+              <p>
+                It has support for the two methods Shopify supports, single and recurring charges. You can set the plan
+                name, price, trial days, and more.
+              </p>
 
-        <p>
-          For full information see the release notes, <a href=
-          "https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200">upgrading doc</a>, and the wiki page
-          for <a href="https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App">creating a billable
-          app</a>.
-        </p>
+              <p>
+                You also have to ability to easily upgrade or downgrade a shop’s plan, enable them as a grandfather
+                (skip billing), and more.
+              </p>
 
-        <p>
-          Other minor updates include integration with StyleCI to keep coding standards within PSR1 and PSR2.
-        </p>
+              <p>
+                For full information see the release notes, <a href=
+                "https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200">upgrading doc</a>, and the wiki
+                page for <a href="https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App">creating a
+                billable app</a>.
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/laravel-shopify-billing/index.md">MD</a> | <a class="sources__link" href=
-            "/laravel-shopify-billing/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Other minor updates include integration with StyleCI to keep coding standards within PSR1 and PSR2.
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 7 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/laravel-shopify-billing/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/laravel-shopify-billing/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

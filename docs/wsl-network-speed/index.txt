@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                               WSL network speed
+                              WSL network speed /
 
-   /* Nov 16, 2021 — 1.8KB */
-
-   This post is 3 years old and may contain outdated information.
+   /* Nov 16, 2021  —  1.8KB */
 
    Recently, I jumped back into Windows after a few months of Linux and
    FreeBSD. I opted to upgrade to Windows 11 and clean out my system to be
@@ -30,7 +28,6 @@ Potential Solution #1
    Editing resolv.conf and wsl.conf to set a nameserver and disable WSL
    from autogenerating the resolv.conf file each time and overwriting our
    new settings.
-
 sudo rm /etc/resolv.conf
 sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
 sudo bash -c 'echo "[network]" > /etc/wsl.conf'
@@ -49,19 +46,25 @@ Potential Solution #2
    was operating normally and speedtest-cli was reporting numbers
    identical to the host machine in both download and upload.
 
-   [4]MD | [5]TXT | [6]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 3 years old and may contain outdated information.
+
+   Copyright under [4]CC-4.0.
+
+   Additionally available in alternative formats: [5]MD  /  [6]TXT
 
    [7]Ty King
 
-Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [8]about me.
-   [9]Github [10]LinkedIn [11]CV [12]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
      *
      *
      *
@@ -76,9 +79,9 @@ References
    1. /rss.xml
    2. /
    3. https://github.com/microsoft/WSL/issues/4901
-   4. /wsl-network-speed/index.md
-   5. /wsl-network-speed/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. /wsl-network-speed/index.md
+   6. /wsl-network-speed/index.txt
    7. /about
    8. /about
    9. https://github.com/gnikyt

@@ -55,363 +55,390 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="thinkpad-t580-on-linux">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Thinkpad T580 on Linux
+          <h1 class="tab__title tab__title--short post__title">
+            Thinkpad T580 on Linux /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2019-01-08">Jan 08, 2019</time> — <span class=
-            "post__size">5.9KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 6 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          Lenovo is known for creating configurable machines that are great for both business and consumers, which are
-          easily extendable or fixable by the average user thanks to their documentation and sane build.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2019-01-08">Jan 08,
+              2019</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">5.9KB</span> */
+            </p>
 
-        <p>
-          They’re also one of the very few vendors, if not the only, to claim Linux compatibility (“out of the box”
-          working) for <a href="https://support.lenovo.com/ca/en/solutions/pd031426">many models</a>.
-        </p>
+            <div class="content-container">
+              <p>
+                Lenovo is known for creating configurable machines that are great for both business and consumers,
+                which are easily extendable or fixable by the average user thanks to their documentation and sane
+                build.
+              </p>
 
-        <h2 id="my-machine">
-          My Machine
-        </h2>
+              <p>
+                They’re also one of the very few vendors, if not the only, to claim Linux compatibility (“out of the
+                box” working) for <a href="https://support.lenovo.com/ca/en/solutions/pd031426">many models</a>.
+              </p>
 
-        <ul>
-          <li>Lenovo ThinkPad T580 (2018)
-          </li>
+              <h2 id="my-machine">
+                My Machine
+              </h2>
 
-          <li>32GB RAM
-          </li>
+              <ul>
+                <li>Lenovo ThinkPad T580 (2018)
+                </li>
 
-          <li>500GB SSD
-          </li>
+                <li>32GB RAM
+                </li>
 
-          <li>15.6” UHD matte screen
-          </li>
+                <li>500GB SSD
+                </li>
 
-          <li>Intel i7-8650U CPU @ 1.90GHZ x 8
-          </li>
+                <li>15.6” UHD matte screen
+                </li>
 
-          <li>Intel UHD 620 (Kabylake) / Nvidia MX150
-          </li>
+                <li>Intel i7-8650U CPU @ 1.90GHZ x 8
+                </li>
 
-          <li>Fingerprint reader
-          </li>
+                <li>Intel UHD 620 (Kabylake) / Nvidia MX150
+                </li>
 
-          <li>Lenovo USB-C Dock
-          </li>
-        </ul>
+                <li>Fingerprint reader
+                </li>
 
-        <h2 id="distro-choice">
-          Distro Choice
-        </h2>
+                <li>Lenovo USB-C Dock
+                </li>
+              </ul>
 
-        <h3 id="history">
-          History
-        </h3>
+              <h2 id="distro-choice">
+                Distro Choice
+              </h2>
 
-        <p>
-          I’ve been around the block when it comes to Linux, used it for over a decade, with 2003 being my first
-          self-installation experience. It was a tough experience at that, head diving into non-GUI command line
-          installations, partitioning, and many pages of installation manuals to read over.
-        </p>
+              <h3 id="history">
+                History
+              </h3>
 
-        <p>
-          I’ve tried everything from FreeBSD, Debian, Fedora, DSL, Redhat, OpenSUSE, Gentoo, Ubuntu, Slackware,
-          Mandriva, Arch, and more. Hell, I even tried out Linux from Scratch for fun!
-        </p>
+              <p>
+                I’ve been around the block when it comes to Linux, used it for over a decade, with 2003 being my first
+                self-installation experience. It was a tough experience at that, head diving into non-GUI command line
+                installations, partitioning, and many pages of installation manuals to read over.
+              </p>
 
-        <p>
-          All that distro-hopping gained me a lot of experience, and by experience I mean the type of experience you
-          gain when your system crashes for some random reason, becomes unusable, random annoyances you have/want to
-          solve. Many of these distros I stuck with and used for years happily.
-        </p>
+              <p>
+                I’ve tried everything from FreeBSD, Debian, Fedora, DSL, Redhat, OpenSUSE, Gentoo, Ubuntu, Slackware,
+                Mandriva, Arch, and more. Hell, I even tried out Linux from Scratch for fun!
+              </p>
 
-        <p>
-          However, the last few years (if you can tell from my posts), I’ve been in the land of Mac and Windows… simply
-          because at the time, I needed things to “just work” and being as mobile as I was, I couldn’t afford my
-          machine failing on me during a presentation or on-site job. I didn’t even trust the ol’ Debian route out of
-          that fear.
-        </p>
+              <p>
+                All that distro-hopping gained me a lot of experience, and by experience I mean the type of experience
+                you gain when your system crashes for some random reason, becomes unusable, random annoyances you
+                have/want to solve. Many of these distros I stuck with and used for years happily.
+              </p>
 
-        <h3 id="change">
-          Change
-        </h3>
+              <p>
+                However, the last few years (if you can tell from my posts), I’ve been in the land of Mac and Windows…
+                simply because at the time, I needed things to “just work” and being as mobile as I was, I couldn’t
+                afford my machine failing on me during a presentation or on-site job. I didn’t even trust the ol’
+                Debian route out of that fear.
+              </p>
 
-        <p>
-          Not to knock Mac or Windows, they’re fine systems and you can get the job done on both through many of the
-          tools available these days such as Vagrant, Docker, or even Microsoft’s new WSL; but it just doesn’t feel
-          like home. You don’t feel the control or the fullness open source software can bring you.
-        </p>
+              <h3 id="change">
+                Change
+              </h3>
 
-        <p>
-          With my new T580, I decided to change that and get back on Linux - bite the bullet and make the system work
-          but also trustworthy.
-        </p>
+              <p>
+                Not to knock Mac or Windows, they’re fine systems and you can get the job done on both through many of
+                the tools available these days such as Vagrant, Docker, or even Microsoft’s new WSL; but it just
+                doesn’t feel like home. You don’t feel the control or the fullness open source software can bring you.
+              </p>
 
-        <p>
-          Thought a lot of research, trial, and error, I ended up choosing <a href=
-          "https://system76.com/pop">Pop!_OS</a>. Its a distro based upon Ubuntu with many patches to assist in things
-          like multi-DPI, Intel/Nvidia graphics switching, custom beautiful theming/icons, and sane defaults. Its the
-          distro they pack into their own System76 machines.
-        </p>
+              <p>
+                With my new T580, I decided to change that and get back on Linux - bite the bullet and make the system
+                work but also trustworthy.
+              </p>
 
-        <h2 id="installation">
-          Installation
-        </h2>
+              <p>
+                Thought a lot of research, trial, and error, I ended up choosing <a href=
+                "https://system76.com/pop">Pop!_OS</a>. Its a distro based upon Ubuntu with many patches to assist in
+                things like multi-DPI, Intel/Nvidia graphics switching, custom beautiful theming/icons, and sane
+                defaults. Its the distro they pack into their own System76 machines.
+              </p>
 
-        <p>
-          Installation was pretty simple, Pop’s installer is well made, easy to follow, and clean.
-        </p>
+              <h2 id="installation">
+                Installation
+              </h2>
 
-        <p>
-          Before beginning installation, I did the following:
-        </p>
+              <p>
+                Installation was pretty simple, Pop’s installer is well made, easy to follow, and clean.
+              </p>
 
-        <ul>
-          <li>Wrote Pop to a USB stick
-          </li>
+              <p>
+                Before beginning installation, I did the following:
+              </p>
 
-          <li>Disabled Secure Boot in the BIOs
-          </li>
+              <ul>
+                <li>Wrote Pop to a USB stick
+                </li>
 
-          <li>Disabled Window’s paging
-          </li>
+                <li>Disabled Secure Boot in the BIOs
+                </li>
 
-          <li>Disabled Window’s restore point
-          </li>
+                <li>Disabled Window’s paging
+                </li>
 
-          <li>Shrunk Windows partition (through Windows Disk Management) to a bare minimum
-          </li>
-        </ul>
+                <li>Disabled Window’s restore point
+                </li>
 
-        <p>
-          Next:
-        </p>
+                <li>Shrunk Windows partition (through Windows Disk Management) to a bare minimum
+                </li>
+              </ul>
 
-        <ul>
-          <li>Created a EXT4 partition from the unallocated space
-          </li>
+              <p>
+                Next:
+              </p>
 
-          <li>Set Pop to use the new partition for the boot
-          </li>
+              <ul>
+                <li>Created a EXT4 partition from the unallocated space
+                </li>
 
-          <li>Set Pop to use the existing EFI partition
-          </li>
-        </ul>
+                <li>Set Pop to use the new partition for the boot
+                </li>
 
-        <p>
-          Pop then installed the system successfully and created a default boot entry.
-        </p>
+                <li>Set Pop to use the existing EFI partition
+                </li>
+              </ul>
 
-        <p>
-          Everything upon boot worked. Screens, WIFI, Bluetooth, etc.
-        </p>
+              <p>
+                Pop then installed the system successfully and created a default boot entry.
+              </p>
 
-        <h2 id="tweaks">
-          Tweaks
-        </h2>
+              <p>
+                Everything upon boot worked. Screens, WIFI, Bluetooth, etc.
+              </p>
 
-        <p>
-          To make the most out of the ThinkPads, you should install the following.
-        </p>
+              <h2 id="tweaks">
+                Tweaks
+              </h2>
 
-        <h4 id="tlp">
-          TLP
-        </h4>
+              <p>
+                To make the most out of the ThinkPads, you should install the following.
+              </p>
 
-        <p>
-          TLP is a power-saving utility with special additions for Thinkpads. Such as battery thresholds, statistics,
-          charging plans, recalibration, and more.
-        </p>
+              <h4 id="tlp">
+                TLP
+              </h4>
 
-        <p>
-          <code>sudo apt install tlp</code>
-        </p>
+              <p>
+                TLP is a power-saving utility with special additions for Thinkpads. Such as battery thresholds,
+                statistics, charging plans, recalibration, and more.
+              </p>
 
-        <p>
-          With this, you should also install the kernel modules for thresholds to work.
-        </p>
+              <p>
+                <code>sudo apt install tlp</code>
+              </p>
 
-        <p>
-          <code>sudo apt install tp-smapi-dms</code>
-        </p>
+              <p>
+                With this, you should also install the kernel modules for thresholds to work.
+              </p>
 
-        <p>
-          <code>sudo modprobe tp-smapi</code>
-        </p>
+              <p>
+                <code>sudo apt install tp-smapi-dms</code>
+              </p>
 
-        <p>
-          For more information visit the <a href=
-          "https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html">TLP webpage</a>.
-        </p>
+              <p>
+                <code>sudo modprobe tp-smapi</code>
+              </p>
 
-        <h4 id="audio">
-          Audio
-        </h4>
+              <p>
+                For more information visit the <a href=
+                "https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html">TLP webpage</a>.
+              </p>
 
-        <p>
-          With the newer ThinkPads, Lenovo ships them with Dolby Digital assistant for Windows to make the built-in
-          speakers sound beefy. On Pop (any others), the speaker will sound average… even lame.
-        </p>
+              <h4 id="audio">
+                Audio
+              </h4>
 
-        <p>
-          To help with this, we can install PulseEffects. This is a complete tool for managing the audio output,
-          allowing you to adjust and save/load presets to your liking.
-        </p>
+              <p>
+                With the newer ThinkPads, Lenovo ships them with Dolby Digital assistant for Windows to make the
+                built-in speakers sound beefy. On Pop (any others), the speaker will sound average… even lame.
+              </p>
 
-        <p>
-          <code>sudo apt install pulseeffects</code>
-        </p>
+              <p>
+                To help with this, we can install PulseEffects. This is a complete tool for managing the audio output,
+                allowing you to adjust and save/load presets to your liking.
+              </p>
 
-        <p>
-          Once installed I recommend you check out <a href="https://github.com/JackHack96/PulseEffects-Presets">this
-          repository on Github</a> for some great ready-made presets. I recommend <em>Perfect EQ</em>.
-        </p>
+              <p>
+                <code>sudo apt install pulseeffects</code>
+              </p>
 
-        <p>
-          Now, your speakers, and even other audio devices will sound great!
-        </p>
+              <p>
+                Once installed I recommend you check out <a href=
+                "https://github.com/JackHack96/PulseEffects-Presets">this repository on Github</a> for some great
+                ready-made presets. I recommend <em>Perfect EQ</em>.
+              </p>
 
-        <h4 id="wayland">
-          Wayland
-        </h4>
+              <p>
+                Now, your speakers, and even other audio devices will sound great!
+              </p>
 
-        <p>
-          If you have an Intel graphics card like me, then you’re able to use Wayland.
-        </p>
+              <h4 id="wayland">
+                Wayland
+              </h4>
 
-        <p>
-          <code>sudo nano /etc/gdm3/custom.conf</code>
-        </p>
+              <p>
+                If you have an Intel graphics card like me, then you’re able to use Wayland.
+              </p>
 
-        <p>
-          Find <code>WaylandEnable=false</code> and commend it out: <code>#WaylandEndable=false</code>. Then,
-          <code>sudo systemctl restart gdm.service</code>.
-        </p>
+              <p>
+                <code>sudo nano /etc/gdm3/custom.conf</code>
+              </p>
 
-        <p>
-          You should now be logged out and a visible cog icon should show next to “Login”. Click it and select “Pop
-          (Wayland)”.
-        </p>
+              <p>
+                Find <code>WaylandEnable=false</code> and commend it out: <code>#WaylandEndable=false</code>. Then,
+                <code>sudo systemctl restart gdm.service</code>.
+              </p>
 
-        <p>
-          The only downfall is Firefox (and Chrome), as well as Thunderbird, do not support the scaling properly yet.
-          I’ve heard the nightly edition of Firefox does solve these issues, however.
-        </p>
+              <p>
+                You should now be logged out and a visible cog icon should show next to “Login”. Click it and select
+                “Pop (Wayland)”.
+              </p>
 
-        <p>
-          Given those scaling issues, I personally remain on the default Xorg for now. Which is totally fine! Pop has a
-          great daemon running to detect when you plug in mixed DPI screens to the laptop. It will automatically adjust
-          the resolutions to match so you won’t have scaling issues.
-        </p>
+              <p>
+                The only downfall is Firefox (and Chrome), as well as Thunderbird, do not support the scaling properly
+                yet. I’ve heard the nightly edition of Firefox does solve these issues, however.
+              </p>
 
-        <h4 id="nvidia">
-          Nvidia
-        </h4>
+              <p>
+                Given those scaling issues, I personally remain on the default Xorg for now. Which is totally fine! Pop
+                has a great daemon running to detect when you plug in mixed DPI screens to the laptop. It will
+                automatically adjust the resolutions to match so you won’t have scaling issues.
+              </p>
 
-        <p>
-          As of writing, you can install the <code>nvidia-410</code> driver which works fine for the MX150.
-        </p>
+              <h4 id="nvidia">
+                Nvidia
+              </h4>
 
-        <p>
-          Running <code>sudo powertop</code> and switching to the tunables tab, you should see a “BAD” status for the
-          Nvidia power management. Simply click enter, to check it from bad to good. Using the recommended changes, my
-          power usage for Nvidia (7-9W) closely matches Intel (6-8W of usage).
-        </p>
+              <p>
+                As of writing, you can install the <code>nvidia-410</code> driver which works fine for the MX150.
+              </p>
 
-        <h2 id="a-month-later">
-          A Month Later
-        </h2>
+              <p>
+                Running <code>sudo powertop</code> and switching to the tunables tab, you should see a “BAD” status for
+                the Nvidia power management. Simply click enter, to check it from bad to good. Using the recommended
+                changes, my power usage for Nvidia (7-9W) closely matches Intel (6-8W of usage).
+              </p>
 
-        <p>
-          It’s now been a month and I’ve experienced no issues besides the rare issue of the desktop freezing sometimes
-          when I plug in my USB-C dock, or monitors not waking up.
-        </p>
+              <h2 id="a-month-later">
+                A Month Later
+              </h2>
 
-        <p>
-          Overall, Pop is a great polished distro with a lot of care put into its end-to-end process from installation
-          to the end-user experience with the polished custom themeing. Give it a try!
-        </p>
+              <p>
+                It’s now been a month and I’ve experienced no issues besides the rare issue of the desktop freezing
+                sometimes when I plug in my USB-C dock, or monitors not waking up.
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/thinkpad-t580-on-linux/index.md">MD</a> | <a class="sources__link" href=
-            "/thinkpad-t580-on-linux/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Overall, Pop is a great polished distro with a lot of care put into its end-to-end process from
+                installation to the end-user experience with the polished custom themeing. Give it a try!
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 6 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/thinkpad-t580-on-linux/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/thinkpad-t580-on-linux/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

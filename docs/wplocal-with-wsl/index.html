@@ -55,250 +55,251 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="wplocal-with-wsl">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            WP Local with WSL
+          <h1 class="tab__title tab__title--short post__title">
+            WP Local with WSL /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2023-12-07">Dec 07, 2023</time> — <span class=
-            "post__size">5.5KB</span> */
-          </p>
         </header>
 
-        <p>
-          A recent project was picked up from another agency where they utilized WP Engine and WP Local. WP Local
-          <em>can</em> work with WSL, but the provided Debian package file seems to miss some dependencies required to
-          properly use it and additionally, some issues cropped up which needed to be solved to have a fully working
-          setup.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2023-12-07">Dec 07,
+              2023</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">5.5KB</span> */
+            </p>
 
-        <h2 id="installation">
-          Installation
-        </h2>
+            <div class="content-container">
+              <p>
+                A recent project was picked up from another agency where they utilized WP Engine and WP Local. WP Local
+                <em>can</em> work with WSL, but the provided Debian package file seems to miss some dependencies
+                required to properly use it and additionally, some issues cropped up which needed to be solved to have
+                a fully working setup.
+              </p>
 
-        <p>
-          Download WP Local and save it to your Downloads directory. Next, open your Windows Terminal and run the
-          following command:
-        </p>
+              <h2 id="installation">
+                Installation
+              </h2>
 
-        <p>
-          <code>sudo dpkg -i /mnt/c/Users/[your user]/Downloads/local-[version]-linux.deb</code>
-        </p>
+              <p>
+                Download WP Local and save it to your Downloads directory. Next, open your Windows Terminal and run the
+                following command:
+              </p>
 
-        <p>
-          Replacing <code>[your user]</code> with your Windows username and <code>[version]</code> with the downloaded
-          WP Local version, example:
-        </p>
+              <p>
+                <code>sudo dpkg -i /mnt/c/Users/[your user]/Downloads/local-[version]-linux.deb</code>
+              </p>
 
-        <p>
-          <code>sudo dpkg -i /mnt/c/Users/tyler/Downloads/local-8.1.0-linux.deb</code>
-        </p>
+              <p>
+                Replacing <code>[your user]</code> with your Windows username and <code>[version]</code> with the
+                downloaded WP Local version, example:
+              </p>
 
-        <p>
-          This will install WP Local and automatically create a Start Menu entry for <code>Local (Ubuntu)</code> (in my
-          case), but you can also spawn it through the terminal with <code>/usr/bin/local</code>.
-        </p>
+              <p>
+                <code>sudo dpkg -i /mnt/c/Users/tyler/Downloads/local-8.1.0-linux.deb</code>
+              </p>
 
-        <p>
-          <a href="/assets/images/posts/wplocal_running.png"><img alt="WP Local Running inside WSL" src=
-          "/assets/images/posts/wplocal_running.png"></a>
-        </p>
+              <p>
+                This will install WP Local and automatically create a Start Menu entry for <code>Local (Ubuntu)</code>
+                (in my case), but you can also spawn it through the terminal with <code>/usr/bin/local</code>.
+              </p>
 
-        <p>
-          Although its open and running, if you immediately tried to connect to WP Engine and pull down a project,
-          you’ll have displays with errors pop up such as the inability for WP Local to ask for priviliages (sudo) and
-          issues for it to properly configure NGINX.
-        </p>
+              <p>
+                <a href="/assets/images/posts/wplocal_running.png"><img alt="WP Local Running inside WSL" src=
+                "/assets/images/posts/wplocal_running.png"></a>
+              </p>
 
-        <p>
-          With a lot of digging around the web to solve both issues… I came across a great post by <a href=
-          "https://community.localwp.com/u/robert77">robert77</a> on the WP Local Community Forums which I will outline
-          below.
-        </p>
+              <p>
+                Although its open and running, if you immediately tried to connect to WP Engine and pull down a
+                project, you’ll have displays with errors pop up such as the inability for WP Local to ask for
+                priviliages (sudo) and issues for it to properly configure NGINX.
+              </p>
 
-        <h2 id="fixing-dependencies">
-          Fixing Dependencies
-        </h2>
+              <p>
+                With a lot of digging around the web to solve both issues… I came across a great post by <a href=
+                "https://community.localwp.com/u/robert77">robert77</a> on the WP Local Community Forums which I will
+                outline below.
+              </p>
 
-        <p>
-          As mentioned earlier, not all dependencies we actually end up being installed. I am unsure if the Debian
-          package defines the dependencies to be installed, or they error upon installing (I did not see an error in my
-          case), but… we need more packages regardless!
-        </p>
+              <h2 id="fixing-dependencies">
+                Fixing Dependencies
+              </h2>
 
-        <p>
-          Run <code>sudo apt-get update &amp;& sudo apt-get upgrade</code> to ensure package information is updated and
-          accurate.
-        </p>
+              <p>
+                As mentioned earlier, not all dependencies we actually end up being installed. I am unsure if the
+                Debian package defines the dependencies to be installed, or they error upon installing (I did not see
+                an error in my case), but… we need more packages regardless!
+              </p>
 
-        <p>
-          Next, run:
-        </p>
+              <p>
+                Run <code>sudo apt-get update &amp;& sudo apt-get upgrade</code> to ensure package information is
+                updated and accurate.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class=
-          "at">-y</span> install libaio1 libncurses5 libnss3-tools rsync shared-mime-info desktop-file-utils libxshmfence1 libglu1 libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 libgtk-3-0 libgbm-dev libasound2 libnuma-dev libxslt1.1 lxqt-sudo libzip4</span></code></pre>
-        </div>
+              <p>
+                Next, run:
+              </p>
 
-        <p>
-          This will ensure were able to display a GUI for the privilaged requests, rync is installed for Local to use,
-          and other items.
-        </p>
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class=
+                "at">-y</span> install libaio1 libncurses5 libnss3-tools rsync shared-mime-info desktop-file-utils libxshmfence1 libglu1 libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 libgtk-3-0 libgbm-dev libasound2 libnuma-dev libxslt1.1 lxqt-sudo libzip4</span></code></pre>
+              </div>
 
-        <p>
-          Next we need to download a couple packages manually:
-        </p>
+              <p>
+                This will ensure were able to display a GUI for the privilaged requests, rync is installed for Local to
+                use, and other items.
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="ex">curl</span> <span class=
-          "at">-O</span> http://snapshot.debian.org/archive/debian/20190501T215844Z/pool/main/g/glibc/multiarch-support_2.28-10_amd64.deb</span>
+              <p>
+                Next we need to download a couple packages manually:
+              </p>
+
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="ex">curl</span> <span class=
+                "at">-O</span> http://snapshot.debian.org/archive/debian/20190501T215844Z/pool/main/g/glibc/multiarch-support_2.28-10_amd64.deb</span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class=
 "at">-i</span> multiarch-support_2.28-10_amd64.deb</span></code></pre>
-        </div>
+              </div>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="ex">curl</span> <span class=
-          "at">-O</span> http://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb</span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a><span class="ex">curl</span> <span class=
+                "at">-O</span> http://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb</span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class=
 "at">-i</span> libjpeg8_8d1-2_amd64.deb</span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class=
 "fu">sudo</span> cp /usr/lib/x86_64-linux-gnu/libonig.so.5 /usr/lib/x86_64-linux-gnu/libonig.so.4</span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          This takes care of the needed dependencies.
-        </p>
+              <p>
+                This takes care of the needed dependencies.
+              </p>
 
-        <h2 id="priviliaged-requests">
-          Priviliaged Requests
-        </h2>
+              <h2 id="priviliaged-requests">
+                Priviliaged Requests
+              </h2>
 
-        <p>
-          To enable the ability to ask for privilaged access, we need a way for Local to spawn a GUI to ask for a
-          password.
-        </p>
+              <p>
+                To enable the ability to ask for privilaged access, we need a way for Local to spawn a GUI to ask for a
+                password.
+              </p>
 
-        <p>
-          Running <code>sudo nano /usr/bin/kdesudo</code> should open a new file. Inside the file, paste the following
-          to use LxQT’s prompt:
-        </p>
+              <p>
+                Running <code>sudo nano /usr/bin/kdesudo</code> should open a new file. Inside the file, paste the
+                following to use LxQT’s prompt:
+              </p>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href=
-          "#cb4-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class=
 "ex">/usr/bin/lxqt-sudo</span> <span class="va">$7</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Then run <code>sudo chmod +x /usr/bin/kdesudo</code> to allow it to be executable.
-        </p>
+              <p>
+                Then run <code>sudo chmod +x /usr/bin/kdesudo</code> to allow it to be executable.
+              </p>
 
-        <p>
-          An example of it running:
-        </p>
+              <p>
+                An example of it running:
+              </p>
 
-        <p>
-          <a href="/assets/images/posts/wplocal_sudo.png"><img alt="LxQT Sudo GUI" src=
-          "/assets/images/posts/wplocal_sudo.png"></a>
-        </p>
+              <p>
+                <a href="/assets/images/posts/wplocal_sudo.png"><img alt="LxQT Sudo GUI" src=
+                "/assets/images/posts/wplocal_sudo.png"></a>
+              </p>
 
-        <h2 id="nginx-fix">
-          NGINX Fix
-        </h2>
+              <h2 id="nginx-fix">
+                NGINX Fix
+              </h2>
 
-        <p>
-          If you are pulling down a project from WP Engine which uses NGINX, it will attempt to set capabilities but be
-          unable to. To fix this, run the following:
-        </p>
+              <p>
+                If you are pulling down a project from WP Engine which uses NGINX, it will attempt to set capabilities
+                but be unable to. To fix this, run the following:
+              </p>
 
-        <div class="sourceCode" id="cb5">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" href=
-          "#cb5-1" tabindex="-1"></a><span class="fu">sudo</span> setcap <span class=
-          "st">'cap_net_bind_service=+ep'</span> /opt/Local/resources/extraResources/lightning-services/nginx-<span class=
-          "pp">[</span><span class="ss">version</span><span class="pp">]</span>/bin/linux/sbin/nginx<span class=
-          "kw">`</span></span></code></pre>
-        </div>
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" href=
+                "#cb5-1" tabindex="-1"></a><span class="fu">sudo</span> setcap <span class=
+                "st">'cap_net_bind_service=+ep'</span> /opt/Local/resources/extraResources/lightning-services/nginx-<span class=
+                "pp">[</span><span class="ss">version</span><span class="pp">]</span>/bin/linux/sbin/nginx<span class=
+                "kw">`</span></span></code></pre>
+              </div>
 
-        <p>
-          Replacing <code>[version]</code> with the current NGINX version listed in the directory, in my case it was
-          <code>1.16.0+7</code>.
-        </p>
+              <p>
+                Replacing <code>[version]</code> with the current NGINX version listed in the directory, in my case it
+                was <code>1.16.0+7</code>.
+              </p>
 
-        <h2 id="recommended">
-          Recommended
-        </h2>
+              <h2 id="recommended">
+                Recommended
+              </h2>
 
-        <p>
-          Once completed, recommendation would be to change WP Local to use “localhost” instead of “Site Domains”, but
-          should you choose to use “Site Domains”, you will need to add an entry to your Windows’ hosts file
-          (<code>C:\Windows\system32\drivers\etc\hosts</code>) for the domain. For example, if your project was
-          <code>jumping-bean.local</code> you would need to add <code>127.0.0.1 jumping-bean.local</code> to the hosts
-          file.
-        </p>
+              <p>
+                Once completed, recommendation would be to change WP Local to use “localhost” instead of “Site
+                Domains”, but should you choose to use “Site Domains”, you will need to add an entry to your Windows’
+                hosts file (<code>C:\Windows\system32\drivers\etc\hosts</code>) for the domain. For example, if your
+                project was <code>jumping-bean.local</code> you would need to add <code>127.0.0.1
+                jumping-bean.local</code> to the hosts file.
+              </p>
 
-        <p>
-          I chose localhost because it was easier to communicate with a custom frontend that was built for this
-          specific project, but it comes down to preference. I also can not speak to how well trusting a self-signed
-          certificate works from within WSL to Windows with a browser, I have not tried it.
-        </p>
+              <p>
+                I chose localhost because it was easier to communicate with a custom frontend that was built for this
+                specific project, but it comes down to preference. I also can not speak to how well trusting a
+                self-signed certificate works from within WSL to Windows with a browser, I have not tried it.
+              </p>
 
-        <h2 id="bonus-git-integration">
-          Bonus: Git Integration
-        </h2>
+              <h2 id="bonus-git-integration">
+                Bonus: Git Integration
+              </h2>
 
-        <p>
-          If you’re curious on how you can pull down a project with WP Local and connect it to either a new or existing
-          repository, then it can be achieved by doing the following steps, at a high level:
-        </p>
+              <p>
+                If you’re curious on how you can pull down a project with WP Local and connect it to either a new or
+                existing repository, then it can be achieved by doing the following steps, at a high level:
+              </p>
 
-        <ol type="1">
-          <li>Pull down the project with WP Local
-          </li>
+              <ol type="1">
+                <li>Pull down the project with WP Local
+                </li>
 
-          <li>Open your terminal, change directory into the project
-          </li>
+                <li>Open your terminal, change directory into the project
+                </li>
 
-          <li>Change directory into <code>app/public</code>
-          </li>
+                <li>Change directory into <code>app/public</code>
+                </li>
 
-          <li>Init a repository
-          </li>
+                <li>Init a repository
+                </li>
 
-          <li>
-            <em>(if applicable)</em> Connect to existing repository
-          </li>
+                <li>
+                  <em>(if applicable)</em> Connect to existing repository
+                </li>
 
-          <li>
-            <em>(if applicable)</em> Pull down repository changes
-          </li>
-        </ol>
+                <li>
+                  <em>(if applicable)</em> Pull down repository changes
+                </li>
+              </ol>
 
-        <p>
-          Script:
-        </p>
+              <p>
+                Script:
+              </p>
 
-        <div class="sourceCode" id="cb6">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" href=
-          "#cb6-1" tabindex="-1"></a><span class="ex">cs</span> app/public <span class="kw">&amp;&</span> <span class=
-          "dt">\</span></span>
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a><span class="ex">cs</span> app/public <span class=
+                "kw">&amp;&</span> <span class="dt">\</span></span>
 <span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="fu">git</span> init <span class=
 "kw">&amp;&</span> <span class="dt">\</span></span>
 <span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class=
@@ -308,83 +309,107 @@
 "fu">git</span> fetch origin master <span class="kw">&amp;&</span> <span class="dt">\</span></span>
 <span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a><span class="fu">git</span> reset <span class=
 "at">--hard</span> origin/master</span></code></pre>
+              </div>
+
+              <p>
+                Replacing <code>[url]</code> with your repository’s URL.
+              </p>
+
+              <p>
+                Once completed, this will allow you to make changes to your code and have it synced with WP Local, and
+                additionally deploy the code with WP Local if that is the deployment setup you have in place.
+              </p>
+
+              <h2 id="conclusion">
+                Conclusion
+              </h2>
+
+              <p>
+                That’s it! A very helpful post from robert77 leads to a working WP Local installation. When previewing
+                the site, WSL even opens your default browser (on Windows) just fine.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Replacing <code>[url]</code> with your repository’s URL.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <p>
-          Once completed, this will allow you to make changes to your code and have it synced with WP Local, and
-          additionally deploy the code with WP Local if that is the deployment setup you have in place.
-        </p>
-
-        <h2 id="conclusion">
-          Conclusion
-        </h2>
-
-        <p>
-          That’s it! A very helpful post from robert77 leads to a working WP Local installation. When previewing the
-          site, WSL even opens your default browser (on Windows) just fine.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/wplocal-with-wsl/index.md">MD</a> | <a class="sources__link" href=
-            "/wplocal-with-wsl/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/wplocal-with-wsl/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/wplocal-with-wsl/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

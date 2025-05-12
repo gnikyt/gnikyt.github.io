@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                      Developing Shopify themes with teams
+                     Developing Shopify themes with teams /
 
-   /* Sep 16, 2014 — 6.1KB */
-
-   This post is 10 years old and may contain outdated information.
+   /* Sep 16, 2014  —  6.1KB */
 
    This is a simple write up to explain how a team can utilize Git
    versioning to manage a Shopify theme successfully. It’s not a
@@ -26,7 +24,7 @@ Step One: Installing Shopify’s Theme Manager
 
 Step Two: Creating your own shop
 
-      Citation: This is only my personal recommendation
+Citation: This is only my personal recommendation
 
    Each developer working on the theme will need their own shop to push
    changes/to test changes. Because we can not run Shopify locally, we
@@ -47,7 +45,7 @@ Step Two: Creating your own shop
 
 Step Three: Setting up the theme files
 
-  Step Three-A: Setting up a new dev theme
+Step Three-A: Setting up a new dev theme
 
    If there is no theme created for your development team yet, simply open
    the Terminal and cd into the directory where you wish to develop.
@@ -95,7 +93,7 @@ Step Three: Setting up the theme files
    Note: You may need to publish the newly uploaded theme in your Shopify
    backend to see it.
 
-  Step Three-B: Using an already created dev theme
+Step Three-B: Using an already created dev theme
 
    If a developer has made a dev theme for this project on
    GitHub/Bitbucket already, simply clone it (ex: git clone
@@ -164,19 +162,25 @@ Final Thoughts
    uDdjrwW8/edit?usp=sharing
    yes! yes!
 
-   [3]MD | [4]TXT | [5]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 10 years old and may contain outdated information.
+
+   Copyright under [3]CC-4.0.
+
+   Additionally available in alternative formats: [4]MD  /  [5]TXT
 
    [6]Ty King
 
-Ty King
+[7]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [7]about me.
-   [8]Github [9]LinkedIn [10]CV [11]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [8]Github[9]LinkedIn[10]CV[11]RSS
+
      *
      *
      *
@@ -190,9 +194,9 @@ References
 
    1. /rss.xml
    2. /
-   3. /developing-shopify-themes-with-teams/index.md
-   4. /developing-shopify-themes-with-teams/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /developing-shopify-themes-with-teams/index.md
+   5. /developing-shopify-themes-with-teams/index.txt
    6. /about
    7. /about
    8. https://github.com/gnikyt

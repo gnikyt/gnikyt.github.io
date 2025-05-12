@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                 Building a simple Redis autosuggest with Ruby
+                Building a simple Redis autosuggest with Ruby /
 
-   /* Mar 02, 2016 — 5.6KB */
-
-   This post is 9 years old and may contain outdated information.
+   /* Mar 02, 2016  —  5.6KB */
 
    So you have a search box on your website.. an article search, a product
    search.. whatever it may be, you may find yourself the need to display
@@ -48,7 +46,6 @@ Processing the Objects
    So now we have a plan in place, let’s write a quick script to import
    the objects you wish to autosuggest, into your Redis database. As
    before, we need to split each word up of each object.
-
 # autosuggest.rb
 require "redis"
 
@@ -94,7 +91,6 @@ Processing (Nuke) Bomb Gun #8...
    to produce key names for Redis to use as we had hoped for in the
    planning section. Now, let’s import this into Redis. Simply change line
    27:
-
 # BEFORE
 puts part[0...len]
 
@@ -129,7 +125,6 @@ Frontend
 
    Here’s a quick Sinatra example (of course you can use more advanced
    techniques as well)
-
 require "redis"
 require "json"
 require "securerandom"
@@ -177,19 +172,25 @@ end
    Finally, send the results as JSON. You can use AJAX to actively call
    the Sinatra app when the user is typing.
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 9 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -206,9 +207,9 @@ References
    3. http://redis.io/commands/ZADD
    4. http://redis.io/commands/ZRANGE
    5. http://redis.io/commands/ZINTERSTORE
-   6. /building-a-simple-redis-autosuggest-with-ruby/index.md
-   7. /building-a-simple-redis-autosuggest-with-ruby/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /building-a-simple-redis-autosuggest-with-ruby/index.md
+   8. /building-a-simple-redis-autosuggest-with-ruby/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

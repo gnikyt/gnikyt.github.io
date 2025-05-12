@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                              Git release branches
+                             Git release branches /
 
-   /* Mar 10, 2021 — 3.4KB */
-
-   This post is 4 years old and may contain outdated information.
+   /* Mar 10, 2021  —  3.4KB */
 
    A method I like to utilize internally, which I’ve been slowly pushing
    into my open source work, is to create branches for each major/minor
@@ -22,7 +20,6 @@
    9.0. If I then released a bugfix, v9.0.1, I would then issue a pull
    request to merge code for v9.0.1 into branch 9.0 to keep it updated
    with patches.
-
 $ git branch -l | sort -V
 # ...
 8.2
@@ -44,7 +41,6 @@ master
    Below is a script you can use to walk through your existing repository
    (assuming everything is tagged in symver format) and create the
    [major].[minor] branches for you.
-
 #!/usr/bin/env python
 #
 # Usage: `python release_branches.py`
@@ -111,19 +107,25 @@ for branch, tag in mm.items():
    branches it will created based on your existing tags before proceeding
    with the creation.
 
-   [3]MD | [4]TXT | [5]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 4 years old and may contain outdated information.
+
+   Copyright under [3]CC-4.0.
+
+   Additionally available in alternative formats: [4]MD  /  [5]TXT
 
    [6]Ty King
 
-Ty King
+[7]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [7]about me.
-   [8]Github [9]LinkedIn [10]CV [11]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [8]Github[9]LinkedIn[10]CV[11]RSS
+
      *
      *
      *
@@ -137,9 +139,9 @@ References
 
    1. /rss.xml
    2. /
-   3. /git-release-branches/index.md
-   4. /git-release-branches/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /git-release-branches/index.md
+   5. /git-release-branches/index.txt
    6. /about
    7. /about
    8. https://github.com/gnikyt

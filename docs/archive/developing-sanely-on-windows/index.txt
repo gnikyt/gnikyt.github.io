@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          Developing sanely on Windows
+                         Developing sanely on Windows /
 
-   /* Nov 07, 2016 — 8.2KB */
-
-   This post is 8 years old and may contain outdated information.
+   /* Nov 07, 2016  —  8.2KB */
 
 Preamble
 
@@ -38,7 +36,7 @@ Why Windows
    next best thing for me that would just work and keep me productive in
    my mind.
 
-  Configuration
+Configuration
 
    One warning about this post… I used Windows on my MacBook via Bootcamp.
    I feel its not the proper experience I could get out of Windows if I
@@ -52,7 +50,7 @@ Why Windows
 
 Setup Journey
 
-  Virtual Machining
+Virtual Machining
 
    Development on Windows is a mess. If anyone’s ever done Ruby, Python,
    etc, development on a Windows machine, it’s usually a hit or miss. You
@@ -75,7 +73,7 @@ Setup Journey
    I chose the fast install offered by VMWare Player and I had a working
    VM within 5 minutes.
 
-    Performance
+Performance
 
    Initially, I assumed this would eat a lot of my resources. I was wrong.
 
@@ -87,7 +85,7 @@ Setup Journey
    So my system was chugging along happily, the VM didn’t seem to affect
    my computer’s performance one bit from what I could tell.
 
-  VM Communication & SSH
+VM Communication & SSH
 
    I did not want to use the windowed experience of VMWare. I decided I
    just need to SSH into the VM itself. I enabled bridged networking mode
@@ -96,7 +94,7 @@ Setup Journey
    installed an SSH server on the VM and set it up to work for my needs. I
    now had a way to talk to the VM.
 
-    Choosing a SSH client
+Choosing a SSH client
 
    I regularly SSH into servers during my week to perform tasks, I also
    needed to (obviously) SSH into my VM. I looked over many options for
@@ -116,7 +114,7 @@ Setup Journey
    Reddit for suggestions. It provided me with good configuration options,
    tabbed interface, sub-connections, lightweight, and more.
 
-    Testing Connections
+Testing Connections
 
    I created an SSH key on the Windows side using Putty’s keygen. I
    plugged the SSH key into the VM and fired up SmarTTY. I created a
@@ -147,12 +145,12 @@ Post Setup
    Overall I was happy with the Windows experience as a whole. Both as a
    developer and a PC user.
 
-  Misc. Issues
+Misc. Issues
 
    Although the setup was fine, I was slightly hindered by not using a
    laptop designed for Windows in mind as I mentioned previously.
 
-    1. Keyboard
+1. Keyboard
 
    A few text-flow issues I ran into that I normally do on Mac such as
    deleting a whole line of text was not possible because the MacBook
@@ -162,7 +160,7 @@ Post Setup
    liked. I found I had to change my natural posture for using CTRL
    functions due to the spacing for cutting, copying, pasting, etc.
 
-    2. Mouse & Trackpad
+2. Mouse & Trackpad
 
    Bootcamp installs drivers to emulate the trackpad a mouse. Tap emulates
    a click, two-finger emulates a right-click, and there are no trackpad
@@ -176,7 +174,7 @@ Post Setup
    I suspect if I owned a Thinkpad, XPS, Zenbook, or some other
    Windows-designed laptop, I would have a much better experience.
 
-  Verdict
+Verdict
 
    I’ll have my current MacBook and iPhone for a couple of years to come
    but my next upgrade in the future will move away from this company.
@@ -186,19 +184,25 @@ Post Setup
 
    [14]Trying Kitty with Ubuntu Server on a VM with Rails
 
-   [15]MD | [16]TXT | [17]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 8 years old and may contain outdated information.
+
+   Copyright under [15]CC-4.0.
+
+   Additionally available in alternative formats: [16]MD  /  [17]TXT
 
    [18]Ty King
 
-Ty King
+[19]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [19]about me.
-   [20]Github [21]LinkedIn [22]CV [23]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [20]Github[21]LinkedIn[22]CV[23]RSS
+
      *
      *
      *
@@ -224,9 +228,9 @@ References
   12. http://slack.com/
   13. http://eithermouse.com/
   14. /assets/images/kitty_vmrails.png
-  15. /developing-sanely-on-windows/index.md
-  16. /developing-sanely-on-windows/index.txt
-  17. https://creativecommons.org/licenses/by/4.0/
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. /developing-sanely-on-windows/index.md
+  17. /developing-sanely-on-windows/index.txt
   18. /about
   19. /about
   20. https://github.com/gnikyt

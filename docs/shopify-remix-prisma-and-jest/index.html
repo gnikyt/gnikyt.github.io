@@ -57,58 +57,59 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="shopify-remix-prisma-and-jest">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Shopify Remix, Prisma, and Jest
+          <h1 class="tab__title tab__title--short post__title">
+            Shopify Remix, Prisma, and Jest /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2024-01-10">Jan 10, 2024</time> — <span class=
-            "post__size">8.8KB</span> */
-          </p>
         </header>
 
-        <h2 id="introduction">
-          Introduction
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2024-01-10">Jan 10,
+              2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">8.8KB</span> */
+            </p>
 
-        <p>
-          Shopify has <em>(once again)</em> changed up their app framework and templates. This time, they’re utilizing
-          Remix which is a React-based web framework, and Prisma which is an ORM.
-        </p>
+            <div class="content-container">
+              <h2 id="introduction">
+                Introduction
+              </h2>
 
-        <p>
-          Recently, I developed a large loyalty application utlizing the new framework. Because this app is critical to
-          the merchant’s shop, I wanted to ensure the business logic was working correctly.
-        </p>
+              <p>
+                Shopify has <em>(once again)</em> changed up their app framework and templates. This time, they’re
+                utilizing Remix which is a React-based web framework, and Prisma which is an ORM.
+              </p>
 
-        <p>
-          For my needs, I wanted to do both unit tests on specific code and integration tests. But, I was disappointed
-          to see the framework setup offered by Shopify did not have testing built-in, nor any docs on how someone
-          could get going on testing.
-        </p>
+              <p>
+                Recently, I developed a large loyalty application utlizing the new framework. Because this app is
+                critical to the merchant’s shop, I wanted to ensure the business logic was working correctly.
+              </p>
 
-        <p>
-          With Prisma, you can mock the database returns from Prisma (example <code>findMany</code>) out of the box
-          <a href="https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing">for unit tests</a>.
-        </p>
+              <p>
+                For my needs, I wanted to do both unit tests on specific code and integration tests. But, I was
+                disappointed to see the framework setup offered by Shopify did not have testing built-in, nor any docs
+                on how someone could get going on testing.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="kw">const</span> record <span class="op">=</span> {</span>
+              <p>
+                With Prisma, you can mock the database returns from Prisma (example <code>findMany</code>) out of the
+                box <a href="https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing">for unit tests</a>.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true"
+                href="#cb1-1" tabindex="-1"></a><span class="kw">const</span> record <span class="op">=</span> {</span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  <span class="dt">id</span><span class=
 "op">:</span> <span class="dv">1</span><span class="op">,</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="dt">title</span><span class=
@@ -133,58 +134,59 @@
 <span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class=
 "fu">expect</span>(result<span class="op">.</span><span class="fu">toJSON</span>())<span class=
 "op">.</span><span class="fu">toEqual</span>(record)<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          However, in terms of integration tests, a setup would be required to actually setup Prisma to communicate
-          with a test database. It took a while to get working properly so I thought I would share the process.
-        </p>
+              <p>
+                However, in terms of integration tests, a setup would be required to actually setup Prisma to
+                communicate with a test database. It took a while to get working properly so I thought I would share
+                the process.
+              </p>
 
-        <h2 id="testing-setup">
-          Testing Setup
-        </h2>
+              <h2 id="testing-setup">
+                Testing Setup
+              </h2>
 
-        <p>
-          <em>Note: This assumes you are using Remix with Typescript.</em>
-        </p>
+              <p>
+                <em>Note: This assumes you are using Remix with Typescript.</em>
+              </p>
 
-        <h3 id="dependencies">
-          Dependencies
-        </h3>
+              <h3 id="dependencies">
+                Dependencies
+              </h3>
 
-        <p>
-          <code>npm install --save-dev jest ts-jest</code>
-        </p>
+              <p>
+                <code>npm install --save-dev jest ts-jest</code>
+              </p>
 
-        <h3 id="scripts">
-          Scripts
-        </h3>
+              <h3 id="scripts">
+                Scripts
+              </h3>
 
-        <p>
-          Open <code>package.json</code> and add the following to the end of your <code>scripts</code> object:
-        </p>
+              <p>
+                Open <code>package.json</code> and add the following to the end of your <code>scripts</code> object:
+              </p>
 
-        <pre class="conf"><code>/* package.json */
+              <pre class="conf"><code>/* package.json */
 "test": "jest",
 "test:coverage": "jest --coverage",
 "test:db:generate": "prisma generate",
 "test:db:deploy": "prisma migrate deploy",
 "test:db:reset": "prisma db push --force-reset --accept-data-loss --skip-generate"</code></pre>
-        <p>
-          These commands will be utilized later.
-        </p>
+              <p>
+                These commands will be utilized later.
+              </p>
 
-        <h3 id="jest">
-          Jest
-        </h3>
+              <h3 id="jest">
+                Jest
+              </h3>
 
-        <p>
-          Open (or create) <code>jest.config.js</code> and input:
-        </p>
+              <p>
+                Open (or create) <code>jest.config.js</code> and input:
+              </p>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="co">/* jest.config.js */</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true"
+                href="#cb3-1" tabindex="-1"></a><span class="co">/* jest.config.js */</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>module<span class="op">.</span><span class=
 "at">exports</span> <span class="op">=</span> {</span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="dt">preset</span><span class=
@@ -195,52 +197,52 @@
 "dt">setupFilesAfterEnv</span><span class="op">:</span> [<span class="st">"./app/mocks.ts"</span>]<span class=
 "op">,</span></span>
 <span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="git-ignore">
-          Git Ignore
-        </h3>
+              <h3 id="git-ignore">
+                Git Ignore
+              </h3>
 
-        <p>
-          Add the following to your <code>.gitignore</code>:
-        </p>
+              <p>
+                Add the following to your <code>.gitignore</code>:
+              </p>
 
-        <pre class="conf"><code>/prisma/*.sqlite
+              <pre class="conf"><code>/prisma/*.sqlite
 /prisma/*.sqlite-journal
 /coverage</code></pre>
-        <h3 id="schema">
-          Schema
-        </h3>
+              <h3 id="schema">
+                Schema
+              </h3>
 
-        <p>
-          Update your <code>prisma/schema.prisma</code> file by changing the <code>datasource.url</code> value to
-          <code>env("DATABASE_URL)</code>:
-        </p>
+              <p>
+                Update your <code>prisma/schema.prisma</code> file by changing the <code>datasource.url</code> value to
+                <code>env("DATABASE_URL)</code>:
+              </p>
 
-        <pre class="conf"><code>datasource db {
+              <pre class="conf"><code>datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }</code></pre>
-        <h2 id="mocks-setup">
-          Mocks Setup
-        </h2>
+              <h2 id="mocks-setup">
+                Mocks Setup
+              </h2>
 
-        <h3 id="prisma">
-          Prisma
-        </h3>
+              <h3 id="prisma">
+                Prisma
+              </h3>
 
-        <h4 id="mocks.prisma.ts">
-          mocks.prisma.ts
-        </h4>
+              <h4 id="mocks.prisma.ts">
+                mocks.prisma.ts
+              </h4>
 
-        <p>
-          Create a file <code>app/mocks.prisma.ts</code> with the following contents:
-        </p>
+              <p>
+                Create a file <code>app/mocks.prisma.ts</code> with the following contents:
+              </p>
 
-        <div class="sourceCode" id="cb6">
-          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true" href=
-          "#cb6-1" tabindex="-1"></a><span class=
-          "co">// eslint-disable-next-line import/no-extraneous-dependencies</span></span>
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true"
+                href="#cb6-1" tabindex="-1"></a><span class=
+                "co">// eslint-disable-next-line import/no-extraneous-dependencies</span></span>
 <span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class=
 "im">import</span> { afterAll<span class="op">,</span> afterEach<span class="op">,</span> beforeEach } <span class=
 "im">from</span> <span class="st">"@jest/globals"</span><span class="op">;</span></span>
@@ -403,32 +405,32 @@
 "fu">afterEach</span>(() <span class="kw">=&gt;</span> <span class="fu">destroyDatabase</span>(client))<span class=
 "op">;</span></span>
 <span id="cb6-90"><a aria-hidden="true" href="#cb6-90" tabindex="-1"></a>}</span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          What this file does is utilize’s Jest’s global hooks (<code>beforeAll</code>, <code>afterAll</code>, etc) to
-          setup and teardown the database for each test suite, if you invoke <code>prismaHooks</code>.
-        </p>
+              <p>
+                What this file does is utilize’s Jest’s global hooks (<code>beforeAll</code>, <code>afterAll</code>,
+                etc) to setup and teardown the database for each test suite, if you invoke <code>prismaHooks</code>.
+              </p>
 
-        <p>
-          Before each test is ran, the database creation process is triggered and the database is seeded. After each
-          test is ran, the database deletion process is triggered. Finally, if types have not yet been generated by
-          Prisma, it will be done once only.
-        </p>
+              <p>
+                Before each test is ran, the database creation process is triggered and the database is seeded. After
+                each test is ran, the database deletion process is triggered. Finally, if types have not yet been
+                generated by Prisma, it will be done once only.
+              </p>
 
-        <h3 id="db.server.ts">
-          db.server.ts
-        </h3>
+              <h3 id="db.server.ts">
+                db.server.ts
+              </h3>
 
-        <p>
-          Create a file <code>app/__mocks__/db.server.ts</code> with the following content. This will be used by Jest
-          to replace <code>app/db.server.ts</code> with this file.
-        </p>
+              <p>
+                Create a file <code>app/__mocks__/db.server.ts</code> with the following content. This will be used by
+                Jest to replace <code>app/db.server.ts</code> with this file.
+              </p>
 
-        <div class="sourceCode" id="cb7">
-          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true" href=
-          "#cb7-1" tabindex="-1"></a><span class="im">import</span> { PrismaClient } <span class=
-          "im">from</span> <span class="st">"@prisma/client"</span><span class="op">;</span></span>
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true"
+                href="#cb7-1" tabindex="-1"></a><span class="im">import</span> { PrismaClient } <span class=
+                "im">from</span> <span class="st">"@prisma/client"</span><span class="op">;</span></span>
 <span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class="im">import</span> <span class=
 "op">*</span> <span class="im">as</span> path <span class="im">from</span> <span class="st">"path"</span><span class=
 "op">;</span></span>
@@ -457,54 +459,54 @@
 "fu">PrismaClient</span>()<span class="op">;</span></span>
 <span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a><span class="im">export</span> <span class=
 "im">default</span> prisma<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <ul>
-          <li>
-            <code>dbPath</code> sets the path of where our test SQLite database will live,
-            <code>prisma/test-[time].sqlite</code>
-          </li>
+              <ul>
+                <li>
+                  <code>dbPath</code> sets the path of where our test SQLite database will live,
+                  <code>prisma/test-[time].sqlite</code>
+                </li>
 
-          <li>
-            <code>dbPath</code> is then is used to set the <code>DATABASE_URL</code>
-          </li>
-        </ul>
+                <li>
+                  <code>dbPath</code> is then is used to set the <code>DATABASE_URL</code>
+                </li>
+              </ul>
 
-        <p>
-          This ensures a unique database for each test suite.
-        </p>
+              <p>
+                This ensures a unique database for each test suite.
+              </p>
 
-        <h3 id="jest-1">
-          Jest
-        </h3>
+              <h3 id="jest-1">
+                Jest
+              </h3>
 
-        <p>
-          Create a file <code>app/mocks.ts</code> with the following contents to tell Jest to use the mock Prisma
-          setup.
-        </p>
+              <p>
+                Create a file <code>app/mocks.ts</code> with the following contents to tell Jest to use the mock Prisma
+                setup.
+              </p>
 
-        <div class="sourceCode" id="cb8">
-          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true" href=
-          "#cb8-1" tabindex="-1"></a><span class="co">/* app/mocks.ts */</span></span>
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true"
+                href="#cb8-1" tabindex="-1"></a><span class="co">/* app/mocks.ts */</span></span>
 <span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class=
 "im">import</span> { jest } <span class="im">from</span> <span class="st">"@jest/globals"</span><span class=
 "op">;</span></span>
 <span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a></span>
 <span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>jest<span class="op">.</span><span class=
 "fu">mock</span>(<span class="st">"./db.server"</span>)<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h2 id="usage">
-          Usage
-        </h2>
+              <h2 id="usage">
+                Usage
+              </h2>
 
-        <p>
-          You are now ready to do integration tests!
-        </p>
+              <p>
+                You are now ready to do integration tests!
+              </p>
 
-        <div class="sourceCode" id="cb9">
-          <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true" href=
-          "#cb9-1" tabindex="-1"></a><span class="co">/* app/order/processor.test.ts */</span></span>
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true"
+                href="#cb9-1" tabindex="-1"></a><span class="co">/* app/order/processor.test.ts */</span></span>
 <span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class=
 "im">import</span> { describe<span class="op">,</span> expect<span class="op">,</span> it } <span class=
 "im">from</span> <span class="st">"@jest/globals"</span><span class="op">;</span></span>
@@ -628,15 +630,15 @@
 <span id="cb9-62"><a aria-hidden="true" href="#cb9-62" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb9-63"><a aria-hidden="true" href="#cb9-63" tabindex="-1"></a>})<span class=
 "op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Now, running <code>npm run test</code> will give us a testing result!
-        </p>
+              <p>
+                Now, running <code>npm run test</code> will give us a testing result!
+              </p>
 
-        <div class="sourceCode" id="cb10">
-          <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a aria-hidden="true" href=
-          "#cb10-1" tabindex="-1"></a><span class="ex">npm</span> run test</span>
+              <div class="sourceCode" id="cb10">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a aria-hidden="true" href=
+                "#cb10-1" tabindex="-1"></a><span class="ex">npm</span> run test</span>
 <span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a></span>
 <span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a><span class=
 "op">&gt;</span> test:coverage</span>
@@ -654,113 +656,137 @@
 "ex">Snapshots:</span>   0 total</span>
 <span id="cb10-11"><a aria-hidden="true" href="#cb10-11" tabindex="-1"></a><span class=
 "ex">Time:</span>        10.44 s</span></code></pre>
+              </div>
+
+              <p>
+                Success! I hope this helps you run integrations tests with Prisma and Jest.
+              </p>
+
+              <h2 id="tests-running-slow">
+                Tests running slow?
+              </h2>
+
+              <p>
+                There are several results on the web of people having issues of Jest running slow for Typescript. There
+                are several solutions offered. Example:
+              </p>
+
+              <ol type="1">
+                <li>
+                  <strong><code>maxWorkers</code> flag</strong>: Add <code>--maxWorkers=[num]</code>, example:
+                  <code>npm run test -- --maxWorkers=3</code>
+                </li>
+
+                <li>
+                  <strong><code>runInBand</code> flag</strong>: Add <code>--runInBand</code> which runs test in sync,
+                  example: <code>npm run test -- --runInBand</code>
+                </li>
+
+                <li>
+                  <strong>Remove ts-node</strong>: <code>ts-node</code> is slow, you can try swapping to
+                  <code>swc</code> with it’s Jest support
+                </li>
+              </ol>
+
+              <p>
+                My app is fairly chunky, and in my testing of speeds the results are as followed:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Running as-is</strong>: 47 seconds
+                </li>
+
+                <li>
+                  <strong>Running with maxWorkers=4</strong>: 38 seconds
+                </li>
+
+                <li>
+                  <strong>Running with runInBand</strong>: 73 seconds
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Success! I hope this helps you run integrations tests with Prisma and Jest.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <h2 id="tests-running-slow">
-          Tests running slow?
-        </h2>
-
-        <p>
-          There are several results on the web of people having issues of Jest running slow for Typescript. There are
-          several solutions offered. Example:
-        </p>
-
-        <ol type="1">
-          <li>
-            <strong><code>maxWorkers</code> flag</strong>: Add <code>--maxWorkers=[num]</code>, example: <code>npm run
-            test -- --maxWorkers=3</code>
-          </li>
-
-          <li>
-            <strong><code>runInBand</code> flag</strong>: Add <code>--runInBand</code> which runs test in sync,
-            example: <code>npm run test -- --runInBand</code>
-          </li>
-
-          <li>
-            <strong>Remove ts-node</strong>: <code>ts-node</code> is slow, you can try swapping to <code>swc</code>
-            with it’s Jest support
-          </li>
-        </ol>
-
-        <p>
-          My app is fairly chunky, and in my testing of speeds the results are as followed:
-        </p>
-
-        <ul>
-          <li>
-            <strong>Running as-is</strong>: 47 seconds
-          </li>
-
-          <li>
-            <strong>Running with maxWorkers=4</strong>: 38 seconds
-          </li>
-
-          <li>
-            <strong>Running with runInBand</strong>: 73 seconds
-          </li>
-        </ul>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/shopify-remix-prisma-and-jest/index.md">MD</a> | <a class="sources__link"
-            href="/shopify-remix-prisma-and-jest/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/shopify-remix-prisma-and-jest/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/shopify-remix-prisma-and-jest/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

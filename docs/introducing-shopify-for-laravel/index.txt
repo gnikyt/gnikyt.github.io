@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          Introducing Laravel Shopify
+                         Introducing Laravel Shopify /
 
-   /* Aug 09, 2017 — 2.5KB */
-
-   This post is 7 years old and may contain outdated information.
+   /* Aug 09, 2017  —  2.5KB */
 
 Background
 
@@ -62,19 +60,25 @@ Project
 
    Happy coding with Shopify + Laravel!
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -91,9 +95,9 @@ References
    3. https://github.com/Shopify/shopify_app
    4. https://github.com/gnikyt/laravel-shopify
    5. https://github.com/gnikyt/laravel-shopify/wiki
-   6. /introducing-shopify-for-laravel/index.md
-   7. /introducing-shopify-for-laravel/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /introducing-shopify-for-laravel/index.md
+   8. /introducing-shopify-for-laravel/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

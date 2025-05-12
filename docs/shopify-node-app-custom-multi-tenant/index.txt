@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                 Shopify Node App - Custom multi-tenant support
+                Shopify Node App - Custom multi-tenant support /
 
-   /* Nov 15, 2021 — 9.9KB */
-
-   This post is 3 years old and may contain outdated information.
+   /* Nov 15, 2021  —  9.9KB */
 
 Introduction
 
@@ -34,7 +32,7 @@ Introduction
 
 Backend Changes
 
-  ENV
+ENV
 
    In your env file, you will create an API key and secret entry per shop,
    that has no special characters.
@@ -46,12 +44,11 @@ SHOPIFY_API_SECRET_HELLOWORLD=123xyz
 SHOPIFY_API_KEY_WELCOME123=abc123
 SHOPIFY_API_SECRET_WELCOME123=123abc
 
-  NextJS
+NextJS
 
    Open next.config.js.
 
    By default, it looks like this:
-
 const { parsed: localEnv } = require("dotenv").config();
 const webpack = require("webpack");
 const apiKey = JSON.stringify(process.env.SHOPIFY_API_KEY);
@@ -73,7 +70,6 @@ module.exports = {
 };
 
    We need to remove API_KEY and add a new HOST value.
-
 # ./next.config.js
 const { parsed: localEnv } = require("dotenv").config();
 const webpack = require("webpack");
@@ -95,11 +91,10 @@ module.exports = {
   },
 };
 
-  Utils
+Utils
 
    Create a file to hold some utility functions which we will use to
    support multi-tentant.
-
 # ./src/services/utils.js
 import crypto from "crypto";
 import querystring from "querystring"; // Can use URLSearchParams instead
@@ -145,12 +140,11 @@ export function generateLocalHmac(query, secret) {
   return crypto.createHmac("sha256", secret).update(queryString).digest("hex");
 }
 
-  Middleware Additions
+Middleware Additions
 
-    ShopContext
+ShopContext
 
    This middleware file for Koa will create the Shopify context.
-
 # ./src/server/middleware/shopContext.js
 import Shopify, { ApiVersion } from "@shopify/shopify-api";
 import { cleanDomain } from "../../services/utils";
@@ -185,7 +179,6 @@ export default shopContext;
 
    Now open your server/server.js file and include the middleware for use
    on every backend route. Example:
-
 # ./server/server.js
 // ...
 import shopEnv from "../src/server/middleware/shopEnv";
@@ -212,10 +205,9 @@ router.get(
    Now, all API requests in your handlers will use the shop’s API key and
    secret.
 
-    VerifyHmac
+VerifyHmac
 
    This middleware file for Koa will verify HMAC strings.
-
 # ./src/server/middleare/verifyHmac.js
 import Shopify from "@shopify/shopify-api";
 import { generateLocalHmac, cleanDomain } from "../../services/utils";
@@ -254,10 +246,9 @@ const verifyHmac = async (ctx, next) => {
 
 export default verifyHmac;
 
-  Handler Addition
+Handler Addition
 
    We need to pass the proper API key to AppBridge.
-
 # ./src/server/handlers/backend/appbridge.js
 import { cleanDomain } from "../../../services/utils";
 
@@ -279,7 +270,6 @@ export default appbridge;
 
    Now open server/server.js to add a route for this as well as the
    VerifyHmac middleware.
-
 # ./server/server.js
 // ...
 import appbridge from "../src/server/handlers/backend/appbridge";
@@ -289,7 +279,7 @@ import verifyHmac from "../src/server/middleware/verifyHmac";
 // Route: AppBridge API key
 router.get("/_appbridge", verifyHmac, appbridge);
 
-  AppBridge Integration
+AppBridge Integration
 
    Now that we have our backend handler to verify the HMAC and return back
    an API key for the shop, we need to tap into the existing AppBridge
@@ -297,7 +287,6 @@ router.get("/_appbridge", verifyHmac, appbridge);
 
    Open _app.js, and look for the MyApp.getInitialProps, it will look
    something like this:
-
 MyApp.getInitialProps = async ({ ctx }) => {
   return {
     host: ctx.query.host,
@@ -305,7 +294,6 @@ MyApp.getInitialProps = async ({ ctx }) => {
 };
 
    We will now modify it to this:
-
 MyApp.getInitialProps = async ({ ctx }) => {
   let key = "";
   try {
@@ -326,7 +314,6 @@ MyApp.getInitialProps = async ({ ctx }) => {
 };
 
    Next, modify your MyApp class, which will look something like this:
-
 class MyApp extends App {
   render() {
     const { Component, pageProps, host } = this.props;
@@ -348,7 +335,6 @@ class MyApp extends App {
 }
 
    We will now modify it to this, to use the new prop:
-
 class MyApp extends App {
   render() {
     const { Component, pageProps, host, apiKey } = this.props;
@@ -381,19 +367,25 @@ Conculsion
    start for someone looking to add multi-tenant support to a custom app
    setup.
 
-   [3]MD | [4]TXT | [5]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 3 years old and may contain outdated information.
+
+   Copyright under [3]CC-4.0.
+
+   Additionally available in alternative formats: [4]MD  /  [5]TXT
 
    [6]Ty King
 
-Ty King
+[7]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [7]about me.
-   [8]Github [9]LinkedIn [10]CV [11]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [8]Github[9]LinkedIn[10]CV[11]RSS
+
      *
      *
      *
@@ -407,9 +399,9 @@ References
 
    1. /rss.xml
    2. /
-   3. /shopify-node-app-custom-multi-tenant/index.md
-   4. /shopify-node-app-custom-multi-tenant/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /shopify-node-app-custom-multi-tenant/index.md
+   5. /shopify-node-app-custom-multi-tenant/index.txt
    6. /about
    7. /about
    8. https://github.com/gnikyt

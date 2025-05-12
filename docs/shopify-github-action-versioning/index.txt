@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                      Shopify Github Action for versioning
+                     Shopify Github Action for versioning /
 
-   /* May 20, 2022 — 2.4KB */
-
-   This post is 2 years old and may contain outdated information.
+   /* May 20, 2022  —  2.4KB */
 
    Shopify recently updated their admin panel again and started to display
    the value of theme_version from config/settings_schema.json onto the
@@ -25,7 +23,6 @@
 
    We have come up with the following solution
    (.github/workflows/schema_version.yml):
-
 name: Schema version
 
 on:
@@ -69,19 +66,25 @@ gs_schema.json
    Hopefully this is a helpful starting point for any other developers
    looking to do the same process.
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 2 years old and may contain outdated information.
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -97,9 +100,9 @@ References
    2. /
    3. /assets/images/posts/shopify-versioning.png
    4. /assets/images/posts/shopify-versioning-github.png
-   5. /shopify-github-action-versioning/index.md
-   6. /shopify-github-action-versioning/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /shopify-github-action-versioning/index.md
+   7. /shopify-github-action-versioning/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

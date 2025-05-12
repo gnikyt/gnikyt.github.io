@@ -1,10 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                  Shopify checkout extension with product HTML
+                 Shopify checkout extension with product HTML /
 
-   /* May 10, 2024 — 14KB */
+   /* May 10, 2024  —  14KB */
 
 Background
 
@@ -30,7 +30,6 @@ Background
 Input/output examples
 
    An example description HTML from a product in Shopify:
-
 <div class="TypographyPresentation TypographyPresentation--m RichText3-paragraph
 --withVSpacingNormal RichText3-paragraph">
   LINE 1
@@ -129,7 +128,6 @@ raph--withVSpacingNormal RichText3-paragraph">
 </div>
 
    Example of the transformed output:
-
 <>
   <TextBlock>
     LINE 1
@@ -204,7 +202,6 @@ raph--withVSpacingNormal RichText3-paragraph">
 Usage examples
 
    As-is with default transformer:
-
 import descriptionTransformer from './descriptionTransformer';
 
 // ...
@@ -218,7 +215,6 @@ const description = descriptionTransformer(product.desciptionHtml);
 </BlockStack>
 
    With custom transformer:
-
 import descriptionTransformer from './descriptionTransformer';
 
 // ...
@@ -245,7 +241,6 @@ ultTransformer) => {
 Code
 
    Also available [4]on this Gist.
-
 import React from "react";
 import { List, ListItem, TextBlock } from "@shopify/ui-extensions-react/checkout
 ";
@@ -527,19 +522,23 @@ export default function descriptionTransformer(rawHtml, transformer) {
    attempting to use product descriptions in a Shopify Checkout UI
    Extension.
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -555,9 +554,9 @@ References
    2. /
    3. https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
    4. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
-   5. /shopify-checkout-ui-product-html/index.md
-   6. /shopify-checkout-ui-product-html/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /shopify-checkout-ui-product-html/index.md
+   7. /shopify-checkout-ui-product-html/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

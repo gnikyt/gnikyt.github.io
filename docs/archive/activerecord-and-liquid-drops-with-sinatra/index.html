@@ -55,48 +55,47 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="activerecord-and-liquid-drops-with-sinatra">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            ActiveRecord and Liquid Drops with Sinatra
+          <h1 class="tab__title tab__title--short post__title">
+            ActiveRecord and Liquid Drops with Sinatra /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2015-10-15">Oct 15, 2015</time> — <span class=
-            "post__size">3.7KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 9 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the
-          app user to modify a specific template. <a href="http://liquidmarkup.org/">Liquid templates</a> (what Jekyll
-          and Shopify use) was perfect for this situation because it has a simple syntax for anyone to pick up and it’s
-          also safe due to its scope limited to what’s passed to the template.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2015-10-15">Oct 15,
+              2015</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">3.7KB</span> */
+            </p>
 
-        <p>
-          Let’s suppose you have two models in your Sinatra application – <code>Student</code> and <code>Book</code>.
-        </p>
+            <div class="content-container">
+              <p>
+                Normally I use ERB when doing templates but there was a special use-case recently where I needed to
+                allow the app user to modify a specific template. <a href="http://liquidmarkup.org/">Liquid
+                templates</a> (what Jekyll and Shopify use) was perfect for this situation because it has a simple
+                syntax for anyone to pick up and it’s also safe due to its scope limited to what’s passed to the
+                template.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="co"># app/models/student_model.rb</span></span>
+              <p>
+                Let’s suppose you have two models in your Sinatra application – <code>Student</code> and
+                <code>Book</code>.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="co"># app/models/student_model.rb</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="cf">module</span> <span class=
 "dt">MyApp</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  <span class="cf">module</span> <span class=
@@ -123,25 +122,25 @@
 <span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Now, Liquid has what they call a <a href=
-          "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop</a>, where you can easily build a plain
-          class which Liquid can then use directly when rendering the template. As the <a href=
-          "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop Introduction</a> states, it acts “like” a
-          hash so the methods you create can be accessed with dot-notation in the template. Example: <code>{% raw %}{{
-          student.full_name }}{% endraw %}</code>
-        </p>
+              <p>
+                Now, Liquid has what they call a <a href=
+                "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop</a>, where you can easily build a
+                plain class which Liquid can then use directly when rendering the template. As the <a href=
+                "https://github.com/Shopify/liquid/wiki/Introduction-to-Drops">Drop Introduction</a> states, it acts
+                “like” a hash so the methods you create can be accessed with dot-notation in the template. Example:
+                <code>{% raw %}{{ student.full_name }}{% endraw %}</code>
+              </p>
 
-        <p>
-          So let’s create a <code>Student</code> drop and a <code>Book</code> drop and give the templates some basic
-          variables from the model to access.
-        </p>
+              <p>
+                So let’s create a <code>Student</code> drop and a <code>Book</code> drop and give the templates some
+                basic variables from the model to access.
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="co"># app/drops/student_drop.rb</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="co"># app/drops/student_drop.rb</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="cf">module</span> <span class=
 "dt">MyApp</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>  <span class="cf">module</span> <span class=
@@ -209,23 +208,23 @@
 <span id="cb2-44"><a aria-hidden="true" href="#cb2-44" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb2-45"><a aria-hidden="true" href="#cb2-45" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Ok so now we have our models and drops setup. As you can see above we’ve set up methods for accessing the
-          student’s name, their books, the book title, barcode, etc. All of these methods can be used in a Liquid
-          template now.
-        </p>
+              <p>
+                Ok so now we have our models and drops setup. As you can see above we’ve set up methods for accessing
+                the student’s name, their books, the book title, barcode, etc. All of these methods can be used in a
+                Liquid template now.
+              </p>
 
-        <p>
-          But now, how do we easily combine the two? Easy, we utilize <code>to_liquid</code> method by adding it to our
-          model which Liquid calls when rendering the template. We then return the proper drop for the model inside the
-          new <code>to_liquid</code> method.
-        </p>
+              <p>
+                But now, how do we easily combine the two? Easy, we utilize <code>to_liquid</code> method by adding it
+                to our model which Liquid calls when rendering the template. We then return the proper drop for the
+                model inside the new <code>to_liquid</code> method.
+              </p>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="co"># app/models/student_model.rb</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a><span class="co"># app/models/student_model.rb</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="cf">module</span> <span class=
 "dt">MyApp</span></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="cf">module</span> <span class=
@@ -265,30 +264,30 @@
 <span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          That’s pretty much it. We’ve now:
-        </p>
+              <p>
+                That’s pretty much it. We’ve now:
+              </p>
 
-        <ol type="1">
-          <li>Created our models
-          </li>
+              <ol type="1">
+                <li>Created our models
+                </li>
 
-          <li>Created our drops
-          </li>
+                <li>Created our drops
+                </li>
 
-          <li>Modified our models to return a drop
-          </li>
-        </ol>
+                <li>Modified our models to return a drop
+                </li>
+              </ol>
 
-        <p>
-          With all this combined we can then use it all together as such:
-        </p>
+              <p>
+                With all this combined we can then use it all together as such:
+              </p>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
-          "#cb4-1" tabindex="-1"></a><span class="co"># app/controllers/front_controller.rb</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a><span class="co"># app/controllers/front_controller.rb</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class="kw">...</span></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>student <span class="kw">=</span> <span class=
 "dt">Model</span><span class="kw">::</span><span class="dt">Student</span><span class=
@@ -297,75 +296,103 @@
 "vs">'front/test'</span>, <span class="wa">layout: :layout_front</span>, <span class="wa">locals: </span><span class=
 "kw">{</span><span class="vs">'student'</span> <span class="kw">=&gt;</span> student<span class=
 "kw">}</span></span></code></pre>
-        </div>
+              </div>
 
-        <pre class="erb"><code>{% raw %}
+              <pre class="erb"><code>{% raw %}
 # app/views/front/test.liquid
 My name is {{ student.full_name }}. I have {{ student.books.size }} books!
 {% endraw %}</code></pre>
-        <p>
-          That’s it for this little how-to. I will note there are other ways to expose your ActiveRecord models to work
-          automatically with Liquid but this article just shows you a more expanded and controlled version.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/activerecord-and-liquid-drops-with-sinatra/index.md">MD</a> | <a class=
-            "sources__link" href="/activerecord-and-liquid-drops-with-sinatra/index.txt">TXT</a> | <a class=
-            "sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target=
-            "_blank">CC-4.0</a>
+              <p>
+                That’s it for this little how-to. I will note there are other ways to expose your ActiveRecord models
+                to work automatically with Liquid but this article just shows you a more expanded and controlled
+                version.
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 9 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/activerecord-and-liquid-drops-with-sinatra/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
+                "sources__link" href="/activerecord-and-liquid-drops-with-sinatra/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

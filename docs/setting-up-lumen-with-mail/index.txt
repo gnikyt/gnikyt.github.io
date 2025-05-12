@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          Setting Up Lumen with Mailer
+                         Setting Up Lumen with Mailer /
 
-   /* Nov 19, 2017 — 5.3KB */
-
-   This post is 7 years old and may contain outdated information.
+   /* Nov 19, 2017  —  5.3KB */
 
 What is Lumen
 
@@ -31,7 +29,7 @@ Setting Up Mailing
    Through trial and error, I managed to find a working setup I thought I
    would share.
 
-  Setup
+Setup
 
    First, run composer require illuminate/mail:5.5 to grab the mailing
    component.
@@ -43,7 +41,6 @@ Setting Up Mailing
    After this is done, open the app provider in app/Providers/.
 
    At the bottom of the register method, paste in the following:
-
 <?php
 // ...
 
@@ -61,7 +58,6 @@ $this->app->alias('mailer', \Illuminate\Contracts\Mail\Mailer::class);
 
    To make mailing queue-able and able to be processed in the background,
    simply add:
-
 <?php
 // ...
 
@@ -71,7 +67,6 @@ $this->app->make('queue');
    And see my Lumen Redis tutorial to setup Redis for processing.
 
    Next, setup the basic config config/mail.php:
-
 <?php
 
 return [
@@ -96,11 +91,10 @@ return [
    That’s it, you’re done the setup! Don’t forget to set up your
    environment variables for production.
 
-  Creating a Mailer
+Creating a Mailer
 
    Now that we’re setup, you can create a mailer in app/Mail/, here’s an
    example to go by (app/Mail/Winnings):
-
 <?php namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -152,14 +146,12 @@ class Winnings extends Mailable
 
    Now, create a view, resources/views/emails/winnings.blade.php for
    simply HTML-only,:
-
 {% raw %}<strong>You won {{ $winnings }}</strong>!{% endraw %}
 
 Sending Mail
 
    Now that we have it setup, and a mailable created, we can send. In your
    job, controller, or where ever you need it:
-
 <?php
 use App\Mail\Winnings as WinningsMail;
 
@@ -179,7 +171,6 @@ Mail::send(
 Testing
 
    Of course, we need to test (tests/WinningsMailTest.php):
-
 <?php
 
 use App\Mail\Winnings;
@@ -210,19 +201,25 @@ class WinningsMailTest extends TestCase
    I hope this was a quick and useful setup for anyone having issues. Good
    luck!
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -239,9 +236,9 @@ References
    3. https://lumen.laravel.com/
    4. https://laravel.com/docs/5.5/mail#sending-mail
    5. https://laravel.com/docs/5.5/mocking#mail-fake
-   6. /setting-up-lumen-with-mail/index.md
-   7. /setting-up-lumen-with-mail/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /setting-up-lumen-with-mail/index.md
+   8. /setting-up-lumen-with-mail/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

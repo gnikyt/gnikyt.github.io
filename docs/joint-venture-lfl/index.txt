@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                             Joint Venture with LFL
+                            Joint Venture with LFL /
 
-   /* Nov 15, 2022 — 5.9KB */
-
-   This post is 2 years old and may contain outdated information.
+   /* Nov 15, 2022  —  5.9KB */
 
 JV
 
@@ -120,19 +118,25 @@ Press Release
      Company operates five websites: leons.ca, thebrick.com,
      furniture.ca, midnorthern.com and appliancecanada.com.
 
-   [9]MD | [10]TXT | [11]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 2 years old and may contain outdated information.
+
+   Copyright under [9]CC-4.0.
+
+   Additionally available in alternative formats: [10]MD  /  [11]TXT
 
    [12]Ty King
 
-Ty King
+[13]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [13]about me.
-   [14]Github [15]LinkedIn [16]CV [17]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [14]Github[15]LinkedIn[16]CV[17]RSS
+
      *
      *
      *
@@ -152,9 +156,9 @@ References
    6. https://www.linkedin.com/company/little-rocket-inc/
    7. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
    8. https://www.lflgroup.ca/
-   9. /joint-venture-lfl/index.md
-  10. /joint-venture-lfl/index.txt
-  11. https://creativecommons.org/licenses/by/4.0/
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. /joint-venture-lfl/index.md
+  11. /joint-venture-lfl/index.txt
   12. /about
   13. /about
   14. https://github.com/gnikyt

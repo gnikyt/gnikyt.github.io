@@ -55,146 +55,171 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="developing-sanely-on-windows-revisited">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Developing sanely on Windows revisited
+          <h1 class="tab__title tab__title--short post__title">
+            Developing sanely on Windows revisited /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2017-05-10">May 10, 2017</time> — <span class=
-            "post__size">1.9KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 7 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          Back in November <a href="/developing-sanely-on-windows">I wrote a post</a> about how to develop sanely on
-          Windows. It was a successful experiment that resulted in a usable environment to develop.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2017-05-10">May 10,
+              2017</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">1.9KB</span> */
+            </p>
 
-        <p>
-          Today, I am re-visiting this with some more notes as I’ve now been full-time developing on Windows for a
-          month now. With this, I’ve changed some tactics and have come to a much more streamlined solution.
-        </p>
+            <div class="content-container">
+              <p>
+                Back in November <a href="/developing-sanely-on-windows">I wrote a post</a> about how to develop sanely
+                on Windows. It was a successful experiment that resulted in a usable environment to develop.
+              </p>
 
-        <h2 id="changes">
-          Changes
-        </h2>
+              <p>
+                Today, I am re-visiting this with some more notes as I’ve now been full-time developing on Windows for
+                a month now. With this, I’ve changed some tactics and have come to a much more streamlined solution.
+              </p>
 
-        <p>
-          Previously I installed Ubuntu Server onto VMWare. I would SSH into the environment using a terminal and had a
-          shared development folder so I could use the browser and editor on Windows side, while all code execution was
-          contained on the VM side.
-        </p>
+              <h2 id="changes">
+                Changes
+              </h2>
 
-        <p>
-          Now, I’ve done away with the VM. With Docker working well on Windows, there’s really not much need for a VM
-          anymore since Docker is a more full-featured stable solution anyways; but the big change… <a href=
-          "https://msdn.microsoft.com/en-us/commandline/wsl/about">WSL (Bash on Ubuntu on Windows)</a>.
-        </p>
+              <p>
+                Previously I installed Ubuntu Server onto VMWare. I would SSH into the environment using a terminal and
+                had a shared development folder so I could use the browser and editor on Windows side, while all code
+                execution was contained on the VM side.
+              </p>
 
-        <p>
-          I previously explored this option last time but it was incomplete and had issues, mainly the lack of inotify
-          support for file system notifications which most build systems rely on. <a href=
-          "https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/">
-          With the latest creator’s update</a> released this month, they not only solved the inotify issues but many
-          others.
-        </p>
+              <p>
+                Now, I’ve done away with the VM. With Docker working well on Windows, there’s really not much need for
+                a VM anymore since Docker is a more full-featured stable solution anyways; but the big change… <a href=
+                "https://msdn.microsoft.com/en-us/commandline/wsl/about">WSL (Bash on Ubuntu on Windows)</a>.
+              </p>
 
-        <p>
-          I’ve now switched to using a combination of using WSL and Docker - it works wonderfully.
-        </p>
+              <p>
+                I previously explored this option last time but it was incomplete and had issues, mainly the lack of
+                inotify support for file system notifications which most build systems rely on. <a href=
+                "https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/">
+                With the latest creator’s update</a> released this month, they not only solved the inotify issues but
+                many others.
+              </p>
 
-        <h2 id="side-note">
-          Side Note
-        </h2>
+              <p>
+                I’ve now switched to using a combination of using WSL and Docker - it works wonderfully.
+              </p>
 
-        <p>
-          The great thing about WSL is it can easily integrate with VSCode’s integrated terminal feature.
-        </p>
+              <h2 id="side-note">
+                Side Note
+              </h2>
 
-        <p>
-          <a href="/assets/images/0000/vs-code-wsl.png"><img alt="VS Code with WSL" src=
-          "/assets/images/posts/vs-code-wsl.png"></a>
-        </p>
+              <p>
+                The great thing about WSL is it can easily integrate with VSCode’s integrated terminal feature.
+              </p>
 
-        <p>
-          In conclusion… I’ve had no issues yet with this setup. Docker + WSL + Windows = A happy environment.
-        </p>
+              <p>
+                <a href="/assets/images/0000/vs-code-wsl.png"><img alt="VS Code with WSL" src=
+                "/assets/images/posts/vs-code-wsl.png"></a>
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/developing-sanely-on-windows-revisited/index.md">MD</a> | <a class=
-            "sources__link" href="/developing-sanely-on-windows-revisited/index.txt">TXT</a> | <a class="sources__link"
-            href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                In conclusion… I’ve had no issues yet with this setup. Docker + WSL + Windows = A happy environment.
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 8 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/developing-sanely-on-windows-revisited/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
+                "sources__link" href="/developing-sanely-on-windows-revisited/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

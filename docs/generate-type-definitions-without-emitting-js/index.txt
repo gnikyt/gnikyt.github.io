@@ -1,10 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                 Shopify Checkout Extension to backend fetching
+                Shopify Checkout Extension to backend fetching /
 
-   /* Feb 27, 2024 — 3.0KB */
+   /* Feb 27, 2024  —  3.0KB */
 
    There are several posts around about people having issues figuring out
    how to send a fetch request from their checkout extension to their app
@@ -24,7 +24,6 @@
 
    Create a new file in your extension directory called useSessionFetch.ts
    and paste the following contents:
-
 // extensions/[your-ext]/useSessionFetch.ts
 
 import type { SessionToken } from "@shopify/ui-extensions/checkout";
@@ -59,7 +58,6 @@ export default function useSessionFetch(sessionToken: SessionToken) {
    headers. Its really just a small but helpful hook to wrap around fetch.
 
    To utilize this in your extension, example:
-
 // extensions/[your-ext]/Checkout.tsx
 
 import { useSessionToken } from "@shopify/ui-extensions-react/checkout";
@@ -84,7 +82,6 @@ function Extension() {
 }
 
    On your backend:
-
 // routes/some.path.to.remix.backend
 
 import { authenticate } from "../shopify.server";
@@ -105,19 +102,23 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
    authenticate.public.checkout, you can easily make a fetch request from
    your extension to your backend.
 
-   [3]MD | [4]TXT | [5]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   Copyright under [3]CC-4.0.
+
+   Additionally available in alternative formats: [4]MD  /  [5]TXT
 
    [6]Ty King
 
-Ty King
+[7]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [7]about me.
-   [8]Github [9]LinkedIn [10]CV [11]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [8]Github[9]LinkedIn[10]CV[11]RSS
+
      *
      *
      *
@@ -131,9 +132,9 @@ References
 
    1. /rss.xml
    2. /
-   3. /generate-type-definitions-without-emitting-js/index.md
-   4. /generate-type-definitions-without-emitting-js/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /generate-type-definitions-without-emitting-js/index.md
+   5. /generate-type-definitions-without-emitting-js/index.txt
    6. /about
    7. /about
    8. https://github.com/gnikyt

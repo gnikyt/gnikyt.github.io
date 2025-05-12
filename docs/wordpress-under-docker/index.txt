@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          WordPress Under Docker guide
+                         WordPress Under Docker guide /
 
-   /* Jun 15, 2017 — 3.6KB */
-
-   This post is 7 years old and may contain outdated information.
+   /* Jun 15, 2017  —  3.6KB */
 
 Purpose
 
@@ -20,7 +18,7 @@ Purpose
 
 Setup
 
-  Directories
+Directories
 
    Let’s create a basic directory structure to use. Keep in mind, this is
    geared for theme development.
@@ -37,7 +35,7 @@ Setup
    Once done, be sure to chmod 755 wordpress/wp-content/uploads/ so
    WordPress can write to this directory when uploading media.
 
-  Docker
+Docker
 
    Next, let’s get Docker ready. The simplest way is to use a [3]Docker
    Compose file. It’s a simple YML-formatted file that’s easy to read for
@@ -49,7 +47,7 @@ Setup
    Simply replace {YOUR_THEME} with your theme name and save it to the
    root of {your_theme}/ directory.
 
-  Volumes
+Volumes
 
    In the docker-compose.yml file you’ll notice two entries under volumes.
 
@@ -58,7 +56,7 @@ Setup
    WordPress install as well so it can write and read media from a
    location accessible.
 
-  Git Ignore
+Git Ignore
 
    Now that you have the directories set up, Docker Compose ready, volumes
    mapped… its time to setup Git.
@@ -108,19 +106,25 @@ Further Exploring
 
    I hope this has helped anyone struggling.
 
-   [7]MD | [8]TXT | [9]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [7]CC-4.0.
+
+   Additionally available in alternative formats: [8]MD  /  [9]TXT
 
    [10]Ty King
 
-Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [11]about me.
-   [12]Github [13]LinkedIn [14]CV [15]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [12]Github[13]LinkedIn[14]CV[15]RSS
+
      *
      *
      *
@@ -138,9 +142,9 @@ References
    4. https://hub.docker.com/_/wordpress/
    5. https://github.com/gnikyt/wordpress-docker-quickstart
    6. https://github.com/gnikyt/wordpress-docker-quickstart
-   7. /wordpress-under-docker/index.md
-   8. /wordpress-under-docker/index.txt
-   9. https://creativecommons.org/licenses/by/4.0/
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. /wordpress-under-docker/index.md
+   9. /wordpress-under-docker/index.txt
   10. /about
   11. /about
   12. https://github.com/gnikyt

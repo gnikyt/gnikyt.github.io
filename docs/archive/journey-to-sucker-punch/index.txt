@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                            Journey to Sucker Punch
+                           Journey to Sucker Punch /
 
-   /* Nov 26, 2016 — 4.0KB */
-
-   This post is 8 years old and may contain outdated information.
+   /* Nov 26, 2016  —  4.0KB */
 
    Background jobs are great. Mailing, data processing, image processing,
    database operations… you name it. If its a repetitive blocking process
@@ -82,19 +80,25 @@ sucker_punch
    So that was my journey through many ActiveJob adapters and settling on
    sucker_punch.
 
-   [9]MD | [10]TXT | [11]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 8 years old and may contain outdated information.
+
+   Copyright under [9]CC-4.0.
+
+   Additionally available in alternative formats: [10]MD  /  [11]TXT
 
    [12]Ty King
 
-Ty King
+[13]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [13]about me.
-   [14]Github [15]LinkedIn [16]CV [17]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [14]Github[15]LinkedIn[16]CV[17]RSS
+
      *
      *
      *
@@ -114,9 +118,9 @@ References
    6. https://redis.io/
    7. https://github.com/brandonhilkert/sucker_punch
    8. http://brandonhilkert.com/
-   9. /journey-to-sucker-punch/index.md
-  10. /journey-to-sucker-punch/index.txt
-  11. https://creativecommons.org/licenses/by/4.0/
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. /journey-to-sucker-punch/index.md
+  11. /journey-to-sucker-punch/index.txt
   12. /about
   13. /about
   14. https://github.com/gnikyt

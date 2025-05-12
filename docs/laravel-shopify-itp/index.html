@@ -57,195 +57,223 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="laravel-shopify-itp">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Laravel Shopify ITP
+          <h1 class="tab__title tab__title--short post__title">
+            Laravel Shopify ITP /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2021-02-03">Feb 03, 2021</time> — <span class=
-            "post__size">3.1KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 4 years old and may contain outdated information.
-          </div>
         </header>
 
-        <h2 id="background">
-          Background
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2021-02-03">Feb 03,
+              2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">3.1KB</span> */
+            </p>
 
-        <p>
-          <a href="https://github.com/gnikyt/laravel-shopify">Laravel Shopify</a> is a package I started a few years
-          ago which gained quite a bit of community traction. It is a full-featured package that helps you get
-          up-and-running with developing Shopify apps with Laravel.
-        </p>
+            <div class="content-container">
+              <h2 id="background">
+                Background
+              </h2>
 
-        <p>
-          Around 2017, Safari, and later other browsers, began blocking browser storage access for third-parties. This
-          includes cookies, session storage, local storage, and more. This was called “Intelligent Tracking Prevention”
-          (ITP).
-        </p>
+              <p>
+                <a href="https://github.com/gnikyt/laravel-shopify">Laravel Shopify</a> is a package I started a few
+                years ago which gained quite a bit of community traction. It is a full-featured package that helps you
+                get up-and-running with developing Shopify apps with Laravel.
+              </p>
 
-        <p>
-          Given Shopify apps load within an iframe inside Shopify’s admin panel, this means the app inside the iframe
-          is a third-party, thus will be blocked from attempting to access storage.
-        </p>
+              <p>
+                Around 2017, Safari, and later other browsers, began blocking browser storage access for third-parties.
+                This includes cookies, session storage, local storage, and more. This was called “Intelligent Tracking
+                Prevention” (ITP).
+              </p>
 
-        <p>
-          Once ITP gained traction in the largest market share browser, Chrome, Laravel Shopify was immediately flooded
-          with issues of users having trouble with their applications… no login session, authentication errors, etc.
-        </p>
+              <p>
+                Given Shopify apps load within an iframe inside Shopify’s admin panel, this means the app inside the
+                iframe is a third-party, thus will be blocked from attempting to access storage.
+              </p>
 
-        <h2 id="solving">
-          Solving
-        </h2>
+              <p>
+                Once ITP gained traction in the largest market share browser, Chrome, Laravel Shopify was immediately
+                flooded with issues of users having trouble with their applications… no login session, authentication
+                errors, etc.
+              </p>
 
-        <p>
-          The problem was hard to debug and hard to resolve. It took many commits, lots of community input, and various
-          testing methods to get a release out which assisted in the issue.
-        </p>
+              <h2 id="solving">
+                Solving
+              </h2>
 
-        <p>
-          The solution was to create a flow that tried to handle everything smoothly for the app user.
-        </p>
+              <p>
+                The problem was hard to debug and hard to resolve. It took many commits, lots of community input, and
+                various testing methods to get a release out which assisted in the issue.
+              </p>
 
-        <ol type="1">
-          <li>A middleware to check if a cookie called <code>itp</code> exists
-          </li>
+              <p>
+                The solution was to create a flow that tried to handle everything smoothly for the app user.
+              </p>
 
-          <li>If not, redirect full-page to a route to set this <code>itp</code> cookie… this creates a first-party
-          cookie since it was not created in an iframe
-          </li>
+              <ol type="1">
+                <li>A middleware to check if a cookie called <code>itp</code> exists
+                </li>
 
-          <li>Re-check the existence of the <code>itp</code> cookie. In some cases, since the original cookie was
-          created first-party, this re-check passes and the app will load
-          </li>
+                <li>If not, redirect full-page to a route to set this <code>itp</code> cookie… this creates a
+                first-party cookie since it was not created in an iframe
+                </li>
 
-          <li>If the re-check fails… display a prompt to try and ask for storage access, and set a cookie through
-          Javascript
-          </li>
+                <li>Re-check the existence of the <code>itp</code> cookie. In some cases, since the original cookie was
+                created first-party, this re-check passes and the app will load
+                </li>
 
-          <li>If the prompt method fails… as a final fallback, we ask the app user to manually enable storage access
-          </li>
-        </ol>
+                <li>If the re-check fails… display a prompt to try and ask for storage access, and set a cookie through
+                Javascript
+                </li>
 
-        <p>
-          In <em>some</em> cases, <code>1-&gt;3</code> is enough to load the app, but in the <em>majority</em> of cases
-          in testing, <code>1-&gt;4</code> is what’s actually happening to initially get the app displaying properly.
-        </p>
+                <li>If the prompt method fails… as a final fallback, we ask the app user to manually enable storage
+                access
+                </li>
+              </ol>
 
-        <p>
-          The above flow is similar to what Shopify’s own Ruby and Koa packages are following, which is what I tried to
-          strive for in the latest release.
-        </p>
+              <p>
+                In <em>some</em> cases, <code>1-&gt;3</code> is enough to load the app, but in the <em>majority</em> of
+                cases in testing, <code>1-&gt;4</code> is what’s actually happening to initially get the app displaying
+                properly.
+              </p>
 
-        <p>
-          <a href="/assets/images/2021/01/ls-ask.png"><img alt="Step 4" src="/assets/images/posts/ls-ask.png"></a>
-          <em>Step #4 - Asking for storage access</em>
-        </p>
+              <p>
+                The above flow is similar to what Shopify’s own Ruby and Koa packages are following, which is what I
+                tried to strive for in the latest release.
+              </p>
 
-        <p>
-          <a href="/assets/images/2021/01/ls-ask.png"><img alt="Step 5" src="/assets/images/posts/ls-manual.png"></a>
-          <em>Step #5 - Asking user to manually enable storage</em>
-        </p>
+              <p>
+                <a href="/assets/images/2021/01/ls-ask.png"><img alt="Step 4" src=
+                "/assets/images/posts/ls-ask.png"></a> <em>Step #4 - Asking for storage access</em>
+              </p>
 
-        <h2 id="alternatives">
-          Alternatives
-        </h2>
+              <p>
+                <a href="/assets/images/2021/01/ls-ask.png"><img alt="Step 5" src=
+                "/assets/images/posts/ls-manual.png"></a> <em>Step #5 - Asking user to manually enable storage</em>
+              </p>
 
-        <p>
-          Alternatively, you can skip the standard flow and utilize JWT which was introduced by a contributor a few
-          released back. Currently, there is no wiki page for setting this up, but one is coming!
-        </p>
+              <h2 id="alternatives">
+                Alternatives
+              </h2>
 
-        <h2 id="conclusion">
-          Conclusion
-        </h2>
+              <p>
+                Alternatively, you can skip the standard flow and utilize JWT which was introduced by a contributor a
+                few released back. Currently, there is no wiki page for setting this up, but one is coming!
+              </p>
 
-        <p>
-          ITP is still fairly new and still evolving with differences between browsers. The v16.0.0 release of the
-          package will work well for mostly everyone, but more work may still need to be done in the future to correct
-          some quirks.
-        </p>
+              <h2 id="conclusion">
+                Conclusion
+              </h2>
 
-        <p>
-          For additional information, see the <a href="https://github.com/gnikyt/laravel-shopify/wiki/ITP">ITP</a> wiki
-          page on the repository. Also, thank you to the community for the assistance and patience during this large
-          issue.
-        </p>
+              <p>
+                ITP is still fairly new and still evolving with differences between browsers. The v16.0.0 release of
+                the package will work well for mostly everyone, but more work may still need to be done in the future
+                to correct some quirks.
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/laravel-shopify-itp/index.md">MD</a> | <a class="sources__link" href=
-            "/laravel-shopify-itp/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                For additional information, see the <a href=
+                "https://github.com/gnikyt/laravel-shopify/wiki/ITP">ITP</a> wiki page on the repository. Also, thank
+                you to the community for the assistance and patience during this large issue.
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 4 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/laravel-shopify-itp/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/laravel-shopify-itp/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

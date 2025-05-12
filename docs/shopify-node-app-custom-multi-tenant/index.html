@@ -57,110 +57,108 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="shopify-node-app-custom-multi-tenant">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Shopify Node App - Custom multi-tenant support
+          <h1 class="tab__title tab__title--short post__title">
+            Shopify Node App - Custom multi-tenant support /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2021-11-15">Nov 15, 2021</time> — <span class=
-            "post__size">9.9KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 3 years old and may contain outdated information.
-          </div>
         </header>
 
-        <h2 id="introduction">
-          Introduction
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2021-11-15">Nov 15,
+              2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">9.9KB</span> */
+            </p>
 
-        <p>
-          Shopify’s new boilerplate for app development with Node works well. It gets a lot of small details out of the
-          way, allowing you to code an app with built in Polaris support, verification, and more.
-        </p>
+            <div class="content-container">
+              <h2 id="introduction">
+                Introduction
+              </h2>
 
-        <p>
-          However, Shopify no longer allows you to develop an unpublished app and have it installable by multiple
-          shops, this was allowed years ago, but they have phased this out. There are now two options for developing
-          apps.
-        </p>
+              <p>
+                Shopify’s new boilerplate for app development with Node works well. It gets a lot of small details out
+                of the way, allowing you to code an app with built in Polaris support, verification, and more.
+              </p>
 
-        <ul>
-          <li>
-            <code>Custom</code> - Allows you to develop an app for a single shop which does not have to be published or
-            reviewed by Shopify
-          </li>
+              <p>
+                However, Shopify no longer allows you to develop an unpublished app and have it installable by multiple
+                shops, this was allowed years ago, but they have phased this out. There are now two options for
+                developing apps.
+              </p>
 
-          <li>
-            <code>Public</code> - Allows you to develop an app for use for the general public, reviewed by Shopify
-          </li>
-        </ul>
+              <ul>
+                <li>
+                  <code>Custom</code> - Allows you to develop an app for a single shop which does not have to be
+                  published or reviewed by Shopify
+                </li>
 
-        <p>
-          The problem is, there are instances where you will may need to develop a <code>Custom</code> type app for a
-          client who owns multiple shops, clients who wish to keep the app private but utilize the same app for all
-          their shops.
-        </p>
+                <li>
+                  <code>Public</code> - Allows you to develop an app for use for the general public, reviewed by
+                  Shopify
+                </li>
+              </ul>
 
-        <p>
-          By default, the <code>Custom</code> app route along with the Node boilerplate, will not support this. Below
-          is a quick solution I have used to get around this limitation.
-        </p>
+              <p>
+                The problem is, there are instances where you will may need to develop a <code>Custom</code> type app
+                for a client who owns multiple shops, clients who wish to keep the app private but utilize the same app
+                for all their shops.
+              </p>
 
-        <h2 id="backend-changes">
-          Backend Changes
-        </h2>
+              <p>
+                By default, the <code>Custom</code> app route along with the Node boilerplate, will not support this.
+                Below is a quick solution I have used to get around this limitation.
+              </p>
 
-        <h3 id="env">
-          ENV
-        </h3>
+              <h2 id="backend-changes">
+                Backend Changes
+              </h2>
 
-        <p>
-          In your env file, you will create an API key and secret entry per shop, that has no special characters.
-        </p>
+              <h3 id="env">
+                ENV
+              </h3>
 
-        <p>
-          If the shops are <code>hello-world.myshopify.com</code> and <code>welcome-123.myshopify.com</code>, you would
-          add:
-        </p>
+              <p>
+                In your env file, you will create an API key and secret entry per shop, that has no special characters.
+              </p>
 
-        <pre class="conf"><code>SHOPIFY_API_KEY_HELLOWORLD=xyz123
+              <p>
+                If the shops are <code>hello-world.myshopify.com</code> and <code>welcome-123.myshopify.com</code>, you
+                would add:
+              </p>
+
+              <pre class="conf"><code>SHOPIFY_API_KEY_HELLOWORLD=xyz123
 SHOPIFY_API_SECRET_HELLOWORLD=123xyz
 SHOPIFY_API_KEY_WELCOME123=abc123
 SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
-        <h3 id="nextjs">
-          NextJS
-        </h3>
+              <h3 id="nextjs">
+                NextJS
+              </h3>
 
-        <p>
-          Open <code>next.config.js</code>.
-        </p>
+              <p>
+                Open <code>next.config.js</code>.
+              </p>
 
-        <p>
-          By default, it looks like this:
-        </p>
+              <p>
+                By default, it looks like this:
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden="true"
-          href="#cb2-1" tabindex="-1"></a><span class="kw">const</span> { <span class="dt">parsed</span><span class=
-          "op">:</span> localEnv } <span class="op">=</span> <span class="pp">require</span>(<span class=
-          "st">"dotenv"</span>)<span class="op">.</span><span class="fu">config</span>()<span class=
-          "op">;</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden=
+                "true" href="#cb2-1" tabindex="-1"></a><span class="kw">const</span> { <span class=
+                "dt">parsed</span><span class="op">:</span> localEnv } <span class="op">=</span> <span class=
+                "pp">require</span>(<span class="st">"dotenv"</span>)<span class="op">.</span><span class=
+                "fu">config</span>()<span class="op">;</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class=
 "kw">const</span> webpack <span class="op">=</span> <span class="pp">require</span>(<span class=
 "st">"webpack"</span>)<span class="op">;</span></span>
@@ -199,16 +197,16 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 "cf">return</span> config<span class="op">;</span></span>
 <span id="cb2-18"><a aria-hidden="true" href="#cb2-18" tabindex="-1"></a>  }<span class="op">,</span></span>
 <span id="cb2-19"><a aria-hidden="true" href="#cb2-19" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          We need to remove <code>API_KEY</code> and add a new <code>HOST</code> value.
-        </p>
+              <p>
+                We need to remove <code>API_KEY</code> and add a new <code>HOST</code> value.
+              </p>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true"
-          href="#cb3-1" tabindex="-1"></a># <span class="op">./</span>next<span class="op">.</span><span class=
-          "at">config</span><span class="op">.</span><span class="at">js</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden=
+                "true" href="#cb3-1" tabindex="-1"></a># <span class="op">./</span>next<span class=
+                "op">.</span><span class="at">config</span><span class="op">.</span><span class="at">js</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="kw">const</span> { <span class=
 "dt">parsed</span><span class="op">:</span> localEnv } <span class="op">=</span> <span class=
 "pp">require</span>(<span class="st">"dotenv"</span>)<span class="op">.</span><span class=
@@ -251,20 +249,21 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 "cf">return</span> config<span class="op">;</span></span>
 <span id="cb3-19"><a aria-hidden="true" href="#cb3-19" tabindex="-1"></a>  }<span class="op">,</span></span>
 <span id="cb3-20"><a aria-hidden="true" href="#cb3-20" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="utils">
-          Utils
-        </h3>
+              <h3 id="utils">
+                Utils
+              </h3>
 
-        <p>
-          Create a file to hold some utility functions which we will use to support multi-tentant.
-        </p>
+              <p>
+                Create a file to hold some utility functions which we will use to support multi-tentant.
+              </p>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a aria-hidden="true"
-          href="#cb4-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>services<span class=
-          "op">/</span>utils<span class="op">.</span><span class="at">js</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a aria-hidden=
+                "true" href="#cb4-1" tabindex="-1"></a># <span class="op">./</span>src<span class=
+                "op">/</span>services<span class="op">/</span>utils<span class="op">.</span><span class=
+                "at">js</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class=
 "im">import</span> crypto <span class="im">from</span> <span class="st">"crypto"</span><span class="op">;</span></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class=
@@ -354,25 +353,25 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 "fu">update</span>(queryString)<span class="op">.</span><span class="fu">digest</span>(<span class=
 "st">"hex"</span>)<span class="op">;</span></span>
 <span id="cb4-42"><a aria-hidden="true" href="#cb4-42" tabindex="-1"></a>}</span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="middleware-additions">
-          Middleware Additions
-        </h3>
+              <h3 id="middleware-additions">
+                Middleware Additions
+              </h3>
 
-        <h4 id="shopcontext">
-          ShopContext
-        </h4>
+              <h4 id="shopcontext">
+                ShopContext
+              </h4>
 
-        <p>
-          This middleware file for Koa will create the Shopify context.
-        </p>
+              <p>
+                This middleware file for Koa will create the Shopify context.
+              </p>
 
-        <div class="sourceCode" id="cb5">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a aria-hidden="true"
-          href="#cb5-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>server<span class=
-          "op">/</span>middleware<span class="op">/</span>shopContext<span class="op">.</span><span class=
-          "at">js</span></span>
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a aria-hidden=
+                "true" href="#cb5-1" tabindex="-1"></a># <span class="op">./</span>src<span class=
+                "op">/</span>server<span class="op">/</span>middleware<span class="op">/</span>shopContext<span class=
+                "op">.</span><span class="at">js</span></span>
 <span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class=
 "im">import</span> Shopify<span class="op">,</span> { ApiVersion } <span class="im">from</span> <span class=
 "st">"@shopify/shopify-api"</span><span class="op">;</span></span>
@@ -446,17 +445,17 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb5-30"><a aria-hidden="true" href="#cb5-30" tabindex="-1"></a></span>
 <span id="cb5-31"><a aria-hidden="true" href="#cb5-31" tabindex="-1"></a><span class="im">export</span> <span class=
 "im">default</span> shopContext<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Now open your <code>server/server.js</code> file and include the middleware for use on every backend route.
-          Example:
-        </p>
+              <p>
+                Now open your <code>server/server.js</code> file and include the middleware for use on every backend
+                route. Example:
+              </p>
 
-        <div class="sourceCode" id="cb6">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true"
-          href="#cb6-1" tabindex="-1"></a># <span class="op">./</span>server<span class="op">/</span>server<span class=
-          "op">.</span><span class="at">js</span></span>
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden=
+                "true" href="#cb6-1" tabindex="-1"></a># <span class="op">./</span>server<span class=
+                "op">/</span>server<span class="op">.</span><span class="at">js</span></span>
 <span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="co">// ...</span></span>
 <span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class=
 "im">import</span> shopEnv <span class="im">from</span> <span class=
@@ -485,29 +484,30 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb6-18"><a aria-hidden="true" href="#cb6-18" tabindex="-1"></a>    <span class=
 "fu">defaultRequest</span>(handle)</span>
 <span id="cb6-19"><a aria-hidden="true" href="#cb6-19" tabindex="-1"></a>)<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          As well, remove the default <code>Shopify.Context</code> declaration in the <code>server.js</code> file.
-        </p>
+              <p>
+                As well, remove the default <code>Shopify.Context</code> declaration in the <code>server.js</code>
+                file.
+              </p>
 
-        <p>
-          Now, all API requests in your handlers will use the shop’s API key and secret.
-        </p>
+              <p>
+                Now, all API requests in your handlers will use the shop’s API key and secret.
+              </p>
 
-        <h4 id="verifyhmac">
-          VerifyHmac
-        </h4>
+              <h4 id="verifyhmac">
+                VerifyHmac
+              </h4>
 
-        <p>
-          This middleware file for Koa will verify HMAC strings.
-        </p>
+              <p>
+                This middleware file for Koa will verify HMAC strings.
+              </p>
 
-        <div class="sourceCode" id="cb7">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true"
-          href="#cb7-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>server<span class=
-          "op">/</span>middleare<span class="op">/</span>verifyHmac<span class="op">.</span><span class=
-          "at">js</span></span>
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden=
+                "true" href="#cb7-1" tabindex="-1"></a># <span class="op">./</span>src<span class=
+                "op">/</span>server<span class="op">/</span>middleare<span class="op">/</span>verifyHmac<span class=
+                "op">.</span><span class="at">js</span></span>
 <span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class=
 "im">import</span> Shopify <span class="im">from</span> <span class="st">"@shopify/shopify-api"</span><span class=
 "op">;</span></span>
@@ -580,21 +580,21 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb7-36"><a aria-hidden="true" href="#cb7-36" tabindex="-1"></a></span>
 <span id="cb7-37"><a aria-hidden="true" href="#cb7-37" tabindex="-1"></a><span class="im">export</span> <span class=
 "im">default</span> verifyHmac<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="handler-addition">
-          Handler Addition
-        </h3>
+              <h3 id="handler-addition">
+                Handler Addition
+              </h3>
 
-        <p>
-          We need to pass the proper API key to AppBridge.
-        </p>
+              <p>
+                We need to pass the proper API key to AppBridge.
+              </p>
 
-        <div class="sourceCode" id="cb8">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true"
-          href="#cb8-1" tabindex="-1"></a># <span class="op">./</span>src<span class="op">/</span>server<span class=
-          "op">/</span>handlers<span class="op">/</span>backend<span class="op">/</span>appbridge<span class=
-          "op">.</span><span class="at">js</span></span>
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden=
+                "true" href="#cb8-1" tabindex="-1"></a># <span class="op">./</span>src<span class=
+                "op">/</span>server<span class="op">/</span>handlers<span class="op">/</span>backend<span class=
+                "op">/</span>appbridge<span class="op">.</span><span class="at">js</span></span>
 <span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class=
 "im">import</span> { cleanDomain } <span class="im">from</span> <span class=
 "st">"../../../services/utils"</span><span class="op">;</span></span>
@@ -629,17 +629,17 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb8-17"><a aria-hidden="true" href="#cb8-17" tabindex="-1"></a></span>
 <span id="cb8-18"><a aria-hidden="true" href="#cb8-18" tabindex="-1"></a><span class="im">export</span> <span class=
 "im">default</span> appbridge<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Now open <code>server/server.js</code> to add a route for this as well as the <code>VerifyHmac</code>
-          middleware.
-        </p>
+              <p>
+                Now open <code>server/server.js</code> to add a route for this as well as the <code>VerifyHmac</code>
+                middleware.
+              </p>
 
-        <div class="sourceCode" id="cb9">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true"
-          href="#cb9-1" tabindex="-1"></a># <span class="op">./</span>server<span class="op">/</span>server<span class=
-          "op">.</span><span class="at">js</span></span>
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden=
+                "true" href="#cb9-1" tabindex="-1"></a># <span class="op">./</span>server<span class=
+                "op">/</span>server<span class="op">.</span><span class="at">js</span></span>
 <span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="co">// ...</span></span>
 <span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a><span class=
 "im">import</span> appbridge <span class="im">from</span> <span class=
@@ -654,44 +654,44 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a>router<span class="op">.</span><span class=
 "fu">get</span>(<span class="st">"/_appbridge"</span><span class="op">,</span> verifyHmac<span class=
 "op">,</span> appbridge)<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="appbridge-integration">
-          AppBridge Integration
-        </h3>
+              <h3 id="appbridge-integration">
+                AppBridge Integration
+              </h3>
 
-        <p>
-          Now that we have our backend handler to verify the HMAC and return back an API key for the shop, we need to
-          tap into the existing AppBridge setup to complete the integration.
-        </p>
+              <p>
+                Now that we have our backend handler to verify the HMAC and return back an API key for the shop, we
+                need to tap into the existing AppBridge setup to complete the integration.
+              </p>
 
-        <p>
-          Open <code>_app.js</code>, and look for the <code>MyApp.getInitialProps</code>, it will look something like
-          this:
-        </p>
+              <p>
+                Open <code>_app.js</code>, and look for the <code>MyApp.getInitialProps</code>, it will look something
+                like this:
+              </p>
 
-        <div class="sourceCode" id="cb10">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a aria-hidden=
-          "true" href="#cb10-1" tabindex="-1"></a>MyApp<span class="op">.</span><span class=
-          "at">getInitialProps</span> <span class="op">=</span> <span class="kw">async</span> ({ ctx }) <span class=
-          "kw">=&gt;</span> {</span>
+              <div class="sourceCode" id="cb10">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a aria-hidden=
+                "true" href="#cb10-1" tabindex="-1"></a>MyApp<span class="op">.</span><span class=
+                "at">getInitialProps</span> <span class="op">=</span> <span class=
+                "kw">async</span> ({ ctx }) <span class="kw">=&gt;</span> {</span>
 <span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>  <span class="cf">return</span> {</span>
 <span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>    <span class="dt">host</span><span class=
 "op">:</span> ctx<span class="op">.</span><span class="at">query</span><span class="op">.</span><span class=
 "at">host</span><span class="op">,</span></span>
 <span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>  }<span class="op">;</span></span>
 <span id="cb10-5"><a aria-hidden="true" href="#cb10-5" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          We will now modify it to this:
-        </p>
+              <p>
+                We will now modify it to this:
+              </p>
 
-        <div class="sourceCode" id="cb11">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden=
-          "true" href="#cb11-1" tabindex="-1"></a>MyApp<span class="op">.</span><span class=
-          "at">getInitialProps</span> <span class="op">=</span> <span class="kw">async</span> ({ ctx }) <span class=
-          "kw">=&gt;</span> {</span>
+              <div class="sourceCode" id="cb11">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden=
+                "true" href="#cb11-1" tabindex="-1"></a>MyApp<span class="op">.</span><span class=
+                "at">getInitialProps</span> <span class="op">=</span> <span class=
+                "kw">async</span> ({ ctx }) <span class="kw">=&gt;</span> {</span>
 <span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a>  <span class="kw">let</span> key <span class=
 "op">=</span> <span class="st">""</span><span class="op">;</span></span>
 <span id="cb11-3"><a aria-hidden="true" href="#cb11-3" tabindex="-1"></a>  <span class="cf">try</span> {</span>
@@ -728,16 +728,16 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb11-17"><a aria-hidden="true" href="#cb11-17" tabindex="-1"></a>  }<span class="op">;</span></span>
 <span id="cb11-18"><a aria-hidden="true" href="#cb11-18" tabindex="-1"></a>}<span class=
 "op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Next, modify your <code>MyApp</code> class, which will look something like this:
-        </p>
+              <p>
+                Next, modify your <code>MyApp</code> class, which will look something like this:
+              </p>
 
-        <div class="sourceCode" id="cb12">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden=
-          "true" href="#cb12-1" tabindex="-1"></a><span class="kw">class</span> MyApp <span class=
-          "kw">extends</span> App {</span>
+              <div class="sourceCode" id="cb12">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden=
+                "true" href="#cb12-1" tabindex="-1"></a><span class="kw">class</span> MyApp <span class=
+                "kw">extends</span> App {</span>
 <span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a>  <span class="fu">render</span>() {</span>
 <span id="cb12-3"><a aria-hidden="true" href="#cb12-3" tabindex="-1"></a>    <span class=
 "kw">const</span> { Component<span class="op">,</span> pageProps<span class="op">,</span> host } <span class=
@@ -769,16 +769,16 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb12-17"><a aria-hidden="true" href="#cb12-17" tabindex="-1"></a>    )<span class="op">;</span></span>
 <span id="cb12-18"><a aria-hidden="true" href="#cb12-18" tabindex="-1"></a>  }</span>
 <span id="cb12-19"><a aria-hidden="true" href="#cb12-19" tabindex="-1"></a>}</span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          We will now modify it to this, to use the new prop:
-        </p>
+              <p>
+                We will now modify it to this, to use the new prop:
+              </p>
 
-        <div class="sourceCode" id="cb13">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a aria-hidden=
-          "true" href="#cb13-1" tabindex="-1"></a><span class="kw">class</span> MyApp <span class=
-          "kw">extends</span> App {</span>
+              <div class="sourceCode" id="cb13">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a aria-hidden=
+                "true" href="#cb13-1" tabindex="-1"></a><span class="kw">class</span> MyApp <span class=
+                "kw">extends</span> App {</span>
 <span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a>  <span class="fu">render</span>() {</span>
 <span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>    <span class=
 "kw">const</span> { Component<span class="op">,</span> pageProps<span class="op">,</span> host<span class=
@@ -810,83 +810,112 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb13-17"><a aria-hidden="true" href="#cb13-17" tabindex="-1"></a>    )<span class="op">;</span></span>
 <span id="cb13-18"><a aria-hidden="true" href="#cb13-18" tabindex="-1"></a>  }</span>
 <span id="cb13-19"><a aria-hidden="true" href="#cb13-19" tabindex="-1"></a>}</span></code></pre>
+              </div>
+
+              <p>
+                You’re now completed.
+              </p>
+
+              <h2 id="conculsion">
+                Conculsion
+              </h2>
+
+              <p>
+                In two parts, we created middleware to handle modifying/setting up the <code>Shopify.Context</code>
+                object and also created a handler to verify the shop’s request and supply back an API key to pass to
+                AppBridge.
+              </p>
+
+              <p>
+                The code in this post can certainly be improved upon, but its a good start for someone looking to add
+                multi-tenant support to a custom app setup.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          You’re now completed.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 3 years old and may contain outdated information.
+              </div>
 
-        <h2 id="conculsion">
-          Conculsion
-        </h2>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <p>
-          In two parts, we created middleware to handle modifying/setting up the <code>Shopify.Context</code> object
-          and also created a handler to verify the shop’s request and supply back an API key to pass to AppBridge.
-        </p>
-
-        <p>
-          The code in this post can certainly be improved upon, but its a good start for someone looking to add
-          multi-tenant support to a custom app setup.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/shopify-node-app-custom-multi-tenant/index.md">MD</a> | <a class=
-            "sources__link" href="/shopify-node-app-custom-multi-tenant/index.txt">TXT</a> | <a class="sources__link"
-            href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/shopify-node-app-custom-multi-tenant/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
+                "sources__link" href="/shopify-node-app-custom-multi-tenant/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

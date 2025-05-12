@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                             Shopify Liquid Tester
+                            Shopify Liquid Tester /
 
-   /* Nov 20, 2022 — 3.8KB */
-
-   This post is 2 years old and may contain outdated information.
+   /* Nov 20, 2022  —  3.8KB */
 
 Introduction
 
@@ -58,7 +56,7 @@ How it works
    From here, the page content is fetched with no layout to get the
    result, for which the result is then used to test for expected output.
 
-    Questions
+Questions
 
    Why a new page for each test assertion?
 
@@ -109,19 +107,25 @@ Utilization
    Hopefully this tool will continue to grow and is helpful to those who
    are looking to try and test their snippets; both small and complex.
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 2 years old and may contain outdated information.
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -137,9 +141,9 @@ References
    2. /
    3. https://github.com/gnikyt/liquid-fn-tester
    4. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
-   5. /shopify-liquid-tester/index.md
-   6. /shopify-liquid-tester/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /shopify-liquid-tester/index.md
+   7. /shopify-liquid-tester/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

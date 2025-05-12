@@ -55,108 +55,106 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="building-a-simple-redis-autosuggest-with-ruby">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Building a simple Redis autosuggest with Ruby
+          <h1 class="tab__title tab__title--short post__title">
+            Building a simple Redis autosuggest with Ruby /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2016-03-02">Mar 02, 2016</time> — <span class=
-            "post__size">5.6KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 9 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          So you have a search box on your website.. an article search, a product search.. whatever it may be, you may
-          find yourself the need to display suggested results to your user based on what they type. Redis is the
-          perfect solution.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2016-03-02">Mar 02,
+              2016</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">5.6KB</span> */
+            </p>
 
-        <h2 id="planning">
-          Planning
-        </h2>
+            <div class="content-container">
+              <p>
+                So you have a search box on your website.. an article search, a product search.. whatever it may be,
+                you may find yourself the need to display suggested results to your user based on what they type. Redis
+                is the perfect solution.
+              </p>
 
-        <p>
-          Let’s say we have a bunch of products:
-        </p>
+              <h2 id="planning">
+                Planning
+              </h2>
 
-        <ul>
-          <li>Tommy’s Ray Gun - ID: 1
-          </li>
+              <p>
+                Let’s say we have a bunch of products:
+              </p>
 
-          <li>1990 Blaster Ray!! - ID: 2
-          </li>
+              <ul>
+                <li>Tommy’s Ray Gun - ID: 1
+                </li>
 
-          <li>(Nuke) Bomb Gun #8 - ID: 3
-          </li>
-        </ul>
+                <li>1990 Blaster Ray!! - ID: 2
+                </li>
 
-        <p>
-          Looking at our products, we can see there is a different and unpredictable title. We have punctuation,
-          special characters, numbers, and letters. If someone types <code>Gun</code> we’d like to see our search
-          suggest <code>(Nuke) Bomb Gun #8</code> and <code>Tommy's Ray Gun</code>.
-        </p>
+                <li>(Nuke) Bomb Gun #8 - ID: 3
+                </li>
+              </ul>
 
-        <p>
-          Redis does not offer a full-text search solution like ElasticSearch, so we simply can’t drop <code>Tommy's
-          Ray Gun</code> string into Redis and expect to search it. We need to come up with a clever way.
-        </p>
+              <p>
+                Looking at our products, we can see there is a different and unpredictable title. We have punctuation,
+                special characters, numbers, and letters. If someone types <code>Gun</code> we’d like to see our search
+                suggest <code>(Nuke) Bomb Gun #8</code> and <code>Tommy's Ray Gun</code>.
+              </p>
 
-        <p>
-          My solution was to split each letter up of each word in each product. For each letter set, we store the
-          products which contain those letters. So common sets of letters in titles will be stored together.
-        </p>
+              <p>
+                Redis does not offer a full-text search solution like ElasticSearch, so we simply can’t drop
+                <code>Tommy's Ray Gun</code> string into Redis and expect to search it. We need to come up with a
+                clever way.
+              </p>
 
-        <p>
-          As a basic example, let’s look at a singular word. <code>RUBY</code> we can split this up into <code>R</code>
-          then <code>RU</code> then <code>RUB</code> and finally <code>RUBY</code>.
-        </p>
+              <p>
+                My solution was to split each letter up of each word in each product. For each letter set, we store the
+                products which contain those letters. So common sets of letters in titles will be stored together.
+              </p>
 
-        <p>
-          Lets store these product titles in this manner with the values being the title and ID for the product into a
-          <a href="http://redis.io/commands/ZADD">Redis sorted set</a>. Now, when someone types <code>gun</code> in
-          your search box we should be able to call <code>p:gun</code> key on Redis and get:
-        </p>
+              <p>
+                As a basic example, let’s look at a singular word. <code>RUBY</code> we can split this up into
+                <code>R</code> then <code>RU</code> then <code>RUB</code> and finally <code>RUBY</code>.
+              </p>
 
-        <ul>
-          <li>
-            <code>Tommy's Ray Gun//1</code>
-          </li>
+              <p>
+                Lets store these product titles in this manner with the values being the title and ID for the product
+                into a <a href="http://redis.io/commands/ZADD">Redis sorted set</a>. Now, when someone types
+                <code>gun</code> in your search box we should be able to call <code>p:gun</code> key on Redis and get:
+              </p>
 
-          <li>
-            <code>(Nuke) Bomb Gun #8//3</code>
-          </li>
-        </ul>
+              <ul>
+                <li>
+                  <code>Tommy's Ray Gun//1</code>
+                </li>
 
-        <h2 id="processing-the-objects">
-          Processing the Objects
-        </h2>
+                <li>
+                  <code>(Nuke) Bomb Gun #8//3</code>
+                </li>
+              </ul>
 
-        <p>
-          So now we have a plan in place, let’s write a quick script to import the objects you wish to autosuggest,
-          into your Redis database. As before, we need to split each word up of each object.
-        </p>
+              <h2 id="processing-the-objects">
+                Processing the Objects
+              </h2>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a></span>
+              <p>
+                So now we have a plan in place, let’s write a quick script to import the objects you wish to
+                autosuggest, into your Redis database. As before, we need to split each word up of each object.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co"># autosuggest.rb</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="fu">require</span> <span class=
 "st">"redis"</span></span>
@@ -218,27 +216,28 @@
 <span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          If you run this into your terminal it should output:
-        </p>
+              <p>
+                If you run this into your terminal it should output:
+              </p>
 
-        <pre><code>&gt; ruby autosuggest.rb
+              <pre><code>&gt; ruby autosuggest.rb
 Processing Tommy\'s Ray Gun...
 "to" "tom" "tomm" "tommy" "tommys" "ra" "ray" "gu" "gun"
 Processing 1990 Blaster Ray!!...
 "19" "199" "1990" "bl" "bla" "blas" "blast" "blaste" "blaster" "ra" "ray"
 Processing (Nuke) Bomb Gun #8...
 "nu" "nuk" "nuke" "bo" "bom" "bomb" "gu" "gun"</code></pre>
-        <p>
-          Here we can see how the script cleans the titles, then breaks them down to produce key names for Redis to use
-          as we had hoped for in the planning section. Now, let’s import this into Redis. Simply change line 27:
-        </p>
+              <p>
+                Here we can see how the script cleans the titles, then breaks them down to produce key names for Redis
+                to use as we had hoped for in the planning section. Now, let’s import this into Redis. Simply change
+                line 27:
+              </p>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="co"># BEFORE</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a><span class="co"># BEFORE</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="fu">puts</span> part<span class=
 "kw">[</span><span class="dv">0</span><span class="kw">...</span>len<span class="kw">]</span></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a></span>
@@ -250,49 +249,49 @@ Processing (Nuke) Bomb Gun #8...
 "wa">:title</span><span class="kw">]</span><span class="sc">}</span><span class="st">//</span><span class=
 "sc">#{</span>product<span class="kw">[</span><span class="wa">:id</span><span class="kw">]</span><span class=
 "sc">}</span><span class="st">"</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          This will now store the titles for the objects as planned into a sorted list on Redis, where common sets of
-          parts will group objects together. Go ahead and run your script again.
-        </p>
+              <p>
+                This will now store the titles for the objects as planned into a sorted list on Redis, where common
+                sets of parts will group objects together. Go ahead and run your script again.
+              </p>
 
-        <pre><code>&gt; ruby autosuggest.rb
+              <pre><code>&gt; ruby autosuggest.rb
 Processing Tommy's Ray Gun...
 Processing 1990 Blaster Ray!!...
 Processing (Nuke) Bomb Gun #8...</code></pre>
-        <p>
-          Login to Redis and let’s check if it works as planned. Since this is a sorted set we need to use <a href=
-          "http://redis.io/commands/ZRANGE">ZRANGE</a>.
-        </p>
+              <p>
+                Login to Redis and let’s check if it works as planned. Since this is a sorted set we need to use
+                <a href="http://redis.io/commands/ZRANGE">ZRANGE</a>.
+              </p>
 
-        <pre><code>&gt; redis-cli
+              <pre><code>&gt; redis-cli
 127.0.0.1:6379&gt; ZRANGE p:gun 0 -1
 1) "(Nuke) Bomb Gun #8//3"
 2) "Tommy's Ray Gun//1"
 127.0.0.1:6379&gt; ZRANGE p:nuke 0 -1
 1) "(Nuke) Bomb Gun #8//3"</code></pre>
-        <p>
-          Awesome, it works! We now have sorted sets with groups of products based on parts of the words in the object
-          titles.
-        </p>
+              <p>
+                Awesome, it works! We now have sorted sets with groups of products based on parts of the words in the
+                object titles.
+              </p>
 
-        <h2 id="frontend">
-          Frontend
-        </h2>
+              <h2 id="frontend">
+                Frontend
+              </h2>
 
-        <p>
-          Now that we have a script (that you should expand on into a proper lib), we need to now show results to the
-          user for when they’re searching.
-        </p>
+              <p>
+                Now that we have a script (that you should expand on into a proper lib), we need to now show results to
+                the user for when they’re searching.
+              </p>
 
-        <p>
-          Here’s a quick Sinatra example (of course you can use more advanced techniques as well)
-        </p>
+              <p>
+                Here’s a quick Sinatra example (of course you can use more advanced techniques as well)
+              </p>
 
-        <div class="sourceCode" id="cb6">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a aria-hidden="true" href=
-          "#cb6-1" tabindex="-1"></a><span class="fu">require</span> <span class="st">"redis"</span></span>
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a><span class="fu">require</span> <span class="st">"redis"</span></span>
 <span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="fu">require</span> <span class=
 "st">"json"</span></span>
 <span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a><span class="fu">require</span> <span class=
@@ -358,82 +357,111 @@ Processing (Nuke) Bomb Gun #8...</code></pre>
 <span id="cb6-33"><a aria-hidden="true" href="#cb6-33" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb6-34"><a aria-hidden="true" href="#cb6-34" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
+              </div>
+
+              <p>
+                By calling <code>/?q=some+text</code>, we create a key for each word passed. So <code>some+text</code>
+                goes into the <code>sets</code> variable and becomes <code>["p:some", "p:text"]</code>.
+              </p>
+
+              <p>
+                Next, we create a temporary key to use with <a href=
+                "http://redis.io/commands/ZINTERSTORE">zinterstore</a> which computes intersection between keys (our
+                <code>p:some</code> and <code>p:text</code>). This finds products that have both the words some and
+                text in their title. We then use zrange to get the result of the intersection and delete the temporary
+                key.
+              </p>
+
+              <p>
+                Finally, send the results as JSON. You can use AJAX to actively call the Sinatra app when the user is
+                typing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          By calling <code>/?q=some+text</code>, we create a key for each word passed. So <code>some+text</code> goes
-          into the <code>sets</code> variable and becomes <code>["p:some", "p:text"]</code>.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 9 years old and may contain outdated information.
+              </div>
 
-        <p>
-          Next, we create a temporary key to use with <a href="http://redis.io/commands/ZINTERSTORE">zinterstore</a>
-          which computes intersection between keys (our <code>p:some</code> and <code>p:text</code>). This finds
-          products that have both the words some and text in their title. We then use zrange to get the result of the
-          intersection and delete the temporary key.
-        </p>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <p>
-          Finally, send the results as JSON. You can use AJAX to actively call the Sinatra app when the user is typing.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/building-a-simple-redis-autosuggest-with-ruby/index.md">MD</a> | <a class=
-            "sources__link" href="/building-a-simple-redis-autosuggest-with-ruby/index.txt">TXT</a> | <a class=
-            "sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target=
-            "_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/building-a-simple-redis-autosuggest-with-ruby/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
+                "sources__link" href="/building-a-simple-redis-autosuggest-with-ruby/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

@@ -57,73 +57,70 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="async-shopify-api-for-python">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Async Shopify API for Python
+          <h1 class="tab__title tab__title--short post__title">
+            Async Shopify API for Python /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2020-06-29">Jun 29, 2020</time> — <span class=
-            "post__size">3.9KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 4 years old and may contain outdated information.
-          </div>
         </header>
 
-        <h2 id="introduction">
-          Introduction
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2020-06-29">Jun 29,
+              2020</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">3.9KB</span> */
+            </p>
 
-        <p>
-          I maintain a fairly used <a href="https://github.com/gnikyt/Basic-Shopify-API">PHP</a> library for Shopify
-          API which uses Guzzle for sync/async requests. It was also recently featured as a recommended third-party
-          library on Shopify’s dev docs.
-        </p>
+            <div class="content-container">
+              <h2 id="introduction">
+                Introduction
+              </h2>
 
-        <p>
-          For Python, which I also use with Shopify work, I didn’t notice a library which provides async abilities.
-          Normally I use Shopify’s Python library which provides a nice ActiveResource implementation. However, their
-          library has no plans to support async.
-        </p>
+              <p>
+                I maintain a fairly used <a href="https://github.com/gnikyt/Basic-Shopify-API">PHP</a> library for
+                Shopify API which uses Guzzle for sync/async requests. It was also recently featured as a recommended
+                third-party library on Shopify’s dev docs.
+              </p>
 
-        <p>
-          I decided to create a tested library that can do both, <a href=
-          "https://github.com/gnikyt/basic_shopify_api">basic_shopify_api</a>. It is a loose port of my PHP version
-          which supports sync, async, HMAC validation, rate limiting, automatic retries, REST, and GraphQL; all backed
-          by the HTTPX package.
-        </p>
+              <p>
+                For Python, which I also use with Shopify work, I didn’t notice a library which provides async
+                abilities. Normally I use Shopify’s Python library which provides a nice ActiveResource implementation.
+                However, their library has no plans to support async.
+              </p>
 
-        <p>
-          You simply need to set up some basic options and create a session for a shop to get started.
-        </p>
+              <p>
+                I decided to create a tested library that can do both, <a href=
+                "https://github.com/gnikyt/basic_shopify_api">basic_shopify_api</a>. It is a loose port of my PHP
+                version which supports sync, async, HMAC validation, rate limiting, automatic retries, REST, and
+                GraphQL; all backed by the HTTPX package.
+              </p>
 
-        <h2 id="sync">
-          Sync
-        </h2>
+              <p>
+                You simply need to set up some basic options and create a session for a shop to get started.
+              </p>
 
-        <h3 id="rest">
-          REST
-        </h3>
+              <h2 id="sync">
+                Sync
+              </h2>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
-          "im">import</span> Client</span>
+              <h3 id="rest">
+                REST
+              </h3>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true"
+                href="#cb1-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
+                "im">import</span> Client</span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
@@ -155,16 +152,16 @@
 "co">#   retries=Number of retires for the request</span></span>
 <span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>    <span class=
 "co"># )</span></span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="graphql">
-          GraphQL
-        </h3>
+              <h3 id="graphql">
+                GraphQL
+              </h3>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
-          "im">import</span> Client</span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true"
+                href="#cb2-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
+                "im">import</span> Client</span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a></span>
@@ -194,20 +191,20 @@
 "co">#   retries=Number of retires for the request,</span></span>
 <span id="cb2-17"><a aria-hidden="true" href="#cb2-17" tabindex="-1"></a>    <span class=
 "co"># )</span></span></code></pre>
-        </div>
+              </div>
 
-        <h2 id="async">
-          Async
-        </h2>
+              <h2 id="async">
+                Async
+              </h2>
 
-        <h3 id="rest-1">
-          REST
-        </h3>
+              <h3 id="rest-1">
+                REST
+              </h3>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
-          "im">import</span> AsyncClient</span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true"
+                href="#cb3-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
+                "im">import</span> AsyncClient</span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a></span>
@@ -239,16 +236,16 @@
 "co">#   retries=Number of retires for the request</span></span>
 <span id="cb3-18"><a aria-hidden="true" href="#cb3-18" tabindex="-1"></a>    <span class=
 "co"># )</span></span></code></pre>
-        </div>
+              </div>
 
-        <h3 id="graphql-1">
-          GraphQL
-        </h3>
+              <h3 id="graphql-1">
+                GraphQL
+              </h3>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href=
-          "#cb4-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
-          "im">import</span> AsyncClient</span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true"
+                href="#cb4-1" tabindex="-1"></a><span class="im">from</span> basic_shopify_api <span class=
+                "im">import</span> AsyncClient</span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a></span>
@@ -278,80 +275,109 @@
 "co">#   retries=Number of retires for the request,</span></span>
 <span id="cb4-17"><a aria-hidden="true" href="#cb4-17" tabindex="-1"></a>    <span class=
 "co"># )</span></span></code></pre>
+              </div>
+
+              <h2 id="conclusion">
+                Conclusion
+              </h2>
+
+              <p>
+                The above examples are brief, refer to the README of the project for full information. But I believe
+                you will find it very helpful - especially the automatic retries for failed requests and built-in
+                rate/cost limiting.
+              </p>
+
+              <p>
+                Feel free to give it a try with your projects, with the continual rise of async within Python, I hope
+                the library will serve some use to you. I’ve recently paired it with <a href=
+                "https://fastapi.tiangolo.com/">FastAPI</a> and it performed well.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <h2 id="conclusion">
-          Conclusion
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 4 years old and may contain outdated information.
+              </div>
 
-        <p>
-          The above examples are brief, refer to the README of the project for full information. But I believe you will
-          find it very helpful - especially the automatic retries for failed requests and built-in rate/cost limiting.
-        </p>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <p>
-          Feel free to give it a try with your projects, with the continual rise of async within Python, I hope the
-          library will serve some use to you. I’ve recently paired it with <a href=
-          "https://fastapi.tiangolo.com/">FastAPI</a> and it performed well.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/async-shopify-api-for-python/index.md">MD</a> | <a class="sources__link"
-            href="/async-shopify-api-for-python/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/async-shopify-api-for-python/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/async-shopify-api-for-python/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

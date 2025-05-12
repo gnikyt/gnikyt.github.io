@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                       Counting unique options in Shopify
+                      Counting unique options in Shopify /
 
-   /* Jun 21, 2016 — 2.0KB */
-
-   This post is 8 years old and may contain outdated information.
+   /* Jun 21, 2016  —  2.0KB */
 
    Ever wanted to quickly display how many of an option a product
    contains?
@@ -54,19 +52,25 @@ r', 'colors' }}
    selecting the product appropriate to their needs… this little bit of
    Liquid can easily help with conversion rates.
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 8 years old and may contain outdated information.
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -82,9 +86,9 @@ References
    2. /
    3. https://help.shopify.com/themes/liquid/filters/array-filters#map
    4. https://help.shopify.com/themes/liquid/filters/array-filters#uniq
-   5. /counting-unique-options-in-shopify/index.md
-   6. /counting-unique-options-in-shopify/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /counting-unique-options-in-shopify/index.md
+   7. /counting-unique-options-in-shopify/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                    Precompiling assets in your Rails Engine
+                   Precompiling assets in your Rails Engine /
 
-   /* May 03, 2016 — 2.3KB */
-
-   This post is 8 years old and may contain outdated information.
+   /* May 03, 2016  —  2.3KB */
 
    This will be a quick post to highlight an issue I had where I needed to
    precompile an asset file for my Rails engine that was not to be
@@ -43,7 +41,6 @@ app/
    think of it before? I simply need to open my engine’s file and append
    my plugin path to assets.precompile provided by Rails. Here was the
    final working result (bottom of the file):
-
 # Guts' module namespace
 module Guts
   # Guts' engine class
@@ -70,19 +67,25 @@ end
 
    I hope this helps anyone else stuck in a similar situation.
 
-   [4]MD | [5]TXT | [6]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 9 years old and may contain outdated information.
+
+   Copyright under [4]CC-4.0.
+
+   Additionally available in alternative formats: [5]MD  /  [6]TXT
 
    [7]Ty King
 
-Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [8]about me.
-   [9]Github [10]LinkedIn [11]CV [12]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
      *
      *
      *
@@ -97,9 +100,9 @@ References
    1. /rss.xml
    2. /
    3. https://github.com/spohlenz/tinymce-rails
-   4. /precompiling-assets-in-your-rails-engine/index.md
-   5. /precompiling-assets-in-your-rails-engine/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. /precompiling-assets-in-your-rails-engine/index.md
+   6. /precompiling-assets-in-your-rails-engine/index.txt
    7. /about
    8. /about
    9. https://github.com/gnikyt

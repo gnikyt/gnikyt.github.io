@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                           shopify_app_whitelist Gem
+                          shopify_app_whitelist Gem /
 
-   /* Nov 26, 2016 — 1.5KB */
-
-   This post is 8 years old and may contain outdated information.
+   /* Nov 26, 2016  —  1.5KB */
 
    I regularly use [3]shopify_app. It’s a great way to get an app,
    embedded or not, up and running with Rails.
@@ -32,19 +30,25 @@
    lines, and you’re set. The Gem is fully tested and documented if you
    want to dig into the code. I hope someone will find it useful!
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 8 years old and may contain outdated information.
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -60,9 +64,9 @@ References
    2. /
    3. https://github.com/Shopify/shopify_app
    4. https://github.com/gnikyt/shopify_app_whitelist
-   5. /shopify-app-whitelist-gem/index.md
-   6. /shopify-app-whitelist-gem/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /shopify-app-whitelist-gem/index.md
+   7. /shopify-app-whitelist-gem/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

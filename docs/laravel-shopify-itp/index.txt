@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                              Laravel Shopify ITP
+                             Laravel Shopify ITP /
 
-   /* Feb 03, 2021 — 3.1KB */
-
-   This post is 4 years old and may contain outdated information.
+   /* Feb 03, 2021  —  3.1KB */
 
 Background
 
@@ -76,19 +74,25 @@ Conclusion
    Also, thank you to the community for the assistance and patience during
    this large issue.
 
-   [7]MD | [8]TXT | [9]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 4 years old and may contain outdated information.
+
+   Copyright under [7]CC-4.0.
+
+   Additionally available in alternative formats: [8]MD  /  [9]TXT
 
    [10]Ty King
 
-Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [11]about me.
-   [12]Github [13]LinkedIn [14]CV [15]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [12]Github[13]LinkedIn[14]CV[15]RSS
+
      *
      *
      *
@@ -106,9 +110,9 @@ References
    4. /assets/images/2021/01/ls-ask.png
    5. /assets/images/2021/01/ls-ask.png
    6. https://github.com/gnikyt/laravel-shopify/wiki/ITP
-   7. /laravel-shopify-itp/index.md
-   8. /laravel-shopify-itp/index.txt
-   9. https://creativecommons.org/licenses/by/4.0/
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. /laravel-shopify-itp/index.md
+   9. /laravel-shopify-itp/index.txt
   10. /about
   11. /about
   12. https://github.com/gnikyt

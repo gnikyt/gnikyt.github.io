@@ -57,68 +57,70 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="shopify-checkout-ui-product-html">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Shopify checkout extension with product HTML
+          <h1 class="tab__title tab__title--short post__title">
+            Shopify checkout extension with product HTML /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2024-05-10">May 10, 2024</time> — <span class=
-            "post__size">14KB</span> */
-          </p>
         </header>
 
-        <h2 id="background">
-          Background
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2024-05-10">May 10,
+              2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">14KB</span> */
+            </p>
 
-        <p>
-          A project last month required a build of an upselling checkout UI extension for Shopify. The client wanted
-          the description of the product to be what is displayed in the checkout, however, Shopify’s checkout extension
-          system does not support directly using HTML nor the <code>dangerouslySetInnerHtml</code> property.
-          Additionally to this, the extensions do not support such services such a <a href=
-          "https://developer.mozilla.org/en-US/docs/Web/API/DOMParser"><code>DOMParser</code></a> – something custom
-          would have to be built.
-        </p>
+            <div class="content-container">
+              <h2 id="background">
+                Background
+              </h2>
 
-        <p>
-          Given the tight timeline for the project, it was decided to just build a quick transformation helper to
-          convert the HTML Shopify uses for product descriptions into Checkout UI Extension components. It was
-          successful, but I am sure it could be better written if we had more time.
-        </p>
+              <p>
+                A project last month required a build of an upselling checkout UI extension for Shopify. The client
+                wanted the description of the product to be what is displayed in the checkout, however, Shopify’s
+                checkout extension system does not support directly using HTML nor the
+                <code>dangerouslySetInnerHtml</code> property. Additionally to this, the extensions do not support such
+                services such a <a href=
+                "https://developer.mozilla.org/en-US/docs/Web/API/DOMParser"><code>DOMParser</code></a> – something
+                custom would have to be built.
+              </p>
 
-        <p>
-          It works by capturing each open and close tag of the HTML element, grabbing its details and contents, parsing
-          into React components, then shifting the HTML string to remove what was just captured, then repeats the
-          process.
-        </p>
+              <p>
+                Given the tight timeline for the project, it was decided to just build a quick transformation helper to
+                convert the HTML Shopify uses for product descriptions into Checkout UI Extension components. It was
+                successful, but I am sure it could be better written if we had more time.
+              </p>
 
-        <h2 id="inputoutput-examples">
-          Input/output examples
-        </h2>
+              <p>
+                It works by capturing each open and close tag of the HTML element, grabbing its details and contents,
+                parsing into React components, then shifting the HTML string to remove what was just captured, then
+                repeats the process.
+              </p>
 
-        <p>
-          An example description HTML from a product in Shopify:
-        </p>
+              <h2 id="inputoutput-examples">
+                Input/output examples
+              </h2>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span> <span class=
-          "er">class</span><span class="ot">=</span><span class=
-          "st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
+              <p>
+                An example description HTML from a product in Shopify:
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span> <span class=
+                "er">class</span><span class="ot">=</span><span class=
+                "st">"TypographyPresentation TypographyPresentation--m RichText3-paragraph--withVSpacingNormal RichText3-paragraph"</span><span class="dt">&gt;</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  LINE 1</span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
 "kw">div</span><span class="dt">&gt;</span></span>
@@ -273,15 +275,15 @@
 <span id="cb1-74"><a aria-hidden="true" href="#cb1-74" tabindex="-1"></a>  LINE 7</span>
 <span id="cb1-75"><a aria-hidden="true" href="#cb1-75" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
 "kw">div</span><span class="dt">&gt;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Example of the transformed output:
-        </p>
+              <p>
+                Example of the transformed output:
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb2-1"><a aria-hidden="true"
-          href="#cb2-1" tabindex="-1"></a><span class="kw">&lt;&gt;</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb2-1"><a aria-hidden=
+                "true" href="#cb2-1" tabindex="-1"></a><span class="kw">&lt;&gt;</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  <span class=
 "fu">&lt;TextBlock&gt;</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>    LINE 1</span>
@@ -403,20 +405,21 @@
 "fu">&lt;/TextBlock&gt;</span></span>
 <span id="cb2-70"><a aria-hidden="true" href="#cb2-70" tabindex="-1"></a><span class=
 "kw">&lt;/&gt;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h2 id="usage-examples">
-          Usage examples
-        </h2>
+              <h2 id="usage-examples">
+                Usage examples
+              </h2>
 
-        <p>
-          <strong>As-is with default transformer:</strong>
-        </p>
+              <p>
+                <strong>As-is with default transformer:</strong>
+              </p>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb3-1"><a aria-hidden="true"
-          href="#cb3-1" tabindex="-1"></a><span class="im">import</span> descriptionTransformer <span class=
-          "im">from</span> <span class="st">'./descriptionTransformer'</span><span class="op">;</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb3-1"><a aria-hidden=
+                "true" href="#cb3-1" tabindex="-1"></a><span class=
+                "im">import</span> descriptionTransformer <span class="im">from</span> <span class=
+                "st">'./descriptionTransformer'</span><span class="op">;</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a><span class="co">// ...</span></span>
 <span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a></span>
@@ -434,16 +437,17 @@
 "va">{</span>description<span class="va">}</span></span>
 <span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a><span class=
 "fu">&lt;/BlockStack&gt;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          <strong>With custom transformer:</strong>
-        </p>
+              <p>
+                <strong>With custom transformer:</strong>
+              </p>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb4-1"><a aria-hidden="true"
-          href="#cb4-1" tabindex="-1"></a><span class="im">import</span> descriptionTransformer <span class=
-          "im">from</span> <span class="st">'./descriptionTransformer'</span><span class="op">;</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb4-1"><a aria-hidden=
+                "true" href="#cb4-1" tabindex="-1"></a><span class=
+                "im">import</span> descriptionTransformer <span class="im">from</span> <span class=
+                "st">'./descriptionTransformer'</span><span class="op">;</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="co">// ...</span></span>
 <span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a></span>
@@ -480,20 +484,21 @@
 "va">{</span>description<span class="va">}</span></span>
 <span id="cb4-21"><a aria-hidden="true" href="#cb4-21" tabindex="-1"></a><span class=
 "fu">&lt;/BlockStack&gt;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h2 id="code">
-          Code
-        </h2>
+              <h2 id="code">
+                Code
+              </h2>
 
-        <p>
-          Also available <a href="https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8">on this Gist</a>.
-        </p>
+              <p>
+                Also available <a href="https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8">on this
+                Gist</a>.
+              </p>
 
-        <div class="sourceCode" id="cb5">
-          <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb5-1"><a aria-hidden="true"
-          href="#cb5-1" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class=
-          "st">"react"</span><span class="op">;</span></span>
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb5-1"><a aria-hidden=
+                "true" href="#cb5-1" tabindex="-1"></a><span class="im">import</span> React <span class=
+                "im">from</span> <span class="st">"react"</span><span class="op">;</span></span>
 <span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class=
 "im">import</span> { List<span class="op">,</span> ListItem<span class="op">,</span> TextBlock } <span class=
 "im">from</span> <span class="st">"@shopify/ui-extensions-react/checkout"</span><span class="op">;</span></span>
@@ -997,70 +1002,94 @@
 "cf">return</span> <span class="fu">transform</span>(<span class="fu">walk</span>(cleanedRawHtml)<span class=
 "op">,</span> transformer)<span class="op">;</span></span>
 <span id="cb5-265"><a aria-hidden="true" href="#cb5-265" tabindex="-1"></a>}</span></code></pre>
+              </div>
+
+              <p>
+                Hopefully this can help point you in the right direction if you’re attempting to use product
+                descriptions in a Shopify Checkout UI Extension.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Hopefully this can help point you in the right direction if you’re attempting to use product descriptions in
-          a Shopify Checkout UI Extension.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/shopify-checkout-ui-product-html/index.md">MD</a> | <a class=
-            "sources__link" href="/shopify-checkout-ui-product-html/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/shopify-checkout-ui-product-html/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
+                href="/shopify-checkout-ui-product-html/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

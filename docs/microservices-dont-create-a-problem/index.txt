@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                    Microservices... don't create a problem
+                   Microservices... don't create a problem /
 
-   /* Apr 20, 2020 — 4.7KB */
-
-   This post is 5 years old and may contain outdated information.
+   /* Apr 20, 2020  —  4.7KB */
 
 Big Fat No
 
@@ -115,19 +113,25 @@ A Good Process
    When your core project is forecasted to approch it’s scaling limits,
    this is when you need to think about microservices, but not before.
 
-   [3]MD | [4]TXT | [5]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 5 years old and may contain outdated information.
+
+   Copyright under [3]CC-4.0.
+
+   Additionally available in alternative formats: [4]MD  /  [5]TXT
 
    [6]Ty King
 
-Ty King
+[7]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [7]about me.
-   [8]Github [9]LinkedIn [10]CV [11]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [8]Github[9]LinkedIn[10]CV[11]RSS
+
      *
      *
      *
@@ -141,9 +145,9 @@ References
 
    1. /rss.xml
    2. /
-   3. /microservices-dont-create-a-problem/index.md
-   4. /microservices-dont-create-a-problem/index.txt
-   5. https://creativecommons.org/licenses/by/4.0/
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /microservices-dont-create-a-problem/index.md
+   5. /microservices-dont-create-a-problem/index.txt
    6. /about
    7. /about
    8. https://github.com/gnikyt

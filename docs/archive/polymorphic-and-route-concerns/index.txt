@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                 Polymorphic and Route Concerns... who is who?
+                Polymorphic and Route Concerns... who is who? /
 
-   /* Jan 01, 2016 — 5.1KB */
-
-   This post is 9 years old and may contain outdated information.
+   /* Jan 01, 2016  —  5.1KB */
 
    The goal of this post is to outline some tips on easily figuring out
    the parent object for a polymorphic modal/route/controller. Let’s start
@@ -25,7 +23,6 @@ Route Concerns
    These are used in routing for Rails where you’re able to declare common
    routes for resources. An example of this can be a picture concern,
    where many resources can have a picture route.
-
 concern :picturable do
   resources :pictures
 end
@@ -39,7 +36,6 @@ The problem
    is using it? How do you get the object itself? Let’s start and assume I
    have a polymorphic modal for Metafields, so many models can have
    metafields and we’ll call it fieldable.
-
 # modals/metafield.rb
 module MyCoolApp
   class Metafield < ActiveRecord::Base
@@ -74,7 +70,6 @@ end
    Along with this, I’ve set up a Metafield controller so we can add,
    edit, and delete metafields for these other models. With all this put
    together, we’ll set up the routing concerns.
-
 concern(:fieldable) { resources :metafields }
 # ...
 resources :users do
@@ -96,14 +91,12 @@ end
    easier and cleaner ways… by utilizing a mix of the routing concerns and
    a private method in the Metafield controller. Let’s change our concern
    in the routing now to accept options and parameters.
-
 # Before
 concern(:fieldable) { resources :metafields }
 # After
 concern(:fieldable) {|opts| resources :metafields, opts}
 
    Now let’s pass a parameter to the concern per resource route.
-
 concern(:fieldable) {|opts| resources :metafields, opts}
 # ...
 resources :users do
@@ -119,7 +112,6 @@ end
    parameter in the controller and it’ll help us figure out what modal is
    trying to access the metafields. Let’s add a method to the metafield
    controller now which will do this work for us.
-
 module MyCoolApp
   class MetafieldsController < ApplicationController
       before_action :set_object
@@ -147,7 +139,6 @@ end
    object or Movie object trying to access the metafields.
 
    Lastly, we can tie this into the forms for metafields creation/editing:
-
 # ...
 <div class="hide">
   <%= f.text_field :fieldable_id, value: @object.id %>
@@ -157,19 +148,25 @@ end
    Now when saved, the metafield record in the database will automatically
    set the modal class and the ID for the object.
 
-   [4]MD | [5]TXT | [6]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 9 years old and may contain outdated information.
+
+   Copyright under [4]CC-4.0.
+
+   Additionally available in alternative formats: [5]MD  /  [6]TXT
 
    [7]Ty King
 
-Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [8]about me.
-   [9]Github [10]LinkedIn [11]CV [12]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
      *
      *
      *
@@ -184,9 +181,9 @@ References
    1. /rss.xml
    2. /
    3. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-   4. /polymorphic-and-route-concerns/index.md
-   5. /polymorphic-and-route-concerns/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. /polymorphic-and-route-concerns/index.md
+   6. /polymorphic-and-route-concerns/index.txt
    7. /about
    8. /about
    9. https://github.com/gnikyt

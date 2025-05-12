@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                            Extending a Rails Engine
+                           Extending a Rails Engine /
 
-   /* Feb 20, 2016 — 4.3KB */
-
-   This post is 9 years old and may contain outdated information.
+   /* Feb 20, 2016  —  4.3KB */
 
    Redesigning my CMS in Rails has been great fun. There have been many
    challenges faced, and many conquered (like having 100% code coverage
@@ -25,7 +23,6 @@
    The first step as the Rails guide shows you, is to add support for
    decorator loading inside your engine lib. Below is how I did it in my
    CMS engine called Guts:
-
 # lib/guts/engine.rb
 # ... etc ...
 isolate_namespace Guts
@@ -51,7 +48,6 @@ Controllers
    type_decorator.rb
 
    Add in the following code using class_eval from Ruby:
-
 Guts::TypesController.class_eval do
   # Decorator action is explode.. we will route this as: guts/types#explode
   def explode
@@ -64,7 +60,6 @@ end
    engine in the Rails.application.routes.draw block.
 
    As an example:
-
 Guts::Engine.routes.prepend do
   # Create a route of /guts/types/explode
   # Map it to types controller and the explode method
@@ -90,7 +85,6 @@ Models
    type_modal_decorator.rb
 
    Add in the following code using class_eval from Ruby:
-
 Guts::Type.class_eval do
   # Override title setter
   def title=(title)
@@ -121,19 +115,25 @@ Views
    Although the Rails Guide covers all this, I thought seeing a real-world
    example would help. Happy coding!
 
-   [8]MD | [9]TXT | [10]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 9 years old and may contain outdated information.
+
+   Copyright under [8]CC-4.0.
+
+   Additionally available in alternative formats: [9]MD  /  [10]TXT
 
    [11]Ty King
 
-Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [12]about me.
-   [13]Github [14]LinkedIn [15]CV [16]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [13]Github[14]LinkedIn[15]CV[16]RSS
+
      *
      *
      *
@@ -152,9 +152,9 @@ References
    5. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require_dependency
    6. http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield
    7. http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method
-   8. /extending-a-rails-engine/index.md
-   9. /extending-a-rails-engine/index.txt
-  10. https://creativecommons.org/licenses/by/4.0/
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. /extending-a-rails-engine/index.md
+  10. /extending-a-rails-engine/index.txt
   11. /about
   12. /about
   13. https://github.com/gnikyt

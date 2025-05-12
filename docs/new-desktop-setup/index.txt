@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                               New desktop setup
+                              New desktop setup /
 
-   /* Dec 11, 2022 — 6.5KB */
-
-   This post is 2 years old and may contain outdated information.
+   /* Dec 11, 2022  —  6.5KB */
 
 Introduction
 
@@ -152,19 +150,25 @@ Cinnamon
    great, well-thought-out desktop which brings back the feeling of
    nostalgia and control again.
 
-   [8]MD | [9]TXT | [10]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 2 years old and may contain outdated information.
+
+   Copyright under [8]CC-4.0.
+
+   Additionally available in alternative formats: [9]MD  /  [10]TXT
 
    [11]Ty King
 
-Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [12]about me.
-   [13]Github [14]LinkedIn [15]CV [16]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [13]Github[14]LinkedIn[15]CV[16]RSS
+
      *
      *
      *
@@ -183,9 +187,9 @@ References
    5. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
    6. /assets/images/posts/cinnamon.png
    7. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-   8. /new-desktop-setup/index.md
-   9. /new-desktop-setup/index.txt
-  10. https://creativecommons.org/licenses/by/4.0/
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. /new-desktop-setup/index.md
+  10. /new-desktop-setup/index.txt
   11. /about
   12. /about
   13. https://github.com/gnikyt

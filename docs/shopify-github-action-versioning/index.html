@@ -55,65 +55,62 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="shopify-github-action-versioning">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Shopify Github Action for versioning
+          <h1 class="tab__title tab__title--short post__title">
+            Shopify Github Action for versioning /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2022-05-20">May 20, 2022</time> — <span class=
-            "post__size">2.4KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 2 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          Shopify recently updated their admin panel again and started to display the value of
-          <code>theme_version</code> from <code>config/settings_schema.json</code> onto the theme listing page. Example
-          (yellow highlight):
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2022-05-20">May 20,
+              2022</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">2.4KB</span> */
+            </p>
 
-        <p>
-          <a href="/assets/images/posts/shopify-versioning.png"><img alt="Shopify theme version example" src=
-          "/assets/images/posts/shopify-versioning.png"></a>
-        </p>
+            <div class="content-container">
+              <p>
+                Shopify recently updated their admin panel again and started to display the value of
+                <code>theme_version</code> from <code>config/settings_schema.json</code> onto the theme listing page.
+                Example (yellow highlight):
+              </p>
 
-        <p>
-          With our setup, all our client themes are connected to Github and every release gets tagged a version in
-          SYMVER format.
-        </p>
+              <p>
+                <a href="/assets/images/posts/shopify-versioning.png"><img alt="Shopify theme version example" src=
+                "/assets/images/posts/shopify-versioning.png"></a>
+              </p>
 
-        <p>
-          Depending on a developer or release manager to manually update <code>config/settings_schema.json</code>
-          before releasing is not ideal; even with a process guide or release checklist, there is a chance it can be
-          missed. We wanted an automated solution to update the <code>theme_version</code> value upon a tag being
-          pushed to the <code>master</code> branch.
-        </p>
+              <p>
+                With our setup, all our client themes are connected to Github and every release gets tagged a version
+                in SYMVER format.
+              </p>
 
-        <p>
-          We have come up with the following solution (<code>.github/workflows/schema_version.yml</code>):
-        </p>
+              <p>
+                Depending on a developer or release manager to manually update <code>config/settings_schema.json</code>
+                before releasing is not ideal; even with a process guide or release checklist, there is a chance it can
+                be missed. We wanted an automated solution to update the <code>theme_version</code> value upon a tag
+                being pushed to the <code>master</code> branch.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class=
-          "at"> Schema version</span></span>
+              <p>
+                We have come up with the following solution (<code>.github/workflows/schema_version.yml</code>):
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class=
+                "at"> Schema version</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="fu">on</span><span class=
 "kw">:</span></span>
@@ -163,96 +160,125 @@
 "st">"Updated settings_schema.json to version {% raw %}'${{ github.ref_name }}'{% endraw %}"</span></span>
 <span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a><span class="at">          </span><span class=
 "fu">add</span><span class="kw">:</span><span class="at"> config/settings_schema.json</span></span></code></pre>
+              </div>
+
+              <p>
+                Now, anytime a version tag gets pushed to the <code>master</code> branch, the action will do the
+                following:
+              </p>
+
+              <ol type="1">
+                <li>Confirm the action to only run upon tagging; <em>lines 3-5</em>
+                </li>
+
+                <li>Confirm the steps will only run if tagging happened; <em>line 10</em>
+                </li>
+
+                <li>Checkout the repository; <em>lines 12-13</em>
+                </li>
+
+                <li>Utilize <code>sed</code> to inline-replace the <code>theme_version</code> value to <code></code>
+                (removes the <code>v</code>); <em>line 17</em>
+                </li>
+
+                <li>Commit the changes to the schema with a commit message containing the version; <em>lines 19-25</em>
+                </li>
+              </ol>
+
+              <p>
+                <a href="/assets/images/posts/shopify-versioning-github.png"><img alt=
+                "Shopify theme version output example" src="/assets/images/posts/shopify-versioning-github.png"></a>
+              </p>
+
+              <p>
+                Hopefully this is a helpful starting point for any other developers looking to do the same process.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Now, anytime a version tag gets pushed to the <code>master</code> branch, the action will do the following:
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 2 years old and may contain outdated information.
+              </div>
 
-        <ol type="1">
-          <li>Confirm the action to only run upon tagging; <em>lines 3-5</em>
-          </li>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-          <li>Confirm the steps will only run if tagging happened; <em>line 10</em>
-          </li>
-
-          <li>Checkout the repository; <em>lines 12-13</em>
-          </li>
-
-          <li>Utilize <code>sed</code> to inline-replace the <code>theme_version</code> value to <code></code> (removes
-          the <code>v</code>); <em>line 17</em>
-          </li>
-
-          <li>Commit the changes to the schema with a commit message containing the version; <em>lines 19-25</em>
-          </li>
-        </ol>
-
-        <p>
-          <a href="/assets/images/posts/shopify-versioning-github.png"><img alt="Shopify theme version output example"
-          src="/assets/images/posts/shopify-versioning-github.png"></a>
-        </p>
-
-        <p>
-          Hopefully this is a helpful starting point for any other developers looking to do the same process.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/shopify-github-action-versioning/index.md">MD</a> | <a class=
-            "sources__link" href="/shopify-github-action-versioning/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/shopify-github-action-versioning/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
+                href="/shopify-github-action-versioning/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          Async Shopify API for Python
+                         Async Shopify API for Python /
 
-   /* Jun 29, 2020 — 3.9KB */
-
-   This post is 4 years old and may contain outdated information.
+   /* Jun 29, 2020  —  3.9KB */
 
 Introduction
 
@@ -29,7 +27,7 @@ Introduction
 
 Sync
 
-  REST
+REST
 
 from basic_shopify_api import Client
 
@@ -51,7 +49,7 @@ with Client(sess, opts) as client:
     #   retries=Number of retires for the request
     # )
 
-  GraphQL
+GraphQL
 
 from basic_shopify_api import Client
 
@@ -74,7 +72,7 @@ with Client(sess, opts) as client:
 
 Async
 
-  REST
+REST
 
 from basic_shopify_api import AsyncClient
 
@@ -97,7 +95,7 @@ il"})
     #   retries=Number of retires for the request
     # )
 
-  GraphQL
+GraphQL
 
 from basic_shopify_api import AsyncClient
 
@@ -129,19 +127,25 @@ Conclusion
    of async within Python, I hope the library will serve some use to you.
    I’ve recently paired it with [5]FastAPI and it performed well.
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 4 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -158,9 +162,9 @@ References
    3. https://github.com/gnikyt/Basic-Shopify-API
    4. https://github.com/gnikyt/basic_shopify_api
    5. https://fastapi.tiangolo.com/
-   6. /async-shopify-api-for-python/index.md
-   7. /async-shopify-api-for-python/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /async-shopify-api-for-python/index.md
+   8. /async-shopify-api-for-python/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

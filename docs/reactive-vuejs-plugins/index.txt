@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                             Reactive VueJS plugins
+                            Reactive VueJS plugins /
 
-   /* Jun 29, 2017 — 4.0KB */
-
-   This post is 7 years old and may contain outdated information.
+   /* Jun 29, 2017  —  4.0KB */
 
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop
@@ -42,7 +40,6 @@ Building
 
    The key to making your data reactive in your plugin is simple… create a
    new Vue instance that holds the data.
-
 // plugins/sports-ticker.js
 
 /**
@@ -126,7 +123,6 @@ export default {
    data, process it, and write it back to our Vue instance.
 
    With all this in play, our data is now reactive.
-
 <template v-if="$SportsTicker.state.gameTime">
   {% raw %}
   {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.sco
@@ -142,19 +138,25 @@ re.home }} - {{ $SportsTicker.state.score.away }}
    All we needed to do was create our own Vue instance for the plugin to
    store the data, with a simple method to access it (get state).
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -170,9 +172,9 @@ References
    2. /
    3. https://vuejs.org/v2/guide/plugins.html
    4. https://vuejs.org/v2/guide/reactivity.html
-   5. /reactive-vuejs-plugins/index.md
-   6. /reactive-vuejs-plugins/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /reactive-vuejs-plugins/index.md
+   7. /reactive-vuejs-plugins/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

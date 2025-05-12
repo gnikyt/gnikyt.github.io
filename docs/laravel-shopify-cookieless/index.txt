@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          Laravel Shopify - Cookieless
+                         Laravel Shopify - Cookieless /
 
-   /* Jun 29, 2021 — 2.8KB */
-
-   This post is 3 years old and may contain outdated information.
+   /* Jun 29, 2021  —  2.8KB */
 
 This Issue
 
@@ -82,19 +80,25 @@ What’s next?
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
-   [7]MD | [8]TXT | [9]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 3 years old and may contain outdated information.
+
+   Copyright under [7]CC-4.0.
+
+   Additionally available in alternative formats: [8]MD  /  [9]TXT
 
    [10]Ty King
 
-Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [11]about me.
-   [12]Github [13]LinkedIn [14]CV [15]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [12]Github[13]LinkedIn[14]CV[15]RSS
+
      *
      *
      *
@@ -112,9 +116,9 @@ References
    4. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
    5. https://github.com/lucasmichot
    6. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-   7. /laravel-shopify-cookieless/index.md
-   8. /laravel-shopify-cookieless/index.txt
-   9. https://creativecommons.org/licenses/by/4.0/
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. /laravel-shopify-cookieless/index.md
+   9. /laravel-shopify-cookieless/index.txt
   10. /about
   11. /about
   12. https://github.com/gnikyt

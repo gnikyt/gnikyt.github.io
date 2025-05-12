@@ -57,50 +57,51 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="prisma-jest-mysql-testing">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Prisma, Jest, and MySQL testing
+          <h1 class="tab__title tab__title--short post__title">
+            Prisma, Jest, and MySQL testing /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2024-03-28">Mar 28, 2024</time> — <span class=
-            "post__size">6.5KB</span> */
-          </p>
         </header>
 
-        <p>
-          <em>This is an alternate extension to my previous post, <a href="../shopify-remix-prisma-and-jest">Shopify,
-          Remix, Prisma, and Jest</a>.</em>
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2024-03-28">Mar 28,
+              2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">6.5KB</span> */
+            </p>
 
-        <p>
-          Follow that post to get to its current state, and we’ll modify the existing files to support MySQL.
-        </p>
+            <div class="content-container">
+              <p>
+                <em>This is an alternate extension to my previous post, <a href=
+                "../shopify-remix-prisma-and-jest">Shopify, Remix, Prisma, and Jest</a>.</em>
+              </p>
 
-        <h2 id="changes">
-          Changes
-        </h2>
+              <p>
+                Follow that post to get to its current state, and we’ll modify the existing files to support MySQL.
+              </p>
 
-        <p>
-          Change <code>app/__mocks__/db.server.ts</code> to:
-        </p>
+              <h2 id="changes">
+                Changes
+              </h2>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true"
-          href="#cb1-1" tabindex="-1"></a><span class="co">/* app/__mocks__/db.server.ts */</span></span>
+              <p>
+                Change <code>app/__mocks__/db.server.ts</code> to:
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden=
+                "true" href="#cb1-1" tabindex="-1"></a><span class="co">/* app/__mocks__/db.server.ts */</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class=
 "co">// eslint-disable-next-line import/no-extraneous-dependencies</span></span>
@@ -236,24 +237,24 @@
 <span id="cb1-67"><a aria-hidden="true" href="#cb1-67" tabindex="-1"></a></span>
 <span id="cb1-68"><a aria-hidden="true" href="#cb1-68" tabindex="-1"></a><span class="im">export</span> <span class=
 "im">default</span> prisma<span class="op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          This will create a unique database in MySQL for each test, then destroy it.
-        </p>
+              <p>
+                This will create a unique database in MySQL for each test, then destroy it.
+              </p>
 
-        <h2 id="example">
-          Example
-        </h2>
+              <h2 id="example">
+                Example
+              </h2>
 
-        <p>
-          You reference the existing <code>db.server.ts</code> file normally in your tests, as Jest will swap it out
-          with our <code>__mocks__/db.server.ts</code> version.
-        </p>
+              <p>
+                You reference the existing <code>db.server.ts</code> file normally in your tests, as Jest will swap it
+                out with our <code>__mocks__/db.server.ts</code> version.
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden="true"
-          href="#cb2-1" tabindex="-1"></a><span class="co">/* app/order/processor.test.ts */</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden=
+                "true" href="#cb2-1" tabindex="-1"></a><span class="co">/* app/order/processor.test.ts */</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class=
 "im">import</span> { describe<span class="op">,</span> expect<span class="op">,</span> it } <span class=
@@ -373,34 +374,34 @@
 <span id="cb2-60"><a aria-hidden="true" href="#cb2-60" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb2-61"><a aria-hidden="true" href="#cb2-61" tabindex="-1"></a>})<span class=
 "op">;</span></span></code></pre>
-        </div>
+              </div>
 
-        <h2 id="usage">
-          Usage
-        </h2>
+              <h2 id="usage">
+                Usage
+              </h2>
 
-        <p>
-          You would need to pass in a database URL for connection parameters for MySQL, except for the database name,
-          as we generate that normally:
-        </p>
+              <p>
+                You would need to pass in a database URL for connection parameters for MySQL, except for the database
+                name, as we generate that normally:
+              </p>
 
-        <p>
-          <code>DATABASE_URL=mysql://root:password@localhost:3306 npm run test --runInBand</code>
-        </p>
+              <p>
+                <code>DATABASE_URL=mysql://root:password@localhost:3306 npm run test --runInBand</code>
+              </p>
 
-        <h3 id="docker-docker-compose">
-          Docker / Docker-Compose
-        </h3>
+              <h3 id="docker-docker-compose">
+                Docker / Docker-Compose
+              </h3>
 
-        <p>
-          If you would like to utilize containers for the testing, this is doable as well.
-        </p>
+              <p>
+                If you would like to utilize containers for the testing, this is doable as well.
+              </p>
 
-        <p>
-          Create a <code>Dockerfile-test</code> and <code>docker-compose.test.yml</code> in your app root.
-        </p>
+              <p>
+                Create a <code>Dockerfile-test</code> and <code>docker-compose.test.yml</code> in your app root.
+              </p>
 
-        <pre class="conf"><code># Dockerfile-test
+              <pre class="conf"><code># Dockerfile-test
 
 # Stage 1: Node modules installation
 FROM node:18-alpine as testcache
@@ -433,15 +434,15 @@ COPY tsconfig.json ./tsconfig.json
 COPY --from=testcache /cache .
 
 CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]</code></pre>
-        <p>
-          This Dockerfile uses Alpine Linux with two stage build… one to install dependencies and cache them, and a
-          second step which uses the cached dependencies and runs the tests.
-        </p>
+              <p>
+                This Dockerfile uses Alpine Linux with two stage build… one to install dependencies and cache them, and
+                a second step which uses the cached dependencies and runs the tests.
+              </p>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a aria-hidden="true" href=
-          "#cb4-1" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class=
-          "at"> </span><span class="st">'3.9'</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class=
+                "at"> </span><span class="st">'3.9'</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="fu">services</span><span class=
 "kw">:</span></span>
@@ -499,88 +500,112 @@ CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]</code></pre>
 "kw">:</span></span>
 <span id="cb4-30"><a aria-hidden="true" href="#cb4-30" tabindex="-1"></a><span class="at">  </span><span class=
 "fu">dbdata</span><span class="kw">:</span></span></code></pre>
+              </div>
+
+              <p>
+                This Docker Compile file will setup MySQL v8 with a basic password and expose the port, as well as
+                persist our database volume.
+              </p>
+
+              <p>
+                It will also setup the app to test, mounting all needed files we need to run the tests.
+              </p>
+
+              <p>
+                Then, <code>docker-compose -f docker-compose.test.yml up --exit-code-from test</code> to run it.
+              </p>
+
+              <p>
+                The first time you run it, it may take time as the cache needs to be built, but after that its super
+                fast in booting and starting the tests.
+              </p>
+
+              <p>
+                The <code>--exit-code-from test</code> is needed so that Docker Compose will shut down once Jest exits.
+                Without this, the container stays open and running.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          This Docker Compile file will setup MySQL v8 with a basic password and expose the port, as well as persist
-          our database volume.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <p>
-          It will also setup the app to test, mounting all needed files we need to run the tests.
-        </p>
-
-        <p>
-          Then, <code>docker-compose -f docker-compose.test.yml up --exit-code-from test</code> to run it.
-        </p>
-
-        <p>
-          The first time you run it, it may take time as the cache needs to be built, but after that its super fast in
-          booting and starting the tests.
-        </p>
-
-        <p>
-          The <code>--exit-code-from test</code> is needed so that Docker Compose will shut down once Jest exits.
-          Without this, the container stays open and running.
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/prisma-jest-mysql-testing/index.md">MD</a> | <a class="sources__link" href=
-            "/prisma-jest-mysql-testing/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/prisma-jest-mysql-testing/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/prisma-jest-mysql-testing/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

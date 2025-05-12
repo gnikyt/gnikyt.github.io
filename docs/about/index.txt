@@ -1,8 +1,8 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                                     About
+                                    About /
 
    Headshot Headshot
 
@@ -16,19 +16,19 @@
 
 My Rundown
 
-  I specialize with
+I specialize with
 
      * Backend systems
      * Integrations between systems
      * Shopify themes, apps, integrations, and extensions
      * Development/technical consulting
 
-  I regularly develop with
+I regularly develop with
 
      * Go
      * Javascript/Typescript (and it’s frameworks)
 
-  I dabble with
+I dabble with
 
      * Python
      * PHP
@@ -36,7 +36,7 @@ My Rundown
      * Hardware development with BLE and NFC communications
      * Open source contributions
 
-  Random Open Source work
+Random Open Source work
 
      * [6]cq - Golang; A function-based composible queue.
      * [7]shopifysemaphore - Golang; A Semaphore implementation accounting
@@ -52,19 +52,23 @@ My Rundown
      * [13]http_shopify_webhook - Golang; Webhook verification for
        Shopify.
 
-   [14]MD | [15]TXT | [16]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   Copyright under [14]CC-4.0.
+
+   Additionally available in alternative formats: [15]MD  /  [16]TXT
 
    [17]Ty King
 
-Ty King
+[18]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [18]about me.
-   [19]Github [20]LinkedIn [21]CV [22]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [19]Github[20]LinkedIn[21]CV[22]RSS
+
      *
      *
      *
@@ -89,9 +93,9 @@ References
   11. https://github.com/gnikyt/gowith
   12. https://github.com/gnikyt/with
   13. https://github.com/gnikyt/http_shopify_webhook
-  14. file:///about/index.md
-  15. file:///about/index.txt
-  16. https://creativecommons.org/licenses/by/4.0/
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///about/index.md
+  16. file:///about/index.txt
   17. file:///about
   18. file:///about
   19. https://github.com/gnikyt

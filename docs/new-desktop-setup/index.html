@@ -57,365 +57,394 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="new-desktop-setup">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            New desktop setup
+          <h1 class="tab__title tab__title--short post__title">
+            New desktop setup /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2022-12-11">Dec 11, 2022</time> — <span class=
-            "post__size">6.5KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 2 years old and may contain outdated information.
-          </div>
         </header>
 
-        <h2 id="introduction">
-          Introduction
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2022-12-11">Dec 11,
+              2022</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">6.5KB</span> */
+            </p>
 
-        <p>
-          I haven’t had the time to tweak my desktop in over a year, I’ve been mostly stuck with the default settings
-          of Fedora (GNOME) and slowly tweaked things, before that, a <a href="/i3-plasma-a-solid-match">Plasma/i3
-          setup</a> (which was awesome!). I’ve had a long run of different setups over the last couple of decades…
-          AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
-        </p>
+            <div class="content-container">
+              <h2 id="introduction">
+                Introduction
+              </h2>
 
-        <p>
-          Using GNOME full-time has been <em>fine</em>, but not <em>great</em>. It is a dependable and well-working
-          desktop environment out-of-the-box, but that is as far as that goes
-        </p>
+              <p>
+                I haven’t had the time to tweak my desktop in over a year, I’ve been mostly stuck with the default
+                settings of Fedora (GNOME) and slowly tweaked things, before that, a <a href=
+                "/i3-plasma-a-solid-match">Plasma/i3 setup</a> (which was awesome!). I’ve had a long run of different
+                setups over the last couple of decades… AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
+              </p>
 
-        <ul>
-          <li>With every update, extensions break
-          </li>
+              <p>
+                Using GNOME full-time has been <em>fine</em>, but not <em>great</em>. It is a dependable and
+                well-working desktop environment out-of-the-box, but that is as far as that goes
+              </p>
 
-          <li>Hardly any customization options anymore
-          </li>
+              <ul>
+                <li>With every update, extensions break
+                </li>
 
-          <li>Requires too many extensions to change basic settings
-          </li>
+                <li>Hardly any customization options anymore
+                </li>
 
-          <li>It still feels restricted
-          </li>
+                <li>Requires too many extensions to change basic settings
+                </li>
 
-          <li>No proper information is displayed
-          </li>
-        </ul>
+                <li>It still feels restricted
+                </li>
 
-        <p>
-          For me, I like <strong>key</strong> information and <strong>easy</strong> access to things by both keyboard
-          (mainly) and mouse. I’m a little old school in that sense… preferring information to eye candy. The days of
-          everyone having CPU graphs, cool Conky configs, panels with functionality, and so on, seem to be a thing of
-          the past for many users; which is fine! That is their choice. It just does not suit mine.
-        </p>
+                <li>No proper information is displayed
+                </li>
+              </ul>
 
-        <p>
-          The workflow GNOME offers, by default, has all those sorts of things very hidden or non-existent.
-        </p>
+              <p>
+                For me, I like <strong>key</strong> information and <strong>easy</strong> access to things by both
+                keyboard (mainly) and mouse. I’m a little old school in that sense… preferring information to eye
+                candy. The days of everyone having CPU graphs, cool Conky configs, panels with functionality, and so
+                on, seem to be a thing of the past for many users; which is fine! That is their choice. It just does
+                not suit mine.
+              </p>
 
-        <ul>
-          <li>No list of open windows
-          </li>
+              <p>
+                The workflow GNOME offers, by default, has all those sorts of things very hidden or non-existent.
+              </p>
 
-          <li>No indication of what desktop you’re viewing
-          </li>
+              <ul>
+                <li>No list of open windows
+                </li>
 
-          <li>No quick access to device settings (Bluetooth, sound, wifi, etc.)
-          </li>
+                <li>No indication of what desktop you’re viewing
+                </li>
 
-          <li>Did I say you need a lot of extensions yet?
-          </li>
-        </ul>
+                <li>No quick access to device settings (Bluetooth, sound, wifi, etc.)
+                </li>
 
-        <p>
-          I simply miss my old XFCE and GNOME 2 layout of the early 2000s – the peak of the Linux Desktop, in my
-          opinion, something which KDE continues to do with Plasma <em>(I have my preferences with Plasma, but I will
-          not get into it for this post)</em>.
-        </p>
+                <li>Did I say you need a lot of extensions yet?
+                </li>
+              </ul>
 
-        <h2 id="trying-with-gnome">
-          Trying with GNOME
-        </h2>
+              <p>
+                I simply miss my old XFCE and GNOME 2 layout of the early 2000s – the peak of the Linux Desktop, in my
+                opinion, something which KDE continues to do with Plasma <em>(I have my preferences with Plasma, but I
+                will not get into it for this post)</em>.
+              </p>
 
-        <p>
-          To achieve an XFCE/GNOME 2 setup, I attempted several ways, which worked out decently well! But, of course,
-          required a lot of extensions and a theme.
-        </p>
+              <h2 id="trying-with-gnome">
+                Trying with GNOME
+              </h2>
 
-        <p>
-          <a href="/assets/images/posts/gnomeshelllook.png"><img alt="Finalized GNOME" src=
-          "/assets/images/posts/gnomeshelllook.png"></a>
-        </p>
+              <p>
+                To achieve an XFCE/GNOME 2 setup, I attempted several ways, which worked out decently well! But, of
+                course, required a lot of extensions and a theme.
+              </p>
 
-        <p>
-          The above screenshot is an example of the resulting setup which has a similar feel to the old layout… two
-          panels with proper information.
-        </p>
+              <p>
+                <a href="/assets/images/posts/gnomeshelllook.png"><img alt="Finalized GNOME" src=
+                "/assets/images/posts/gnomeshelllook.png"></a>
+              </p>
 
-        <p>
-          To achieve this, it required the following extensions:
-        </p>
+              <p>
+                The above screenshot is an example of the resulting setup which has a similar feel to the old layout…
+                two panels with proper information.
+              </p>
 
-        <ul>
-          <li>
-            <strong>Applications Menu</strong>: To get the application menu as GNOME 2 had
-          </li>
+              <p>
+                To achieve this, it required the following extensions:
+              </p>
 
-          <li>
-            <strong>Clipboard History</strong>: To have a history of clipboard information, like gPaste
-          </li>
+              <ul>
+                <li>
+                  <strong>Applications Menu</strong>: To get the application menu as GNOME 2 had
+                </li>
 
-          <li>
-            <strong>Dash to Panel</strong>: To get the bottom panel with the task list enabled
-          </li>
+                <li>
+                  <strong>Clipboard History</strong>: To have a history of clipboard information, like gPaste
+                </li>
 
-          <li>
-            <strong>Date Menu Formatter</strong>: To be able to format a date how we need
-          </li>
+                <li>
+                  <strong>Dash to Panel</strong>: To get the bottom panel with the task list enabled
+                </li>
 
-          <li>
-            <strong>Disable Workspace Switch Animation</strong>: To disable the slow animations switching workspaces
-          </li>
+                <li>
+                  <strong>Date Menu Formatter</strong>: To be able to format a date how we need
+                </li>
 
-          <li>
-            <strong>Hide Activities Button</strong>: Because Activities is useless
-          </li>
+                <li>
+                  <strong>Disable Workspace Switch Animation</strong>: To disable the slow animations switching
+                  workspaces
+                </li>
 
-          <li>
-            <strong>Order Gnome Shell Extensions</strong>: To be able to order the extensions on the top right of the
-            panel
-          </li>
+                <li>
+                  <strong>Hide Activities Button</strong>: Because Activities is useless
+                </li>
 
-          <li>
-            <strong>Sound Input & Output Chooser</strong>: To be able to change the sound devices easily
-          </li>
+                <li>
+                  <strong>Order Gnome Shell Extensions</strong>: To be able to order the extensions on the top right of
+                  the panel
+                </li>
 
-          <li>
-            <strong>Vitals</strong>: To show some stats (CPU, fans, memory, net, etc)
-          </li>
+                <li>
+                  <strong>Sound Input & Output Chooser</strong>: To be able to change the sound devices easily
+                </li>
 
-          <li>
-            <strong>Workspaces Bar</strong>: To show the list of workspaces
-          </li>
+                <li>
+                  <strong>Vitals</strong>: To show some stats (CPU, fans, memory, net, etc)
+                </li>
 
-          <li>
-            <strong>Places Indicator</strong>: To show the Places menu as GNOME 2 had
-          </li>
-        </ul>
+                <li>
+                  <strong>Workspaces Bar</strong>: To show the list of workspaces
+                </li>
 
-        <p>
-          And the following theme is to be downloaded: <a href=
-          "https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/">GNOME Theme Default Light</a>.
-        </p>
+                <li>
+                  <strong>Places Indicator</strong>: To show the Places menu as GNOME 2 had
+                </li>
+              </ul>
 
-        <p>
-          All-in-all, it worked well. But an instant update recently killed a few extensions and I simply got fed up.
-        </p>
+              <p>
+                And the following theme is to be downloaded: <a href=
+                "https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/">GNOME Theme Default Light</a>.
+              </p>
 
-        <p>
-          As I said, GNOME works well out of the box, the second you start tacking on a bulk of extensions to backfill
-          some functionality, it breaks down. Not only that, GNOME visually does a great job with the unification of
-          applications, dialogs, themes, etc, it’s very consistent. It’s a shame they took such a radical direction
-          away from GNOME 2 which was a tried and true base.
-        </p>
+              <p>
+                All-in-all, it worked well. But an instant update recently killed a few extensions and I simply got fed
+                up.
+              </p>
 
-        <h2 id="exploring-alternatives">
-          Exploring Alternatives
-        </h2>
+              <p>
+                As I said, GNOME works well out of the box, the second you start tacking on a bulk of extensions to
+                backfill some functionality, it breaks down. Not only that, GNOME visually does a great job with the
+                unification of applications, dialogs, themes, etc, it’s very consistent. It’s a shame they took such a
+                radical direction away from GNOME 2 which was a tried and true base.
+              </p>
 
-        <p>
-          I decided to give XFCE a whirl again, I haven’t used it in maybe 5 or 6 years. With XFCE still being actively
-          developed, and pushing for a Wayland implementation in future releases, it seemed like a good avenue. Short
-          and sweet result: consistency was hard to get between various applications which affected my workflow, I’ll
-          skip the details as it’s simply an opinion.
-        </p>
+              <h2 id="exploring-alternatives">
+                Exploring Alternatives
+              </h2>
 
-        <p>
-          Next, a toss-up between MATE and Cinnamon (which I had not yet tried). My gut told me to try Cinnamon; it is
-          very actively developed by the Linux Mint team, and its offered as a spin for Fedora, so I took the plunge
-          and installed the meta package through DNF on Fedora for the complete desktop package. To be honest, I did
-          not give MATE a real chance (yet), since I found everything I needed with Cinnamon!
-        </p>
+              <p>
+                I decided to give XFCE a whirl again, I haven’t used it in maybe 5 or 6 years. With XFCE still being
+                actively developed, and pushing for a Wayland implementation in future releases, it seemed like a good
+                avenue. Short and sweet result: consistency was hard to get between various applications which affected
+                my workflow, I’ll skip the details as it’s simply an opinion.
+              </p>
 
-        <h2 id="cinnamon">
-          Cinnamon
-        </h2>
+              <p>
+                Next, a toss-up between MATE and Cinnamon (which I had not yet tried). My gut told me to try Cinnamon;
+                it is very actively developed by the Linux Mint team, and its offered as a spin for Fedora, so I took
+                the plunge and installed the meta package through DNF on Fedora for the complete desktop package. To be
+                honest, I did not give MATE a real chance (yet), since I found everything I needed with Cinnamon!
+              </p>
 
-        <p>
-          Without touching anything on the base Cinnamon install, it was already impressive to me. It has a task list,
-          workspace indicators, and menus, and as a bonus, it had a consistent look and a ton of settings! Settings
-          that felt familiar, felt like I had some control over my desktop again.
-        </p>
+              <h2 id="cinnamon">
+                Cinnamon
+              </h2>
 
-        <p>
-          I hunkered down for 20 minutes and produced an initial desktop which got me back to my feeling of my old XFCE
-          and GNOME 2 desktops:
-        </p>
+              <p>
+                Without touching anything on the base Cinnamon install, it was already impressive to me. It has a task
+                list, workspace indicators, and menus, and as a bonus, it had a consistent look and a ton of settings!
+                Settings that felt familiar, felt like I had some control over my desktop again.
+              </p>
 
-        <p>
-          <a href="/assets/images/posts/cinnamon.png"><img alt="Cinnamon result" src=
-          "/assets/images/posts/cinnamon.png"></a>
-        </p>
+              <p>
+                I hunkered down for 20 minutes and produced an initial desktop which got me back to my feeling of my
+                old XFCE and GNOME 2 desktops:
+              </p>
 
-        <p>
-          It’s everything I need to visually see at the moment (minus some system stats which I had not yet tackled).
-          It is also consistent. The Linux Mint team has done a great job to build Cinnamon away from GNOME Shell but
-          still provide a consistent look between applications for a bit of a bonus on the eyes.
-        </p>
+              <p>
+                <a href="/assets/images/posts/cinnamon.png"><img alt="Cinnamon result" src=
+                "/assets/images/posts/cinnamon.png"></a>
+              </p>
 
-        <p>
-          I can fully configure shortcuts, the panels, how I need the file manager to work, my desktop to function,
-          etc., and all are done with minimal extensions (called Spices in Cinnamon).
-        </p>
+              <p>
+                It’s everything I need to visually see at the moment (minus some system stats which I had not yet
+                tackled). It is also consistent. The Linux Mint team has done a great job to build Cinnamon away from
+                GNOME Shell but still provide a consistent look between applications for a bit of a bonus on the eyes.
+              </p>
 
-        <p>
-          Top bar:
-        </p>
+              <p>
+                I can fully configure shortcuts, the panels, how I need the file manager to work, my desktop to
+                function, etc., and all are done with minimal extensions (called Spices in Cinnamon).
+              </p>
 
-        <ul>
-          <li>
-            <strong>Default applications menu</strong>: Tweaked with Fedora logo and label
-          </li>
+              <p>
+                Top bar:
+              </p>
 
-          <li>
-            <strong>Places indicator</strong>: A Spice to add Places menu
-          </li>
+              <ul>
+                <li>
+                  <strong>Default applications menu</strong>: Tweaked with Fedora logo and label
+                </li>
 
-          <li>
-            <strong>Default DateTime</strong>: With a custom format to add a <code>|</code> (pipe) at the end of the
-            time
-          </li>
+                <li>
+                  <strong>Places indicator</strong>: A Spice to add Places menu
+                </li>
 
-          <li>
-            <strong>Current workspace</strong>: A Spice to show the current workspace name
-          </li>
+                <li>
+                  <strong>Default DateTime</strong>: With a custom format to add a <code>|</code> (pipe) at the end of
+                  the time
+                </li>
 
-          <li>
-            <strong>Default systray</strong>: Tray and X-Apps, and lastly, a mic toggle (click and keyboard)
-          </li>
-        </ul>
+                <li>
+                  <strong>Current workspace</strong>: A Spice to show the current workspace name
+                </li>
 
-        <p>
-          Bottom bar:
-        </p>
+                <li>
+                  <strong>Default systray</strong>: Tray and X-Apps, and lastly, a mic toggle (click and keyboard)
+                </li>
+              </ul>
 
-        <ul>
-          <li>
-            <strong>Default show desktop</strong>: No tweaks
-          </li>
+              <p>
+                Bottom bar:
+              </p>
 
-          <li>
-            <strong>Default window list</strong>: Minor tweak to the Python code to increase the window name length
-          </li>
+              <ul>
+                <li>
+                  <strong>Default show desktop</strong>: No tweaks
+                </li>
 
-          <li>
-            <strong>Default workspaces</strong>: No tweaks
-          </li>
-        </ul>
+                <li>
+                  <strong>Default window list</strong>: Minor tweak to the Python code to increase the window name
+                  length
+                </li>
 
-        <p>
-          Theming:
-        </p>
+                <li>
+                  <strong>Default workspaces</strong>: No tweaks
+                </li>
+              </ul>
 
-        <ul>
-          <li>
-            <strong>Icons</strong>: Papirus
-          </li>
+              <p>
+                Theming:
+              </p>
 
-          <li>
-            <strong>GTK/WM theme</strong>: Mint-Y-Dark-Aqua
-          </li>
+              <ul>
+                <li>
+                  <strong>Icons</strong>: Papirus
+                </li>
 
-          <li>
-            <strong>Desktop theme</strong>: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
-          </li>
-        </ul>
+                <li>
+                  <strong>GTK/WM theme</strong>: Mint-Y-Dark-Aqua
+                </li>
 
-        <p>
-          Additionally, Mint’s <a href=
-          "https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html">“X-Apps”</a> work well and are
-          customizable as I like. As well, Nemo, is much more full featured than Nautilus, it actually shows
-          informations and has meaningful settings.
-        </p>
+                <li>
+                  <strong>Desktop theme</strong>: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
+                </li>
+              </ul>
 
-        <p>
-          All-in-all, I am very happy. Cinnamon for my week of using it is a great, well-thought-out desktop which
-          brings back the feeling of nostalgia and control again.
-        </p>
+              <p>
+                Additionally, Mint’s <a href=
+                "https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html">“X-Apps”</a> work well and are
+                customizable as I like. As well, Nemo, is much more full featured than Nautilus, it actually shows
+                informations and has meaningful settings.
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/new-desktop-setup/index.md">MD</a> | <a class="sources__link" href=
-            "/new-desktop-setup/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                All-in-all, I am very happy. Cinnamon for my week of using it is a great, well-thought-out desktop
+                which brings back the feeling of nostalgia and control again.
+              </p>
+            </div>
           </div>
-        </footer>
+        </div>
       </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 2 years old and may contain outdated information.
+              </div>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/new-desktop-setup/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/new-desktop-setup/index.txt">TXT</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

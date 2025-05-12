@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-               Basic Symfony Flex with Symfony Server Dockerized
+              Basic Symfony Flex with Symfony Server Dockerized /
 
-   /* Feb 04, 2020 — 5.5KB */
-
-   This post is 5 years old and may contain outdated information.
+   /* Feb 04, 2020  —  5.5KB */
 
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with “recipes”. It provides a way to create a very lean
@@ -39,7 +37,7 @@ Setup
 
 Dockerizing
 
-  Docker Compose
+Docker Compose
 
    For this example, we’ll simply set up a MySQL server, Redis server, and
    PHP CLI. We will manage all this through Docker Compose.
@@ -99,7 +97,7 @@ services:
    It is also a good idea to add these volume paths to your .gitignore to
    avoid checking them into your repository.
 
-  Dockerfile
+Dockerfile
 
 # Dockerfile
 FROM php:7.3-cli
@@ -168,19 +166,25 @@ Conclusion
    For more information on Symfony Flex, [3]click here; or information on
    Symfony Server, [4]click here.
 
-   [5]MD | [6]TXT | [7]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 5 years old and may contain outdated information.
+
+   Copyright under [5]CC-4.0.
+
+   Additionally available in alternative formats: [6]MD  /  [7]TXT
 
    [8]Ty King
 
-Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [9]about me.
-   [10]Github [11]LinkedIn [12]CV [13]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [10]Github[11]LinkedIn[12]CV[13]RSS
+
      *
      *
      *
@@ -196,9 +200,9 @@ References
    2. /
    3. https://symfony.com/doc/current/quick_tour/flex_recipes.html
    4. https://symfony.com/doc/current/setup/symfony_server.html
-   5. /basic-symfony-flex-with-symfony-server-dockerized/index.md
-   6. /basic-symfony-flex-with-symfony-server-dockerized/index.txt
-   7. https://creativecommons.org/licenses/by/4.0/
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. /basic-symfony-flex-with-symfony-server-dockerized/index.md
+   7. /basic-symfony-flex-with-symfony-server-dockerized/index.txt
    8. /about
    9. /about
   10. https://github.com/gnikyt

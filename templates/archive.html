@@ -1,11 +1,25 @@
 ${inc:templates/_layout_head.html}
 
-<div class="post__head">
-  <h1 class="post__title">Archive</h1>
+<div class="tab">
+  <div class="post__head">
+    <h1 class="tab__title tab__title--short post__title">Archive /</h1>
+  </div>
+
+  <div class="tab__container">
+    <div class="tab__content">
+      <div class="content-container">
+        <p>Displaying archived entries sorted by creation date in descending order.</p>
+      </div>
+
+      <ul class="index-list index-list--archive">
+        ${archive_entries}
+      </ul>
+    </div>
+  </div>
 </div>
 
-<ul class="article-list article-list--archive">
-  ${archive_entries}
-</ul>
+<div class="sources">
+  <a class="sources__link" href="/">&lsaquo; Home</a>
+</div>
 
 ${inc:templates/_layout_tail.html}

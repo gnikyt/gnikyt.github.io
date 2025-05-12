@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                               PHPMailer contrib
+                              PHPMailer contrib /
 
-   /* Feb 09, 2014 — 1.3KB */
-
-   This post is 11 years old and may contain outdated information.
+   /* Feb 09, 2014  —  1.3KB */
 
    I and a fellow developer were working on updating a two/three-year-old
    plugin we developed for WordPress this week. Its a fairly complex
@@ -29,19 +27,25 @@
    using getToAddresses(), getBccAddresses(), getCcAddresses(),
    getReplyToAddresses() and getAllRecipientAddresses().
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 11 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -58,9 +62,9 @@ References
    3. http://phpmailer.worxware.com/
    4. http://codex.wordpress.org/Function_Reference/wp_mail
    5. https://github.com/PHPMailer/PHPMailer/issues/180
-   6. /phpmailer-contrib/index.md
-   7. /phpmailer-contrib/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /phpmailer-contrib/index.md
+   8. /phpmailer-contrib/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

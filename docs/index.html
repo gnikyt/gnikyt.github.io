@@ -45,278 +45,675 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--page" data-handle="">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <ul class="article-list">
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/handling-shopify-api-limits-goroutines">Handling Shopify API limits
-            and Goroutines</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2025-04-10">Apr 10,
-          2025</time> */</span>
-        </li>
+      <div class="tab">
+        <div class="tab__title tab__title--short">
+          Index of /
+        </div>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/shopify-checkout-ui-product-html">Shopify checkout extension with
-            product HTML</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2024-05-10">May 10,
-          2024</time> */</span>
-        </li>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Displaying article entries sorted by creation date in descending order.
+              </p>
+            </div>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/prisma-jest-mysql-testing">Prisma, Jest, and MySQL testing</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2024-03-28">Mar 28,
-          2024</time> */</span>
-        </li>
+            <ul class="index-list index-list--no-margins">
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/handling-shopify-api-limits-goroutines">Handling
+                    Shopify API limits and Goroutines</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2025-04-10">Apr 10,
+                  2025</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    15KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/generate-type-definitions-without-emitting-js">Shopify Checkout
-            Extension to backend fetching</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2024-02-27">Feb 27,
-          2024</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/shopify-checkout-ui-product-html">Shopify checkout
+                    extension with product HTML</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2024-05-10">May 10,
+                  2024</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    14KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/type-definitions-without-emitting">Type definitions without
-            emitting</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2024-02-07">Feb 07,
-          2024</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/prisma-jest-mysql-testing">Prisma, Jest, and MySQL
+                    testing</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2024-03-28">Mar 28,
+                  2024</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    6.5KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/shopify-remix-prisma-and-jest">Shopify Remix, Prisma, and Jest</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2024-01-10">Jan 10,
-          2024</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/generate-type-definitions-without-emitting-js">Shopify
+                    Checkout Extension to backend fetching</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2024-02-27">Feb 27,
+                  2024</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.0KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/wplocal-with-wsl">WP Local with WSL</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2023-12-07">Dec 07,
-          2023</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/type-definitions-without-emitting">Type definitions
+                    without emitting</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2024-02-07">Feb 07,
+                  2024</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.4KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/new-desktop-setup">New desktop setup</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2022-12-11">Dec 11,
-          2022</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/shopify-remix-prisma-and-jest">Shopify Remix, Prisma,
+                    and Jest</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2024-01-10">Jan 10,
+                  2024</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    8.8KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/blink-tuned-camera-notifications">Blink - Tuned camera
-            notifications</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2022-11-28">Nov 28,
-          2022</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/wplocal-with-wsl">WP Local with WSL</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2023-12-07">Dec 07,
+                  2023</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    5.5KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/shopify-liquid-tester">Shopify Liquid Tester</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2022-11-20">Nov 20,
-          2022</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/new-desktop-setup">New desktop setup</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2022-12-11">Dec 11,
+                  2022</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    6.5KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/joint-venture-lfl">Joint Venture with LFL</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2022-11-15">Nov 15,
-          2022</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/blink-tuned-camera-notifications">Blink - Tuned camera
+                    notifications</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2022-11-28">Nov 28,
+                  2022</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    4.3KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/shopify-github-action-versioning">Shopify Github Action for
-            versioning</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2022-05-20">May 20,
-          2022</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/shopify-liquid-tester">Shopify Liquid Tester</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2022-11-20">Nov 20,
+                  2022</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.8KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/wsl-network-speed">WSL network speed</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2021-11-16">Nov 16,
-          2021</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/joint-venture-lfl">Joint Venture with LFL</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2022-11-15">Nov 15,
+                  2022</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    5.9KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/shopify-node-app-custom-multi-tenant">Shopify Node App - Custom
-            multi-tenant support</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2021-11-15">Nov 15,
-          2021</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/shopify-github-action-versioning">Shopify Github
+                    Action for versioning</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2022-05-20">May 20,
+                  2022</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    2.4KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/laravel-shopify-cookieless">Laravel Shopify - Cookieless</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2021-06-29">Jun 29,
-          2021</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/wsl-network-speed">WSL network speed</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2021-11-16">Nov 16,
+                  2021</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    1.8KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/git-release-branches">Git release branches</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2021-03-10">Mar 10,
-          2021</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/shopify-node-app-custom-multi-tenant">Shopify Node App
+                    - Custom multi-tenant support</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2021-11-15">Nov 15,
+                  2021</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    9.9KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/laravel-shopify-featured-shopify-blog">Laravel Shopify featured on
-            Shopify Dev Blog</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2021-03-04">Mar 04,
-          2021</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/laravel-shopify-cookieless">Laravel Shopify -
+                    Cookieless</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2021-06-29">Jun 29,
+                  2021</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    2.8KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/laravel-shopify-itp">Laravel Shopify ITP</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2021-02-03">Feb 03,
-          2021</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/git-release-branches">Git release branches</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2021-03-10">Mar 10,
+                  2021</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.4KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/async-shopify-api-for-python">Async Shopify API for Python</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2020-06-29">Jun 29,
-          2020</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/laravel-shopify-featured-shopify-blog">Laravel Shopify
+                    featured on Shopify Dev Blog</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2021-03-04">Mar 04,
+                  2021</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    1.7KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/microservices-dont-create-a-problem">Microservices... don't create a
-            problem</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2020-04-20">Apr 20,
-          2020</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/laravel-shopify-itp">Laravel Shopify ITP</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2021-02-03">Feb 03,
+                  2021</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.1KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/basic-symfony-flex-with-symfony-server-dockerized">Basic Symfony Flex
-            with Symfony Server Dockerized</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2020-02-04">Feb 04,
-          2020</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/async-shopify-api-for-python">Async Shopify API for
+                    Python</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2020-06-29">Jun 29,
+                  2020</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.9KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/i3-plasma-a-solid-match">i3 & Plasma - A solid match</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2019-08-28">Aug 28,
-          2019</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/microservices-dont-create-a-problem">Microservices...
+                    don't create a problem</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2020-04-20">Apr 20,
+                  2020</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    4.7KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/thinkpad-t580-on-linux">Thinkpad T580 on Linux</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2019-01-08">Jan 08,
-          2019</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href=
+                    "/basic-symfony-flex-with-symfony-server-dockerized">Basic Symfony Flex with Symfony Server
+                    Dockerized</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2020-02-04">Feb 04,
+                  2020</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    5.5KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/laravel-shopify-billing">Laravel Shopify billing</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2018-01-26">Jan 26,
-          2018</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/i3-plasma-a-solid-match">i3 & Plasma - A solid
+                    match</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2019-08-28">Aug 28,
+                  2019</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    4.3KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/setting-up-lumen-with-redis">Setting up Lumen with Redis</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2017-11-19">Nov 19,
-          2017</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/thinkpad-t580-on-linux">Thinkpad T580 on Linux</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2019-01-08">Jan 08,
+                  2019</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    5.9KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/setting-up-lumen-with-mail">Setting Up Lumen with Mailer</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2017-11-19">Nov 19,
-          2017</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/laravel-shopify-billing">Laravel Shopify billing</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2018-01-26">Jan 26,
+                  2018</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    970B
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/introducing-shopify-for-laravel">Introducing Laravel Shopify</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2017-08-09">Aug 09,
-          2017</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/setting-up-lumen-with-redis">Setting up Lumen with
+                    Redis</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2017-11-19">Nov 19,
+                  2017</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    1.2KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/reactive-vuejs-plugins">Reactive VueJS plugins</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2017-06-29">Jun 29,
-          2017</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/setting-up-lumen-with-mail">Setting Up Lumen with
+                    Mailer</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2017-11-19">Nov 19,
+                  2017</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    5.3KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/wordpress-under-docker">WordPress Under Docker guide</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2017-06-15">Jun 15,
-          2017</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/introducing-shopify-for-laravel">Introducing Laravel
+                    Shopify</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2017-08-09">Aug 09,
+                  2017</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    2.5KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/developing-sanely-on-windows-revisited">Developing sanely on Windows
-            revisited</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2017-05-10">May 10,
-          2017</time> */</span>
-        </li>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/reactive-vuejs-plugins">Reactive VueJS plugins</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2017-06-29">Jun 29,
+                  2017</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    4.0KB
+                  </div>
+                </article>
+              </li>
 
-        <li class="article-list__item">
-          <h3>
-            <a class="article-list__link" href="/shopify-app-whitelist-gem">shopify_app_whitelist Gem</a>
-          </h3>
-          <span class="article-list__meta">/* <time class="article-list__time" datetime="2016-11-26">Nov 26,
-          2016</time> */</span>
-        </li>
-      </ul>
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/wordpress-under-docker">WordPress Under Docker
+                    guide</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2017-06-15">Jun 15,
+                  2017</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    3.6KB
+                  </div>
+                </article>
+              </li>
+
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/developing-sanely-on-windows-revisited">Developing
+                    sanely on Windows revisited</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2017-05-10">May 10,
+                  2017</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    1.9KB
+                  </div>
+                </article>
+              </li>
+
+              <li class="index-list__item">
+                <svg class="icon icon--floppy" enable-background="new 0 0 512 512" fill="#000000" height="800px"
+                version="1.1" viewbox="0 0 512 512" width="800px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+                "http://www.w3.org/1999/xlink">
+                <g>
+                  <path d=
+                  "M494.7,134.1L372.4,16.7c-3.8-3.7-8.9-5.7-14.1-5.7H31.4C20.1,11,11,20.1,11,31.4v449.2c0,11.3,9.1,20.4,20.4,20.4h449.2 c11.3,0,20.4-9.1,20.4-20.4V148.8C501,143.3,498.7,137.9,494.7,134.1z M297.1,51.8v134.4H140.5V51.8H297.1z M460.2,460.2H51.8V51.8 h47.9v154.8c0,11.3,9.1,20.4,20.4,20.4h197.4c11.3,0,20.4-9.1,20.4-20.4V51.8h12.2l110.1,105.7V460.2z"></path>
+                </g></svg>
+                <article class="index-document">
+                  <h3 class="index-document__title">
+                    <a class="index-document__title-link" href="/shopify-app-whitelist-gem">shopify_app_whitelist
+                    Gem</a>
+                  </h3>
+                  <time class="index-document__meta index-document__meta--date" datetime="2016-11-26">Nov 26,
+                  2016</time>
+                  <div class="index-document__meta index-document__meta--size">
+                    1.5KB
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <div class="sources">
         <a class="sources__link" href="/archive">Archive ›</a>
@@ -324,52 +721,58 @@
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

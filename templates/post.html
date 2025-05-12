@@ -1,20 +1,40 @@
 ${inc:templates/_layout_head.html}
 
-<article class="post">
+<article class="tab post">
   <header class="post__head">
-    <h1 class="post__title">${title}</h1>
-    <p class="post__meta">
-      /* <time class="post__time" datetime="${date_ymd}">${date_human}</time> &mdash; <span class="post__size">${post_size}</span> */
-    </p>
-
-    ${inc:templates/_old_warning.html:is_old}
+    <h1 class="tab__title tab__title--short post__title">${title} /</h1>
   </header>
 
-  ${parsed_md}
+  <div class="tab__container">
+    <div class="tab__content">
+      <p class="post__meta content-container">
+        /* <time class="post__time" datetime="${date_ymd}">${date_human}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">${post_size}</span> */
+      </p>
 
-  <footer class="post__tail">
-    ${inc:templates/_sources.html}
-  </footer>
+      <div class="content-container">
+        ${parsed_md}
+      </div>
+    </div>
+  </div>
 </article>
+
+<section class="tab tab--appendix">
+  <div class="tab__title tab__title--short">Appendix</div>
+  <div class="tab__container">
+    <div class="tab__content">
+      <div class="content-container">
+        ${inc:templates/_old_warning.html:is_old}
+
+        <p>
+          Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-4.0</a>.
+        </p>
+
+        <p>
+          Additionally available in alternative formats: ${inc:templates/_sources.html}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 ${inc:templates/_layout_tail.html}

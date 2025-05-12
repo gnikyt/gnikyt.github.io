@@ -55,85 +55,85 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="reactive-vuejs-plugins">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Reactive VueJS plugins
+          <h1 class="tab__title tab__title--short post__title">
+            Reactive VueJS plugins /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2017-06-29">Jun 29, 2017</time> — <span class=
-            "post__size">4.0KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 7 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its
-          simply great - easy to develop with and able to plug into existing systems as a simple view layer.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2017-06-29">Jun 29,
+              2017</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">4.0KB</span> */
+            </p>
 
-        <h2 id="plugins-reactivity">
-          Plugins & Reactivity
-        </h2>
+            <div class="content-container">
+              <p>
+                VueJS has been my go-to framework from building small to medium-sized frontend applications and
+                add-ins. Its simply great - easy to develop with and able to plug into existing systems as a simple
+                view layer.
+              </p>
 
-        <p>
-          <a href="https://vuejs.org/v2/guide/plugins.html">Plugins in Vue</a>, allow you to extract code into a
-          reusable module. The plugins allow you to create global mixins, methods, properties, and more. It has the
-          added benefit of keeping your code modularized, clean, and doesn’t pollute your app’s main instance.
-        </p>
+              <h2 id="plugins-reactivity">
+                Plugins & Reactivity
+              </h2>
 
-        <p>
-          <a href="https://vuejs.org/v2/guide/reactivity.html">Reactivity in Vue</a> is simply a way of describing
-          something that watches for changes in state/data and reacts to it. Vue watches for changes in data, which in
-          turn causes the component to re-render, showing the updated state.
-        </p>
+              <p>
+                <a href="https://vuejs.org/v2/guide/plugins.html">Plugins in Vue</a>, allow you to extract code into a
+                reusable module. The plugins allow you to create global mixins, methods, properties, and more. It has
+                the added benefit of keeping your code modularized, clean, and doesn’t pollute your app’s main
+                instance.
+              </p>
 
-        <h2 id="use-case">
-          Use Case
-        </h2>
+              <p>
+                <a href="https://vuejs.org/v2/guide/reactivity.html">Reactivity in Vue</a> is simply a way of
+                describing something that watches for changes in state/data and reacts to it. Vue watches for changes
+                in data, which in turn causes the component to re-render, showing the updated state.
+              </p>
 
-        <p>
-          As mentioned, creating plugins can keep your code modularized and your main app instance clean. There could
-          be many reasons you’d need a plugin to track data (be reactive).
-        </p>
+              <h2 id="use-case">
+                Use Case
+              </h2>
 
-        <p>
-          One example is if you’re depending on a third-party service for data. You need to request this data, process
-          it, save it, and display it. This takes time. By the time the request is completed your Vue instance may be
-          rendered and your data will not display.
-        </p>
+              <p>
+                As mentioned, creating plugins can keep your code modularized and your main app instance clean. There
+                could be many reasons you’d need a plugin to track data (be reactive).
+              </p>
 
-        <h2 id="building">
-          Building
-        </h2>
+              <p>
+                One example is if you’re depending on a third-party service for data. You need to request this data,
+                process it, save it, and display it. This takes time. By the time the request is completed your Vue
+                instance may be rendered and your data will not display.
+              </p>
 
-        <p>
-          Let’s build a sports ticker to show the latest score result from some sports teams.
-        </p>
+              <h2 id="building">
+                Building
+              </h2>
 
-        <p>
-          The key to making your data reactive in your plugin is simple… create a new Vue instance that holds the data.
-        </p>
+              <p>
+                Let’s build a sports ticker to show the latest score result from some sports teams.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true"
-          href="#cb1-1" tabindex="-1"></a><span class="co">// plugins/sports-ticker.js</span></span>
+              <p>
+                The key to making your data reactive in your plugin is simple… create a new Vue instance that holds the
+                data.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden=
+                "true" href="#cb1-1" tabindex="-1"></a><span class="co">// plugins/sports-ticker.js</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class=
@@ -248,105 +248,133 @@
 <span id="cb1-69"><a aria-hidden="true" href="#cb1-69" tabindex="-1"></a></span>
 <span id="cb1-70"><a aria-hidden="true" href="#cb1-70" tabindex="-1"></a><span class=
 "co">// Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker);</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          That’s all that’s to it.
-        </p>
+              <p>
+                That’s all that’s to it.
+              </p>
 
-        <p>
-          What we’ve done is created a class to keep our logic separate from the Vue plugin installation code. Then, we
-          register the plugin with the options (in this case, just the team name). In the SportsTicker class, we create
-          a new Vue instance with its own data store filled with dummy/default data. We create a <code>get state</code>
-          method so we can quickly access the data of the Vue instance we created. Next, we fetch the data, process it,
-          and write it back to our Vue instance.
-        </p>
+              <p>
+                What we’ve done is created a class to keep our logic separate from the Vue plugin installation code.
+                Then, we register the plugin with the options (in this case, just the team name). In the SportsTicker
+                class, we create a new Vue instance with its own data store filled with dummy/default data. We create a
+                <code>get state</code> method so we can quickly access the data of the Vue instance we created. Next,
+                we fetch the data, process it, and write it back to our Vue instance.
+              </p>
 
-        <p>
-          With all this in play, our data is now reactive.
-        </p>
+              <p>
+                With all this in play, our data is now reactive.
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">template</span> <span class=
-          "er">v-if</span><span class="ot">=</span><span class="st">"$SportsTicker.state.gameTime"</span><span class=
-          "dt">&gt;</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">template</span> <span class=
+                "er">v-if</span><span class="ot">=</span><span class=
+                "st">"$SportsTicker.state.gameTime"</span><span class="dt">&gt;</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  {% raw %}</span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex=
 "-1"></a>  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}</span>
 <span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  {% endraw %}</span>
 <span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
 "kw">template</span><span class="dt">&gt;</span></span></code></pre>
+              </div>
+
+              <p>
+                Because the data is reactive, the above view snippet will not show until we have data (checking
+                <code>gameTime</code> is not null in this case). When the data is processed, it will trigger Vue to
+                render the template and show the data.
+              </p>
+
+              <p>
+                All we needed to do was create our own Vue instance for the plugin to store the data, with a simple
+                method to access it (<code>get state</code>).
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Because the data is reactive, the above view snippet will not show until we have data (checking
-          <code>gameTime</code> is not null in this case). When the data is processed, it will trigger Vue to render
-          the template and show the data.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 7 years old and may contain outdated information.
+              </div>
 
-        <p>
-          All we needed to do was create our own Vue instance for the plugin to store the data, with a simple method to
-          access it (<code>get state</code>).
-        </p>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/reactive-vuejs-plugins/index.md">MD</a> | <a class="sources__link" href=
-            "/reactive-vuejs-plugins/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/reactive-vuejs-plugins/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/reactive-vuejs-plugins/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

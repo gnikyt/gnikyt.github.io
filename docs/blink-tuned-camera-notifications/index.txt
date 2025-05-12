@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                       Blink - Tuned camera notifications
+                      Blink - Tuned camera notifications /
 
-   /* Nov 28, 2022 — 4.3KB */
-
-   This post is 2 years old and may contain outdated information.
+   /* Nov 28, 2022  —  4.3KB */
 
    Note: This post is geared towards Android devices. Currently unaware of
    a solution for Apple devices.*
@@ -28,7 +26,7 @@ The Problem
 
 Solutions
 
-  Snoozing
+Snoozing
 
    Since an update earlier this year, Amazon has added a snooze feature
    displayed as an icon next to each camera’s name.
@@ -46,7 +44,7 @@ Solutions
    solution. Plus, why couldn’t Amazon add a “Until I turn off” option to
    the list of times? That would be an ideal built-in solution.
 
-  Macrodroid
+Macrodroid
 
    I previously installed an app called [3]Macrodroid, for automating some
    “Do Not Disturb” rules.
@@ -67,7 +65,7 @@ Solutions
    wish to ignore notifications for, it clears it out so I never have to
    see or hear it.
 
-    Setup
+Setup
 
     1. Install Macrodroid
     2. Go through the setup and enable the correct permissions for app
@@ -96,7 +94,7 @@ Solutions
    14. Check off Ignore ongoing notifications
    15. Save, then save the macro with a desired name
 
-    Result
+Result
 
    Once configured, your macro should be similar to this:
    Macro Macro
@@ -114,19 +112,25 @@ Conclusion
    notifications for those specific cameras, but still allow them to stay
    enabled and record motion.
 
-   [4]MD | [5]TXT | [6]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 2 years old and may contain outdated information.
+
+   Copyright under [4]CC-4.0.
+
+   Additionally available in alternative formats: [5]MD  /  [6]TXT
 
    [7]Ty King
 
-Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [8]about me.
-   [9]Github [10]LinkedIn [11]CV [12]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
      *
      *
      *
@@ -141,9 +145,9 @@ References
    1. /rss.xml
    2. /
    3. https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid&hl=en_CA&gl=US&pli=1
-   4. /blink-tuned-camera-notifications/index.md
-   5. /blink-tuned-camera-notifications/index.txt
-   6. https://creativecommons.org/licenses/by/4.0/
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. /blink-tuned-camera-notifications/index.md
+   6. /blink-tuned-camera-notifications/index.txt
    7. /about
    8. /about
    9. https://github.com/gnikyt

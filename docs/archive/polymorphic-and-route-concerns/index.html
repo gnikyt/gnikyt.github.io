@@ -55,63 +55,61 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="polymorphic-and-route-concerns">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Polymorphic and Route Concerns... who is who?
+          <h1 class="tab__title tab__title--short post__title">
+            Polymorphic and Route Concerns... who is who? /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2016-01-01">Jan 01, 2016</time> — <span class=
-            "post__size">5.1KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 9 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          The goal of this post is to outline some tips on easily figuring out the parent object for a polymorphic
-          modal/route/controller. Let’s start with the basics…
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2016-01-01">Jan 01,
+              2016</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">5.1KB</span> */
+            </p>
 
-        <h2 id="polymorphic">
-          Polymorphic
-        </h2>
+            <div class="content-container">
+              <p>
+                The goal of this post is to outline some tips on easily figuring out the parent object for a
+                polymorphic modal/route/controller. Let’s start with the basics…
+              </p>
 
-        <p>
-          For those unfamiliar to it, <a href=
-          "http://guides.rubyonrails.org/association_basics.html#polymorphic-associations">Polymorphic is an Active
-          Record</a> association type where a model can belong to other models. As a simple example, you could have an
-          <em>Ingredient</em> model which can be polymorphic and belong to different types of models such as
-          <em>Baking</em>, <em>Cooking</em>, or <em>WitchesBrew</em>.
-        </p>
+              <h2 id="polymorphic">
+                Polymorphic
+              </h2>
 
-        <h2 id="route-concerns">
-          Route Concerns
-        </h2>
+              <p>
+                For those unfamiliar to it, <a href=
+                "http://guides.rubyonrails.org/association_basics.html#polymorphic-associations">Polymorphic is an
+                Active Record</a> association type where a model can belong to other models. As a simple example, you
+                could have an <em>Ingredient</em> model which can be polymorphic and belong to different types of
+                models such as <em>Baking</em>, <em>Cooking</em>, or <em>WitchesBrew</em>.
+              </p>
 
-        <p>
-          These are used in routing for Rails where you’re able to declare common routes for resources. An example of
-          this can be a <em>picture</em> concern, where many resources can have a picture route.
-        </p>
+              <h2 id="route-concerns">
+                Route Concerns
+              </h2>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a>concern <span class="wa">:picturable</span> <span class="cf">do</span></span>
+              <p>
+                These are used in routing for Rails where you’re able to declare common routes for resources. An
+                example of this can be a <em>picture</em> concern, where many resources can have a picture route.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a>concern <span class="wa">:picturable</span> <span class=
+                "cf">do</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  resources <span class=
 "wa">:pictures</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="cf">end</span></span>
@@ -122,21 +120,21 @@
 <span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>resources <span class=
 "wa">:customers</span>, <span class="wa">concerns: </span><span class="kw">[</span><span class=
 "wa">:picturable</span><span class="kw">]</span></span></code></pre>
-        </div>
+              </div>
 
-        <h2 id="the-problem">
-          The problem
-        </h2>
+              <h2 id="the-problem">
+                The problem
+              </h2>
 
-        <p>
-          If your polymorphic modal has a controller, how do you know what object is using it? How do you get the
-          object itself? Let’s start and assume I have a polymorphic modal for Metafields, so many models can have
-          metafields and we’ll call it <em>fieldable</em>.
-        </p>
+              <p>
+                If your polymorphic modal has a controller, how do you know what object is using it? How do you get the
+                object itself? Let’s start and assume I have a polymorphic modal for Metafields, so many models can
+                have metafields and we’ll call it <em>fieldable</em>.
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="co"># modals/metafield.rb</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="co"># modals/metafield.rb</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="cf">module</span> <span class=
 "dt">MyCoolApp</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>  <span class="cf">class</span> <span class=
@@ -146,11 +144,11 @@
 "wa">:fieldable</span>, <span class="wa">polymorphic: </span><span class="dv">true</span></span>
 <span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="co"># modals/user.rb</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a><span class="co"># modals/user.rb</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="cf">module</span> <span class=
 "dt">MyCoolApp</span></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class="cf">class</span> <span class=
@@ -162,11 +160,11 @@
 <span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class="co"># ...</span></span>
 <span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
-          "#cb4-1" tabindex="-1"></a><span class="co"># modals/movie.rb</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a><span class="co"># modals/movie.rb</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class="cf">module</span> <span class=
 "dt">MyCoolApp</span></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>  <span class="cf">class</span> <span class=
@@ -178,24 +176,24 @@
 <span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>    <span class="co"># ...</span></span>
 <span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          So now, we have three models. The <em>Metafield</em> modal which is polymorphic and a <em>User</em> and a
-          <em>Movie</em> modal which can have these metafields. The <em>Metafield</em> modal will create a table in the
-          database with <code>fieldable_type</code> and <code>fieldable_id</code> which should reference the modal
-          class and the object’s ID.
-        </p>
+              <p>
+                So now, we have three models. The <em>Metafield</em> modal which is polymorphic and a <em>User</em> and
+                a <em>Movie</em> modal which can have these metafields. The <em>Metafield</em> modal will create a
+                table in the database with <code>fieldable_type</code> and <code>fieldable_id</code> which should
+                reference the modal class and the object’s ID.
+              </p>
 
-        <p>
-          Along with this, I’ve set up a Metafield controller so we can add, edit, and delete metafields for these
-          other models. With all this put together, we’ll set up the routing concerns.
-        </p>
+              <p>
+                Along with this, I’ve set up a Metafield controller so we can add, edit, and delete metafields for
+                these other models. With all this put together, we’ll set up the routing concerns.
+              </p>
 
-        <div class="sourceCode" id="cb5">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a aria-hidden="true" href=
-          "#cb5-1" tabindex="-1"></a>concern(<span class="wa">:fieldable</span>) <span class=
-          "kw">{</span> resources <span class="wa">:metafields</span> <span class="kw">}</span></span>
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a aria-hidden="true" href=
+                "#cb5-1" tabindex="-1"></a>concern(<span class="wa">:fieldable</span>) <span class=
+                "kw">{</span> resources <span class="wa">:metafields</span> <span class="kw">}</span></span>
 <span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>resources <span class=
 "wa">:users</span> <span class="cf">do</span></span>
@@ -208,25 +206,25 @@
 <span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a>  concerns <span class=
 "wa">:fieldable</span></span>
 <span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Now, the user and movie resource routes will have metafield resource routes added to them. Which will create
-          routes such as <code>/users/metafields</code>, <code>/users/metafields/new</code>,
-          <code>/movies/metafields/3/edit</code>.
-        </p>
+              <p>
+                Now, the user and movie resource routes will have metafield resource routes added to them. Which will
+                create routes such as <code>/users/metafields</code>, <code>/users/metafields/new</code>,
+                <code>/movies/metafields/3/edit</code>.
+              </p>
 
-        <p>
-          However, for the metafield controller, how is it supposed to know if we’re accessing User metafields or Movie
-          metafields when you’re adding and editing? You could do things such as base it on the URL, or manual section,
-          but that’s not a great solution in the long run. There are easier and cleaner ways… by utilizing a mix of the
-          routing concerns and a private method in the Metafield controller. Let’s change our concern in the routing
-          now to accept options and parameters.
-        </p>
+              <p>
+                However, for the metafield controller, how is it supposed to know if we’re accessing User metafields or
+                Movie metafields when you’re adding and editing? You could do things such as base it on the URL, or
+                manual section, but that’s not a great solution in the long run. There are easier and cleaner ways… by
+                utilizing a mix of the routing concerns and a private method in the Metafield controller. Let’s change
+                our concern in the routing now to accept options and parameters.
+              </p>
 
-        <div class="sourceCode" id="cb6">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a aria-hidden="true" href=
-          "#cb6-1" tabindex="-1"></a><span class="co"># Before</span></span>
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a><span class="co"># Before</span></span>
 <span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a>concern(<span class=
 "wa">:fieldable</span>) <span class="kw">{</span> resources <span class="wa">:metafields</span> <span class=
 "kw">}</span></span>
@@ -234,17 +232,17 @@
 <span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a>concern(<span class=
 "wa">:fieldable</span>) <span class="kw">{|</span>opts<span class="kw">|</span> resources <span class=
 "wa">:metafields</span>, opts<span class="kw">}</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Now let’s pass a parameter to the concern per resource route.
-        </p>
+              <p>
+                Now let’s pass a parameter to the concern per resource route.
+              </p>
 
-        <div class="sourceCode" id="cb7">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a aria-hidden="true" href=
-          "#cb7-1" tabindex="-1"></a>concern(<span class="wa">:fieldable</span>) <span class=
-          "kw">{|</span>opts<span class="kw">|</span> resources <span class="wa">:metafields</span>, opts<span class=
-          "kw">}</span></span>
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a aria-hidden="true" href=
+                "#cb7-1" tabindex="-1"></a>concern(<span class="wa">:fieldable</span>) <span class=
+                "kw">{|</span>opts<span class="kw">|</span> resources <span class=
+                "wa">:metafields</span>, opts<span class="kw">}</span></span>
 <span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a><span class="co"># ...</span></span>
 <span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a>resources <span class=
 "wa">:users</span> <span class="cf">do</span></span>
@@ -257,18 +255,18 @@
 <span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a>  concerns <span class=
 "wa">:fieldable</span>, <span class="wa">fieldable_type: </span><span class="st">"MyCoolApp::Movies"</span></span>
 <span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          So now we’re passing <code>fieldable_type</code> with the modal class to the concern which gets passed to the
-          resource for metafields. We can now grab this parameter in the controller and it’ll help us figure out what
-          modal is trying to access the metafields. Let’s add a method to the metafield controller now which will do
-          this work for us.
-        </p>
+              <p>
+                So now we’re passing <code>fieldable_type</code> with the modal class to the concern which gets passed
+                to the resource for metafields. We can now grab this parameter in the controller and it’ll help us
+                figure out what modal is trying to access the metafields. Let’s add a method to the metafield
+                controller now which will do this work for us.
+              </p>
 
-        <div class="sourceCode" id="cb8">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a aria-hidden="true" href=
-          "#cb8-1" tabindex="-1"></a><span class="cf">module</span> <span class="dt">MyCoolApp</span></span>
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a aria-hidden="true" href=
+                "#cb8-1" tabindex="-1"></a><span class="cf">module</span> <span class="dt">MyCoolApp</span></span>
 <span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a>  <span class="cf">class</span> <span class=
 "dt">MetafieldsController</span> <span class="kw">&lt;</span> <span class="dt">ApplicationController</span></span>
 <span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>      before_action <span class=
@@ -300,21 +298,21 @@
 <span id="cb8-17"><a aria-hidden="true" href="#cb8-17" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb8-18"><a aria-hidden="true" href="#cb8-18" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          As you can see above, everything is now in place. We convert the <code>fieldable_type</code> value we passed
-          in the concern into a module reference and an ID for whose trying to access it. <code>@object</code> will not
-          be the User object or Movie object trying to access the metafields.
-        </p>
+              <p>
+                As you can see above, everything is now in place. We convert the <code>fieldable_type</code> value we
+                passed in the concern into a module reference and an ID for whose trying to access it.
+                <code>@object</code> will not be the User object or Movie object trying to access the metafields.
+              </p>
 
-        <p>
-          Lastly, we can tie this into the forms for metafields creation/editing:
-        </p>
+              <p>
+                Lastly, we can tie this into the forms for metafields creation/editing:
+              </p>
 
-        <div class="sourceCode" id="cb9">
-          <pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a aria-hidden="true" href=
-          "#cb9-1" tabindex="-1"></a># ...</span>
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a aria-hidden="true" href=
+                "#cb9-1" tabindex="-1"></a># ...</span>
 <span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="dt">&lt;</span><span class=
 "kw">div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"hide"</span><span class=
 "dt">&gt;</span></span>
@@ -324,70 +322,98 @@
 "er">&lt;</span>%= f.text_field :fieldable_type, value: @object.class %&gt;</span>
 <span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
 "kw">div</span><span class="dt">&gt;</span></span></code></pre>
+              </div>
+
+              <p>
+                Now when saved, the metafield record in the database will automatically set the modal class and the ID
+                for the object.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <p>
-          Now when saved, the metafield record in the database will automatically set the modal class and the ID for
-          the object.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 9 years old and may contain outdated information.
+              </div>
 
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/polymorphic-and-route-concerns/index.md">MD</a> | <a class="sources__link"
-            href="/polymorphic-and-route-concerns/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/polymorphic-and-route-concerns/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
+                href="/polymorphic-and-route-concerns/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

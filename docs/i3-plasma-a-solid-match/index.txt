@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                          i3 & Plasma - A solid match
+                         i3 & Plasma - A solid match /
 
-   /* Aug 28, 2019 — 4.3KB */
-
-   This post is 5 years old and may contain outdated information.
+   /* Aug 28, 2019  —  4.3KB */
 
    [3]Cover Image
 
@@ -45,7 +43,6 @@ Setup
 
    I followed [4]this guide originally with some tweaks. Since I use
    OpenSUSE, I did the following for my system (slightly different paths):
-
 # Install i3
 sudo zypper in i3
 
@@ -93,7 +90,7 @@ Tweaking
    priorities, certain windows that open next to other certain windows,
    and so forth; you can go nuts!
 
-  Bars
+Bars
 
    You’re able to use any “bar” or panel you like with this setup..
    weather it be i3bar, polybar, or plain Plasma panel as I have.
@@ -108,19 +105,25 @@ Conclusion
    Give a try. My dot files for i3 and .Xresources has a good starting
    ground which you can expand upon and enjoy a mouseless experience!
 
-   [8]MD | [9]TXT | [10]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 5 years old and may contain outdated information.
+
+   Copyright under [8]CC-4.0.
+
+   Additionally available in alternative formats: [9]MD  /  [10]TXT
 
    [11]Ty King
 
-Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [12]about me.
-   [13]Github [14]LinkedIn [15]CV [16]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [13]Github[14]LinkedIn[15]CV[16]RSS
+
      *
      *
      *
@@ -139,9 +142,9 @@ References
    5. https://github.com/gnikyt/dots/blob/master/.Xresources
    6. https://github.com/gnikyt/dots/blob/master/.config/i3/config
    7. https://store.kde.org/p/1315319/
-   8. /i3-plasma-a-solid-match/index.md
-   9. /i3-plasma-a-solid-match/index.txt
-  10. https://creativecommons.org/licenses/by/4.0/
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. /i3-plasma-a-solid-match/index.md
+  10. /i3-plasma-a-solid-match/index.txt
   11. /about
   12. /about
   13. https://github.com/gnikyt

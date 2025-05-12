@@ -55,58 +55,56 @@
     <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
-    <link href="/assets/styles/normalize.css" rel="stylesheet">
-    <link href="/assets/styles/concrete.css" rel="stylesheet">
-    <link href="/assets/styles/highlight.css" rel="stylesheet">
     <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
   <body class="layout layout--post" data-handle="extending-a-rails-engine">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
-      "site-head__item">Code ramblings.</span>
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
     </header>
 
     <main class="container">
-      <article class="post">
+      <article class="tab post">
         <header class="post__head">
-          <h1 class="post__title">
-            Extending a Rails Engine
+          <h1 class="tab__title tab__title--short post__title">
+            Extending a Rails Engine /
           </h1>
-
-          <p class="post__meta">
-            /* <time class="post__time" datetime="2016-02-20">Feb 20, 2016</time> — <span class=
-            "post__size">4.3KB</span> */
-          </p>
-
-          <div class="warning warning--post">
-            This post is 9 years old and may contain outdated information.
-          </div>
         </header>
 
-        <p>
-          Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many conquered
-          (like having 100% code coverage :D). One thought that crossed my mind after building the monster was how do
-          you extend an engine? By extending, I mean to add or overwrite methods of controllers, models, helpers, etc.
-        </p>
+        <div class="tab__container">
+          <div class="tab__content">
+            <p class="post__meta content-container">
+              /* <time class="post__time" datetime="2016-02-20">Feb 20,
+              2016</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">4.3KB</span> */
+            </p>
 
-        <p>
-          The <a href="http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality">Rails Engine
-          Guide</a> is excellent and it has two main points on extending the engine functionality. One is by use of
-          “decorators” and the other is by abstracting all your controller and model code into concerns inside your
-          engine. While I like the concern method, as it gives more flexibility for complex extensions, its overkill in
-          my opinion. The <a href=
-          "http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers">decorator</a> option is
-          very easy to implement without changing much of your existing engine.
-        </p>
+            <div class="content-container">
+              <p>
+                Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many
+                conquered (like having 100% code coverage :D). One thought that crossed my mind after building the
+                monster was how do you extend an engine? By extending, I mean to add or overwrite methods of
+                controllers, models, helpers, etc.
+              </p>
 
-        <p>
-          The first step as the Rails guide shows you, is to add support for decorator loading inside your engine lib.
-          Below is how I did it in my CMS engine called Guts:
-        </p>
+              <p>
+                The <a href="http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality">Rails
+                Engine Guide</a> is excellent and it has two main points on extending the engine functionality. One is
+                by use of “decorators” and the other is by abstracting all your controller and model code into concerns
+                inside your engine. While I like the concern method, as it gives more flexibility for complex
+                extensions, its overkill in my opinion. The <a href=
+                "http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers">decorator</a> option
+                is very easy to implement without changing much of your existing engine.
+              </p>
 
-        <div class="sourceCode" id="cb1">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
-          "#cb1-1" tabindex="-1"></a><span class="co"># lib/guts/engine.rb</span></span>
+              <p>
+                The first step as the Rails guide shows you, is to add support for decorator loading inside your engine
+                lib. Below is how I did it in my CMS engine called Guts:
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="co"># lib/guts/engine.rb</span></span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co"># ... etc ...</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>isolate_namespace <span class=
 "dt">Guts</span></span>
@@ -122,36 +120,36 @@
 <span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="cf">end</span></span>
 <span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class=
 "co"># ... etc ...</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          This will look for all decorators in the main Rails apps for the path
-          <code>app/decorators/{controllers,models,concerns,helpers,etc}/guts/{file}_decorator(s).rb</code> and load
-          them in using <a href=
-          "http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require_dependency">require_dependency</a>.
-        </p>
+              <p>
+                This will look for all decorators in the main Rails apps for the path
+                <code>app/decorators/{controllers,models,concerns,helpers,etc}/guts/{file}_decorator(s).rb</code> and
+                load them in using <a href=
+                "http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require_dependency">require_dependency</a>.
+              </p>
 
-        <p>
-          Now the engine has support to load the decorators, lets move on to some examples. All following examples from
-          here-on-out will be using my engine for example purposes.
-        </p>
+              <p>
+                Now the engine has support to load the decorators, lets move on to some examples. All following
+                examples from here-on-out will be using my engine for example purposes.
+              </p>
 
-        <h2 id="controllers">
-          Controllers
-        </h2>
+              <h2 id="controllers">
+                Controllers
+              </h2>
 
-        <p>
-          Create a file in <code>app/decorators/controllers/guts/</code> such as <code>type_decorator.rb</code>
-        </p>
+              <p>
+                Create a file in <code>app/decorators/controllers/guts/</code> such as <code>type_decorator.rb</code>
+              </p>
 
-        <p>
-          Add in the following code using <code>class_eval</code> from Ruby:
-        </p>
+              <p>
+                Add in the following code using <code>class_eval</code> from Ruby:
+              </p>
 
-        <div class="sourceCode" id="cb2">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
-          "#cb2-1" tabindex="-1"></a><span class="dt">Guts</span><span class="kw">::</span><span class=
-          "dt">TypesController</span><span class="at">.class_eval</span> <span class="cf">do</span></span>
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="dt">Guts</span><span class="kw">::</span><span class=
+                "dt">TypesController</span><span class="at">.class_eval</span> <span class="cf">do</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  <span class=
 "co"># Decorator action is explode.. we will route this as: guts/types#explode</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>  <span class="cf">def</span> explode</span>
@@ -159,22 +157,22 @@
 "co"># Will render app/views/guts/types/explode.html.erb</span></span>
 <span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          Next open <code>app/config/routes.rb</code> in your main Ruby app and prepend this new route at the
-          <strong>very top of the route file before mounting the Guts engine</strong> in the
-          <code>Rails.application.routes.draw</code> block.
-        </p>
+              <p>
+                Next open <code>app/config/routes.rb</code> in your main Ruby app and prepend this new route at the
+                <strong>very top of the route file before mounting the Guts engine</strong> in the
+                <code>Rails.application.routes.draw</code> block.
+              </p>
 
-        <p>
-          As an example:
-        </p>
+              <p>
+                As an example:
+              </p>
 
-        <div class="sourceCode" id="cb3">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
-          "#cb3-1" tabindex="-1"></a><span class="dt">Guts</span><span class="kw">::</span><span class=
-          "dt">Engine</span><span class="at">.routes.prepend</span> <span class="cf">do</span></span>
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a><span class="dt">Guts</span><span class="kw">::</span><span class=
+                "dt">Engine</span><span class="at">.routes.prepend</span> <span class="cf">do</span></span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>  <span class=
 "co"># Create a route of /guts/types/explode</span></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class=
@@ -195,35 +193,35 @@
 "st">"/guts"</span></span>
 <span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
-        </div>
+              </div>
 
-        <p>
-          This will now prepend our new route to the engine and map <code>/guts/types/explode</code> to our decorator
-          action.
-        </p>
+              <p>
+                This will now prepend our new route to the engine and map <code>/guts/types/explode</code> to our
+                decorator action.
+              </p>
 
-        <p>
-          Lastly, create a view in <code>app/views/guts/types/</code> called <code>explode.html.erb</code> with
-          whatever you wish to display! This is the basics of extending a controller.
-        </p>
+              <p>
+                Lastly, create a view in <code>app/views/guts/types/</code> called <code>explode.html.erb</code> with
+                whatever you wish to display! This is the basics of extending a controller.
+              </p>
 
-        <h2 id="models">
-          Models
-        </h2>
+              <h2 id="models">
+                Models
+              </h2>
 
-        <p>
-          As in controllers, create a file in <code>app/decorators/models/guts/</code> such as
-          <code>type_modal_decorator.rb</code>
-        </p>
+              <p>
+                As in controllers, create a file in <code>app/decorators/models/guts/</code> such as
+                <code>type_modal_decorator.rb</code>
+              </p>
 
-        <p>
-          Add in the following code using <code>class_eval</code> from Ruby:
-        </p>
+              <p>
+                Add in the following code using <code>class_eval</code> from Ruby:
+              </p>
 
-        <div class="sourceCode" id="cb4">
-          <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
-          "#cb4-1" tabindex="-1"></a><span class="dt">Guts</span><span class="kw">::</span><span class=
-          "dt">Type</span><span class="at">.class_eval</span> <span class="cf">do</span></span>
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a><span class="dt">Guts</span><span class="kw">::</span><span class=
+                "dt">Type</span><span class="at">.class_eval</span> <span class="cf">do</span></span>
 <span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>  <span class=
 "co"># Override title setter</span></span>
 <span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>  <span class="cf">def</span> title<span class=
@@ -243,93 +241,122 @@
 <span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>  <span class="cf">end</span></span>
 <span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a><span class=
 "cf">end</span></span></code></pre>
+              </div>
+
+              <h2 id="views">
+                Views
+              </h2>
+
+              <p>
+                As stated above for the controller example, since Rails looks in the main app for views first, you
+                simply need to match the correct path.
+              </p>
+
+              <p>
+                If your engine’s view for <code>CoolController#jumps</code> is
+                <code>app/views/{engine}/cool/jumps.html.erb</code> you will duplicate this in your main Rails apps by
+                creating a file in <code>app/views/{engine}/cool/jumps.html.erb</code>. You can then enter anything you
+                need into that view and will be overridden.
+              </p>
+
+              <p>
+                A good tip I used in my CMS engine was to utilize <a href=
+                "http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield">yields</a>. I placed
+                named yields in many parts of my engine views so they can be utilized by a Rails app by calling
+                <a href="http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method">content_for</a>
+                in their views.
+              </p>
+
+              <p>
+                Although the Rails Guide covers all this, I thought seeing a real-world example would help. Happy
+                coding!
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
         </div>
 
-        <h2 id="views">
-          Views
-        </h2>
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <div class="warning warning--post">
+                This post is 9 years old and may contain outdated information.
+              </div>
 
-        <p>
-          As stated above for the controller example, since Rails looks in the main app for views first, you simply
-          need to match the correct path.
-        </p>
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
 
-        <p>
-          If your engine’s view for <code>CoolController#jumps</code> is
-          <code>app/views/{engine}/cool/jumps.html.erb</code> you will duplicate this in your main Rails apps by
-          creating a file in <code>app/views/{engine}/cool/jumps.html.erb</code>. You can then enter anything you need
-          into that view and will be overridden.
-        </p>
-
-        <p>
-          A good tip I used in my CMS engine was to utilize <a href=
-          "http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield">yields</a>. I placed named
-          yields in many parts of my engine views so they can be utilized by a Rails app by calling <a href=
-          "http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method">content_for</a> in
-          their views.
-        </p>
-
-        <p>
-          Although the Rails Guide covers all this, I thought seeing a real-world example would help. Happy coding!
-        </p>
-
-        <footer class="post__tail">
-          <div class="sources">
-            <a class="sources__link" href="/extending-a-rails-engine/index.md">MD</a> | <a class="sources__link" href=
-            "/extending-a-rails-engine/index.txt">TXT</a> | <a class="sources__link" href=
-            "https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-4.0</a>
+              <p>
+                Additionally available in alternative formats: <span class="sources"><a class="sources__link" href=
+                "/extending-a-rails-engine/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/extending-a-rails-engine/index.txt">TXT</a></span>
+              </p>
+            </div>
           </div>
-        </footer>
-      </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-tail container">
-      <hr class="site-tail__sep">
-      <a href="/about"><img alt="Ty King" class="site-tail__avatar" src="/assets/images/me.jpg"></a>
-      <div class="site-tail__inner">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
         <h3 class="site-tail__author">
-          Ty King
+          <a href="/about">Ty King</a>
         </h3>
 
         <p class="site-tail__blurb">
-          A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care
-          and expertise. See more <a href="/about">about me</a>.
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
         </p>
-        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a> <a class="button"
-        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a> <a class="button" href=
-        "/assets/files/cv.pdf" target="_blank">CV</a> <a class="button" href="/rss.xml" target="_blank">RSS</a>
-        <ul class="site-colors" data-scheme="cobalt">
-          <li class="site-colors__color color--a">
-          </li>
+      </div>
 
-          <li class="site-colors__color color--b">
-          </li>
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
 
-          <li class="site-colors__color color--c">
-          </li>
-
-          <li class="site-colors__color color--d">
-          </li>
-
-          <li class="site-colors__color color--e">
-          </li>
-
-          <li class="site-colors__color color--f">
-          </li>
-
-          <li class="site-colors__color color--g">
-          </li>
-
-          <li class="site-colors__color color--h">
-          </li>
-
-          <li class="site-colors__color color--i">
-          </li>
-
-          <li class="site-colors__color color--j">
-          </li>
-        </ul>
+      <div class="site-tail__links">
+        <a class="button" href="https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button"
+        href="https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button" href=
+        "/assets/files/cv.pdf" target="_blank">CV</a><a class="button" href="/rss.xml" target="_blank">RSS</a>
       </div>
     </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
   </body>
 </html>

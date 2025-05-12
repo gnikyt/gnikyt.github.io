@@ -1,10 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                               WP Local with WSL
+                              WP Local with WSL /
 
-   /* Dec 07, 2023 — 5.5KB */
+   /* Dec 07, 2023  —  5.5KB */
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided
@@ -51,7 +51,6 @@ Fixing Dependencies
    information is updated and accurate.
 
    Next, run:
-
 sudo apt-get -y install libaio1 libncurses5 libnss3-tools rsync shared-mime-info
  desktop-file-utils libxshmfence1 libglu1 libatk1.0-0 libatk-bridge2.0-0 libgtk2
 .0-0 libgtk-3-0 libgbm-dev libasound2 libnuma-dev libxslt1.1 lxqt-sudo libzip4
@@ -60,7 +59,6 @@ sudo apt-get -y install libaio1 libncurses5 libnss3-tools rsync shared-mime-info
    requests, rync is installed for Local to use, and other items.
 
    Next we need to download a couple packages manually:
-
 curl -O http://snapshot.debian.org/archive/debian/20190501T215844Z/pool/main/g/g
 libc/multiarch-support_2.28-10_amd64.deb
 sudo dpkg -i multiarch-support_2.28-10_amd64.deb
@@ -80,7 +78,6 @@ Priviliaged Requests
 
    Running sudo nano /usr/bin/kdesudo should open a new file. Inside the
    file, paste the following to use LxQT’s prompt:
-
 #!/bin/bash
 /usr/bin/lxqt-sudo $7
 
@@ -95,7 +92,6 @@ NGINX Fix
    If you are pulling down a project from WP Engine which uses NGINX, it
    will attempt to set capabilities but be unable to. To fix this, run the
    following:
-
 sudo setcap 'cap_net_bind_service=+ep' /opt/Local/resources/extraResources/light
 ning-services/nginx-[version]/bin/linux/sbin/nginx`
 
@@ -130,7 +126,6 @@ Bonus: Git Integration
     6. (if applicable) Pull down repository changes
 
    Script:
-
 cs app/public && \
 git init && \
 git remote add origin [url] && \
@@ -149,19 +144,23 @@ Conclusion
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -178,9 +177,9 @@ References
    3. /assets/images/posts/wplocal_running.png
    4. https://community.localwp.com/u/robert77
    5. /assets/images/posts/wplocal_sudo.png
-   6. /wplocal-with-wsl/index.md
-   7. /wplocal-with-wsl/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /wplocal-with-wsl/index.md
+   8. /wplocal-with-wsl/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

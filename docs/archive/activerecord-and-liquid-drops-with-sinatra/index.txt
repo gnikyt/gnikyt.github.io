@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                   ActiveRecord and Liquid Drops with Sinatra
+                  ActiveRecord and Liquid Drops with Sinatra /
 
-   /* Oct 15, 2015 — 3.7KB */
-
-   This post is 9 years old and may contain outdated information.
+   /* Oct 15, 2015  —  3.7KB */
 
    Normally I use ERB when doing templates but there was a special
    use-case recently where I needed to allow the app user to modify a
@@ -17,7 +15,6 @@
 
    Let’s suppose you have two models in your Sinatra application – Student
    and Book.
-
 # app/models/student_model.rb
 module MyApp
   module Model
@@ -44,7 +41,6 @@ end
 
    So let’s create a Student drop and a Book drop and give the templates
    some basic variables from the model to access.
-
 # app/drops/student_drop.rb
 module MyApp
   module Drop
@@ -100,7 +96,6 @@ end
    method by adding it to our model which Liquid calls when rendering the
    template. We then return the proper drop for the model inside the new
    to_liquid method.
-
 # app/models/student_model.rb
 module MyApp
   module Model
@@ -133,7 +128,6 @@ end
     3. Modified our models to return a drop
 
    With all this combined we can then use it all together as such:
-
 # app/controllers/front_controller.rb
 ...
 student = Model::Student.find params[:id]
@@ -148,19 +142,25 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
    expose your ActiveRecord models to work automatically with Liquid but
    this article just shows you a more expanded and controlled version.
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 9 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -177,9 +177,9 @@ References
    3. http://liquidmarkup.org/
    4. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
    5. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-   6. /activerecord-and-liquid-drops-with-sinatra/index.md
-   7. /activerecord-and-liquid-drops-with-sinatra/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /activerecord-and-liquid-drops-with-sinatra/index.md
+   8. /activerecord-and-liquid-drops-with-sinatra/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

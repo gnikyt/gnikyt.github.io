@@ -1,12 +1,10 @@
    #[1]gnikyt feed
 
-   [2]gnikyt Code ramblings.
+   [2]gnikyt   /  Code ramblings
 
-                   Woocommerce - Sorting product by category
+                  Woocommerce - Sorting product by category /
 
-   /* Oct 05, 2013 — 6.0KB */
-
-   This post is 11 years old and may contain outdated information.
+   /* Oct 05, 2013  —  6.0KB */
 
    This past week I was assigned to heavily customize a Woocommerce
    install on a client’s successful store. What needed to be done on one
@@ -55,7 +53,6 @@ Reading the code to find an answer
    This is the filter I can use to add clauses (joins, wheres, orders) to
    the $args passed. So mixing that, with the code bheadrick provided in
    the discussion is this…
-
 add_filter('woocommerce_default_catalog_orderby_options', 'ty_catalog_orderby');
 add_filter('woocommerce_catalog_orderby', 'ty_catalog_orderby');
 function ty_catalog_orderby( $sortby ) {
@@ -148,19 +145,25 @@ In conclusion
    modify this and use it in your code since there doesn’t seem to be a
    more viable option around that I’ve seen.
 
-   [6]MD | [7]TXT | [8]CC-4.0
-     __________________________________________________________________
+   Appendix
+
+   This post is 11 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Additionally available in alternative formats: [7]MD  /  [8]TXT
 
    [9]Ty King
 
-Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise. See more
-   [10]about me.
-   [11]Github [12]LinkedIn [13]CV [14]RSS
-     *
-     *
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [11]Github[12]LinkedIn[13]CV[14]RSS
+
      *
      *
      *
@@ -177,9 +180,9 @@ References
    3. http://docs.woothemes.com/document/custom-sorting-options-ascdesc/
    4. http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161
    5. http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411
-   6. /woocommerce-sorting-products-by-category/index.md
-   7. /woocommerce-sorting-products-by-category/index.txt
-   8. https://creativecommons.org/licenses/by/4.0/
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /woocommerce-sorting-products-by-category/index.md
+   8. /woocommerce-sorting-products-by-category/index.txt
    9. /about
   10. /about
   11. https://github.com/gnikyt

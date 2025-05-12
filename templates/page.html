@@ -1,15 +1,34 @@
 ${inc:templates/_layout_head.html}
 
-<article class="post">
+<article class="tab post">
   <header class="post__head">
-    <h1 class="post__title">${title}</h1>
+    <h1 class="tab__title tab__title--short post__title">${title} /</h1>
   </header>
 
-  ${parsed_md}
-
-  <footer class="post__tail">
-    ${inc:templates/_sources.html}
-  </footer>
+  <div class="tab__container">
+    <div class="tab__content">
+      <div class="content-container">
+        ${parsed_md}
+      </div>
+    </div>
+  </div>
 </article>
+
+<section class="tab tab--appendix">
+  <div class="tab__title tab__title--short">Appendix</div>
+  <div class="tab__container">
+    <div class="tab__content">
+      <div class="content-container">
+        <p>
+          Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-4.0</a>.
+        </p>
+
+        <p>
+          Additionally available in alternative formats: ${inc:templates/_sources.html}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 ${inc:templates/_layout_tail.html}
