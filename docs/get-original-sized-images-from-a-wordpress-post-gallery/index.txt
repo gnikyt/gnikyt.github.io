@@ -1,0 +1,93 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                Original sized images from a WordPress Gallery /
+
+   /* Nov 08, 2014  —  1.5KB */
+   Logo of php Logo of wordpress
+
+   Recently, I was working on a project where I needed to modify an
+   existing page that had multiple galleries. This change required me to
+   have access to the original uploaded images. Here’s a simple function I
+   wrote which returns the images easily in an array format.
+# Input
+Hey comes see my gallery! [gallery ids="12,124,342]
+
+# Code
+$images = getGalleryImages(get_the_content());
+
+# Output
+Array (
+  [0] => http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
+  [1] => http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
+  [2] => http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
+);
+
+/*
+ * getGalleryImages
+ *
+ * Converts a WP gallery into an array of images to use.
+ *
+ * @param $content rendered content (ex: get_the_content())
+ * @param $return_size size of image to return
+ * @return array
+ */
+function getGalleryImages($content, $return_size = 'large') {
+  // Gallery is in format of [gallery link="..." ids="12,124,342"]
+  preg_match('/ids="([^"]*)"/i', $content, $matches);
+
+  $images = [];
+  if (isset($matches[1])) {
+    foreach(explode(',', $matches[1]) as $id) {
+      // For each image in the gallery, get its WP data (url, width, height)
+      $images[] = wp_get_attachment_image_src($id, $return_size);
+    }
+  }
+
+  return $images;
+}
+
+   Appendix
+
+   This post is 10 years old and may contain outdated information.
+
+   Copyright under [3]CC-4.0.
+
+   Available in the following alternative formats:
+   [4]MD  /  [5]TXT  /  [6]PDF
+
+   [7]Ty King
+
+[8]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. /
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /get-original-sized-images-from-a-wordpress-post-gallery/index.md
+   5. /get-original-sized-images-from-a-wordpress-post-gallery/index.txt
+   6. /tmp/lynxXXXX6o5d6r/L287415-2533TMP.html
+   7. /about
+   8. /about
+   9. https://github.com/gnikyt
+  10. https://linkedin.com/in/gnikyt
+  11. /assets/files/cv.pdf
+  12. /rss.xml

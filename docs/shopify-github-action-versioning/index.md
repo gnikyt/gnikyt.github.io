@@ -3,6 +3,8 @@ layout: post
 title: Shopify Github Action for versioning
 permalink: shopify-github-action-versioning
 date: '2022-05-20 16:16:20'
+archive: false
+category: shopify,cmd
 ---
 
 Shopify recently updated their admin panel again and started to display the value of `theme_version` from `config/settings_schema.json` onto the theme listing page. Example (yellow highlight):

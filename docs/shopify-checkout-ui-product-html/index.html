@@ -80,10 +80,19 @@
 
         <div class="tab__container">
           <div class="tab__content">
-            <p class="post__meta content-container">
-              /* <time class="post__time" datetime="2024-05-10">May 10,
-              2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">14KB</span> */
-            </p>
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2024-05-10">May 10,
+                2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">14KB</span> */
+              </div>
+
+              <div class="post__category">
+                <img alt="Logo of shopify" class="post__category-logo" src=
+                "/assets/images/category-shopify.svg"><img alt="Logo of javascript" class="post__category-logo" src=
+                "/assets/images/category-javascript.svg"><img alt="Logo of react" class="post__category-logo" src=
+                "/assets/images/category-react.svg">
+              </div>
+            </div>
 
             <div class="content-container">
               <h2 id="background">
@@ -674,8 +683,8 @@
 "fu">parseCloseTag</span>(html<span class="op">,</span> name) {</span>
 <span id="cb5-88"><a aria-hidden="true" href="#cb5-88" tabindex="-1"></a>  <span class="co">// Tag itself</span></span>
 <span id="cb5-89"><a aria-hidden="true" href="#cb5-89" tabindex="-1"></a>  <span class=
-"kw">const</span> tag <span class="op">=</span> <span class="vs">`&lt;/</span><span class=
-"sc">${</span>name<span class="sc">}</span><span class="vs">&gt;`</span><span class="op">;</span></span>
+"kw">const</span> tag <span class="op">=</span> <span class="vs">`&lt;/</span><span class="sc"></span><span class=
+"vs">&gt;`</span><span class="op">;</span></span>
 <span id="cb5-90"><a aria-hidden="true" href="#cb5-90" tabindex="-1"></a></span>
 <span id="cb5-91"><a aria-hidden="true" href="#cb5-91" tabindex="-1"></a>  <span class=
 "co">// End tag positions</span></span>
@@ -1033,7 +1042,8 @@
               <p>
                 Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
                 "/shopify-checkout-ui-product-html/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
-                href="/shopify-checkout-ui-product-html/index.txt">TXT</a></span>
+                href="/shopify-checkout-ui-product-html/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

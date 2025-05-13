@@ -95,6 +95,9 @@ process_posts() {
     echo "$text" > "$target"/index.txt
     cp posts/"$source" "$target"/index.md
 
+    # Create PDF version.
+    # pandoc "$i" -o "$target/index.pdf"
+
     # Parse the post RSS template and save result.
     parsed_tpl=$(parse_tpl "${layouts["_rss_item"]}")
     globals["rss_items"]="${globals["rss_items"]}${newline}${parsed_tpl}"

@@ -1,0 +1,72 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                           Laravel Shopify billing /
+
+   /* Jan 26, 2018  —  993B */
+   Logo of php Logo of laravel
+
+   Version 2.0.0 was [3]just released which features the baked-in ability
+   to turn your Shopify app into a billable app with some simple
+   configuration additions.
+
+   It has support for the two methods Shopify supports, single and
+   recurring charges. You can set the plan name, price, trial days, and
+   more.
+
+   You also have to ability to easily upgrade or downgrade a shop’s plan,
+   enable them as a grandfather (skip billing), and more.
+
+   For full information see the release notes, [4]upgrading doc, and the
+   wiki page for [5]creating a billable app.
+
+   Other minor updates include integration with StyleCI to keep coding
+   standards within PSR1 and PSR2.
+
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [6]CC-4.0.
+
+   Available in the following alternative formats:
+   [7]MD  /  [8]TXT  /  [9]PDF
+
+   [10]Ty King
+
+[11]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [12]Github[13]LinkedIn[14]CV[15]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. /
+   3. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
+   4. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
+   5. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. /laravel-shopify-billing/index.md
+   8. /laravel-shopify-billing/index.txt
+   9. /tmp/lynxXXXXkX5dTS/L282871-6878TMP.html
+  10. /about
+  11. /about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. /assets/files/cv.pdf
+  15. /rss.xml

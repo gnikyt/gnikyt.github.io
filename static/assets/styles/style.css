@@ -545,7 +545,52 @@ body {
 }
 
 .post .post__meta {
+  display: flex;
   color: var(--color-grey-dark);
+}
+
+.post .post__meta .post__details {
+  flex: 1 0 50%;
+}
+
+.post .post__meta .post__category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 1 50%;
+  gap: .5em;
+}
+
+.post .post__meta .post__category .post__category-logo {
+  width: 40px;
+  height: auto;
+}
+
+.post .post__meta .post__category .post__category-logo[src*="shopify"] {
+  width: 20px;
+}
+
+.post .post__meta .post__category .post__category-logo[src*="vuejs"],
+.post .post__meta .post__category .post__category-logo[src*="javascript"],
+.post .post__meta .post__category .post__category-logo[src*="react"],
+.post .post__meta .post__category .post__category-logo[src*="laravel"],
+.post .post__meta .post__category .post__category-logo[src*="wordpress"] {
+  width: 25px;
+}
+
+.post .post__meta .post__category .post__category-logo[src*="php"] {
+  width: 45px;
+}
+
+.post .post__meta .post__category .post__category-logo[src*="cmd"],
+.post .post__meta .post__category .post__category-logo[src*="sinatra"] {
+  width: 30px;
+}
+
+.post .post__meta .post__category .post__category-logo[src*="python"],
+.post .post__meta .post__category .post__category-logo[src*="symfony"],
+.post .post__meta .post__category .post__category-logo[src*="ruby"] {
+  width: 23px;
 }
 
 /**

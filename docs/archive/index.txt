@@ -8,107 +8,92 @@
    order.
      * $>
 
-[3]Journey to Sucker Punch
+[3]New desktop setup
+       Dec 11, 2022
+       6.5KB
+     * $>
+
+[4]Shopify Liquid Tester
+       Nov 20, 2022
+       3.9KB
+     * $>
+
+[5]Joint Venture with LFL
+       Nov 15, 2022
+       6.0KB
+     * $>
+
+[6]WSL network speed
+       Nov 16, 2021
+       1.8KB
+     * $>
+
+[7]i3-Plasma for a solid match
+       Aug 28, 2019
+       4.4KB
+     * $>
+
+[8]Laravel Shopify billing
+       Jan 26, 2018
+       993B
+     * $>
+
+[9]Lumen with Redis
+       Nov 19, 2017
+       1.3KB
+     * $>
+
+[10]Lumen with Mailer
+       Nov 19, 2017
+       5.3KB
+     * $>
+
+[11]Reactive VueJS plugins
+       Jun 29, 2017
+       4.1KB
+     * $>
+
+[12]WordPress with Docker
+       Jun 15, 2017
+       3.6KB
+     * $>
+
+[13]shopify_app_whitelist Gem
        Nov 26, 2016
-       4.0KB
+       1.5KB
      * $>
 
-[4]Developing sanely on Windows
-       Nov 07, 2016
-       8.2KB
-     * $>
-
-[5]Testing with shopify_app
+[14]Counting unique options in Shopify
        Jun 21, 2016
-       2.3KB
+       2.1KB
      * $>
 
-[6]Counting unique options in Shopify
-       Jun 21, 2016
-       2.0KB
-     * $>
-
-[7]Precompiling assets in your Rails Engine
+[15]Precompiling assets with Rails Engine
        May 03, 2016
        2.3KB
      * $>
 
-[8]Building a simple Redis autosuggest with Ruby
-       Mar 02, 2016
-       5.6KB
-     * $>
-
-[9]Extending a Rails Engine
-       Feb 20, 2016
-       4.3KB
-     * $>
-
-[10]Polymorphic and Route Concerns... who is who?
-       Jan 01, 2016
-       5.1KB
-     * $>
-
-[11]ActiveRecord and Liquid Drops with Sinatra
-       Oct 15, 2015
-       3.7KB
-     * $>
-
-[12]Calculating percent saved with Shopify
-       Sep 24, 2015
-       2.0KB
-     * $>
-
-[13]WP User Themes
-       May 21, 2015
-       320B
-     * $>
-
-[14]Get original sized images from a Wordpress Post Gallery
-       Nov 08, 2014
-       1.5KB
-     * $>
-
-[15]Developing Shopify themes with teams
-       Sep 16, 2014
-       6.1KB
-     * $>
-
 [16]ACF Simple Table
        Jul 18, 2014
-       1.1KB
+       1.2KB
      * $>
 
-[17]PHPMailer contrib
-       Feb 09, 2014
-       1.3KB
-     * $>
-
-[18]Get single field error in Symfony
+[17]Single field error in Symfony
        Dec 12, 2013
-       941B
-     * $>
+       959B
 
-[19]Woocommerce - Sorting product by category
-       Oct 05, 2013
-       6.0KB
-     * $>
+   [18]‹ Home
 
-[20]QR Code gradients
-       Jul 13, 2013
-       3.4KB
+   [19]Ty King
 
-   [21]‹ Home
-
-   [22]Ty King
-
-[23]Ty King
+[20]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [24]Github[25]LinkedIn[26]CV[27]RSS
+   [21]Github[22]LinkedIn[23]CV[24]RSS
 
      *
      *
@@ -123,28 +108,25 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///archive/journey-to-sucker-punch
-   4. file:///archive/developing-sanely-on-windows
-   5. file:///archive/testing-with-shopify-app
-   6. file:///archive/counting-unique-options-in-shopify
-   7. file:///archive/precompiling-assets-in-your-rails-engine
-   8. file:///archive/building-a-simple-redis-autosuggest-with-ruby
-   9. file:///archive/extending-a-rails-engine
-  10. file:///archive/polymorphic-and-route-concerns
-  11. file:///archive/activerecord-and-liquid-drops-with-sinatra
-  12. file:///archive/calculating-percent-saved-with-shopify
-  13. file:///archive/wp-user-themes
-  14. file:///archive/get-original-sized-images-from-a-wordpress-post-gallery
-  15. file:///archive/developing-shopify-themes-with-teams
+   3. file:///archive/new-desktop-setup
+   4. file:///archive/shopify-liquid-tester
+   5. file:///archive/joint-venture-lfl
+   6. file:///archive/wsl-network-speed
+   7. file:///archive/i3-plasma-a-solid-match
+   8. file:///archive/laravel-shopify-billing
+   9. file:///archive/setting-up-lumen-with-redis
+  10. file:///archive/setting-up-lumen-with-mail
+  11. file:///archive/reactive-vuejs-plugins
+  12. file:///archive/wordpress-under-docker
+  13. file:///archive/shopify-app-whitelist-gem
+  14. file:///archive/counting-unique-options-in-shopify
+  15. file:///archive/precompiling-assets-in-your-rails-engine
   16. file:///archive/acf-simple-table
-  17. file:///archive/phpmailer-contrib
-  18. file:///archive/get-single-field-error-in-symfony
-  19. file:///archive/woocommerce-sorting-products-by-category
-  20. file:///archive/qr-code-gradients
-  21. file:///
-  22. file:///about
-  23. file:///about
-  24. https://github.com/gnikyt
-  25. https://linkedin.com/in/gnikyt
-  26. file:///assets/files/cv.pdf
-  27. file:///rss.xml
+  17. file:///archive/get-single-field-error-in-symfony
+  18. file:///
+  19. file:///about
+  20. file:///about
+  21. https://github.com/gnikyt
+  22. https://linkedin.com/in/gnikyt
+  23. file:///assets/files/cv.pdf
+  24. file:///rss.xml

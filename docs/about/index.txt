@@ -56,18 +56,19 @@ Random Open Source work
 
    Copyright under [14]CC-4.0.
 
-   Additionally available in alternative formats: [15]MD  /  [16]TXT
+   Additionally available in alternative formats:
+   [15]MD  /  [16]TXT  /  [17]PDF
 
-   [17]Ty King
+   [18]Ty King
 
-[18]Ty King
+[19]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [19]Github[20]LinkedIn[21]CV[22]RSS
+   [20]Github[21]LinkedIn[22]CV[23]RSS
 
      *
      *
@@ -96,9 +97,10 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///about/index.md
   16. file:///about/index.txt
-  17. file:///about
+  17. file:///tmp/lynxXXXXWoNOo3/L288956-2386TMP.html
   18. file:///about
-  19. https://github.com/gnikyt
-  20. https://linkedin.com/in/gnikyt
-  21. file:///assets/files/cv.pdf
-  22. file:///rss.xml
+  19. file:///about
+  20. https://github.com/gnikyt
+  21. https://linkedin.com/in/gnikyt
+  22. file:///assets/files/cv.pdf
+  23. file:///rss.xml

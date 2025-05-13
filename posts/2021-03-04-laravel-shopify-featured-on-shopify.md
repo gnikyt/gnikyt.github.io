@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Laravel Shopify featured on Shopify Dev Blog
+title: Laravel Shopify featured on Shopify
 permalink: laravel-shopify-featured-shopify-blog
 date: '2021-03-04 10:28:34'
+archive: false
+category: shopify,php,laravel
 ---
 
 A couple of weeks ago, Liam Griffin at Shopify reached out to me about the Laravel Shopify package, interested in featuring it on Shopify's development blog with other community-built tools.

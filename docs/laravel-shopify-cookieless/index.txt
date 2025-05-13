@@ -2,9 +2,10 @@
 
    [2]gnikyt   /  Code ramblings
 
-                         Laravel Shopify - Cookieless /
+                          Laravel Shopify cookieless /
 
    /* Jun 29, 2021  —  2.8KB */
+   Logo of shopify Logo of php Logo of laravel
 
 This Issue
 
@@ -86,18 +87,19 @@ What’s next?
 
    Copyright under [7]CC-4.0.
 
-   Available in the following alternative formats: [8]MD  /  [9]TXT
+   Available in the following alternative formats:
+   [8]MD  /  [9]TXT  /  [10]PDF
 
-   [10]Ty King
+   [11]Ty King
 
-[11]Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [13]Github[14]LinkedIn[15]CV[16]RSS
 
      *
      *
@@ -119,9 +121,10 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. /laravel-shopify-cookieless/index.md
    9. /laravel-shopify-cookieless/index.txt
-  10. /about
+  10. /tmp/lynxXXXXdRWMFf/L280736-1711TMP.html
   11. /about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. /assets/files/cv.pdf
-  15. /rss.xml
+  12. /about
+  13. https://github.com/gnikyt
+  14. https://linkedin.com/in/gnikyt
+  15. /assets/files/cv.pdf
+  16. /rss.xml

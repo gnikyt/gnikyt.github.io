@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>
-      Prisma, Jest, and MySQL testing | gnikyt
+      Shopify Prisma, Jest, and MySQL testing | gnikyt
     </title>
     <link href="https://gnikyt.com/prisma-jest-mysql-testing" rel="canonical">
     <meta content="Custom" name="generator">
@@ -16,7 +16,7 @@
     "*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).* Follow that..."
     name="description">
     <meta content="2024-03-28T13:19:23-0230" property="article:published_time">
-    <meta content="Prisma, Jest, and MySQL testing" property="og:title">
+    <meta content="Shopify Prisma, Jest, and MySQL testing" property="og:title">
     <meta content="en" property="og:locale">
     <meta content=
     "*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).* Follow that..."
@@ -38,7 +38,7 @@
     *This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).*
 
     Follow that...",
-    "headline": "Prisma, Jest, and MySQL testing",
+    "headline": "Shopify Prisma, Jest, and MySQL testing",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://gnikyt.com/prisma-jest-mysql-testing"
@@ -74,16 +74,24 @@
       <article class="tab post">
         <header class="post__head">
           <h1 class="tab__title tab__title--short post__title">
-            Prisma, Jest, and MySQL testing /
+            Shopify Prisma, Jest, and MySQL testing /
           </h1>
         </header>
 
         <div class="tab__container">
           <div class="tab__content">
-            <p class="post__meta content-container">
-              /* <time class="post__time" datetime="2024-03-28">Mar 28,
-              2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">6.5KB</span> */
-            </p>
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2024-03-28">Mar 28,
+                2024</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">6.5KB</span> */
+              </div>
+
+              <div class="post__category">
+                <img alt="Logo of shopify" class="post__category-logo" src=
+                "/assets/images/category-shopify.svg"><img alt="Logo of javascript" class="post__category-logo" src=
+                "/assets/images/category-javascript.svg">
+              </div>
+            </div>
 
             <div class="content-container">
               <p>
@@ -206,10 +214,8 @@
 "sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a><span class="bu">process</span><span class=
 "op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span> <span class=
-"op">=</span> <span class="vs">`</span><span class="sc">${</span><span class="bu">process</span><span class=
-"op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span><span class=
-"sc">}</span><span class="vs">/</span><span class="sc">${</span>dbName<span class="sc">}</span><span class=
-"vs">`</span><span class="op">;</span></span>
+"op">=</span> <span class="vs">`</span><span class="sc"></span><span class="vs">/</span><span class=
+"sc"></span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb1-53"><a aria-hidden="true" href="#cb1-53" tabindex="-1"></a><span class=
 "kw">const</span> prisma <span class="op">=</span> <span class="kw">new</span> <span class=
 "fu">PrismaClient</span>({</span>
@@ -233,8 +239,7 @@
 "co">// Drop the database and disconnect</span></span>
 <span id="cb1-64"><a aria-hidden="true" href="#cb1-64" tabindex="-1"></a>  <span class=
 "cf">await</span> prisma<span class="op">.</span><span class="fu">$executeRawUnsafe</span>(<span class=
-"vs">`DROP DATABASE </span><span class="sc">\`${</span>dbName<span class="sc">}\`</span><span class=
-"vs">;`</span>)<span class="op">;</span></span>
+"vs">`DROP DATABASE </span><span class="sc">\`\`</span><span class="vs">;`</span>)<span class="op">;</span></span>
 <span id="cb1-65"><a aria-hidden="true" href="#cb1-65" tabindex="-1"></a>  <span class=
 "cf">await</span> prisma<span class="op">.</span><span class="fu">$disconnect</span>()<span class="op">;</span></span>
 <span id="cb1-66"><a aria-hidden="true" href="#cb1-66" tabindex="-1"></a>})<span class="op">;</span></span>
@@ -549,7 +554,8 @@ CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]</code></pre>
               <p>
                 Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
                 "/prisma-jest-mysql-testing/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
-                "/prisma-jest-mysql-testing/index.txt">TXT</a></span>
+                "/prisma-jest-mysql-testing/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

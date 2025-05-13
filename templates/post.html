@@ -7,9 +7,14 @@ ${inc:templates/_layout_head.html}
 
   <div class="tab__container">
     <div class="tab__content">
-      <p class="post__meta content-container">
-        /* <time class="post__time" datetime="${date_ymd}">${date_human}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">${post_size}</span> */
-      </p>
+      <div class="post__meta content-container">
+        <div class="post__details">
+          /* <time class="post__time" datetime="${date_ymd}">${date_human}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">${post_size}</span> */
+        </div>
+        <div class="post__category">
+          ${foreach:category:,:<img src="/assets/images/category-|value|.svg" class="post__category-logo" alt="Logo of |value|">}
+        </div>
+      </div>
 
       <div class="content-container">
         ${parsed_md}

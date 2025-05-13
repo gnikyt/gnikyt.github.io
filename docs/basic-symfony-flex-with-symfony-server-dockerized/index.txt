@@ -2,9 +2,10 @@
 
    [2]gnikyt   /  Code ramblings
 
-              Basic Symfony Flex with Symfony Server Dockerized /
+                 Symfony Flex with Symfony Server Dockerized /
 
    /* Feb 04, 2020  —  5.5KB */
+   Logo of php Logo of symfony
 
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with “recipes”. It provides a way to create a very lean
@@ -172,18 +173,19 @@ Conclusion
 
    Copyright under [5]CC-4.0.
 
-   Available in the following alternative formats: [6]MD  /  [7]TXT
+   Available in the following alternative formats:
+   [6]MD  /  [7]TXT  /  [8]PDF
 
-   [8]Ty King
+   [9]Ty King
 
-[9]Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [10]Github[11]LinkedIn[12]CV[13]RSS
+   [11]Github[12]LinkedIn[13]CV[14]RSS
 
      *
      *
@@ -203,9 +205,10 @@ References
    5. https://creativecommons.org/licenses/by/4.0/
    6. /basic-symfony-flex-with-symfony-server-dockerized/index.md
    7. /basic-symfony-flex-with-symfony-server-dockerized/index.txt
-   8. /about
+   8. /tmp/lynxXXXXHBWBod/L282264-6233TMP.html
    9. /about
-  10. https://github.com/gnikyt
-  11. https://linkedin.com/in/gnikyt
-  12. /assets/files/cv.pdf
-  13. /rss.xml
+  10. /about
+  11. https://github.com/gnikyt
+  12. https://linkedin.com/in/gnikyt
+  13. /assets/files/cv.pdf
+  14. /rss.xml

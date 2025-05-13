@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Get single field error in Symfony
+title: Single field error in Symfony
 permalink: get-single-field-error-in-symfony
 date: '2013-12-12 23:04:07'
 archive: true
+category: php,symfony
 ---
 
 This is just a quick tid-bit/how-to!

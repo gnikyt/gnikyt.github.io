@@ -7,7 +7,7 @@ This blog is powered by simple Markdown files and produces a statically-generate
 Generated is handled by a bunch of crude Bash scripts to do things such as:
 
 * Process the frontmatters
-* Process the pages and posts Markdown into HTML and TXT versions
+* Process the pages and posts Markdown into HTML, TXT, and PDF versions
 * Generate an RSS feed of posts
 * Generate a sitemap
 * Tidy resulting HTML and XML
@@ -25,7 +25,7 @@ docs/hello-world/
 ## Requirements
 
 * `bash` - For processing and generation.
-* `pandoc` - For HTML generation support from Markdown.
+* `pandoc` - For HTML generation support from Markdown and for PDF output.
 * `lynx` - For TXT generation support from HTML.
 * `tidy` - For cleaning resulting HTML and XML.
 

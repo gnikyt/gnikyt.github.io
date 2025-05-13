@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Shopify Node App - Custom multi-tenant support
+title: Shopify Node App custom multi-tenant support
 permalink: shopify-node-app-custom-multi-tenant
 date: '2021-11-15 16:35:00'
+archive: false
+category: shopify,javascript
 ---
 
 ## Introduction

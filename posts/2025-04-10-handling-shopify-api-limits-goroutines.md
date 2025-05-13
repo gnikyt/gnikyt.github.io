@@ -3,6 +3,7 @@ layout: post
 title: Handling Shopify API limits and Goroutines
 permalink: handling-shopify-api-limits-goroutines
 date: '2025-04-10 16:26:22'
+category: golang,shopify
 ---
 
 I frequently build integration applications with Shopify and I thought it would be helpful to highlight one approach (of many) that I commonly use for handling API rate limits with Shopify’s GraphQL API using Go. The integration in question was originally developed and maintained by a third-party provider. However, after their company was acquired, they decided to shut down their service and stop all servicing of the integration. Now it would be needed to be rebuilt from scratch.

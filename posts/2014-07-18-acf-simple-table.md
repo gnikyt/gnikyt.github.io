@@ -4,6 +4,7 @@ title: ACF Simple Table
 permalink: acf-simple-table
 date: '2014-07-18 12:48:05'
 archive: true
+category: php,wordpress
 ---
 
 I've released a new GitHub repo. It's an add-on for popular [ACF (Advanced Custom Fields)](http://www.advancedcustomfields.com/) for WordPress which allows you to create really custom post/taxonomy pages and more.

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>
-      Shopify Node App - Custom multi-tenant support | gnikyt
+      Shopify Node App custom multi-tenant support | gnikyt
     </title>
     <link href="https://gnikyt.com/shopify-node-app-custom-multi-tenant" rel="canonical">
     <meta content="Custom" name="generator">
@@ -16,7 +16,7 @@
     "## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo..."
     name="description">
     <meta content="2021-11-15T16:35:00-0330" property="article:published_time">
-    <meta content="Shopify Node App - Custom multi-tenant support" property="og:title">
+    <meta content="Shopify Node App custom multi-tenant support" property="og:title">
     <meta content="en" property="og:locale">
     <meta content=
     "## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo..."
@@ -38,7 +38,7 @@
     ## Introduction
 
     Shopify's new boilerplate for app development with Node works well. It gets a lot of small details out of the way, allo...",
-    "headline": "Shopify Node App - Custom multi-tenant support",
+    "headline": "Shopify Node App custom multi-tenant support",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://gnikyt.com/shopify-node-app-custom-multi-tenant"
@@ -74,16 +74,24 @@
       <article class="tab post">
         <header class="post__head">
           <h1 class="tab__title tab__title--short post__title">
-            Shopify Node App - Custom multi-tenant support /
+            Shopify Node App custom multi-tenant support /
           </h1>
         </header>
 
         <div class="tab__container">
           <div class="tab__content">
-            <p class="post__meta content-container">
-              /* <time class="post__time" datetime="2021-11-15">Nov 15,
-              2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">9.9KB</span> */
-            </p>
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2021-11-15">Nov 15,
+                2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">10KB</span> */
+              </div>
+
+              <div class="post__category">
+                <img alt="Logo of shopify" class="post__category-logo" src=
+                "/assets/images/category-shopify.svg"><img alt="Logo of javascript" class="post__category-logo" src=
+                "/assets/images/category-javascript.svg">
+              </div>
+            </div>
 
             <div class="content-container">
               <h2 id="introduction">
@@ -417,12 +425,12 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 "at">Context</span><span class="op">.</span><span class="fu">initialize</span>({</span>
 <span id="cb5-19"><a aria-hidden="true" href="#cb5-19" tabindex="-1"></a>    <span class=
 "dt">API_KEY</span><span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class=
-"at">env</span>[<span class="vs">`SHOPIFY_API_KEY_</span><span class="sc">${</span>domain<span class=
-"sc">}</span><span class="vs">`</span>]<span class="op">,</span></span>
+"at">env</span>[<span class="vs">`SHOPIFY_API_KEY_</span><span class="sc"></span><span class="vs">`</span>]<span class=
+"op">,</span></span>
 <span id="cb5-20"><a aria-hidden="true" href="#cb5-20" tabindex="-1"></a>    <span class=
 "dt">API_SECRET_KEY</span><span class="op">:</span> <span class="bu">process</span><span class=
 "op">.</span><span class="at">env</span>[<span class="vs">`SHOPIFY_API_SECRET_</span><span class=
-"sc">${</span>domain<span class="sc">}</span><span class="vs">`</span>]<span class="op">,</span></span>
+"sc"></span><span class="vs">`</span>]<span class="op">,</span></span>
 <span id="cb5-21"><a aria-hidden="true" href="#cb5-21" tabindex="-1"></a>    <span class="dt">SCOPES</span><span class=
 "op">:</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class=
 "op">.</span><span class="at">SCOPES</span><span class="op">.</span><span class="fu">split</span>(<span class=
@@ -554,8 +562,7 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 <span id="cb7-20"><a aria-hidden="true" href="#cb7-20" tabindex="-1"></a>    query<span class="op">,</span></span>
 <span id="cb7-21"><a aria-hidden="true" href="#cb7-21" tabindex="-1"></a>    <span class=
 "bu">process</span><span class="op">.</span><span class="at">env</span>[<span class=
-"vs">`SHOPIFY_API_SECRET_</span><span class="sc">${</span>domain<span class="sc">}</span><span class=
-"vs">`</span>]</span>
+"vs">`SHOPIFY_API_SECRET_</span><span class="sc"></span><span class="vs">`</span>]</span>
 <span id="cb7-22"><a aria-hidden="true" href="#cb7-22" tabindex="-1"></a>  )<span class="op">;</span></span>
 <span id="cb7-23"><a aria-hidden="true" href="#cb7-23" tabindex="-1"></a></span>
 <span id="cb7-24"><a aria-hidden="true" href="#cb7-24" tabindex="-1"></a>  <span class=
@@ -622,8 +629,8 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 "op">;</span></span>
 <span id="cb8-12"><a aria-hidden="true" href="#cb8-12" tabindex="-1"></a>  <span class=
 "kw">const</span> key <span class="op">=</span> <span class="bu">process</span><span class="op">.</span><span class=
-"at">env</span>[<span class="vs">`SHOPIFY_API_KEY_</span><span class="sc">${</span>domain<span class=
-"sc">}</span><span class="vs">`</span>]<span class="op">;</span></span>
+"at">env</span>[<span class="vs">`SHOPIFY_API_KEY_</span><span class="sc"></span><span class="vs">`</span>]<span class=
+"op">;</span></span>
 <span id="cb8-13"><a aria-hidden="true" href="#cb8-13" tabindex="-1"></a></span>
 <span id="cb8-14"><a aria-hidden="true" href="#cb8-14" tabindex="-1"></a>  ctx<span class="op">.</span><span class=
 "at">status</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
@@ -707,9 +714,8 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
 "op">.</span><span class="fu">toString</span>()<span class="op">;</span></span>
 <span id="cb11-6"><a aria-hidden="true" href="#cb11-6" tabindex="-1"></a>    <span class=
 "kw">const</span> response <span class="op">=</span> <span class="cf">await</span> <span class=
-"fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>HOST<span class="sc">}</span><span class=
-"vs">/_appbridge?</span><span class="sc">${</span>query<span class="sc">}</span><span class="vs">`</span>)<span class=
-"op">;</span></span>
+"fu">fetch</span>(<span class="vs">`</span><span class="sc"></span><span class="vs">/_appbridge?</span><span class=
+"sc"></span><span class="vs">`</span>)<span class="op">;</span></span>
 <span id="cb11-7"><a aria-hidden="true" href="#cb11-7" tabindex="-1"></a>    <span class=
 "kw">const</span> body <span class="op">=</span> <span class="cf">await</span> response<span class=
 "op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
@@ -859,7 +865,9 @@ SHOPIFY_API_SECRET_WELCOME123=123abc</code></pre>
               <p>
                 Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
                 "/shopify-node-app-custom-multi-tenant/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
-                "sources__link" href="/shopify-node-app-custom-multi-tenant/index.txt">TXT</a></span>
+                "sources__link" href=
+                "/shopify-node-app-custom-multi-tenant/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

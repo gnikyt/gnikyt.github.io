@@ -4,7 +4,8 @@
 
                          Introducing Laravel Shopify /
 
-   /* Aug 09, 2017  —  2.5KB */
+   /* Aug 09, 2017  —  2.6KB */
+   Logo of shopify Logo of php Logo of laravel
 
 Background
 
@@ -66,18 +67,19 @@ Project
 
    Copyright under [6]CC-4.0.
 
-   Available in the following alternative formats: [7]MD  /  [8]TXT
+   Available in the following alternative formats:
+   [7]MD  /  [8]TXT  /  [9]PDF
 
-   [9]Ty King
+   [10]Ty King
 
-[10]Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [11]Github[12]LinkedIn[13]CV[14]RSS
+   [12]Github[13]LinkedIn[14]CV[15]RSS
 
      *
      *
@@ -98,9 +100,10 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. /introducing-shopify-for-laravel/index.md
    8. /introducing-shopify-for-laravel/index.txt
-   9. /about
+   9. /tmp/lynxXXXXR6Wwdu/L283779-6903TMP.html
   10. /about
-  11. https://github.com/gnikyt
-  12. https://linkedin.com/in/gnikyt
-  13. /assets/files/cv.pdf
-  14. /rss.xml
+  11. /about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. /assets/files/cv.pdf
+  15. /rss.xml

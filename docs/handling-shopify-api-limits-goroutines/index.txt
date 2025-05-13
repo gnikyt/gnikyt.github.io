@@ -5,6 +5,7 @@
                   Handling Shopify API limits and Goroutines /
 
    /* Apr 10, 2025  —  15KB */
+   Logo of golang Logo of shopify
 
    I frequently build integration applications with Shopify and I thought
    it would be helpful to highlight one approach (of many) that I commonly
@@ -445,18 +446,19 @@ completed.
 
    Copyright under [4]CC-4.0.
 
-   Available in the following alternative formats: [5]MD  /  [6]TXT
+   Available in the following alternative formats:
+   [5]MD  /  [6]TXT  /  [7]PDF
 
-   [7]Ty King
+   [8]Ty King
 
-[8]Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [9]Github[10]LinkedIn[11]CV[12]RSS
+   [10]Github[11]LinkedIn[12]CV[13]RSS
 
      *
      *
@@ -475,9 +477,10 @@ References
    4. https://creativecommons.org/licenses/by/4.0/
    5. /handling-shopify-api-limits-goroutines/index.md
    6. /handling-shopify-api-limits-goroutines/index.txt
-   7. /about
+   7. /tmp/lynxXXXX6SuTHz/L276786-8456TMP.html
    8. /about
-   9. https://github.com/gnikyt
-  10. https://linkedin.com/in/gnikyt
-  11. /assets/files/cv.pdf
-  12. /rss.xml
+   9. /about
+  10. https://github.com/gnikyt
+  11. https://linkedin.com/in/gnikyt
+  12. /assets/files/cv.pdf
+  13. /rss.xml

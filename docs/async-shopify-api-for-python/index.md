@@ -3,6 +3,8 @@ layout: post
 title: Async Shopify API for Python
 permalink: async-shopify-api-for-python
 date: '2020-06-29 12:31:02'
+archive: false
+category: shopify,python
 ---
 
 ## Introduction

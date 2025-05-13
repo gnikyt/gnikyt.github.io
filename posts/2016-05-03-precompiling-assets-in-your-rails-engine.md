@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Precompiling assets in your Rails Engine
+title: Precompiling assets with Rails Engine
 permalink: precompiling-assets-in-your-rails-engine
 date: '2016-05-03 23:26:22'
+archive: true
+category: ruby,rails
 ---
 
 This will be a quick post to highlight an issue I had where I needed to precompile an asset file for my Rails engine that was not to be compiled with the other engine assets.

@@ -5,6 +5,7 @@
                              Git release branches /
 
    /* Mar 10, 2021  —  3.4KB */
+   Logo of python Logo of cmd
 
    A method I like to utilize internally, which I’ve been slowly pushing
    into my open source work, is to create branches for each major/minor
@@ -113,18 +114,19 @@ for branch, tag in mm.items():
 
    Copyright under [3]CC-4.0.
 
-   Available in the following alternative formats: [4]MD  /  [5]TXT
+   Available in the following alternative formats:
+   [4]MD  /  [5]TXT  /  [6]PDF
 
-   [6]Ty King
+   [7]Ty King
 
-[7]Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [8]Github[9]LinkedIn[10]CV[11]RSS
+   [9]Github[10]LinkedIn[11]CV[12]RSS
 
      *
      *
@@ -142,9 +144,10 @@ References
    3. https://creativecommons.org/licenses/by/4.0/
    4. /git-release-branches/index.md
    5. /git-release-branches/index.txt
-   6. /about
+   6. /tmp/lynxXXXX03UBHd/L281036-907TMP.html
    7. /about
-   8. https://github.com/gnikyt
-   9. https://linkedin.com/in/gnikyt
-  10. /assets/files/cv.pdf
-  11. /rss.xml
+   8. /about
+   9. https://github.com/gnikyt
+  10. https://linkedin.com/in/gnikyt
+  11. /assets/files/cv.pdf
+  12. /rss.xml

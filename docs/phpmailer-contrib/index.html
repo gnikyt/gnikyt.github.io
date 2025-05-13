@@ -1,0 +1,211 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      PHPMailer contribution | gnikyt
+    </title>
+    <link href="https://gnikyt.com/phpmailer-contrib" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex..."
+    name="description">
+    <meta content="2014-02-09T20:55:00-0330" property="article:published_time">
+    <meta content="PHPMailer contribution" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex..."
+    property="og:description">
+    <meta content="https://gnikyt.com/phpmailer-contrib" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2014-02-09T20:55:00-0330",
+    "datePublished": "2014-02-09T20:55:00-0330",
+    "description": "
+    I and a fellow developer were working on updating a two/three-year-old plugin we developed for WordPress this week. Its a fairly complex...",
+    "headline": "PHPMailer contribution",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/phpmailer-contrib"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/phpmailer-contrib"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="phpmailer-contrib">
+    <header class="site-head container">
+      <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            PHPMailer contribution /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2014-02-09">Feb 09,
+                2014</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">1.4KB</span> */
+              </div>
+
+              <div class="post__category">
+                <img alt="Logo of wordpress" class="post__category-logo" src=
+                "/assets/images/category-wordpress.svg"><img alt="Logo of php" class="post__category-logo" src=
+                "/assets/images/category-php.svg">
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                I and a fellow developer were working on updating a two/three-year-old plugin we developed for
+                WordPress this week. Its a fairly complex plugin which is one of its functions relies on getting the
+                recipients of e-mails sent out by WordPress.
+              </p>
+
+              <p>
+                During our upgrading of the code, we discovered <a href="http://phpmailer.worxware.com/">PHPMailer</a>
+                (the component WordPress uses for mailing <a href=
+                "http://codex.wordpress.org/Function_Reference/wp_mail">wp_mail</a>, has been changed since we last
+                wrote the plugin. The class properties “to”, “bcc”, “cc”, “ReplyTo”, and “all_recipients” of PHPMailer
+                went from public to protected over the last couple years.
+              </p>
+
+              <p>
+                So our issue was <code>$mailer-&gt;to</code> simply wouldn’t work anymore, and there appeared to be no
+                public access methods to get the addresses such as <code>$mailer-&gt;getToAddresses()</code>.
+              </p>
+
+              <p>
+                I addressed the issue on PHPMailer’s Github page, and <a href=
+                "https://github.com/PHPMailer/PHPMailer/issues/180">provided a pull request which has been merged into
+                the master</a> :) So in short, you can now access “to”, “bcc”, “cc”, “ReplyTo”, and “all_recipients” by
+                using <code>getToAddresses()</code>, <code>getBccAddresses()</code>, <code>getCcAddresses()</code>,
+                <code>getReplyToAddresses()</code> and <code>getAllRecipientAddresses()</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p class="warning warning--post">
+                This post is 11 years old and may contain outdated information.
+              </p>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/phpmailer-contrib/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/phpmailer-contrib/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-tail container">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
+        <h3 class="site-tail__author">
+          <a href="/about">Ty King</a>
+        </h3>
+
+        <p class="site-tail__blurb">
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
+        </p>
+      </div>
+
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
+
+      <div class="site-tail__links">
+        <a class="button button--strong" href="https://github.com/gnikyt" rel="noopener" target=
+        "_blank">Github</a><a class="button button--strong" href="https://linkedin.com/in/gnikyt" rel="noopener"
+        target="_blank">LinkedIn</a><a class="button button--strong" href="/assets/files/cv.pdf" target=
+        "_blank">CV</a><a class="button button--strong" href="/rss.xml" target="_blank">RSS</a>
+      </div>
+    </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

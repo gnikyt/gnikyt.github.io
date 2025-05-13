@@ -2,7 +2,7 @@
 
 # token_regex represents the REGEX for token detection.
 # Format of `${operation:parameters:here}`. Very basic.
-token_regex='\$\{[a-zA-Z0-9_:/.-]+\}'
+token_regex='\$\{[-a-zA-Z0-9_:/.|,<>=/" ]+\}'
 
 # parse_tpl will parse the template and replace variables or run operations.
 # For variables:
@@ -92,6 +92,43 @@ parse_tpl() {
           input="${input/${BASH_REMATCH[1]}/"$contents"}"
         else
           # Remove the echo.
+          input="${input/${BASH_REMATCH[1]}/}"
+        fi
+        ;;
+      
+      "foreach")
+        # Foreach operation.
+        local loop_var
+        local delimiter
+        local tmpl
+        local replace
+        local replacement
+
+        # Extract variable, delimiter, and output.
+        loop_var=$(echo "$match" | cut -d":" -f2)
+        delimiter=$(echo "$match" | cut -d":" -f3)
+        tmpl=$(echo "$match" | cut -d":" -f4)
+        replace="true"
+
+        # Check if there is a conditional and handle it.
+        value="${globals[$loop_var]}"
+        if [[ -z "$value" ]]; then
+          # Variable is empty, do not replace.
+          replace=""
+        fi
+
+        if [[ -n "$replace" ]]; then
+          # Allow the replacement.
+          readarray -d "$delimiter" -t vals <<< "$value"
+          for val in "${vals[@]}"; do
+            # shellcheck disable=SC2001
+            val=$(echo "$val" | sed 's/[[:space:]]*$//')
+            val_tmp=${tmpl//|value|/${val}}
+            replacement="${replacement}${val_tmp}"
+          done
+          input="${input/${BASH_REMATCH[1]}/"$replacement"}"
+        else
+          # Remove the foreach.
           input="${input/${BASH_REMATCH[1]}/}"
         fi
         ;;

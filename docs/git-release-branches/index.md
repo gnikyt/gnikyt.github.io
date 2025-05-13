@@ -3,6 +3,8 @@ layout: post
 title: Git release branches
 permalink: git-release-branches
 date: '2021-03-10 11:12:19'
+archive: false
+category: python,cmd
 ---
 
 A method I like to utilize internally, which I've been slowly pushing into my open source work, is to create branches for each major/minor release. Many developers will say branches are meant to be short-lived, to be eventually merged into your main branch. I believe this is true for features and bugfixes, but there is a benefit to keeping branches around for the long term.

@@ -1,0 +1,245 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      WSL network speed | gnikyt
+    </title>
+    <link href="https://gnikyt.com/wsl-network-speed" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to Windows 11 and clean out my system t..."
+    name="description">
+    <meta content="2021-11-16T12:52:01-0330" property="article:published_time">
+    <meta content="WSL network speed" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to Windows 11 and clean out my system t..."
+    property="og:description">
+    <meta content="https://gnikyt.com/wsl-network-speed" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to Windows 11 and clean out my system t..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2021-11-16T12:52:01-0330",
+    "datePublished": "2021-11-16T12:52:01-0330",
+    "description": "
+    Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to Windows 11 and clean out my system t...",
+    "headline": "WSL network speed",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/wsl-network-speed"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/wsl-network-speed"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="wsl-network-speed">
+    <header class="site-head container">
+      <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            WSL network speed /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2021-11-16">Nov 16,
+                2021</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">1.8KB</span> */
+              </div>
+
+              <div class="post__category">
+                <img alt="Logo of cmd" class="post__category-logo" src="/assets/images/category-cmd.svg">
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to
+                Windows 11 and clean out my system to be better for development.
+              </p>
+
+              <p>
+                I noticed that since the upgrade from Windows 10 to Windows 11… general “starting” of VSCode and remote
+                connecting to WSL was slow. Additonally, internal network request serving was slow; things such as
+                Webpack dev server would take upwards of 5 minutes to serve a small-to-medium application.
+              </p>
+
+              <p>
+                In digging into it, <a href="https://github.com/microsoft/WSL/issues/4901">other people have reported
+                similar issues</a>. Using <code>speedtest-cli</code>, my download was decent but my upload speed was in
+                the 0.5-0.8 mbps range.
+              </p>
+
+              <p>
+                I decided to try some solutions listed in the issue and here are my personal results…
+              </p>
+
+              <h2 id="potential-solution-1">
+                Potential Solution #1
+              </h2>
+
+              <p>
+                Editing <code>resolv.conf</code> and <code>wsl.conf</code> to set a nameserver and disable WSL from
+                autogenerating the <code>resolv.conf</code> file each time and overwriting our new settings.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="fu">sudo</span> rm /etc/resolv.conf</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="fu">sudo</span> bash <span class=
+"at">-c</span> <span class="st">'echo "nameserver 8.8.8.8" &gt; /etc/resolv.conf'</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="fu">sudo</span> bash <span class=
+"at">-c</span> <span class="st">'echo "[network]" &gt; /etc/wsl.conf'</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="fu">sudo</span> bash <span class=
+"at">-c</span> <span class="st">'echo "generateResolvConf = false" &gt;&gt; /etc/wsl.conf'</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"fu">sudo</span> chattr +i /etc/resolv.conf</span></code></pre>
+              </div>
+
+              <p>
+                For the above, this didn’t change anything for me when re-running <code>speedtest-cli</code>, I was
+                still seeing very slow upload speeds.
+              </p>
+
+              <h2 id="potential-solution-2">
+                Potential Solution #2
+              </h2>
+
+              <p>
+                Opening PowerShell in adminsitrator mode and running <code>Disable-NetAdapterLso -Name "vEthernet
+                (WSL)"</code>.
+              </p>
+
+              <p>
+                This solution seemed to actually work in my case! Webpack dev server was operating normally and
+                <code>speedtest-cli</code> was reporting numbers identical to the host machine in both download and
+                upload.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p class="warning warning--post">
+                This post is 3 years old and may contain outdated information.
+              </p>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/wsl-network-speed/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/wsl-network-speed/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-tail container">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
+        <h3 class="site-tail__author">
+          <a href="/about">Ty King</a>
+        </h3>
+
+        <p class="site-tail__blurb">
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
+        </p>
+      </div>
+
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
+
+      <div class="site-tail__links">
+        <a class="button button--strong" href="https://github.com/gnikyt" rel="noopener" target=
+        "_blank">Github</a><a class="button button--strong" href="https://linkedin.com/in/gnikyt" rel="noopener"
+        target="_blank">LinkedIn</a><a class="button button--strong" href="/assets/files/cv.pdf" target=
+        "_blank">CV</a><a class="button button--strong" href="/rss.xml" target="_blank">RSS</a>
+      </div>
+    </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

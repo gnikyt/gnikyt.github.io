@@ -2,9 +2,10 @@
 
    [2]gnikyt   /  Code ramblings
 
-                      Get single field error in Symfony /
+                        Single field error in Symfony /
 
-   /* Dec 12, 2013  —  941B */
+   /* Dec 12, 2013  —  959B */
+   Logo of php Logo of symfony
 
    This is just a quick tid-bit/how-to!
 
@@ -33,18 +34,19 @@
 
    Copyright under [3]CC-4.0.
 
-   Available in the following alternative formats: [4]MD  /  [5]TXT
+   Available in the following alternative formats:
+   [4]MD  /  [5]TXT  /  [6]PDF
 
-   [6]Ty King
+   [7]Ty King
 
-[7]Ty King
+[8]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [8]Github[9]LinkedIn[10]CV[11]RSS
+   [9]Github[10]LinkedIn[11]CV[12]RSS
 
      *
      *
@@ -62,9 +64,10 @@ References
    3. https://creativecommons.org/licenses/by/4.0/
    4. /get-single-field-error-in-symfony/index.md
    5. /get-single-field-error-in-symfony/index.txt
-   6. /about
+   6. /tmp/lynxXXXXvGXUtj/L288328-8498TMP.html
    7. /about
-   8. https://github.com/gnikyt
-   9. https://linkedin.com/in/gnikyt
-  10. /assets/files/cv.pdf
-  11. /rss.xml
+   8. /about
+   9. https://github.com/gnikyt
+  10. https://linkedin.com/in/gnikyt
+  11. /assets/files/cv.pdf
+  12. /rss.xml

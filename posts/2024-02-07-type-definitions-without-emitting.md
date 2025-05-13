@@ -3,6 +3,8 @@ layout: post
 title: Type definitions without emitting
 permalink: type-definitions-without-emitting
 date: '2024-02-07 13:44:12'
+archive: false
+category: javascript
 ---
 
 ## Introduction

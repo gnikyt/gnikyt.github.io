@@ -1,0 +1,93 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                               Lumen with Redis /
+
+   /* Nov 19, 2017  —  1.3KB */
+   Logo of php Logo of laravel
+
+   This is more of an extension of my previous post “Setting Up Lumen +
+   Mail”. I wanted to take it a step further and show the basic setup for
+   getting Redis to work, so you can queue not only mail, but jobs.
+
+   First, run composer require illuminate/redis:5.5 to grab the Redis
+   components.
+
+   Next, open app/Providers/AppServiceProvider.php and add the following
+   to the register method:
+<?php
+// ...
+
+// Configs
+$this->app->configure('database');
+
+// Enable queues
+$this->app->make('queue');
+
+   Next, create config/database.php and add the following:
+<?php
+
+return [
+  'redis' => [
+    'client' => 'predis',
+    'default' => [
+      'host' => env('REDIS_HOST', '127.0.0.1'),
+      'password' => env('REDIS_PASSWORD', null),
+      'port' => env('REDIS_PORT', 6379),
+      'database' => 0
+    ]
+  ]
+];
+
+   Don’t forget to set up all your environment variables for Redis, as
+   well, to enable Redis for job processing and cache, set the following
+   environment variables:
+CACHE_DRIVER=redis
+QUEUE_DRIVER=redis
+
+   That’s it! You can now queue mail or process jobs.
+
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [3]CC-4.0.
+
+   Available in the following alternative formats:
+   [4]MD  /  [5]TXT  /  [6]PDF
+
+   [7]Ty King
+
+[8]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [9]Github[10]LinkedIn[11]CV[12]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. /
+   3. https://creativecommons.org/licenses/by/4.0/
+   4. /setting-up-lumen-with-redis/index.md
+   5. /setting-up-lumen-with-redis/index.txt
+   6. /tmp/lynxXXXXDk8kjb/L283172-155TMP.html
+   7. /about
+   8. /about
+   9. https://github.com/gnikyt
+  10. https://linkedin.com/in/gnikyt
+  11. /assets/files/cv.pdf
+  12. /rss.xml

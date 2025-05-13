@@ -2,9 +2,10 @@
 
    [2]gnikyt   /  Code ramblings
 
-                       Prisma, Jest, and MySQL testing /
+                   Shopify Prisma, Jest, and MySQL testing /
 
    /* Mar 28, 2024  —  6.5KB */
+   Logo of shopify Logo of javascript
 
    This is an alternate extension to my previous post, [3]Shopify, Remix,
    Prisma, and Jest.
@@ -68,7 +69,7 @@ if (!existsSync(typesPath)) {
 // Prisma setup... generate a unique database for MySQL, override existing Prism
 a implementation via Jest mock
 const dbName = `test-${new Date().getTime()}`;
-process.env.DATABASE_URL = `${process.env.DATABASE_URL}/${dbName}`;
+process.env.DATABASE_URL = `/`;
 const prisma = new PrismaClient({
   datasources: { db: { url: process.env.DATABASE_URL } },
 });
@@ -80,7 +81,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
   // Drop the database and disconnect
-  await prisma.$executeRawUnsafe(`DROP DATABASE \`${dbName}\`;`);
+  await prisma.$executeRawUnsafe(`DROP DATABASE \`\`;`);
   await prisma.$disconnect();
 });
 
@@ -257,18 +258,19 @@ volumes:
 
    Copyright under [4]CC-4.0.
 
-   Available in the following alternative formats: [5]MD  /  [6]TXT
+   Available in the following alternative formats:
+   [5]MD  /  [6]TXT  /  [7]PDF
 
-   [7]Ty King
+   [8]Ty King
 
-[8]Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [9]Github[10]LinkedIn[11]CV[12]RSS
+   [10]Github[11]LinkedIn[12]CV[13]RSS
 
      *
      *
@@ -287,9 +289,10 @@ References
    4. https://creativecommons.org/licenses/by/4.0/
    5. /prisma-jest-mysql-testing/index.md
    6. /prisma-jest-mysql-testing/index.txt
-   7. /about
+   7. /tmp/lynxXXXXFu5GeI/L277401-5668TMP.html
    8. /about
-   9. https://github.com/gnikyt
-  10. https://linkedin.com/in/gnikyt
-  11. /assets/files/cv.pdf
-  12. /rss.xml
+   9. /about
+  10. https://github.com/gnikyt
+  11. https://linkedin.com/in/gnikyt
+  12. /assets/files/cv.pdf
+  13. /rss.xml
