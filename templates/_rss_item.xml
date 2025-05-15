@@ -4,4 +4,5 @@
   <description>${excerpt}</description>
   <guid isPermaLink="true">https://gnikyt.com/${handle}</guid>
   <pubDate>${date_iso8601}</pubDate>
+  ${foreach:category:,:<category>|value|</category>}
 </item>

@@ -1,0 +1,131 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                              Index of category /
+
+   Displaying all categories with their post count.
+     * $>
+
+[3]golang
+       1 posts
+       Logo of golang
+     * $>
+
+[4]shopify
+       16 posts
+       Logo of shopify
+     * $>
+
+[5]javascript
+       8 posts
+       Logo of javascript
+     * $>
+
+[6]react
+       2 posts
+       Logo of react
+     * $>
+
+[7]php
+       16 posts
+       Logo of php
+     * $>
+
+[8]wordpress
+       7 posts
+       Logo of wordpress
+     * $>
+
+[9]cmd
+       5 posts
+       Logo of cmd
+     * $>
+
+[10]laravel
+       7 posts
+       Logo of laravel
+     * $>
+
+[11]python
+       2 posts
+       Logo of python
+     * $>
+
+[12]symfony
+       2 posts
+       Logo of symfony
+     * $>
+
+[13]vuejs
+       1 posts
+       Logo of vuejs
+     * $>
+
+[14]ruby
+       7 posts
+       Logo of ruby
+     * $>
+
+[15]rails
+       5 posts
+       Logo of rails
+     * $>
+
+[16]sinatra
+       2 posts
+       Logo of sinatra
+     * $>
+
+[17]uncategorized
+       1 posts
+       Logo of uncategorized
+
+   [18]‹ Home
+
+   [19]Ty King
+
+[20]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [21]Github[22]LinkedIn[23]CV[24]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///category/golang
+   4. file:///category/shopify
+   5. file:///category/javascript
+   6. file:///category/react
+   7. file:///category/php
+   8. file:///category/wordpress
+   9. file:///category/cmd
+  10. file:///category/laravel
+  11. file:///category/python
+  12. file:///category/symfony
+  13. file:///category/vuejs
+  14. file:///category/ruby
+  15. file:///category/rails
+  16. file:///category/sinatra
+  17. file:///category/uncategorized
+  18. file:///
+  19. file:///about
+  20. file:///about
+  21. https://github.com/gnikyt
+  22. https://linkedin.com/in/gnikyt
+  23. file:///assets/files/cv.pdf
+  24. file:///rss.xml

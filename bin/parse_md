@@ -6,9 +6,11 @@
 #    key/values, not full YAML.
 # 2) Extracts the post/page's body content.
 parse_md() {
-  # Reset body content.
+  # Reset key variables.
   globals["body"]=""
   globals["excerpt"]=""
+  globals["category"]=""
+  globals["archive"]="false"
 
   # is_frontmatter keeps track of if were inside the frontmatter text.
   local is_frontmatter=0

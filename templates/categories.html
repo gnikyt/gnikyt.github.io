@@ -1,0 +1,25 @@
+${inc:templates/_layout_head.html}
+
+<section class="tab">
+  <header>
+    <h1 class="tab__title tab__title--short post__title">Index of category /</h1>
+  </header>
+
+  <div class="tab__container">
+    <div class="tab__content">
+      <div class="content-container">
+        <p>Displaying all categories with their post count.</p>
+      </div>
+
+      <ul class="index-list index-list--no-margins index-list--categories">
+        ${categories_entries}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sources">
+  <a class="sources__link" href="/">&lsaquo; Home</a>
+</div>
+
+${inc:templates/_layout_tail.html}

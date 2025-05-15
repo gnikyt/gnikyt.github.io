@@ -5,7 +5,7 @@
                           Laravel Shopify cookieless /
 
    /* Jun 29, 2021  —  2.8KB */
-   Logo of shopify Logo of php Logo of laravel
+   [3]Logo of shopify [4]Logo of php [5]Logo of laravel
 
 This Issue
 
@@ -15,7 +15,7 @@ This Issue
    implementing support for ITP to get around cookie issues. Now, with the
    announcement, that work needed to be scrapped.
 
-   On March 17th, [3]I opened an issue to outline the plan for tackling
+   On March 17th, [6]I opened an issue to outline the plan for tackling
    this new support for session tokens, and remove cookies/ITP. To be
    honest, I expected to tackle the work on my own. However, to my
    surprise, the community as well as Shopify themselves, helped lend a
@@ -36,12 +36,12 @@ Shopify
    proud the package was able to be a part of it!
 
    After a couple quick meetings with their developer advocate team, we
-   settled on [4]offering Shopify swag to gain momentum for anyone in
+   settled on [7]offering Shopify swag to gain momentum for anyone in
    support of closing the issue.
 
    This was a great move for Shopify - getting involved with the community
    open source projects that touch their platform. In addition to the
-   swag, [5]Lucas Michot of Shopify generated a number of pull requests to
+   swag, [8]Lucas Michot of Shopify generated a number of pull requests to
    tighten up the CI, cleaniness, code coverage, and testability of the
    package.
 
@@ -77,7 +77,7 @@ Community
 
 What’s next?
 
-   You can [6]view the release for v17.0.0. For the package, we will be
+   You can [9]view the release for v17.0.0. For the package, we will be
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
@@ -85,21 +85,21 @@ What’s next?
 
    This post is 3 years old and may contain outdated information.
 
-   Copyright under [7]CC-4.0.
+   Copyright under [10]CC-4.0.
 
    Available in the following alternative formats:
-   [8]MD  /  [9]TXT  /  [10]PDF
+   [11]MD  /  [12]TXT  /  [13]PDF
 
-   [11]Ty King
+   [14]Ty King
 
-[12]Ty King
+[15]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [16]Github[17]LinkedIn[18]CV[19]RSS
 
      *
      *
@@ -113,18 +113,21 @@ What’s next?
 References
 
    1. /rss.xml
-   2. /
-   3. https://github.com/gnikyt/laravel-shopify/issues/744
-   4. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
-   5. https://github.com/lucasmichot
-   6. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. /laravel-shopify-cookieless/index.md
-   9. /laravel-shopify-cookieless/index.txt
-  10. /tmp/lynxXXXXdRWMFf/L280736-1711TMP.html
-  11. /about
-  12. /about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. /assets/files/cv.pdf
-  16. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/php
+   5. file:///category/laravel
+   6. https://github.com/gnikyt/laravel-shopify/issues/744
+   7. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
+   8. https://github.com/lucasmichot
+   9. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
+  10. https://creativecommons.org/licenses/by/4.0/
+  11. file:///laravel-shopify-cookieless/index.md
+  12. file:///laravel-shopify-cookieless/index.txt
+  13. file:///tmp/lynxXXXXseRBno/L485429-5482TMP.html
+  14. file:///about
+  15. file:///about
+  16. https://github.com/gnikyt
+  17. https://linkedin.com/in/gnikyt
+  18. file:///assets/files/cv.pdf
+  19. file:///rss.xml

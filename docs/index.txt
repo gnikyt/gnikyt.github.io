@@ -82,67 +82,92 @@
        5.5KB
      * $>
 
-[18]Introducing Laravel Shopify
+[18]Laravel Shopify billing
+       Jan 26, 2018
+       993B
+     * $>
+
+[19]Lumen with Redis
+       Nov 19, 2017
+       1.3KB
+     * $>
+
+[20]Lumen with Mailer
+       Nov 19, 2017
+       5.3KB
+     * $>
+
+[21]Introducing Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[19]Testing with shopify_app
+[22]WordPress with Docker
+       Jun 15, 2017
+       3.6KB
+     * $>
+
+[23]shopify_app_whitelist Gem
+       Nov 26, 2016
+       1.5KB
+     * $>
+
+[24]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[20]Redis autosuggest with Sinatra
+[25]Redis autosuggest with Sinatra
        Mar 02, 2016
        5.6KB
      * $>
 
-[21]Extending a Rails Engine
+[26]Extending a Rails Engine
        Feb 20, 2016
        4.4KB
      * $>
 
-[22]Polymorphic route concerns with Rails
+[27]Polymorphic route concerns with Rails
        Jan 01, 2016
        5.1KB
      * $>
 
-[23]ActiveRecord and Liquid Drops with Sinatra
+[28]ActiveRecord and Liquid Drops with Sinatra
        Oct 15, 2015
        3.7KB
      * $>
 
-[24]WordPress User Themes
+[29]WordPress User Themes
        May 21, 2015
        366B
      * $>
 
-[25]Original sized images from a WordPress Gallery
+[30]Original sized images from a WordPress Gallery
        Nov 08, 2014
        1.5KB
      * $>
 
-[26]PHPMailer contribution
+[31]PHPMailer contribution
        Feb 09, 2014
        1.4KB
      * $>
 
-[27]Sorting product by category in WooCommerce
+[32]Sorting product by category in WooCommerce
        Oct 05, 2013
        6.0KB
 
-   [28]Archive ›
+   [33]Archive ›
 
-   [29]Ty King
+   [34]Ty King
 
-[30]Ty King
+[35]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [31]Github[32]LinkedIn[33]CV[34]RSS
+   [36]Github[37]LinkedIn[38]CV[39]RSS
 
      *
      *
@@ -172,20 +197,25 @@ References
   15. file:///laravel-shopify-itp
   16. file:///async-shopify-api-for-python
   17. file:///basic-symfony-flex-with-symfony-server-dockerized
-  18. file:///introducing-shopify-for-laravel
-  19. file:///testing-with-shopify-app
-  20. file:///building-a-simple-redis-autosuggest-with-ruby
-  21. file:///extending-a-rails-engine
-  22. file:///polymorphic-and-route-concerns
-  23. file:///activerecord-and-liquid-drops-with-sinatra
-  24. file:///wp-user-themes
-  25. file:///get-original-sized-images-from-a-wordpress-post-gallery
-  26. file:///phpmailer-contrib
-  27. file:///woocommerce-sorting-products-by-category
-  28. file:///archive
-  29. file:///about
-  30. file:///about
-  31. https://github.com/gnikyt
-  32. https://linkedin.com/in/gnikyt
-  33. file:///assets/files/cv.pdf
-  34. file:///rss.xml
+  18. file:///laravel-shopify-billing
+  19. file:///setting-up-lumen-with-redis
+  20. file:///setting-up-lumen-with-mail
+  21. file:///introducing-shopify-for-laravel
+  22. file:///wordpress-under-docker
+  23. file:///shopify-app-whitelist-gem
+  24. file:///testing-with-shopify-app
+  25. file:///building-a-simple-redis-autosuggest-with-ruby
+  26. file:///extending-a-rails-engine
+  27. file:///polymorphic-and-route-concerns
+  28. file:///activerecord-and-liquid-drops-with-sinatra
+  29. file:///wp-user-themes
+  30. file:///get-original-sized-images-from-a-wordpress-post-gallery
+  31. file:///phpmailer-contrib
+  32. file:///woocommerce-sorting-products-by-category
+  33. file:///archive
+  34. file:///about
+  35. file:///about
+  36. https://github.com/gnikyt
+  37. https://linkedin.com/in/gnikyt
+  38. file:///assets/files/cv.pdf
+  39. file:///rss.xml

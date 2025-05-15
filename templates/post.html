@@ -12,7 +12,7 @@ ${inc:templates/_layout_head.html}
           /* <time class="post__time" datetime="${date_ymd}">${date_human}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">${post_size}</span> */
         </div>
         <div class="post__category">
-          ${foreach:category:,:<img src="/assets/images/category-|value|.svg" class="post__category-logo" alt="Logo of |value|">}
+          ${foreach:category:,:<a href="/category/|value|"><img src="/assets/images/category-|value|.svg" class="post__category-logo" alt="Logo of |value|"></a>}
         </div>
       </div>
 

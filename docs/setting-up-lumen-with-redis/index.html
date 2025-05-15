@@ -1,0 +1,250 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Lumen with Redis | gnikyt
+    </title>
+    <link href="https://gnikyt.com/setting-up-lumen-with-redis" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta a="" and="" basic="" content="This is more of an extension of my previous post" further="" i="" it="" lumen=
+    "" name="description" setting="" setup="" show="" step="" take="" the="" to="" up="" wanted="">
+    <meta content="2017-11-19T11:43:01-0330" property="article:published_time">
+    <meta content="Lumen with Redis" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta a="" and="" basic="" content="This is more of an extension of my previous post" further="" i="" it="" lumen=
+    "" property="og:description" setting="" setup="" show="" step="" take="" the="" to="" up="" wanted="">
+    <meta content="https://gnikyt.com/setting-up-lumen-with-redis" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta a="" and="" basic="" content="This is more of an extension of my previous post" further="" i="" it="" lumen=
+    "" property="twitter:title" setting="" setup="" show="" step="" take="" the="" to="" up="" wanted="">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2017-11-19T11:43:01-0330",
+    "datePublished": "2017-11-19T11:43:01-0330",
+    "description": "
+    This is more of an extension of my previous post "Setting Up Lumen + Mail". I wanted to take it a step further and show the basic setup ...",
+    "headline": "Lumen with Redis",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/setting-up-lumen-with-redis"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/setting-up-lumen-with-redis"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="setting-up-lumen-with-redis">
+    <header class="site-head container">
+      <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            Lumen with Redis /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2017-11-19">Nov 19,
+                2017</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">1.3KB</span> */
+              </div>
+
+              <div class="post__category">
+                <a href="/category/php"><img alt="Logo of php" class="post__category-logo" src=
+                "/assets/images/category-php.svg"></a><a href="/category/laravel"><img alt="Logo of laravel" class=
+                "post__category-logo" src="/assets/images/category-laravel.svg"></a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                This is more of an extension of my previous post “Setting Up Lumen + Mail”. I wanted to take it a step
+                further and show the basic setup for getting Redis to work, so you can queue not only mail, but jobs.
+              </p>
+
+              <p>
+                First, run <code>composer require illuminate/redis:5.5</code> to grab the Redis components.
+              </p>
+
+              <p>
+                Next, open <code>app/Providers/AppServiceProvider.php</code> and add the following to the
+                <code>register</code> method:
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="co">// Configs</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;configure(<span class="st">'database'</span>)<span class="ot">;</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="co">// Enable queues</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class=
+"va">$this</span>-&gt;app-&gt;make(<span class="st">'queue'</span>)<span class="ot">;</span></span></code></pre>
+              </div>
+
+              <p>
+                Next, create <code>config/database.php</code> and add the following:
+              </p>
+
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="cf">return</span> [</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  <span class="st">'redis'</span> =&gt; [</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>    <span class=
+"st">'client'</span> =&gt; <span class="st">'predis'</span><span class="ot">,</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>    <span class=
+"st">'default'</span> =&gt; [</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>      <span class=
+"st">'host'</span> =&gt; env(<span class="st">'REDIS_HOST'</span><span class="ot">,</span> <span class=
+"st">'127.0.0.1'</span>)<span class="ot">,</span></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>      <span class=
+"st">'password'</span> =&gt; env(<span class="st">'REDIS_PASSWORD'</span><span class="ot">,</span> <span class=
+"kw">null</span>)<span class="ot">,</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>      <span class=
+"st">'port'</span> =&gt; env(<span class="st">'REDIS_PORT'</span><span class="ot">,</span> <span class=
+"dv">6379</span>)<span class="ot">,</span></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>      <span class=
+"st">'database'</span> =&gt; <span class="dv">0</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>    ]</span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a>  ]</span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>]<span class="ot">;</span></span></code></pre>
+              </div>
+
+              <p>
+                Don’t forget to set up all your environment variables for Redis, as well, to enable Redis for job
+                processing and cache, set the following environment variables:
+              </p>
+
+              <pre class="conf"><code>CACHE_DRIVER=redis
+QUEUE_DRIVER=redis</code></pre>
+              <p>
+                That’s it! You can now queue mail or process jobs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p class="warning warning--post">
+                This post is 7 years old and may contain outdated information.
+              </p>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/setting-up-lumen-with-redis/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/setting-up-lumen-with-redis/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-tail container">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
+        <h3 class="site-tail__author">
+          <a href="/about">Ty King</a>
+        </h3>
+
+        <p class="site-tail__blurb">
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
+        </p>
+      </div>
+
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
+
+      <div class="site-tail__links">
+        <a class="button button--strong" href="https://github.com/gnikyt" rel="noopener" target=
+        "_blank">Github</a><a class="button button--strong" href="https://linkedin.com/in/gnikyt" rel="noopener"
+        target="_blank">LinkedIn</a><a class="button button--strong" href="/assets/files/cv.pdf" target=
+        "_blank">CV</a><a class="button button--strong" href="/rss.xml" target="_blank">RSS</a>
+      </div>
+    </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

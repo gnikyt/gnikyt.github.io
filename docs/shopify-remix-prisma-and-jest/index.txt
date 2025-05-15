@@ -5,7 +5,7 @@
                        Shopify Remix, Prisma, and Jest /
 
    /* Jan 10, 2024  —  8.8KB */
-   Logo of shopify Logo of javascript
+   [3]Logo of shopify [4]Logo of javascript
 
 Introduction
 
@@ -23,7 +23,7 @@ Introduction
    someone could get going on testing.
 
    With Prisma, you can mock the database returns from Prisma (example
-   findMany) out of the box [3]for unit tests.
+   findMany) out of the box [5]for unit tests.
 const record = {
   id: 1,
   title: "Example",
@@ -334,21 +334,21 @@ Tests running slow?
 
    Appendix
 
-   Copyright under [4]CC-4.0.
+   Copyright under [6]CC-4.0.
 
    Available in the following alternative formats:
-   [5]MD  /  [6]TXT  /  [7]PDF
+   [7]MD  /  [8]TXT  /  [9]PDF
 
-   [8]Ty King
+   [10]Ty King
 
-[9]Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [10]Github[11]LinkedIn[12]CV[13]RSS
+   [12]Github[13]LinkedIn[14]CV[15]RSS
 
      *
      *
@@ -362,15 +362,17 @@ Tests running slow?
 References
 
    1. /rss.xml
-   2. /
-   3. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
-   4. https://creativecommons.org/licenses/by/4.0/
-   5. /shopify-remix-prisma-and-jest/index.md
-   6. /shopify-remix-prisma-and-jest/index.txt
-   7. /tmp/lynxXXXXyNtIf8/L278298-2520TMP.html
-   8. /about
-   9. /about
-  10. https://github.com/gnikyt
-  11. https://linkedin.com/in/gnikyt
-  12. /assets/files/cv.pdf
-  13. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/javascript
+   5. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///shopify-remix-prisma-and-jest/index.md
+   8. file:///shopify-remix-prisma-and-jest/index.txt
+   9. file:///tmp/lynxXXXXQxrNvT/L482843-9828TMP.html
+  10. file:///about
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. file:///assets/files/cv.pdf
+  15. file:///rss.xml

@@ -5,11 +5,11 @@
                          Async Shopify API for Python /
 
    /* Jun 29, 2020  —  4.0KB */
-   Logo of shopify Logo of python
+   [3]Logo of shopify [4]Logo of python
 
 Introduction
 
-   I maintain a fairly used [3]PHP library for Shopify API which uses
+   I maintain a fairly used [5]PHP library for Shopify API which uses
    Guzzle for sync/async requests. It was also recently featured as a
    recommended third-party library on Shopify’s dev docs.
 
@@ -19,7 +19,7 @@ Introduction
    their library has no plans to support async.
 
    I decided to create a tested library that can do both,
-   [4]basic_shopify_api. It is a loose port of my PHP version which
+   [6]basic_shopify_api. It is a loose port of my PHP version which
    supports sync, async, HMAC validation, rate limiting, automatic
    retries, REST, and GraphQL; all backed by the HTTPX package.
 
@@ -126,27 +126,27 @@ Conclusion
 
    Feel free to give it a try with your projects, with the continual rise
    of async within Python, I hope the library will serve some use to you.
-   I’ve recently paired it with [5]FastAPI and it performed well.
+   I’ve recently paired it with [7]FastAPI and it performed well.
 
    Appendix
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [6]CC-4.0.
+   Copyright under [8]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
+   [9]MD  /  [10]TXT  /  [11]PDF
 
-   [10]Ty King
+   [12]Ty King
 
-[11]Ty King
+[13]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [14]Github[15]LinkedIn[16]CV[17]RSS
 
      *
      *
@@ -160,17 +160,19 @@ Conclusion
 References
 
    1. /rss.xml
-   2. /
-   3. https://github.com/gnikyt/Basic-Shopify-API
-   4. https://github.com/gnikyt/basic_shopify_api
-   5. https://fastapi.tiangolo.com/
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. /async-shopify-api-for-python/index.md
-   8. /async-shopify-api-for-python/index.txt
-   9. /tmp/lynxXXXX9F01JB/L281942-9473TMP.html
-  10. /about
-  11. /about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. /assets/files/cv.pdf
-  15. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/python
+   5. https://github.com/gnikyt/Basic-Shopify-API
+   6. https://github.com/gnikyt/basic_shopify_api
+   7. https://fastapi.tiangolo.com/
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///async-shopify-api-for-python/index.md
+  10. file:///async-shopify-api-for-python/index.txt
+  11. file:///tmp/lynxXXXX67MWgn/L486753-1555TMP.html
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

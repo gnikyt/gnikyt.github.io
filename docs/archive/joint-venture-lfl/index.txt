@@ -5,7 +5,6 @@
                             Joint Venture with LFL /
 
    /* Nov 15, 2022  —  6.0KB */
-   Logo of shopify Logo of javascript
 
 JV
 
@@ -151,7 +150,7 @@ Press Release
 References
 
    1. /rss.xml
-   2. /
+   2. file:///
    3. https://leons.ca/
    4. https://www.thebrick.com/
    5. https://furniture.ca/
@@ -159,12 +158,12 @@ References
    7. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
    8. https://www.lflgroup.ca/
    9. https://creativecommons.org/licenses/by/4.0/
-  10. /joint-venture-lfl/index.md
-  11. /joint-venture-lfl/index.txt
-  12. /tmp/lynxXXXXTV7yA8/L279505-2550TMP.html
-  13. /about
-  14. /about
+  10. file:///joint-venture-lfl/index.md
+  11. file:///joint-venture-lfl/index.txt
+  12. file:///tmp/lynxXXXXFEDPxk/L484128-7828TMP.html
+  13. file:///about
+  14. file:///about
   15. https://github.com/gnikyt
   16. https://linkedin.com/in/gnikyt
-  17. /assets/files/cv.pdf
-  18. /rss.xml
+  17. file:///assets/files/cv.pdf
+  18. file:///rss.xml

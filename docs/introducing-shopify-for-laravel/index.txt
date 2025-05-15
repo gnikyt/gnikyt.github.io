@@ -5,7 +5,7 @@
                          Introducing Laravel Shopify /
 
    /* Aug 09, 2017  —  2.6KB */
-   Logo of shopify Logo of php Logo of laravel
+   [3]Logo of shopify [4]Logo of php [5]Logo of laravel
 
 Background
 
@@ -33,7 +33,7 @@ Background
    with it. It has a lot baked into it, which is all easily configurable
    and accessible - it felt like Rails for PHP honestly.
 
-   [3]shopify_app is Shopify’s own gem for building Shopify apps on Rails;
+   [6]shopify_app is Shopify’s own gem for building Shopify apps on Rails;
    quick and easy. It handles authentication, installation, webhooks,
    scripttags, ESDK integration, and more. In Laravel, I could not find a
    package that covered all those points. I decided I’d go headfirst into
@@ -55,8 +55,8 @@ What The Package Does
 
 Project
 
-   You can head over to the [4]project’s page for full information, or
-   also browse [5]the wiki for documentation, installation, and other
+   You can head over to the [7]project’s page for full information, or
+   also browse [8]the wiki for documentation, installation, and other
    topics.
 
    Happy coding with Shopify + Laravel!
@@ -65,21 +65,21 @@ Project
 
    This post is 7 years old and may contain outdated information.
 
-   Copyright under [6]CC-4.0.
+   Copyright under [9]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
+   [10]MD  /  [11]TXT  /  [12]PDF
 
-   [10]Ty King
+   [13]Ty King
 
-[11]Ty King
+[14]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [15]Github[16]LinkedIn[17]CV[18]RSS
 
      *
      *
@@ -93,17 +93,20 @@ Project
 References
 
    1. /rss.xml
-   2. /
-   3. https://github.com/Shopify/shopify_app
-   4. https://github.com/gnikyt/laravel-shopify
-   5. https://github.com/gnikyt/laravel-shopify/wiki
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. /introducing-shopify-for-laravel/index.md
-   8. /introducing-shopify-for-laravel/index.txt
-   9. /tmp/lynxXXXXR6Wwdu/L283779-6903TMP.html
-  10. /about
-  11. /about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. /assets/files/cv.pdf
-  15. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/php
+   5. file:///category/laravel
+   6. https://github.com/Shopify/shopify_app
+   7. https://github.com/gnikyt/laravel-shopify
+   8. https://github.com/gnikyt/laravel-shopify/wiki
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. file:///introducing-shopify-for-laravel/index.md
+  11. file:///introducing-shopify-for-laravel/index.txt
+  12. file:///tmp/lynxXXXXFKmAXF/L488695-4414TMP.html
+  13. file:///about
+  14. file:///about
+  15. https://github.com/gnikyt
+  16. https://linkedin.com/in/gnikyt
+  17. file:///assets/files/cv.pdf
+  18. file:///rss.xml

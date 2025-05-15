@@ -5,7 +5,7 @@
                  Shopify Node App custom multi-tenant support /
 
    /* Nov 15, 2021  —  10KB */
-   Logo of shopify Logo of javascript
+   [3]Logo of shopify [4]Logo of javascript
 
 Introduction
 
@@ -372,21 +372,21 @@ Conculsion
 
    This post is 3 years old and may contain outdated information.
 
-   Copyright under [3]CC-4.0.
+   Copyright under [5]CC-4.0.
 
    Available in the following alternative formats:
-   [4]MD  /  [5]TXT  /  [6]PDF
+   [6]MD  /  [7]TXT  /  [8]PDF
 
-   [7]Ty King
+   [9]Ty King
 
-[8]Ty King
+[10]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [9]Github[10]LinkedIn[11]CV[12]RSS
+   [11]Github[12]LinkedIn[13]CV[14]RSS
 
      *
      *
@@ -400,14 +400,16 @@ Conculsion
 References
 
    1. /rss.xml
-   2. /
-   3. https://creativecommons.org/licenses/by/4.0/
-   4. /shopify-node-app-custom-multi-tenant/index.md
-   5. /shopify-node-app-custom-multi-tenant/index.txt
-   6. /tmp/lynxXXXXjVQgH2/L280433-9052TMP.html
-   7. /about
-   8. /about
-   9. https://github.com/gnikyt
-  10. https://linkedin.com/in/gnikyt
-  11. /assets/files/cv.pdf
-  12. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/javascript
+   5. https://creativecommons.org/licenses/by/4.0/
+   6. file:///shopify-node-app-custom-multi-tenant/index.md
+   7. file:///shopify-node-app-custom-multi-tenant/index.txt
+   8. file:///tmp/lynxXXXXKdMVzP/L485105-1966TMP.html
+   9. file:///about
+  10. file:///about
+  11. https://github.com/gnikyt
+  12. https://linkedin.com/in/gnikyt
+  13. file:///assets/files/cv.pdf
+  14. file:///rss.xml

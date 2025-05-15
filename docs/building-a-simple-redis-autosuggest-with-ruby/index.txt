@@ -5,7 +5,7 @@
                         Redis autosuggest with Sinatra /
 
    /* Mar 02, 2016  —  5.6KB */
-   Logo of ruby Logo of sinatra
+   [3]Logo of ruby [4]Logo of sinatra
 
    So you have a search box on your website.. an article search, a product
    search.. whatever it may be, you may find yourself the need to display
@@ -36,7 +36,7 @@ Planning
    this up into R then RU then RUB and finally RUBY.
 
    Lets store these product titles in this manner with the values being
-   the title and ID for the product into a [3]Redis sorted set. Now, when
+   the title and ID for the product into a [5]Redis sorted set. Now, when
    someone types gun in your search box we should be able to call p:gun
    key on Redis and get:
      * Tommy's Ray Gun//1
@@ -107,7 +107,7 @@ Processing 1990 Blaster Ray!!...
 Processing (Nuke) Bomb Gun #8...
 
    Login to Redis and let’s check if it works as planned. Since this is a
-   sorted set we need to use [4]ZRANGE.
+   sorted set we need to use [6]ZRANGE.
 > redis-cli
 127.0.0.1:6379> ZRANGE p:gun 0 -1
 1) "(Nuke) Bomb Gun #8//3"
@@ -164,7 +164,7 @@ end
    By calling /?q=some+text, we create a key for each word passed. So
    some+text goes into the sets variable and becomes ["p:some", "p:text"].
 
-   Next, we create a temporary key to use with [5]zinterstore which
+   Next, we create a temporary key to use with [7]zinterstore which
    computes intersection between keys (our p:some and p:text). This finds
    products that have both the words some and text in their title. We then
    use zrange to get the result of the intersection and delete the
@@ -177,21 +177,21 @@ end
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [6]CC-4.0.
+   Copyright under [8]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
+   [9]MD  /  [10]TXT  /  [11]PDF
 
-   [10]Ty King
+   [12]Ty King
 
-[11]Ty King
+[13]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [14]Github[15]LinkedIn[16]CV[17]RSS
 
      *
      *
@@ -205,17 +205,19 @@ end
 References
 
    1. /rss.xml
-   2. /
-   3. http://redis.io/commands/ZADD
-   4. http://redis.io/commands/ZRANGE
-   5. http://redis.io/commands/ZINTERSTORE
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. /building-a-simple-redis-autosuggest-with-ruby/index.md
-   8. /building-a-simple-redis-autosuggest-with-ruby/index.txt
-   9. /tmp/lynxXXXXk4BkUi/L285909-5749TMP.html
-  10. /about
-  11. /about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. /assets/files/cv.pdf
-  15. /rss.xml
+   2. file:///
+   3. file:///category/ruby
+   4. file:///category/sinatra
+   5. http://redis.io/commands/ZADD
+   6. http://redis.io/commands/ZRANGE
+   7. http://redis.io/commands/ZINTERSTORE
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
+  10. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
+  11. file:///tmp/lynxXXXXRTEadi/L490994-2962TMP.html
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

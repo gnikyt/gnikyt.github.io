@@ -1,0 +1,72 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                           Index of category / cmd /
+
+   Displaying cmd entries sorted by creation date in descending order.
+     * $>
+
+[3]New desktop setup
+       Dec 11, 2022
+       6.5KB
+     * $>
+
+[4]Shopify Github Action for versioning
+       May 20, 2022
+       2.5KB
+     * $>
+
+[5]WSL network speed
+       Nov 16, 2021
+       1.8KB
+     * $>
+
+[6]Git release branches
+       Mar 10, 2021
+       3.4KB
+     * $>
+
+[7]i3-Plasma for a solid match
+       Aug 28, 2019
+       4.4KB
+
+   [8]‹ Categories  |  [9]‹ Home
+
+   [10]Ty King
+
+[11]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [12]Github[13]LinkedIn[14]CV[15]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///archive/new-desktop-setup
+   4. file:///shopify-github-action-versioning
+   5. file:///archive/wsl-network-speed
+   6. file:///git-release-branches
+   7. file:///archive/i3-plasma-a-solid-match
+   8. file:///category
+   9. file:///
+  10. file:///about
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. file:///assets/files/cv.pdf
+  15. file:///rss.xml

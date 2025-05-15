@@ -1,0 +1,81 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                          shopify_app_whitelist Gem /
+
+   /* Nov 26, 2016  —  1.5KB */
+   [3]Logo of shopify [4]Logo of ruby [5]Logo of rails
+
+   I regularly use [6]shopify_app. It’s a great way to get an app,
+   embedded or not, up and running with Rails.
+
+   Sometimes I’ll create apps with shopify_app which are to be used by
+   only one store. These apps sometimes have a front-end component for the
+   themes… proxy integration, or JSON data fetching. I’d hate to have
+   someone poke around and install the client’s app to their shop.
+
+   In the past, I limited access to shopify_app’s session controller by
+   having a before_action callback to confirm the shop. This gets
+   repetitive quick and its not a central solution meaning its hard to
+   update should the Gem change.
+
+   I decided to create a Gem for this problem which allows you to
+   whitelist shops to have access to installing or accessing the app’s
+   backend. [7]shopify_app_whitelist adds a Railite which automatically
+   injects a controller concern into your ApplicationController. It also
+   adds a couple of settings to shopify_app’s config so you can define
+   your whitelist settings. I figured I would make it as easy as possible.
+
+   You simply need to add the Gem to your Gemfile, add two configuration
+   lines, and you’re set. The Gem is fully tested and documented if you
+   want to dig into the code. I hope someone will find it useful!
+
+   Appendix
+
+   This post is 8 years old and may contain outdated information.
+
+   Copyright under [8]CC-4.0.
+
+   Available in the following alternative formats:
+   [9]MD  /  [10]TXT  /  [11]PDF
+
+   [12]Ty King
+
+[13]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [14]Github[15]LinkedIn[16]CV[17]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/ruby
+   5. file:///category/rails
+   6. https://github.com/Shopify/shopify_app
+   7. https://github.com/gnikyt/shopify_app_whitelist
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///shopify-app-whitelist-gem/index.md
+  10. file:///shopify-app-whitelist-gem/index.txt
+  11. file:///tmp/lynxXXXXOl7XRQ/L489693-1438TMP.html
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

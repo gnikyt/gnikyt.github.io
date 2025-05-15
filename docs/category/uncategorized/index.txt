@@ -1,0 +1,49 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                      Index of category / uncategorized /
+
+   Displaying uncategorized entries sorted by creation date in descending
+   order.
+     * $>
+
+[3]Joint Venture with LFL
+       Nov 15, 2022
+       6.0KB
+
+   [4]‹ Categories  |  [5]‹ Home
+
+   [6]Ty King
+
+[7]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [8]Github[9]LinkedIn[10]CV[11]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///archive/joint-venture-lfl
+   4. file:///category
+   5. file:///
+   6. file:///about
+   7. file:///about
+   8. https://github.com/gnikyt
+   9. https://linkedin.com/in/gnikyt
+  10. file:///assets/files/cv.pdf
+  11. file:///rss.xml

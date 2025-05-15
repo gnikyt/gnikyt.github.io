@@ -1,0 +1,74 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                           Laravel Shopify billing /
+
+   /* Jan 26, 2018  —  993B */
+   [3]Logo of php [4]Logo of laravel
+
+   Version 2.0.0 was [5]just released which features the baked-in ability
+   to turn your Shopify app into a billable app with some simple
+   configuration additions.
+
+   It has support for the two methods Shopify supports, single and
+   recurring charges. You can set the plan name, price, trial days, and
+   more.
+
+   You also have to ability to easily upgrade or downgrade a shop’s plan,
+   enable them as a grandfather (skip billing), and more.
+
+   For full information see the release notes, [6]upgrading doc, and the
+   wiki page for [7]creating a billable app.
+
+   Other minor updates include integration with StyleCI to keep coding
+   standards within PSR1 and PSR2.
+
+   Appendix
+
+   This post is 7 years old and may contain outdated information.
+
+   Copyright under [8]CC-4.0.
+
+   Available in the following alternative formats:
+   [9]MD  /  [10]TXT  /  [11]PDF
+
+   [12]Ty King
+
+[13]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [14]Github[15]LinkedIn[16]CV[17]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. file:///
+   3. file:///category/php
+   4. file:///category/laravel
+   5. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
+   6. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
+   7. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///laravel-shopify-billing/index.md
+  10. file:///laravel-shopify-billing/index.txt
+  11. file:///tmp/lynxXXXXWiUpdL/L487723-6497TMP.html
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

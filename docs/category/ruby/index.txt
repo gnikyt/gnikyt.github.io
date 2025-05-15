@@ -1,0 +1,84 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+
+                           Index of category / ruby /
+
+   Displaying ruby entries sorted by creation date in descending order.
+     * $>
+
+[3]shopify_app_whitelist Gem
+       Nov 26, 2016
+       1.5KB
+     * $>
+
+[4]Testing with shopify_app
+       Jun 21, 2016
+       2.3KB
+     * $>
+
+[5]Precompiling assets with Rails Engine
+       May 03, 2016
+       2.3KB
+     * $>
+
+[6]Redis autosuggest with Sinatra
+       Mar 02, 2016
+       5.6KB
+     * $>
+
+[7]Extending a Rails Engine
+       Feb 20, 2016
+       4.4KB
+     * $>
+
+[8]Polymorphic route concerns with Rails
+       Jan 01, 2016
+       5.1KB
+     * $>
+
+[9]ActiveRecord and Liquid Drops with Sinatra
+       Oct 15, 2015
+       3.7KB
+
+   [10]‹ Categories  |  [11]‹ Home
+
+   [12]Ty King
+
+[13]Ty King
+
+   A self-taught, seasoned, and versatile developer from Newfoundland.
+   Crafting innovative solutions with care and expertise.
+
+   Crafting innovative solutions with care and expertise.
+
+   [14]Github[15]LinkedIn[16]CV[17]RSS
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///shopify-app-whitelist-gem
+   4. file:///testing-with-shopify-app
+   5. file:///archive/precompiling-assets-in-your-rails-engine
+   6. file:///building-a-simple-redis-autosuggest-with-ruby
+   7. file:///extending-a-rails-engine
+   8. file:///polymorphic-and-route-concerns
+   9. file:///activerecord-and-liquid-drops-with-sinatra
+  10. file:///category
+  11. file:///
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

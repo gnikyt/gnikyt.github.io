@@ -5,9 +5,9 @@
                                ACF Simple Table /
 
    /* Jul 18, 2014  —  1.2KB */
-   Logo of php Logo of wordpress
+   [3]Logo of php [4]Logo of wordpress
 
-   I’ve released a new GitHub repo. It’s an add-on for popular [3]ACF
+   I’ve released a new GitHub repo. It’s an add-on for popular [5]ACF
    (Advanced Custom Fields) for WordPress which allows you to create
    really custom post/taxonomy pages and more.
 
@@ -23,28 +23,28 @@
    of code extract it into a usable form (its pretty much just an array
    representing a table).
 
-   To see some screenshots and sample usage of this add-on please [4]click
+   To see some screenshots and sample usage of this add-on please [6]click
    here and you’re free to use this in any commercial or personal project!
 
    Appendix
 
    This post is 10 years old and may contain outdated information.
 
-   Copyright under [5]CC-4.0.
+   Copyright under [7]CC-4.0.
 
    Available in the following alternative formats:
-   [6]MD  /  [7]TXT  /  [8]PDF
+   [8]MD  /  [9]TXT  /  [10]PDF
 
-   [9]Ty King
+   [11]Ty King
 
-[10]Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [11]Github[12]LinkedIn[13]CV[14]RSS
+   [13]Github[14]LinkedIn[15]CV[16]RSS
 
      *
      *
@@ -58,16 +58,18 @@
 References
 
    1. /rss.xml
-   2. /
-   3. http://www.advancedcustomfields.com/
-   4. https://github.com/gnikyt/acf-simple_table
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. /acf-simple-table/index.md
-   7. /acf-simple-table/index.txt
-   8. /tmp/lynxXXXXs1XMEU/L287716-1738TMP.html
-   9. /about
-  10. /about
-  11. https://github.com/gnikyt
-  12. https://linkedin.com/in/gnikyt
-  13. /assets/files/cv.pdf
-  14. /rss.xml
+   2. file:///
+   3. file:///category/php
+   4. file:///category/wordpress
+   5. http://www.advancedcustomfields.com/
+   6. https://github.com/gnikyt/acf-simple_table
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///acf-simple-table/index.md
+   9. file:///acf-simple-table/index.txt
+  10. file:///tmp/lynxXXXXamjPUY/L492945-2355TMP.html
+  11. file:///about
+  12. file:///about
+  13. https://github.com/gnikyt
+  14. https://linkedin.com/in/gnikyt
+  15. file:///assets/files/cv.pdf
+  16. file:///rss.xml

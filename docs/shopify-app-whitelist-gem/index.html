@@ -1,0 +1,216 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      shopify_app_whitelist Gem | gnikyt
+    </title>
+    <link href="https://gnikyt.com/shopify-app-whitelist-gem" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an app, embedded or not, up and running w..."
+    name="description">
+    <meta content="2016-11-26T16:45:01-0330" property="article:published_time">
+    <meta content="shopify_app_whitelist Gem" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an app, embedded or not, up and running w..."
+    property="og:description">
+    <meta content="https://gnikyt.com/shopify-app-whitelist-gem" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an app, embedded or not, up and running w..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2016-11-26T16:45:01-0330",
+    "datePublished": "2016-11-26T16:45:01-0330",
+    "description": "
+    I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an app, embedded or not, up and running w...",
+    "headline": "shopify_app_whitelist Gem",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/shopify-app-whitelist-gem"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/shopify-app-whitelist-gem"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="shopify-app-whitelist-gem">
+    <header class="site-head container">
+      <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            shopify_app_whitelist Gem /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2016-11-26">Nov 26,
+                2016</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">1.5KB</span> */
+              </div>
+
+              <div class="post__category">
+                <a href="/category/shopify"><img alt="Logo of shopify" class="post__category-logo" src=
+                "/assets/images/category-shopify.svg"></a><a href="/category/ruby"><img alt="Logo of ruby" class=
+                "post__category-logo" src="/assets/images/category-ruby.svg"></a><a href="/category/rails"><img alt=
+                "Logo of rails" class="post__category-logo" src="/assets/images/category-rails.svg"></a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                I regularly use <a href="https://github.com/Shopify/shopify_app">shopify_app</a>. It’s a great way to
+                get an app, embedded or not, up and running with Rails.
+              </p>
+
+              <p>
+                Sometimes I’ll create apps with <code>shopify_app</code> which are to be used by only one store. These
+                apps sometimes have a front-end component for the themes… proxy integration, or JSON data fetching. I’d
+                hate to have someone poke around and install the client’s app to their shop.
+              </p>
+
+              <p>
+                In the past, I limited access to <code>shopify_app</code>’s session controller by having a
+                <code>before_action</code> callback to confirm the shop. This gets repetitive quick and its not a
+                central solution meaning its hard to update should the Gem change.
+              </p>
+
+              <p>
+                I decided to create a Gem for this problem which allows you to whitelist shops to have access to
+                installing or accessing the app’s backend. <a href=
+                "https://github.com/gnikyt/shopify_app_whitelist">shopify_app_whitelist</a> adds a Railite which
+                automatically injects a controller concern into your ApplicationController. It also adds a couple of
+                settings to <code>shopify_app</code>’s config so you can define your whitelist settings. I figured I
+                would make it as easy as possible.
+              </p>
+
+              <p>
+                You simply need to add the Gem to your Gemfile, add two configuration lines, and you’re set. The Gem is
+                fully tested and documented if you want to dig into the code. I hope someone will find it useful!
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p class="warning warning--post">
+                This post is 8 years old and may contain outdated information.
+              </p>
+
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/shopify-app-whitelist-gem/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/shopify-app-whitelist-gem/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-tail container">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
+        <h3 class="site-tail__author">
+          <a href="/about">Ty King</a>
+        </h3>
+
+        <p class="site-tail__blurb">
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
+        </p>
+      </div>
+
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
+
+      <div class="site-tail__links">
+        <a class="button button--strong" href="https://github.com/gnikyt" rel="noopener" target=
+        "_blank">Github</a><a class="button button--strong" href="https://linkedin.com/in/gnikyt" rel="noopener"
+        target="_blank">LinkedIn</a><a class="button button--strong" href="/assets/files/cv.pdf" target=
+        "_blank">CV</a><a class="button button--strong" href="/rss.xml" target="_blank">RSS</a>
+      </div>
+    </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

@@ -5,11 +5,11 @@
                   ActiveRecord and Liquid Drops with Sinatra /
 
    /* Oct 15, 2015  —  3.7KB */
-   Logo of ruby Logo of sinatra
+   [3]Logo of ruby [4]Logo of sinatra
 
    Normally I use ERB when doing templates but there was a special
    use-case recently where I needed to allow the app user to modify a
-   specific template. [3]Liquid templates (what Jekyll and Shopify use)
+   specific template. [5]Liquid templates (what Jekyll and Shopify use)
    was perfect for this situation because it has a simple syntax for
    anyone to pick up and it’s also safe due to its scope limited to what’s
    passed to the template.
@@ -34,9 +34,9 @@ module MyApp
   end
 end
 
-   Now, Liquid has what they call a [4]Drop, where you can easily build a
+   Now, Liquid has what they call a [6]Drop, where you can easily build a
    plain class which Liquid can then use directly when rendering the
-   template. As the [5]Drop Introduction states, it acts “like” a hash so
+   template. As the [7]Drop Introduction states, it acts “like” a hash so
    the methods you create can be accessed with dot-notation in the
    template. Example: {% raw %}{{ student.full_name }}{% endraw %}
 
@@ -147,21 +147,21 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [6]CC-4.0.
+   Copyright under [8]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
+   [9]MD  /  [10]TXT  /  [11]PDF
 
-   [10]Ty King
+   [12]Ty King
 
-[11]Ty King
+[13]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [14]Github[15]LinkedIn[16]CV[17]RSS
 
      *
      *
@@ -175,17 +175,19 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
 References
 
    1. /rss.xml
-   2. /
-   3. http://liquidmarkup.org/
-   4. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-   5. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. /activerecord-and-liquid-drops-with-sinatra/index.md
-   8. /activerecord-and-liquid-drops-with-sinatra/index.txt
-   9. /tmp/lynxXXXXPxc3Yw/L286815-4635TMP.html
-  10. /about
-  11. /about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. /assets/files/cv.pdf
-  15. /rss.xml
+   2. file:///
+   3. file:///category/ruby
+   4. file:///category/sinatra
+   5. http://liquidmarkup.org/
+   6. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
+   7. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///activerecord-and-liquid-drops-with-sinatra/index.md
+  10. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
+  11. file:///tmp/lynxXXXXjVNuzf/L491970-8271TMP.html
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

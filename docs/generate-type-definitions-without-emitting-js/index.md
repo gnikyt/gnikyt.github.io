@@ -4,7 +4,7 @@ title: Shopify Checkout Extension to backend fetching
 permalink: generate-type-definitions-without-emitting-js
 date: '2024-02-27 15:52:00'
 archive: false
-category: shopify,javascript
+category: shopify,javascript,react
 ---
 
 There are several posts around about people having issues figuring out how to send a fetch request from their checkout extension to their app backend (Remix). Shopify's documentation around this is rather limited as well. So, I have put together a small example of how you can achieve this!

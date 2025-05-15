@@ -5,33 +5,42 @@ permalink: about
 
 <div class="about__heads">![Headshot](/assets/images/me-headshot.png)![Headshot](/assets/images/me.jpg)</div>
 
-_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer from Newfoundland. Crafting innovative solutions with care and expertise. With over a decade in Shopify experience, I have a great eye and passion for ecommerce-focused initiatives.
+_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer out of Newfoundland. With over a decade of experience in the Shopify ecosystem, I have developed a passion for ecommerce-focused initiatives. I specialize in crafting innovative solutions with precision and expertise through hands-on coding or consulting.
 
-You can reach me several ways &mdash; through [me@gnikyt.com](mailto:me@gnikyt.com), through [Github](https://github.com/gnikyt), or let's connect on [LinkedIn](https://linkedin.com/in/gnikyt).
+You can reach me several ways &mdash; through [me@gnikyt.com](mailto:me@gnikyt.com), with [Github](https://github.com/gnikyt), or connect on [LinkedIn](https://linkedin.com/in/gnikyt).
 
 ## My Rundown
 
-### I specialize with
+### Specializing in
+
+*My core focuses*.
 
 - Backend systems
 - Integrations between systems
 - Shopify themes, apps, integrations, and extensions
 - Development/technical consulting
 
-### I regularly develop with
+### Regularly developing
 
-- Go
+*What I work with day-to-day*.
+
+- Shopify
 - Javascript/Typescript (and it's frameworks)
+- Go
 
-### I dabble with
+### Previously developing
 
-- Python
-- PHP
-- React Native/Flutter
+*What I previously worked at day-to-day*.
+
+- Python, Django, Flask
+- Ruby, Rails, Sinatra
+- PHP, Wordpress, Symfony, Laravel
+- React Native, Expo
 - Hardware development with BLE and NFC communications
-- Open source contributions
 
-### Random Open Source work
+### Pinned Open Source work
+
+*View [my Github](https://github.com/gnikyt) for more*.
 
 - [cq](https://github.com/gnikyt/cq) - Golang; A function-based composible queue.
 - [shopifysemaphore](https://github.com/gnikyt/shopifysemaphore) - Golang; A Semaphore implementation accounting for GraphQL API limits.

@@ -5,13 +5,13 @@
                               New desktop setup /
 
    /* Dec 11, 2022  —  6.5KB */
-   Logo of cmd
+   [3]Logo of cmd
 
 Introduction
 
    I haven’t had the time to tweak my desktop in over a year, I’ve been
    mostly stuck with the default settings of Fedora (GNOME) and slowly
-   tweaked things, before that, a [3]Plasma/i3 setup (which was awesome!).
+   tweaked things, before that, a [4]Plasma/i3 setup (which was awesome!).
    I’ve had a long run of different setups over the last couple of
    decades… AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
 
@@ -49,7 +49,7 @@ Trying with GNOME
    worked out decently well! But, of course, required a lot of extensions
    and a theme.
 
-   [4]Finalized GNOME
+   [5]Finalized GNOME
 
    The above screenshot is an example of the resulting setup which has a
    similar feel to the old layout… two panels with proper information.
@@ -71,7 +71,7 @@ Trying with GNOME
      * Workspaces Bar: To show the list of workspaces
      * Places Indicator: To show the Places menu as GNOME 2 had
 
-   And the following theme is to be downloaded: [5]GNOME Theme Default
+   And the following theme is to be downloaded: [6]GNOME Theme Default
    Light.
 
    All-in-all, it worked well. But an instant update recently killed a few
@@ -111,7 +111,7 @@ Cinnamon
    I hunkered down for 20 minutes and produced an initial desktop which
    got me back to my feeling of my old XFCE and GNOME 2 desktops:
 
-   [6]Cinnamon result
+   [7]Cinnamon result
 
    It’s everything I need to visually see at the moment (minus some system
    stats which I had not yet tackled). It is also consistent. The Linux
@@ -143,7 +143,7 @@ Cinnamon
      * GTK/WM theme: Mint-Y-Dark-Aqua
      * Desktop theme: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
 
-   Additionally, Mint’s [7]“X-Apps” work well and are customizable as I
+   Additionally, Mint’s [8]“X-Apps” work well and are customizable as I
    like. As well, Nemo, is much more full featured than Nautilus, it
    actually shows informations and has meaningful settings.
 
@@ -155,21 +155,21 @@ Cinnamon
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [8]CC-4.0.
+   Copyright under [9]CC-4.0.
 
    Available in the following alternative formats:
-   [9]MD  /  [10]TXT  /  [11]PDF
+   [10]MD  /  [11]TXT  /  [12]PDF
 
-   [12]Ty King
+   [13]Ty King
 
-[13]Ty King
+[14]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [14]Github[15]LinkedIn[16]CV[17]RSS
+   [15]Github[16]LinkedIn[17]CV[18]RSS
 
      *
      *
@@ -183,19 +183,20 @@ Cinnamon
 References
 
    1. /rss.xml
-   2. /
-   3. /i3-plasma-a-solid-match
-   4. /assets/images/posts/gnomeshelllook.png
-   5. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
-   6. /assets/images/posts/cinnamon.png
-   7. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-   8. https://creativecommons.org/licenses/by/4.0/
-   9. /new-desktop-setup/index.md
-  10. /new-desktop-setup/index.txt
-  11. /tmp/lynxXXXXtCjzKq/L278891-8374TMP.html
-  12. /about
-  13. /about
-  14. https://github.com/gnikyt
-  15. https://linkedin.com/in/gnikyt
-  16. /assets/files/cv.pdf
-  17. /rss.xml
+   2. file:///
+   3. file:///category/cmd
+   4. file:///i3-plasma-a-solid-match
+   5. file:///assets/images/posts/gnomeshelllook.png
+   6. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
+   7. file:///assets/images/posts/cinnamon.png
+   8. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
+   9. https://creativecommons.org/licenses/by/4.0/
+  10. file:///new-desktop-setup/index.md
+  11. file:///new-desktop-setup/index.txt
+  12. file:///tmp/lynxXXXXigR1hw/L483484-5043TMP.html
+  13. file:///about
+  14. file:///about
+  15. https://github.com/gnikyt
+  16. https://linkedin.com/in/gnikyt
+  17. file:///assets/files/cv.pdf
+  18. file:///rss.xml

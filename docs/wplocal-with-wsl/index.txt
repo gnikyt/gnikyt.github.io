@@ -5,7 +5,7 @@
                            WordPress Local with WSL /
 
    /* Dec 07, 2023  —  5.6KB */
-   Logo of php Logo of wordpress
+   [3]Logo of php [4]Logo of wordpress
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided
@@ -30,7 +30,7 @@ Installation
    for Local (Ubuntu) (in my case), but you can also spawn it through the
    terminal with /usr/bin/local.
 
-   [3]WP Local Running inside WSL
+   [5]WP Local Running inside WSL
 
    Although its open and running, if you immediately tried to connect to
    WP Engine and pull down a project, you’ll have displays with errors pop
@@ -38,7 +38,7 @@ Installation
    issues for it to properly configure NGINX.
 
    With a lot of digging around the web to solve both issues… I came
-   across a great post by [4]robert77 on the WP Local Community Forums
+   across a great post by [6]robert77 on the WP Local Community Forums
    which I will outline below.
 
 Fixing Dependencies
@@ -86,7 +86,7 @@ Priviliaged Requests
 
    An example of it running:
 
-   [5]LxQT Sudo GUI
+   [7]LxQT Sudo GUI
 
 NGINX Fix
 
@@ -147,21 +147,21 @@ Conclusion
 
    Appendix
 
-   Copyright under [6]CC-4.0.
+   Copyright under [8]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
+   [9]MD  /  [10]TXT  /  [11]PDF
 
-   [10]Ty King
+   [12]Ty King
 
-[11]Ty King
+[13]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [14]Github[15]LinkedIn[16]CV[17]RSS
 
      *
      *
@@ -175,17 +175,19 @@ Conclusion
 References
 
    1. /rss.xml
-   2. /
-   3. /assets/images/posts/wplocal_running.png
-   4. https://community.localwp.com/u/robert77
-   5. /assets/images/posts/wplocal_sudo.png
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. /wplocal-with-wsl/index.md
-   8. /wplocal-with-wsl/index.txt
-   9. /tmp/lynxXXXXdUBAIU/L278593-8903TMP.html
-  10. /about
-  11. /about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. /assets/files/cv.pdf
-  15. /rss.xml
+   2. file:///
+   3. file:///category/php
+   4. file:///category/wordpress
+   5. file:///assets/images/posts/wplocal_running.png
+   6. https://community.localwp.com/u/robert77
+   7. file:///assets/images/posts/wplocal_sudo.png
+   8. https://creativecommons.org/licenses/by/4.0/
+   9. file:///wplocal-with-wsl/index.md
+  10. file:///wplocal-with-wsl/index.txt
+  11. file:///tmp/lynxXXXXRr3EIg/L483165-673TMP.html
+  12. file:///about
+  13. file:///about
+  14. https://github.com/gnikyt
+  15. https://linkedin.com/in/gnikyt
+  16. file:///assets/files/cv.pdf
+  17. file:///rss.xml

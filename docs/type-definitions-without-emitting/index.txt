@@ -5,7 +5,7 @@
                       Type definitions without emitting /
 
    /* Feb 07, 2024  —  3.4KB */
-   Logo of javascript
+   [3]Logo of javascript
 
 Introduction
 
@@ -107,21 +107,21 @@ import { type ShopifyOrderIdValue } from "app-types/value/id";
 
    Appendix
 
-   Copyright under [3]CC-4.0.
+   Copyright under [4]CC-4.0.
 
    Available in the following alternative formats:
-   [4]MD  /  [5]TXT  /  [6]PDF
+   [5]MD  /  [6]TXT  /  [7]PDF
 
-   [7]Ty King
+   [8]Ty King
 
-[8]Ty King
+[9]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [9]Github[10]LinkedIn[11]CV[12]RSS
+   [10]Github[11]LinkedIn[12]CV[13]RSS
 
      *
      *
@@ -135,14 +135,15 @@ import { type ShopifyOrderIdValue } from "app-types/value/id";
 References
 
    1. /rss.xml
-   2. /
-   3. https://creativecommons.org/licenses/by/4.0/
-   4. /type-definitions-without-emitting/index.md
-   5. /type-definitions-without-emitting/index.txt
-   6. /tmp/lynxXXXXjyC8fE/L277997-9143TMP.html
-   7. /about
-   8. /about
-   9. https://github.com/gnikyt
-  10. https://linkedin.com/in/gnikyt
-  11. /assets/files/cv.pdf
-  12. /rss.xml
+   2. file:///
+   3. file:///category/javascript
+   4. https://creativecommons.org/licenses/by/4.0/
+   5. file:///type-definitions-without-emitting/index.md
+   6. file:///type-definitions-without-emitting/index.txt
+   7. file:///tmp/lynxXXXXQFEDzH/L482527-5933TMP.html
+   8. file:///about
+   9. file:///about
+  10. https://github.com/gnikyt
+  11. https://linkedin.com/in/gnikyt
+  12. file:///assets/files/cv.pdf
+  13. file:///rss.xml

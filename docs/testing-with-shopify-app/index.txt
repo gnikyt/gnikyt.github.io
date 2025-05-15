@@ -5,9 +5,9 @@
                            Testing with shopify_app /
 
    /* Jun 21, 2016  —  2.3KB */
-   Logo of shopify Logo of ruby Logo of rails
+   [3]Logo of shopify [4]Logo of ruby [5]Logo of rails
 
-   [3]shopify_app is a great Gem to quickly build a Shopify App with
+   [6]shopify_app is a great Gem to quickly build a Shopify App with
    Rails. It handles all the verifications, authorizations, webhook, and
    more; leaving you to focus on developing your app. This post is to
    serve as a quick tip on how to unit-test your app with the Gem.
@@ -64,21 +64,21 @@ end
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [4]CC-4.0.
+   Copyright under [7]CC-4.0.
 
    Available in the following alternative formats:
-   [5]MD  /  [6]TXT  /  [7]PDF
+   [8]MD  /  [9]TXT  /  [10]PDF
 
-   [8]Ty King
+   [11]Ty King
 
-[9]Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [10]Github[11]LinkedIn[12]CV[13]RSS
+   [13]Github[14]LinkedIn[15]CV[16]RSS
 
      *
      *
@@ -92,15 +92,18 @@ end
 References
 
    1. /rss.xml
-   2. /
-   3. https://github.com/Shopify/shopify_app
-   4. https://creativecommons.org/licenses/by/4.0/
-   5. /testing-with-shopify-app/index.md
-   6. /testing-with-shopify-app/index.txt
-   7. /tmp/lynxXXXXqtDALL/L284989-9811TMP.html
-   8. /about
-   9. /about
-  10. https://github.com/gnikyt
-  11. https://linkedin.com/in/gnikyt
-  12. /assets/files/cv.pdf
-  13. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/ruby
+   5. file:///category/rails
+   6. https://github.com/Shopify/shopify_app
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///testing-with-shopify-app/index.md
+   9. file:///testing-with-shopify-app/index.txt
+  10. file:///tmp/lynxXXXXzvp1jv/L490029-3066TMP.html
+  11. file:///about
+  12. file:///about
+  13. https://github.com/gnikyt
+  14. https://linkedin.com/in/gnikyt
+  15. file:///assets/files/cv.pdf
+  16. file:///rss.xml

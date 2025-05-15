@@ -5,7 +5,7 @@
                  Symfony Flex with Symfony Server Dockerized /
 
    /* Feb 04, 2020  —  5.5KB */
-   Logo of php Logo of symfony
+   [3]Logo of php [4]Logo of symfony
 
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with “recipes”. It provides a way to create a very lean
@@ -164,28 +164,28 @@ Conclusion
    That concludes the basic setup to Dockerize a Symfony Flex API
    application.
 
-   For more information on Symfony Flex, [3]click here; or information on
-   Symfony Server, [4]click here.
+   For more information on Symfony Flex, [5]click here; or information on
+   Symfony Server, [6]click here.
 
    Appendix
 
    This post is 5 years old and may contain outdated information.
 
-   Copyright under [5]CC-4.0.
+   Copyright under [7]CC-4.0.
 
    Available in the following alternative formats:
-   [6]MD  /  [7]TXT  /  [8]PDF
+   [8]MD  /  [9]TXT  /  [10]PDF
 
-   [9]Ty King
+   [11]Ty King
 
-[10]Ty King
+[12]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [11]Github[12]LinkedIn[13]CV[14]RSS
+   [13]Github[14]LinkedIn[15]CV[16]RSS
 
      *
      *
@@ -199,16 +199,18 @@ Conclusion
 References
 
    1. /rss.xml
-   2. /
-   3. https://symfony.com/doc/current/quick_tour/flex_recipes.html
-   4. https://symfony.com/doc/current/setup/symfony_server.html
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. /basic-symfony-flex-with-symfony-server-dockerized/index.md
-   7. /basic-symfony-flex-with-symfony-server-dockerized/index.txt
-   8. /tmp/lynxXXXXHBWBod/L282264-6233TMP.html
-   9. /about
-  10. /about
-  11. https://github.com/gnikyt
-  12. https://linkedin.com/in/gnikyt
-  13. /assets/files/cv.pdf
-  14. /rss.xml
+   2. file:///
+   3. file:///category/php
+   4. file:///category/symfony
+   5. https://symfony.com/doc/current/quick_tour/flex_recipes.html
+   6. https://symfony.com/doc/current/setup/symfony_server.html
+   7. https://creativecommons.org/licenses/by/4.0/
+   8. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
+   9. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
+  10. file:///tmp/lynxXXXXkMq75S/L487089-1112TMP.html
+  11. file:///about
+  12. file:///about
+  13. https://github.com/gnikyt
+  14. https://linkedin.com/in/gnikyt
+  15. file:///assets/files/cv.pdf
+  16. file:///rss.xml

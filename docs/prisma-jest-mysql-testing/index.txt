@@ -5,9 +5,9 @@
                    Shopify Prisma, Jest, and MySQL testing /
 
    /* Mar 28, 2024  —  6.5KB */
-   Logo of shopify Logo of javascript
+   [3]Logo of shopify [4]Logo of javascript
 
-   This is an alternate extension to my previous post, [3]Shopify, Remix,
+   This is an alternate extension to my previous post, [5]Shopify, Remix,
    Prisma, and Jest.
 
    Follow that post to get to its current state, and we’ll modify the
@@ -256,21 +256,21 @@ volumes:
 
    Appendix
 
-   Copyright under [4]CC-4.0.
+   Copyright under [6]CC-4.0.
 
    Available in the following alternative formats:
-   [5]MD  /  [6]TXT  /  [7]PDF
+   [7]MD  /  [8]TXT  /  [9]PDF
 
-   [8]Ty King
+   [10]Ty King
 
-[9]Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [10]Github[11]LinkedIn[12]CV[13]RSS
+   [12]Github[13]LinkedIn[14]CV[15]RSS
 
      *
      *
@@ -284,15 +284,17 @@ volumes:
 References
 
    1. /rss.xml
-   2. /
-   3. /tmp/shopify-remix-prisma-and-jest
-   4. https://creativecommons.org/licenses/by/4.0/
-   5. /prisma-jest-mysql-testing/index.md
-   6. /prisma-jest-mysql-testing/index.txt
-   7. /tmp/lynxXXXXFu5GeI/L277401-5668TMP.html
-   8. /about
-   9. /about
-  10. https://github.com/gnikyt
-  11. https://linkedin.com/in/gnikyt
-  12. /assets/files/cv.pdf
-  13. /rss.xml
+   2. file:///
+   3. file:///category/shopify
+   4. file:///category/javascript
+   5. file:///tmp/shopify-remix-prisma-and-jest
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///prisma-jest-mysql-testing/index.md
+   8. file:///prisma-jest-mysql-testing/index.txt
+   9. file:///tmp/lynxXXXXaQqI23/L481876-6968TMP.html
+  10. file:///about
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. file:///assets/files/cv.pdf
+  15. file:///rss.xml

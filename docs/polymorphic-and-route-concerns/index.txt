@@ -5,7 +5,7 @@
                     Polymorphic route concerns with Rails /
 
    /* Jan 01, 2016  —  5.1KB */
-   Logo of ruby Logo of rails
+   [3]Logo of ruby [4]Logo of rails
 
    The goal of this post is to outline some tips on easily figuring out
    the parent object for a polymorphic modal/route/controller. Let’s start
@@ -13,7 +13,7 @@
 
 Polymorphic
 
-   For those unfamiliar to it, [3]Polymorphic is an Active Record
+   For those unfamiliar to it, [5]Polymorphic is an Active Record
    association type where a model can belong to other models. As a simple
    example, you could have an Ingredient model which can be polymorphic
    and belong to different types of models such as Baking, Cooking, or
@@ -153,21 +153,21 @@ end
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [4]CC-4.0.
+   Copyright under [6]CC-4.0.
 
    Available in the following alternative formats:
-   [5]MD  /  [6]TXT  /  [7]PDF
+   [7]MD  /  [8]TXT  /  [9]PDF
 
-   [8]Ty King
+   [10]Ty King
 
-[9]Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [10]Github[11]LinkedIn[12]CV[13]RSS
+   [12]Github[13]LinkedIn[14]CV[15]RSS
 
      *
      *
@@ -181,15 +181,17 @@ end
 References
 
    1. /rss.xml
-   2. /
-   3. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-   4. https://creativecommons.org/licenses/by/4.0/
-   5. /polymorphic-and-route-concerns/index.md
-   6. /polymorphic-and-route-concerns/index.txt
-   7. /tmp/lynxXXXX7FHmlL/L286509-1586TMP.html
-   8. /about
-   9. /about
-  10. https://github.com/gnikyt
-  11. https://linkedin.com/in/gnikyt
-  12. /assets/files/cv.pdf
-  13. /rss.xml
+   2. file:///
+   3. file:///category/ruby
+   4. file:///category/rails
+   5. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///polymorphic-and-route-concerns/index.md
+   8. file:///polymorphic-and-route-concerns/index.txt
+   9. file:///tmp/lynxXXXXrgFzwq/L491639-761TMP.html
+  10. file:///about
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. file:///assets/files/cv.pdf
+  15. file:///rss.xml
