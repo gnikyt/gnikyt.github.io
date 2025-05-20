@@ -479,7 +479,7 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. file:///handling-shopify-api-limits-goroutines/index.md
    8. file:///handling-shopify-api-limits-goroutines/index.txt
-   9. file:///tmp/lynxXXXXXvsQfc/L481207-9712TMP.html
+   9. file:///tmp/lynxXXXXZ549Iw/L8487-2203TMP.html
   10. file:///about
   11. file:///about
   12. https://github.com/gnikyt

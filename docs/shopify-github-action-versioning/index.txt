@@ -69,7 +69,7 @@ gs_schema.json
 
    Appendix
 
-   This post is 2 years old and may contain outdated information.
+   This post is 3 years old and may contain outdated information.
 
    Copyright under [7]CC-4.0.
 
@@ -107,7 +107,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///shopify-github-action-versioning/index.md
    9. file:///shopify-github-action-versioning/index.txt
-  10. file:///tmp/lynxXXXXijRF8s/L484443-5643TMP.html
+  10. file:///tmp/lynxXXXX1BjPFu/L11721-7117TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

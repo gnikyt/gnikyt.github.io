@@ -69,7 +69,7 @@ References
    8. https://creativecommons.org/licenses/by/4.0/
    9. file:///phpmailer-contrib/index.md
   10. file:///phpmailer-contrib/index.txt
-  11. file:///tmp/lynxXXXXn8eA6R/L493272-199TMP.html
+  11. file:///tmp/lynxXXXXUE72Pk/L20535-1615TMP.html
   12. file:///about
   13. file:///about
   14. https://github.com/gnikyt

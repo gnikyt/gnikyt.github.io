@@ -207,7 +207,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
    9. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
-  10. file:///tmp/lynxXXXXkMq75S/L487089-1112TMP.html
+  10. file:///tmp/lynxXXXXlBJlHr/L14363-8950TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt
