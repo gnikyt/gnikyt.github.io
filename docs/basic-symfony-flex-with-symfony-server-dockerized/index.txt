@@ -141,7 +141,8 @@ Running
    redis and db for the address.
 
    Examples:
-     * DATABASE_URL=mysql://:@mysql:3306/?serverVersion=5.7
+     * DATABASE_URL=mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@mysql:33
+       06/${DATABASE_NAME}?serverVersion=5.7
      * REDIS_URL=redis://redis:6379?timeout=5
 
    Finally, executing docker-compose up will build and boot the
@@ -207,7 +208,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
    9. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
-  10. file:///tmp/lynxXXXXlBJlHr/L14363-8950TMP.html
+  10. file:///tmp/lynxXXXXJn23y0/L187893-8787TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

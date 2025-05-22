@@ -184,7 +184,7 @@ References
    8. https://creativecommons.org/licenses/by/4.0/
    9. file:///wplocal-with-wsl/index.md
   10. file:///wplocal-with-wsl/index.txt
-  11. file:///tmp/lynxXXXXzDJveH/L10458-2416TMP.html
+  11. file:///tmp/lynxXXXXVnc478/L180128-6184TMP.html
   12. file:///about
   13. file:///about
   14. https://github.com/gnikyt

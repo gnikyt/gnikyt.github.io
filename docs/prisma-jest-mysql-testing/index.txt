@@ -69,7 +69,7 @@ if (!existsSync(typesPath)) {
 // Prisma setup... generate a unique database for MySQL, override existing Prism
 a implementation via Jest mock
 const dbName = `test-${new Date().getTime()}`;
-process.env.DATABASE_URL = `/`;
+process.env.DATABASE_URL = `${process.env.DATABASE_URL}/${dbName}`;
 const prisma = new PrismaClient({
   datasources: { db: { url: process.env.DATABASE_URL } },
 });
@@ -81,7 +81,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
   // Drop the database and disconnect
-  await prisma.$executeRawUnsafe(`DROP DATABASE \`\`;`);
+  await prisma.$executeRawUnsafe(`DROP DATABASE \`${dbName}\`;`);
   await prisma.$disconnect();
 });
 
@@ -291,7 +291,7 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. file:///prisma-jest-mysql-testing/index.md
    8. file:///prisma-jest-mysql-testing/index.txt
-   9. file:///tmp/lynxXXXXsThb9F/L9164-2372TMP.html
+   9. file:///tmp/lynxXXXXuDaxoD/L177680-6615TMP.html
   10. file:///about
   11. file:///about
   12. https://github.com/gnikyt

@@ -85,7 +85,7 @@ References
    5. https://creativecommons.org/licenses/by/4.0/
    6. file:///wsl-network-speed/index.md
    7. file:///wsl-network-speed/index.txt
-   8. file:///tmp/lynxXXXXoHET1h/L12040-4909TMP.html
+   8. file:///tmp/lynxXXXXiZBODB/L183357-4743TMP.html
    9. file:///about
   10. file:///about
   11. https://github.com/gnikyt

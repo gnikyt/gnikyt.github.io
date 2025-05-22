@@ -1,8 +1,8 @@
 <item>
-  <title>${title}</title>
-  <link>https://gnikyt.com/${handle}</link>
-  <description>${excerpt}</description>
-  <guid isPermaLink="true">https://gnikyt.com/${handle}</guid>
-  <pubDate>${date_iso8601}</pubDate>
-  ${foreach:category:,:<category>|value|</category>}
+  <title>{{title}}</title>
+  <link>https://gnikyt.com/{{handle}}</link>
+  <description>{{excerpt}}</description>
+  <guid isPermLink="true">https://gnikyt.com/{{handle}}</guid>
+  <pubDate>{{date_iso8601}}</pubDate>
+  {{%foreach category ,}}<category>{{value}}</category>{{/foreach category ,}}
 </item>

@@ -1,4 +1,4 @@
-${inc:templates/_layout_head.html}
+{{>templates/_layout_head.html}}
 
 <section class="tab">
   <header>
@@ -12,7 +12,7 @@ ${inc:templates/_layout_head.html}
       </div>
 
       <ul class="index-list index-list--no-margins">
-        ${home_entries}
+        {{home_entries}}
       </ul>
     </div>
   </div>
@@ -22,4 +22,4 @@ ${inc:templates/_layout_head.html}
   <a class="sources__link" href="/archive">Archive &rsaquo;</a>
 </section>
 
-${inc:templates/_layout_tail.html}
+{{>templates/_layout_tail.html}}

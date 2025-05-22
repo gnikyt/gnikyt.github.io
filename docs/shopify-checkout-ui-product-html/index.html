@@ -34,8 +34,7 @@
     "@type": "BlogPosting",
     "dateModified": "2024-05-10T13:30:56-0230",
     "datePublished": "2024-05-10T13:30:56-0230",
-    "description": "
-    ## Background
+    "description": "## Background
 
     A project last month required a build of an upselling checkout UI extension for Shopify. The client wanted the descriptio...",
     "headline": "Shopify checkout extension with product HTML",
@@ -64,7 +63,7 @@
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="shopify-checkout-ui-product-html">
+  <body class="layout layout--post" data-handle="${handle}">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
@@ -684,8 +683,8 @@
 "fu">parseCloseTag</span>(html<span class="op">,</span> name) {</span>
 <span id="cb5-88"><a aria-hidden="true" href="#cb5-88" tabindex="-1"></a>  <span class="co">// Tag itself</span></span>
 <span id="cb5-89"><a aria-hidden="true" href="#cb5-89" tabindex="-1"></a>  <span class=
-"kw">const</span> tag <span class="op">=</span> <span class="vs">`&lt;/</span><span class="sc"></span><span class=
-"vs">&gt;`</span><span class="op">;</span></span>
+"kw">const</span> tag <span class="op">=</span> <span class="vs">`&lt;/</span><span class=
+"sc">${</span>name<span class="sc">}</span><span class="vs">&gt;`</span><span class="op">;</span></span>
 <span id="cb5-90"><a aria-hidden="true" href="#cb5-90" tabindex="-1"></a></span>
 <span id="cb5-91"><a aria-hidden="true" href="#cb5-91" tabindex="-1"></a>  <span class=
 "co">// End tag positions</span></span>
@@ -1044,7 +1043,7 @@
                 Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
                 "/shopify-checkout-ui-product-html/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
                 href="/shopify-checkout-ui-product-html/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
-                "sources__link" href="" onclick="window.print(); return false;">PDF</a></span>
+                "sources__link" href="#" onclick="window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

@@ -28,6 +28,7 @@ docs/hello-world/
 * `pandoc` - For HTML generation support from Markdown and for PDF output.
 * `lynx` - For TXT generation support from HTML.
 * `tidy` - For cleaning resulting HTML and XML.
+* `grep`, `pcregrep` - For extractions.
 
 ## Building
 
@@ -71,6 +72,48 @@ To preview your site, you can open a terminal instance and utilize Python's webs
 `cd docs && python -m http.server 8080`
 
 Then, visit `http://localhost:8080/` to view.
+
+## Templating
+
+Contains a home-baked, simple, template engine which is similar to Mustache.
+
+**If**
+
+`{{#is_post}}Is a post{{/is_post}}`
+
+`{{#is_page}}{{>templates/partial.html}}{{/#is_page}}`
+
+**Unless**
+
+`{{^is_post}}Is not a post{{/is_post}}`
+
+**Variables**
+
+`{{handle}}`
+
+**Includes**
+
+`{{>templates/partial.html}}`
+
+**Looping**
+
+`{{%foreach var}}{{key}}: {{value}}{{/foreach var}}`, existing array/hash.
+
+`{{%foreach another_var ,}}{{key}}: {{value}}{{/foreach another_var ,}}`, variable to turn into array with delimiter of `,`.
+
+**Custom functions**
+
+```bash
+fn_downcase() {
+  local block
+  block=$(cat -)
+  # optionally reparse block contents:
+  # block=$(echo "$block" | parse_tpl)
+  echo "${block,,}"
+}
+```
+
+`{{%downcase}}Hello: {{name}}{{/downcase}}` => `hello: joe`.
 
 ## Misc
 

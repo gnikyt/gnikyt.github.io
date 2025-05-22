@@ -7,12 +7,12 @@
    Displaying react entries sorted by creation date in descending order.
      * $>
 
-[3]Shopify checkout extension with product HTML
+[3]${title}
        May 10, 2024
        14KB
      * $>
 
-[4]Shopify Checkout Extension to backend fetching
+[4]${title}
        Feb 27, 2024
        3.1KB
 

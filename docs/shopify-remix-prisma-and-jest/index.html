@@ -34,8 +34,7 @@
     "@type": "BlogPosting",
     "dateModified": "2024-01-10T13:17:03-0330",
     "datePublished": "2024-01-10T13:17:03-0330",
-    "description": "
-    ## Introduction
+    "description": "## Introduction
 
     Shopify has *(once again)* changed up their app framework and templates. This time, they're utilizing Remix which is a ...",
     "headline": "Shopify Remix, Prisma, and Jest",
@@ -64,7 +63,7 @@
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="shopify-remix-prisma-and-jest">
+  <body class="layout layout--post" data-handle="${handle}">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
@@ -350,7 +349,8 @@
 <span id="cb6-50"><a aria-hidden="true" href="#cb6-50" tabindex="-1"></a>    <span class="cf">await</span> <span class=
 "bu">Promise</span><span class="op">.</span><span class="fu">allSettled</span>([<span class=
 "fu">unlink</span>(dbPath)<span class="op">,</span> <span class="fu">unlink</span>(<span class=
-"vs">`</span><span class="sc"></span><span class="vs">-journal`</span>)])<span class="op">;</span></span>
+"vs">`</span><span class="sc">${</span>dbPath<span class="sc">}</span><span class="vs">-journal`</span>)])<span class=
+"op">;</span></span>
 <span id="cb6-51"><a aria-hidden="true" href="#cb6-51" tabindex="-1"></a>  } <span class="cf">catch</span> (e) {</span>
 <span id="cb6-52"><a aria-hidden="true" href="#cb6-52" tabindex="-1"></a>    <span class=
 "co">// Do nothing, we don't care</span></span>
@@ -460,8 +460,8 @@
 "co">// Set database URL override</span></span>
 <span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a><span class="bu">process</span><span class=
 "op">.</span><span class="at">env</span><span class="op">.</span><span class="at">DATABASE_URL</span> <span class=
-"op">=</span> <span class="vs">`file:</span><span class="sc"></span><span class="vs">`</span><span class=
-"op">;</span></span>
+"op">=</span> <span class="vs">`file:</span><span class="sc">${</span>dbPath<span class="sc">}</span><span class=
+"vs">`</span><span class="op">;</span></span>
 <span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a></span>
 <span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a><span class=
 "co">// Prisma client</span></span>
@@ -738,7 +738,7 @@
                 Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
                 "/shopify-remix-prisma-and-jest/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
                 "/shopify-remix-prisma-and-jest/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
-                href="" onclick="window.print(); return false;">PDF</a></span>
+                href="#" onclick="window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

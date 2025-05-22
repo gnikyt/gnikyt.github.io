@@ -1,4 +1,4 @@
 <url>
-  <loc>https://gnikyt.com/${handle}</loc>
-  <lastmod>${date_iso8601}</lastmod>
+  <loc>https://gnikyt.com/{{handle}}</loc>
+  <lastmod>{{date_iso8601}}</lastmod>
 </url>

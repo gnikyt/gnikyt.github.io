@@ -7,37 +7,37 @@
    Displaying ruby entries sorted by creation date in descending order.
      * $>
 
-[3]shopify_app_whitelist Gem
+[3]${title}
        Nov 26, 2016
        1.5KB
      * $>
 
-[4]Testing with shopify_app
+[4]${title}
        Jun 21, 2016
        2.3KB
      * $>
 
-[5]Precompiling assets with Rails Engine
+[5]${title}
        May 03, 2016
        2.3KB
      * $>
 
-[6]Redis autosuggest with Sinatra
+[6]${title}
        Mar 02, 2016
        5.6KB
      * $>
 
-[7]Extending a Rails Engine
+[7]${title}
        Feb 20, 2016
        4.4KB
      * $>
 
-[8]Polymorphic route concerns with Rails
+[8]${title}
        Jan 01, 2016
        5.1KB
      * $>
 
-[9]ActiveRecord and Liquid Drops with Sinatra
+[9]${title}
        Oct 15, 2015
        3.7KB
 

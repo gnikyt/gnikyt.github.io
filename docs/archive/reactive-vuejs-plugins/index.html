@@ -34,8 +34,7 @@
     "@type": "BlogPosting",
     "dateModified": "2017-06-29T12:36:22-0230",
     "datePublished": "2017-06-29T12:36:22-0230",
-    "description": "
-    VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to deve...",
+    "description": "VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to deve...",
     "headline": "Reactive VueJS plugins",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -62,7 +61,7 @@
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="reactive-vuejs-plugins">
+  <body class="layout layout--post" data-handle="${handle}">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
@@ -209,7 +208,8 @@
 <span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a><span class="co">   */</span></span>
 <span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a>  <span class="fu">fetchData</span>() {</span>
 <span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a>    <span class="fu">fetch</span>(<span class=
-"vs">`https://some-api.com/games/</span><span class="sc"></span><span class="vs">/last`</span>)</span>
+"vs">`https://some-api.com/games/</span><span class="sc">${</span><span class="kw">this</span><span class=
+"op">.</span><span class="at">team</span><span class="sc">}</span><span class="vs">/last`</span>)</span>
 <span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a>      <span class="op">.</span><span class=
 "fu">then</span>(resp <span class="kw">=&gt;</span> resp<span class="op">.</span><span class="fu">json</span>())</span>
 <span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a>      <span class="op">.</span><span class=
@@ -325,7 +325,7 @@
               <p>
                 Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
                 "/reactive-vuejs-plugins/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
-                "/reactive-vuejs-plugins/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=""
+                "/reactive-vuejs-plugins/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href="#"
                 onclick="window.print(); return false;">PDF</a></span>
               </p>
             </div>

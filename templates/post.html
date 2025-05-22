@@ -1,23 +1,23 @@
-${inc:templates/_layout_head.html}
+{{>templates/_layout_head.html}}
 
 <article class="tab post">
   <header class="post__head">
-    <h1 class="tab__title tab__title--short post__title">${title} /</h1>
+    <h1 class="tab__title tab__title--short post__title">{{title}} /</h1>
   </header>
 
   <div class="tab__container">
     <div class="tab__content">
       <div class="post__meta content-container">
         <div class="post__details">
-          /* <time class="post__time" datetime="${date_ymd}">${date_human}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">${post_size}</span> */
+          /* <time class="post__time" datetime="{{date_ymd}}">{{date_human}}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">{{post_size}}</span> */
         </div>
         <div class="post__category">
-          ${foreach:category:,:<a href="/category/|value|"><img src="/assets/images/category-|value|.svg" class="post__category-logo" alt="Logo of |value|"></a>}
+          {{%foreach category ,}}<a href="/category/{{value}}"><img src="/assets/images/category-{{value}}.svg" class="post__category-logo" alt="Logo of {{value}}"></a>{{/foreach category ,}}
         </div>
       </div>
 
       <div class="content-container">
-        ${parsed_md}
+        {{parsed_md}}
       </div>
     </div>
   </div>
@@ -28,18 +28,18 @@ ${inc:templates/_layout_head.html}
   <div class="tab__container">
     <div class="tab__content">
       <div class="content-container">
-        ${inc:templates/_old_warning.html:is_old}
+        {{#is_old}}{{>templates/_old_warning.html}}{{/is_old}}
 
         <p>
           Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-4.0</a>.
         </p>
 
         <p>
-          Available in the following alternative formats: ${inc:templates/_sources.html}
+          Available in the following alternative formats: {{>templates/_sources.html}}
         </p>
       </div>
     </div>
   </div>
 </section>
 
-${inc:templates/_layout_tail.html}
+{{>templates/_layout_tail.html}}

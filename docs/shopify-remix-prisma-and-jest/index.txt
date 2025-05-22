@@ -147,7 +147,7 @@ async function destroyDatabase(client: PrismaClient) {
   // Remove database
   try {
     const dbPath = (process.env.DATABASE_URL as string).replace("file:", "");
-    await Promise.allSettled([unlink(dbPath), unlink(`-journal`)]);
+    await Promise.allSettled([unlink(dbPath), unlink(`${dbPath}-journal`)]);
   } catch (e) {
     // Do nothing, we don't care
   }
@@ -210,7 +210,7 @@ const dbPath = path.resolve(__dirname, "..", "..", "prisma", `test-${new Date().
 getTime()}.sqlite`);
 
 // Set database URL override
-process.env.DATABASE_URL = `file:`;
+process.env.DATABASE_URL = `file:${dbPath}`;
 
 // Prisma client
 const prisma = new PrismaClient();
@@ -369,7 +369,7 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. file:///shopify-remix-prisma-and-jest/index.md
    8. file:///shopify-remix-prisma-and-jest/index.txt
-   9. file:///tmp/lynxXXXXfPNU1e/L10142-1843TMP.html
+   9. file:///tmp/lynxXXXXpqb4r7/L179513-5703TMP.html
   10. file:///about
   11. file:///about
   12. https://github.com/gnikyt

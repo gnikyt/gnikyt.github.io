@@ -7,12 +7,12 @@
    Displaying symfony entries sorted by creation date in descending order.
      * $>
 
-[3]Symfony Flex with Symfony Server Dockerized
+[3]${title}
        Feb 04, 2020
        5.5KB
      * $>
 
-[4]Single field error in Symfony
+[4]${title}
        Dec 12, 2013
        959B
 

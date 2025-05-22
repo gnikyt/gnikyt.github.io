@@ -104,7 +104,7 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///about/index.md
   17. file:///about/index.txt
-  18. file:///tmp/lynxXXXX247JSQ/L21516-5761TMP.html
+  18. file:///tmp/lynxXXXXi8bBjl/L202138-5835TMP.html
   19. file:///about
   20. file:///about
   21. https://github.com/gnikyt

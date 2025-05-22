@@ -8,42 +8,42 @@
    order.
      * $>
 
-[3]Shopify checkout extension with product HTML
+[3]${title}
        May 10, 2024
        14KB
      * $>
 
-[4]Shopify Prisma, Jest, and MySQL testing
+[4]${title}
        Mar 28, 2024
        6.5KB
      * $>
 
-[5]Shopify Checkout Extension to backend fetching
+[5]${title}
        Feb 27, 2024
        3.1KB
      * $>
 
-[6]Type definitions without emitting
+[6]${title}
        Feb 07, 2024
        3.4KB
      * $>
 
-[7]Shopify Remix, Prisma, and Jest
+[7]${title}
        Jan 10, 2024
        8.8KB
      * $>
 
-[8]Shopify Liquid Tester
+[8]${title}
        Nov 20, 2022
        3.9KB
      * $>
 
-[9]Shopify Node App custom multi-tenant support
+[9]${title}
        Nov 15, 2021
        10KB
      * $>
 
-[10]Reactive VueJS plugins
+[10]${title}
        Jun 29, 2017
        4.1KB
 

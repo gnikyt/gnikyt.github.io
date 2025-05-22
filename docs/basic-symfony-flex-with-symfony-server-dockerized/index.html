@@ -31,8 +31,7 @@
     "@type": "BlogPosting",
     "dateModified": "2020-02-04T00:56:22-0330",
     "datePublished": "2020-02-04T00:56:22-0330",
-    "description": "
-    Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes". It provides a way to create a very ...",
+    "description": "Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes". It provides a way to create a very ...",
     "headline": "Symfony Flex with Symfony Server Dockerized",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -59,7 +58,7 @@
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="basic-symfony-flex-with-symfony-server-dockerized">
+  <body class="layout layout--post" data-handle="${handle}">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
@@ -258,7 +257,7 @@ CMD cd /var/www/html &amp;& symfony server:start --no-tls --port=80</code></pre>
 
               <ul>
                 <li>
-                  <code>DATABASE_URL=mysql://:@mysql:3306/?serverVersion=5.7</code>
+                  <code>DATABASE_URL=mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@mysql:3306/${DATABASE_NAME}?serverVersion=5.7</code>
                 </li>
 
                 <li>
@@ -326,7 +325,7 @@ CMD cd /var/www/html &amp;& symfony server:start --no-tls --port=80</code></pre>
                 "/basic-symfony-flex-with-symfony-server-dockerized/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
                 "sources__link" href=
                 "/basic-symfony-flex-with-symfony-server-dockerized/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
-                href="" onclick="window.print(); return false;">PDF</a></span>
+                href="#" onclick="window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

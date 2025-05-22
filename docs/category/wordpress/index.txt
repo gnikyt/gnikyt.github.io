@@ -8,37 +8,37 @@
    order.
      * $>
 
-[3]WordPress Local with WSL
+[3]${title}
        Dec 07, 2023
        5.6KB
      * $>
 
-[4]WordPress with Docker
+[4]${title}
        Jun 15, 2017
        3.6KB
      * $>
 
-[5]WordPress User Themes
+[5]${title}
        May 21, 2015
        366B
      * $>
 
-[6]Original sized images from a WordPress Gallery
+[6]${title}
        Nov 08, 2014
        1.5KB
      * $>
 
-[7]ACF Simple Table
+[7]${title}
        Jul 18, 2014
        1.2KB
      * $>
 
-[8]PHPMailer contribution
+[8]${title}
        Feb 09, 2014
        1.4KB
      * $>
 
-[9]Sorting product by category in WooCommerce
+[9]${title}
        Oct 05, 2013
        6.0KB
 

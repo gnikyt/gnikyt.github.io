@@ -1,14 +1,14 @@
-${inc:templates/_layout_head.html}
+{{>templates/_layout_head.html}}
 
 <article class="tab post">
   <header class="post__head">
-    <h1 class="tab__title tab__title--short post__title">${title} /</h1>
+    <h1 class="tab__title tab__title--short post__title">{{title}} /</h1>
   </header>
 
   <div class="tab__container">
     <div class="tab__content">
       <div class="content-container">
-        ${parsed_md}
+        {{parsed_md}}
       </div>
     </div>
   </div>
@@ -24,11 +24,11 @@ ${inc:templates/_layout_head.html}
         </p>
 
         <p>
-          Additionally available in alternative formats: ${inc:templates/_sources.html}
+          Additionally available in alternative formats: {{>templates/_sources.html}}
         </p>
       </div>
     </div>
   </div>
 </section>
 
-${inc:templates/_layout_tail.html}
+{{>templates/_layout_tail.html}}

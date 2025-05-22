@@ -34,8 +34,7 @@
     "@type": "BlogPosting",
     "dateModified": "2015-10-15T02:00:00-0230",
     "datePublished": "2015-10-15T02:00:00-0230",
-    "description": "
-    Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci...",
+    "description": "Normally I use ERB when doing templates but there was a special use-case recently where I needed to allow the app user to modify a speci...",
     "headline": "ActiveRecord and Liquid Drops with Sinatra",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -62,7 +61,7 @@
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="activerecord-and-liquid-drops-with-sinatra">
+  <body class="layout layout--post" data-handle="${handle}">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
@@ -346,7 +345,7 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
                 "/activerecord-and-liquid-drops-with-sinatra/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
                 "sources__link" href=
                 "/activerecord-and-liquid-drops-with-sinatra/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
-                "sources__link" href="" onclick="window.print(); return false;">PDF</a></span>
+                "sources__link" href="#" onclick="window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

@@ -8,52 +8,52 @@
    order.
      * $>
 
-[3]New desktop setup
+[3]${title}
        Dec 11, 2022
        6.5KB
      * $>
 
-[4]Shopify Liquid Tester
+[4]${title}
        Nov 20, 2022
        3.9KB
      * $>
 
-[5]Joint Venture with LFL
+[5]${title}
        Nov 15, 2022
        6.0KB
      * $>
 
-[6]WSL network speed
+[6]${title}
        Nov 16, 2021
        1.8KB
      * $>
 
-[7]i3-Plasma for a solid match
+[7]${title}
        Aug 28, 2019
        4.4KB
      * $>
 
-[8]Reactive VueJS plugins
+[8]${title}
        Jun 29, 2017
        4.1KB
      * $>
 
-[9]Counting unique options in Shopify
+[9]${title}
        Jun 21, 2016
        2.1KB
      * $>
 
-[10]Precompiling assets with Rails Engine
+[10]${title}
        May 03, 2016
        2.3KB
      * $>
 
-[11]ACF Simple Table
+[11]${title}
        Jul 18, 2014
        1.2KB
      * $>
 
-[12]Single field error in Symfony
+[12]${title}
        Dec 12, 2013
        959B
 

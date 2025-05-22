@@ -34,8 +34,7 @@
     "@type": "BlogPosting",
     "dateModified": "2024-02-27T15:52:00-0330",
     "datePublished": "2024-02-27T15:52:00-0330",
-    "description": "
-    There are several posts around about people having issues figuring out how to send a fetch request from their checkout extension to thei...",
+    "description": "There are several posts around about people having issues figuring out how to send a fetch request from their checkout extension to thei...",
     "headline": "Shopify Checkout Extension to backend fetching",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -62,7 +61,7 @@
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
   </head>
-  <body class="layout layout--post" data-handle="generate-type-definitions-without-emitting-js">
+  <body class="layout layout--post" data-handle="${handle}">
     <header class="site-head container">
       <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
       "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
@@ -163,8 +162,8 @@
 "at">headers</span> <span class="op">?</span> init<span class="op">.</span><span class="at">headers</span> <span class=
 "op">:</span> {})<span class="op">,</span></span>
 <span id="cb2-23"><a aria-hidden="true" href="#cb2-23" tabindex="-1"></a>        Authorization<span class=
-"op">:</span> <span class="vs">`Bearer </span><span class="sc"></span><span class="vs">`</span><span class=
-"op">,</span></span>
+"op">:</span> <span class="vs">`Bearer </span><span class="sc">${</span>token<span class="sc">}</span><span class=
+"vs">`</span><span class="op">,</span></span>
 <span id="cb2-24"><a aria-hidden="true" href="#cb2-24" tabindex="-1"></a>      }<span class="op">,</span></span>
 <span id="cb2-25"><a aria-hidden="true" href="#cb2-25" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb2-26"><a aria-hidden="true" href="#cb2-26" tabindex="-1"></a>  }<span class="op">;</span></span>
@@ -291,7 +290,7 @@
                 "/generate-type-definitions-without-emitting-js/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
                 "sources__link" href=
                 "/generate-type-definitions-without-emitting-js/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
-                "sources__link" href="" onclick="window.print(); return false;">PDF</a></span>
+                "sources__link" href="#" onclick="window.print(); return false;">PDF</a></span>
               </p>
             </div>
           </div>

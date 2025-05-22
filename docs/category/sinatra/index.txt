@@ -7,12 +7,12 @@
    Displaying sinatra entries sorted by creation date in descending order.
      * $>
 
-[3]Redis autosuggest with Sinatra
+[3]${title}
        Mar 02, 2016
        5.6KB
      * $>
 
-[4]ActiveRecord and Liquid Drops with Sinatra
+[4]${title}
        Oct 15, 2015
        3.7KB
 

@@ -164,8 +164,8 @@ const shopContext = async (ctx, next) => {
   // Use shop domain to get env values
   const domain = cleanDomain(shop || shopDomain);
   Shopify.Context.initialize({
-    API_KEY: process.env[`SHOPIFY_API_KEY_`],
-    API_SECRET_KEY: process.env[`SHOPIFY_API_SECRET_`],
+    API_KEY: process.env[`SHOPIFY_API_KEY_${domain}`],
+    API_SECRET_KEY: process.env[`SHOPIFY_API_SECRET_${domain}`],
     SCOPES: process.env.SCOPES.split(","),
     HOST_NAME: process.env.HOST.replace(/https:\/\//, ""),
     API_VERSION: ApiVersion.October20,
@@ -229,7 +229,7 @@ const verifyHmac = async (ctx, next) => {
   const domain = cleanDomain(shop);
   const localHmac = generateLocalHmac(
     query,
-    process.env[`SHOPIFY_API_SECRET_`]
+    process.env[`SHOPIFY_API_SECRET_${domain}`]
   );
 
   // Validate the HMAC
@@ -261,7 +261,7 @@ import { cleanDomain } from "../../../services/utils";
 const appbridge = async (ctx) => {
   // Get the API key for the shop
   const domain = cleanDomain(ctx.query.shop);
-  const key = process.env[`SHOPIFY_API_KEY_`];
+  const key = process.env[`SHOPIFY_API_KEY_${domain}`];
 
   ctx.status = 200;
   ctx.body = { key };
@@ -300,7 +300,7 @@ MyApp.getInitialProps = async ({ ctx }) => {
   try {
     // Get the API key for the shop
     const query = new URLSearchParams(ctx.query).toString();
-    const response = await fetch(`/_appbridge?`);
+    const response = await fetch(`${HOST}/_appbridge?${query}`);
     const body = await response.json();
     key = body.key;
   } catch (e) {
@@ -406,7 +406,7 @@ References
    5. https://creativecommons.org/licenses/by/4.0/
    6. file:///shopify-node-app-custom-multi-tenant/index.md
    7. file:///shopify-node-app-custom-multi-tenant/index.txt
-   8. file:///tmp/lynxXXXXHPrZrM/L12389-1083TMP.html
+   8. file:///tmp/lynxXXXXVUWLDK/L183993-2462TMP.html
    9. file:///about
   10. file:///about
   11. https://github.com/gnikyt

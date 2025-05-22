@@ -7,7 +7,7 @@ cwd=$(dirname "$0")
 
 # Determine if libraries we need are installed.
 err=0
-cmds=("pandoc" "tidy" "lynx")
+cmds=("pandoc" "tidy" "lynx" "pcregrep" "grep")
 for cmd in "${!cmds[@]}"; do
   # shellcheck disable=SC2086
   if ! [ -x "$(command -v ${cmds[$cmd]})" ]; then
@@ -85,7 +85,7 @@ process_posts() {
     fi
 
     # Parse the post template and save result.
-    parsed_tpl=$(parse_tpl "${layouts["post"]}")
+    parsed_tpl=$(echo "${layouts["post"]}" | parse_tpl)
     mkdir "$target"
     echo "$parsed_tpl" > "$target"/index.html
 
@@ -99,15 +99,15 @@ process_posts() {
     # pandoc "$i" -o "$target/index.pdf"
 
     # Parse the post RSS template and save result.
-    parsed_tpl=$(parse_tpl "${layouts["_rss_item"]}")
+    parsed_tpl=$(echo "${layouts["_rss_item"]}" | parse_tpl)
     globals["rss_items"]="${globals["rss_items"]}${newline}${parsed_tpl}"
 
     # Parse the sitemap template and save result.
-    parsed_tpl=$(parse_tpl "${layouts["_sitemap_item"]}")
+    parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
     globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
 
     # Parse the home list template and save result.
-    parsed_tpl=$(parse_tpl "${layouts["_index_entry"]}")
+    parsed_tpl=$(echo "${layouts["_index_entry"]}" | parse_tpl)
     if [[ ${globals["is_archived"]} = "true" ]]; then
       # Archived entry.
       globals["archive_entries"]="${globals["archive_entries"]}${newline}${parsed_tpl}"
@@ -167,11 +167,11 @@ process_pages() {
     if [[ "$source" = "404.md" ]]; then
       # Parse the page template and save the result.
       globals["handle"]="404"
-      parsed_tpl=$(parse_tpl "${layouts["page"]}")
+      parsed_tpl=$(echo "${layouts["page"]}" | parse_tpl)
       echo "$parsed_tpl" > docs/404.html
     else
       # Parse the page template and save the result.
-      parsed_tpl=$(parse_tpl "${layouts["page"]}")
+      parsed_tpl=$(echo "${layouts["page"]}" | parse_tpl)
       target=docs/"${globals["handle"]}"
       mkdir -p "$target"
       echo "$parsed_tpl" > "$target"/index.html
@@ -183,7 +183,7 @@ process_pages() {
 
       # Parse the sitemap template and save result.
       globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-      parsed_tpl=$(parse_tpl "${layouts["_sitemap_item"]}")
+      parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
       globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
     fi
 
@@ -200,7 +200,7 @@ process_rss() {
   globals["layout"]="rss"
   globals["is_post"]=""
   globals["is_page"]=""
-  parsed_tpl=$(parse_tpl "${layouts["rss"]}")
+  parsed_tpl=$(echo "${layouts["rss"]}" | parse_tpl)
   echo "$parsed_tpl" > docs/rss.xml
   echo -e "Completed\n"
 }
@@ -215,7 +215,7 @@ process_index() {
   globals["handle"]="home"
 
   # Parse the index layout and save the result.
-  parsed_tpl=$(parse_tpl "${layouts["index"]}")
+  parsed_tpl=$(echo "${layouts["index"]}" | parse_tpl)
   parsed_tpl=${parsed_tpl/gnikyt | gnikyt/gnikyt}
   echo "$parsed_tpl" > docs/index.html
 
@@ -237,7 +237,7 @@ process_archive() {
 
   # Parse the archive layout and save the result.
   target=docs/archive
-  parsed_tpl=$(parse_tpl "${layouts["archive"]}")
+  parsed_tpl=$(echo "${layouts["archive"]}" | parse_tpl)
   parsed_tpl=${parsed_tpl/gnikyt | gnikyt/Archive | gnikyt}
   echo "$parsed_tpl" > "$target"/index.html
 
@@ -248,7 +248,7 @@ process_archive() {
   # Parse the sitemap template and save result.
   globals["handle"]="archive"
   globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-  parsed_tpl=$(parse_tpl "${layouts["_sitemap_item"]}")
+  parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
   globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
 
   echo -e "Completed\n"
@@ -281,7 +281,7 @@ process_categories() {
     mkdir -p "$target"
 
     # Parse the category layout and save the result.
-    parsed_tpl=$(parse_tpl "${layouts["category"]}")
+    parsed_tpl=$(echo "${layouts["category"]}" | parse_tpl)
     parsed_tpl=${parsed_tpl/gnikyt | gnikyt/Category: "$val" | gnikyt}
     echo "$parsed_tpl" > "$target"/index.html
 
@@ -290,13 +290,13 @@ process_categories() {
     echo "$text" > "$target"/index.txt
 
     # Parse the categories list template and save result.
-    parsed_tpl=$(parse_tpl "${layouts["_categories_entry"]}")
+    parsed_tpl=$(echo "${layouts["_categories_entry"]}" | parse_tpl)
     globals["categories_entries"]="${globals["categories_entries"]}${newline}${parsed_tpl}"
 
     # Parse the sitemap template and save result.
     globals["handle"]="category/${val}"
     globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-    parsed_tpl=$(parse_tpl "${layouts["_sitemap_item"]}")
+    parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
     globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
 
     echo -e "\033[1A\033[K[$val] Generated"
@@ -305,7 +305,7 @@ process_categories() {
 
   # Categories template.
   target="docs/category"
-  parsed_tpl=$(parse_tpl "${layouts["categories"]}")
+  parsed_tpl=$(echo "${layouts["categories"]}" | parse_tpl)
   parsed_tpl=${parsed_tpl/gnikyt | gnikyt/Categories | gnikyt}
   echo "$parsed_tpl" > "$target"/index.html
 
@@ -316,7 +316,7 @@ process_categories() {
   # Parse the sitemap template and save result.
   globals["handle"]="categories"
   globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-  parsed_tpl=$(parse_tpl "${layouts["_sitemap_item"]}")
+  parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
   globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
 
   echo -e "Completed: $count categories\n"
@@ -329,7 +329,7 @@ process_sitemap() {
   globals["layout"]="sitemap"
   globals["is_post"]=""
   globals["is_page"]=""
-  parsed_tpl=$(parse_tpl "${layouts["sitemap"]}")
+  parsed_tpl=$(echo "${layouts["sitemap"]}" | parse_tpl)
   echo "$parsed_tpl" > docs/sitemap.xml
   echo -e "Completed\n"
 }
