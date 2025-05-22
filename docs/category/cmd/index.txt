@@ -7,27 +7,27 @@
    Displaying cmd entries sorted by creation date in descending order.
      * $>
 
-[3]${title}
+[3]New desktop setup
        Dec 11, 2022
        6.5KB
      * $>
 
-[4]${title}
+[4]Shopify Github Action for versioning
        May 20, 2022
        2.5KB
      * $>
 
-[5]${title}
+[5]WSL network speed
        Nov 16, 2021
        1.8KB
      * $>
 
-[6]${title}
+[6]Git release branches
        Mar 10, 2021
        3.4KB
      * $>
 
-[7]${title}
+[7]i3-Plasma for a solid match
        Aug 28, 2019
        4.4KB
 

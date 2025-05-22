@@ -81,7 +81,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///laravel-shopify-featured-shopify-blog/index.md
    9. file:///laravel-shopify-featured-shopify-blog/index.txt
-  10. file:///tmp/lynxXXXXXLySI9/L185945-5743TMP.html
+  10. file:///tmp/lynxXXXXTV90I6/L285084-1558TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

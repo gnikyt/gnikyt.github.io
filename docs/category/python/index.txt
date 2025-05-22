@@ -7,12 +7,12 @@
    Displaying python entries sorted by creation date in descending order.
      * $>
 
-[3]${title}
+[3]Git release branches
        Mar 10, 2021
        3.4KB
      * $>
 
-[4]${title}
+[4]Async Shopify API for Python
        Jun 29, 2020
        4.0KB
 

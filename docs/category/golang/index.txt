@@ -7,7 +7,7 @@
    Displaying golang entries sorted by creation date in descending order.
      * $>
 
-[3]${title}
+[3]Handling Shopify API limits and Goroutines
        Apr 10, 2025
        15KB
 

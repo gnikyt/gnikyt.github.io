@@ -100,7 +100,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///testing-with-shopify-app/index.md
    9. file:///testing-with-shopify-app/index.txt
-  10. file:///tmp/lynxXXXXvZxOBE/L193716-6441TMP.html
+  10. file:///tmp/lynxXXXXSy8zY6/L293011-8421TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

@@ -7,82 +7,82 @@
    Displaying shopify entries sorted by creation date in descending order.
      * $>
 
-[3]${title}
+[3]Handling Shopify API limits and Goroutines
        Apr 10, 2025
        15KB
      * $>
 
-[4]${title}
+[4]Shopify checkout extension with product HTML
        May 10, 2024
        14KB
      * $>
 
-[5]${title}
+[5]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
        6.5KB
      * $>
 
-[6]${title}
+[6]Shopify Checkout Extension to backend fetching
        Feb 27, 2024
        3.1KB
      * $>
 
-[7]${title}
+[7]Shopify Remix, Prisma, and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[8]${title}
+[8]Shopify Liquid Tester
        Nov 20, 2022
        3.9KB
      * $>
 
-[9]${title}
+[9]Shopify Github Action for versioning
        May 20, 2022
        2.5KB
      * $>
 
-[10]${title}
+[10]Shopify Node App custom multi-tenant support
        Nov 15, 2021
        10KB
      * $>
 
-[11]${title}
+[11]Laravel Shopify cookieless
        Jun 29, 2021
        2.8KB
      * $>
 
-[12]${title}
+[12]Laravel Shopify featured on Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[13]${title}
+[13]Laravel Shopify ITP
        Feb 03, 2021
        3.1KB
      * $>
 
-[14]${title}
+[14]Async Shopify API for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[15]${title}
+[15]Introducing Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[16]${title}
+[16]shopify_app_whitelist Gem
        Nov 26, 2016
        1.5KB
      * $>
 
-[17]${title}
+[17]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[18]${title}
+[18]Counting unique options in Shopify
        Jun 21, 2016
        2.1KB
 

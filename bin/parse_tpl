@@ -32,6 +32,13 @@ readonly TOKEN_OP_FUNCTION="%"
 # Functions:
 #   {{@foreach var del}}{{key}}:{{value}}{{/split}}
 # Etc...
+# Goal was to stick close to Mustache features and a high-level.
+# Nesting is supported as well.
+# This works by finding all matches of the template syntax, then
+# going through each match one by one.
+# With each match, each character is inspected one by one.
+# By going through each character and positions, the applicable
+# template action is determined and then processed.
 parse_tpl() {
   local match
   local input
@@ -160,12 +167,19 @@ parse_tpl() {
         input="${input/"$match"/"$parsed"}"
         ;;
 
+      # Handle variables.
+      "$OP_VARIABLE")
+        parsed=$(fn_variable "$expr")
+        input="${input/"$match"/"$parsed"}"
+        ;;
+
       # Handle functions.
       "$OP_FUNCTION")
         local index=0
         local fn=""
         declare -a FN_ARGS
 
+        # Build out the list of arguments, if any.
         for part in $expr; do
           if [[ $index -eq 0 ]]; then
             fn=$part
@@ -181,15 +195,10 @@ parse_tpl() {
           ((index++))
         done
 
+        # Extract the block contents, pipe the block contents into the function with the args.
         block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        result=$(echo "$block" | fn_"$fn" "${FN_ARGS[@]}")
+        result=$(echo "$block" | tpl_"$fn" "${FN_ARGS[@]}")
         input="${input/"$match"/"$result"}"
-        ;;
-
-      # Handle variables.
-      "$OP_VARIABLE")
-        parsed=$(fn_variable "$expr")
-        input="${input/"$match"/"$parsed"}"
         ;;
 
       # Unknown, skip.
@@ -213,19 +222,24 @@ extract_block() {
   echo "${match:$2:$end_index}"
 }
 
-# fn_include handles including a partial in a template.
+# tpl_variable simply outputs the variable.
+tpl_variable() {
+  echo "${globals[$1]}" | sed '1{/^$/d}'
+}
+
+# tpl_include handles including a partial in a template.
 # It is ran through parse_tpl.
-fn_include() {
+tpl_include() {
   local contents
   contents="$(cat "$expr")"
   echo "$contents" | parse_tpl
 }
 
-# fn_if handles checking if a variable is truthy.
+# tpl_if handles checking if a variable is truthy.
 # If so, the block contents will be displayed.
 # If not, the block will be removed.
 # Block contents is ran through parse_tpl.
-fn_if() {
+tpl_if() {
   local block
   local value
 
@@ -242,11 +256,11 @@ fn_if() {
   fi
 }
 
-# fn_unless handles checking if a variable is empty or not defined.
+# tpl_unless handles checking if a variable is empty or not defined.
 # If so, the block will be removed.
 # If not, the block contents will be displayed.
 # Block contents is ran through parse_tpl.
-fn_unless() {
+tpl_unless() {
   local block
   local value
 
@@ -263,15 +277,10 @@ fn_unless() {
   fi
 }
 
-# fn_variable simply outputs the variable.
-fn_variable() {
-  echo "${globals[$1]}" | sed '1{/^$/d}'
-}
-
-# fn_foreach will loop block contents with provided variable and optional delimiter.
+# tpl_foreach will loop block contents with provided variable and optional delimiter.
 # {{value}} and {{key}} are special inside the block contents, it will be replaced
 # respectively with the value and key of the object.
-fn_foreach() {
+tpl_foreach() {
   local vals
   local parsed
   local tmp

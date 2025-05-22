@@ -179,7 +179,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///reactive-vuejs-plugins/index.md
    9. file:///reactive-vuejs-plugins/index.txt
-  10. file:///tmp/lynxXXXX2CgTw9/L191760-6328TMP.html
+  10. file:///tmp/lynxXXXXyA8mPv/L291029-159TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

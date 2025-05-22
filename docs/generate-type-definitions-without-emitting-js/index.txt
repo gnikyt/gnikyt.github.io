@@ -140,7 +140,7 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. file:///generate-type-definitions-without-emitting-js/index.md
    8. file:///generate-type-definitions-without-emitting-js/index.txt
-   9. file:///tmp/lynxXXXXM92FxV/L178289-394TMP.html
+   9. file:///tmp/lynxXXXX4aLUOS/L277293-8826TMP.html
   10. file:///about
   11. file:///about
   12. https://github.com/gnikyt
