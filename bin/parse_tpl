@@ -40,9 +40,9 @@ readonly TOKEN_OP_FUNCTION="%"
 # By going through each character and positions, the applicable
 # template action is determined and then processed.
 parse_tpl() {
-  local match
-  local input
-  input=$(cat)
+  local match=""
+  local input=""
+  input=$(cat -)
 
   if [[ $input =~ ^templates/.* ]]; then
     # Input is a template, get its contents.
@@ -61,7 +61,6 @@ parse_tpl() {
     local block=""
     local expr=""
     local op=""
-    local content=""
     local parsed=""
 
     while read -r -N1 char; do
@@ -94,7 +93,7 @@ parse_tpl() {
           fi
           ;;
 
-        # If or looping operation.
+        # If operation.
         "$TOKEN_OP_IF")
           if [[ $in_expr -eq 1 ]]; then
             expr=""
@@ -135,8 +134,6 @@ parse_tpl() {
             if [[ $is_close -eq 0 ]]; then
               expr="$expr$char"
             fi
-          else
-            content="$content$char"
           fi
           ;;
       esac
@@ -149,55 +146,34 @@ parse_tpl() {
     case "$op" in
       # Handle include of partial.
       "$OP_INCLUDE")
-        parsed=$(fn_include "$expr")
+        parsed=$(tpl_include "$expr")
         input="${input/"$match"/"$parsed"}"
         ;;
 
       # Handle if.
       "$OP_IF")
         block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        parsed=$(echo "$block" | fn_if "$expr")
+        parsed=$(echo "$block" | tpl_if "$expr")
         input="${input/"$match"/"$parsed"}"
         ;;
 
       # Handle unless.
       "$OP_UNLESS")
         block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        parsed=$(echo "$block" | fn_unless "$expr")
+        parsed=$(echo "$block" | tpl_unless "$expr")
         input="${input/"$match"/"$parsed"}"
         ;;
 
       # Handle variables.
       "$OP_VARIABLE")
-        parsed=$(fn_variable "$expr")
+        parsed=$(tpl_variable "$expr")
         input="${input/"$match"/"$parsed"}"
         ;;
 
       # Handle functions.
       "$OP_FUNCTION")
-        local index=0
-        local fn=""
-        declare -a FN_ARGS
-
-        # Build out the list of arguments, if any.
-        for part in $expr; do
-          if [[ $index -eq 0 ]]; then
-            fn=$part
-          else
-            local value="${globals[$part]}"
-            if [[ -n "$value" ]]; then
-              FN_ARGS+=("$value")
-            else
-              FN_ARGS+=("$part")
-            fi
-          fi
-
-          ((index++))
-        done
-
-        # Extract the block contents, pipe the block contents into the function with the args.
         block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        result=$(echo "$block" | tpl_"$fn" "${FN_ARGS[@]}")
+        result=$(echo "$block" | tpl_function "$expr")
         input="${input/"$match"/"$result"}"
         ;;
 
@@ -214,8 +190,8 @@ parse_tpl() {
 # It accepts two arguments; the first being the function name, the sectond being the start index of the block.
 # It will return the contents between the block tags.
 extract_block() {
-  local match
-  local end_index
+  local match=""
+  local end_index=0
 
   match=$(cat -)
   end_index=$(echo "${match:$2}" | grep -b -o "{{/$1}}" | tail -n 1 | cut -d':' -f1)
@@ -230,7 +206,7 @@ tpl_variable() {
 # tpl_include handles including a partial in a template.
 # It is ran through parse_tpl.
 tpl_include() {
-  local contents
+  local contents=""
   contents="$(cat "$expr")"
   echo "$contents" | parse_tpl
 }
@@ -240,8 +216,8 @@ tpl_include() {
 # If not, the block will be removed.
 # Block contents is ran through parse_tpl.
 tpl_if() {
-  local block
-  local value
+  local block=""
+  local value=""
 
   block=$(cat -)
   value="${globals[$1]}"
@@ -261,8 +237,8 @@ tpl_if() {
 # If not, the block contents will be displayed.
 # Block contents is ran through parse_tpl.
 tpl_unless() {
-  local block
-  local value
+  local block=""
+  local value=""
 
   block=$(cat -)
   value="${globals[$1]}"
@@ -277,15 +253,44 @@ tpl_unless() {
   fi
 }
 
+# tpl_function will run a custom function.
+# If arguments exist, they will be passed to the custom function.
+# Block content will be piped to the function.
+tpl_function() {
+  local fn=""
+  local block=""
+  local index=0
+  declare -a args
+
+  # Build out the list of arguments, if any.
+  block=$(cat -)
+  for part in $1; do
+    if [[ $index -eq 0 ]]; then
+      fn=$part
+    else
+      local value="${globals[$part]}"
+      if [[ -n "$value" ]]; then
+        args+=("$value")
+      else
+        args+=("$part")
+      fi
+    fi
+
+    ((index++))
+  done
+
+  echo "$block" | tpl_"$fn" "${args[@]}"
+}
+
 # tpl_foreach will loop block contents with provided variable and optional delimiter.
 # {{value}} and {{key}} are special inside the block contents, it will be replaced
 # respectively with the value and key of the object.
 tpl_foreach() {
   local vals
-  local parsed
-  local tmp
-  local value
-  local block
+  local parsed=""
+  local tmp=""
+  local value=""
+  local block=""
 
   block=$(cat -)
   if [[ -z "$2" ]]; then

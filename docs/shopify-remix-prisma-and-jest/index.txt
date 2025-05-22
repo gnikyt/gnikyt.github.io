@@ -369,7 +369,7 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. file:///shopify-remix-prisma-and-jest/index.md
    8. file:///shopify-remix-prisma-and-jest/index.txt
-   9. file:///tmp/lynxXXXX2mRPLZ/L278547-9034TMP.html
+   9. file:///tmp/lynxXXXXLcadSy/L580236-6352TMP.html
   10. file:///about
   11. file:///about
   12. https://github.com/gnikyt

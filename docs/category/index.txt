@@ -7,39 +7,39 @@
    Displaying all categories with their post count.
      * $>
 
-[3]golang
+[3]cmd
+       6 posts
+       Logo of cmd
+     * $>
+
+[4]golang
        1 posts
        Logo of golang
      * $>
 
-[4]shopify
+[5]shopify
        16 posts
        Logo of shopify
      * $>
 
-[5]javascript
+[6]javascript
        8 posts
        Logo of javascript
      * $>
 
-[6]react
+[7]react
        2 posts
        Logo of react
      * $>
 
-[7]php
+[8]php
        16 posts
        Logo of php
      * $>
 
-[8]wordpress
+[9]wordpress
        7 posts
        Logo of wordpress
-     * $>
-
-[9]cmd
-       5 posts
-       Logo of cmd
      * $>
 
 [10]laravel
@@ -107,13 +107,13 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///category/golang
-   4. file:///category/shopify
-   5. file:///category/javascript
-   6. file:///category/react
-   7. file:///category/php
-   8. file:///category/wordpress
-   9. file:///category/cmd
+   3. file:///category/cmd
+   4. file:///category/golang
+   5. file:///category/shopify
+   6. file:///category/javascript
+   7. file:///category/react
+   8. file:///category/php
+   9. file:///category/wordpress
   10. file:///category/laravel
   11. file:///category/python
   12. file:///category/symfony

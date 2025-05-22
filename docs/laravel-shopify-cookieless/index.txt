@@ -124,7 +124,7 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///laravel-shopify-cookieless/index.md
   12. file:///laravel-shopify-cookieless/index.txt
-  13. file:///tmp/lynxXXXXxnCTCX/L283765-9280TMP.html
+  13. file:///tmp/lynxXXXXK06uI1/L585438-6005TMP.html
   14. file:///about
   15. file:///about
   16. https://github.com/gnikyt

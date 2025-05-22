@@ -1,0 +1,897 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Building a BASH template engine | gnikyt
+    </title>
+    <link href="https://gnikyt.com/building-bash-template-engine" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a small blog to maintain. I wanted some..."
+    name="description">
+    <meta content="2025-05-22T14:09:31-0230" property="article:published_time">
+    <meta content="Building a BASH template engine" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a small blog to maintain. I wanted some..."
+    property="og:description">
+    <meta content="https://gnikyt.com/building-bash-template-engine" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a small blog to maintain. I wanted some..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-05-22T14:09:31-0230",
+    "datePublished": "2025-05-22T14:09:31-0230",
+    "description": "Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a small blog to maintain. I wanted some...",
+    "headline": "Building a BASH template engine",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/building-bash-template-engine"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/building-bash-template-engine"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="building-bash-template-engine">
+    <header class="site-head container">
+      <span class="site-head__item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+      "site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            Building a BASH template engine /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2025-05-22">May 22,
+                2025</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">13KB</span> */
+              </div>
+
+              <div class="post__category">
+                <a href="/category/cmd"><img alt="Logo of cmd" class="post__category-logo" src=
+                "/assets/images/category-cmd.svg"></a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a
+                small blog to maintain. I wanted something more “portable” without libraries, so I settled to build my
+                blog and it’s generation with BASH.
+              </p>
+
+              <p>
+                Everything needed was built out: frontmatter processing, Markdown to HTML generation, post handling,
+                page handling, category support, RSS support, sitemap support, and more.
+              </p>
+
+              <p>
+                Originally, I wrote a very basic template handler which essentially just sniffed the first few
+                characters of a string to know an action to take, example: <code>${inc:file.html}</code> would include
+                a file into the template, <code>${var}</code> would replace itself with the applicable variable, and so
+                on. It began getting more complex where I required some basic if/else statements and looping, which was
+                something difficult with the basic template handler I originally wrote.
+              </p>
+
+              <p>
+                I decided to rebuild it from scratch, taking inspiration from Mustache syntax, and ensuring it was more
+                than just a simple find and replace operation as it was before.
+              </p>
+
+              <p>
+                The plan was to do the following:
+              </p>
+
+              <ul>
+                <li>Detect the applicable template tags
+                </li>
+
+                <li>For each template tag:
+                  <ul>
+                    <li>Parse it character-by-character to determine:
+                      <ul>
+                        <li>It’s operation type
+                        </li>
+
+                        <li>It’s optional ask
+                        </li>
+
+                        <li>It’s optional contents
+                        </li>
+
+                        <li>And more
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>Once determined, run the applicable operation to produce a result
+                </li>
+
+                <li>Take the result and replace the original template tag with that result
+                </li>
+              </ul>
+
+              <p>
+                Initial supports I targeted:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Variables</strong>: <code>{{var}}</code>
+                </li>
+
+                <li>
+                  <strong>If statements</strong>: <code>{{#var}}I exist!{{/var}}</code>
+                </li>
+
+                <li>
+                  <strong>Unless statements</strong>: <code>{{^var}}I do not exist!{{/var}}</code>
+                </li>
+
+                <li>
+                  <strong>Partial includes</strong>: <code>{{&gt;file.html}}</code>
+                </li>
+
+                <li>
+                  <strong>Looping</strong>: <code>{{%foreach var}}{{key}}: {{value}}{{/foreach var}}</code>
+                </li>
+
+                <li>
+                  <strong>Custom functions</strong>: <code>{{%money USD}}4500{{/money USD}}</code>
+                </li>
+              </ul>
+
+              <p>
+                Starting the parser:
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class=
+                "co"># TOKEN_MATCH represents the REGEX for token detection.</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class=
+"co"># Format of `{{(#|^|&gt;|%)(KEY)}}(CONTENT)({{/(KEY)}})`.</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_MATCH</span><span class="op">=</span><span class=
+"st">'\{\{([#^&gt;%@])([^}]+?)\}\}(?:(?R)|.)*?\{\{/\2\}\}|\{\{[\w#^&gt;%@./,-]+\}\}'</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="co"># Operations.</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">OP_UNLESS</span><span class="op">=</span><span class="st">"unless"</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">OP_IF</span><span class="op">=</span><span class="st">"if"</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">OP_INCLUDE</span><span class="op">=</span><span class="st">"include"</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">OP_VARIABLE</span><span class="op">=</span><span class="st">"variable"</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">OP_FUNCTION</span><span class="op">=</span><span class="st">"function"</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="co"># Tokens.</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_OPEN_BRACE</span><span class="op">=</span><span class="st">"{"</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_CLOSE_BRACE</span><span class="op">=</span><span class="st">"}"</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_CLOSE_SLASH</span><span class="op">=</span><span class="st">"/"</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_OP_UNLESS</span><span class="op">=</span><span class="st">"^"</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_OP_IF</span><span class="op">=</span><span class="st">"#"</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_OP_INCLUDE</span><span class="op">=</span><span class="st">"&gt;"</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a><span class="bu">readonly</span> <span class=
+"va">TOKEN_OP_FUNCTION</span><span class="op">=</span><span class="st">"%"</span></span></code></pre>
+              </div>
+
+              <p>
+                Here we have our REGEX expression (which can only be used with <code>pcregrep</code>) to match the
+                template tags. Basic <code>grep</code> (along with BASH), does not support expressions complex enough
+                to handle template tag detection, specifically detection of nested template tags. Additionally, we
+                define our key tokens to look for and the operation mapping to perform.
+              </p>
+
+              <p>
+                <em>The REGEX was quite hard to come up with. I’m sure someone with more REGEX knowledge could make the
+                expression more concise.</em>
+              </p>
+
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="fu">parse_tpl()</span> <span class=
+"kw">{</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  <span class="bu">local</span> <span class=
+"va">match</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>  <span class="bu">local</span> <span class=
+"va">input</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>  <span class="va">input</span><span class=
+"op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">-</span><span class=
+"va">)</span></span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a>  <span class="cf">if</span> <span class=
+"kw">[[</span> <span class="va">$input</span> <span class="ot">=~</span> <span class="pp">^</span><span class=
+"ss">templates/</span><span class="pp">.*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a>    <span class=
+"co"># Input is a template, get its contents.</span></span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a>    <span class="va">input</span><span class=
+"op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">"</span><span class=
+"va">$input</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb2-11"><a aria-hidden="true" href="#cb2-11" tabindex="-1"></a>  <span class="cf">fi</span></span>
+<span id="cb2-12"><a aria-hidden="true" href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a aria-hidden="true" href="#cb2-13" tabindex="-1"></a>  <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Template data is piped into <code>parse_tpl</code>, where on line 4, <code>input=$(cat -)</code> we
+                capture this input. Next, we then check if the <code>input</code> variable starts with
+                <code>templates/</code>, if it does, we know that this is not template data, but a template path, for
+                which we then get that template’s contents if that is the case. This allows the parsing function to
+                work with both template data and template files at the same time.
+              </p>
+
+              <p>
+                Next, we need to find all template tags in the <code>input</code> so we can loop them one-by-one to
+                process.
+              </p>
+
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a>  <span class="co"># ...</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>  <span class=
+"co"># Loop all matches.</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>  <span class="cf">while</span> <span class=
+"va">match</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$input</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"fu">pcregrep</span> <span class="at">-M</span> <span class="at">-o</span> <span class="st">"</span><span class=
+"va">$TOKEN_MATCH</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">head</span> <span class=
+"at">-n</span> 1<span class="va">)</span><span class="kw">;</span> <span class="bu">[</span> <span class=
+"ot">-n</span> <span class="st">"</span><span class="va">$match</span><span class="st">"</span> <span class=
+"bu">]</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">prev_char</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">next_char</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">index</span><span class="op">=</span>0</span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">block_start_index</span><span class="op">=</span>0</span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">in_expr</span><span class="op">=</span>0</span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">is_close</span><span class="op">=</span>0</span>
+<span id="cb3-11"><a aria-hidden="true" href="#cb3-11" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">is_block</span><span class="op">=</span>0</span>
+<span id="cb3-12"><a aria-hidden="true" href="#cb3-12" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">block</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb3-13"><a aria-hidden="true" href="#cb3-13" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">expr</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb3-14"><a aria-hidden="true" href="#cb3-14" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">op</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb3-15"><a aria-hidden="true" href="#cb3-15" tabindex="-1"></a>    <span class="bu">local</span> <span class=
+"va">parsed</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb3-16"><a aria-hidden="true" href="#cb3-16" tabindex="-1"></a>  </span>
+<span id="cb3-17"><a aria-hidden="true" href="#cb3-17" tabindex="-1"></a>  <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                This will take the <code>input</code> variable, pipe it to <code>pcregrep</code> with our REGEX
+                expression and grab the first match. It will keep doing this until nothing else can be found in
+                <code>input</code>. Variables are then setup to track the state of the current match… items such as
+                what the previous character was so we can “look behind”, what the next character is so we can “look
+                ahead”, the block content, the expression, the operation type, the parsed output, and more.
+              </p>
+
+              <p>
+                Now that we have loop running for each match, we need to parse each character of the match one-by-one
+                to determine its operation, the current index (column), expression, optional arguments, optional block
+                content, and more.
+              </p>
+
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>    <span class="cf">while</span> <span class=
+"bu">read</span> <span class="at">-r</span> <span class="at">-N1</span> <span class="va">char</span><span class=
+"kw">;</span> <span class="cf">do</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>      <span class=
+"va">next_char</span><span class="op">=</span><span class="va">${match</span><span class="op">:</span><span class=
+"va">$index</span>+<span class="dv">1</span><span class="op">:</span><span class="dv">1</span><span class=
+"va">}</span></span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>      <span class="co"># ...</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>      <span class=
+"co"># Record this character, increase index.</span></span>
+<span id="cb4-9"><a aria-hidden="true" href="#cb4-9" tabindex="-1"></a>      <span class=
+"va">prev_char</span><span class="op">=</span><span class="st">"</span><span class="va">$char</span><span class=
+"st">"</span></span>
+<span id="cb4-10"><a aria-hidden="true" href="#cb4-10" tabindex="-1"></a>      <span class="kw">((</span><span class=
+"va">index</span><span class="op">++</span><span class="kw">))</span></span>
+<span id="cb4-11"><a aria-hidden="true" href="#cb4-11" tabindex="-1"></a>    <span class="cf">done</span> <span class=
+"op">&lt;</span> <span class="op">&lt;(</span><span class="bu">echo</span> <span class="at">-n</span> <span class=
+"st">"</span><span class="va">$match</span><span class="st">"</span><span class="op">)</span></span>
+<span id="cb4-12"><a aria-hidden="true" href="#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a aria-hidden="true" href="#cb4-13" tabindex="-1"></a>    <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Here we are using <code>read</code> to read the piped in value of <code>match</code> one character at a
+                time. The next character is stored and the end of the loop, the previous character (current) is stored
+                while increasing the index (column) of where our current read position is in the match.
+              </p>
+
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" href=
+                "#cb5-1" tabindex="-1"></a>      <span class="co"># ...</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>      <span class="cf">case</span> <span class=
+"va">$char</span> <span class="kw">in</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a>      <span class="cf">esac</span></span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a>      <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Utilizing a switch, each character will pass through this. We want to detect our tokens and start
+                tracking state.
+              </p>
+
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a>        <span class=
+"co"># Handle opening brace of expression.</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a>        <span class="st">"</span><span class=
+"va">$TOKEN_OPEN_BRACE</span><span class="st">"</span><span class="er">)</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$prev_char</span><span class=
+"st">"</span> <span class="ot">=</span> <span class="st">"</span><span class="va">$TOKEN_OPEN_BRACE</span><span class=
+"st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a>            <span class=
+"va">in_expr</span><span class="op">=</span>1</span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a>            <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$next_char</span><span class=
+"st">"</span> <span class="ot">=</span> <span class="st">"</span><span class="va">$TOKEN_CLOSE_SLASH</span><span class=
+"st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a>              <span class=
+"co"># Next character is slash, this expression is a closing one.</span></span>
+<span id="cb6-9"><a aria-hidden="true" href="#cb6-9" tabindex="-1"></a>              <span class=
+"va">is_close</span><span class="op">=</span>1</span>
+<span id="cb6-10"><a aria-hidden="true" href="#cb6-10" tabindex="-1"></a>            <span class="cf">fi</span></span>
+<span id="cb6-11"><a aria-hidden="true" href="#cb6-11" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb6-12"><a aria-hidden="true" href="#cb6-12" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb6-13"><a aria-hidden="true" href="#cb6-13" tabindex="-1"></a>        </span>
+<span id="cb6-14"><a aria-hidden="true" href="#cb6-14" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Our first case handle the open brace character (<code>{</code>). We then check if the previous
+                character was also an open brace, if so, this tell us we have two open braces right now
+                (<code>{{</code>) which means were inside a template tag; given this, we set <code>is_expr</code> to
+                “true” to let the rest of the code be aware we are inside a template tag. Last, we check if the next
+                character is a slash (<code>/</code>), which will tell us were at the closing part of a template tag.
+              </p>
+
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a aria-hidden="true" href=
+                "#cb7-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a>        <span class=
+"co"># Handle close brace of expression.</span></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a>        <span class="st">"</span><span class=
+"va">$TOKEN_CLOSE_BRACE</span><span class="st">"</span><span class="er">)</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$prev_char</span><span class=
+"st">"</span> <span class="ot">=</span> <span class="st">"</span><span class="va">$TOKEN_CLOSE_BRACE</span><span class=
+"st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a>            <span class=
+"va">in_expr</span><span class="op">=</span>0</span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a>            <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$op</span><span class=
+"st">"</span> <span class="ot">=</span> <span class="st">""</span> <span class="kw">]];</span> <span class=
+"cf">then</span></span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a>              <span class=
+"co"># No operation found. Variable output.</span></span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a>              <span class=
+"va">op</span><span class="op">=</span><span class="st">"</span><span class="va">$OP_VARIABLE</span><span class=
+"st">"</span></span>
+<span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a>            <span class=
+"cf">elif</span> <span class="kw">[[</span> <span class="va">$is_block</span> <span class=
+"ot">-eq</span> 1 <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-11"><a aria-hidden="true" href="#cb7-11" tabindex="-1"></a>              <span class=
+"co"># We need to break out and handle seperately.</span></span>
+<span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a>              <span class=
+"va">block_start_index</span><span class="op">=</span><span class="va">$((index</span><span class=
+"op">+</span><span class="dv">1</span><span class="va">))</span></span>
+<span id="cb7-13"><a aria-hidden="true" href="#cb7-13" tabindex="-1"></a>              <span class=
+"va">is_block</span><span class="op">=</span>0</span>
+<span id="cb7-14"><a aria-hidden="true" href="#cb7-14" tabindex="-1"></a>              <span class=
+"cf">break</span></span>
+<span id="cb7-15"><a aria-hidden="true" href="#cb7-15" tabindex="-1"></a>            <span class="cf">fi</span></span>
+<span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a></span>
+<span id="cb7-19"><a aria-hidden="true" href="#cb7-19" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Second, we handle the closing brace (<code>}</code>). If the previous character was also a closing
+                brace, we know that we are no longer in a template tag. Next, if no operation was previously detected
+                (<code>#</code>, <code>&gt;</code>, <code>%</code>, or <code>^</code>), then we can assume this is a
+                variable operation (<code>{{var}}</code>). If <code>is_block</code> was previously set, then we know
+                the rest of the template tag is the block content, so we can record the start position of the block,
+                then break out to handle the block seperately, ensuring the block contents will not get processed by
+                this loop.
+              </p>
+
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a aria-hidden="true" href=
+                "#cb8-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>        <span class=
+"co"># If operation.</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>        <span class="st">"</span><span class=
+"va">$TOKEN_OP_IF</span><span class="st">"</span><span class="er">)</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="va">$in_expr</span> <span class="ot">-eq</span> 1 <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a>            <span class=
+"va">expr</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a>            <span class=
+"va">op</span><span class="op">=</span><span class="st">"</span><span class="va">$OP_IF</span><span class=
+"st">"</span></span>
+<span id="cb8-8"><a aria-hidden="true" href="#cb8-8" tabindex="-1"></a>            <span class=
+"va">is_block</span><span class="op">=</span>1</span>
+<span id="cb8-9"><a aria-hidden="true" href="#cb8-9" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb8-10"><a aria-hidden="true" href="#cb8-10" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb8-11"><a aria-hidden="true" href="#cb8-11" tabindex="-1"></a></span>
+<span id="cb8-12"><a aria-hidden="true" href="#cb8-12" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Third, we handle the ifs (<code>#</code>). We check if we are currently inside a template tag, and if
+                so, we record the operation as <code>OP_IF</code> and set the block flag <code>is_block</code> to
+                “true” so that the rest of the code is aware this operation has block content, which the previous
+                closing brace case will help handle later.
+              </p>
+
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a aria-hidden="true" href=
+                "#cb9-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>        <span class=
+"co"># Unless operation.</span></span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>        <span class="st">"</span><span class=
+"va">$TOKEN_OP_UNLESS</span><span class="st">"</span><span class="er">)</span></span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="va">$in_expr</span> <span class="ot">-eq</span> 1 <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a>            <span class=
+"va">expr</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb9-7"><a aria-hidden="true" href="#cb9-7" tabindex="-1"></a>            <span class=
+"va">op</span><span class="op">=</span><span class="st">"</span><span class="va">$OP_UNLESS</span><span class=
+"st">"</span></span>
+<span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a>            <span class=
+"va">is_block</span><span class="op">=</span>1</span>
+<span id="cb9-9"><a aria-hidden="true" href="#cb9-9" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb9-10"><a aria-hidden="true" href="#cb9-10" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb9-11"><a aria-hidden="true" href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a aria-hidden="true" href="#cb9-12" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Fourth, we handle unless (<code>^</code>). Exactly the same as the if handling except the operation is
+                set to <code>OP_UNLESS</code>.
+              </p>
+
+              <div class="sourceCode" id="cb10">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a aria-hidden="true" href=
+                "#cb10-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>        <span class=
+"co"># Include of partial operation.</span></span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>        <span class="st">"</span><span class=
+"va">$TOKEN_OP_INCLUDE</span><span class="st">"</span><span class="er">)</span></span>
+<span id="cb10-5"><a aria-hidden="true" href="#cb10-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="va">$in_expr</span> <span class="ot">-eq</span> 1 <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb10-6"><a aria-hidden="true" href="#cb10-6" tabindex="-1"></a>            <span class=
+"va">expr</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb10-7"><a aria-hidden="true" href="#cb10-7" tabindex="-1"></a>            <span class=
+"va">op</span><span class="op">=</span><span class="st">"</span><span class="va">$OP_INCLUDE</span><span class=
+"st">"</span></span>
+<span id="cb10-8"><a aria-hidden="true" href="#cb10-8" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb10-9"><a aria-hidden="true" href="#cb10-9" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb10-10"><a aria-hidden="true" href="#cb10-10" tabindex="-1"></a></span>
+<span id="cb10-11"><a aria-hidden="true" href="#cb10-11" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Fifth, we handle the inclusion of templates (<code>&gt;</code>). The operation is set to
+                <code>OP_INCLUDE</code>.
+              </p>
+
+              <div class="sourceCode" id="cb11">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a aria-hidden="true" href=
+                "#cb11-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a aria-hidden="true" href="#cb11-3" tabindex="-1"></a>        <span class=
+"co"># Function operation.</span></span>
+<span id="cb11-4"><a aria-hidden="true" href="#cb11-4" tabindex="-1"></a>        <span class="st">"</span><span class=
+"va">$TOKEN_OP_FUNCTION</span><span class="st">"</span><span class="er">)</span></span>
+<span id="cb11-5"><a aria-hidden="true" href="#cb11-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="va">$in_expr</span> <span class="ot">-eq</span> 1 <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb11-6"><a aria-hidden="true" href="#cb11-6" tabindex="-1"></a>            <span class=
+"va">expr</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb11-7"><a aria-hidden="true" href="#cb11-7" tabindex="-1"></a>            <span class=
+"va">op</span><span class="op">=</span><span class="st">"</span><span class="va">$OP_FUNCTION</span><span class=
+"st">"</span></span>
+<span id="cb11-8"><a aria-hidden="true" href="#cb11-8" tabindex="-1"></a>            <span class=
+"va">is_block</span><span class="op">=</span>1</span>
+<span id="cb11-9"><a aria-hidden="true" href="#cb11-9" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb11-10"><a aria-hidden="true" href="#cb11-10" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb11-11"><a aria-hidden="true" href="#cb11-11" tabindex="-1"></a></span>
+<span id="cb11-12"><a aria-hidden="true" href="#cb11-12" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Sixth, we handle function expressions (<code>%</code>). Exactly the same as the if/unless handling
+                except the operation is set to <code>OP_FUNCTION</code>.
+              </p>
+
+              <div class="sourceCode" id="cb12">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a aria-hidden="true" href=
+                "#cb12-1" tabindex="-1"></a>        <span class="co"># ...</span></span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a aria-hidden="true" href="#cb12-3" tabindex="-1"></a>        <span class=
+"co"># Handle any other characer.</span></span>
+<span id="cb12-4"><a aria-hidden="true" href="#cb12-4" tabindex="-1"></a>        <span class="ex">*</span><span class=
+"er">)</span></span>
+<span id="cb12-5"><a aria-hidden="true" href="#cb12-5" tabindex="-1"></a>          <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="va">$in_expr</span> <span class="ot">-eq</span> 1 <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb12-6"><a aria-hidden="true" href="#cb12-6" tabindex="-1"></a>            <span class=
+"cf">if</span> <span class="kw">[[</span> <span class="va">$is_close</span> <span class="ot">-eq</span> 0 <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb12-7"><a aria-hidden="true" href="#cb12-7" tabindex="-1"></a>              <span class=
+"va">expr</span><span class="op">=</span><span class="st">"</span><span class="va">$expr$char</span><span class=
+"st">"</span></span>
+<span id="cb12-8"><a aria-hidden="true" href="#cb12-8" tabindex="-1"></a>            <span class="cf">fi</span></span>
+<span id="cb12-9"><a aria-hidden="true" href="#cb12-9" tabindex="-1"></a>          <span class="cf">fi</span></span>
+<span id="cb12-10"><a aria-hidden="true" href="#cb12-10" tabindex="-1"></a>          <span class="kw">;;</span></span>
+<span id="cb12-11"><a aria-hidden="true" href="#cb12-11" tabindex="-1"></a></span>
+<span id="cb12-12"><a aria-hidden="true" href="#cb12-12" tabindex="-1"></a>        <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                Last, we handle all other characters which do not match any other token. If we are inside a template
+                tag and the template tag is not closed (meaning we are currently in the open expression of the template
+                tag), then we append the current character, <code>char</code>, to <code>expr</code>.
+              </p>
+
+              <p>
+                If we have the following: <code>{{%foreach var}}{{key}}: {{value}}{{/foreach var}}</code>, then it
+                builds <code>expr</code> to capture <code>foreach var</code> for use later.
+              </p>
+
+              <p>
+                Now we have processing of a single match completed, we can now pass this off to another switch to
+                handle processing those operations previously detected utilizing the state we previously filled up,
+                such as <code>expr</code>, <code>op</code>, etc.
+              </p>
+
+              <div class="sourceCode" id="cb13">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a aria-hidden="true" href=
+                "#cb13-1" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>    <span class="cf">case</span> <span class=
+"st">"</span><span class="va">$op</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a>      <span class=
+"co"># Handle include of partial.</span></span>
+<span id="cb13-5"><a aria-hidden="true" href="#cb13-5" tabindex="-1"></a>      <span class="st">"</span><span class=
+"va">$OP_INCLUDE</span><span class="st">"</span><span class="kw">)</span></span>
+<span id="cb13-6"><a aria-hidden="true" href="#cb13-6" tabindex="-1"></a>        <span class=
+"va">parsed</span><span class="op">=</span><span class="va">$(</span><span class="ex">tpl_include</span> <span class=
+"st">"</span><span class="va">$expr</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb13-7"><a aria-hidden="true" href="#cb13-7" tabindex="-1"></a>        <span class=
+"va">input</span><span class="op">=</span><span class="st">"</span><span class="va">${input</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$match</span><span class="st">"</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$parsed</span><span class="st">"</span><span class=
+"va">}</span><span class="st">"</span></span>
+<span id="cb13-8"><a aria-hidden="true" href="#cb13-8" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb13-9"><a aria-hidden="true" href="#cb13-9" tabindex="-1"></a></span>
+<span id="cb13-10"><a aria-hidden="true" href="#cb13-10" tabindex="-1"></a>      <span class=
+"co"># Handle if.</span></span>
+<span id="cb13-11"><a aria-hidden="true" href="#cb13-11" tabindex="-1"></a>      <span class="st">"</span><span class=
+"va">$OP_IF</span><span class="st">"</span><span class="kw">)</span></span>
+<span id="cb13-12"><a aria-hidden="true" href="#cb13-12" tabindex="-1"></a>        <span class=
+"va">block</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$match</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"ex">extract_block</span> <span class="st">"</span><span class="va">$expr</span><span class="st">"</span> <span class=
+"st">"</span><span class="va">$block_start_index</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb13-13"><a aria-hidden="true" href="#cb13-13" tabindex="-1"></a>        <span class=
+"va">parsed</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$block</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"ex">tpl_if</span> <span class="st">"</span><span class="va">$expr</span><span class="st">"</span><span class=
+"va">)</span></span>
+<span id="cb13-14"><a aria-hidden="true" href="#cb13-14" tabindex="-1"></a>        <span class=
+"va">input</span><span class="op">=</span><span class="st">"</span><span class="va">${input</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$match</span><span class="st">"</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$parsed</span><span class="st">"</span><span class=
+"va">}</span><span class="st">"</span></span>
+<span id="cb13-15"><a aria-hidden="true" href="#cb13-15" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb13-16"><a aria-hidden="true" href="#cb13-16" tabindex="-1"></a></span>
+<span id="cb13-17"><a aria-hidden="true" href="#cb13-17" tabindex="-1"></a>      <span class=
+"co"># Handle unless.</span></span>
+<span id="cb13-18"><a aria-hidden="true" href="#cb13-18" tabindex="-1"></a>      <span class="st">"</span><span class=
+"va">$OP_UNLESS</span><span class="st">"</span><span class="kw">)</span></span>
+<span id="cb13-19"><a aria-hidden="true" href="#cb13-19" tabindex="-1"></a>        <span class=
+"va">block</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$match</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"ex">extract_block</span> <span class="st">"</span><span class="va">$expr</span><span class="st">"</span> <span class=
+"st">"</span><span class="va">$block_start_index</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb13-20"><a aria-hidden="true" href="#cb13-20" tabindex="-1"></a>        <span class=
+"va">parsed</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$block</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"ex">tpl_unless</span> <span class="st">"</span><span class="va">$expr</span><span class="st">"</span><span class=
+"va">)</span></span>
+<span id="cb13-21"><a aria-hidden="true" href="#cb13-21" tabindex="-1"></a>        <span class=
+"va">input</span><span class="op">=</span><span class="st">"</span><span class="va">${input</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$match</span><span class="st">"</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$parsed</span><span class="st">"</span><span class=
+"va">}</span><span class="st">"</span></span>
+<span id="cb13-22"><a aria-hidden="true" href="#cb13-22" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb13-23"><a aria-hidden="true" href="#cb13-23" tabindex="-1"></a></span>
+<span id="cb13-24"><a aria-hidden="true" href="#cb13-24" tabindex="-1"></a>      <span class=
+"co"># Handle variables.</span></span>
+<span id="cb13-25"><a aria-hidden="true" href="#cb13-25" tabindex="-1"></a>      <span class="st">"</span><span class=
+"va">$OP_VARIABLE</span><span class="st">"</span><span class="kw">)</span></span>
+<span id="cb13-26"><a aria-hidden="true" href="#cb13-26" tabindex="-1"></a>        <span class=
+"va">parsed</span><span class="op">=</span><span class="va">$(</span><span class="ex">tpl_variable</span> <span class=
+"st">"</span><span class="va">$expr</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb13-27"><a aria-hidden="true" href="#cb13-27" tabindex="-1"></a>        <span class=
+"va">input</span><span class="op">=</span><span class="st">"</span><span class="va">${input</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$match</span><span class="st">"</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$parsed</span><span class="st">"</span><span class=
+"va">}</span><span class="st">"</span></span>
+<span id="cb13-28"><a aria-hidden="true" href="#cb13-28" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb13-29"><a aria-hidden="true" href="#cb13-29" tabindex="-1"></a></span>
+<span id="cb13-30"><a aria-hidden="true" href="#cb13-30" tabindex="-1"></a>      <span class=
+"co"># Handle functions.</span></span>
+<span id="cb13-31"><a aria-hidden="true" href="#cb13-31" tabindex="-1"></a>      <span class="st">"</span><span class=
+"va">$OP_FUNCTION</span><span class="st">"</span><span class="kw">)</span></span>
+<span id="cb13-32"><a aria-hidden="true" href="#cb13-32" tabindex="-1"></a>        <span class=
+"va">block</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$match</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"ex">extract_block</span> <span class="st">"</span><span class="va">$expr</span><span class="st">"</span> <span class=
+"st">"</span><span class="va">$block_start_index</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb13-33"><a aria-hidden="true" href="#cb13-33" tabindex="-1"></a>        <span class=
+"va">result</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class=
+"st">"</span><span class="va">$block</span><span class="st">"</span> <span class="kw">|</span> <span class=
+"ex">tpl_function</span> <span class="st">"</span><span class="va">$expr</span><span class="st">"</span><span class=
+"va">)</span></span>
+<span id="cb13-34"><a aria-hidden="true" href="#cb13-34" tabindex="-1"></a>        <span class=
+"va">input</span><span class="op">=</span><span class="st">"</span><span class="va">${input</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$match</span><span class="st">"</span><span class=
+"op">/</span><span class="st">"</span><span class="va">$result</span><span class="st">"</span><span class=
+"va">}</span><span class="st">"</span></span>
+<span id="cb13-35"><a aria-hidden="true" href="#cb13-35" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb13-36"><a aria-hidden="true" href="#cb13-36" tabindex="-1"></a></span>
+<span id="cb13-37"><a aria-hidden="true" href="#cb13-37" tabindex="-1"></a>      <span class=
+"co"># Unknown, skip.</span></span>
+<span id="cb13-38"><a aria-hidden="true" href="#cb13-38" tabindex="-1"></a>      <span class="pp">*</span><span class=
+"kw">)</span></span>
+<span id="cb13-39"><a aria-hidden="true" href="#cb13-39" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb13-40"><a aria-hidden="true" href="#cb13-40" tabindex="-1"></a>    <span class="cf">esac</span></span>
+<span id="cb13-41"><a aria-hidden="true" href="#cb13-41" tabindex="-1"></a></span>
+<span id="cb13-42"><a aria-hidden="true" href="#cb13-42" tabindex="-1"></a>    <span class=
+"co"># ...</span></span></code></pre>
+              </div>
+
+              <p>
+                A case is setup to handle each operation. Each operation will pass data to an internal function for
+                final processing and if it contains block content, then this block content will be piped into that same
+                internal function. The internal function will run its processing on the template data and return a
+                result, this result is used to replace the entire template tag with the result by reassigning
+                <code>input</code>, which completes the core of the template engine. The next time the match loop runs,
+                it will find the next template tag to process as this one no longer exists.
+              </p>
+
+              <p>
+                Finally, we echo out <code>input</code> so the parsed template data can be saved somewhere. We can now
+                process templates with BASH!
+              </p>
+
+              <div class="sourceCode" id="cb14">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a aria-hidden="true" href=
+                "#cb14-1" tabindex="-1"></a><span class="fu">tpl_money()</span> <span class="kw">{</span></span>
+<span id="cb14-2"><a aria-hidden="true" href="#cb14-2" tabindex="-1"></a>  <span class="bu">local</span> <span class=
+"va">block</span></span>
+<span id="cb14-3"><a aria-hidden="true" href="#cb14-3" tabindex="-1"></a>  <span class="bu">local</span> <span class=
+"va">amount</span></span>
+<span id="cb14-4"><a aria-hidden="true" href="#cb14-4" tabindex="-1"></a>  <span class="va">block</span><span class=
+"op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">-</span><span class=
+"va">)</span></span>
+<span id="cb14-5"><a aria-hidden="true" href="#cb14-5" tabindex="-1"></a>  <span class="va">amount</span><span class=
+"op">=</span><span class="va">$((block))</span></span>
+<span id="cb14-6"><a aria-hidden="true" href="#cb14-6" tabindex="-1"></a>  <span class="bu">echo</span> <span class=
+"st">"</span><span class="dt">\$</span><span class="va">$((amount</span> <span class="op">/</span> <span class=
+"dv">100</span><span class="va">))</span><span class="st"> </span><span class="va">$1</span><span class=
+"st">"</span> <span class="co"># $45.55 USD</span></span>
+<span id="cb14-7"><a aria-hidden="true" href="#cb14-7" tabindex="-1"></a><span class="kw">}</span></span></code></pre>
+              </div>
+
+              <div class="sourceCode" id="cb15">
+                <pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a aria-hidden="true" href=
+                "#cb15-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span> <span class=
+                "er">class</span><span class="ot">=</span><span class=
+                "st">"container container--{{#is_post}}post{{#is_archived}}-archive{{/is_archived}}{{/is_post}}"</span><span class=
+                "dt">&gt;</span></span>
+<span id="cb15-2"><a aria-hidden="true" href="#cb15-2" tabindex="-1"></a>  {{^is_post}}<span class=
+"dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>This is a page!<span class=
+"dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span>{{/is_page}}</span>
+<span id="cb15-3"><a aria-hidden="true" href="#cb15-3" tabindex="-1"></a>  <span class="dt">&lt;</span><span class=
+"kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb15-4"><a aria-hidden="true" href="#cb15-4" tabindex="-1"></a>    {{%foreach category}}<span class=
+"dt">&lt;</span><span class="kw">li</span> <span class="er">data-index</span><span class="ot">=</span><span class=
+"st">"{{key}}"</span><span class="dt">&gt;</span>{{value}}<span class="dt">&lt;/</span><span class=
+"kw">li</span><span class="dt">&gt;</span>{{/foreach category}}</span>
+<span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class=
+"kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb15-6"><a aria-hidden="true" href="#cb15-6" tabindex="-1"></a></span>
+<span id="cb15-7"><a aria-hidden="true" href="#cb15-7" tabindex="-1"></a>  {{&gt;templates/meta.html}}</span>
+<span id="cb15-8"><a aria-hidden="true" href="#cb15-8" tabindex="-1"></a></span>
+<span id="cb15-9"><a aria-hidden="true" href="#cb15-9" tabindex=
+"-1"></a>  {^is_archived}{{%money USD}}4555{{/money USD}}{{/is_archived}}</span>
+<span id="cb15-10"><a aria-hidden="true" href="#cb15-10" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
+"kw">div</span><span class="dt">&gt;</span></span></code></pre>
+              </div>
+
+              <p>
+                BASH is definately not the best solution for a template engine, however, you can view the entire
+                solution on <a href="http://github.com/gnikyt/gnikyt.github.io/tree/master/bin/parse_tpl">my blog’s
+                repo</a> and modify for your needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/building-bash-template-engine/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/building-bash-template-engine/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
+                href="#" onclick="window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-tail container">
+      <div class="site-tail__avatar">
+        <a href="/about"><img alt="Ty King" class="site-tail__avatar-img" src="/assets/images/me.jpg"></a>
+      </div>
+
+      <div class="site-tail__about">
+        <h3 class="site-tail__author">
+          <a href="/about">Ty King</a>
+        </h3>
+
+        <p class="site-tail__blurb">
+          A self-taught, seasoned, and versatile developer from Newfoundland. <span>Crafting innovative solutions with
+          care and expertise.</span>
+        </p>
+      </div>
+
+      <div class="site-tail__blurb-ext">
+        <p class="site-tail__blurb">
+          Crafting innovative solutions with care and expertise.
+        </p>
+      </div>
+
+      <div class="site-tail__links">
+        <a class="button button--strong" href="https://github.com/gnikyt" rel="noopener" target=
+        "_blank">Github</a><a class="button button--strong" href="https://linkedin.com/in/gnikyt" rel="noopener"
+        target="_blank">LinkedIn</a><a class="button button--strong" href="/assets/files/cv.pdf" target=
+        "_blank">CV</a><a class="button button--strong" href="/rss.xml" target="_blank">RSS</a>
+      </div>
+    </footer>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

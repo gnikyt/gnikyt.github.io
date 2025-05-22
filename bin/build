@@ -86,6 +86,7 @@ process_posts() {
 
     # Parse the post template and save result.
     parsed_tpl=$(echo "${layouts["post"]}" | parse_tpl)
+    parsed_tpl=${parsed_tpl/'[[parsed_md]]'/"${globals["parsed_md"]}"} # Done to avoid template engine from parsing the Markdown result.
     mkdir "$target"
     echo "$parsed_tpl" > "$target"/index.html
 
@@ -168,10 +169,12 @@ process_pages() {
       # Parse the page template and save the result.
       globals["handle"]="404"
       parsed_tpl=$(echo "${layouts["page"]}" | parse_tpl)
+      parsed_tpl=${parsed_tpl/'[[parsed_md]]'/"${globals["parsed_md"]}"} # Done to avoid template engine from parsing the Markdown result.
       echo "$parsed_tpl" > docs/404.html
     else
       # Parse the page template and save the result.
       parsed_tpl=$(echo "${layouts["page"]}" | parse_tpl)
+      parsed_tpl=${parsed_tpl/'[[parsed_md]]'/"${globals["parsed_md"]}"} # Done to avoid template engine from parsing the Markdown result.
       target=docs/"${globals["handle"]}"
       mkdir -p "$target"
       echo "$parsed_tpl" > "$target"/index.html

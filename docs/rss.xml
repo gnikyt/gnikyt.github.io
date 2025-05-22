@@ -6,6 +6,15 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Building a BASH template engine</title>
+      <link>https://gnikyt.com/building-bash-template-engine</link>
+      <description>Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a
+      small blog to maintain. I wanted some...</description>
+      <guid isPermLink="true">https://gnikyt.com/building-bash-template-engine</guid>
+      <pubDate>2025-05-22T14:09:31-0230</pubDate>
+      <category>cmd</category>
+    </item>
+    <item>
       <title>Handling Shopify API limits and Goroutines</title>
       <link>https://gnikyt.com/handling-shopify-api-limits-goroutines</link>
       <description>I frequently build integration applications with Shopify and I thought it would be helpful to

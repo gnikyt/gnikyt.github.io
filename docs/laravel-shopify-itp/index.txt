@@ -118,7 +118,7 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///laravel-shopify-itp/index.md
   12. file:///laravel-shopify-itp/index.txt
-  13. file:///tmp/lynxXXXXGCkOEL/L285758-3028TMP.html
+  13. file:///tmp/lynxXXXXhCYaeV/L587428-4971TMP.html
   14. file:///about
   15. file:///about
   16. https://github.com/gnikyt

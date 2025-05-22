@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gnikyt.com/building-bash-template-engine</loc>
+    <lastmod>2025-05-22T14:09:31-0230</lastmod>
+  </url>
+  <url>
     <loc>https://gnikyt.com/handling-shopify-api-limits-goroutines</loc>
     <lastmod>2025-04-10T16:26:22-0230</lastmod>
   </url>
@@ -162,74 +166,74 @@
   </url>
   <url>
     <loc>https://gnikyt.com/about</loc>
-    <lastmod>2025-05-22T12:17:49-0230</lastmod>
+    <lastmod>2025-05-22T15:26:44-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/archive</loc>
-    <lastmod>2025-05-22T12:17:49-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/golang</loc>
-    <lastmod>2025-05-22T12:17:50-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/shopify</loc>
-    <lastmod>2025-05-22T12:17:50-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/javascript</loc>
-    <lastmod>2025-05-22T12:17:50-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/react</loc>
-    <lastmod>2025-05-22T12:17:51-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/php</loc>
-    <lastmod>2025-05-22T12:17:51-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/wordpress</loc>
-    <lastmod>2025-05-22T12:17:51-0230</lastmod>
+    <lastmod>2025-05-22T15:26:45-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/cmd</loc>
-    <lastmod>2025-05-22T12:17:52-0230</lastmod>
+    <lastmod>2025-05-22T15:26:45-0230</lastmod>
+  </url>
+  <url>
+    <loc>https://gnikyt.com/category/golang</loc>
+    <lastmod>2025-05-22T15:26:45-0230</lastmod>
+  </url>
+  <url>
+    <loc>https://gnikyt.com/category/shopify</loc>
+    <lastmod>2025-05-22T15:26:45-0230</lastmod>
+  </url>
+  <url>
+    <loc>https://gnikyt.com/category/javascript</loc>
+    <lastmod>2025-05-22T15:26:46-0230</lastmod>
+  </url>
+  <url>
+    <loc>https://gnikyt.com/category/react</loc>
+    <lastmod>2025-05-22T15:26:46-0230</lastmod>
+  </url>
+  <url>
+    <loc>https://gnikyt.com/category/php</loc>
+    <lastmod>2025-05-22T15:26:46-0230</lastmod>
+  </url>
+  <url>
+    <loc>https://gnikyt.com/category/wordpress</loc>
+    <lastmod>2025-05-22T15:26:47-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/laravel</loc>
-    <lastmod>2025-05-22T12:17:52-0230</lastmod>
+    <lastmod>2025-05-22T15:26:47-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/python</loc>
-    <lastmod>2025-05-22T12:17:52-0230</lastmod>
+    <lastmod>2025-05-22T15:26:47-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/symfony</loc>
-    <lastmod>2025-05-22T12:17:53-0230</lastmod>
+    <lastmod>2025-05-22T15:26:48-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/vuejs</loc>
-    <lastmod>2025-05-22T12:17:53-0230</lastmod>
+    <lastmod>2025-05-22T15:26:48-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/ruby</loc>
-    <lastmod>2025-05-22T12:17:53-0230</lastmod>
+    <lastmod>2025-05-22T15:26:48-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/rails</loc>
-    <lastmod>2025-05-22T12:17:54-0230</lastmod>
+    <lastmod>2025-05-22T15:26:48-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/sinatra</loc>
-    <lastmod>2025-05-22T12:17:54-0230</lastmod>
+    <lastmod>2025-05-22T15:26:49-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/category/uncategorized</loc>
-    <lastmod>2025-05-22T12:17:52-0230</lastmod>
+    <lastmod>2025-05-22T15:26:49-0230</lastmod>
   </url>
   <url>
     <loc>https://gnikyt.com/categories</loc>
-    <lastmod>2025-05-22T12:17:52-0230</lastmod>
+    <lastmod>2025-05-22T15:26:49-0230</lastmod>
   </url>
 </urlset>
