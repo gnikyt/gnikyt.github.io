@@ -1,21 +1,23 @@
 ---
 layout: cv
-title: Tyler King's CV
+title: Ty King's CV
 ---
-# Tyler King
+
+# Ty King
 Developing solutions through experience.
 
 experienced programmer \| father \| motorcycle enthusiast
 
 <div id="webaddress">
-<i class="fas fa-at"></i> <a href="me@gnikyt.com">me@gnikyt.com</a> /
-<i class="fas fa-globe-americas"></i> <a href="https://gnikyt.com" target="_blank">gnikyt.com</a> /
-<i class="fab fa-github-alt"></i> <a href="https://github.com/gnikyt" target="_blank">gnikyt</a>
+  <i class="fas fa-at"></i> <a href="me@gnikyt.com">me@gnikyt.com</a> /
+  <i class="fas fa-globe-americas"></i> <a href="https://gnikyt.com" target="_blank">gnikyt.com</a> /
+  <i class="fab fa-github-alt"></i> <a href="https://github.com/gnikyt" target="_blank">gnikyt</a> /
+  <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/gnikyt" target="_blank">gnikyt</a>
 </div>
 
 ## Currently
 
-Seeking full time employment and available for hire.
+A Sr. Backend Developer at Sultans (Sultan Consulting) based in Vancouver.
 
 ### Specialization
 
@@ -37,7 +39,7 @@ React Native (BLE & NFC communications) to embedded hardware systems.
 
 I adhere to the principle of simplicity and focus in all of my code. Each component should serve a single, well-defined purpose to ensure clarity and maintainability. This approach leads to a stable and scalable codebase that can evolve over time. I consistently apply best practices such as the SRP/DRY principles, CQR Segregation, and more to achieve this objective. As well, I believe in always learning and listening - self improvement crafts better code.
 
-## Career Experience
+## Past Experience
 
 `Dec 2023 - Feb 2025`
 **Shopped**, Toronto, Canada
