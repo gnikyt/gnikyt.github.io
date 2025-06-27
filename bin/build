@@ -1,230 +1,360 @@
 #!/bin/bash
 
-cwd=$(dirname "$0")
-. $cwd/parse_md
-. $cwd/parse_tpl
-. $cwd/highlight
+CWD=$(dirname "$0")
+. $CWD/highlight
+. $CWD/parse_md
+. $CWD/be
 
 # Determine if libraries we need are installed.
-err=0
-cmds=("pandoc" "tidy" "lynx" "pcregrep" "grep")
-for cmd in "${!cmds[@]}"; do
+ERR=0
+CMDS=("pandoc" "tidy" "lynx" "pcregrep" "grep")
+for cmd in "${!CMDS[@]}"; do
   # shellcheck disable=SC2086
-  if ! [ -x "$(command -v ${cmds[$cmd]})" ]; then
-    echo "Error: \`${cmds[$cmd]}\` not installed." >&2
-    err=1
+  if ! [ -x "$(command -v ${CMDS[$cmd]})" ]; then
+    echo "Error: \`${CMDS[$cmd]}\` not installed." >&2
+    ERR=1
   fi
 done
-if [[ $err -eq 1 ]]; then
+if [[ $ERR -eq 1 ]]; then
   exit 1
 fi
 
-# count tracks the number of generated posts and pages.
-declare -i count=0
-# globals is for keeping a hash table of variables available to the templates.
-declare -A globals
-# newline is a newline feed helper.
-declare newline=$'\n'
 # layouts tracks the various layout files.
-declare -A layouts
-# posts is a list of all post files.
-declare posts=""
-# pages is a list of all page files.
-declare pages=""
+declare -A LAYOUTS
+
+NEWLINE=$'\n'
+COUNT=0
+LAYOUT=""
+IS_POST=""
+IS_PAGE=""
+IS_OLD=""
+IS_ARCHIVED=""
+PARSED_MD=""
+DATE=""
+HANDLE=""
+TITLE=""
+CATEGORY=""
+ARCHIVE=""
+DATE_ISO8601=""
+DATE_YMD=""
+DATE_HUMAN=""
+POST_SIZE=""
+RSS_ITEMS=""
+SITEMAP_ITEMS=""
+HOME_ENTRIES=""
+ARCHIVE_ENTRIES=""
+POSTS=""
+PAGES=""
+
+# Categories.
+# Dynamic assignment wont work well.
+CMD_ENTRIES=""
+CMD_COUNT=0
+GOLANG_ENTRIES=""
+GOLANG_COUNT=0
+SHOPIFY_ENTRIES=""
+SHOPIFY_COUNT=0
+JAVASCRIPT_ENTRIES=""
+JAVASCRIPT_COUNT=0
+REACT_ENTRIES=""
+REACT_COUNT=0
+PHP_ENTRIES=""
+PHP_COUNT=0
+WORDPRESS_ENTRIES=""
+WORDPRESS_COUNT=0
+LARAVEL_ENTRIES=""
+LARAVEL_COUNT=0
+PYTHON_ENTRIES=""
+PYTHON_COUNT=0
+SYMFONY_ENTRIES=""
+SYMFONY_COUNT=0
+VUEJS_ENTRIES=""
+VUEJS_COUNT=0
+RUBY_ENTRIES=""
+RUBY_COUNT=0
+RAILS_ENTRIES=""
+RAILS_COUNT=0
+SINATRA_ENTRIES=""
+SINATRA_COUNT=0
+UNCATEGORIZED_ENTRIES=""
+UNCATEGORIZED_COUNT=0
+ALL_CATEGORIES=""
 
 # process_posts will generate the posts.
 process_posts() {
-  local source
+  local SOURCE
+  COUNT=0
+
   echo "Generating posts..."
-  for i in $posts; do
-    globals["layout"]="post"
-    globals["is_post"]="true"
-    globals["is_page"]=""
-    globals["is_old"]=""
-    globals["is_archived"]=""
+  for i in $POSTS; do
+    LAYOUT=""
+    IS_POST="true"
+    IS_PAGE=""
+    IS_OLD=""
+    IS_ARCHIVED=""
 
-    local start_ts
-    local end_ts
-    local target
-    local text
+    # Reset key variables.
+    BODY=""
+    EXCERPT=""
+    CATEGORY=""
+    ARCHIVE=""
 
-    source=$(basename "$i")
-    echo "[$source] Generating..."
+    local LOCAL_LAYOUT
+    local START_TS
+    local END_TS
+    local TARGET
+    local TEXT
+
+    SOURCE=$(basename "$i")
+    echo "[$SOURCE] Generating..."
 
     # Grab entire post file content, extract it's body and frontmatter.
     parse_md "$(cat "$i")"
 
     # Parse Markdown body and convert to HTML.
-    globals["parsed_md"]=$(pandoc --highlight=breezedark -f markdown -t html "$i")
+    PARSED_MD=$(pandoc --highlight=breezedark -f markdown -t html "$i")
 
     # Setup the dating variables.
-    start_ts=$(date -d "${globals["date"]}" +"%s")
-    end_ts=$(date +"%s")
-    globals["date_iso8601"]=$(date -d "${globals["date"]}" +"%Y-%m-%dT%H:%M:%S%z")
-    globals["date_ymd"]=$(date -d "${globals["date"]}" +"%Y-%m-%d")
-    globals["date_human"]=$(date -d "${globals["date"]}" +"%b %d, %Y")
-    globals["diff_years"]=$(( (end_ts-start_ts)/(60*60*24)/365 ))
-    if [[ ${globals["diff_years"]} -ge 2 ]]; then
-      globals["is_old"]="true"
+    START_TS=$(date -d "$DATE" +"%s")
+    END_TS=$(date +"%s")
+    DATE_ISO8601=$(date -d "$DATE" +"%Y-%m-%dT%H:%M:%S%z")
+    DATE_YMD=$(date -d "$DATE" +"%Y-%m-%d")
+    DATE_HUMAN=$(date -d "$DATE" +"%b %d, %Y")
+    DIFF_YEARS=$(( (END_TS-START_TS)/(60*60*24)/365 ))
+    if [[ $DIFF_YEARS -ge 2 ]]; then
+      IS_OLD="true"
     fi
 
     # Determine if this post is to be archived.
-    if [[ ${globals["archive"]} = "true" ]]; then
-      globals["is_archived"]="true"
+    if [[ $ARCHIVE = "true" ]]; then
+      IS_ARCHIVED="true"
     fi
 
     # Get post size.
-    globals["post_size"]="$(du -h --apparent-size "$i" | cut -f1)B"
+    POST_SIZE="$(du -h --apparent-size "$i" | cut -f1)B"
 
     # Determine save location.
-    if [[ ${globals["is_archived"]} = "true" ]]; then
+    if [[ $IS_ARCHIVED = "true" ]]; then
       mkdir -p "docs/archive"
-      target=docs/archive/"${globals["handle"]}"
+      TARGET=docs/archive/"$HANDLE"
     else
-      target=docs/"${globals["handle"]}"
+      TARGET=docs/"$HANDLE"
     fi
 
     # Parse the post template and save result.
-    parsed_tpl=$(echo "${layouts["post"]}" | parse_tpl)
-    parsed_tpl=${parsed_tpl/'[[parsed_md]]'/"${globals["parsed_md"]}"} # Done to avoid template engine from parsing the Markdown result.
-    mkdir "$target"
-    echo "$parsed_tpl" > "$target"/index.html
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["post"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    PARSED_TPL=${PARSED_TPL/'[[parsed_md]]'/"$PARSED_MD"} # Done to avoid template engine from parsing the Markdown result.
+    mkdir "$TARGET"
+    echo "$PARSED_TPL" > "$TARGET"/index.html
 
     # Create text and Markdown versions.
-    text=$(lynx -hiddenlinks=ignore --stdin --dump < "$target"/index.html)
-    text=${text/file:\/\//}
-    echo "$text" > "$target"/index.txt
-    cp posts/"$source" "$target"/index.md
+    TEXT=$(lynx -hiddenlinks=ignore --stdin --dump < "$TARGET"/index.html)
+    TEXT=${TEXT/file:\/\//}
+    echo "$TEXT" > "$TARGET"/index.txt
+    cp posts/"$SOURCE" "$TARGET"/index.md
 
     # Create PDF version.
     # pandoc "$i" -o "$target/index.pdf"
 
     # Parse the post RSS template and save result.
-    parsed_tpl=$(echo "${layouts["_rss_item"]}" | parse_tpl)
-    globals["rss_items"]="${globals["rss_items"]}${newline}${parsed_tpl}"
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["_rss_item"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    RSS_ITEMS="${RSS_ITEMS}${NEWLINE}${PARSED_TPL}"
 
     # Parse the sitemap template and save result.
-    parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
-    globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["_sitemap_item"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
 
     # Parse the home list template and save result.
-    parsed_tpl=$(echo "${layouts["_index_entry"]}" | parse_tpl)
-    if [[ ${globals["is_archived"]} = "true" ]]; then
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["_index_entry"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    if [[ $IS_ARCHIVED = "true" ]]; then
       # Archived entry.
-      globals["archive_entries"]="${globals["archive_entries"]}${newline}${parsed_tpl}"
-      echo -e "\033[1A\033[K[$source] Generated (archive)"
+      ARCHIVE_ENTRIES="${ARCHIVE_ENTRIES}${NEWLINE}${PARSED_TPL}"
+      echo -e "\033[1A\033[K[$SOURCE] Generated (archive)"
     else
       # Home entry.
-      globals["home_entries"]="${globals["home_entries"]}${newline}${parsed_tpl}"
+      HOME_ENTRIES="${HOME_ENTRIES}${NEWLINE}${PARSED_TPL}"
     fi
 
     # Get categories to assign to category entries.
-    if [[ -n "${globals["category"]}" && "${globals["category"]}" != "" ]]; then
-      # For each category, assign to a new "[category]_entries" and "[category]_count" variables for later use.
-      readarray -d "," -t vals <<< "${globals["category"]}"
-      for val in "${vals[@]}"; do
-        # shellcheck disable=SC2001
-        val=$(echo "$val" | sed 's/[[:space:]]*$//')
-        cat_key="${val}_entries"
-        cat_count_key="${val}_count"
+    if [[ -n "$CATEGORY" && "$CATEGORY" != "" ]]; then
+      # For each category, assign to a new "[CATEGORY]_ENTRIES" and "[CATEGORY]_COUNT" variables for later use.
+      readarray -d "," -t VALS <<< "$CATEGORY"
+      for VAL in "${VALS[@]}"; do
+        VAL=$(echo "$VAL" | tr -d '\n')
+        case "$VAL" in
+          cmd)
+            CMD_ENTRIES="${CMD_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((CMD_COUNT++))
+            ;;
+          golang)
+            GOLANG_ENTRIES="${GOLANG_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((GOLANG_COUNT++))
+            ;;
+          shopify)
+            SHOPIFY_ENTRIES="${SHOPIFY_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((SHOPIFY_COUNT++))
+            ;;
+          javascript)
+            JAVASCRIPT_ENTRIES="${JAVASCRIPT_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            JAVASCRIPT_COUNT=$((JAVASCRIPT_COUNT + 1))
+            ;;
+          react)
+            REACT_ENTRIES="${REACT_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((REACT_COUNT++))
+            ;;
+          php)
+            PHP_ENTRIES="${PHP_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((PHP_COUNT++))
+            ;;
+          wordpress)
+            WORDPRESS_ENTRIES="${WORDPRESS_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((WORDPRESS_COUNT++))
+            ;;
+          laravel)
+            LARAVEL_ENTRIES="${LARAVEL_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((LARAVEL_COUNT++))
+            ;;
+          python)
+            PYTHON_ENTRIES="${PYTHON_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((PYTHON_COUNT++))
+            ;;
+          symfony)
+            SYMFONY_ENTRIES="${SYMFONY_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((SYMFONY_COUNT++))
+            ;;
+          vuejs)
+            VUEJS_ENTRIES="${VUEJS_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((VUEJS_COUNT++))
+            ;;
+          ruby)
+            RUBY_ENTRIES="${RUBY_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((RUBY_COUNT++))
+            ;;
+          rails)
+            RAILS_ENTRIES="${RAILS_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((RAILS_COUNT++))
+            ;;
+          sinatra)
+            SINATRA_ENTRIES="${SINATRA_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((SINATRA_COUNT++))
+            ;;
+          *)
+            # If the category is not recognized, assign it to "uncategorized".
+            UNCATEGORIZED_ENTRIES="${UNCATEGORIZED_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((UNCATEGORIZED_COUNT++))
+            ;;
+        esac
 
-        globals[$cat_key]="${globals[$cat_key]}${newline}${parsed_tpl}"
-        globals[$cat_count_key]=$((${globals[$cat_count_key]} + 1))
-
-        if [[ ! "${globals["all_categories"]}" == *"$val"* ]]; then
-          globals["all_categories"]="${globals["all_categories"]}${val},"
+        if [[ ! "$ALL_CATEGORIES" == *"$VAL"* ]]; then
+          ALL_CATEGORIES="${ALL_CATEGORIES}${VAL},"
         fi
       done
     else
-      globals["uncategorized_entries"]="${globals["uncategorized_entries"]}${newline}${parsed_tpl}"
-      globals["uncategorized_count"]=$((globals["uncategorized_count"] + 1))
+      UNCATEGORIZED_ENTRIES="${UNCATEGORIZED_ENTRIES}${NEWLINE}${PARSED_TPL}"
+      ((UNCATEGORIZED_COUNT++))
     fi
 
-    echo -e "\033[1A\033[K[$source] Generated"
-    count+=1
+    echo -e "\033[1A\033[K[$SOURCE] Generated"
+    ((COUNT++))
   done
-  echo -e "Completed: $count posts\n"
-  count=0
+  echo -e "Completed: $COUNT posts\n"
 }
 
 # process_pages will generate the pages of the website.
 process_pages() {
-  local source
-  echo "Generating pages..."
-  for i in $pages; do
-    globals["layout"]="page"
-    globals["is_post"]=""
-    globals["is_page"]="true"
+  local SOURCE
+  COUNT=0
 
-    source=$(basename "$i")
-    echo "[$source] Generating..."
+  echo "Generating pages..."
+  for i in $PAGES; do
+    LAYOUT=""
+    IS_POST=""
+    IS_PAGE="true"
+
+    local LOCAL_LAYOUT
+    local TARGET
+    local TEXT
+
+    SOURCE=$(basename "$i")
+    echo "[$SOURCE] Generating..."
 
     # Grab entire post file content, extract it's body and frontmatter.
     parse_md "$(cat "$i")"
 
     # Parse Markdown body and convert to HTML.
-    globals["parsed_md"]=$(pandoc -f markdown -t html "$i")
+    PARSED_MD=$(pandoc -f markdown -t html "$i")
 
-    if [[ "$source" = "404.md" ]]; then
+    if [[ "$SOURCE" = "404.md" ]]; then
       # Parse the page template and save the result.
-      globals["handle"]="404"
-      parsed_tpl=$(echo "${layouts["page"]}" | parse_tpl)
-      parsed_tpl=${parsed_tpl/'[[parsed_md]]'/"${globals["parsed_md"]}"} # Done to avoid template engine from parsing the Markdown result.
-      echo "$parsed_tpl" > docs/404.html
+      HANDLE="404"
+      LOCAL_LAYOUT=$(cat "${LAYOUTS["page"]}")
+      PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+      PARSED_TPL=${PARSED_TPL/'[[parsed_md]]'/"$PARSED_MD"} # Done to avoid template engine from parsing the Markdown result.
+      echo "$PARSED_TPL" > docs/404.html
     else
       # Parse the page template and save the result.
-      parsed_tpl=$(echo "${layouts["page"]}" | parse_tpl)
-      parsed_tpl=${parsed_tpl/'[[parsed_md]]'/"${globals["parsed_md"]}"} # Done to avoid template engine from parsing the Markdown result.
-      target=docs/"${globals["handle"]}"
-      mkdir -p "$target"
-      echo "$parsed_tpl" > "$target"/index.html
+      LOCAL_LAYOUT=$(cat "${LAYOUTS["page"]}")
+      PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+      PARSED_TPL=${PARSED_TPL/'[[parsed_md]]'/"$PARSED_MD"} # Done to avoid template engine from parsing the Markdown result.
+      TARGET=docs/"$HANDLE"
+      mkdir -p "$TARGET"
+      echo "$PARSED_TPL" > "$TARGET"/index.html
 
       # Create text and Markdown versions.
-      text=$(lynx --stdin --dump < "$target"/index.html)
-      echo "$text" > "$target"/index.txt
-      cp pages/"$source" "$target"/index.md
+      TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+      echo "$TEXT" > "$TARGET"/index.txt
+      cp pages/"$SOURCE" "$TARGET"/index.md
 
       # Parse the sitemap template and save result.
-      globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-      parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
-      globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
+      DATE_ISO8601=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
+      PARSED_TPL=$(echo "${LAYOUTS["_sitemap_item"]}" | be)
+      SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
     fi
 
-    echo -e "\033[1A\033[K[$source] Generated"
-    count+=1
+    echo -e "\033[1A\033[K[$SOURCE] Generated"
+    ((COUNT++))
   done
-  echo -e "Completed: $count pages\n"
-  count=0
+  echo -e "Completed: $COUNT pages\n"
 }
 
 # process_rss will generate an RSS feed of the posts.
 process_rss() {
   echo "Generating RSS..."
-  globals["layout"]="rss"
-  globals["is_post"]=""
-  globals["is_page"]=""
-  parsed_tpl=$(echo "${layouts["rss"]}" | parse_tpl)
-  echo "$parsed_tpl" > docs/rss.xml
+  local LOCAL_LAYOUT
+  LAYOUT="rss"
+  IS_POST=""
+  IS_PAGE=""
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["rss"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  echo "$PARSED_TPL" > docs/rss.xml
   echo -e "Completed\n"
 }
 
 # process_index will generate the index of the website.
 process_index() {
   echo "Generating index..."
-  globals["layout"]="index"
-  globals["is_post"]=""
-  globals["is_page"]="true"
-  globals["title"]="gnikyt"
-  globals["handle"]="home"
+  LAYOUT="index"
+  IS_POST=""
+  IS_PAGE="true"
+  TITLE="gnikyt"
+  HANDLE="home"
+
+  local LOCAL_LAYOUT
+  local TEXT
 
   # Parse the index layout and save the result.
-  parsed_tpl=$(echo "${layouts["index"]}" | parse_tpl)
-  parsed_tpl=${parsed_tpl/gnikyt | gnikyt/gnikyt}
-  echo "$parsed_tpl" > docs/index.html
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["index"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  PARSED_TPL=${PARSED_TPL/gnikyt | gnikyt/gnikyt}
+  echo "$PARSED_TPL" > docs/index.html
 
   # Create text version.
-  text=$(lynx --stdin --dump < docs/index.html)
-  echo "$text" > docs/index.txt
+  TEXT=$(lynx --stdin --dump < docs/index.html)
+  echo "$TEXT" > docs/index.txt
 
   echo -e "Completed\n"
 }
@@ -232,27 +362,34 @@ process_index() {
 # process_archive will generate the index of the website archive.
 process_archive() {
   echo "Generating archive..."
-  globals["layout"]="archive"
-  globals["is_post"]=""
-  globals["is_page"]="true"
-  globals["title"]="gnikyt"
-  globals["handle"]="archive"
+  LAYOUT="archive"
+  IS_POST=""
+  IS_PAGE="true"
+  TITLE="gnikyt"
+  HANDLE="archive"
+
+  local LOCAL_LAYOUT
+  local TARGET
+  local TEXT
 
   # Parse the archive layout and save the result.
-  target=docs/archive
-  parsed_tpl=$(echo "${layouts["archive"]}" | parse_tpl)
-  parsed_tpl=${parsed_tpl/gnikyt | gnikyt/Archive | gnikyt}
-  echo "$parsed_tpl" > "$target"/index.html
+  TARGET=docs/archive
+  mkdir -p "$TARGET"
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["archive"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  PARSED_TPL=${PARSED_TPL/gnikyt | gnikyt/Archive | gnikyt}
+  echo "$PARSED_TPL" > "$TARGET"/index.html
 
   # Create text version.
-  text=$(lynx --stdin --dump < "$target"/index.html)
-  echo "$text" > "$target"/index.txt
+  TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+  echo "$TEXT" > "$TARGET"/index.txt
 
   # Parse the sitemap template and save result.
-  globals["handle"]="archive"
-  globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-  parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
-  globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
+  HANDLE="archive"
+  DATE_ISO8601=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["_sitemap_item"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
 
   echo -e "Completed\n"
 }
@@ -260,96 +397,174 @@ process_archive() {
 # process_categories will generate an index of posts by category.
 process_categories() {
   echo "Generating categories..."
-  globals["all_categories"]="${globals["all_categories"]}uncategorized,"
-  readarray -d "," -t vals <<< "${globals["all_categories"]::-1}"
-  for val in "${vals[@]}"; do
-    # shellcheck disable=SC2001
-    val=$(echo "$val" | sed 's/[[:space:]]*$//')
-    cat_val="${val}_entries"
-    cat_count_val="${val}_count"
 
-    echo "[$val] Generating..."
+  local CATEGORY_ENTRIES=""
+  local CATEGORY_COUNT=0
+  COUNT=0
 
-    globals["layout"]="category"
-    globals["is_post"]=""
-    globals["is_page"]="true"
-    globals["title"]="gnikyt"
-    globals["handle"]="${val}"
-    globals["category"]="$val"
-    globals["category_entries"]="${globals[$cat_val]}"
-    globals["count"]="${globals[$cat_count_val]}"
+  ALL_CATEGORIES="${ALL_CATEGORIES}uncategorized"
+  readarray -d "," -t VALS <<< "$ALL_CATEGORIES"
+  for VAL in "${VALS[@]}"; do
+    VAL=$(echo "$VAL" | tr -d '\n')
+    echo "[$VAL] Generating..."
+
+    LAYOUT="category"
+    IS_POST=""
+    IS_PAGE="true"
+    TITLE="gnikyt"
+    HANDLE="$VAL"
+    CATEGORY="$VAL"
+    CATEGORY_ENTRIES=""
+    CATEGORY_COUNT=0
+
+    case "$VAL" in
+      cmd)
+        CATEGORY_ENTRIES="$CMD_ENTRIES"
+        CATEGORY_COUNT=$CMD_COUNT
+        ;;
+      golang)
+        CATEGORY_ENTRIES="$GOLANG_ENTRIES"
+        CATEGORY_COUNT=$GOLANG_COUNT
+        ;;
+      shopify)
+        CATEGORY_ENTRIES="$SHOPIFY_ENTRIES"
+        CATEGORY_COUNT=$SHOPIFY_COUNT
+        ;;
+      javascript)
+        CATEGORY_ENTRIES="$JAVASCRIPT_ENTRIES"
+        CATEGORY_COUNT=$JAVASCRIPT_COUNT
+        ;;
+      react)
+        CATEGORY_ENTRIES="$REACT_ENTRIES"
+        CATEGORY_COUNT=$REACT_COUNT
+        ;;
+      php)
+        CATEGORY_ENTRIES="$PHP_ENTRIES"
+        CATEGORY_COUNT=$PHP_COUNT
+        ;;
+      wordpress)
+        CATEGORY_ENTRIES="$WORDPRESS_ENTRIES"
+        CATEGORY_COUNT=$WORDPRESS_COUNT
+        ;;
+      laravel)
+        CATEGORY_ENTRIES="$LARAVEL_ENTRIES"
+        CATEGORY_COUNT=$LARAVEL_COUNT
+        ;;
+      python)
+        CATEGORY_ENTRIES="$PYTHON_ENTRIES"
+        CATEGORY_COUNT=$PYTHON_COUNT
+        ;;
+      symfony)
+        CATEGORY_ENTRIES="$SYMFONY_ENTRIES"
+        CATEGORY_COUNT=$SYMFONY_COUNT
+        ;;
+      vuejs)
+        CATEGORY_ENTRIES="$VUEJS_ENTRIES"
+        CATEGORY_COUNT=$VUEJS_COUNT
+        ;;
+      ruby)
+        CATEGORY_ENTRIES="$RUBY_ENTRIES"
+        CATEGORY_COUNT=$RUBY_COUNT
+        ;;
+      rails)
+        CATEGORY_ENTRIES="$RAILS_ENTRIES"
+        CATEGORY_COUNT=$RAILS_COUNT
+        ;;
+      sinatra)
+        CATEGORY_ENTRIES="$SINATRA_ENTRIES"
+        CATEGORY_COUNT=$SINATRA_COUNT
+        ;;
+      uncategorized | *)
+        # If the category is not recognized, assign it to "UNCATEGORIZED".
+        VAL="uncategorized"
+        CATEGORY="uncategorized"
+        CATEGORY_ENTRIES="$UNCATEGORIZED_ENTRIES"
+        CATEGORY_COUNT=$UNCATEGORIZED_COUNT
+        ;;
+    esac
+
+    local LOCAL_LAYOUT
+    local TARGET
 
     # Make category directory.
-    target=docs/category/"$val"
-    mkdir -p "$target"
+    TARGET=docs/category/"$VAL"
+    mkdir -p "$TARGET"
 
     # Parse the category layout and save the result.
-    parsed_tpl=$(echo "${layouts["category"]}" | parse_tpl)
-    parsed_tpl=${parsed_tpl/gnikyt | gnikyt/Category: "$val" | gnikyt}
-    echo "$parsed_tpl" > "$target"/index.html
+    HANDLE="category/${VAL}"
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["category"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    PARSED_TPL=${PARSED_TPL/gnikyt | gnikyt/Category: "$VAL" | gnikyt}
+    echo "$PARSED_TPL" > "$TARGET"/index.html
 
     # Create text version.
-    text=$(lynx --stdin --dump < "$target"/index.html)
-    echo "$text" > "$target"/index.txt
+    TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+    echo "$TEXT" > "$TARGET"/index.txt
 
     # Parse the categories list template and save result.
-    parsed_tpl=$(echo "${layouts["_categories_entry"]}" | parse_tpl)
-    globals["categories_entries"]="${globals["categories_entries"]}${newline}${parsed_tpl}"
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["_categories_entry"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    CATEGORIES_ENTRIES="${CATEGORIES_ENTRIES}${NEWLINE}${PARSED_TPL}"
 
     # Parse the sitemap template and save result.
-    globals["handle"]="category/${val}"
-    globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-    parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
-    globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
+    DATE_ISO8601=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
+    LOCAL_LAYOUT=$(cat "${LAYOUTS["_sitemap_item"]}")
+    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+    SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
 
-    echo -e "\033[1A\033[K[$val] Generated"
-    count+=1
+    echo -e "\033[1A\033[K[$VAL] Generated"
+    ((COUNT++))
   done
 
   # Categories template.
-  target="docs/category"
-  parsed_tpl=$(echo "${layouts["categories"]}" | parse_tpl)
-  parsed_tpl=${parsed_tpl/gnikyt | gnikyt/Categories | gnikyt}
-  echo "$parsed_tpl" > "$target"/index.html
+  TITLE="Categories"
+  HANDLE="category"
+  TARGET="docs/category"
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["categories"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  echo "$PARSED_TPL" > "$TARGET"/index.html
 
   # Create text version.
-  text=$(lynx --stdin --dump < "$target"/index.html)
-  echo "$text" > "$target"/index.txt
+  TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+  echo "$TEXT" > "$TARGET"/index.txt
 
   # Parse the sitemap template and save result.
-  globals["handle"]="categories"
-  globals["date_iso8601"]=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-  parsed_tpl=$(echo "${layouts["_sitemap_item"]}" | parse_tpl)
-  globals["sitemap_items"]="${globals["sitemap_items"]}${newline}${parsed_tpl}"
+  DATE_ISO8601=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["_sitemap_item"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
 
-  echo -e "Completed: $count categories\n"
-  count=0
+  echo -e "Completed: $COUNT categories\n"
 }
 
 # process_sitemap will generate a sitemap.
 process_sitemap() {
+  local LOCAL_LAYOUT
+
   echo "Generating sitemap..."
-  globals["layout"]="sitemap"
-  globals["is_post"]=""
-  globals["is_page"]=""
-  parsed_tpl=$(echo "${layouts["sitemap"]}" | parse_tpl)
-  echo "$parsed_tpl" > docs/sitemap.xml
+  LAYOUT="sitemap"
+  IS_POST=""
+  IS_PAGE=""
+  LOCAL_LAYOUT=$(cat "${LAYOUTS["sitemap"]}")
+  PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+  echo "$PARSED_TPL" > docs/sitemap.xml
+
   echo -e "Completed\n"
 }
 
 # create_highlight will use Pandoc to generate the CSS for highlighting code.
 create_highlight() {
   echo "Generating highlighting..."
-  css=$(highlight)
-  echo "$css" > static/assets/styles/highlight.css
+  CSS=$(highlight)
+  echo "$CSS" > static/assets/styles/highlight.css
   echo -e "Completed\n"
 }
 
 # tidy_markup will tidy the HTML and XML.
 tidy_markup() {
-  local result
-  local dopts
-  dopts="--indent yes \
+  local RESULT
+  local DOPTS
+  DOPTS="--indent yes \
       --indent-spaces 2 \
       --vertical-space yes \
       --drop-empty-elements no \
@@ -363,17 +578,17 @@ tidy_markup() {
   # shellcheck disable=SC2044
   for i in $(find docs -name "*.html" -type f); do
     # shellcheck disable=SC2086
-    result=$(tidy $dopts < "$i")
-    echo "$result" > "$i"
+    RESULT=$(tidy $DOPTS < "$i")
+    echo "$RESULT" > "$i"
   done
 
   # shellcheck disable=SC2086
-  result=$(tidy --input-xml yes --output-xml yes $dopts < docs/rss.xml)
-  echo "$result" > docs/rss.xml
+  RESULT=$(tidy --input-xml yes --output-xml yes $DOPTS < docs/rss.xml)
+  echo "$RESULT" > docs/rss.xml
 
   # shellcheck disable=SC2086
-  result=$(tidy --input-xml yes --output-xml yes $dopts < docs/sitemap.xml)
-  echo "$result" > docs/sitemap.xml
+  RESULT=$(tidy --input-xml yes --output-xml yes $DOPTS < docs/sitemap.xml)
+  echo "$RESULT" > docs/sitemap.xml
 
   echo -e "Completed\n"
 }
@@ -384,15 +599,15 @@ main() {
   rm -r docs/* 2> /dev/null
 
   # Find all posts.
-  posts=$(find posts -name "*.md" -type f | sort -r)
+  POSTS=$(find posts -name "*.md" -type f | sort -r)
 
   # Find all pages.
-  pages=$(find pages -name "*.md" -type f | sort)
+  PAGES=$(find pages -name "*.md" -type f | sort)
 
   # Get all layout files.
   # shellcheck disable=SC2044
   for i in $(find templates -type f); do
-    layouts[$(basename "${i%.*}")]=$i
+    LAYOUTS[$(basename "${i%.*}")]=$i
   done
 
   # Processing.

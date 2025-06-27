@@ -62,7 +62,7 @@ end
 
    Appendix
 
-   This post is 8 years old and may contain outdated information.
+   This post is 9 years old and may contain outdated information.
 
    Copyright under [7]CC-4.0.
 
@@ -100,7 +100,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///testing-with-shopify-app/index.md
    9. file:///testing-with-shopify-app/index.txt
-  10. file:///tmp/lynxXXXXFv8kd9/L594664-4248TMP.html
+  10. file:///tmp/lynxXXXXcaUNcI/L275943-7937TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

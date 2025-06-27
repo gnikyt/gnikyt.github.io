@@ -2,17 +2,19 @@
 
 <article class="tab post">
   <header class="post__head">
-    <h1 class="tab__title tab__title--short post__title">{{title}} /</h1>
+    <h1 class="tab__title tab__title--short post__title">{{TITLE|UPPERCASE 1}} /</h1>
   </header>
 
   <div class="tab__container">
     <div class="tab__content">
       <div class="post__meta content-container">
         <div class="post__details">
-          /* <time class="post__time" datetime="{{date_ymd}}">{{date_human}}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">{{post_size}}</span> */
+          /* <time class="post__time" datetime="{{DATE_YMD}}">{{DATE_HUMAN}}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">{{POST_SIZE}}</span> */
         </div>
         <div class="post__category">
-          {{%foreach category ,}}<a href="/category/{{value}}"><img src="/assets/images/category-{{value}}.svg" class="post__category-logo" alt="Logo of {{value}}"></a>{{/foreach category ,}}
+          {{@FOREACH CATEGORY ,}}
+            <a href="/category/{{VALUE}}"><img src="/assets/images/category-{{VALUE}}.svg" class="post__category-logo" alt="Logo of {{VALUE}}"></a>
+          {{/FOREACH CATEGORY ,}}
         </div>
       </div>
 
@@ -28,7 +30,7 @@
   <div class="tab__container">
     <div class="tab__content">
       <div class="content-container">
-        {{#is_old}}{{>templates/_old_warning.html}}{{/is_old}}
+        {{#IS_OLD}}{{>templates/_old_warning.html}}{{/IS_OLD}}
 
         <p>
           Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-4.0</a>.

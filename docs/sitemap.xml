@@ -1,239 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://gnikyt.com/building-bash-template-engine</loc>
-    <lastmod>2025-05-22T14:09:31-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/handling-shopify-api-limits-goroutines</loc>
-    <lastmod>2025-04-10T16:26:22-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/shopify-checkout-ui-product-html</loc>
-    <lastmod>2024-05-10T13:30:56-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/prisma-jest-mysql-testing</loc>
-    <lastmod>2024-03-28T13:19:23-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/generate-type-definitions-without-emitting-js</loc>
-    <lastmod>2024-02-27T15:52:00-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/type-definitions-without-emitting</loc>
-    <lastmod>2024-02-07T13:44:12-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/shopify-remix-prisma-and-jest</loc>
-    <lastmod>2024-01-10T13:17:03-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/wplocal-with-wsl</loc>
-    <lastmod>2023-12-07T11:22:03-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/new-desktop-setup</loc>
-    <lastmod>2022-12-11T14:50:22-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/shopify-liquid-tester</loc>
-    <lastmod>2022-11-20T14:08:03-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/joint-venture-lfl</loc>
-    <lastmod>2022-11-15T11:48:03-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/shopify-github-action-versioning</loc>
-    <lastmod>2022-05-20T16:16:20-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/wsl-network-speed</loc>
-    <lastmod>2021-11-16T12:52:01-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/shopify-node-app-custom-multi-tenant</loc>
-    <lastmod>2021-11-15T16:35:00-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/laravel-shopify-cookieless</loc>
-    <lastmod>2021-06-29T15:57:18-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/git-release-branches</loc>
-    <lastmod>2021-03-10T11:12:19-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/laravel-shopify-featured-shopify-blog</loc>
-    <lastmod>2021-03-04T10:28:34-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/laravel-shopify-itp</loc>
-    <lastmod>2021-02-03T10:28:34-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/async-shopify-api-for-python</loc>
-    <lastmod>2020-06-29T12:31:02-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized</loc>
-    <lastmod>2020-02-04T00:56:22-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/i3-plasma-a-solid-match</loc>
-    <lastmod>2019-08-28T04:06:39-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/laravel-shopify-billing</loc>
-    <lastmod>2018-01-26T15:52:56-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/setting-up-lumen-with-redis</loc>
-    <lastmod>2017-11-19T11:43:01-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/setting-up-lumen-with-mail</loc>
-    <lastmod>2017-11-19T11:04:33-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/introducing-shopify-for-laravel</loc>
-    <lastmod>2017-08-09T16:35:00-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/reactive-vuejs-plugins</loc>
-    <lastmod>2017-06-29T12:36:22-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/wordpress-under-docker</loc>
-    <lastmod>2017-06-15T09:53:10-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/shopify-app-whitelist-gem</loc>
-    <lastmod>2016-11-26T16:45:01-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/testing-with-shopify-app</loc>
-    <lastmod>2016-06-21T01:17:33-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/counting-unique-options-in-shopify</loc>
-    <lastmod>2016-06-21T01:17:33-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/precompiling-assets-in-your-rails-engine</loc>
-    <lastmod>2016-05-03T23:26:22-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby</loc>
-    <lastmod>2016-03-02T01:02:11-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/extending-a-rails-engine</loc>
-    <lastmod>2016-02-20T12:27:45-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/polymorphic-and-route-concerns</loc>
-    <lastmod>2016-01-01T12:55:00-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra</loc>
-    <lastmod>2015-10-15T02:00:00-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/wp-user-themes</loc>
-    <lastmod>2015-05-21T17:00:34-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/get-original-sized-images-from-a-wordpress-post-gallery</loc>
-    <lastmod>2014-11-08T20:36:59-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/acf-simple-table</loc>
-    <lastmod>2014-07-18T12:48:05-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/phpmailer-contrib</loc>
-    <lastmod>2014-02-09T20:55:00-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/get-single-field-error-in-symfony</loc>
-    <lastmod>2013-12-12T23:04:07-0330</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/woocommerce-sorting-products-by-category</loc>
-    <lastmod>2013-10-05T15:56:26-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/about</loc>
-    <lastmod>2025-05-22T15:26:44-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/archive</loc>
-    <lastmod>2025-05-22T15:26:45-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/cmd</loc>
-    <lastmod>2025-05-22T15:26:45-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/golang</loc>
-    <lastmod>2025-05-22T15:26:45-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/shopify</loc>
-    <lastmod>2025-05-22T15:26:45-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/javascript</loc>
-    <lastmod>2025-05-22T15:26:46-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/react</loc>
-    <lastmod>2025-05-22T15:26:46-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/php</loc>
-    <lastmod>2025-05-22T15:26:46-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/wordpress</loc>
-    <lastmod>2025-05-22T15:26:47-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/laravel</loc>
-    <lastmod>2025-05-22T15:26:47-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/python</loc>
-    <lastmod>2025-05-22T15:26:47-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/symfony</loc>
-    <lastmod>2025-05-22T15:26:48-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/vuejs</loc>
-    <lastmod>2025-05-22T15:26:48-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/ruby</loc>
-    <lastmod>2025-05-22T15:26:48-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/rails</loc>
-    <lastmod>2025-05-22T15:26:48-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/sinatra</loc>
-    <lastmod>2025-05-22T15:26:49-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/category/uncategorized</loc>
-    <lastmod>2025-05-22T15:26:49-0230</lastmod>
-  </url>
-  <url>
-    <loc>https://gnikyt.com/categories</loc>
-    <lastmod>2025-05-22T15:26:49-0230</lastmod>
-  </url>
-</urlset>
+<url>
+  <loc>https://gnikyt.com/building-bash-template-engine</loc>
+  <lastmod>2025-05-22T14:09:31-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/handling-shopify-api-limits-goroutines</loc>
+  <lastmod>2025-04-10T16:26:22-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/shopify-checkout-ui-product-html</loc>
+  <lastmod>2024-05-10T13:30:56-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/prisma-jest-mysql-testing</loc>
+  <lastmod>2024-03-28T13:19:23-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/generate-type-definitions-without-emitting-js</loc>
+  <lastmod>2024-02-27T15:52:00-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/type-definitions-without-emitting</loc>
+  <lastmod>2024-02-07T13:44:12-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/shopify-remix-prisma-and-jest</loc>
+  <lastmod>2024-01-10T13:17:03-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/wplocal-with-wsl</loc>
+  <lastmod>2023-12-07T11:22:03-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/new-desktop-setup</loc>
+  <lastmod>2022-12-11T14:50:22-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/shopify-liquid-tester</loc>
+  <lastmod>2022-11-20T14:08:03-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/joint-venture-lfl</loc>
+  <lastmod>2022-11-15T11:48:03-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/shopify-github-action-versioning</loc>
+  <lastmod>2022-05-20T16:16:20-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/wsl-network-speed</loc>
+  <lastmod>2021-11-16T12:52:01-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/shopify-node-app-custom-multi-tenant</loc>
+  <lastmod>2021-11-15T16:35:00-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/laravel-shopify-cookieless</loc>
+  <lastmod>2021-06-29T15:57:18-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/git-release-branches</loc>
+  <lastmod>2021-03-10T11:12:19-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/laravel-shopify-featured-shopify-blog</loc>
+  <lastmod>2021-03-04T10:28:34-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/laravel-shopify-itp</loc>
+  <lastmod>2021-02-03T10:28:34-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/async-shopify-api-for-python</loc>
+  <lastmod>2020-06-29T12:31:02-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized</loc>
+  <lastmod>2020-02-04T00:56:22-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/i3-plasma-a-solid-match</loc>
+  <lastmod>2019-08-28T04:06:39-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/laravel-shopify-billing</loc>
+  <lastmod>2018-01-26T15:52:56-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/setting-up-lumen-with-redis</loc>
+  <lastmod>2017-11-19T11:43:01-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/setting-up-lumen-with-mail</loc>
+  <lastmod>2017-11-19T11:04:33-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/introducing-shopify-for-laravel</loc>
+  <lastmod>2017-08-09T16:35:00-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/reactive-vuejs-plugins</loc>
+  <lastmod>2017-06-29T12:36:22-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/wordpress-under-docker</loc>
+  <lastmod>2017-06-15T09:53:10-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/shopify-app-whitelist-gem</loc>
+  <lastmod>2016-11-26T16:45:01-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/testing-with-shopify-app</loc>
+  <lastmod>2016-06-21T01:17:33-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/counting-unique-options-in-shopify</loc>
+  <lastmod>2016-06-21T01:17:33-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/precompiling-assets-in-your-rails-engine</loc>
+  <lastmod>2016-05-03T23:26:22-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby</loc>
+  <lastmod>2016-03-02T01:02:11-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/extending-a-rails-engine</loc>
+  <lastmod>2016-02-20T12:27:45-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/polymorphic-and-route-concerns</loc>
+  <lastmod>2016-01-01T12:55:00-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra</loc>
+  <lastmod>2015-10-15T02:00:00-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/wp-user-themes</loc>
+  <lastmod>2015-05-21T17:00:34-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/get-original-sized-images-from-a-wordpress-post-gallery</loc>
+  <lastmod>2014-11-08T20:36:59-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/acf-simple-table</loc>
+  <lastmod>2014-07-18T12:48:05-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/phpmailer-contrib</loc>
+  <lastmod>2014-02-09T20:55:00-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/get-single-field-error-in-symfony</loc>
+  <lastmod>2013-12-12T23:04:07-0330</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/woocommerce-sorting-products-by-category</loc>
+  <lastmod>2013-10-05T15:56:26-0230</lastmod>
+</url>templates/_sitemap_item.xml 
+<url>
+  <loc>https://gnikyt.com/archive</loc>
+  <lastmod>2025-06-27T17:36:28-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/cmd</loc>
+  <lastmod>2025-06-27T17:36:33-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/golang</loc>
+  <lastmod>2025-06-27T17:36:39-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/shopify</loc>
+  <lastmod>2025-06-27T17:36:45-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/javascript</loc>
+  <lastmod>2025-06-27T17:36:50-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/react</loc>
+  <lastmod>2025-06-27T17:36:55-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/php</loc>
+  <lastmod>2025-06-27T17:37:01-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/wordpress</loc>
+  <lastmod>2025-06-27T17:37:06-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/laravel</loc>
+  <lastmod>2025-06-27T17:37:12-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/python</loc>
+  <lastmod>2025-06-27T17:37:18-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/symfony</loc>
+  <lastmod>2025-06-27T17:37:23-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/vuejs</loc>
+  <lastmod>2025-06-27T17:37:29-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/ruby</loc>
+  <lastmod>2025-06-27T17:37:35-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/rails</loc>
+  <lastmod>2025-06-27T17:37:40-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/sinatra</loc>
+  <lastmod>2025-06-27T17:37:46-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/uncategorized</loc>
+  <lastmod>2025-06-27T17:37:51-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category</loc>
+  <lastmod>2025-06-27T17:37:56-0230</lastmod>
+</url></urlset>

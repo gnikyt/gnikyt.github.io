@@ -6,51 +6,45 @@
 #    key/values, not full YAML.
 # 2) Extracts the post/page's body content.
 parse_md() {
-  # Reset key variables.
-  globals["body"]=""
-  globals["excerpt"]=""
-  globals["category"]=""
-  globals["archive"]="false"
+  # IS_FRONTMATTER keeps track of if were inside the frontmatter text.
+  local IS_FRONTMATTER=0
+  local KEY=""
+  local VAL=""
 
-  # is_frontmatter keeps track of if were inside the frontmatter text.
-  local is_frontmatter=0
-  local key=""
-  local val=""
-
-  readarray -t lines <<<"$1"
-  for ln in "${!lines[@]}";
+  readarray -t LINES <<<"$1"
+  for LN in "${!LINES[@]}";
   do
-    if [ "${lines[$ln]}" = "---" ] && [ "$ln" -eq 0 ]; then
+    if [ "${LINES[$LN]}" = "---" ] && [ "$LN" -eq 0 ]; then
       # Beginning of frontmatter.
-      is_frontmatter=1
-    elif [ "${lines[$ln]}" = "---" ] && [ "$ln" -gt 0 ]; then
+      IS_FRONTMATTER=1
+    elif [ "${LINES[$LN]}" = "---" ] && [ "$LN" -gt 0 ]; then
       # End of frontmatter.
-      is_frontmatter=0
-    elif [ $is_frontmatter -eq 1 ]; then
+      IS_FRONTMATTER=0
+    elif [ $IS_FRONTMATTER -eq 1 ]; then
       # Inside frontmatter, split key/value pair and assign to table.
-      key=$(echo "${lines[$ln]}" | awk '{split($0,kv,": "); print kv[1]}')
-      val=$(echo "${lines[$ln]}" | awk '{split($0,kv,": "); print kv[2]}')
+      KEY=$(echo "${LINES[$LN]}" | awk '{split($0,kv,": "); print toupper(kv[1])}')
+      VAL=$(echo "${LINES[$LN]}" | awk '{split($0,kv,": "); print kv[2]}')
 
-      if [ "${val:0:1}" = "'" ] || [ "${val:0:1}" = '"' ]; then
+      if [ "${VAL:0:1}" = "'" ] || [ "${VAL:0:1}" = '"' ]; then
         # Remove quotes surrounding value.
-        val=${val:1:-1}
+        VAL=${VAL:1:-1}
       fi
 
-      if [ "$key" = "permalink" ]; then
-        # Change "permalink" to "handle".
-        key="handle"
+      if [ "$KEY" = "PERMALINK" ]; then
+        # Change "PERMALINK" to "HANDLE".
+        KEY="HANDLE"
         # Ensure lowercase
-        val=${val,,}
+        VAL=${VAL,,}
       fi
 
       # Assign to variable for later use.
       # shellcheck disable=SC2001
-      val=$(echo "$val" | sed 's/[[:space:]]*$//')
-      eval "globals[\"$key\"]=\"$val\""
+      VAL=$(echo "$VAL" | sed 's/[[:space:]]*$//')
+      eval "$KEY=\"$VAL\""
     else
       # Assign post body text for later use.
-      globals["body"]="${globals["body"]}${lines[$ln]}"$'\n'
-      globals["excerpt"]="${globals["body"]:0:137}..."
+      BODY="${BODY}${LINES[$LN]}"$'\n'
+      EXCERPT="${BODY:0:137}..."
     fi
   done
 }

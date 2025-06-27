@@ -141,7 +141,7 @@ re.home }} - {{ $SportsTicker.state.score.away }}
 
    Appendix
 
-   This post is 7 years old and may contain outdated information.
+   This post is 8 years old and may contain outdated information.
 
    Copyright under [7]CC-4.0.
 
@@ -179,7 +179,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///reactive-vuejs-plugins/index.md
    9. file:///reactive-vuejs-plugins/index.txt
-  10. file:///tmp/lynxXXXXRzKCGP/L592674-127TMP.html
+  10. file:///tmp/lynxXXXXEc71x0/L249641-7078TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt

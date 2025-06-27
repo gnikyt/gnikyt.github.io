@@ -55,7 +55,7 @@ r', 'colors' }}
 
    Appendix
 
-   This post is 8 years old and may contain outdated information.
+   This post is 9 years old and may contain outdated information.
 
    Copyright under [6]CC-4.0.
 
@@ -92,7 +92,7 @@ References
    6. https://creativecommons.org/licenses/by/4.0/
    7. file:///counting-unique-options-in-shopify/index.md
    8. file:///counting-unique-options-in-shopify/index.txt
-   9. file:///tmp/lynxXXXX1XCOUm/L595338-2068TMP.html
+   9. file:///tmp/lynxXXXX561lKZ/L284476-5733TMP.html
   10. file:///about
   11. file:///about
   12. https://github.com/gnikyt

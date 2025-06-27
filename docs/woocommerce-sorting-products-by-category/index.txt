@@ -187,7 +187,7 @@ References
    8. https://creativecommons.org/licenses/by/4.0/
    9. file:///woocommerce-sorting-products-by-category/index.md
   10. file:///woocommerce-sorting-products-by-category/index.txt
-  11. file:///tmp/lynxXXXXgXFM5m/L602566-8592TMP.html
+  11. file:///tmp/lynxXXXXcwaGkL/L379465-6210TMP.html
   12. file:///about
   13. file:///about
   14. https://github.com/gnikyt

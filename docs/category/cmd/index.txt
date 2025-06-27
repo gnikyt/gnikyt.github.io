@@ -9,7 +9,7 @@
 
 [3]Building a BASH template engine
        May 22, 2025
-       13KB
+       3.5KB
      * $>
 
 [4]New desktop setup

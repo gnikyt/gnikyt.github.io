@@ -8,8 +8,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  {{#is_page}}{{>templates/_seo_default.html}}{{/is_page}}
-  {{#is_post}}{{>templates/_seo_post.html}}{{/is_post}}
+  {{#IS_PAGE}}{{>templates/_seo_default.html}}{{/IS_PAGE}}
+  {{#IS_POST}}{{>templates/_seo_post.html}}{{/IS_POST}}
 
   <link rel="preload" as="font" href="/assets/fonts/RobotoMono-Regular.woff2" type="font/woff2" crossorigin="anonymous" />
   <link rel="preload" as="font" href="/assets/fonts/RobotoMono-Bold.woff2" type="font/woff2" crossorigin="anonymous" />
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/assets/styles/style.css" />
   <link rel="stylesheet" href="/assets/styles/highlight.css" />
 </head>
-<body class="layout layout--{{#is_post}}post{{/is_post}}{{#is_page}}page{{/is_page}}" data-handle="{{handle}}">
+<body class="layout layout--{{#IS_POST}}post{{/IS_POST}}{{#IS_PAGE}}page{{/IS_PAGE}}" data-handle="{{HANDLE}}">
   <header class="site-head container">
     <span class="site-head__item"><a href="/" class="site-head__link">gnikyt</a></span>
     <span class="site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>

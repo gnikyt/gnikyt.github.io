@@ -103,7 +103,7 @@ References
    9. https://creativecommons.org/licenses/by/4.0/
   10. file:///introducing-shopify-for-laravel/index.md
   11. file:///introducing-shopify-for-laravel/index.txt
-  12. file:///tmp/lynxXXXXyFpxkg/L592011-3587TMP.html
+  12. file:///tmp/lynxXXXXT8yKAn/L240958-4295TMP.html
   13. file:///about
   14. file:///about
   15. https://github.com/gnikyt

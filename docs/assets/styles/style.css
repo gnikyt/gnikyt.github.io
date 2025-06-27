@@ -85,6 +85,8 @@ ol[role='list'] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+  background-image: linear-gradient(90deg, #8080804d 1px, #0000 0), linear-gradient(#80808090 1px, #0000 0);
+  background-size: 40px 40px;
 }
 
 h1, h2, h3, h4,
@@ -217,6 +219,7 @@ body {
 
 .site-tail .site-tail__links .button {
   font-size: .9em;
+  background-color: var(--background-color);
 }
 
 .site-tail .site-tail__avatar-img {
@@ -351,6 +354,7 @@ body {
   border-style: solid;
   border-color: var(--font-color);
   border-width: 8px 5px 5px 5px;
+  background-color: var(--background-color);
 }
 
 .tab__container--padded {

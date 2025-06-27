@@ -109,7 +109,7 @@ Further Exploring
 
    Appendix
 
-   This post is 7 years old and may contain outdated information.
+   This post is 8 years old and may contain outdated information.
 
    Copyright under [9]CC-4.0.
 
@@ -149,7 +149,7 @@ References
    9. https://creativecommons.org/licenses/by/4.0/
   10. file:///wordpress-under-docker/index.md
   11. file:///wordpress-under-docker/index.txt
-  12. file:///tmp/lynxXXXXZ6qShJ/L593331-2343TMP.html
+  12. file:///tmp/lynxXXXXbVRlNN/L258281-6416TMP.html
   13. file:///about
   14. file:///about
   15. https://github.com/gnikyt

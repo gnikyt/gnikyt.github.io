@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gnikyt</title>
+    <title>gnikyt</title>
     <link>https://gnikyt.com</link>
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
@@ -111,7 +111,7 @@
       across the board, to not only keep...</description>
       <guid isPermLink="true">https://gnikyt.com/joint-venture-lfl</guid>
       <pubDate>2022-11-15T11:48:03-0330</pubDate>
-      <category>category</category>
+      <category></category>
     </item>
     <item>
       <title>Shopify Github Action for versioning</title>

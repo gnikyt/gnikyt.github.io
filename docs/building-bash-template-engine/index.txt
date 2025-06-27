@@ -4,7 +4,7 @@
 
                        Building a BASH template engine /
 
-   /* May 22, 2025  —  13KB */
+   /* May 22, 2025  —  3.5KB */
    [3]Logo of cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was
@@ -41,359 +41,96 @@
        result
 
    Initial supports I targeted:
-     * Variables: {{var}}
-     * If statements: {{#var}}I exist!{{/var}}
-     * Unless statements: {{^var}}I do not exist!{{/var}}
+     * Variables: {{VAR}}
+     * Variables with filters: {{VAR|UPPERCASE|REPLACE x y}}
+     * If statements: {{#VAR}}I exist!{{/VAR}}
+     * Unless statements: {{^VAR}}I do not exist!{{/VAR}}
      * Partial includes: {{>file.html}}
-     * Looping: {{%foreach var}}{{key}}: {{value}}{{/foreach var}}
-     * Custom functions: {{%money USD}}4500{{/money USD}}
+     * Looping: {{@FOREACH var}}{{KEY}}: {{VALUE}}{{/FOREACH var}}
+     * Custom functions: {{@MONEY USD}}4500{{/MONEY USD}}
 
-   Starting the parser:
-# TOKEN_MATCH represents the REGEX for token detection.
-# Format of `{{(#|^|>|%)(KEY)}}(CONTENT)({{/(KEY)}})`.
-readonly TOKEN_MATCH='\{\{([#^>%@])([^}]+?)\}\}(?:(?R)|.)*?\{\{/\2\}\}|\{\{[\w#^
->%@./,-]+\}\}'
+   The method I chose, since BASH is limited, was to go
+   character-by-character through the input.
+     * If { was the current character, I peek ahead to know if the next
+       character is also a {
+     * If the current character and next are both {{, I know this is a
+       variable or block
+     * Next, the inside is parsed until }}
+     * If determined to be a block, then everything after }} until {{/ is
+       captured
+     * Once everything is captured, depending on the operation, it would
+       run specific functions to replace the input contents with the
+       parsed contents
 
-# Operations.
-readonly OP_UNLESS="unless"
-readonly OP_IF="if"
-readonly OP_INCLUDE="include"
-readonly OP_VARIABLE="variable"
-readonly OP_FUNCTION="function"
+   [4]I built a library to handle this called be.
 
-# Tokens.
-readonly TOKEN_OPEN_BRACE="{"
-readonly TOKEN_CLOSE_BRACE="}"
-readonly TOKEN_CLOSE_SLASH="/"
-readonly TOKEN_OP_UNLESS="^"
-readonly TOKEN_OP_IF="#"
-readonly TOKEN_OP_INCLUDE=">"
-readonly TOKEN_OP_FUNCTION="%"
+   Example usage, with custom functions and filters:
+#!/bin/bash
 
-   Here we have our REGEX expression (which can only be used with
-   pcregrep) to match the template tags. Basic grep (along with BASH),
-   does not support expressions complex enough to handle template tag
-   detection, specifically detection of nested template tags.
-   Additionally, we define our key tokens to look for and the operation
-   mapping to perform.
+. ./be
 
-   The REGEX was quite hard to come up with. I’m sure someone with more
-   REGEX knowledge could make the expression more concise.
-# ...
-
-parse_tpl() {
-  local match=""
-  local input=""
+be_bold() {
+  local input
   input=$(cat -)
-
-  if [[ $input =~ ^templates/.* ]]; then
-    # Input is a template, get its contents.
-    input=$(cat "$input")
-  fi
-
-  # ...
-
-   Template data is piped into parse_tpl, where on line 4, input=$(cat -)
-   we capture this input. Next, we then check if the input variable starts
-   with templates/, if it does, we know that this is not template data,
-   but a template path, for which we then get that template’s contents if
-   that is the case. This allows the parsing function to work with both
-   template data and template files at the same time.
-
-   Next, we need to find all template tags in the input so we can loop
-   them one-by-one to process.
-  # ...
-
-  # Loop all matches.
-  while match=$(echo "$input" | pcregrep -M -o "$TOKEN_MATCH" | head -n 1); [ -n
- "$match" ]; do
-    local prev_char=""
-    local next_char=""
-    local index=0
-    local block_start_index=0
-    local in_expr=0
-    local is_close=0
-    local is_block=0
-    local block=""
-    local expr=""
-    local op=""
-    local parsed=""
-
-  # ...
-
-   This will take the input variable, pipe it to pcregrep with our REGEX
-   expression and grab the first match. It will keep doing this until
-   nothing else can be found in input. Variables are then setup to track
-   the state of the current match… items such as what the previous
-   character was so we can “look behind”, what the next character is so we
-   can “look ahead”, the block content, the expression, the operation
-   type, the parsed output, and more.
-
-   Now that we have loop running for each match, we need to parse each
-   character of the match one-by-one to determine its operation, the
-   current index (column), expression, optional arguments, optional block
-   content, and more.
-    # ...
-
-    while read -r -N1 char; do
-      next_char=${match:$index+1:1}
-
-      # ...
-
-      # Record this character, increase index.
-      prev_char="$char"
-      ((index++))
-    done < <(echo -n "$match")
-
-    # ...
-
-   Here we are using read to read the piped in value of match one
-   character at a time. The next character is stored and the end of the
-   loop, the previous character (current) is stored while increasing the
-   index (column) of where our current read position is in the match.
-      # ...
-
-      case $char in
-        # ...
-      esac
-
-      # ...
-
-   Utilizing a switch, each character will pass through this. We want to
-   detect our tokens and start tracking state.
-        # ...
-
-        # Handle opening brace of expression.
-        "$TOKEN_OPEN_BRACE")
-          if [[ "$prev_char" = "$TOKEN_OPEN_BRACE" ]]; then
-            in_expr=1
-            if [[ "$next_char" = "$TOKEN_CLOSE_SLASH" ]]; then
-              # Next character is slash, this expression is a closing one.
-              is_close=1
-            fi
-          fi
-          ;;
-
-        # ...
-
-   Our first case handle the open brace character ({). We then check if
-   the previous character was also an open brace, if so, this tell us we
-   have two open braces right now ({{) which means were inside a template
-   tag; given this, we set is_expr to “true” to let the rest of the code
-   be aware we are inside a template tag. Last, we check if the next
-   character is a slash (/), which will tell us were at the closing part
-   of a template tag.
-        # ...
-
-        # Handle close brace of expression.
-        "$TOKEN_CLOSE_BRACE")
-          if [[ "$prev_char" = "$TOKEN_CLOSE_BRACE" ]]; then
-            in_expr=0
-            if [[ "$op" = "" ]]; then
-              # No operation found. Variable output.
-              op="$OP_VARIABLE"
-            elif [[ $is_block -eq 1 ]]; then
-              # We need to break out and handle seperately.
-              block_start_index=$((index+1))
-              is_block=0
-              break
-            fi
-          fi
-          ;;
-
-        # ...
-
-   Second, we handle the closing brace (}). If the previous character was
-   also a closing brace, we know that we are no longer in a template tag.
-   Next, if no operation was previously detected (#, >, %, or ^), then we
-   can assume this is a variable operation ({{var}}). If is_block was
-   previously set, then we know the rest of the template tag is the block
-   content, so we can record the start position of the block, then break
-   out to handle the block seperately, ensuring the block contents will
-   not get processed by this loop.
-        # ...
-
-        # If operation.
-        "$TOKEN_OP_IF")
-          if [[ $in_expr -eq 1 ]]; then
-            expr=""
-            op="$OP_IF"
-            is_block=1
-          fi
-          ;;
-
-        # ...
-
-   Third, we handle the ifs (#). We check if we are currently inside a
-   template tag, and if so, we record the operation as OP_IF and set the
-   block flag is_block to “true” so that the rest of the code is aware
-   this operation has block content, which the previous closing brace case
-   will help handle later.
-        # ...
-
-        # Unless operation.
-        "$TOKEN_OP_UNLESS")
-          if [[ $in_expr -eq 1 ]]; then
-            expr=""
-            op="$OP_UNLESS"
-            is_block=1
-          fi
-          ;;
-
-        # ...
-
-   Fourth, we handle unless (^). Exactly the same as the if handling
-   except the operation is set to OP_UNLESS.
-        # ...
-
-        # Include of partial operation.
-        "$TOKEN_OP_INCLUDE")
-          if [[ $in_expr -eq 1 ]]; then
-            expr=""
-            op="$OP_INCLUDE"
-          fi
-          ;;
-
-        # ...
-
-   Fifth, we handle the inclusion of templates (>). The operation is set
-   to OP_INCLUDE.
-        # ...
-
-        # Function operation.
-        "$TOKEN_OP_FUNCTION")
-          if [[ $in_expr -eq 1 ]]; then
-            expr=""
-            op="$OP_FUNCTION"
-            is_block=1
-          fi
-          ;;
-
-        # ...
-
-   Sixth, we handle function expressions (%). Exactly the same as the
-   if/unless handling except the operation is set to OP_FUNCTION.
-        # ...
-
-        # Handle any other characer.
-        *)
-          if [[ $in_expr -eq 1 ]]; then
-            if [[ $is_close -eq 0 ]]; then
-              expr="$expr$char"
-            fi
-          fi
-          ;;
-
-        # ...
-
-   Last, we handle all other characters which do not match any other
-   token. If we are inside a template tag and the template tag is not
-   closed (meaning we are currently in the open expression of the template
-   tag), then we append the current character, char, to expr.
-
-   If we have the following: {{%foreach var}}{{key}}: {{value}}{{/foreach
-   var}}, then it builds expr to capture foreach var for use later.
-
-   Now we have processing of a single match completed, we can now pass
-   this off to another switch to handle processing those operations
-   previously detected utilizing the state we previously filled up, such
-   as expr, op, etc.
-    # ...
-
-    case "$op" in
-      # Handle include of partial.
-      "$OP_INCLUDE")
-        parsed=$(tpl_include "$expr")
-        input="${input/"$match"/"$parsed"}"
-        ;;
-
-      # Handle if.
-      "$OP_IF")
-        block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        parsed=$(echo "$block" | tpl_if "$expr")
-        input="${input/"$match"/"$parsed"}"
-        ;;
-
-      # Handle unless.
-      "$OP_UNLESS")
-        block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        parsed=$(echo "$block" | tpl_unless "$expr")
-        input="${input/"$match"/"$parsed"}"
-        ;;
-
-      # Handle variables.
-      "$OP_VARIABLE")
-        parsed=$(tpl_variable "$expr")
-        input="${input/"$match"/"$parsed"}"
-        ;;
-
-      # Handle functions.
-      "$OP_FUNCTION")
-        block=$(echo "$match" | extract_block "$expr" "$block_start_index")
-        result=$(echo "$block" | tpl_function "$expr")
-        input="${input/"$match"/"$result"}"
-        ;;
-
-      # Unknown, skip.
-      *)
-        ;;
-    esac
-
-    # ...
-
-   A case is setup to handle each operation. Each operation will pass data
-   to an internal function for final processing and if it contains block
-   content, then this block content will be piped into that same internal
-   function. The internal function will run its processing on the template
-   data and return a result, this result is used to replace the entire
-   template tag with the result by reassigning input, which completes the
-   core of the template engine. The next time the match loop runs, it will
-   find the next template tag to process as this one no longer exists.
-
-   Finally, we echo out input so the parsed template data can be saved
-   somewhere. We can now process templates with BASH!
-tpl_money() {
-  local block
-  local amount
-  block=$(cat -)
-  amount=$((block))
-  echo "\$$((amount / 100)) $1" # $45.55 USD
+  echo "<strong>${input}</strong>"
 }
 
-<div class="container container--{{#is_post}}post{{#is_archived}}-archive{{/is_a
-rchived}}{{/is_post}}">
-  {{^is_post}}<p>This is a page!</p>{{/is_page}}
-  <ul>
-    {{%foreach category}}<li data-index="{{key}}">{{value}}</li>{{/foreach categ
-ory}}
-  </ul>
+be_replace() {
+  local input
+  input=$(cat -)
+  echo "${input//$1/$2}"
+}
 
-  {{>templates/meta.html}}
+be_capitalize() {
+  local input
+  input=$(cat -)
+  echo "${input^}"
+}
 
-  {^is_archived}{{%money USD}}4555{{/money USD}}{{/is_archived}}
-</div>
+NAME="Joe"
+LIKES="hockey,soccer"
+TPL=$(cat <<EOF
+  Well, well, hello {{NAME}}!
+  {{#LIKES}}
+    So {{NAME|REPLACE e ey|BOLD}}, I heard you like:
+    {{@FOREACH LIKES ,}}
+      {{KEY1}}) {{VALUE|CAPITALIZE}}{{^LAST}}; and {{/LAST}}
+    {{/FOREACH LIKES ,}}
+    {{@RAW}}Won't be processed: {{NAME}}{{/RAW}}
+  {{/LIKES}}
+EOF
+)
+
+echo "$TPL" | be
+
+   Output:
+  Well, well, hello Joe!
+
+    So <strong>Joey</strong>, I heard you like:
+    1) Hockey; and
+    2) Soccer
 
    BASH is definately not the best solution for a template engine,
-   however, you can view the entire solution on [4]my blog’s repo and
-   modify for your needs.
+   however, you can view the entire solution on [5]here and modify for
+   your needs.
 
    Appendix
 
-   Copyright under [5]CC-4.0.
+   Copyright under [6]CC-4.0.
 
    Available in the following alternative formats:
-   [6]MD  /  [7]TXT  /  [8]PDF
+   [7]MD  /  [8]TXT  /  [9]PDF
 
-   [9]Ty King
+   [10]Ty King
 
-[10]Ty King
+[11]Ty King
 
    A self-taught, seasoned, and versatile developer from Newfoundland.
    Crafting innovative solutions with care and expertise.
 
    Crafting innovative solutions with care and expertise.
 
-   [11]Github[12]LinkedIn[13]CV[14]RSS
+   [12]Github[13]LinkedIn[14]CV[15]RSS
 
      *
      *
@@ -409,14 +146,15 @@ References
    1. /rss.xml
    2. file:///
    3. file:///category/cmd
-   4. http://github.com/gnikyt/gnikyt.github.io/tree/master/bin/parse_tpl
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///building-bash-template-engine/index.md
-   7. file:///building-bash-template-engine/index.txt
-   8. file:///tmp/lynxXXXXHcvrT3/L576453-3146TMP.html
-   9. file:///about
+   4. https://githuib.com/gnikyt/be
+   5. https://githuib.com/gnikyt/be/tree/master/be
+   6. https://creativecommons.org/licenses/by/4.0/
+   7. file:///building-bash-template-engine/index.md
+   8. file:///building-bash-template-engine/index.txt
+   9. file:///tmp/lynxXXXX5xsSKB/L34898-245TMP.html
   10. file:///about
-  11. https://github.com/gnikyt
-  12. https://linkedin.com/in/gnikyt
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+  11. file:///about
+  12. https://github.com/gnikyt
+  13. https://linkedin.com/in/gnikyt
+  14. file:///assets/files/cv.pdf
+  15. file:///rss.xml

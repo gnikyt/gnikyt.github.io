@@ -107,7 +107,7 @@ References
    7. https://creativecommons.org/licenses/by/4.0/
    8. file:///shopify-github-action-versioning/index.md
    9. file:///shopify-github-action-versioning/index.txt
-  10. file:///tmp/lynxXXXXFynXHm/L583470-5324TMP.html
+  10. file:///tmp/lynxXXXXixS5Sl/L128287-7389TMP.html
   11. file:///about
   12. file:///about
   13. https://github.com/gnikyt
