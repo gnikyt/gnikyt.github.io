@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                Lumen with Redis /
 
    /* Nov 19, 2017  —  1.3KB */
-   [3]Logo of php [4]Logo of laravel
+   [9]Logo of php [10]Logo of laravel
 
    This is more of an extension of my previous post “Setting Up Lumen +
    Mail”. I wanted to take it a step further and show the basic setup for
@@ -52,21 +54,10 @@ QUEUE_DRIVER=redis
 
    This post is 7 years old and may contain outdated information.
 
-   Copyright under [5]CC-4.0.
+   Copyright under [11]CC-4.0.
 
    Available in the following alternative formats:
-   [6]MD  /  [7]TXT  /  [8]PDF
-
-   [9]Ty King
-
-[10]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [11]Github[12]LinkedIn[13]CV[14]RSS
+   [12]MD  /  [13]TXT  /  [14]PDF
 
      *
      *
@@ -81,15 +72,15 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/php
-   4. file:///category/laravel
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///setting-up-lumen-with-redis/index.md
-   7. file:///setting-up-lumen-with-redis/index.txt
-   8. file:///tmp/lynxXXXXQ8hmjJ/L223501-6085TMP.html
-   9. file:///about
-  10. file:///about
-  11. https://github.com/gnikyt
-  12. https://linkedin.com/in/gnikyt
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/php
+  10. file:///category/laravel
+  11. https://creativecommons.org/licenses/by/4.0/
+  12. file:///setting-up-lumen-with-redis/index.md
+  13. file:///setting-up-lumen-with-redis/index.txt
+  14. file:///tmp/lynxXXXX4DOMSd/L789449-7794TMP.html

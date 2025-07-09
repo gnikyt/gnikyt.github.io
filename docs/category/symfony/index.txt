@@ -1,33 +1,24 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          Index of category / symfony /
 
    Displaying symfony entries sorted by creation date in descending order.
      * $>
 
-[3]Symfony Flex with Symfony Server Dockerized
+[9]Symfony Flex with Symfony Server Dockerized
        Feb 04, 2020
        5.5KB
      * $>
 
-[4]Single field error in Symfony
+[10]Single field error in Symfony
        Dec 12, 2013
        959B
 
-   [5]‹ Categories  |  [6]‹ Home
-
-   [7]Ty King
-
-[8]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [9]Github[10]LinkedIn[11]CV[12]RSS
+   [11]‹ Categories  |  [12]‹ Home
 
      *
      *
@@ -42,13 +33,13 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///basic-symfony-flex-with-symfony-server-dockerized
-   4. file:///archive/get-single-field-error-in-symfony
-   5. file:///category
-   6. file:///
-   7. file:///about
-   8. file:///about
-   9. https://github.com/gnikyt
-  10. https://linkedin.com/in/gnikyt
-  11. file:///assets/files/cv.pdf
-  12. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///basic-symfony-flex-with-symfony-server-dockerized
+  10. file:///archive/get-single-field-error-in-symfony
+  11. file:///category
+  12. file:///

@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             Shopify Liquid Tester /
 
    /* Nov 20, 2022  —  3.9KB */
-   [3]Logo of shopify [4]Logo of javascript
+   [9]Logo of shopify [10]Logo of javascript
 
 Introduction
 
@@ -44,7 +46,7 @@ Introduction
 
    We can not unit test Liquid files in the context of a Shopify store
    very easily, which is why I developed a handly tool called
-   [5]liquid-fn-tester to assist with this for our clients.
+   [11]liquid-fn-tester to assist with this for our clients.
 
 How it works
 
@@ -99,7 +101,7 @@ Utilization
    Your test suite will have full control over setup, snippet
    initilization, teardown, output, and more.
 
-   The repository’s [6]provided examples is a great guide for how
+   The repository’s [12]provided examples is a great guide for how
    everything comes together and how you can test a single snippet against
    multiple values.
    Liquid Fn Example Liquid Fn Example
@@ -112,21 +114,10 @@ Utilization
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [7]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [8]MD  /  [9]TXT  /  [10]PDF
-
-   [11]Ty King
-
-[12]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -141,17 +132,17 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/javascript
-   5. https://github.com/gnikyt/liquid-fn-tester
-   6. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///shopify-liquid-tester/index.md
-   9. file:///shopify-liquid-tester/index.txt
-  10. file:///tmp/lynxXXXXBqGKXS/L111224-1463TMP.html
-  11. file:///about
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/javascript
+  11. https://github.com/gnikyt/liquid-fn-tester
+  12. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///shopify-liquid-tester/index.md
+  15. file:///shopify-liquid-tester/index.txt
+  16. file:///tmp/lynxXXXXvsGgZ9/L690944-5853TMP.html

@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          Introducing Laravel Shopify /
 
    /* Aug 09, 2017  —  2.6KB */
-   [3]Logo of shopify [4]Logo of php [5]Logo of laravel
+   [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
 Background
 
@@ -33,11 +35,11 @@ Background
    with it. It has a lot baked into it, which is all easily configurable
    and accessible - it felt like Rails for PHP honestly.
 
-   [6]shopify_app is Shopify’s own gem for building Shopify apps on Rails;
-   quick and easy. It handles authentication, installation, webhooks,
-   scripttags, ESDK integration, and more. In Laravel, I could not find a
-   package that covered all those points. I decided I’d go headfirst into
-   Laravel and build a package for it.
+   [12]shopify_app is Shopify’s own gem for building Shopify apps on
+   Rails; quick and easy. It handles authentication, installation,
+   webhooks, scripttags, ESDK integration, and more. In Laravel, I could
+   not find a package that covered all those points. I decided I’d go
+   headfirst into Laravel and build a package for it.
 
 What The Package Does
 
@@ -55,8 +57,8 @@ What The Package Does
 
 Project
 
-   You can head over to the [7]project’s page for full information, or
-   also browse [8]the wiki for documentation, installation, and other
+   You can head over to the [13]project’s page for full information, or
+   also browse [14]the wiki for documentation, installation, and other
    topics.
 
    Happy coding with Shopify + Laravel!
@@ -65,21 +67,10 @@ Project
 
    This post is 7 years old and may contain outdated information.
 
-   Copyright under [9]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [10]MD  /  [11]TXT  /  [12]PDF
-
-   [13]Ty King
-
-[14]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [15]Github[16]LinkedIn[17]CV[18]RSS
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -94,19 +85,19 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/php
-   5. file:///category/laravel
-   6. https://github.com/Shopify/shopify_app
-   7. https://github.com/gnikyt/laravel-shopify
-   8. https://github.com/gnikyt/laravel-shopify/wiki
-   9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///introducing-shopify-for-laravel/index.md
-  11. file:///introducing-shopify-for-laravel/index.txt
-  12. file:///tmp/lynxXXXXT8yKAn/L240958-4295TMP.html
-  13. file:///about
-  14. file:///about
-  15. https://github.com/gnikyt
-  16. https://linkedin.com/in/gnikyt
-  17. file:///assets/files/cv.pdf
-  18. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/php
+  11. file:///category/laravel
+  12. https://github.com/Shopify/shopify_app
+  13. https://github.com/gnikyt/laravel-shopify
+  14. https://github.com/gnikyt/laravel-shopify/wiki
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///introducing-shopify-for-laravel/index.md
+  17. file:///introducing-shopify-for-laravel/index.txt
+  18. file:///tmp/lynxXXXXXs69ZM/L804616-6073TMP.html

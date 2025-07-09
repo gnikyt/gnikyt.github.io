@@ -1,13 +1,15 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                    Shopify Prisma, Jest, and MySQL testing /
 
    /* Mar 28, 2024  —  6.5KB */
-   [3]Logo of shopify [4]Logo of javascript
+   [9]Logo of shopify [10]Logo of javascript
 
-   This is an alternate extension to my previous post, [5]Shopify, Remix,
+   This is an alternate extension to my previous post, [11]Shopify, Remix,
    Prisma, and Jest.
 
    Follow that post to get to its current state, and we’ll modify the
@@ -256,21 +258,10 @@ volumes:
 
    Appendix
 
-   Copyright under [6]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
-
-   [10]Ty King
-
-[11]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -285,16 +276,16 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/javascript
-   5. file:///tmp/shopify-remix-prisma-and-jest
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///prisma-jest-mysql-testing/index.md
-   8. file:///prisma-jest-mysql-testing/index.txt
-   9. file:///tmp/lynxXXXXC3fCxU/L60382-9229TMP.html
-  10. file:///about
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/javascript
+  11. file:///tmp/shopify-remix-prisma-and-jest
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///prisma-jest-mysql-testing/index.md
+  14. file:///prisma-jest-mysql-testing/index.txt
+  15. file:///tmp/lynxXXXXNCMk4S/L646670-8348TMP.html

@@ -1,17 +1,19 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                      Laravel Shopify featured on Shopify /
 
    /* Mar 04, 2021  —  1.7KB */
-   [3]Logo of shopify [4]Logo of php [5]Logo of laravel
+   [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
    A couple of weeks ago, Liam Griffin at Shopify reached out to me about
    the Laravel Shopify package, interested in featuring it on Shopify’s
    development blog with other community-built tools.
 
-   You can view the article [6]here at Shopify’s blog, Laravel Shopify is
+   You can view the article [12]here at Shopify’s blog, Laravel Shopify is
    the second mentioned package.
 
      This is a Laravel package that integrates with Shopify’s REST and
@@ -45,21 +47,10 @@
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [7]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [8]MD  /  [9]TXT  /  [10]PDF
-
-   [11]Ty King
-
-[12]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -74,17 +65,17 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/php
-   5. file:///category/laravel
-   6. https://www.shopify.com/partners/blog/api-tools
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///laravel-shopify-featured-shopify-blog/index.md
-   9. file:///laravel-shopify-featured-shopify-blog/index.txt
-  10. file:///tmp/lynxXXXXwKwoPA/L171638-2772TMP.html
-  11. file:///about
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/php
+  11. file:///category/laravel
+  12. https://www.shopify.com/partners/blog/api-tools
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///laravel-shopify-featured-shopify-blog/index.md
+  15. file:///laravel-shopify-featured-shopify-blog/index.txt
+  16. file:///tmp/lynxXXXXtcJEWx/L744370-7907TMP.html

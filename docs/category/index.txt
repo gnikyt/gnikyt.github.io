@@ -1,98 +1,89 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                               Index of category /
 
    Displaying all categories with their post count.
      * $>
 
-[3]cmd
+[9]cmd
        6 posts
        Logo of cmd
      * $>
 
-[4]golang
+[10]golang
        1 posts
        Logo of golang
      * $>
 
-[5]shopify
+[11]shopify
        16 posts
        Logo of shopify
      * $>
 
-[6]javascript
+[12]javascript
        8 posts
        Logo of javascript
      * $>
 
-[7]react
+[13]react
        2 posts
        Logo of react
      * $>
 
-[8]php
+[14]php
        16 posts
        Logo of php
      * $>
 
-[9]wordpress
+[15]wordpress
        7 posts
        Logo of wordpress
      * $>
 
-[10]laravel
+[16]laravel
        7 posts
        Logo of laravel
      * $>
 
-[11]python
+[17]python
        2 posts
        Logo of python
      * $>
 
-[12]symfony
+[18]symfony
        2 posts
        Logo of symfony
      * $>
 
-[13]vuejs
+[19]vuejs
        1 posts
        Logo of vuejs
      * $>
 
-[14]ruby
+[20]ruby
        7 posts
        Logo of ruby
      * $>
 
-[15]rails
+[21]rails
        5 posts
        Logo of rails
      * $>
 
-[16]sinatra
+[22]sinatra
        2 posts
        Logo of sinatra
      * $>
 
-[17]uncategorized
+[23]uncategorized
        1 posts
        Logo of uncategorized
 
-   [18]‹ Home
-
-   [19]Ty King
-
-[20]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [21]Github[22]LinkedIn[23]CV[24]RSS
+   [24]‹ Home
 
      *
      *
@@ -107,25 +98,25 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///category/cmd
-   4. file:///category/golang
-   5. file:///category/shopify
-   6. file:///category/javascript
-   7. file:///category/react
-   8. file:///category/php
-   9. file:///category/wordpress
-  10. file:///category/laravel
-  11. file:///category/python
-  12. file:///category/symfony
-  13. file:///category/vuejs
-  14. file:///category/ruby
-  15. file:///category/rails
-  16. file:///category/sinatra
-  17. file:///category/uncategorized
-  18. file:///
-  19. file:///about
-  20. file:///about
-  21. https://github.com/gnikyt
-  22. https://linkedin.com/in/gnikyt
-  23. file:///assets/files/cv.pdf
-  24. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/cmd
+  10. file:///category/golang
+  11. file:///category/shopify
+  12. file:///category/javascript
+  13. file:///category/react
+  14. file:///category/php
+  15. file:///category/wordpress
+  16. file:///category/laravel
+  17. file:///category/python
+  18. file:///category/symfony
+  19. file:///category/vuejs
+  20. file:///category/ruby
+  21. file:///category/rails
+  22. file:///category/sinatra
+  23. file:///category/uncategorized
+  24. file:///

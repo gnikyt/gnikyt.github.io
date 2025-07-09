@@ -34,6 +34,7 @@ Initial supports I targeted:
 * **Unless statements**: `{{^VAR}}I do not exist!{{/VAR}}`
 * **Partial includes**: `{{>file.html}}`
 * **Looping**: `{{@FOREACH var}}{{KEY}}: {{VALUE}}{{/FOREACH var}}`
+* **Assignment/Capture**: `{{@ASSIGN XYZ}}{{VAR|UPPERCASE}} is cool!{{/@ASSIGN}}`
 * **Custom functions**: `{{@MONEY USD}}4500{{/MONEY USD}}`
 
 The method I chose, since BASH is limited, was to go character-by-character through the input.
@@ -96,6 +97,8 @@ Output:
     So <strong>Joey</strong>, I heard you like:
     1) Hockey; and 
     2) Soccer
+
+    Won't be processed: {{NAME}}
 ```
 
 BASH is definately not the best solution for a template engine, however, you can view the entire solution on [here](https://githuib.com/gnikyt/be/tree/master/be) and modify for your needs.

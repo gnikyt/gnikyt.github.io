@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                              Git release branches /
 
    /* Mar 10, 2021  —  3.4KB */
-   [3]Logo of python [4]Logo of cmd
+   [9]Logo of python [10]Logo of cmd
 
    A method I like to utilize internally, which I’ve been slowly pushing
    into my open source work, is to create branches for each major/minor
@@ -112,21 +114,10 @@ for branch, tag in mm.items():
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [5]CC-4.0.
+   Copyright under [11]CC-4.0.
 
    Available in the following alternative formats:
-   [6]MD  /  [7]TXT  /  [8]PDF
-
-   [9]Ty King
-
-[10]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [11]Github[12]LinkedIn[13]CV[14]RSS
+   [12]MD  /  [13]TXT  /  [14]PDF
 
      *
      *
@@ -141,15 +132,15 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/python
-   4. file:///category/cmd
-   5. https://creativecommons.org/licenses/by/4.0/
-   6. file:///git-release-branches/index.md
-   7. file:///git-release-branches/index.txt
-   8. file:///tmp/lynxXXXXk4fHkU/L162830-7463TMP.html
-   9. file:///about
-  10. file:///about
-  11. https://github.com/gnikyt
-  12. https://linkedin.com/in/gnikyt
-  13. file:///assets/files/cv.pdf
-  14. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/python
+  10. file:///category/cmd
+  11. https://creativecommons.org/licenses/by/4.0/
+  12. file:///git-release-branches/index.md
+  13. file:///git-release-branches/index.txt
+  14. file:///tmp/lynxXXXXo0VyJO/L736691-9241TMP.html

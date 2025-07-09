@@ -22,8 +22,22 @@
 </head>
 <body class="layout layout--{{#IS_POST}}post{{/IS_POST}}{{#IS_PAGE}}page{{/IS_PAGE}}" data-handle="{{HANDLE}}">
   <header class="site-head container">
-    <span class="site-head__item"><a href="/" class="site-head__link">gnikyt</a></span>
-    <span class="site-head__item site-head__item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+    <div class="site-head__item">
+      <div class="site-head__title">
+        <div class="site-head__title-inner">
+          <span class="site-head__title-item"><a href="/" class="site-head__link">gnikyt</a></span>
+          <span class="site-head__title-item site-head__title-item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code ramblings</span>
+        </div>
+        <div class="site-head__title-inner">
+          <a href="/about" class="site-head__avatar">
+            <img src="/assets/images/me.jpg" alt="Ty King" class="site-head__avatar-img" />
+          </a>
+        </div>
+      </div>
+      <div class="site-nav">
+        <a href="/about" class="button button--strong">About</a><a href="https://github.com/gnikyt" target="_blank" rel="noopener" class="button button--strong">Github</a><a href="https://linkedin.com/in/gnikyt" target="_blank" rel="noopener" class="button button--strong">LinkedIn</a><a href="/assets/files/cv.pdf" target="_blank" class="button button--strong">CV</a><a href="/rss.xml" target="_blank" class="button button--strong">RSS</a>
+      </div>
+    </div>
   </header>
 
   <main class="container">

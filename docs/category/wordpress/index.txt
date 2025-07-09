@@ -1,6 +1,8 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                         Index of category / wordpress /
 
@@ -8,52 +10,41 @@
    order.
      * $>
 
-[3]WordPress Local with WSL
+[9]WordPress Local with WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[4]WordPress with Docker
+[10]WordPress with Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[5]WordPress User Themes
+[11]WordPress User Themes
        May 21, 2015
        366B
      * $>
 
-[6]Original sized images from a WordPress Gallery
+[12]Original sized images from a WordPress Gallery
        Nov 08, 2014
        1.5KB
      * $>
 
-[7]ACF Simple Table
+[13]ACF Simple Table
        Jul 18, 2014
        1.2KB
      * $>
 
-[8]PHPMailer contribution
+[14]PHPMailer contribution
        Feb 09, 2014
        1.4KB
      * $>
 
-[9]Sorting product by category in WooCommerce
+[15]Sorting product by category in WooCommerce
        Oct 05, 2013
        6.0KB
 
-   [10]‹ Categories  |  [11]‹ Home
-
-   [12]Ty King
-
-[13]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [14]Github[15]LinkedIn[16]CV[17]RSS
+   [16]‹ Categories  |  [17]‹ Home
 
      *
      *
@@ -68,18 +59,18 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///wplocal-with-wsl
-   4. file:///wordpress-under-docker
-   5. file:///wp-user-themes
-   6. file:///get-original-sized-images-from-a-wordpress-post-gallery
-   7. file:///archive/acf-simple-table
-   8. file:///phpmailer-contrib
-   9. file:///woocommerce-sorting-products-by-category
-  10. file:///category
-  11. file:///
-  12. file:///about
-  13. file:///about
-  14. https://github.com/gnikyt
-  15. https://linkedin.com/in/gnikyt
-  16. file:///assets/files/cv.pdf
-  17. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///wplocal-with-wsl
+  10. file:///wordpress-under-docker
+  11. file:///wp-user-themes
+  12. file:///get-original-sized-images-from-a-wordpress-post-gallery
+  13. file:///archive/acf-simple-table
+  14. file:///phpmailer-contrib
+  15. file:///woocommerce-sorting-products-by-category
+  16. file:///category
+  17. file:///

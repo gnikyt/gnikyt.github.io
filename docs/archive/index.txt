@@ -1,6 +1,8 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                Index of Archive /
 
@@ -8,67 +10,56 @@
    order.
      * $>
 
-[3]New desktop setup
+[9]New desktop setup
        Dec 11, 2022
        6.5KB
      * $>
 
-[4]Shopify Liquid Tester
+[10]Shopify Liquid Tester
        Nov 20, 2022
        3.9KB
      * $>
 
-[5]Joint Venture with LFL
+[11]Joint Venture with LFL
        Nov 15, 2022
        6.0KB
      * $>
 
-[6]WSL network speed
+[12]WSL network speed
        Nov 16, 2021
        1.8KB
      * $>
 
-[7]i3-Plasma for a solid match
+[13]i3-Plasma for a solid match
        Aug 28, 2019
        4.4KB
      * $>
 
-[8]Reactive VueJS plugins
+[14]Reactive VueJS plugins
        Jun 29, 2017
        4.1KB
      * $>
 
-[9]Counting unique options in Shopify
+[15]Counting unique options in Shopify
        Jun 21, 2016
        2.1KB
      * $>
 
-[10]Precompiling assets with Rails Engine
+[16]Precompiling assets with Rails Engine
        May 03, 2016
        2.3KB
      * $>
 
-[11]ACF Simple Table
+[17]ACF Simple Table
        Jul 18, 2014
        1.2KB
      * $>
 
-[12]Single field error in Symfony
+[18]Single field error in Symfony
        Dec 12, 2013
        959B
 
-   [13]‹ Home
-
-   [14]Ty King
-
-[15]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [16]Github[17]LinkedIn[18]CV[19]RSS
+   [19]‹ Home
 
      *
      *
@@ -83,20 +74,20 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///archive/new-desktop-setup
-   4. file:///archive/shopify-liquid-tester
-   5. file:///archive/joint-venture-lfl
-   6. file:///archive/wsl-network-speed
-   7. file:///archive/i3-plasma-a-solid-match
-   8. file:///archive/reactive-vuejs-plugins
-   9. file:///archive/counting-unique-options-in-shopify
-  10. file:///archive/precompiling-assets-in-your-rails-engine
-  11. file:///archive/acf-simple-table
-  12. file:///archive/get-single-field-error-in-symfony
-  13. file:///
-  14. file:///about
-  15. file:///about
-  16. https://github.com/gnikyt
-  17. https://linkedin.com/in/gnikyt
-  18. file:///assets/files/cv.pdf
-  19. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///archive/new-desktop-setup
+  10. file:///archive/shopify-liquid-tester
+  11. file:///archive/joint-venture-lfl
+  12. file:///archive/wsl-network-speed
+  13. file:///archive/i3-plasma-a-solid-match
+  14. file:///archive/reactive-vuejs-plugins
+  15. file:///archive/counting-unique-options-in-shopify
+  16. file:///archive/precompiling-assets-in-your-rails-engine
+  17. file:///archive/acf-simple-table
+  18. file:///archive/get-single-field-error-in-symfony
+  19. file:///

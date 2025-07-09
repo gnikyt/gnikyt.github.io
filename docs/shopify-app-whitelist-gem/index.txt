@@ -1,13 +1,15 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           shopify_app_whitelist Gem /
 
    /* Nov 26, 2016  —  1.5KB */
-   [3]Logo of shopify [4]Logo of ruby [5]Logo of rails
+   [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
 
-   I regularly use [6]shopify_app. It’s a great way to get an app,
+   I regularly use [12]shopify_app. It’s a great way to get an app,
    embedded or not, up and running with Rails.
 
    Sometimes I’ll create apps with shopify_app which are to be used by
@@ -22,7 +24,7 @@
 
    I decided to create a Gem for this problem which allows you to
    whitelist shops to have access to installing or accessing the app’s
-   backend. [7]shopify_app_whitelist adds a Railite which automatically
+   backend. [13]shopify_app_whitelist adds a Railite which automatically
    injects a controller concern into your ApplicationController. It also
    adds a couple of settings to shopify_app’s config so you can define
    your whitelist settings. I figured I would make it as easy as possible.
@@ -35,21 +37,10 @@
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [8]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [9]MD  /  [10]TXT  /  [11]PDF
-
-   [12]Ty King
-
-[13]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [14]Github[15]LinkedIn[16]CV[17]RSS
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -64,18 +55,18 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/ruby
-   5. file:///category/rails
-   6. https://github.com/Shopify/shopify_app
-   7. https://github.com/gnikyt/shopify_app_whitelist
-   8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///shopify-app-whitelist-gem/index.md
-  10. file:///shopify-app-whitelist-gem/index.txt
-  11. file:///tmp/lynxXXXXdO5Q9z/L267094-7955TMP.html
-  12. file:///about
-  13. file:///about
-  14. https://github.com/gnikyt
-  15. https://linkedin.com/in/gnikyt
-  16. file:///assets/files/cv.pdf
-  17. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/ruby
+  11. file:///category/rails
+  12. https://github.com/Shopify/shopify_app
+  13. https://github.com/gnikyt/shopify_app_whitelist
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///shopify-app-whitelist-gem/index.md
+  16. file:///shopify-app-whitelist-gem/index.txt
+  17. file:///tmp/lynxXXXXVICL4J/L827350-4530TMP.html

@@ -1,38 +1,29 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             WordPress User Themes /
 
    /* May 21, 2015  —  366B */
-   [3]Logo of php [4]Logo of wordpress
+   [9]Logo of php [10]Logo of wordpress
 
    I’ve released a unit-tested plugin called Wp User Themes.
 
    It allows users to switch themes in their profile section (useful for
    development!)
 
-   You can check out the plugin [5]here
+   You can check out the plugin [11]here
 
    Appendix
 
    This post is 10 years old and may contain outdated information.
 
-   Copyright under [6]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
-
-   [10]Ty King
-
-[11]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -47,16 +38,16 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/php
-   4. file:///category/wordpress
-   5. https://github.com/gnikyt/wp-user-themes
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///wp-user-themes/index.md
-   8. file:///wp-user-themes/index.txt
-   9. file:///tmp/lynxXXXXAsN5CT/L336266-5995TMP.html
-  10. file:///about
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/php
+  10. file:///category/wordpress
+  11. https://github.com/gnikyt/wp-user-themes
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///wp-user-themes/index.md
+  14. file:///wp-user-themes/index.txt
+  15. file:///tmp/lynxXXXXAdWceV/L887731-9284TMP.html

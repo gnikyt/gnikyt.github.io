@@ -1,13 +1,15 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          i3-Plasma for a solid match /
 
    /* Aug 28, 2019  —  4.4KB */
-   [3]Logo of cmd
+   [9]Logo of cmd
 
-   [4]Cover Image
+   [10]Cover Image
 
 Introduction
 
@@ -42,7 +44,7 @@ Introduction
 
 Setup
 
-   I followed [5]this guide originally with some tweaks. Since I use
+   I followed [11]this guide originally with some tweaks. Since I use
    OpenSUSE, I did the following for my system (slightly different paths):
 # Install i3
 sudo zypper in i3
@@ -76,13 +78,13 @@ Tweaking
    This involves killing off Plasma desktop, telling i3 how to handle
    certain windows/popups/dialogs, and configuring launchers.
 
-   [6].Xresources is a great way to configure cross-compatible settings
+   [12].Xresources is a great way to configure cross-compatible settings
    for cursors, fonts, colors, and more. Mine simply has just that -
    colors, cursors, fonts, and some settings for URxvt (terminal).
 
    You can utilize your Xresources to pull in config values into i3.
 
-   [7]Here is my i3 config, which has pre-defined settings for handling
+   [13]Here is my i3 config, which has pre-defined settings for handling
    the different Plasma windows. I have several standard keybindings
    defined, launchers, and window management. You can go in-depth as you
    like… you can target certain windows/popups/window-titles and more to
@@ -96,7 +98,7 @@ Bars
    You’re able to use any “bar” or panel you like with this setup..
    weather it be i3bar, polybar, or plain Plasma panel as I have.
 
-   If you decide to use Plasma panels, definitely install [8]Virtual
+   If you decide to use Plasma panels, definitely install [14]Virtual
    Desktop Bar Widget, its a virtual desktop pager which is configurable
    and simple, and mimics how most other “bars” handle workspaces (its the
    widget in the screenshot above with “web”, “code”, “mail”, etc).
@@ -110,21 +112,10 @@ Conclusion
 
    This post is 5 years old and may contain outdated information.
 
-   Copyright under [9]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [10]MD  /  [11]TXT  /  [12]PDF
-
-   [13]Ty King
-
-[14]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [15]Github[16]LinkedIn[17]CV[18]RSS
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -139,19 +130,19 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/cmd
-   4. file:///assets/images/posts/screenshot.png
-   5. https://ryanlue.com/posts/2019-06-13-kde-i3
-   6. https://github.com/gnikyt/dots/blob/master/.Xresources
-   7. https://github.com/gnikyt/dots/blob/master/.config/i3/config
-   8. https://store.kde.org/p/1315319/
-   9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///i3-plasma-a-solid-match/index.md
-  11. file:///i3-plasma-a-solid-match/index.txt
-  12. file:///tmp/lynxXXXX3OjpU9/L206263-1388TMP.html
-  13. file:///about
-  14. file:///about
-  15. https://github.com/gnikyt
-  16. https://linkedin.com/in/gnikyt
-  17. file:///assets/files/cv.pdf
-  18. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/cmd
+  10. file:///assets/images/posts/screenshot.png
+  11. https://ryanlue.com/posts/2019-06-13-kde-i3
+  12. https://github.com/gnikyt/dots/blob/master/.Xresources
+  13. https://github.com/gnikyt/dots/blob/master/.config/i3/config
+  14. https://store.kde.org/p/1315319/
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///i3-plasma-a-solid-match/index.md
+  17. file:///i3-plasma-a-solid-match/index.txt
+  18. file:///tmp/lynxXXXXd7LFE9/L774458-4559TMP.html

@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           Laravel Shopify cookieless /
 
    /* Jun 29, 2021  —  2.8KB */
-   [3]Logo of shopify [4]Logo of php [5]Logo of laravel
+   [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
 This Issue
 
@@ -15,7 +17,7 @@ This Issue
    implementing support for ITP to get around cookie issues. Now, with the
    announcement, that work needed to be scrapped.
 
-   On March 17th, [6]I opened an issue to outline the plan for tackling
+   On March 17th, [12]I opened an issue to outline the plan for tackling
    this new support for session tokens, and remove cookies/ITP. To be
    honest, I expected to tackle the work on my own. However, to my
    surprise, the community as well as Shopify themselves, helped lend a
@@ -36,13 +38,13 @@ Shopify
    proud the package was able to be a part of it!
 
    After a couple quick meetings with their developer advocate team, we
-   settled on [7]offering Shopify swag to gain momentum for anyone in
+   settled on [13]offering Shopify swag to gain momentum for anyone in
    support of closing the issue.
 
    This was a great move for Shopify - getting involved with the community
    open source projects that touch their platform. In addition to the
-   swag, [8]Lucas Michot of Shopify generated a number of pull requests to
-   tighten up the CI, cleaniness, code coverage, and testability of the
+   swag, [14]Lucas Michot of Shopify generated a number of pull requests
+   to tighten up the CI, cleaniness, code coverage, and testability of the
    package.
 
 Community
@@ -77,29 +79,18 @@ Community
 
 What’s next?
 
-   You can [9]view the release for v17.0.0. For the package, we will be
+   You can [15]view the release for v17.0.0. For the package, we will be
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
    Appendix
 
-   This post is 3 years old and may contain outdated information.
+   This post is 4 years old and may contain outdated information.
 
-   Copyright under [10]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [11]MD  /  [12]TXT  /  [13]PDF
-
-   [14]Ty King
-
-[15]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [16]Github[17]LinkedIn[18]CV[19]RSS
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -114,20 +105,20 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/php
-   5. file:///category/laravel
-   6. https://github.com/gnikyt/laravel-shopify/issues/744
-   7. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
-   8. https://github.com/lucasmichot
-   9. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///laravel-shopify-cookieless/index.md
-  12. file:///laravel-shopify-cookieless/index.txt
-  13. file:///tmp/lynxXXXX7o1BEf/L154151-5970TMP.html
-  14. file:///about
-  15. file:///about
-  16. https://github.com/gnikyt
-  17. https://linkedin.com/in/gnikyt
-  18. file:///assets/files/cv.pdf
-  19. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/php
+  11. file:///category/laravel
+  12. https://github.com/gnikyt/laravel-shopify/issues/744
+  13. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
+  14. https://github.com/lucasmichot
+  15. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///laravel-shopify-cookieless/index.md
+  18. file:///laravel-shopify-cookieless/index.txt
+  19. file:///tmp/lynxXXXXfWSV5f/L729138-2826TMP.html

@@ -1,179 +1,169 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                    Index of /
 
    Displaying article entries sorted by creation date in descending order.
      * $>
 
-[3]Building a BASH template engine
+[9]Building a BASH template engine
        May 22, 2025
-       3.5KB
+       3.7KB
      * $>
 
-[4]Handling Shopify API limits and Goroutines
+[10]Handling Shopify API limits and Goroutines
        Apr 10, 2025
        15KB
      * $>
 
-[5]Shopify checkout extension with product HTML
+[11]Shopify checkout extension with product HTML
        May 10, 2024
        14KB
      * $>
 
-[6]Shopify Prisma, Jest, and MySQL testing
+[12]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
        6.5KB
      * $>
 
-[7]Shopify Checkout Extension to backend fetching
+[13]Shopify Checkout Extension to backend fetching
        Feb 27, 2024
        3.1KB
      * $>
 
-[8]Type definitions without emitting
+[14]Type definitions without emitting
        Feb 07, 2024
        3.4KB
      * $>
 
-[9]Shopify Remix, Prisma, and Jest
+[15]Shopify Remix, Prisma, and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[10]WordPress Local with WSL
+[16]WordPress Local with WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[11]Shopify Github Action for versioning
+[17]Shopify Github Action for versioning
        May 20, 2022
        2.5KB
      * $>
 
-[12]Shopify Node App custom multi-tenant support
+[18]Shopify Node App custom multi-tenant support
        Nov 15, 2021
        10KB
      * $>
 
-[13]Laravel Shopify cookieless
+[19]Laravel Shopify cookieless
        Jun 29, 2021
        2.8KB
      * $>
 
-[14]Git release branches
+[20]Git release branches
        Mar 10, 2021
        3.4KB
      * $>
 
-[15]Laravel Shopify featured on Shopify
+[21]Laravel Shopify featured on Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[16]Laravel Shopify ITP
+[22]Laravel Shopify ITP
        Feb 03, 2021
        3.1KB
      * $>
 
-[17]Async Shopify API for Python
+[23]Async Shopify API for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[18]Symfony Flex with Symfony Server Dockerized
+[24]Symfony Flex with Symfony Server Dockerized
        Feb 04, 2020
        5.5KB
      * $>
 
-[19]Laravel Shopify billing
+[25]Laravel Shopify billing
        Jan 26, 2018
        993B
      * $>
 
-[20]Lumen with Redis
+[26]Lumen with Redis
        Nov 19, 2017
        1.3KB
      * $>
 
-[21]Lumen with Mailer
+[27]Lumen with Mailer
        Nov 19, 2017
        5.3KB
      * $>
 
-[22]Introducing Laravel Shopify
+[28]Introducing Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[23]WordPress with Docker
+[29]WordPress with Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[24]shopify_app_whitelist Gem
+[30]shopify_app_whitelist Gem
        Nov 26, 2016
        1.5KB
      * $>
 
-[25]Testing with shopify_app
+[31]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[26]Redis autosuggest with Sinatra
+[32]Redis autosuggest with Sinatra
        Mar 02, 2016
        5.6KB
      * $>
 
-[27]Extending a Rails Engine
+[33]Extending a Rails Engine
        Feb 20, 2016
        4.4KB
      * $>
 
-[28]Polymorphic route concerns with Rails
+[34]Polymorphic route concerns with Rails
        Jan 01, 2016
        5.1KB
      * $>
 
-[29]ActiveRecord and Liquid Drops with Sinatra
+[35]ActiveRecord and Liquid Drops with Sinatra
        Oct 15, 2015
        3.7KB
      * $>
 
-[30]WordPress User Themes
+[36]WordPress User Themes
        May 21, 2015
        366B
      * $>
 
-[31]Original sized images from a WordPress Gallery
+[37]Original sized images from a WordPress Gallery
        Nov 08, 2014
        1.5KB
      * $>
 
-[32]PHPMailer contribution
+[38]PHPMailer contribution
        Feb 09, 2014
        1.4KB
      * $>
 
-[33]Sorting product by category in WooCommerce
+[39]Sorting product by category in WooCommerce
        Oct 05, 2013
        6.0KB
 
-   [34]Archive ›
-
-   [35]Ty King
-
-[36]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [37]Github[38]LinkedIn[39]CV[40]RSS
-
+   [40]Archive ›
      *
      *
      *
@@ -187,41 +177,41 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///building-bash-template-engine
-   4. file:///handling-shopify-api-limits-goroutines
-   5. file:///shopify-checkout-ui-product-html
-   6. file:///prisma-jest-mysql-testing
-   7. file:///generate-type-definitions-without-emitting-js
-   8. file:///type-definitions-without-emitting
-   9. file:///shopify-remix-prisma-and-jest
-  10. file:///wplocal-with-wsl
-  11. file:///shopify-github-action-versioning
-  12. file:///shopify-node-app-custom-multi-tenant
-  13. file:///laravel-shopify-cookieless
-  14. file:///git-release-branches
-  15. file:///laravel-shopify-featured-shopify-blog
-  16. file:///laravel-shopify-itp
-  17. file:///async-shopify-api-for-python
-  18. file:///basic-symfony-flex-with-symfony-server-dockerized
-  19. file:///laravel-shopify-billing
-  20. file:///setting-up-lumen-with-redis
-  21. file:///setting-up-lumen-with-mail
-  22. file:///introducing-shopify-for-laravel
-  23. file:///wordpress-under-docker
-  24. file:///shopify-app-whitelist-gem
-  25. file:///testing-with-shopify-app
-  26. file:///building-a-simple-redis-autosuggest-with-ruby
-  27. file:///extending-a-rails-engine
-  28. file:///polymorphic-and-route-concerns
-  29. file:///activerecord-and-liquid-drops-with-sinatra
-  30. file:///wp-user-themes
-  31. file:///get-original-sized-images-from-a-wordpress-post-gallery
-  32. file:///phpmailer-contrib
-  33. file:///woocommerce-sorting-products-by-category
-  34. file:///archive
-  35. file:///about
-  36. file:///about
-  37. https://github.com/gnikyt
-  38. https://linkedin.com/in/gnikyt
-  39. file:///assets/files/cv.pdf
-  40. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///building-bash-template-engine
+  10. file:///handling-shopify-api-limits-goroutines
+  11. file:///shopify-checkout-ui-product-html
+  12. file:///prisma-jest-mysql-testing
+  13. file:///generate-type-definitions-without-emitting-js
+  14. file:///type-definitions-without-emitting
+  15. file:///shopify-remix-prisma-and-jest
+  16. file:///wplocal-with-wsl
+  17. file:///shopify-github-action-versioning
+  18. file:///shopify-node-app-custom-multi-tenant
+  19. file:///laravel-shopify-cookieless
+  20. file:///git-release-branches
+  21. file:///laravel-shopify-featured-shopify-blog
+  22. file:///laravel-shopify-itp
+  23. file:///async-shopify-api-for-python
+  24. file:///basic-symfony-flex-with-symfony-server-dockerized
+  25. file:///laravel-shopify-billing
+  26. file:///setting-up-lumen-with-redis
+  27. file:///setting-up-lumen-with-mail
+  28. file:///introducing-shopify-for-laravel
+  29. file:///wordpress-under-docker
+  30. file:///shopify-app-whitelist-gem
+  31. file:///testing-with-shopify-app
+  32. file:///building-a-simple-redis-autosuggest-with-ruby
+  33. file:///extending-a-rails-engine
+  34. file:///polymorphic-and-route-concerns
+  35. file:///activerecord-and-liquid-drops-with-sinatra
+  36. file:///wp-user-themes
+  37. file:///get-original-sized-images-from-a-wordpress-post-gallery
+  38. file:///phpmailer-contrib
+  39. file:///woocommerce-sorting-products-by-category
+  40. file:///archive

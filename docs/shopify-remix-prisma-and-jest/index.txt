@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                        Shopify Remix, Prisma, and Jest /
 
    /* Jan 10, 2024  —  8.8KB */
-   [3]Logo of shopify [4]Logo of javascript
+   [9]Logo of shopify [10]Logo of javascript
 
 Introduction
 
@@ -23,7 +25,7 @@ Introduction
    someone could get going on testing.
 
    With Prisma, you can mock the database returns from Prisma (example
-   findMany) out of the box [5]for unit tests.
+   findMany) out of the box [11]for unit tests.
 const record = {
   id: 1,
   title: "Example",
@@ -334,21 +336,10 @@ Tests running slow?
 
    Appendix
 
-   Copyright under [6]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
-
-   [10]Ty King
-
-[11]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -363,16 +354,16 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/javascript
-   5. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///shopify-remix-prisma-and-jest/index.md
-   8. file:///shopify-remix-prisma-and-jest/index.txt
-   9. file:///tmp/lynxXXXXIk0BkO/L85693-6835TMP.html
-  10. file:///about
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/javascript
+  11. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///shopify-remix-prisma-and-jest/index.md
+  14. file:///shopify-remix-prisma-and-jest/index.txt
+  15. file:///tmp/lynxXXXX1yAa7I/L668713-412TMP.html

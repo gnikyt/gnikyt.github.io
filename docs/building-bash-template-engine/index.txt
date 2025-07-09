@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                        Building a BASH template engine /
 
-   /* May 22, 2025  —  3.5KB */
-   [3]Logo of cmd
+   /* May 22, 2025  —  3.7KB */
+   [9]Logo of cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was
    such a large setup for such a small blog to maintain. I wanted
@@ -47,6 +49,8 @@
      * Unless statements: {{^VAR}}I do not exist!{{/VAR}}
      * Partial includes: {{>file.html}}
      * Looping: {{@FOREACH var}}{{KEY}}: {{VALUE}}{{/FOREACH var}}
+     * Assignment/Capture: {{@ASSIGN XYZ}}{{VAR|UPPERCASE}} is
+       cool!{{/@ASSIGN}}
      * Custom functions: {{@MONEY USD}}4500{{/MONEY USD}}
 
    The method I chose, since BASH is limited, was to go
@@ -62,7 +66,7 @@
        run specific functions to replace the input contents with the
        parsed contents
 
-   [4]I built a library to handle this called be.
+   [10]I built a library to handle this called be.
 
    Example usage, with custom functions and filters:
 #!/bin/bash
@@ -110,27 +114,18 @@ echo "$TPL" | be
     1) Hockey; and
     2) Soccer
 
+    Won't be processed: {{NAME}}
+
    BASH is definately not the best solution for a template engine,
-   however, you can view the entire solution on [5]here and modify for
+   however, you can view the entire solution on [11]here and modify for
    your needs.
 
    Appendix
 
-   Copyright under [6]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
-
-   [10]Ty King
-
-[11]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -145,16 +140,16 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/cmd
-   4. https://githuib.com/gnikyt/be
-   5. https://githuib.com/gnikyt/be/tree/master/be
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///building-bash-template-engine/index.md
-   8. file:///building-bash-template-engine/index.txt
-   9. file:///tmp/lynxXXXX5xsSKB/L34898-245TMP.html
-  10. file:///about
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/cmd
+  10. https://githuib.com/gnikyt/be
+  11. https://githuib.com/gnikyt/be/tree/master/be
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///building-bash-template-engine/index.md
+  14. file:///building-bash-template-engine/index.txt
+  15. file:///tmp/lynxXXXXHV9WxE/L624506-5826TMP.html

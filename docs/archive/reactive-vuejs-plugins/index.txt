@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             Reactive VueJS plugins /
 
    /* Jun 29, 2017  —  4.1KB */
-   [3]Logo of javascript [4]Logo of vuejs
+   [9]Logo of javascript [10]Logo of vuejs
 
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop
@@ -13,12 +15,12 @@
 
 Plugins & Reactivity
 
-   [5]Plugins in Vue, allow you to extract code into a reusable module.
+   [11]Plugins in Vue, allow you to extract code into a reusable module.
    The plugins allow you to create global mixins, methods, properties, and
    more. It has the added benefit of keeping your code modularized, clean,
    and doesn’t pollute your app’s main instance.
 
-   [6]Reactivity in Vue is simply a way of describing something that
+   [12]Reactivity in Vue is simply a way of describing something that
    watches for changes in state/data and reacts to it. Vue watches for
    changes in data, which in turn causes the component to re-render,
    showing the updated state.
@@ -143,21 +145,10 @@ re.home }} - {{ $SportsTicker.state.score.away }}
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [7]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [8]MD  /  [9]TXT  /  [10]PDF
-
-   [11]Ty King
-
-[12]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -172,17 +163,17 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/javascript
-   4. file:///category/vuejs
-   5. https://vuejs.org/v2/guide/plugins.html
-   6. https://vuejs.org/v2/guide/reactivity.html
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///reactive-vuejs-plugins/index.md
-   9. file:///reactive-vuejs-plugins/index.txt
-  10. file:///tmp/lynxXXXXEc71x0/L249641-7078TMP.html
-  11. file:///about
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/javascript
+  10. file:///category/vuejs
+  11. https://vuejs.org/v2/guide/plugins.html
+  12. https://vuejs.org/v2/guide/reactivity.html
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///reactive-vuejs-plugins/index.md
+  15. file:///reactive-vuejs-plugins/index.txt
+  16. file:///tmp/lynxXXXXDiy5oX/L812172-5788TMP.html

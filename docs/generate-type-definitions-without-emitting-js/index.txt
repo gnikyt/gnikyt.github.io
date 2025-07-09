@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                 Shopify Checkout Extension to backend fetching /
 
    /* Feb 27, 2024  —  3.1KB */
-   [3]Logo of shopify [4]Logo of javascript [5]Logo of react
+   [9]Logo of shopify [10]Logo of javascript [11]Logo of react
 
    There are several posts around about people having issues figuring out
    how to send a fetch request from their checkout extension to their app
@@ -105,21 +107,10 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 
    Appendix
 
-   Copyright under [6]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [7]MD  /  [8]TXT  /  [9]PDF
-
-   [10]Ty King
-
-[11]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -134,16 +125,16 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/javascript
-   5. file:///category/react
-   6. https://creativecommons.org/licenses/by/4.0/
-   7. file:///generate-type-definitions-without-emitting-js/index.md
-   8. file:///generate-type-definitions-without-emitting-js/index.txt
-   9. file:///tmp/lynxXXXX5qZgOp/L69007-8244TMP.html
-  10. file:///about
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/javascript
+  11. file:///category/react
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///generate-type-definitions-without-emitting-js/index.md
+  14. file:///generate-type-definitions-without-emitting-js/index.txt
+  15. file:///tmp/lynxXXXXQRRtmx/L654192-6759TMP.html

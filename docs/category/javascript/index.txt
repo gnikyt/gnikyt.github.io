@@ -1,6 +1,8 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                         Index of category / javascript /
 
@@ -8,57 +10,46 @@
    order.
      * $>
 
-[3]Shopify checkout extension with product HTML
+[9]Shopify checkout extension with product HTML
        May 10, 2024
        14KB
      * $>
 
-[4]Shopify Prisma, Jest, and MySQL testing
+[10]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
        6.5KB
      * $>
 
-[5]Shopify Checkout Extension to backend fetching
+[11]Shopify Checkout Extension to backend fetching
        Feb 27, 2024
        3.1KB
      * $>
 
-[6]Type definitions without emitting
+[12]Type definitions without emitting
        Feb 07, 2024
        3.4KB
      * $>
 
-[7]Shopify Remix, Prisma, and Jest
+[13]Shopify Remix, Prisma, and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[8]Shopify Liquid Tester
+[14]Shopify Liquid Tester
        Nov 20, 2022
        3.9KB
      * $>
 
-[9]Shopify Node App custom multi-tenant support
+[15]Shopify Node App custom multi-tenant support
        Nov 15, 2021
        10KB
      * $>
 
-[10]Reactive VueJS plugins
+[16]Reactive VueJS plugins
        Jun 29, 2017
        4.1KB
 
-   [11]‹ Categories  |  [12]‹ Home
-
-   [13]Ty King
-
-[14]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [15]Github[16]LinkedIn[17]CV[18]RSS
+   [17]‹ Categories  |  [18]‹ Home
 
      *
      *
@@ -73,19 +64,19 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///shopify-checkout-ui-product-html
-   4. file:///prisma-jest-mysql-testing
-   5. file:///generate-type-definitions-without-emitting-js
-   6. file:///type-definitions-without-emitting
-   7. file:///shopify-remix-prisma-and-jest
-   8. file:///archive/shopify-liquid-tester
-   9. file:///shopify-node-app-custom-multi-tenant
-  10. file:///archive/reactive-vuejs-plugins
-  11. file:///category
-  12. file:///
-  13. file:///about
-  14. file:///about
-  15. https://github.com/gnikyt
-  16. https://linkedin.com/in/gnikyt
-  17. file:///assets/files/cv.pdf
-  18. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///shopify-checkout-ui-product-html
+  10. file:///prisma-jest-mysql-testing
+  11. file:///generate-type-definitions-without-emitting-js
+  12. file:///type-definitions-without-emitting
+  13. file:///shopify-remix-prisma-and-jest
+  14. file:///archive/shopify-liquid-tester
+  15. file:///shopify-node-app-custom-multi-tenant
+  16. file:///archive/reactive-vuejs-plugins
+  17. file:///category
+  18. file:///

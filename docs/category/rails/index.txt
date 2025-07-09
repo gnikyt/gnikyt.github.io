@@ -1,48 +1,39 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           Index of category / rails /
 
    Displaying rails entries sorted by creation date in descending order.
      * $>
 
-[3]shopify_app_whitelist Gem
+[9]shopify_app_whitelist Gem
        Nov 26, 2016
        1.5KB
      * $>
 
-[4]Testing with shopify_app
+[10]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[5]Precompiling assets with Rails Engine
+[11]Precompiling assets with Rails Engine
        May 03, 2016
        2.3KB
      * $>
 
-[6]Extending a Rails Engine
+[12]Extending a Rails Engine
        Feb 20, 2016
        4.4KB
      * $>
 
-[7]Polymorphic route concerns with Rails
+[13]Polymorphic route concerns with Rails
        Jan 01, 2016
        5.1KB
 
-   [8]‹ Categories  |  [9]‹ Home
-
-   [10]Ty King
-
-[11]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [12]Github[13]LinkedIn[14]CV[15]RSS
+   [14]‹ Categories  |  [15]‹ Home
 
      *
      *
@@ -57,16 +48,16 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///shopify-app-whitelist-gem
-   4. file:///testing-with-shopify-app
-   5. file:///archive/precompiling-assets-in-your-rails-engine
-   6. file:///extending-a-rails-engine
-   7. file:///polymorphic-and-route-concerns
-   8. file:///category
-   9. file:///
-  10. file:///about
-  11. file:///about
-  12. https://github.com/gnikyt
-  13. https://linkedin.com/in/gnikyt
-  14. file:///assets/files/cv.pdf
-  15. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///shopify-app-whitelist-gem
+  10. file:///testing-with-shopify-app
+  11. file:///archive/precompiling-assets-in-your-rails-engine
+  12. file:///extending-a-rails-engine
+  13. file:///polymorphic-and-route-concerns
+  14. file:///category
+  15. file:///

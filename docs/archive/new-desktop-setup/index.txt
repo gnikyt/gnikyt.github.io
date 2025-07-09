@@ -1,19 +1,21 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                               New desktop setup /
 
    /* Dec 11, 2022  —  6.5KB */
-   [3]Logo of cmd
+   [9]Logo of cmd
 
 Introduction
 
    I haven’t had the time to tweak my desktop in over a year, I’ve been
    mostly stuck with the default settings of Fedora (GNOME) and slowly
-   tweaked things, before that, a [4]Plasma/i3 setup (which was awesome!).
-   I’ve had a long run of different setups over the last couple of
-   decades… AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
+   tweaked things, before that, a [10]Plasma/i3 setup (which was
+   awesome!). I’ve had a long run of different setups over the last couple
+   of decades… AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
 
    Using GNOME full-time has been fine, but not great. It is a dependable
    and well-working desktop environment out-of-the-box, but that is as far
@@ -49,7 +51,7 @@ Trying with GNOME
    worked out decently well! But, of course, required a lot of extensions
    and a theme.
 
-   [5]Finalized GNOME
+   [11]Finalized GNOME
 
    The above screenshot is an example of the resulting setup which has a
    similar feel to the old layout… two panels with proper information.
@@ -71,7 +73,7 @@ Trying with GNOME
      * Workspaces Bar: To show the list of workspaces
      * Places Indicator: To show the Places menu as GNOME 2 had
 
-   And the following theme is to be downloaded: [6]GNOME Theme Default
+   And the following theme is to be downloaded: [12]GNOME Theme Default
    Light.
 
    All-in-all, it worked well. But an instant update recently killed a few
@@ -111,7 +113,7 @@ Cinnamon
    I hunkered down for 20 minutes and produced an initial desktop which
    got me back to my feeling of my old XFCE and GNOME 2 desktops:
 
-   [7]Cinnamon result
+   [13]Cinnamon result
 
    It’s everything I need to visually see at the moment (minus some system
    stats which I had not yet tackled). It is also consistent. The Linux
@@ -143,7 +145,7 @@ Cinnamon
      * GTK/WM theme: Mint-Y-Dark-Aqua
      * Desktop theme: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
 
-   Additionally, Mint’s [8]“X-Apps” work well and are customizable as I
+   Additionally, Mint’s [14]“X-Apps” work well and are customizable as I
    like. As well, Nemo, is much more full featured than Nautilus, it
    actually shows informations and has meaningful settings.
 
@@ -155,21 +157,10 @@ Cinnamon
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [9]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [10]MD  /  [11]TXT  /  [12]PDF
-
-   [13]Ty King
-
-[14]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [15]Github[16]LinkedIn[17]CV[18]RSS
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -184,19 +175,19 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/cmd
-   4. file:///i3-plasma-a-solid-match
-   5. file:///assets/images/posts/gnomeshelllook.png
-   6. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
-   7. file:///assets/images/posts/cinnamon.png
-   8. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-   9. https://creativecommons.org/licenses/by/4.0/
-  10. file:///new-desktop-setup/index.md
-  11. file:///new-desktop-setup/index.txt
-  12. file:///tmp/lynxXXXXjL7tco/L102616-3155TMP.html
-  13. file:///about
-  14. file:///about
-  15. https://github.com/gnikyt
-  16. https://linkedin.com/in/gnikyt
-  17. file:///assets/files/cv.pdf
-  18. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/cmd
+  10. file:///i3-plasma-a-solid-match
+  11. file:///assets/images/posts/gnomeshelllook.png
+  12. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
+  13. file:///assets/images/posts/cinnamon.png
+  14. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///new-desktop-setup/index.md
+  17. file:///new-desktop-setup/index.txt
+  18. file:///tmp/lynxXXXXMCiTV6/L683444-2037TMP.html

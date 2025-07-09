@@ -1,15 +1,17 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                              Laravel Shopify ITP /
 
    /* Feb 03, 2021  —  3.1KB */
-   [3]Logo of shopify [4]Logo of php [5]Logo of laravel
+   [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
 Background
 
-   [6]Laravel Shopify is a package I started a few years ago which gained
+   [12]Laravel Shopify is a package I started a few years ago which gained
    quite a bit of community traction. It is a full-featured package that
    helps you get up-and-running with developing Shopify apps with Laravel.
 
@@ -54,9 +56,9 @@ Solving
    are following, which is what I tried to strive for in the latest
    release.
 
-   [7]Step 4 Step #4 - Asking for storage access
+   [13]Step 4 Step #4 - Asking for storage access
 
-   [8]Step 5 Step #5 - Asking user to manually enable storage
+   [14]Step 5 Step #5 - Asking user to manually enable storage
 
 Alternatives
 
@@ -71,29 +73,18 @@ Conclusion
    everyone, but more work may still need to be done in the future to
    correct some quirks.
 
-   For additional information, see the [9]ITP wiki page on the repository.
-   Also, thank you to the community for the assistance and patience during
-   this large issue.
+   For additional information, see the [15]ITP wiki page on the
+   repository. Also, thank you to the community for the assistance and
+   patience during this large issue.
 
    Appendix
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [10]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [11]MD  /  [12]TXT  /  [13]PDF
-
-   [14]Ty King
-
-[15]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [16]Github[17]LinkedIn[18]CV[19]RSS
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -108,20 +99,20 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/php
-   5. file:///category/laravel
-   6. https://github.com/gnikyt/laravel-shopify
-   7. file:///assets/images/2021/01/ls-ask.png
-   8. file:///assets/images/2021/01/ls-ask.png
-   9. https://github.com/gnikyt/laravel-shopify/wiki/ITP
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///laravel-shopify-itp/index.md
-  12. file:///laravel-shopify-itp/index.txt
-  13. file:///tmp/lynxXXXX7xZ2HG/L180493-7456TMP.html
-  14. file:///about
-  15. file:///about
-  16. https://github.com/gnikyt
-  17. https://linkedin.com/in/gnikyt
-  18. file:///assets/files/cv.pdf
-  19. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/php
+  11. file:///category/laravel
+  12. https://github.com/gnikyt/laravel-shopify
+  13. file:///assets/images/2021/01/ls-ask.png
+  14. file:///assets/images/2021/01/ls-ask.png
+  15. https://github.com/gnikyt/laravel-shopify/wiki/ITP
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///laravel-shopify-itp/index.md
+  18. file:///laravel-shopify-itp/index.txt
+  19. file:///tmp/lynxXXXXSWmpfy/L752063-6872TMP.html

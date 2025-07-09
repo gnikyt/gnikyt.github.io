@@ -1,17 +1,19 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                      Shopify Github Action for versioning /
 
    /* May 20, 2022  —  2.5KB */
-   [3]Logo of shopify [4]Logo of cmd
+   [9]Logo of shopify [10]Logo of cmd
 
    Shopify recently updated their admin panel again and started to display
    the value of theme_version from config/settings_schema.json onto the
    theme listing page. Example (yellow highlight):
 
-   [5]Shopify theme version example
+   [11]Shopify theme version example
 
    With our setup, all our client themes are connected to Github and every
    release gets tagged a version in SYMVER format.
@@ -62,7 +64,7 @@ jobs:
     5. Commit the changes to the schema with a commit message containing
        the version; lines 19-25
 
-   [6]Shopify theme version output example
+   [12]Shopify theme version output example
 
    Hopefully this is a helpful starting point for any other developers
    looking to do the same process.
@@ -71,21 +73,10 @@ jobs:
 
    This post is 3 years old and may contain outdated information.
 
-   Copyright under [7]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [8]MD  /  [9]TXT  /  [10]PDF
-
-   [11]Ty King
-
-[12]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -100,17 +91,17 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/cmd
-   5. file:///assets/images/posts/shopify-versioning.png
-   6. file:///assets/images/posts/shopify-versioning-github.png
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///shopify-github-action-versioning/index.md
-   9. file:///shopify-github-action-versioning/index.txt
-  10. file:///tmp/lynxXXXXixS5Sl/L128287-7389TMP.html
-  11. file:///about
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/cmd
+  11. file:///assets/images/posts/shopify-versioning.png
+  12. file:///assets/images/posts/shopify-versioning-github.png
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///shopify-github-action-versioning/index.md
+  15. file:///shopify-github-action-versioning/index.txt
+  16. file:///tmp/lynxXXXX5EiUd1/L705742-5939TMP.html

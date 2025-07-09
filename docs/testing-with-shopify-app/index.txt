@@ -1,13 +1,15 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                            Testing with shopify_app /
 
    /* Jun 21, 2016  —  2.3KB */
-   [3]Logo of shopify [4]Logo of ruby [5]Logo of rails
+   [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
 
-   [6]shopify_app is a great Gem to quickly build a Shopify App with
+   [12]shopify_app is a great Gem to quickly build a Shopify App with
    Rails. It handles all the verifications, authorizations, webhook, and
    more; leaving you to focus on developing your app. This post is to
    serve as a quick tip on how to unit-test your app with the Gem.
@@ -64,21 +66,10 @@ end
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [7]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [8]MD  /  [9]TXT  /  [10]PDF
-
-   [11]Ty King
-
-[12]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -93,17 +84,17 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/ruby
-   5. file:///category/rails
-   6. https://github.com/Shopify/shopify_app
-   7. https://creativecommons.org/licenses/by/4.0/
-   8. file:///testing-with-shopify-app/index.md
-   9. file:///testing-with-shopify-app/index.txt
-  10. file:///tmp/lynxXXXXcaUNcI/L275943-7937TMP.html
-  11. file:///about
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/ruby
+  11. file:///category/rails
+  12. https://github.com/Shopify/shopify_app
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///testing-with-shopify-app/index.md
+  15. file:///testing-with-shopify-app/index.txt
+  16. file:///tmp/lynxXXXXm8gbyy/L835065-9866TMP.html

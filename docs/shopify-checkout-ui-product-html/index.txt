@@ -1,11 +1,13 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                  Shopify checkout extension with product HTML /
 
    /* May 10, 2024  —  14KB */
-   [3]Logo of shopify [4]Logo of javascript [5]Logo of react
+   [9]Logo of shopify [10]Logo of javascript [11]Logo of react
 
 Background
 
@@ -14,7 +16,7 @@ Background
    to be what is displayed in the checkout, however, Shopify’s checkout
    extension system does not support directly using HTML nor the
    dangerouslySetInnerHtml property. Additionally to this, the extensions
-   do not support such services such a [6]DOMParser – something custom
+   do not support such services such a [12]DOMParser – something custom
    would have to be built.
 
    Given the tight timeline for the project, it was decided to just build
@@ -241,7 +243,7 @@ ultTransformer) => {
 
 Code
 
-   Also available [7]on this Gist.
+   Also available [13]on this Gist.
 import React from "react";
 import { List, ListItem, TextBlock } from "@shopify/ui-extensions-react/checkout
 ";
@@ -525,21 +527,10 @@ export default function descriptionTransformer(rawHtml, transformer) {
 
    Appendix
 
-   Copyright under [8]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [9]MD  /  [10]TXT  /  [11]PDF
-
-   [12]Ty King
-
-[13]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [14]Github[15]LinkedIn[16]CV[17]RSS
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -554,18 +545,18 @@ References
 
    1. /rss.xml
    2. file:///
-   3. file:///category/shopify
-   4. file:///category/javascript
-   5. file:///category/react
-   6. https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
-   7. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
-   8. https://creativecommons.org/licenses/by/4.0/
-   9. file:///shopify-checkout-ui-product-html/index.md
-  10. file:///shopify-checkout-ui-product-html/index.txt
-  11. file:///tmp/lynxXXXXsRZCyK/L51903-920TMP.html
-  12. file:///about
-  13. file:///about
-  14. https://github.com/gnikyt
-  15. https://linkedin.com/in/gnikyt
-  16. file:///assets/files/cv.pdf
-  17. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. file:///category/javascript
+  11. file:///category/react
+  12. https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
+  13. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///shopify-checkout-ui-product-html/index.md
+  16. file:///shopify-checkout-ui-product-html/index.txt
+  17. file:///tmp/lynxXXXXwkUauY/L639296-7931TMP.html

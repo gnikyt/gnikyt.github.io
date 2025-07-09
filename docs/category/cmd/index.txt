@@ -1,53 +1,44 @@
    #[1]gnikyt feed
 
    [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                            Index of category / cmd /
 
    Displaying cmd entries sorted by creation date in descending order.
      * $>
 
-[3]Building a BASH template engine
+[9]Building a BASH template engine
        May 22, 2025
-       3.5KB
+       3.7KB
      * $>
 
-[4]New desktop setup
+[10]New desktop setup
        Dec 11, 2022
        6.5KB
      * $>
 
-[5]Shopify Github Action for versioning
+[11]Shopify Github Action for versioning
        May 20, 2022
        2.5KB
      * $>
 
-[6]WSL network speed
+[12]WSL network speed
        Nov 16, 2021
        1.8KB
      * $>
 
-[7]Git release branches
+[13]Git release branches
        Mar 10, 2021
        3.4KB
      * $>
 
-[8]i3-Plasma for a solid match
+[14]i3-Plasma for a solid match
        Aug 28, 2019
        4.4KB
 
-   [9]‹ Categories  |  [10]‹ Home
-
-   [11]Ty King
-
-[12]Ty King
-
-   A self-taught, seasoned, and versatile developer from Newfoundland.
-   Crafting innovative solutions with care and expertise.
-
-   Crafting innovative solutions with care and expertise.
-
-   [13]Github[14]LinkedIn[15]CV[16]RSS
+   [15]‹ Categories  |  [16]‹ Home
 
      *
      *
@@ -62,17 +53,17 @@ References
 
    1. file:///rss.xml
    2. file:///
-   3. file:///building-bash-template-engine
-   4. file:///archive/new-desktop-setup
-   5. file:///shopify-github-action-versioning
-   6. file:///archive/wsl-network-speed
-   7. file:///git-release-branches
-   8. file:///archive/i3-plasma-a-solid-match
-   9. file:///category
-  10. file:///
-  11. file:///about
-  12. file:///about
-  13. https://github.com/gnikyt
-  14. https://linkedin.com/in/gnikyt
-  15. file:///assets/files/cv.pdf
-  16. file:///rss.xml
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///building-bash-template-engine
+  10. file:///archive/new-desktop-setup
+  11. file:///shopify-github-action-versioning
+  12. file:///archive/wsl-network-speed
+  13. file:///git-release-branches
+  14. file:///archive/i3-plasma-a-solid-match
+  15. file:///category
+  16. file:///
