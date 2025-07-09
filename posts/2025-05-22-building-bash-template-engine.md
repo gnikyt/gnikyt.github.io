@@ -45,7 +45,7 @@ The method I chose, since BASH is limited, was to go character-by-character thro
 * If determined to be a block, then everything after `}}` until `{{/` is captured
 * Once everything is captured, depending on the operation, it would run specific functions to replace the input contents with the parsed contents
 
-[I built a library to handle this](https://githuib.com/gnikyt/be) called `be`.
+[I built a library to handle this](https://github.com/gnikyt/be) called `be`.
 
 Example usage, with custom functions and filters:
 

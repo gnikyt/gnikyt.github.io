@@ -14,6 +14,12 @@
    initiatives. I specialize in crafting innovative solutions with
    precision and expertise through hands-on coding or consulting.
 
+   Beyond development, I bring extensive expertise in process development
+   and consulting, along with a proven track record in team leadership,
+   talent acquisition, and organizational growth. My experience and
+   open-door mindset allow me to navigate both the technical and human
+   sides of business with confidence.
+
    You can reach me several ways — through [9]me@gnikyt.com, with
    [10]Github, or connect on [11]LinkedIn.
 
@@ -30,7 +36,7 @@ Specializing in
 Regularly developing
 
    What I work with day-to-day.
-     * Shopify
+     * Shopify (apps, integrations, extensions, themes)
      * Javascript/Typescript (and it’s frameworks)
      * Go
 
@@ -59,13 +65,14 @@ Pinned Open Source work
      * [19]with - PHP; Python’s “with” implemented in PHP.
      * [20]http_shopify_webhook - Golang; Webhook verification for
        Shopify.
+     * [21]be - BASH; Template engine in BASH.
 
    Appendix
 
-   Copyright under [21]CC-4.0.
+   Copyright under [22]CC-4.0.
 
    Additionally available in alternative formats:
-   [22]MD  /  [23]TXT  /  [24]PDF
+   [23]MD  /  [24]TXT  /  [25]PDF
 
      *
      *
@@ -98,7 +105,8 @@ References
   18. https://github.com/gnikyt/gowith
   19. https://github.com/gnikyt/with
   20. https://github.com/gnikyt/http_shopify_webhook
-  21. https://creativecommons.org/licenses/by/4.0/
-  22. file:///about/index.md
-  23. file:///about/index.txt
-  24. file:///tmp/lynxXXXXgOsBWD/L937053-6624TMP.html
+  21. https://github.com/gnikyt/be
+  22. https://creativecommons.org/licenses/by/4.0/
+  23. file:///about/index.md
+  24. file:///about/index.txt
+  25. file:///tmp/lynxXXXXLyDzJF/L1801554-207TMP.html

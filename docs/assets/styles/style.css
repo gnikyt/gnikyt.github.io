@@ -193,6 +193,19 @@ body {
   border: 5px solid var(--font-color);
 }
 
+.site-head__avatar-img:hover {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -616,6 +629,7 @@ body[data-handle="about"] .about__heads img {
   margin: 0 auto;
   max-width: 300px;
   border: 5px solid var(--font-color);
+  border-radius: 50%;
 }
 
 body[data-handle="about"] .post figure {

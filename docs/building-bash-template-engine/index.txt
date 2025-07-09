@@ -147,9 +147,9 @@ References
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
    9. file:///category/cmd
-  10. https://githuib.com/gnikyt/be
+  10. https://github.com/gnikyt/be
   11. https://githuib.com/gnikyt/be/tree/master/be
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///building-bash-template-engine/index.md
   14. file:///building-bash-template-engine/index.txt
-  15. file:///tmp/lynxXXXXHV9WxE/L624506-5826TMP.html
+  15. file:///tmp/lynxXXXXRVdhkD/L1487551-3587TMP.html

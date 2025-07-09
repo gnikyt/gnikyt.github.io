@@ -104,4 +104,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///shopify-github-action-versioning/index.md
   15. file:///shopify-github-action-versioning/index.txt
-  16. file:///tmp/lynxXXXX5EiUd1/L705742-5939TMP.html
+  16. file:///tmp/lynxXXXXCD0Zu5/L1570618-401TMP.html

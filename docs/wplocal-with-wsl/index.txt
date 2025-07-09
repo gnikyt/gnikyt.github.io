@@ -181,4 +181,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///wplocal-with-wsl/index.md
   16. file:///wplocal-with-wsl/index.txt
-  17. file:///tmp/lynxXXXXPzdp5v/L676070-980TMP.html
+  17. file:///tmp/lynxXXXXjHTyFw/L1540954-5095TMP.html

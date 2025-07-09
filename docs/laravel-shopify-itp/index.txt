@@ -115,4 +115,4 @@ References
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///laravel-shopify-itp/index.md
   18. file:///laravel-shopify-itp/index.txt
-  19. file:///tmp/lynxXXXXSWmpfy/L752063-6872TMP.html
+  19. file:///tmp/lynxXXXXQJ76cT/L1616610-6626TMP.html
