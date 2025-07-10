@@ -108,14 +108,19 @@ Conclusion
    Give a try. My dot files for i3 and .Xresources has a good starting
    ground which you can expand upon and enjoy a mouseless experience!
 
+   Anchors
+
+     * [1] [15]/assets/images/posts/screenshot.png
+     * [2] [16]ryanlue.com/posts/2019-06-13-kde-i3 ↗
+
    Appendix
 
    This post is 5 years old and may contain outdated information.
 
-   Copyright under [15]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -142,7 +147,9 @@ References
   12. https://github.com/gnikyt/dots/blob/master/.Xresources
   13. https://github.com/gnikyt/dots/blob/master/.config/i3/config
   14. https://store.kde.org/p/1315319/
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///i3-plasma-a-solid-match/index.md
-  17. file:///i3-plasma-a-solid-match/index.txt
-  18. file:///tmp/lynxXXXXstNu6f/L1639186-9826TMP.html
+  15. file:///tmp/lynxXXXX8gL1XK/L3193854-1579TMP.html#/assets/images/posts/screenshot.png
+  16. file:///tmp/lynxXXXX8gL1XK/L3193854-1579TMP.html#https://ryanlue.com/posts/2019-06-13-kde-i3
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///i3-plasma-a-solid-match/index.md
+  19. file:///i3-plasma-a-solid-match/index.txt
+  20. file:///tmp/lynxXXXX8gL1XK/L3193854-1579TMP.html

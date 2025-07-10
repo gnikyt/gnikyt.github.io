@@ -4,6 +4,7 @@ CWD=$(dirname "$0")
 . $CWD/highlight
 . $CWD/parse_md
 . $CWD/be
+. $CWD/be_exts
 
 # Determine if libraries we need are installed.
 ERR=0
@@ -142,6 +143,20 @@ process_posts() {
       TARGET=docs/"$HANDLE"
     fi
 
+    # Extract all anchor links in PARSED_MD and assign to "ANCHORS".
+    # This is used to generate the table of contents.
+    INITIAL_ANCHORS=$(echo "$PARSED_MD" | grep -oP '<a[^>]+href="\K[^"]+' | sed 's/ /%20/g')
+    ANCHORS=""
+    for ANCHOR in $INITIAL_ANCHORS; do
+      # If ANCHOR starts with "#cb", then remove the entry from ANCHORS.
+      if [[ "$ANCHOR" != "#cb"* ]]; then
+        ANCHORS="${ANCHORS} ${ANCHOR}"
+      fi
+    done
+    # Remove leading space from ANCHORS
+    ANCHORS="${ANCHORS# }"
+    echo "$ANCHORS"
+
     # Parse the post template and save result.
     LOCAL_LAYOUT=$(cat "${LAYOUTS["post"]}")
     PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
@@ -178,20 +193,7 @@ process_posts() {
     else
       # Home entry.
       HOME_ENTRIES="${HOME_ENTRIES}${NEWLINE}${PARSED_TPL}"
-    fi
-
-    # Extract all anchor links in PARSED_MD and assign to "ANCHORS".
-    # This is used to generate the table of contents.
-    INITIAL_ANCHORS=$(echo "$PARSED_MD" | grep -oP '<a[^>]+href="\K[^"]+' | sed 's/ /%20/g')
-    ANCHORS=""
-    for ANCHOR in $INITIAL_ANCHORS; do
-      # If ANCHOR starts with "#cb", then remove the entry from ANCHORS.
-      if [[ "$ANCHOR" != "#cb"* ]]; then
-        ANCHORS="${ANCHORS} ${ANCHOR}"
-      fi
-    done
-    # Remove leading space from ANCHORS
-    ANCHORS="${ANCHORS# }"    
+    fi   
 
     # Get categories to assign to category entries.
     if [[ -n "$CATEGORY" && "$CATEGORY" != "" ]]; then

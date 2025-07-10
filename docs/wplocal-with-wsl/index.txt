@@ -147,12 +147,17 @@ Conclusion
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
+   Anchors
+
+     * [1] [14]/assets/images/posts/wplocal_running.png
+     * [2] [15]/assets/images/posts/wplocal_sudo.png
+
    Appendix
 
-   Copyright under [14]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -178,7 +183,9 @@ References
   11. file:///assets/images/posts/wplocal_running.png
   12. https://community.localwp.com/u/robert77
   13. file:///assets/images/posts/wplocal_sudo.png
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///wplocal-with-wsl/index.md
-  16. file:///wplocal-with-wsl/index.txt
-  17. file:///tmp/lynxXXXXjHTyFw/L1540954-5095TMP.html
+  14. file:///tmp/lynxXXXXkKm0Tr/L3076309-1674TMP.html#/assets/images/posts/wplocal_running.png
+  15. file:///tmp/lynxXXXXkKm0Tr/L3076309-1674TMP.html#/assets/images/posts/wplocal_sudo.png
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///wplocal-with-wsl/index.md
+  18. file:///wplocal-with-wsl/index.txt
+  19. file:///tmp/lynxXXXXkKm0Tr/L3076309-1674TMP.html

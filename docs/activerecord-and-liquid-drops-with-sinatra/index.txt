@@ -145,14 +145,18 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
    expose your ActiveRecord models to work automatically with Liquid but
    this article just shows you a more expanded and controlled version.
 
+   Anchors
+
+     * [1] [14]http://liquidmarkup.org/ ↗
+
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -178,7 +182,8 @@ References
   11. http://liquidmarkup.org/
   12. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
   13. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///activerecord-and-liquid-drops-with-sinatra/index.md
-  16. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
-  17. file:///tmp/lynxXXXXWFFquo/L1744861-8758TMP.html
+  14. file:///tmp/lynxXXXXhLzKEi/L3318252-2127TMP.html#http://liquidmarkup.org/
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///activerecord-and-liquid-drops-with-sinatra/index.md
+  17. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
+  18. file:///tmp/lynxXXXXhLzKEi/L3318252-2127TMP.html

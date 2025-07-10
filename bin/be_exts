@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# be_replace will replace all occurrences of a string in the input with another string.
+# Example: {{VAR|REPLACE "x" "y"}}
+be_replace() {
+  local input
+  input=$(cat -)
+  echo "${input//$1/$2}"
+}
+
+# be_startswith will check if the input starts with a given string.
+# Example: {{#VAR|STARTS_WITH "prefix"}}
+be_startswith() {
+  local block
+  block=$(cat -)
+
+  if [[ "$1" == "$2"* ]]; then
+    be <<< "$block"
+  else
+    # Failed, return nothing.
+    echo ""
+  fi
+}
+
+# be_equals will check if the input is equal to a given string.
+# Example: {{@EQUALS VAR "value"}}{{/EQUALS VAR "value"}}
+be_equals() {
+  local block
+  block=$(cat -)
+
+  if [[ "$1" == "$2" ]]; then
+    be <<< "$block"
+  else
+    # Failed, return nothing.
+    echo ""
+  fi
+}

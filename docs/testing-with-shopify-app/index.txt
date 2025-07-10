@@ -62,14 +62,18 @@ end
 
    Running bundle exec rake test should now pass your tests with the shop.
 
+   Anchors
+
+     * [1] [13]github.com/Shopify/shopify_app ↗
+
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [13]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -94,7 +98,8 @@ References
   10. file:///category/ruby
   11. file:///category/rails
   12. https://github.com/Shopify/shopify_app
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///testing-with-shopify-app/index.md
-  15. file:///testing-with-shopify-app/index.txt
-  16. file:///tmp/lynxXXXXUDEGAV/L1699867-4079TMP.html
+  13. file:///tmp/lynxXXXXXoi99N/L3267480-2254TMP.html#https://github.com/Shopify/shopify_app
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///testing-with-shopify-app/index.md
+  16. file:///testing-with-shopify-app/index.txt
+  17. file:///tmp/lynxXXXXXoi99N/L3267480-2254TMP.html

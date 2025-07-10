@@ -120,17 +120,12 @@ be_include() {
   be < "$1"
 }
 
-# be_if handles checking if a variable is truthy.
-# If so, the block contents will be displayed.
-# If not, the block will be removed.
-# Block contents is ran through be.
-# Example: {{#HANDLE}}We have a handle, its {{HANDLE}}!{{/HANDLE}}
 be_if() {
   local block=""
   local value="${!1}"
 
   block=$(cat -)
-  if [[ -n "$value" ]]; then
+  if [[ -n "$value" && "$value" != "false" ]]; then
     # Passed, return parsed version of block.
     echo "$block" | be
   else
@@ -149,7 +144,7 @@ be_unless() {
   local value="${!1}"
 
   block=$(cat -)
-  if [[ -z "$value" ]]; then
+  if [[ -z "$value" || "$value" == "false" ]]; then
     # Passed, return parsed version of block.
     echo "$block" | be
   else
@@ -207,11 +202,12 @@ be_foreach() {
   local tmp=""
   local value=""
   local block=""
+  local entries
   block=$(cat -)
 
   if [[ -z "$2" ]]; then
     # No delimiter passed in.
-    vals="$1"
+    read -ra vals <<< "$1"
   else
     # Delimiter passed in.
     if [[ "$1" =~ $VALID_VAR && -n "$1" ]]; then

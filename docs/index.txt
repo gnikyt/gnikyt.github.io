@@ -163,7 +163,7 @@
        Oct 05, 2013
        6.0KB
 
-   [40]Archive ›
+   [40]Categories ›  |  [41]Archive ›
      *
      *
      *
@@ -214,4 +214,5 @@ References
   37. file:///get-original-sized-images-from-a-wordpress-post-gallery
   38. file:///phpmailer-contrib
   39. file:///woocommerce-sorting-products-by-category
-  40. file:///archive
+  40. file:///category
+  41. file:///archive

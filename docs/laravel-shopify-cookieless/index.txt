@@ -83,14 +83,18 @@ What’s next?
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
+   Anchors
+
+     * [1] [16]github.com/lucasmichot ↗
+
    Appendix
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [16]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [17]MD  /  [18]TXT  /  [19]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -118,7 +122,8 @@ References
   13. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
   14. https://github.com/lucasmichot
   15. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-  16. https://creativecommons.org/licenses/by/4.0/
-  17. file:///laravel-shopify-cookieless/index.md
-  18. file:///laravel-shopify-cookieless/index.txt
-  19. file:///tmp/lynxXXXX8TR0oW/L1593459-7739TMP.html
+  16. file:///tmp/lynxXXXXEYrrvN/L3140314-6426TMP.html#https://github.com/lucasmichot
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///laravel-shopify-cookieless/index.md
+  19. file:///laravel-shopify-cookieless/index.txt
+  20. file:///tmp/lynxXXXXEYrrvN/L3140314-6426TMP.html

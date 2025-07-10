@@ -63,14 +63,18 @@ Project
 
    Happy coding with Shopify + Laravel!
 
+   Anchors
+
+     * [1] [15]github.com/Shopify/shopify_app ↗
+
    Appendix
 
    This post is 7 years old and may contain outdated information.
 
-   Copyright under [15]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -97,7 +101,8 @@ References
   12. https://github.com/Shopify/shopify_app
   13. https://github.com/gnikyt/laravel-shopify
   14. https://github.com/gnikyt/laravel-shopify/wiki
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///introducing-shopify-for-laravel/index.md
-  17. file:///introducing-shopify-for-laravel/index.txt
-  18. file:///tmp/lynxXXXXgGTa1L/L1669389-3932TMP.html
+  15. file:///tmp/lynxXXXXFp4ks2/L3229478-5147TMP.html#https://github.com/Shopify/shopify_app
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///introducing-shopify-for-laravel/index.md
+  18. file:///introducing-shopify-for-laravel/index.txt
+  19. file:///tmp/lynxXXXXFp4ks2/L3229478-5147TMP.html

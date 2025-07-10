@@ -141,14 +141,19 @@ re.home }} - {{ $SportsTicker.state.score.away }}
    All we needed to do was create our own Vue instance for the plugin to
    store the data, with a simple method to access it (get state).
 
+   Anchors
+
+     * [1] [13]vuejs.org/v2/guide/plugins.html ↗
+     * [2] [14]vuejs.org/v2/guide/reactivity.html ↗
+
    Appendix
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [13]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -173,7 +178,9 @@ References
   10. file:///category/vuejs
   11. https://vuejs.org/v2/guide/plugins.html
   12. https://vuejs.org/v2/guide/reactivity.html
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///reactive-vuejs-plugins/index.md
-  15. file:///reactive-vuejs-plugins/index.txt
-  16. file:///tmp/lynxXXXXkvpA4y/L1676925-803TMP.html
+  13. file:///tmp/lynxXXXXcN3IbP/L3239431-6111TMP.html#https://vuejs.org/v2/guide/plugins.html
+  14. file:///tmp/lynxXXXXcN3IbP/L3239431-6111TMP.html#https://vuejs.org/v2/guide/reactivity.html
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///reactive-vuejs-plugins/index.md
+  17. file:///reactive-vuejs-plugins/index.txt
+  18. file:///tmp/lynxXXXXcN3IbP/L3239431-6111TMP.html

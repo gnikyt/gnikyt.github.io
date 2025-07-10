@@ -109,14 +109,19 @@ Further Exploring
 
    I hope this has helped anyone struggling.
 
+   Anchors
+
+     * [1] [15]hub.docker.com/_/wordpress/ ↗
+     * [2] [16]github.com/gnikyt/wordpress-docker-quickstart ↗
+
    Appendix
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [15]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -143,7 +148,9 @@ References
   12. https://hub.docker.com/_/wordpress/
   13. https://github.com/gnikyt/wordpress-docker-quickstart
   14. https://github.com/gnikyt/wordpress-docker-quickstart
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///wordpress-under-docker/index.md
-  17. file:///wordpress-under-docker/index.txt
-  18. file:///tmp/lynxXXXXoQIOUF/L1684441-4269TMP.html
+  15. file:///tmp/lynxXXXXWllgG9/L3249388-7885TMP.html#https://hub.docker.com/_/wordpress/
+  16. file:///tmp/lynxXXXXWllgG9/L3249388-7885TMP.html#https://github.com/gnikyt/wordpress-docker-quickstart
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///wordpress-under-docker/index.md
+  19. file:///wordpress-under-docker/index.txt
+  20. file:///tmp/lynxXXXXWllgG9/L3249388-7885TMP.html

@@ -25,6 +25,24 @@
   </div>
 </article>
 
+{{#ANCHORS}}
+  <section class="tab tab--anchors">
+    <div class="tab__title tab__title--short">Anchors</div>
+    <div class="tab__container">
+      <div class="tab__content">
+        <ul class="anchors-list">
+          {{@FOREACH ANCHORS}}
+            {{@ASSIGN IS_LOCAL}}{{@STARTSWITH VALUE "/"}}true{{/STARTSWITH VALUE "/"}}{{/ASSIGN IS_LOCAL}}
+            <li class="anchors-list__item">
+              <strong>[{{KEY1}}]</strong> <a href="#{{VALUE}}" class="sources__link anchors-list__link" rel="noopener" {{^IS_LOCAL}}target="_parent"{{/IS_LOCAL}}>{{VALUE|REPLACE "https://" ""|REPLACE "www." ""}}</a> {{^IS_LOCAL}}&#8599;{{/IS_LOCAL}}
+            </li>
+          {{/FOREACH ANCHORS}}
+        </ul>
+      </div>
+    </div>
+  </section>
+{{/ANCHORS}}
+
 <section class="tab tab--appendix">
   <div class="tab__title tab__title--short">Appendix</div>
   <div class="tab__container">

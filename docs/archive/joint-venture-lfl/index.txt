@@ -121,14 +121,20 @@ Press Release
      Company operates five websites: leons.ca, thebrick.com,
      furniture.ca, midnorthern.com and appliancecanada.com.
 
+   Anchors
+
+     * [1] [16]leons.ca/ ↗
+     * [2] [17]www.thebrick.com/ ↗
+     * [3] [18]www.lflgroup.ca/ ↗
+
    Appendix
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [16]CC-4.0.
+   Copyright under [19]CC-4.0.
 
    Available in the following alternative formats:
-   [17]MD  /  [18]TXT  /  [19]PDF
+   [20]MD  /  [21]TXT  /  [22]PDF
 
      *
      *
@@ -156,7 +162,10 @@ References
   13. https://www.linkedin.com/company/little-rocket-inc/
   14. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
   15. https://www.lflgroup.ca/
-  16. https://creativecommons.org/licenses/by/4.0/
-  17. file:///joint-venture-lfl/index.md
-  18. file:///joint-venture-lfl/index.txt
-  19. file:///tmp/lynxXXXXpTUsYI/L1563120-2690TMP.html
+  16. file:///tmp/lynxXXXXp1G443/L3104492-6695TMP.html#https://leons.ca/
+  17. file:///tmp/lynxXXXXp1G443/L3104492-6695TMP.html#https://www.thebrick.com/
+  18. file:///tmp/lynxXXXXp1G443/L3104492-6695TMP.html#https://www.lflgroup.ca/
+  19. https://creativecommons.org/licenses/by/4.0/
+  20. file:///joint-venture-lfl/index.md
+  21. file:///joint-venture-lfl/index.txt
+  22. file:///tmp/lynxXXXXp1G443/L3104492-6695TMP.html

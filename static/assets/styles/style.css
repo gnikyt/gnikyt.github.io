@@ -364,9 +364,14 @@ body {
   margin-top: var(--tab-spacing);
 }
 
-.tab.tab--appendix a {
+.tab.tab--appendix .sources__link {
   color: var(--color-green);
   border-bottom-color: var(--color-green);
+}
+
+.tab.tab--anchors .anchors-list__link {
+  color: var(--color-navy);
+  border-bottom-color: var(--color-navy);
 }
 
 /**

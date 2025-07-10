@@ -476,4 +476,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///handling-shopify-api-limits-goroutines/index.md
   14. file:///handling-shopify-api-limits-goroutines/index.txt
-  15. file:///tmp/lynxXXXXsgd0oF/L1494856-3879TMP.html
+  15. file:///tmp/lynxXXXXa2A0VT/L3025887-238TMP.html
