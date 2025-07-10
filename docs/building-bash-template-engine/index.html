@@ -101,7 +101,7 @@
             <div class="post__meta content-container">
               <div class="post__details">
                 /* <time class="post__time" datetime="2025-05-22">May 22,
-                2025</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">3.7KB</span> */
+                2025</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">4.1KB</span> */
               </div>
 
               <div class="post__category">
@@ -282,30 +282,57 @@
 "st">"</span></span>
 <span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a><span class="kw">}</span></span>
 <span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a></span>
-<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a><span class="va">NAME</span><span class=
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a><span class=
+"fu">be_equals()</span> <span class="kw">{</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a>  <span class="bu">local</span> <span class=
+"va">block</span></span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a>  <span class="va">block</span><span class=
+"op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">-</span><span class=
+"va">)</span></span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a></span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a>  <span class="cf">if</span> <span class=
+"kw">[[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class=
+"ot">==</span> <span class="st">"</span><span class="va">$2</span><span class="st">"</span> <span class=
+"kw">]];</span> <span class="cf">then</span></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a>    <span class="ex">be</span> <span class=
+"op">&lt;&lt;&lt;</span> <span class="st">"</span><span class="va">$block</span><span class="st">"</span></span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a>    <span class=
+"co"># Failed, return nothing.</span></span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>    <span class="bu">echo</span> <span class=
+"st">""</span></span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a>  <span class="cf">fi</span></span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a></span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a><span class="va">NAME</span><span class=
 "op">=</span><span class="st">"Joe"</span></span>
-<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a><span class="va">LIKES</span><span class=
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a><span class="va">LIKES</span><span class=
 "op">=</span><span class="st">"hockey,soccer"</span></span>
-<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a><span class="va">TPL</span><span class=
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a><span class="va">TPL</span><span class=
 "op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="op">&lt;&lt;EOF</span></span>
-<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a><span class=
-"st">  Well, well, hello {{NAME}}!</span></span>
-<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a><span class="st">  {{#LIKES}}</span></span>
-<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a><span class=
-"st">    So {{NAME|REPLACE e ey|BOLD}}, I heard you like:</span></span>
-<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a><span class=
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a><span class=
+"st">  Well, well, hello {{NAME|APPEND e|APPEND e}}!</span></span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a><span class=
+"st">  {{@ASSIGN GOODBYE}}Goodbye, {{NAME|CAPITALIZE}}!{{/ASSIGN GOODBYE}}</span></span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a><span class="st">  {{#LIKES}}</span></span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a><span class=
+"st">    So {{NAME|REPLACE "e" "ey"|BOLD}}, I heard you like:</span></span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a><span class=
 "st">    {{@FOREACH LIKES ,}}</span></span>
-<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a><span class=
-"st">      {{KEY1}}) {{VALUE|CAPITALIZE}}{{^LAST}}; and {{/LAST}}</span></span>
-<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a><span class=
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a><span class=
+"st">      {{@ASSIGN IS_HOCKEY}}{{@EQUALS VALUE "hockey"}}true{{/EQUALS VALUE "hockey"}}{{/ASSIGN IS_HOCKEY}}</span></span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a><span class=
+"st">      {{KEY1}}) {{VALUE|CAPITALIZE}}{{#IS_HOCKEY}} (love!){{/IS_HOCKEY}}{{^LAST}}; and {{/LAST}}</span></span>
+<span id="cb1-45"><a aria-hidden="true" href="#cb1-45" tabindex="-1"></a><span class=
 "st">    {{/FOREACH LIKES ,}}</span></span>
-<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a><span class=
+<span id="cb1-46"><a aria-hidden="true" href="#cb1-46" tabindex="-1"></a><span class=
 "st">    {{@RAW}}Won't be processed: {{NAME}}{{/RAW}}</span></span>
-<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a><span class="st">  {{/LIKES}}</span></span>
-<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a><span class="op">EOF</span></span>
-<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a><span class="va">)</span></span>
-<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a></span>
-<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a><span class="bu">echo</span> <span class=
+<span id="cb1-47"><a aria-hidden="true" href="#cb1-47" tabindex="-1"></a><span class="st">  {{/LIKES}}</span></span>
+<span id="cb1-48"><a aria-hidden="true" href="#cb1-48" tabindex="-1"></a><span class="st">  {{GOODBYE}}</span></span>
+<span id="cb1-49"><a aria-hidden="true" href="#cb1-49" tabindex="-1"></a><span class="op">EOF</span></span>
+<span id="cb1-50"><a aria-hidden="true" href="#cb1-50" tabindex="-1"></a><span class="va">)</span></span>
+<span id="cb1-51"><a aria-hidden="true" href="#cb1-51" tabindex="-1"></a></span>
+<span id="cb1-52"><a aria-hidden="true" href="#cb1-52" tabindex="-1"></a><span class="bu">echo</span> <span class=
 "st">"</span><span class="va">$TPL</span><span class="st">"</span> <span class="kw">|</span> <span class=
 "ex">be</span></span></code></pre>
               </div>
@@ -314,12 +341,17 @@
                 Output:
               </p>
 
-              <pre><code>  Well, well, hello Joe!
+              <pre><code>  Well, well, hello Joeee!
+  
   
     So &lt;strong&gt;Joey&lt;/strong&gt;, I heard you like:
-    1) Hockey; and 
-    2) Soccer
-
+    
+      
+      1) Hockey (love!); and 
+    
+      
+      2) Soccer
+    
     Won't be processed: {{NAME}}</code></pre>
               <p>
                 BASH is definately not the best solution for a template engine, however, you can view the entire

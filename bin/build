@@ -155,7 +155,6 @@ process_posts() {
     done
     # Remove leading space from ANCHORS
     ANCHORS="${ANCHORS# }"
-    echo "$ANCHORS"
 
     # Parse the post template and save result.
     LOCAL_LAYOUT=$(cat "${LAYOUTS["post"]}")

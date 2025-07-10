@@ -66,4 +66,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///phpmailer-contrib/index.md
   16. file:///phpmailer-contrib/index.txt
-  17. file:///tmp/lynxXXXXc23K40/L3351337-794TMP.html
+  17. file:///tmp/lynxXXXXFSvsSw/L3839518-1647TMP.html

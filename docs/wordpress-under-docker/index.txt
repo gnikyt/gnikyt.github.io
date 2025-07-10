@@ -148,9 +148,9 @@ References
   12. https://hub.docker.com/_/wordpress/
   13. https://github.com/gnikyt/wordpress-docker-quickstart
   14. https://github.com/gnikyt/wordpress-docker-quickstart
-  15. file:///tmp/lynxXXXXWllgG9/L3249388-7885TMP.html#https://hub.docker.com/_/wordpress/
-  16. file:///tmp/lynxXXXXWllgG9/L3249388-7885TMP.html#https://github.com/gnikyt/wordpress-docker-quickstart
+  15. file:///tmp/lynxXXXXTN3SBX/L3737771-7199TMP.html#https://hub.docker.com/_/wordpress/
+  16. file:///tmp/lynxXXXXTN3SBX/L3737771-7199TMP.html#https://github.com/gnikyt/wordpress-docker-quickstart
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///wordpress-under-docker/index.md
   19. file:///wordpress-under-docker/index.txt
-  20. file:///tmp/lynxXXXXWllgG9/L3249388-7885TMP.html
+  20. file:///tmp/lynxXXXXTN3SBX/L3737771-7199TMP.html

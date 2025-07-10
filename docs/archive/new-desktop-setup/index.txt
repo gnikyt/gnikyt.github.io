@@ -192,9 +192,9 @@ References
   12. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
   13. file:///assets/images/posts/cinnamon.png
   14. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-  15. file:///tmp/lynxXXXXnqFBxD/L3086011-7999TMP.html#/assets/images/posts/gnomeshelllook.png
-  16. file:///tmp/lynxXXXXnqFBxD/L3086011-7999TMP.html#/assets/images/posts/cinnamon.png
+  15. file:///tmp/lynxXXXXuZgs6x/L3574214-1625TMP.html#/assets/images/posts/gnomeshelllook.png
+  16. file:///tmp/lynxXXXXuZgs6x/L3574214-1625TMP.html#/assets/images/posts/cinnamon.png
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///new-desktop-setup/index.md
   19. file:///new-desktop-setup/index.txt
-  20. file:///tmp/lynxXXXXnqFBxD/L3086011-7999TMP.html
+  20. file:///tmp/lynxXXXXuZgs6x/L3574214-1625TMP.html

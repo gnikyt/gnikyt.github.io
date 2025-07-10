@@ -72,17 +72,32 @@ be_capitalize() {
   echo "${input^}"
 }
 
+be_equals() {
+  local block
+  block=$(cat -)
+
+  if [[ "$1" == "$2" ]]; then
+    be <<< "$block"
+  else
+    # Failed, return nothing.
+    echo ""
+  fi
+}
+
 NAME="Joe"
 LIKES="hockey,soccer"
 TPL=$(cat <<EOF
-  Well, well, hello {{NAME}}!
+  Well, well, hello {{NAME|APPEND e|APPEND e}}!
+  {{@ASSIGN GOODBYE}}Goodbye, {{NAME|CAPITALIZE}}!{{/ASSIGN GOODBYE}}
   {{#LIKES}}
-    So {{NAME|REPLACE e ey|BOLD}}, I heard you like:
+    So {{NAME|REPLACE "e" "ey"|BOLD}}, I heard you like:
     {{@FOREACH LIKES ,}}
-      {{KEY1}}) {{VALUE|CAPITALIZE}}{{^LAST}}; and {{/LAST}}
+      {{@ASSIGN IS_HOCKEY}}{{@EQUALS VALUE "hockey"}}true{{/EQUALS VALUE "hockey"}}{{/ASSIGN IS_HOCKEY}}
+      {{KEY1}}) {{VALUE|CAPITALIZE}}{{#IS_HOCKEY}} (love!){{/IS_HOCKEY}}{{^LAST}}; and {{/LAST}}
     {{/FOREACH LIKES ,}}
     {{@RAW}}Won't be processed: {{NAME}}{{/RAW}}
   {{/LIKES}}
+  {{GOODBYE}}
 EOF
 )
 
@@ -92,12 +107,17 @@ echo "$TPL" | be
 Output:
 
 ```
-  Well, well, hello Joe!
+  Well, well, hello Joeee!
+  
   
     So <strong>Joey</strong>, I heard you like:
-    1) Hockey; and 
-    2) Soccer
-
+    
+      
+      1) Hockey (love!); and 
+    
+      
+      2) Soccer
+    
     Won't be processed: {{NAME}}
 ```
 
