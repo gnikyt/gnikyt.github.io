@@ -175,8 +175,8 @@ References
    9. file:///category/cmd
   10. https://github.com/gnikyt/be
   11. https://githuib.com/gnikyt/be/tree/master/be
-  12. file:///tmp/lynxXXXXeLJ09Q/L3503834-9066TMP.html#https://github.com/gnikyt/be
+  12. file:///tmp/lynxXXXX2OEGQm/L26846-7144TMP.html#https://github.com/gnikyt/be
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///building-bash-template-engine/index.md
   15. file:///building-bash-template-engine/index.txt
-  16. file:///tmp/lynxXXXXeLJ09Q/L3503834-9066TMP.html
+  16. file:///tmp/lynxXXXX2OEGQm/L26846-7144TMP.html

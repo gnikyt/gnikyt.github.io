@@ -503,6 +503,10 @@ body {
   padding: 0;
 }
 
+.post ul li code {
+  font-size: 1.3em;
+}
+
 .post p > code {
   word-break: break-all;
   font-size: 1.3em;

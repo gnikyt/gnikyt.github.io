@@ -10,11 +10,16 @@
    order.
      * $>
 
-[9]Joint Venture with LFL
+[9]Shopify Value Objects for Go
+       Jul 15, 2025
+       6.7KB
+     * $>
+
+[10]Joint Venture with LFL
        Nov 15, 2022
        6.0KB
 
-   [10]‹ Categories  |  [11]‹ Home
+   [11]‹ Categories  |  [12]‹ Home
 
      *
      *
@@ -35,6 +40,7 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///archive/joint-venture-lfl
-  10. file:///category
-  11. file:///
+   9. file:///shopify-value-objects-go
+  10. file:///archive/joint-venture-lfl
+  11. file:///category
+  12. file:///

@@ -6,6 +6,15 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Shopify Value Objects for Go</title>
+      <link>https://gnikyt.com/shopify-value-objects-go</link>
+      <description>An existing project had grown rapidly, resulting in many places where IDs were manually extracted
+      from GIDs or formatted into GIDs witho...</description>
+      <guid isPermLink="true">https://gnikyt.com/shopify-value-objects-go</guid>
+      <pubDate>2025-07-15T12:16:00-0230</pubDate>
+      <category>go</category>
+    </item>
+    <item>
       <title>Building a BASH template engine</title>
       <link>https://gnikyt.com/building-bash-template-engine</link>
       <description>Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a

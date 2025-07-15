@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+  <loc>https://gnikyt.com/shopify-value-objects-go</loc>
+  <lastmod>2025-07-15T12:16:00-0230</lastmod>
+</url>
+<url>
   <loc>https://gnikyt.com/building-bash-template-engine</loc>
   <lastmod>2025-05-22T14:09:31-0230</lastmod>
 </url>
@@ -166,69 +170,73 @@
 </url>templates/_sitemap_item.xml 
 <url>
   <loc>https://gnikyt.com/archive</loc>
-  <lastmod>2025-07-10T13:23:26-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/cmd</loc>
-  <lastmod>2025-07-10T13:23:32-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/golang</loc>
-  <lastmod>2025-07-10T13:23:38-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/shopify</loc>
-  <lastmod>2025-07-10T13:23:41-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/javascript</loc>
-  <lastmod>2025-07-10T13:23:49-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/react</loc>
-  <lastmod>2025-07-10T13:23:57-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/php</loc>
-  <lastmod>2025-07-10T13:24:04-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/wordpress</loc>
-  <lastmod>2025-07-10T13:24:11-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/laravel</loc>
-  <lastmod>2025-07-10T13:24:16-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/python</loc>
-  <lastmod>2025-07-10T13:24:23-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/symfony</loc>
-  <lastmod>2025-07-10T13:24:31-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/vuejs</loc>
-  <lastmod>2025-07-10T13:24:38-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/ruby</loc>
-  <lastmod>2025-07-10T13:24:42-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/rails</loc>
-  <lastmod>2025-07-10T13:24:49-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/sinatra</loc>
-  <lastmod>2025-07-10T13:24:57-0230</lastmod>
+  <lastmod>2025-07-15T14:27:29-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/uncategorized</loc>
-  <lastmod>2025-07-10T13:25:04-0230</lastmod>
+  <lastmod>2025-07-15T14:27:35-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/cmd</loc>
+  <lastmod>2025-07-15T14:27:41-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/golang</loc>
+  <lastmod>2025-07-15T14:27:48-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/shopify</loc>
+  <lastmod>2025-07-15T14:27:55-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/javascript</loc>
+  <lastmod>2025-07-15T14:28:02-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/react</loc>
+  <lastmod>2025-07-15T14:28:09-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/php</loc>
+  <lastmod>2025-07-15T14:28:14-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/wordpress</loc>
+  <lastmod>2025-07-15T14:28:20-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/laravel</loc>
+  <lastmod>2025-07-15T14:28:25-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/python</loc>
+  <lastmod>2025-07-15T14:28:31-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/symfony</loc>
+  <lastmod>2025-07-15T14:28:38-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/vuejs</loc>
+  <lastmod>2025-07-15T14:28:44-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/ruby</loc>
+  <lastmod>2025-07-15T14:28:53-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/rails</loc>
+  <lastmod>2025-07-15T14:28:58-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/sinatra</loc>
+  <lastmod>2025-07-15T14:29:04-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/uncategorized</loc>
+  <lastmod>2025-07-15T14:29:10-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category</loc>
-  <lastmod>2025-07-10T13:25:10-0230</lastmod>
+  <lastmod>2025-07-15T14:29:14-0230</lastmod>
 </url></urlset>
