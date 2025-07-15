@@ -203,8 +203,8 @@ func (cids CustomerIDs) ToIDs() []int {
 	return ToIDs(cids)
 }
 
-func (cids CustomerIDs) ToStrings() []int {
-	return ToIDs(cids)
+func (cids CustomerIDs) ToStrings() []string {
+	return ToStrings(cids)
 }
 
 // NewCustomerID creates a new CustomerID from a value.
