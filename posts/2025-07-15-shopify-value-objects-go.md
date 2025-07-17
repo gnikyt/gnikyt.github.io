@@ -14,7 +14,9 @@ An existing project had grown rapidly, resulting in many places where IDs were m
 * Enable equality checks between objects
 * Allow for marshalling and unmarshalling
 
-To start off, I created an interface for the objects and a list of available types:
+## Implementation
+
+To start off, I created an interface for the objects and a list of available types
 
 ```go
 package gid
@@ -99,6 +101,7 @@ func typeFrom[T Identifiers]() string {
 
 // commonNew creates a new GID from a value.
 // It supports int64, int, and string formats.
+// String formats supported: full GID ("gid://shopify/Type/ID") or numeric string ("123456789").
 func commonNew[T Identifiers](val any) (T, error) {
 	switch v := val.(type) {
 	case int64:
@@ -107,18 +110,25 @@ func commonNew[T Identifiers](val any) (T, error) {
 		return T(int(v)), nil
 	case string:
 		parts := strings.Split(v, "/")
-		if len(parts) < 5 {
-			return T(0), fmt.Errorf("invalid GID format: %v", v)
+		if len(parts) >= 5 {
+			// Handle full GID format: "gid://shopify/Type/ID"
+			typ := typeFrom[T]()
+			if parts[3] != typ {
+				return T(0), fmt.Errorf("expected type %s got %s", typ, parts[3])
+			}
+			cint, err := strconv.ParseInt(parts[4], 10, 64)
+			if err != nil {
+				return T(0), fmt.Errorf("invalid ID in GID: %s", v)
+			}
+			return T(int(cint)), nil
+		} else {
+			// Handle numeric string format: "123456789"
+			cint, err := strconv.ParseInt(v, 10, 64)
+			if err != nil {
+				return T(0), fmt.Errorf("invalid GID format or numeric ID: %v", v)
+			}
+			return T(int(cint)), nil
 		}
-		typ := typeFrom[T]()
-		if parts[3] != typ {
-			return T(0), fmt.Errorf("expected type %s got %s", typ, parts[3])
-		}
-		cint, err := strconv.ParseInt(parts[4], 10, 64)
-		if err != nil {
-			return T(0), fmt.Errorf("invalid ID in GID: %s", v)
-		}
-		return T(int(cint)), nil
 	default:
 		return T(0), fmt.Errorf("unsupported type for GID: %T", val)
 	}
@@ -126,7 +136,8 @@ func commonNew[T Identifiers](val any) (T, error) {
 
 // New creates a new GID from a value.
 // It supports int64, int, and string formats.
-// For strings, it expects the format "gid://shopify/Type/ID".
+// For strings, it expects the format "gid://shopify/Type/ID" or a
+// numeric "28282823332".
 // If the value is not recognized, it returns a zero value of the type.
 // It ignores errors in validation, for validation use NewValidated.
 func New[T Identifiers](val any) T {
@@ -155,6 +166,8 @@ func NewValidated[T Identifiers](val any) (T, error) {
 * `typeFor` is a method to determine the expected type portion of the GID
 * `New` is a generic method for creating a value object of a type, without validation
 * `NewValidated` is a generic method for creating a value object of a type, with validation
+
+## Example implementation
 
 An example implementation utilizing the `Identifier` interface for a value object:
 
@@ -218,32 +231,103 @@ func NewCustomerIDValidated(val any) (CustomerID, error) {
 }
 ```
 
-Using the `CustomerID` example above, which is for `gid://shopify/Customer/{id}`, we can do the following:
+## API
+
+### Init without validation
+
+How to create and access information of the object.
+
+These methods do not return an error for bad objects, it will return an object with a zero value instead. If you need validation, refer to validation section below this.
 
 ```go
-// Creation.
-cid := gid.NewCustomerID(12345) // or gid.NewCustomerID("gid://shopify/Customer/12345")
-fmt.Println(cid.ID()) // 12345
-fmt.Println(cid.String()) // gid://shopify/Customer/12345
-fmt.Printf("Is equal? %v", cid.Equal(CustomerID(123))) // Is Equal? false
-fmt.Printf("Is valid? %v", cid.IsValid()) // Is Valid? true
+cid := gid.NewCustomerID("gid://shopify/Customer/12345") // accepts GID or ID
+cid.ID() // 12345
+cid.String() // gid://shopify/Customer/12345
+cid.IsValid() // true
 
-// Slices.
-cids := gid.CustomerIDs{gid.NewCustomerID(12345), gid.NewCustomerID("gid://shopify/Customer/54321")}
-// or []CustomerID{gid.NewCustomerID(12345), gid.NewCustomerID("gid://shopify/Customer/54321")}
-cids.ToIDs() // [12345, 54321]
-cids.ToStrings() // [gid://shopify/Customer/12345, gid://shopify/Customer/54321]
+oid := gid.NewOrderID(478848)
+oid.ID() // 478848
+oid.String() // gid://shopify/Order/478848
+oid.IsValid() // true
 
-// Creation, with validation.
-cid, err := gid.NewCustomerIDValidated(12345) // or gid.NewCustomerIDValidated("gid://shopify/Customer/12345")
+// Alternatively, by generic method.
+pid := gid.New[gid.ProductID](123) // gid.New[gid.ProductID]("gid://shopify/Product/123")
 
-// Marshalling/Unmarshalling.
+// No error reported, but zero-value object returned.
+vid := gid.NewVariantID("gid://shopify/Whoops/1234")
+vid.IsValid() // false
+```
+
+### Init with validation
+
+All `New{X}ID` methods support validation by appending `Validated`.
+
+These methods will return an error and the object will be zero value.
+
+```go
+cid, err := gid.NewCustomerIDValidated("whoops")
+// err = "invalid CustomerID: whoops"
+cid.IsValid() // false
+```
+
+### Comparisons
+
+How to compare two objects.
+
+```go
+cid := gid.NewCustomerID("gid://shopify/Customer/12345")
+cid2 := gid.NewCustomerID("gid://shopify/Customer/123456")
+oid := gid.NewCustomerID("gid://shopify/Customer/123456")
+fmt.Printf("Same? %v", cid.Equal(cid2)) // Same? false
+fmt.Printf("Same? %v", cid.Equal(cid)) // Same? true
+fmt.Printf("Same? %v", oid.Equal(cid)) // Same? false
+```
+
+### Slice supports
+
+All built-in objects also have slices such as `ProductIDs`, `OrderIDs`, etc. to do things like convert all objects to their IDs or all objects to their GID.
+
+```go
+pids := gid.ProductIDs{
+    gid.ProductID(1),
+    gid.ProductID(2),
+    gid.NewProductID("gid://shopify/Product/5"),
+}
+pids.ToIDs() // [1, 2, 5]
+pids.ToStrings() // [gid://shopify/Product/1, gid://shopify/Product/2, gid://shopify/Product/5]
+
+// Generic versions.
+gid.ToIDs([]gid.CustomerID{
+    gid.CustomerID(1),
+    gid.NewCustomerID("gid://shopify/Customer/5"),
+}) // [1, 5] 
+gid.ToStrings([]gid.CustomerID{
+    gid.CustomerID(1),
+    gid.NewCustomerID("gid://shopify/Customer/5"),
+})  // [gid://shopify/Customer/1, gid://shopify/Customer/5]
+```
+
+### Marshalling/Unmarshalling
+
+Automatic support for marshalling to JSON and from a struct into the value object type.
+
+```go
 type something struct {
    OrderID gid.OrderID `json:"order_id"`
    // ...
 }
-// If Unmarshalled, order_id will be cased to a OrderID value object.
-// If Marshalled, order_id will be turned into `gid://shopify/Order/{id}`.
+```
+
+* If Unmarshalled, `order_id` will be cased to a `OrderID` value object.
+* If Marshalled, `order_id` will be turned into `gid://shopify/Order/{id}`.
+
+You can pass around the value objects and utilize them too:
+
+```go
+func SomeFunc(open bool, variantID gid.VariantID) {
+    // ...
+}
+sm := SomeFunc(true, gid.VariantID(129292))
 ```
 
 You can view the package snippet [here on Github](https://github.com/gnikyt/shopify-go-value-objects).

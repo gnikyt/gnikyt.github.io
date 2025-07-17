@@ -170,73 +170,69 @@
 </url>templates/_sitemap_item.xml 
 <url>
   <loc>https://gnikyt.com/archive</loc>
-  <lastmod>2025-07-15T14:27:29-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/uncategorized</loc>
-  <lastmod>2025-07-15T14:27:35-0230</lastmod>
-</url>
-<url>
-  <loc>https://gnikyt.com/category/cmd</loc>
-  <lastmod>2025-07-15T14:27:41-0230</lastmod>
+  <lastmod>2025-07-17T11:50:57-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/golang</loc>
-  <lastmod>2025-07-15T14:27:48-0230</lastmod>
+  <lastmod>2025-07-17T11:51:04-0230</lastmod>
+</url>
+<url>
+  <loc>https://gnikyt.com/category/cmd</loc>
+  <lastmod>2025-07-17T11:51:10-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/shopify</loc>
-  <lastmod>2025-07-15T14:27:55-0230</lastmod>
+  <lastmod>2025-07-17T11:51:17-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/javascript</loc>
-  <lastmod>2025-07-15T14:28:02-0230</lastmod>
+  <lastmod>2025-07-17T11:51:23-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/react</loc>
-  <lastmod>2025-07-15T14:28:09-0230</lastmod>
+  <lastmod>2025-07-17T11:51:27-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/php</loc>
-  <lastmod>2025-07-15T14:28:14-0230</lastmod>
+  <lastmod>2025-07-17T11:51:32-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/wordpress</loc>
-  <lastmod>2025-07-15T14:28:20-0230</lastmod>
+  <lastmod>2025-07-17T11:51:38-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/laravel</loc>
-  <lastmod>2025-07-15T14:28:25-0230</lastmod>
+  <lastmod>2025-07-17T11:51:43-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/python</loc>
-  <lastmod>2025-07-15T14:28:31-0230</lastmod>
+  <lastmod>2025-07-17T11:51:49-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/symfony</loc>
-  <lastmod>2025-07-15T14:28:38-0230</lastmod>
+  <lastmod>2025-07-17T11:51:56-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/vuejs</loc>
-  <lastmod>2025-07-15T14:28:44-0230</lastmod>
+  <lastmod>2025-07-17T11:51:59-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/ruby</loc>
-  <lastmod>2025-07-15T14:28:53-0230</lastmod>
+  <lastmod>2025-07-17T11:52:05-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/rails</loc>
-  <lastmod>2025-07-15T14:28:58-0230</lastmod>
+  <lastmod>2025-07-17T11:52:11-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/sinatra</loc>
-  <lastmod>2025-07-15T14:29:04-0230</lastmod>
+  <lastmod>2025-07-17T11:52:17-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category/uncategorized</loc>
-  <lastmod>2025-07-15T14:29:10-0230</lastmod>
+  <lastmod>2025-07-17T11:52:22-0230</lastmod>
 </url>
 <url>
   <loc>https://gnikyt.com/category</loc>
-  <lastmod>2025-07-15T14:29:14-0230</lastmod>
+  <lastmod>2025-07-17T11:52:25-0230</lastmod>
 </url></urlset>

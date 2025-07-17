@@ -101,11 +101,11 @@
             <div class="post__meta content-container">
               <div class="post__details">
                 /* <time class="post__time" datetime="2025-07-15">Jul 15,
-                2025</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">6.7KB</span> */
+                2025</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">8.7KB</span> */
               </div>
 
               <div class="post__category">
-                <a href="/category/golang"><img alt="Logo of go" class="post__category-logo" src=
+                <a href="/category/golang"><img alt="Logo of golang" class="post__category-logo" src=
                 "/assets/images/category-golang.svg"></a>
               </div>
             </div>
@@ -135,8 +135,12 @@
                 </li>
               </ul>
 
+              <h2 id="implementation">
+                Implementation
+              </h2>
+
               <p>
-                To start off, I created an interface for the objects and a list of available types:
+                To start off, I created an interface for the objects and a list of available types
               </p>
 
               <div class="sourceCode" id="cb1">
@@ -293,116 +297,136 @@
 <span id="cb3-24"><a aria-hidden="true" href="#cb3-24" tabindex="-1"></a><span class=
 "co">// It supports int64, int, and string formats.</span></span>
 <span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a><span class=
+"co">// String formats supported: full GID ("gid://shopify/Type/ID") or numeric string ("123456789").</span></span>
+<span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a><span class=
 "kw">func</span> commonNew<span class="op">[</span>T Identifiers<span class="op">](</span>val <span class=
 "dt">any</span><span class="op">)</span> <span class="op">(</span>T<span class="op">,</span> <span class=
 "dt">error</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a>    <span class=
+<span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a>    <span class=
 "cf">switch</span> v <span class="op">:=</span> val<span class="op">.(</span><span class="kw">type</span><span class=
 "op">)</span> <span class="op">{</span></span>
-<span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a>    <span class="cf">case</span> <span class=
+<span id="cb3-28"><a aria-hidden="true" href="#cb3-28" tabindex="-1"></a>    <span class="cf">case</span> <span class=
 "dt">int64</span><span class="op">:</span></span>
-<span id="cb3-28"><a aria-hidden="true" href="#cb3-28" tabindex="-1"></a>        <span class=
+<span id="cb3-29"><a aria-hidden="true" href="#cb3-29" tabindex="-1"></a>        <span class=
 "cf">return</span> T<span class="op">(</span><span class="dt">int</span><span class="op">(</span>v<span class=
 "op">)),</span> <span class="ot">nil</span></span>
-<span id="cb3-29"><a aria-hidden="true" href="#cb3-29" tabindex="-1"></a>    <span class="cf">case</span> <span class=
+<span id="cb3-30"><a aria-hidden="true" href="#cb3-30" tabindex="-1"></a>    <span class="cf">case</span> <span class=
 "dt">int</span><span class="op">:</span></span>
-<span id="cb3-30"><a aria-hidden="true" href="#cb3-30" tabindex="-1"></a>        <span class=
+<span id="cb3-31"><a aria-hidden="true" href="#cb3-31" tabindex="-1"></a>        <span class=
 "cf">return</span> T<span class="op">(</span><span class="dt">int</span><span class="op">(</span>v<span class=
 "op">)),</span> <span class="ot">nil</span></span>
-<span id="cb3-31"><a aria-hidden="true" href="#cb3-31" tabindex="-1"></a>    <span class="cf">case</span> <span class=
+<span id="cb3-32"><a aria-hidden="true" href="#cb3-32" tabindex="-1"></a>    <span class="cf">case</span> <span class=
 "dt">string</span><span class="op">:</span></span>
-<span id="cb3-32"><a aria-hidden="true" href="#cb3-32" tabindex="-1"></a>        parts <span class=
+<span id="cb3-33"><a aria-hidden="true" href="#cb3-33" tabindex="-1"></a>        parts <span class=
 "op">:=</span> strings<span class="op">.</span>Split<span class="op">(</span>v<span class="op">,</span> <span class=
 "st">"/"</span><span class="op">)</span></span>
-<span id="cb3-33"><a aria-hidden="true" href="#cb3-33" tabindex="-1"></a>        <span class=
+<span id="cb3-34"><a aria-hidden="true" href="#cb3-34" tabindex="-1"></a>        <span class=
 "cf">if</span> <span class="bu">len</span><span class="op">(</span>parts<span class="op">)</span> <span class=
-"op">&lt;</span> <span class="dv">5</span> <span class="op">{</span></span>
-<span id="cb3-34"><a aria-hidden="true" href="#cb3-34" tabindex="-1"></a>            <span class=
-"cf">return</span> T<span class="op">(</span><span class="dv">0</span><span class="op">),</span> fmt<span class=
-"op">.</span>Errorf<span class="op">(</span><span class="st">"invalid GID format: %v"</span><span class=
-"op">,</span> v<span class="op">)</span></span>
-<span id="cb3-35"><a aria-hidden="true" href="#cb3-35" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-36"><a aria-hidden="true" href="#cb3-36" tabindex="-1"></a>        typ <span class=
+"op">&gt;=</span> <span class="dv">5</span> <span class="op">{</span></span>
+<span id="cb3-35"><a aria-hidden="true" href="#cb3-35" tabindex="-1"></a>            <span class=
+"co">// Handle full GID format: "gid://shopify/Type/ID"</span></span>
+<span id="cb3-36"><a aria-hidden="true" href="#cb3-36" tabindex="-1"></a>            typ <span class=
 "op">:=</span> typeFrom<span class="op">[</span>T<span class="op">]()</span></span>
-<span id="cb3-37"><a aria-hidden="true" href="#cb3-37" tabindex="-1"></a>        <span class=
+<span id="cb3-37"><a aria-hidden="true" href="#cb3-37" tabindex="-1"></a>            <span class=
 "cf">if</span> parts<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class=
 "op">!=</span> typ <span class="op">{</span></span>
-<span id="cb3-38"><a aria-hidden="true" href="#cb3-38" tabindex="-1"></a>            <span class=
+<span id="cb3-38"><a aria-hidden="true" href="#cb3-38" tabindex="-1"></a>                <span class=
 "cf">return</span> T<span class="op">(</span><span class="dv">0</span><span class="op">),</span> fmt<span class=
 "op">.</span>Errorf<span class="op">(</span><span class="st">"expected type %s got %s"</span><span class=
 "op">,</span> typ<span class="op">,</span> parts<span class="op">[</span><span class="dv">3</span><span class=
 "op">])</span></span>
-<span id="cb3-39"><a aria-hidden="true" href="#cb3-39" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-40"><a aria-hidden="true" href="#cb3-40" tabindex="-1"></a>        cint<span class=
+<span id="cb3-39"><a aria-hidden="true" href="#cb3-39" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-40"><a aria-hidden="true" href="#cb3-40" tabindex="-1"></a>            cint<span class=
 "op">,</span> err <span class="op">:=</span> strconv<span class="op">.</span>ParseInt<span class=
 "op">(</span>parts<span class="op">[</span><span class="dv">4</span><span class="op">],</span> <span class=
 "dv">10</span><span class="op">,</span> <span class="dv">64</span><span class="op">)</span></span>
-<span id="cb3-41"><a aria-hidden="true" href="#cb3-41" tabindex="-1"></a>        <span class=
+<span id="cb3-41"><a aria-hidden="true" href="#cb3-41" tabindex="-1"></a>            <span class=
 "cf">if</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
-<span id="cb3-42"><a aria-hidden="true" href="#cb3-42" tabindex="-1"></a>            <span class=
+<span id="cb3-42"><a aria-hidden="true" href="#cb3-42" tabindex="-1"></a>                <span class=
 "cf">return</span> T<span class="op">(</span><span class="dv">0</span><span class="op">),</span> fmt<span class=
 "op">.</span>Errorf<span class="op">(</span><span class="st">"invalid ID in GID: %s"</span><span class=
 "op">,</span> v<span class="op">)</span></span>
-<span id="cb3-43"><a aria-hidden="true" href="#cb3-43" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-44"><a aria-hidden="true" href="#cb3-44" tabindex="-1"></a>        <span class=
+<span id="cb3-43"><a aria-hidden="true" href="#cb3-43" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-44"><a aria-hidden="true" href="#cb3-44" tabindex="-1"></a>            <span class=
 "cf">return</span> T<span class="op">(</span><span class="dt">int</span><span class="op">(</span>cint<span class=
 "op">)),</span> <span class="ot">nil</span></span>
-<span id="cb3-45"><a aria-hidden="true" href="#cb3-45" tabindex="-1"></a>    <span class=
+<span id="cb3-45"><a aria-hidden="true" href="#cb3-45" tabindex="-1"></a>        <span class="op">}</span> <span class=
+"cf">else</span> <span class="op">{</span></span>
+<span id="cb3-46"><a aria-hidden="true" href="#cb3-46" tabindex="-1"></a>            <span class=
+"co">// Handle numeric string format: "123456789"</span></span>
+<span id="cb3-47"><a aria-hidden="true" href="#cb3-47" tabindex="-1"></a>            cint<span class=
+"op">,</span> err <span class="op">:=</span> strconv<span class="op">.</span>ParseInt<span class=
+"op">(</span>v<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class=
+"dv">64</span><span class="op">)</span></span>
+<span id="cb3-48"><a aria-hidden="true" href="#cb3-48" tabindex="-1"></a>            <span class=
+"cf">if</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
+<span id="cb3-49"><a aria-hidden="true" href="#cb3-49" tabindex="-1"></a>                <span class=
+"cf">return</span> T<span class="op">(</span><span class="dv">0</span><span class="op">),</span> fmt<span class=
+"op">.</span>Errorf<span class="op">(</span><span class="st">"invalid GID format or numeric ID: %v"</span><span class=
+"op">,</span> v<span class="op">)</span></span>
+<span id="cb3-50"><a aria-hidden="true" href="#cb3-50" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-51"><a aria-hidden="true" href="#cb3-51" tabindex="-1"></a>            <span class=
+"cf">return</span> T<span class="op">(</span><span class="dt">int</span><span class="op">(</span>cint<span class=
+"op">)),</span> <span class="ot">nil</span></span>
+<span id="cb3-52"><a aria-hidden="true" href="#cb3-52" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-53"><a aria-hidden="true" href="#cb3-53" tabindex="-1"></a>    <span class=
 "cf">default</span><span class="op">:</span></span>
-<span id="cb3-46"><a aria-hidden="true" href="#cb3-46" tabindex="-1"></a>        <span class=
+<span id="cb3-54"><a aria-hidden="true" href="#cb3-54" tabindex="-1"></a>        <span class=
 "cf">return</span> T<span class="op">(</span><span class="dv">0</span><span class="op">),</span> fmt<span class=
 "op">.</span>Errorf<span class="op">(</span><span class="st">"unsupported type for GID: %T"</span><span class=
 "op">,</span> val<span class="op">)</span></span>
-<span id="cb3-47"><a aria-hidden="true" href="#cb3-47" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-48"><a aria-hidden="true" href="#cb3-48" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-49"><a aria-hidden="true" href="#cb3-49" tabindex="-1"></a></span>
-<span id="cb3-50"><a aria-hidden="true" href="#cb3-50" tabindex="-1"></a><span class=
+<span id="cb3-55"><a aria-hidden="true" href="#cb3-55" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-56"><a aria-hidden="true" href="#cb3-56" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-57"><a aria-hidden="true" href="#cb3-57" tabindex="-1"></a></span>
+<span id="cb3-58"><a aria-hidden="true" href="#cb3-58" tabindex="-1"></a><span class=
 "co">// New creates a new GID from a value.</span></span>
-<span id="cb3-51"><a aria-hidden="true" href="#cb3-51" tabindex="-1"></a><span class=
+<span id="cb3-59"><a aria-hidden="true" href="#cb3-59" tabindex="-1"></a><span class=
 "co">// It supports int64, int, and string formats.</span></span>
-<span id="cb3-52"><a aria-hidden="true" href="#cb3-52" tabindex="-1"></a><span class=
-"co">// For strings, it expects the format "gid://shopify/Type/ID".</span></span>
-<span id="cb3-53"><a aria-hidden="true" href="#cb3-53" tabindex="-1"></a><span class=
+<span id="cb3-60"><a aria-hidden="true" href="#cb3-60" tabindex="-1"></a><span class=
+"co">// For strings, it expects the format "gid://shopify/Type/ID" or a</span></span>
+<span id="cb3-61"><a aria-hidden="true" href="#cb3-61" tabindex="-1"></a><span class=
+"co">// numeric "28282823332".</span></span>
+<span id="cb3-62"><a aria-hidden="true" href="#cb3-62" tabindex="-1"></a><span class=
 "co">// If the value is not recognized, it returns a zero value of the type.</span></span>
-<span id="cb3-54"><a aria-hidden="true" href="#cb3-54" tabindex="-1"></a><span class=
+<span id="cb3-63"><a aria-hidden="true" href="#cb3-63" tabindex="-1"></a><span class=
 "co">// It ignores errors in validation, for validation use NewValidated.</span></span>
-<span id="cb3-55"><a aria-hidden="true" href="#cb3-55" tabindex="-1"></a><span class="kw">func</span> New<span class=
+<span id="cb3-64"><a aria-hidden="true" href="#cb3-64" tabindex="-1"></a><span class="kw">func</span> New<span class=
 "op">[</span>T Identifiers<span class="op">](</span>val <span class="dt">any</span><span class=
 "op">)</span> T <span class="op">{</span></span>
-<span id="cb3-56"><a aria-hidden="true" href="#cb3-56" tabindex="-1"></a>    n<span class="op">,</span> _ <span class=
+<span id="cb3-65"><a aria-hidden="true" href="#cb3-65" tabindex="-1"></a>    n<span class="op">,</span> _ <span class=
 "op">:=</span> commonNew<span class="op">[</span>T<span class="op">](</span>val<span class="op">)</span></span>
-<span id="cb3-57"><a aria-hidden="true" href="#cb3-57" tabindex="-1"></a>    <span class="cf">return</span> n</span>
-<span id="cb3-58"><a aria-hidden="true" href="#cb3-58" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-59"><a aria-hidden="true" href="#cb3-59" tabindex="-1"></a></span>
-<span id="cb3-60"><a aria-hidden="true" href="#cb3-60" tabindex="-1"></a><span class=
+<span id="cb3-66"><a aria-hidden="true" href="#cb3-66" tabindex="-1"></a>    <span class="cf">return</span> n</span>
+<span id="cb3-67"><a aria-hidden="true" href="#cb3-67" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-68"><a aria-hidden="true" href="#cb3-68" tabindex="-1"></a></span>
+<span id="cb3-69"><a aria-hidden="true" href="#cb3-69" tabindex="-1"></a><span class=
 "co">// NewValidated creates a new GID from a value and validates it.</span></span>
-<span id="cb3-61"><a aria-hidden="true" href="#cb3-61" tabindex="-1"></a><span class=
+<span id="cb3-70"><a aria-hidden="true" href="#cb3-70" tabindex="-1"></a><span class=
 "co">// It returns an error if the GID is not valid.</span></span>
-<span id="cb3-62"><a aria-hidden="true" href="#cb3-62" tabindex="-1"></a><span class=
+<span id="cb3-71"><a aria-hidden="true" href="#cb3-71" tabindex="-1"></a><span class=
 "kw">func</span> NewValidated<span class="op">[</span>T Identifiers<span class="op">](</span>val <span class=
 "dt">any</span><span class="op">)</span> <span class="op">(</span>T<span class="op">,</span> <span class=
 "dt">error</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-63"><a aria-hidden="true" href="#cb3-63" tabindex="-1"></a>    gid<span class=
+<span id="cb3-72"><a aria-hidden="true" href="#cb3-72" tabindex="-1"></a>    gid<span class=
 "op">,</span> err <span class="op">:=</span> commonNew<span class="op">[</span>T<span class=
 "op">](</span>val<span class="op">)</span></span>
-<span id="cb3-64"><a aria-hidden="true" href="#cb3-64" tabindex="-1"></a>    <span class=
+<span id="cb3-73"><a aria-hidden="true" href="#cb3-73" tabindex="-1"></a>    <span class=
 "cf">if</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
-<span id="cb3-65"><a aria-hidden="true" href="#cb3-65" tabindex="-1"></a>        <span class=
+<span id="cb3-74"><a aria-hidden="true" href="#cb3-74" tabindex="-1"></a>        <span class=
 "cf">return</span> gid<span class="op">,</span> err</span>
-<span id="cb3-66"><a aria-hidden="true" href="#cb3-66" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-67"><a aria-hidden="true" href="#cb3-67" tabindex="-1"></a>    <span class="cf">if</span> <span class=
+<span id="cb3-75"><a aria-hidden="true" href="#cb3-75" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-76"><a aria-hidden="true" href="#cb3-76" tabindex="-1"></a>    <span class="cf">if</span> <span class=
 "op">!</span>Identifier<span class="op">(</span>gid<span class="op">).</span>IsValid<span class=
 "op">()</span> <span class="op">{</span></span>
-<span id="cb3-68"><a aria-hidden="true" href="#cb3-68" tabindex="-1"></a>        <span class=
+<span id="cb3-77"><a aria-hidden="true" href="#cb3-77" tabindex="-1"></a>        <span class=
 "cf">return</span> gid<span class="op">,</span> fmt<span class="op">.</span>Errorf<span class="op">(</span><span class=
 "st">"invalid %T value: %v"</span><span class="op">,</span> gid<span class="op">,</span> val<span class=
 "op">)</span></span>
-<span id="cb3-69"><a aria-hidden="true" href="#cb3-69" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-70"><a aria-hidden="true" href="#cb3-70" tabindex="-1"></a>    <span class=
+<span id="cb3-78"><a aria-hidden="true" href="#cb3-78" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-79"><a aria-hidden="true" href="#cb3-79" tabindex="-1"></a>    <span class=
 "cf">return</span> gid<span class="op">,</span> <span class="ot">nil</span></span>
-<span id="cb3-71"><a aria-hidden="true" href="#cb3-71" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-72"><a aria-hidden="true" href="#cb3-72" tabindex="-1"></a></span>
-<span id="cb3-73"><a aria-hidden="true" href="#cb3-73" tabindex="-1"></a><span class=
+<span id="cb3-80"><a aria-hidden="true" href="#cb3-80" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-81"><a aria-hidden="true" href="#cb3-81" tabindex="-1"></a></span>
+<span id="cb3-82"><a aria-hidden="true" href="#cb3-82" tabindex="-1"></a><span class=
 "co">// ...</span></span></code></pre>
               </div>
 
@@ -424,6 +448,10 @@
                   <code>NewValidated</code> is a generic method for creating a value object of a type, with validation
                 </li>
               </ul>
+
+              <h2 id="example-implementation">
+                Example implementation
+              </h2>
 
               <p>
                 An example implementation utilizing the <code>Identifier</code> interface for a value object:
@@ -542,63 +570,204 @@
 <span id="cb4-57"><a aria-hidden="true" href="#cb4-57" tabindex="-1"></a><span class="op">}</span></span></code></pre>
               </div>
 
+              <h2 id="api">
+                API
+              </h2>
+
+              <h3 id="init-without-validation">
+                Init without validation
+              </h3>
+
               <p>
-                Using the <code>CustomerID</code> example above, which is for <code>gid://shopify/Customer/{id}</code>,
-                we can do the following:
+                How to create and access information of the object.
+              </p>
+
+              <p>
+                These methods do not return an error for bad objects, it will return an object with a zero value
+                instead. If you need validation, refer to validation section below this.
               </p>
 
               <div class="sourceCode" id="cb5">
                 <pre class="sourceCode go"><code class="sourceCode go"><span id="cb5-1"><a aria-hidden="true" href=
-                "#cb5-1" tabindex="-1"></a><span class="co">// Creation.</span></span>
-<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>cid <span class="op">:=</span> gid<span class=
-"op">.</span>NewCustomerID<span class="op">(</span><span class="dv">12345</span><span class="op">)</span> <span class=
-"co">// or gid.NewCustomerID("gid://shopify/Customer/12345")</span></span>
-<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>fmt<span class="op">.</span>Println<span class=
-"op">(</span>cid<span class="op">.</span>ID<span class="op">())</span> <span class="co">// 12345</span></span>
-<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>fmt<span class="op">.</span>Println<span class=
-"op">(</span>cid<span class="op">.</span>String<span class="op">())</span> <span class=
-"co">// gid://shopify/Customer/12345</span></span>
-<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a>fmt<span class="op">.</span>Printf<span class=
-"op">(</span><span class="st">"Is equal? %v"</span><span class="op">,</span> cid<span class=
-"op">.</span>Equal<span class="op">(</span>CustomerID<span class="op">(</span><span class="dv">123</span><span class=
-"op">)))</span> <span class="co">// Is Equal? false</span></span>
-<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a>fmt<span class="op">.</span>Printf<span class=
-"op">(</span><span class="st">"Is valid? %v"</span><span class="op">,</span> cid<span class=
-"op">.</span>IsValid<span class="op">())</span> <span class="co">// Is Valid? true</span></span>
-<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a></span>
-<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a><span class="co">// Slices.</span></span>
-<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a>cids <span class="op">:=</span> gid<span class=
-"op">.</span>CustomerIDs<span class="op">{</span>gid<span class="op">.</span>NewCustomerID<span class=
-"op">(</span><span class="dv">12345</span><span class="op">),</span> gid<span class=
-"op">.</span>NewCustomerID<span class="op">(</span><span class="st">"gid://shopify/Customer/54321"</span><span class=
-"op">)}</span></span>
-<span id="cb5-10"><a aria-hidden="true" href="#cb5-10" tabindex="-1"></a><span class=
-"co">// or []CustomerID{gid.NewCustomerID(12345), gid.NewCustomerID("gid://shopify/Customer/54321")}</span></span>
-<span id="cb5-11"><a aria-hidden="true" href="#cb5-11" tabindex="-1"></a>cids<span class="op">.</span>ToIDs<span class=
-"op">()</span> <span class="co">// [12345, 54321]</span></span>
-<span id="cb5-12"><a aria-hidden="true" href="#cb5-12" tabindex="-1"></a>cids<span class=
-"op">.</span>ToStrings<span class="op">()</span> <span class=
-"co">// [gid://shopify/Customer/12345, gid://shopify/Customer/54321]</span></span>
+                "#cb5-1" tabindex="-1"></a>cid <span class="op">:=</span> gid<span class=
+                "op">.</span>NewCustomerID<span class="op">(</span><span class=
+                "st">"gid://shopify/Customer/12345"</span><span class="op">)</span> <span class=
+                "co">// accepts GID or ID</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>cid<span class="op">.</span>ID<span class=
+"op">()</span> <span class="co">// 12345</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>cid<span class="op">.</span>String<span class=
+"op">()</span> <span class="co">// gid://shopify/Customer/12345</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>cid<span class="op">.</span>IsValid<span class=
+"op">()</span> <span class="co">// true</span></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a>oid <span class="op">:=</span> gid<span class=
+"op">.</span>NewOrderID<span class="op">(</span><span class="dv">478848</span><span class="op">)</span></span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a>oid<span class="op">.</span>ID<span class=
+"op">()</span> <span class="co">// 478848</span></span>
+<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a>oid<span class="op">.</span>String<span class=
+"op">()</span> <span class="co">// gid://shopify/Order/478848</span></span>
+<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a>oid<span class="op">.</span>IsValid<span class=
+"op">()</span> <span class="co">// true</span></span>
+<span id="cb5-10"><a aria-hidden="true" href="#cb5-10" tabindex="-1"></a></span>
+<span id="cb5-11"><a aria-hidden="true" href="#cb5-11" tabindex="-1"></a><span class=
+"co">// Alternatively, by generic method.</span></span>
+<span id="cb5-12"><a aria-hidden="true" href="#cb5-12" tabindex="-1"></a>pid <span class="op">:=</span> gid<span class=
+"op">.</span>New<span class="op">[</span>gid<span class="op">.</span>ProductID<span class="op">](</span><span class=
+"dv">123</span><span class="op">)</span> <span class=
+"co">// gid.New[gid.ProductID]("gid://shopify/Product/123")</span></span>
 <span id="cb5-13"><a aria-hidden="true" href="#cb5-13" tabindex="-1"></a></span>
 <span id="cb5-14"><a aria-hidden="true" href="#cb5-14" tabindex="-1"></a><span class=
-"co">// Creation, with validation.</span></span>
-<span id="cb5-15"><a aria-hidden="true" href="#cb5-15" tabindex="-1"></a>cid<span class="op">,</span> err <span class=
-"op">:=</span> gid<span class="op">.</span>NewCustomerIDValidated<span class="op">(</span><span class=
-"dv">12345</span><span class="op">)</span> <span class=
-"co">// or gid.NewCustomerIDValidated("gid://shopify/Customer/12345")</span></span>
-<span id="cb5-16"><a aria-hidden="true" href="#cb5-16" tabindex="-1"></a></span>
-<span id="cb5-17"><a aria-hidden="true" href="#cb5-17" tabindex="-1"></a><span class=
-"co">// Marshalling/Unmarshalling.</span></span>
-<span id="cb5-18"><a aria-hidden="true" href="#cb5-18" tabindex="-1"></a><span class=
-"kw">type</span> something <span class="kw">struct</span> <span class="op">{</span></span>
-<span id="cb5-19"><a aria-hidden="true" href="#cb5-19" tabindex="-1"></a>   OrderID gid<span class=
+"co">// No error reported, but zero-value object returned.</span></span>
+<span id="cb5-15"><a aria-hidden="true" href="#cb5-15" tabindex="-1"></a>vid <span class="op">:=</span> gid<span class=
+"op">.</span>NewVariantID<span class="op">(</span><span class="st">"gid://shopify/Whoops/1234"</span><span class=
+"op">)</span></span>
+<span id="cb5-16"><a aria-hidden="true" href="#cb5-16" tabindex="-1"></a>vid<span class=
+"op">.</span>IsValid<span class="op">()</span> <span class="co">// false</span></span></code></pre>
+              </div>
+
+              <h3 id="init-with-validation">
+                Init with validation
+              </h3>
+
+              <p>
+                All <code>New{X}ID</code> methods support validation by appending <code>Validated</code>.
+              </p>
+
+              <p>
+                These methods will return an error and the object will be zero value.
+              </p>
+
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a>cid<span class="op">,</span> err <span class="op">:=</span> gid<span class=
+                "op">.</span>NewCustomerIDValidated<span class="op">(</span><span class="st">"whoops"</span><span class=
+                "op">)</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class=
+"co">// err = "invalid CustomerID: whoops"</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a>cid<span class="op">.</span>IsValid<span class=
+"op">()</span> <span class="co">// false</span></span></code></pre>
+              </div>
+
+              <h3 id="comparisons">
+                Comparisons
+              </h3>
+
+              <p>
+                How to compare two objects.
+              </p>
+
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb7-1"><a aria-hidden="true" href=
+                "#cb7-1" tabindex="-1"></a>cid <span class="op">:=</span> gid<span class=
+                "op">.</span>NewCustomerID<span class="op">(</span><span class=
+                "st">"gid://shopify/Customer/12345"</span><span class="op">)</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a>cid2 <span class="op">:=</span> gid<span class=
+"op">.</span>NewCustomerID<span class="op">(</span><span class="st">"gid://shopify/Customer/123456"</span><span class=
+"op">)</span></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a>oid <span class="op">:=</span> gid<span class=
+"op">.</span>NewCustomerID<span class="op">(</span><span class="st">"gid://shopify/Customer/123456"</span><span class=
+"op">)</span></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a>fmt<span class="op">.</span>Printf<span class=
+"op">(</span><span class="st">"Same? %v"</span><span class="op">,</span> cid<span class="op">.</span>Equal<span class=
+"op">(</span>cid2<span class="op">))</span> <span class="co">// Same? false</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a>fmt<span class="op">.</span>Printf<span class=
+"op">(</span><span class="st">"Same? %v"</span><span class="op">,</span> cid<span class="op">.</span>Equal<span class=
+"op">(</span>cid<span class="op">))</span> <span class="co">// Same? true</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a>fmt<span class="op">.</span>Printf<span class=
+"op">(</span><span class="st">"Same? %v"</span><span class="op">,</span> oid<span class="op">.</span>Equal<span class=
+"op">(</span>cid<span class="op">))</span> <span class="co">// Same? false</span></span></code></pre>
+              </div>
+
+              <h3 id="slice-supports">
+                Slice supports
+              </h3>
+
+              <p>
+                All built-in objects also have slices such as <code>ProductIDs</code>, <code>OrderIDs</code>, etc. to
+                do things like convert all objects to their IDs or all objects to their GID.
+              </p>
+
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb8-1"><a aria-hidden="true" href=
+                "#cb8-1" tabindex="-1"></a>pids <span class="op">:=</span> gid<span class=
+                "op">.</span>ProductIDs<span class="op">{</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a>    gid<span class=
+"op">.</span>ProductID<span class="op">(</span><span class="dv">1</span><span class="op">),</span></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>    gid<span class=
+"op">.</span>ProductID<span class="op">(</span><span class="dv">2</span><span class="op">),</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>    gid<span class=
+"op">.</span>NewProductID<span class="op">(</span><span class="st">"gid://shopify/Product/5"</span><span class=
+"op">),</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a>pids<span class="op">.</span>ToIDs<span class=
+"op">()</span> <span class="co">// [1, 2, 5]</span></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a>pids<span class=
+"op">.</span>ToStrings<span class="op">()</span> <span class=
+"co">// [gid://shopify/Product/1, gid://shopify/Product/2, gid://shopify/Product/5]</span></span>
+<span id="cb8-8"><a aria-hidden="true" href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a aria-hidden="true" href="#cb8-9" tabindex="-1"></a><span class=
+"co">// Generic versions.</span></span>
+<span id="cb8-10"><a aria-hidden="true" href="#cb8-10" tabindex="-1"></a>gid<span class="op">.</span>ToIDs<span class=
+"op">([]</span>gid<span class="op">.</span>CustomerID<span class="op">{</span></span>
+<span id="cb8-11"><a aria-hidden="true" href="#cb8-11" tabindex="-1"></a>    gid<span class=
+"op">.</span>CustomerID<span class="op">(</span><span class="dv">1</span><span class="op">),</span></span>
+<span id="cb8-12"><a aria-hidden="true" href="#cb8-12" tabindex="-1"></a>    gid<span class=
+"op">.</span>NewCustomerID<span class="op">(</span><span class="st">"gid://shopify/Customer/5"</span><span class=
+"op">),</span></span>
+<span id="cb8-13"><a aria-hidden="true" href="#cb8-13" tabindex="-1"></a><span class="op">})</span> <span class=
+"co">// [1, 5] </span></span>
+<span id="cb8-14"><a aria-hidden="true" href="#cb8-14" tabindex="-1"></a>gid<span class=
+"op">.</span>ToStrings<span class="op">([]</span>gid<span class="op">.</span>CustomerID<span class="op">{</span></span>
+<span id="cb8-15"><a aria-hidden="true" href="#cb8-15" tabindex="-1"></a>    gid<span class=
+"op">.</span>CustomerID<span class="op">(</span><span class="dv">1</span><span class="op">),</span></span>
+<span id="cb8-16"><a aria-hidden="true" href="#cb8-16" tabindex="-1"></a>    gid<span class=
+"op">.</span>NewCustomerID<span class="op">(</span><span class="st">"gid://shopify/Customer/5"</span><span class=
+"op">),</span></span>
+<span id="cb8-17"><a aria-hidden="true" href="#cb8-17" tabindex="-1"></a><span class="op">})</span>  <span class=
+"co">// [gid://shopify/Customer/1, gid://shopify/Customer/5]</span></span></code></pre>
+              </div>
+
+              <h3 id="marshallingunmarshalling">
+                Marshalling/Unmarshalling
+              </h3>
+
+              <p>
+                Automatic support for marshalling to JSON and from a struct into the value object type.
+              </p>
+
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb9-1"><a aria-hidden="true" href=
+                "#cb9-1" tabindex="-1"></a><span class="kw">type</span> something <span class=
+                "kw">struct</span> <span class="op">{</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a>   OrderID gid<span class=
 "op">.</span>OrderID <span class="st">`json:"order_id"`</span></span>
-<span id="cb5-20"><a aria-hidden="true" href="#cb5-20" tabindex="-1"></a>   <span class="co">// ...</span></span>
-<span id="cb5-21"><a aria-hidden="true" href="#cb5-21" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb5-22"><a aria-hidden="true" href="#cb5-22" tabindex="-1"></a><span class=
-"co">// If Unmarshalled, order_id will be cased to a OrderID value object.</span></span>
-<span id="cb5-23"><a aria-hidden="true" href="#cb5-23" tabindex="-1"></a><span class=
-"co">// If Marshalled, order_id will be turned into `gid://shopify/Order/{id}`.</span></span></code></pre>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>   <span class="co">// ...</span></span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+              </div>
+
+              <ul>
+                <li>If Unmarshalled, <code>order_id</code> will be cased to a <code>OrderID</code> value object.
+                </li>
+
+                <li>If Marshalled, <code>order_id</code> will be turned into <code>gid://shopify/Order/{id}</code>.
+                </li>
+              </ul>
+
+              <p>
+                You can pass around the value objects and utilize them too:
+              </p>
+
+              <div class="sourceCode" id="cb10">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb10-1"><a aria-hidden="true" href=
+                "#cb10-1" tabindex="-1"></a><span class="kw">func</span> SomeFunc<span class=
+                "op">(</span>open <span class="dt">bool</span><span class="op">,</span> variantID gid<span class=
+                "op">.</span>VariantID<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>sm <span class=
+"op">:=</span> SomeFunc<span class="op">(</span><span class="ot">true</span><span class="op">,</span> gid<span class=
+"op">.</span>VariantID<span class="op">(</span><span class="dv">129292</span><span class=
+"op">))</span></span></code></pre>
               </div>
 
               <p>
