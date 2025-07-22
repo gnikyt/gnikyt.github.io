@@ -118,10 +118,10 @@ References
   13. file:///assets/images/2021/01/ls-ask.png
   14. file:///assets/images/2021/01/ls-ask.png
   15. https://github.com/gnikyt/laravel-shopify/wiki/ITP
-  16. file:///tmp/lynxXXXX3hs3PG/L280554-9338TMP.html#https://github.com/gnikyt/laravel-shopify
-  17. file:///tmp/lynxXXXX3hs3PG/L280554-9338TMP.html#/assets/images/2021/01/ls-ask.png
-  18. file:///tmp/lynxXXXX3hs3PG/L280554-9338TMP.html#/assets/images/2021/01/ls-ask.png
+  16. file:///tmp/lynxXXXXDPpfwN/L357552-8043TMP.html#https://github.com/gnikyt/laravel-shopify
+  17. file:///tmp/lynxXXXXDPpfwN/L357552-8043TMP.html#/assets/images/2021/01/ls-ask.png
+  18. file:///tmp/lynxXXXXDPpfwN/L357552-8043TMP.html#/assets/images/2021/01/ls-ask.png
   19. https://creativecommons.org/licenses/by/4.0/
   20. file:///laravel-shopify-itp/index.md
   21. file:///laravel-shopify-itp/index.txt
-  22. file:///tmp/lynxXXXX3hs3PG/L280554-9338TMP.html
+  22. file:///tmp/lynxXXXXDPpfwN/L357552-8043TMP.html

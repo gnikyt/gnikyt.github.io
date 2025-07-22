@@ -178,9 +178,9 @@ References
   10. file:///category/vuejs
   11. https://vuejs.org/v2/guide/plugins.html
   12. https://vuejs.org/v2/guide/reactivity.html
-  13. file:///tmp/lynxXXXXDhomwi/L353084-6353TMP.html#https://vuejs.org/v2/guide/plugins.html
-  14. file:///tmp/lynxXXXXDhomwi/L353084-6353TMP.html#https://vuejs.org/v2/guide/reactivity.html
+  13. file:///tmp/lynxXXXXWcK4ZF/L429441-719TMP.html#https://vuejs.org/v2/guide/plugins.html
+  14. file:///tmp/lynxXXXXWcK4ZF/L429441-719TMP.html#https://vuejs.org/v2/guide/reactivity.html
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///reactive-vuejs-plugins/index.md
   17. file:///reactive-vuejs-plugins/index.txt
-  18. file:///tmp/lynxXXXXDhomwi/L353084-6353TMP.html
+  18. file:///tmp/lynxXXXXWcK4ZF/L429441-719TMP.html

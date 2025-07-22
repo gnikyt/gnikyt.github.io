@@ -9,81 +9,86 @@
    Displaying all categories with their post count.
      * $>
 
-[9]golang
+[9]thoughts
+       1 posts
+       Logo of thoughts
+     * $>
+
+[10]golang
        2 posts
        Logo of golang
      * $>
 
-[10]cmd
+[11]cmd
        6 posts
        Logo of cmd
      * $>
 
-[11]shopify
+[12]shopify
        16 posts
        Logo of shopify
      * $>
 
-[12]javascript
+[13]javascript
        8 posts
        Logo of javascript
      * $>
 
-[13]react
+[14]react
        2 posts
        Logo of react
      * $>
 
-[14]php
+[15]php
        16 posts
        Logo of php
      * $>
 
-[15]wordpress
+[16]wordpress
        7 posts
        Logo of wordpress
      * $>
 
-[16]laravel
+[17]laravel
        7 posts
        Logo of laravel
      * $>
 
-[17]python
+[18]python
        2 posts
        Logo of python
      * $>
 
-[18]symfony
+[19]symfony
        2 posts
        Logo of symfony
      * $>
 
-[19]vuejs
+[20]vuejs
        1 posts
        Logo of vuejs
      * $>
 
-[20]ruby
+[21]ruby
        7 posts
        Logo of ruby
      * $>
 
-[21]rails
+[22]rails
        5 posts
        Logo of rails
      * $>
 
-[22]sinatra
+[23]sinatra
        2 posts
        Logo of sinatra
      * $>
 
-[23]uncategorized
+[24]uncategorized
        1 posts
        Logo of uncategorized
 
-   [24]‹ Home
+   [25]‹ Home
 
      *
      *
@@ -104,19 +109,20 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/golang
-  10. file:///category/cmd
-  11. file:///category/shopify
-  12. file:///category/javascript
-  13. file:///category/react
-  14. file:///category/php
-  15. file:///category/wordpress
-  16. file:///category/laravel
-  17. file:///category/python
-  18. file:///category/symfony
-  19. file:///category/vuejs
-  20. file:///category/ruby
-  21. file:///category/rails
-  22. file:///category/sinatra
-  23. file:///category/uncategorized
-  24. file:///
+   9. file:///category/thoughts
+  10. file:///category/golang
+  11. file:///category/cmd
+  12. file:///category/shopify
+  13. file:///category/javascript
+  14. file:///category/react
+  15. file:///category/php
+  16. file:///category/wordpress
+  17. file:///category/laravel
+  18. file:///category/python
+  19. file:///category/symfony
+  20. file:///category/vuejs
+  21. file:///category/ruby
+  22. file:///category/rails
+  23. file:///category/sinatra
+  24. file:///category/uncategorized
+  25. file:///

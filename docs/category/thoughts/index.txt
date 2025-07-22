@@ -1,0 +1,40 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+
+                         Index of category / thoughts /
+
+   Displaying thoughts entries sorted by creation date in descending
+   order.
+     * $>
+
+[9]A lost web
+       Jul 21, 2025
+       3.1KB
+
+   [10]‹ Categories  |  [11]‹ Home
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///a-lost-web
+  10. file:///category
+  11. file:///

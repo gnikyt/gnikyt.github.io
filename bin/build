@@ -77,9 +77,12 @@ RAILS_ENTRIES=""
 RAILS_COUNT=0
 SINATRA_ENTRIES=""
 SINATRA_COUNT=0
+THOUGHT_ENTRIES=""
+THOUGHT_COUNT=0
 UNCATEGORIZED_ENTRIES=""
 UNCATEGORIZED_COUNT=0
 ALL_CATEGORIES=""
+
 ANCHORS=""
 
 # process_posts will generate the posts.
@@ -111,10 +114,18 @@ process_posts() {
     echo "[$SOURCE] Generating..."
 
     # Grab entire post file content, extract it's body and frontmatter.
+    start=$(date +%s%3N)
     parse_md "$(cat "$i")"
+    end=$(date +%s%3N)
+    duration=$((end - start))
+    echo -e "- Parsed contents in ${duration}ms"
 
     # Parse Markdown body and convert to HTML.
+    start=$(date +%s%3N)
     PARSED_MD=$(pandoc --highlight=breezedark -f markdown -t html "$i")
+    end=$(date +%s%3N)
+    duration=$((end - start))
+    echo -e "- Parsed Markdown in ${duration}ms"
 
     # Setup the dating variables.
     START_TS=$(date -d "$DATE" +"%s")
@@ -157,17 +168,25 @@ process_posts() {
     ANCHORS="${ANCHORS# }"
 
     # Parse the post template and save result.
+    start=$(date +%s%3N)
     LOCAL_LAYOUT=$(cat "${LAYOUTS["post"]}")
     PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
     PARSED_TPL=${PARSED_TPL/'[[parsed_md]]'/"$PARSED_MD"} # Done to avoid template engine from parsing the Markdown result.
+    end=$(date +%s%3N)
+    duration=$((end - start))
+    echo -e "- Parsed template in ${duration}ms"
     mkdir "$TARGET"
     echo "$PARSED_TPL" > "$TARGET"/index.html
 
-    # Create text and Markdown versions.
+    # Create text versions.
+    start=$(date +%s%3N)
     TEXT=$(lynx -hiddenlinks=ignore --stdin --dump < "$TARGET"/index.html)
     TEXT=${TEXT/file:\/\//}
     echo "$TEXT" > "$TARGET"/index.txt
     cp posts/"$SOURCE" "$TARGET"/index.md
+    end=$(date +%s%3N)
+    duration=$((end - start))
+    echo -e "- Created text version in ${duration}ms"
 
     # Create PDF version.
     # pandoc "$i" -o "$target/index.pdf"
@@ -204,6 +223,10 @@ process_posts() {
           cmd)
             CMD_ENTRIES="${CMD_ENTRIES}${NEWLINE}${PARSED_TPL}"
             ((CMD_COUNT++))
+            ;;
+          thoughts)
+            THOUGHT_ENTRIES="${THOUGHT_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((THOUGHT_COUNT++))
             ;;
           golang)
             GOLANG_ENTRIES="${GOLANG_ENTRIES}${NEWLINE}${PARSED_TPL}"
@@ -273,7 +296,7 @@ process_posts() {
       ((UNCATEGORIZED_COUNT++))
     fi
 
-    echo -e "\033[1A\033[K[$SOURCE] Generated"
+    echo -e "[$SOURCE] Generated"
     ((COUNT++))
   done
   echo -e "Completed: $COUNT posts\n"
@@ -436,6 +459,10 @@ process_categories() {
       cmd)
         CATEGORY_ENTRIES="$CMD_ENTRIES"
         CATEGORY_COUNT=$CMD_COUNT
+        ;;
+      thoughts)
+        CATEGORY_ENTRIES="$THOUGHT_ENTRIES"
+        CATEGORY_COUNT=$THOUGHT_COUNT
         ;;
       golang)
         CATEGORY_ENTRIES="$GOLANG_ENTRIES"
