@@ -122,8 +122,8 @@ References
   13. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
   14. https://github.com/lucasmichot
   15. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-  16. file:///tmp/lynxXXXXUwuHWy/L330265-3611TMP.html#https://github.com/lucasmichot
+  16. file:///tmp/lynxXXXX3yzPH8/L823967-5963TMP.html#https://github.com/lucasmichot
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///laravel-shopify-cookieless/index.md
   19. file:///laravel-shopify-cookieless/index.txt
-  20. file:///tmp/lynxXXXXUwuHWy/L330265-3611TMP.html
+  20. file:///tmp/lynxXXXX3yzPH8/L823967-5963TMP.html

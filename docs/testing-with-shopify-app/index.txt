@@ -98,8 +98,8 @@ References
   10. file:///category/ruby
   11. file:///category/rails
   12. https://github.com/Shopify/shopify_app
-  13. file:///tmp/lynxXXXX4FXMta/L457472-1213TMP.html#https://github.com/Shopify/shopify_app
+  13. file:///tmp/lynxXXXXAvAq2U/L951131-6118TMP.html#https://github.com/Shopify/shopify_app
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///testing-with-shopify-app/index.md
   16. file:///testing-with-shopify-app/index.txt
-  17. file:///tmp/lynxXXXX4FXMta/L457472-1213TMP.html
+  17. file:///tmp/lynxXXXXAvAq2U/L951131-6118TMP.html

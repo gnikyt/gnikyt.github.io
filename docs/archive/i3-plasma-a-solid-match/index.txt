@@ -147,9 +147,9 @@ References
   12. https://github.com/gnikyt/dots/blob/master/.Xresources
   13. https://github.com/gnikyt/dots/blob/master/.config/i3/config
   14. https://store.kde.org/p/1315319/
-  15. file:///tmp/lynxXXXXnU9nF8/L383878-2464TMP.html#/assets/images/posts/screenshot.png
-  16. file:///tmp/lynxXXXXnU9nF8/L383878-2464TMP.html#https://ryanlue.com/posts/2019-06-13-kde-i3
+  15. file:///tmp/lynxXXXXiqybm7/L877540-3134TMP.html#/assets/images/posts/screenshot.png
+  16. file:///tmp/lynxXXXXiqybm7/L877540-3134TMP.html#https://ryanlue.com/posts/2019-06-13-kde-i3
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///i3-plasma-a-solid-match/index.md
   19. file:///i3-plasma-a-solid-match/index.txt
-  20. file:///tmp/lynxXXXXnU9nF8/L383878-2464TMP.html
+  20. file:///tmp/lynxXXXXiqybm7/L877540-3134TMP.html

@@ -10,7 +10,7 @@
    order.
      * $>
 
-[9]A lost web
+[9]The lost web
        Jul 21, 2025
        3.1KB
 
@@ -35,6 +35,6 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///a-lost-web
+   9. file:///the-lost-web
   10. file:///category
   11. file:///

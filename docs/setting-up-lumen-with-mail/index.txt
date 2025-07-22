@@ -241,8 +241,8 @@ References
   11. https://lumen.laravel.com/
   12. https://laravel.com/docs/5.5/mail#sending-mail
   13. https://laravel.com/docs/5.5/mocking#mail-fake
-  14. file:///tmp/lynxXXXXK7udOW/L409846-7451TMP.html#https://lumen.laravel.com/
+  14. file:///tmp/lynxXXXXYZI6Ck/L903502-5205TMP.html#https://lumen.laravel.com/
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///setting-up-lumen-with-mail/index.md
   17. file:///setting-up-lumen-with-mail/index.txt
-  18. file:///tmp/lynxXXXXK7udOW/L409846-7451TMP.html
+  18. file:///tmp/lynxXXXXYZI6Ck/L903502-5205TMP.html

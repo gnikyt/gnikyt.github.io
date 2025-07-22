@@ -4,7 +4,7 @@
    [3]Ty King
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                                  The lost web /
+                                 The lost web /
 
    /* Jul 21, 2025  —  3.1KB */
    [9]Logo of thoughts
@@ -96,6 +96,6 @@ References
    8. file:///rss.xml
    9. file:///category/thoughts
   10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///a-lost-web/index.md
-  12. file:///a-lost-web/index.txt
-  13. file:///tmp/lynxXXXXTfbwqy/L190764-9779TMP.html
+  11. file:///the-lost-web/index.md
+  12. file:///the-lost-web/index.txt
+  13. file:///tmp/lynxXXXXkI1e1K/L684423-6480TMP.html

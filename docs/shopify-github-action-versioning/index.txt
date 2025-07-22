@@ -106,9 +106,9 @@ References
   10. file:///category/cmd
   11. file:///assets/images/posts/shopify-versioning.png
   12. file:///assets/images/posts/shopify-versioning-github.png
-  13. file:///tmp/lynxXXXXnGsJBx/L304300-6173TMP.html#/assets/images/posts/shopify-versioning.png
-  14. file:///tmp/lynxXXXXnGsJBx/L304300-6173TMP.html#/assets/images/posts/shopify-versioning-github.png
+  13. file:///tmp/lynxXXXXZSWUbY/L798016-9258TMP.html#/assets/images/posts/shopify-versioning.png
+  14. file:///tmp/lynxXXXXZSWUbY/L798016-9258TMP.html#/assets/images/posts/shopify-versioning-github.png
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///shopify-github-action-versioning/index.md
   17. file:///shopify-github-action-versioning/index.txt
-  18. file:///tmp/lynxXXXXnGsJBx/L304300-6173TMP.html
+  18. file:///tmp/lynxXXXXZSWUbY/L798016-9258TMP.html
