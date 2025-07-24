@@ -415,6 +415,7 @@ body {
   height: 20px;
 }
 
+.index-list--categories .index-document__category-logo[src*="thoughts"],
 .index-list--categories .index-document__category-logo[src*="cmd"],
 .index-list--categories .index-document__category-logo[src*="rails"] {
   height: 25px;
