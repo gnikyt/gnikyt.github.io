@@ -3,7 +3,7 @@ layout: post
 title: shopify_app_whitelist Gem
 permalink: shopify-app-whitelist-gem
 date: '2016-11-26 16:45:01'
-acrhive: false
+archive: false
 category: shopify,ruby,rails
 ---
 

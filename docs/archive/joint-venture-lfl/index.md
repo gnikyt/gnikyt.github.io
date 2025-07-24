@@ -4,6 +4,7 @@ title: Joint Venture with LFL
 permalink: joint-venture-lfl
 date: '2022-11-15 11:48:03'
 archive: true
+category: thoughts
 ---
 
 ## JV

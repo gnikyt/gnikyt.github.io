@@ -36,7 +36,7 @@
 
 [14]Laravel Shopify billing
        Jan 26, 2018
-       993B
+       992B
      * $>
 
 [15]Lumen with Redis
@@ -61,7 +61,7 @@
 
 [19]WordPress User Themes
        May 21, 2015
-       366B
+       365B
      * $>
 
 [20]Original sized images from a WordPress Gallery
@@ -110,20 +110,20 @@ References
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
    9. file:///wplocal-with-wsl
-  10. file:///laravel-shopify-cookieless
+  10. file:///archive/laravel-shopify-cookieless
   11. file:///laravel-shopify-featured-shopify-blog
-  12. file:///laravel-shopify-itp
-  13. file:///basic-symfony-flex-with-symfony-server-dockerized
-  14. file:///laravel-shopify-billing
+  12. file:///archive/laravel-shopify-itp
+  13. file:///archive/basic-symfony-flex-with-symfony-server-dockerized
+  14. file:///archive/laravel-shopify-billing
   15. file:///setting-up-lumen-with-redis
-  16. file:///setting-up-lumen-with-mail
+  16. file:///archive/setting-up-lumen-with-mail
   17. file:///introducing-shopify-for-laravel
   18. file:///wordpress-under-docker
-  19. file:///wp-user-themes
-  20. file:///get-original-sized-images-from-a-wordpress-post-gallery
+  19. file:///archive/wp-user-themes
+  20. file:///archive/get-original-sized-images-from-a-wordpress-post-gallery
   21. file:///archive/acf-simple-table
-  22. file:///phpmailer-contrib
+  22. file:///archive/phpmailer-contrib
   23. file:///archive/get-single-field-error-in-symfony
-  24. file:///woocommerce-sorting-products-by-category
+  24. file:///archive/woocommerce-sorting-products-by-category
   25. file:///category
   26. file:///

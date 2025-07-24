@@ -8,13 +8,8 @@
 
    Displaying uncategorized entries sorted by creation date in descending
    order.
-     * $>
 
-[9]Joint Venture with LFL
-       Nov 15, 2022
-       6.0KB
-
-   [10]‹ Categories  |  [11]‹ Home
+   [9]‹ Categories  |  [10]‹ Home
 
      *
      *
@@ -35,6 +30,5 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///archive/joint-venture-lfl
-  10. file:///category
-  11. file:///
+   9. file:///category
+  10. file:///

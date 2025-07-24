@@ -4,7 +4,7 @@
   </div>
 
   <article class="index-document">
-    <h3 class="index-document__title">
+    <h3 class="index-document__title{{#IS_ARCHIVED}} index-document__title--archived{{/IS_ARCHIVED}}">
       <a href="/{{#IS_ARCHIVED}}archive/{{/IS_ARCHIVED}}{{HANDLE}}" class="index-document__title-link">{{TITLE}}</a>
     </h3>
     <time class="index-document__meta index-document__meta--date" datetime="{{DATE_YMD}}">{{DATE_HUMAN}}</time>

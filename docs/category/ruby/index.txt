@@ -67,9 +67,9 @@ References
    9. file:///shopify-app-whitelist-gem
   10. file:///testing-with-shopify-app
   11. file:///archive/precompiling-assets-in-your-rails-engine
-  12. file:///building-a-simple-redis-autosuggest-with-ruby
-  13. file:///extending-a-rails-engine
-  14. file:///polymorphic-and-route-concerns
+  12. file:///archive/building-a-simple-redis-autosuggest-with-ruby
+  13. file:///archive/extending-a-rails-engine
+  14. file:///archive/polymorphic-and-route-concerns
   15. file:///activerecord-and-liquid-drops-with-sinatra
   16. file:///category
   17. file:///

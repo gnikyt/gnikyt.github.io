@@ -436,6 +436,15 @@ body {
   line-height: 1.5;
 }
 
+.index-document .index-document__title.index-document__title--archived::after {
+  content: '/ archived';
+  display: block;
+  font-size: .6em;
+  margin-top: .5em;
+  color: var(--color-grey-dark);
+  font-weight: normal;
+}
+
 .index-document .index-document__title-link {
   text-decoration: none;
   color: var(--color-navy);

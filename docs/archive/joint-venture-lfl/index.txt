@@ -7,7 +7,7 @@
                             Joint Venture with LFL /
 
    /* Nov 15, 2022  —  6.0KB */
-   [9]Logo of CATEGORY
+   [9]Logo of thoughts
 
 JV
 
@@ -155,17 +155,17 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/CATEGORY
+   9. file:///category/thoughts
   10. https://leons.ca/
   11. https://www.thebrick.com/
   12. https://furniture.ca/
   13. https://www.linkedin.com/company/little-rocket-inc/
   14. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
   15. https://www.lflgroup.ca/
-  16. file:///tmp/lynxXXXXM9Snxp/L788160-2645TMP.html#https://leons.ca/
-  17. file:///tmp/lynxXXXXM9Snxp/L788160-2645TMP.html#https://www.thebrick.com/
-  18. file:///tmp/lynxXXXXM9Snxp/L788160-2645TMP.html#https://www.lflgroup.ca/
+  16. file:///tmp/lynxXXXXg5vUCy/L891065-1133TMP.html#https://leons.ca/
+  17. file:///tmp/lynxXXXXg5vUCy/L891065-1133TMP.html#https://www.thebrick.com/
+  18. file:///tmp/lynxXXXXg5vUCy/L891065-1133TMP.html#https://www.lflgroup.ca/
   19. https://creativecommons.org/licenses/by/4.0/
   20. file:///joint-venture-lfl/index.md
   21. file:///joint-venture-lfl/index.txt
-  22. file:///tmp/lynxXXXXM9Snxp/L788160-2645TMP.html
+  22. file:///tmp/lynxXXXXg5vUCy/L891065-1133TMP.html

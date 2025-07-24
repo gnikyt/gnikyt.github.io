@@ -117,9 +117,9 @@ References
   14. file:///archive/shopify-liquid-tester
   15. file:///shopify-github-action-versioning
   16. file:///shopify-node-app-custom-multi-tenant
-  17. file:///laravel-shopify-cookieless
+  17. file:///archive/laravel-shopify-cookieless
   18. file:///laravel-shopify-featured-shopify-blog
-  19. file:///laravel-shopify-itp
+  19. file:///archive/laravel-shopify-itp
   20. file:///async-shopify-api-for-python
   21. file:///introducing-shopify-for-laravel
   22. file:///shopify-app-whitelist-gem

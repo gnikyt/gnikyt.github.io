@@ -26,7 +26,7 @@
 
 [12]Laravel Shopify billing
        Jan 26, 2018
-       993B
+       992B
      * $>
 
 [13]Lumen with Redis
@@ -64,12 +64,12 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///laravel-shopify-cookieless
+   9. file:///archive/laravel-shopify-cookieless
   10. file:///laravel-shopify-featured-shopify-blog
-  11. file:///laravel-shopify-itp
-  12. file:///laravel-shopify-billing
+  11. file:///archive/laravel-shopify-itp
+  12. file:///archive/laravel-shopify-billing
   13. file:///setting-up-lumen-with-redis
-  14. file:///setting-up-lumen-with-mail
+  14. file:///archive/setting-up-lumen-with-mail
   15. file:///introducing-shopify-for-laravel
   16. file:///category
   17. file:///

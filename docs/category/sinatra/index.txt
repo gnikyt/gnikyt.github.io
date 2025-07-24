@@ -39,7 +39,7 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///building-a-simple-redis-autosuggest-with-ruby
+   9. file:///archive/building-a-simple-redis-autosuggest-with-ruby
   10. file:///activerecord-and-liquid-drops-with-sinatra
   11. file:///category
   12. file:///

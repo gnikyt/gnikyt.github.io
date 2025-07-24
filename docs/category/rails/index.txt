@@ -57,7 +57,7 @@ References
    9. file:///shopify-app-whitelist-gem
   10. file:///testing-with-shopify-app
   11. file:///archive/precompiling-assets-in-your-rails-engine
-  12. file:///extending-a-rails-engine
-  13. file:///polymorphic-and-route-concerns
+  12. file:///archive/extending-a-rails-engine
+  13. file:///archive/polymorphic-and-route-concerns
   14. file:///category
   15. file:///

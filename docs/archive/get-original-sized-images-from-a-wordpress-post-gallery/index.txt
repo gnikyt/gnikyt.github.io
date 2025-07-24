@@ -1,0 +1,86 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+
+                Original sized images from a WordPress Gallery /
+
+   /* Nov 08, 2014  —  1.5KB */
+   [9]Logo of php [10]Logo of wordpress
+
+   Recently, I was working on a project where I needed to modify an
+   existing page that had multiple galleries. This change required me to
+   have access to the original uploaded images. Here’s a simple function I
+   wrote which returns the images easily in an array format.
+# Input
+Hey comes see my gallery! [gallery ids="12,124,342]
+
+# Code
+$images = getGalleryImages(get_the_content());
+
+# Output
+Array (
+  [0] => http://xxxx/wp-content/uploads/2014/09/Olin_24_large.jpg
+  [1] => http://xxxx/wp-content/uploads/2014/11/Jw_large.jpg
+  [2] => http://xxxx/wp-content/uploads/2014/11/cresand-D_large.jpg
+);
+
+/*
+ * getGalleryImages
+ *
+ * Converts a WP gallery into an array of images to use.
+ *
+ * @param $content rendered content (ex: get_the_content())
+ * @param $return_size size of image to return
+ * @return array
+ */
+function getGalleryImages($content, $return_size = 'large') {
+  // Gallery is in format of [gallery link="..." ids="12,124,342"]
+  preg_match('/ids="([^"]*)"/i', $content, $matches);
+
+  $images = [];
+  if (isset($matches[1])) {
+    foreach(explode(',', $matches[1]) as $id) {
+      // For each image in the gallery, get its WP data (url, width, height)
+      $images[] = wp_get_attachment_image_src($id, $return_size);
+    }
+  }
+
+  return $images;
+}
+
+   Appendix
+
+   This post is 10 years old and may contain outdated information.
+
+   Copyright under [11]CC-4.0.
+
+   Available in the following alternative formats:
+   [12]MD  /  [13]TXT  /  [14]PDF
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. file:///
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/php
+  10. file:///category/wordpress
+  11. https://creativecommons.org/licenses/by/4.0/
+  12. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.md
+  13. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.txt
+  14. file:///tmp/lynxXXXXWprtrK/L1127029-8391TMP.html

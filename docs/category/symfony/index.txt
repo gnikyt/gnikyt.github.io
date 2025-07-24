@@ -39,7 +39,7 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///basic-symfony-flex-with-symfony-server-dockerized
+   9. file:///archive/basic-symfony-flex-with-symfony-server-dockerized
   10. file:///archive/get-single-field-error-in-symfony
   11. file:///category
   12. file:///

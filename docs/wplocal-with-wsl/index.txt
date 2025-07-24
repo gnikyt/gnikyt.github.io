@@ -183,9 +183,9 @@ References
   11. file:///assets/images/posts/wplocal_running.png
   12. https://community.localwp.com/u/robert77
   13. file:///assets/images/posts/wplocal_sudo.png
-  14. file:///tmp/lynxXXXXwa6YXb/L759937-3524TMP.html#/assets/images/posts/wplocal_running.png
-  15. file:///tmp/lynxXXXXwa6YXb/L759937-3524TMP.html#/assets/images/posts/wplocal_sudo.png
+  14. file:///tmp/lynxXXXXUEDllG/L862465-5417TMP.html#/assets/images/posts/wplocal_running.png
+  15. file:///tmp/lynxXXXXUEDllG/L862465-5417TMP.html#/assets/images/posts/wplocal_sudo.png
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///wplocal-with-wsl/index.md
   18. file:///wplocal-with-wsl/index.txt
-  19. file:///tmp/lynxXXXXwa6YXb/L759937-3524TMP.html
+  19. file:///tmp/lynxXXXXUEDllG/L862465-5417TMP.html

@@ -22,7 +22,7 @@
 
 [11]WordPress User Themes
        May 21, 2015
-       366B
+       365B
      * $>
 
 [12]Original sized images from a WordPress Gallery
@@ -67,10 +67,10 @@ References
    8. file:///rss.xml
    9. file:///wplocal-with-wsl
   10. file:///wordpress-under-docker
-  11. file:///wp-user-themes
-  12. file:///get-original-sized-images-from-a-wordpress-post-gallery
+  11. file:///archive/wp-user-themes
+  12. file:///archive/get-original-sized-images-from-a-wordpress-post-gallery
   13. file:///archive/acf-simple-table
-  14. file:///phpmailer-contrib
-  15. file:///woocommerce-sorting-products-by-category
+  14. file:///archive/phpmailer-contrib
+  15. file:///archive/woocommerce-sorting-products-by-category
   16. file:///category
   17. file:///

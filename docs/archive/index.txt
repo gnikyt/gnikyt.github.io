@@ -30,36 +30,96 @@
        1.8KB
      * $>
 
-[13]i3-Plasma for a solid match
+[13]Laravel Shopify cookieless
+       Jun 29, 2021
+       2.8KB
+     * $>
+
+[14]Laravel Shopify ITP
+       Feb 03, 2021
+       3.1KB
+     * $>
+
+[15]Symfony Flex with Symfony Server Dockerized
+       Feb 04, 2020
+       5.5KB
+     * $>
+
+[16]i3-Plasma for a solid match
        Aug 28, 2019
        4.4KB
      * $>
 
-[14]Reactive VueJS plugins
+[17]Laravel Shopify billing
+       Jan 26, 2018
+       992B
+     * $>
+
+[18]Lumen with Mailer
+       Nov 19, 2017
+       5.3KB
+     * $>
+
+[19]Reactive VueJS plugins
        Jun 29, 2017
        4.1KB
      * $>
 
-[15]Counting unique options in Shopify
+[20]Counting unique options in Shopify
        Jun 21, 2016
        2.1KB
      * $>
 
-[16]Precompiling assets with Rails Engine
+[21]Precompiling assets with Rails Engine
        May 03, 2016
        2.3KB
      * $>
 
-[17]ACF Simple Table
+[22]Redis autosuggest with Sinatra
+       Mar 02, 2016
+       5.6KB
+     * $>
+
+[23]Extending a Rails Engine
+       Feb 20, 2016
+       4.4KB
+     * $>
+
+[24]Polymorphic route concerns with Rails
+       Jan 01, 2016
+       5.1KB
+     * $>
+
+[25]WordPress User Themes
+       May 21, 2015
+       365B
+     * $>
+
+[26]Original sized images from a WordPress Gallery
+       Nov 08, 2014
+       1.5KB
+     * $>
+
+[27]ACF Simple Table
        Jul 18, 2014
        1.2KB
      * $>
 
-[18]Single field error in Symfony
+[28]PHPMailer contribution
+       Feb 09, 2014
+       1.4KB
+     * $>
+
+[29]Single field error in Symfony
        Dec 12, 2013
        959B
+     * $>
 
-   [19]‹ Home
+[30]Sorting product by category in WooCommerce
+       Oct 05, 2013
+       6.0KB
+
+   [31]‹ Home
 
      *
      *
@@ -84,10 +144,22 @@ References
   10. file:///archive/shopify-liquid-tester
   11. file:///archive/joint-venture-lfl
   12. file:///archive/wsl-network-speed
-  13. file:///archive/i3-plasma-a-solid-match
-  14. file:///archive/reactive-vuejs-plugins
-  15. file:///archive/counting-unique-options-in-shopify
-  16. file:///archive/precompiling-assets-in-your-rails-engine
-  17. file:///archive/acf-simple-table
-  18. file:///archive/get-single-field-error-in-symfony
-  19. file:///
+  13. file:///archive/laravel-shopify-cookieless
+  14. file:///archive/laravel-shopify-itp
+  15. file:///archive/basic-symfony-flex-with-symfony-server-dockerized
+  16. file:///archive/i3-plasma-a-solid-match
+  17. file:///archive/laravel-shopify-billing
+  18. file:///archive/setting-up-lumen-with-mail
+  19. file:///archive/reactive-vuejs-plugins
+  20. file:///archive/counting-unique-options-in-shopify
+  21. file:///archive/precompiling-assets-in-your-rails-engine
+  22. file:///archive/building-a-simple-redis-autosuggest-with-ruby
+  23. file:///archive/extending-a-rails-engine
+  24. file:///archive/polymorphic-and-route-concerns
+  25. file:///archive/wp-user-themes
+  26. file:///archive/get-original-sized-images-from-a-wordpress-post-gallery
+  27. file:///archive/acf-simple-table
+  28. file:///archive/phpmailer-contrib
+  29. file:///archive/get-single-field-error-in-symfony
+  30. file:///archive/woocommerce-sorting-products-by-category
+  31. file:///
