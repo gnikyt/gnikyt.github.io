@@ -415,7 +415,10 @@ body {
   height: 20px;
 }
 
-.index-list--categories .index-document__category-logo[src*="thoughts"],
+.index-list--categories .index-document__category-logo[src*="thoughts"] {
+  height: 30px;
+}
+
 .index-list--categories .index-document__category-logo[src*="cmd"],
 .index-list--categories .index-document__category-logo[src*="rails"] {
   height: 25px;
@@ -609,6 +612,7 @@ body {
   width: 20px;
 }
 
+.post .post__meta .post__category .post__category-logo[src*="thoughts"],
 .post .post__meta .post__category .post__category-logo[src*="vuejs"],
 .post .post__meta .post__category .post__category-logo[src*="javascript"],
 .post .post__meta .post__category .post__category-logo[src*="react"],
