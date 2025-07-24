@@ -3,7 +3,7 @@ layout: post
 title: Lumen with Redis
 permalink: setting-up-lumen-with-redis
 date: '2017-11-19 11:43:01'
-acrhive: true
+archive: true
 category: php,laravel
 ---
 

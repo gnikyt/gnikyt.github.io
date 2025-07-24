@@ -84,36 +84,31 @@
        4.0KB
      * $>
 
-[24]Lumen with Redis
-       Nov 19, 2017
-       1.3KB
-     * $>
-
-[25]Introducing Laravel Shopify
+[24]Introducing Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[26]WordPress with Docker
+[25]WordPress with Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[27]shopify_app_whitelist Gem
+[26]shopify_app_whitelist Gem
        Nov 26, 2016
        1.5KB
      * $>
 
-[28]Testing with shopify_app
+[27]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[29]ActiveRecord and Liquid Drops with Sinatra
+[28]ActiveRecord and Liquid Drops with Sinatra
        Oct 15, 2015
        3.7KB
 
-   [30]Categories ›  |  [31]Archive ›
+   [29]Categories ›  |  [30]Archive ›
      *
      *
      *
@@ -148,11 +143,10 @@ References
   21. file:///git-release-branches
   22. file:///laravel-shopify-featured-shopify-blog
   23. file:///async-shopify-api-for-python
-  24. file:///setting-up-lumen-with-redis
-  25. file:///introducing-shopify-for-laravel
-  26. file:///wordpress-under-docker
-  27. file:///shopify-app-whitelist-gem
-  28. file:///testing-with-shopify-app
-  29. file:///activerecord-and-liquid-drops-with-sinatra
-  30. file:///category
-  31. file:///archive
+  24. file:///introducing-shopify-for-laravel
+  25. file:///wordpress-under-docker
+  26. file:///shopify-app-whitelist-gem
+  27. file:///testing-with-shopify-app
+  28. file:///activerecord-and-liquid-drops-with-sinatra
+  29. file:///category
+  30. file:///archive

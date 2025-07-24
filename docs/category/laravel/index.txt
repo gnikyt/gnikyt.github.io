@@ -68,7 +68,7 @@ References
   10. file:///laravel-shopify-featured-shopify-blog
   11. file:///archive/laravel-shopify-itp
   12. file:///archive/laravel-shopify-billing
-  13. file:///setting-up-lumen-with-redis
+  13. file:///archive/setting-up-lumen-with-redis
   14. file:///archive/setting-up-lumen-with-mail
   15. file:///introducing-shopify-for-laravel
   16. file:///category

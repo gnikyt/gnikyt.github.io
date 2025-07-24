@@ -115,7 +115,7 @@ References
   12. file:///archive/laravel-shopify-itp
   13. file:///archive/basic-symfony-flex-with-symfony-server-dockerized
   14. file:///archive/laravel-shopify-billing
-  15. file:///setting-up-lumen-with-redis
+  15. file:///archive/setting-up-lumen-with-redis
   16. file:///archive/setting-up-lumen-with-mail
   17. file:///introducing-shopify-for-laravel
   18. file:///wordpress-under-docker

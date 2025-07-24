@@ -12,6 +12,7 @@
       wander. My mind unexpectedly drifte...</description>
       <guid isPermLink="true">https://gnikyt.com/the-lost-web</guid>
       <pubDate>2025-07-21T16:35:00-0230</pubDate>
+      <archived></archived>
       <category>thoughts</category>
     </item>
     <item>
@@ -21,6 +22,7 @@
       from GIDs or formatted into GIDs witho...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-value-objects-go</guid>
       <pubDate>2025-07-15T12:16:00-0230</pubDate>
+      <archived></archived>
       <category>golang</category>
     </item>
     <item>
@@ -30,6 +32,7 @@
       small blog to maintain. I wanted some...</description>
       <guid isPermLink="true">https://gnikyt.com/building-bash-template-engine</guid>
       <pubDate>2025-05-22T14:09:31-0230</pubDate>
+      <archived></archived>
       <category>cmd</category>
     </item>
     <item>
@@ -39,6 +42,7 @@
       highlight one approach (of many) that I co...</description>
       <guid isPermLink="true">https://gnikyt.com/handling-shopify-api-limits-goroutines</guid>
       <pubDate>2025-04-10T16:26:22-0230</pubDate>
+      <archived></archived>
       <category>golang</category>
       <category>shopify</category>
     </item>
@@ -49,6 +53,7 @@
       Shopify. The client wanted the descriptio...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-checkout-ui-product-html</guid>
       <pubDate>2024-05-10T13:30:56-0230</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
       <category>react</category>
@@ -60,6 +65,7 @@
       Jest](../shopify-remix-prisma-and-jest).* Follow that...</description>
       <guid isPermLink="true">https://gnikyt.com/prisma-jest-mysql-testing</guid>
       <pubDate>2024-03-28T13:19:23-0230</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
     </item>
@@ -70,6 +76,7 @@
       from their checkout extension to thei...</description>
       <guid isPermLink="true">https://gnikyt.com/generate-type-definitions-without-emitting-js</guid>
       <pubDate>2024-02-27T15:52:00-0330</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
       <category>react</category>
@@ -81,6 +88,7 @@
       extensions. After completion of the backend,...</description>
       <guid isPermLink="true">https://gnikyt.com/type-definitions-without-emitting</guid>
       <pubDate>2024-02-07T13:44:12-0330</pubDate>
+      <archived></archived>
       <category>javascript</category>
     </item>
     <item>
@@ -90,6 +98,7 @@
       they're utilizing Remix which is a ...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-remix-prisma-and-jest</guid>
       <pubDate>2024-01-10T13:17:03-0330</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
     </item>
@@ -100,6 +109,7 @@
       Local *can* work with WSL, but the pro...</description>
       <guid isPermLink="true">https://gnikyt.com/wplocal-with-wsl</guid>
       <pubDate>2023-12-07T11:22:03-0330</pubDate>
+      <archived></archived>
       <category>php</category>
       <category>wordpress</category>
     </item>
@@ -110,6 +120,7 @@
       with the default settings of Fedora (...</description>
       <guid isPermLink="true">https://gnikyt.com/new-desktop-setup</guid>
       <pubDate>2022-12-11T14:50:22-0330</pubDate>
+      <archived>true</archived>
       <category>cmd</category>
     </item>
     <item>
@@ -119,6 +130,7 @@
       a result, many Shopify developers u...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-liquid-tester</guid>
       <pubDate>2022-11-20T14:08:03-0330</pubDate>
+      <archived>true</archived>
       <category>shopify</category>
       <category>javascript</category>
     </item>
@@ -129,6 +141,7 @@
       across the board, to not only keep...</description>
       <guid isPermLink="true">https://gnikyt.com/joint-venture-lfl</guid>
       <pubDate>2022-11-15T11:48:03-0330</pubDate>
+      <archived>true</archived>
       <category>thoughts</category>
     </item>
     <item>
@@ -138,6 +151,7 @@
       from `config/settings_schema.json` ...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-github-action-versioning</guid>
       <pubDate>2022-05-20T16:16:20-0230</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>cmd</category>
     </item>
@@ -148,6 +162,7 @@
       Windows 11 and clean out my system t...</description>
       <guid isPermLink="true">https://gnikyt.com/wsl-network-speed</guid>
       <pubDate>2021-11-16T12:52:01-0330</pubDate>
+      <archived>true</archived>
       <category>cmd</category>
     </item>
     <item>
@@ -157,6 +172,7 @@
       small details out of the way, allo...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-node-app-custom-multi-tenant</guid>
       <pubDate>2021-11-15T16:35:00-0330</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
     </item>
@@ -167,6 +183,7 @@
       the new session token implementati...</description>
       <guid isPermLink="true">https://gnikyt.com/laravel-shopify-cookieless</guid>
       <pubDate>2021-06-29T15:57:18-0230</pubDate>
+      <archived>true</archived>
       <category>shopify</category>
       <category>php</category>
       <category>laravel</category>
@@ -178,6 +195,7 @@
       to create branches for each major/min...</description>
       <guid isPermLink="true">https://gnikyt.com/git-release-branches</guid>
       <pubDate>2021-03-10T11:12:19-0330</pubDate>
+      <archived></archived>
       <category>python</category>
       <category>cmd</category>
     </item>
@@ -188,6 +206,7 @@
       interested in featuring it on Shopif...</description>
       <guid isPermLink="true">https://gnikyt.com/laravel-shopify-featured-shopify-blog</guid>
       <pubDate>2021-03-04T10:28:34-0330</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>php</category>
       <category>laravel</category>
@@ -199,6 +218,7 @@
       few years ago which gained quite a ...</description>
       <guid isPermLink="true">https://gnikyt.com/laravel-shopify-itp</guid>
       <pubDate>2021-02-03T10:28:34-0330</pubDate>
+      <archived>true</archived>
       <category>shopify</category>
       <category>php</category>
       <category>laravel</category>
@@ -210,6 +230,7 @@
       for Shopify API which uses Guzzle f...</description>
       <guid isPermLink="true">https://gnikyt.com/async-shopify-api-for-python</guid>
       <pubDate>2020-06-29T12:31:02-0230</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>python</category>
     </item>
@@ -220,6 +241,7 @@
       It provides a way to create a very ...</description>
       <guid isPermLink="true">https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized</guid>
       <pubDate>2020-02-04T00:56:22-0330</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>symfony</category>
     </item>
@@ -230,6 +252,7 @@
       Introduction I have been struggling rece...</description>
       <guid isPermLink="true">https://gnikyt.com/i3-plasma-a-solid-match</guid>
       <pubDate>2019-08-28T04:06:39-0230</pubDate>
+      <archived>true</archived>
       <category>cmd</category>
     </item>
     <item>
@@ -239,6 +262,7 @@
       which features the baked-in ability to ...</description>
       <guid isPermLink="true">https://gnikyt.com/laravel-shopify-billing</guid>
       <pubDate>2018-01-26T15:52:56-0330</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>laravel</category>
     </item>
@@ -249,6 +273,7 @@
       step further and show the basic setup ...</description>
       <guid isPermLink="true">https://gnikyt.com/setting-up-lumen-with-redis</guid>
       <pubDate>2017-11-19T11:43:01-0330</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>laravel</category>
     </item>
@@ -259,6 +284,7 @@
       geared towards small services like APIs...</description>
       <guid isPermLink="true">https://gnikyt.com/setting-up-lumen-with-mail</guid>
       <pubDate>2017-11-19T11:04:33-0330</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>laravel</category>
     </item>
@@ -269,6 +295,7 @@
       in Rails and Sinatra. I've even rel...</description>
       <guid isPermLink="true">https://gnikyt.com/introducing-shopify-for-laravel</guid>
       <pubDate>2017-08-09T16:35:00-0230</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>php</category>
       <category>laravel</category>
@@ -280,6 +307,7 @@
       add-ins. Its simply great - easy to deve...</description>
       <guid isPermLink="true">https://gnikyt.com/reactive-vuejs-plugins</guid>
       <pubDate>2017-06-29T12:36:22-0230</pubDate>
+      <archived>true</archived>
       <category>javascript</category>
       <category>vuejs</category>
     </item>
@@ -290,6 +318,7 @@
       However, some people have a little trou...</description>
       <guid isPermLink="true">https://gnikyt.com/wordpress-under-docker</guid>
       <pubDate>2017-06-15T09:53:10-0230</pubDate>
+      <archived></archived>
       <category>php</category>
       <category>wordpress</category>
     </item>
@@ -300,6 +329,7 @@
       app, embedded or not, up and running w...</description>
       <guid isPermLink="true">https://gnikyt.com/shopify-app-whitelist-gem</guid>
       <pubDate>2016-11-26T16:45:01-0330</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>ruby</category>
       <category>rails</category>
@@ -311,6 +341,7 @@
       with Rails. It handles all the verif...</description>
       <guid isPermLink="true">https://gnikyt.com/testing-with-shopify-app</guid>
       <pubDate>2016-06-21T01:17:33-0230</pubDate>
+      <archived></archived>
       <category>shopify</category>
       <category>ruby</category>
       <category>rails</category>
@@ -322,6 +353,7 @@
       Available in Red, Blue, ...</description>
       <guid isPermLink="true">https://gnikyt.com/counting-unique-options-in-shopify</guid>
       <pubDate>2016-06-21T01:17:33-0230</pubDate>
+      <archived>true</archived>
       <category>shopify</category>
     </item>
     <item>
@@ -331,6 +363,7 @@
       my Rails engine that was not to be ...</description>
       <guid isPermLink="true">https://gnikyt.com/precompiling-assets-in-your-rails-engine</guid>
       <pubDate>2016-05-03T23:26:22-0230</pubDate>
+      <archived>true</archived>
       <category>ruby</category>
       <category>rails</category>
     </item>
@@ -341,6 +374,7 @@
       you may find yourself the need to d...</description>
       <guid isPermLink="true">https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby</guid>
       <pubDate>2016-03-02T01:02:11-0330</pubDate>
+      <archived>true</archived>
       <category>ruby</category>
       <category>sinatra</category>
     </item>
@@ -351,6 +385,7 @@
       conquered (like having 100% code coverag...</description>
       <guid isPermLink="true">https://gnikyt.com/extending-a-rails-engine</guid>
       <pubDate>2016-02-20T12:27:45-0330</pubDate>
+      <archived>true</archived>
       <category>ruby</category>
       <category>rails</category>
     </item>
@@ -361,6 +396,7 @@
       polymorphic modal/route/controller. Let's s...</description>
       <guid isPermLink="true">https://gnikyt.com/polymorphic-and-route-concerns</guid>
       <pubDate>2016-01-01T12:55:00-0330</pubDate>
+      <archived>true</archived>
       <category>ruby</category>
       <category>rails</category>
     </item>
@@ -371,6 +407,7 @@
       allow the app user to modify a speci...</description>
       <guid isPermLink="true">https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra</guid>
       <pubDate>2015-10-15T02:00:00-0230</pubDate>
+      <archived></archived>
       <category>ruby</category>
       <category>sinatra</category>
     </item>
@@ -381,6 +418,7 @@
       profile section (useful for develop...</description>
       <guid isPermLink="true">https://gnikyt.com/wp-user-themes</guid>
       <pubDate>2015-05-21T17:00:34-0230</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>wordpress</category>
     </item>
@@ -391,6 +429,7 @@
       galleries. This change required me to h...</description>
       <guid isPermLink="true">https://gnikyt.com/get-original-sized-images-from-a-wordpress-post-gallery</guid>
       <pubDate>2014-11-08T20:36:59-0330</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>wordpress</category>
     </item>
@@ -401,6 +440,7 @@
       Fields)](http://www.advancedcustomfields.com/) for Wor...</description>
       <guid isPermLink="true">https://gnikyt.com/acf-simple-table</guid>
       <pubDate>2014-07-18T12:48:05-0230</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>wordpress</category>
     </item>
@@ -411,6 +451,7 @@
       WordPress this week. Its a fairly complex...</description>
       <guid isPermLink="true">https://gnikyt.com/phpmailer-contrib</guid>
       <pubDate>2014-02-09T20:55:00-0330</pubDate>
+      <archived>true</archived>
       <category>wordpress</category>
       <category>php</category>
     </item>
@@ -421,6 +462,7 @@
       structures had to take place within...</description>
       <guid isPermLink="true">https://gnikyt.com/get-single-field-error-in-symfony</guid>
       <pubDate>2013-12-12T23:04:07-0330</pubDate>
+      <archived>true</archived>
       <category>php</category>
       <category>symfony</category>
     </item>
@@ -431,6 +473,7 @@
       store. What needed to be done on one t...</description>
       <guid isPermLink="true">https://gnikyt.com/woocommerce-sorting-products-by-category</guid>
       <pubDate>2013-10-05T15:56:26-0230</pubDate>
+      <archived>true</archived>
       <category>wordpress</category>
       <category>php</category>
     </item>

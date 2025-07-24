@@ -55,71 +55,76 @@
        992B
      * $>
 
-[18]Lumen with Mailer
+[18]Lumen with Redis
+       Nov 19, 2017
+       1.3KB
+     * $>
+
+[19]Lumen with Mailer
        Nov 19, 2017
        5.3KB
      * $>
 
-[19]Reactive VueJS plugins
+[20]Reactive VueJS plugins
        Jun 29, 2017
        4.1KB
      * $>
 
-[20]Counting unique options in Shopify
+[21]Counting unique options in Shopify
        Jun 21, 2016
        2.1KB
      * $>
 
-[21]Precompiling assets with Rails Engine
+[22]Precompiling assets with Rails Engine
        May 03, 2016
        2.3KB
      * $>
 
-[22]Redis autosuggest with Sinatra
+[23]Redis autosuggest with Sinatra
        Mar 02, 2016
        5.6KB
      * $>
 
-[23]Extending a Rails Engine
+[24]Extending a Rails Engine
        Feb 20, 2016
        4.4KB
      * $>
 
-[24]Polymorphic route concerns with Rails
+[25]Polymorphic route concerns with Rails
        Jan 01, 2016
        5.1KB
      * $>
 
-[25]WordPress User Themes
+[26]WordPress User Themes
        May 21, 2015
        365B
      * $>
 
-[26]Original sized images from a WordPress Gallery
+[27]Original sized images from a WordPress Gallery
        Nov 08, 2014
        1.5KB
      * $>
 
-[27]ACF Simple Table
+[28]ACF Simple Table
        Jul 18, 2014
        1.2KB
      * $>
 
-[28]PHPMailer contribution
+[29]PHPMailer contribution
        Feb 09, 2014
        1.4KB
      * $>
 
-[29]Single field error in Symfony
+[30]Single field error in Symfony
        Dec 12, 2013
        959B
      * $>
 
-[30]Sorting product by category in WooCommerce
+[31]Sorting product by category in WooCommerce
        Oct 05, 2013
        6.0KB
 
-   [31]‹ Home
+   [32]‹ Home
 
      *
      *
@@ -149,17 +154,18 @@ References
   15. file:///archive/basic-symfony-flex-with-symfony-server-dockerized
   16. file:///archive/i3-plasma-a-solid-match
   17. file:///archive/laravel-shopify-billing
-  18. file:///archive/setting-up-lumen-with-mail
-  19. file:///archive/reactive-vuejs-plugins
-  20. file:///archive/counting-unique-options-in-shopify
-  21. file:///archive/precompiling-assets-in-your-rails-engine
-  22. file:///archive/building-a-simple-redis-autosuggest-with-ruby
-  23. file:///archive/extending-a-rails-engine
-  24. file:///archive/polymorphic-and-route-concerns
-  25. file:///archive/wp-user-themes
-  26. file:///archive/get-original-sized-images-from-a-wordpress-post-gallery
-  27. file:///archive/acf-simple-table
-  28. file:///archive/phpmailer-contrib
-  29. file:///archive/get-single-field-error-in-symfony
-  30. file:///archive/woocommerce-sorting-products-by-category
-  31. file:///
+  18. file:///archive/setting-up-lumen-with-redis
+  19. file:///archive/setting-up-lumen-with-mail
+  20. file:///archive/reactive-vuejs-plugins
+  21. file:///archive/counting-unique-options-in-shopify
+  22. file:///archive/precompiling-assets-in-your-rails-engine
+  23. file:///archive/building-a-simple-redis-autosuggest-with-ruby
+  24. file:///archive/extending-a-rails-engine
+  25. file:///archive/polymorphic-and-route-concerns
+  26. file:///archive/wp-user-themes
+  27. file:///archive/get-original-sized-images-from-a-wordpress-post-gallery
+  28. file:///archive/acf-simple-table
+  29. file:///archive/phpmailer-contrib
+  30. file:///archive/get-single-field-error-in-symfony
+  31. file:///archive/woocommerce-sorting-products-by-category
+  32. file:///

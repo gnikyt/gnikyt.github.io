@@ -4,5 +4,6 @@
   <description>{{EXCERPT}}</description>
   <guid isPermLink="true">https://gnikyt.com/{{HANDLE}}</guid>
   <pubDate>{{DATE_ISO8601}}</pubDate>
+  <archived>{{IS_ARCHIVED}}</archived>
   {{@FOREACH CATEGORY ,}}<category>{{VALUE}}</category>{{/FOREACH CATEGORY ,}}
 </item>
