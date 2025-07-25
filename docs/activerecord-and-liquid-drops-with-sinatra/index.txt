@@ -148,15 +148,17 @@ My name is {{ student.full_name }}. I have {{ student.books.size }} books!
    Anchors
 
      * [1] [14]http://liquidmarkup.org/ ↗
+     * [2] [15]github.com/Shopify/liquid/wiki/Introduction-to-Drops ↗
+     * [3] [16]github.com/Shopify/liquid/wiki/Introduction-to-Drops ↗
 
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [15]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -182,8 +184,10 @@ References
   11. http://liquidmarkup.org/
   12. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
   13. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-  14. file:///tmp/lynxXXXXErgxjd/L692229-7895TMP.html#http://liquidmarkup.org/
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///activerecord-and-liquid-drops-with-sinatra/index.md
-  17. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
-  18. file:///tmp/lynxXXXXErgxjd/L692229-7895TMP.html
+  14. http://liquidmarkup.org/
+  15. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
+  16. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///activerecord-and-liquid-drops-with-sinatra/index.md
+  19. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
+  20. file:///tmp/lynxXXXX8A8sjb/L731976-5135TMP.html

@@ -327,12 +327,16 @@ sm := SomeFunc(true, gid.VariantID(129292))
 
    You can view the package snippet [10]here on Github.
 
+   Anchors
+
+     * [1] [11]github.com/gnikyt/shopify-go-value-objects ↗
+
    Appendix
 
-   Copyright under [11]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [12]MD  /  [13]TXT  /  [14]PDF
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -355,7 +359,8 @@ References
    8. file:///rss.xml
    9. file:///category/golang
   10. https://github.com/gnikyt/shopify-go-value-objects
-  11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///shopify-value-objects-go/index.md
-  13. file:///shopify-value-objects-go/index.txt
-  14. file:///tmp/lynxXXXXGQrfPc/L682097-1225TMP.html
+  11. https://github.com/gnikyt/shopify-go-value-objects
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///shopify-value-objects-go/index.md
+  14. file:///shopify-value-objects-go/index.txt
+  15. file:///tmp/lynxXXXXjG3XMu/L718882-3880TMP.html

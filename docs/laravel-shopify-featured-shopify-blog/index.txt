@@ -43,14 +43,18 @@
    Thank you Liam for the opportunity to share the package with your
    readers!
 
+   Anchors
+
+     * [1] [13]www.shopify.com/partners/blog/api-tools ↗
+
    Appendix
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [13]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -75,7 +79,8 @@ References
   10. file:///category/php
   11. file:///category/laravel
   12. https://www.shopify.com/partners/blog/api-tools
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///laravel-shopify-featured-shopify-blog/index.md
-  15. file:///laravel-shopify-featured-shopify-blog/index.txt
-  16. file:///tmp/lynxXXXXKU6V7G/L686904-4960TMP.html
+  13. https://www.shopify.com/partners/blog/api-tools
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///laravel-shopify-featured-shopify-blog/index.md
+  16. file:///laravel-shopify-featured-shopify-blog/index.txt
+  17. file:///tmp/lynxXXXXdapL9m/L724780-6945TMP.html

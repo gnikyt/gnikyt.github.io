@@ -130,14 +130,20 @@ Conclusion
    of async within Python, I hope the library will serve some use to you.
    I’ve recently paired it with [13]FastAPI and it performed well.
 
+   Anchors
+
+     * [1] [14]github.com/gnikyt/Basic-Shopify-API ↗
+     * [2] [15]github.com/gnikyt/basic_shopify_api ↗
+     * [3] [16]fastapi.tiangolo.com/ ↗
+
    Appendix
 
    This post is 5 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -163,7 +169,10 @@ References
   11. https://github.com/gnikyt/Basic-Shopify-API
   12. https://github.com/gnikyt/basic_shopify_api
   13. https://fastapi.tiangolo.com/
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///async-shopify-api-for-python/index.md
-  16. file:///async-shopify-api-for-python/index.txt
-  17. file:///tmp/lynxXXXXojRYRA/L687579-727TMP.html
+  14. https://github.com/gnikyt/Basic-Shopify-API
+  15. https://github.com/gnikyt/basic_shopify_api
+  16. https://fastapi.tiangolo.com/
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///async-shopify-api-for-python/index.md
+  19. file:///async-shopify-api-for-python/index.txt
+  20. file:///tmp/lynxXXXXuoQsQn/L725664-5730TMP.html

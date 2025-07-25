@@ -26,14 +26,23 @@
    Other minor updates include integration with StyleCI to keep coding
    standards within PSR1 and PSR2.
 
+   Anchors
+
+     * [1] [14]github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0 ↗
+     * [2] [15]github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
+       ↗
+     * [3]
+       [16]github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
+       ↗
+
    Appendix
 
    This post is 7 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -59,7 +68,10 @@ References
   11. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
   12. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
   13. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///laravel-shopify-billing/index.md
-  16. file:///laravel-shopify-billing/index.txt
-  17. file:///tmp/lynxXXXXcgSN6t/L688431-5934TMP.html
+  14. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
+  15. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
+  16. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///laravel-shopify-billing/index.md
+  19. file:///laravel-shopify-billing/index.txt
+  20. file:///tmp/lynxXXXXqt0zK9/L726961-439TMP.html

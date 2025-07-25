@@ -82,15 +82,16 @@ Conclusion
      * [1] [16]github.com/gnikyt/laravel-shopify ↗
      * [2] [17]/assets/images/2021/01/ls-ask.png
      * [3] [18]/assets/images/2021/01/ls-ask.png
+     * [4] [19]github.com/gnikyt/laravel-shopify/wiki/ITP ↗
 
    Appendix
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [19]CC-4.0.
+   Copyright under [20]CC-4.0.
 
    Available in the following alternative formats:
-   [20]MD  /  [21]TXT  /  [22]PDF
+   [21]MD  /  [22]TXT  /  [23]PDF
 
      *
      *
@@ -118,10 +119,11 @@ References
   13. file:///assets/images/2021/01/ls-ask.png
   14. file:///assets/images/2021/01/ls-ask.png
   15. https://github.com/gnikyt/laravel-shopify/wiki/ITP
-  16. file:///tmp/lynxXXXXbdwTsP/L687316-7774TMP.html#https://github.com/gnikyt/laravel-shopify
-  17. file:///tmp/lynxXXXXbdwTsP/L687316-7774TMP.html#/assets/images/2021/01/ls-ask.png
-  18. file:///tmp/lynxXXXXbdwTsP/L687316-7774TMP.html#/assets/images/2021/01/ls-ask.png
-  19. https://creativecommons.org/licenses/by/4.0/
-  20. file:///laravel-shopify-itp/index.md
-  21. file:///laravel-shopify-itp/index.txt
-  22. file:///tmp/lynxXXXXbdwTsP/L687316-7774TMP.html
+  16. https://github.com/gnikyt/laravel-shopify
+  17. file:///assets/images/2021/01/ls-ask.png
+  18. file:///assets/images/2021/01/ls-ask.png
+  19. https://github.com/gnikyt/laravel-shopify/wiki/ITP
+  20. https://creativecommons.org/licenses/by/4.0/
+  21. file:///laravel-shopify-itp/index.md
+  22. file:///laravel-shopify-itp/index.txt
+  23. file:///tmp/lynxXXXXFJm4pu/L725243-5919TMP.html

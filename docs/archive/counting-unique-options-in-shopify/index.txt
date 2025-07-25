@@ -55,14 +55,19 @@ r', 'colors' }}
    selecting the product appropriate to their needs… this little bit of
    Liquid can easily help with conversion rates.
 
+   Anchors
+
+     * [1] [12]help.shopify.com/themes/liquid/filters/array-filters#map ↗
+     * [2] [13]help.shopify.com/themes/liquid/filters/array-filters#uniq ↗
+
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [12]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -86,7 +91,9 @@ References
    9. file:///category/shopify
   10. https://help.shopify.com/themes/liquid/filters/array-filters#map
   11. https://help.shopify.com/themes/liquid/filters/array-filters#uniq
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///counting-unique-options-in-shopify/index.md
-  14. file:///counting-unique-options-in-shopify/index.txt
-  15. file:///tmp/lynxXXXXtnzHtF/L690907-3290TMP.html
+  12. https://help.shopify.com/themes/liquid/filters/array-filters#map
+  13. https://help.shopify.com/themes/liquid/filters/array-filters#uniq
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///counting-unique-options-in-shopify/index.md
+  16. file:///counting-unique-options-in-shopify/index.txt
+  17. file:///tmp/lynxXXXXZ4LQCF/L729976-4006TMP.html

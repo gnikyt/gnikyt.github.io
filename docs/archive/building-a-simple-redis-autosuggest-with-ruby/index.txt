@@ -175,14 +175,20 @@ end
    Finally, send the results as JSON. You can use AJAX to actively call
    the Sinatra app when the user is typing.
 
+   Anchors
+
+     * [1] [14]http://redis.io/commands/ZADD ↗
+     * [2] [15]http://redis.io/commands/ZRANGE ↗
+     * [3] [16]http://redis.io/commands/ZINTERSTORE ↗
+
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -208,7 +214,10 @@ References
   11. http://redis.io/commands/ZADD
   12. http://redis.io/commands/ZRANGE
   13. http://redis.io/commands/ZINTERSTORE
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
-  16. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
-  17. file:///tmp/lynxXXXXt0Knhs/L691405-3927TMP.html
+  14. http://redis.io/commands/ZADD
+  15. http://redis.io/commands/ZRANGE
+  16. http://redis.io/commands/ZINTERSTORE
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
+  19. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
+  20. file:///tmp/lynxXXXXCy7g7V/L730724-3271TMP.html

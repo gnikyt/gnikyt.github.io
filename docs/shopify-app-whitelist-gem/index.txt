@@ -33,14 +33,19 @@
    lines, and you’re set. The Gem is fully tested and documented if you
    want to dig into the code. I hope someone will find it useful!
 
+   Anchors
+
+     * [1] [14]github.com/Shopify/shopify_app ↗
+     * [2] [15]github.com/gnikyt/shopify_app_whitelist ↗
+
    Appendix
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -66,7 +71,9 @@ References
   11. file:///category/rails
   12. https://github.com/Shopify/shopify_app
   13. https://github.com/gnikyt/shopify_app_whitelist
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///shopify-app-whitelist-gem/index.md
-  16. file:///shopify-app-whitelist-gem/index.txt
-  17. file:///tmp/lynxXXXXaieHmU/L690324-5539TMP.html
+  14. https://github.com/Shopify/shopify_app
+  15. https://github.com/gnikyt/shopify_app_whitelist
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///shopify-app-whitelist-gem/index.md
+  18. file:///shopify-app-whitelist-gem/index.txt
+  19. file:///tmp/lynxXXXXdVtaLu/L729295-8445TMP.html

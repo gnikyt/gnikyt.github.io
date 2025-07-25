@@ -85,16 +85,21 @@ What’s next?
 
    Anchors
 
-     * [1] [16]github.com/lucasmichot ↗
+     * [1] [16]github.com/gnikyt/laravel-shopify/issues/744 ↗
+     * [2]
+       [17]github.com/gnikyt/laravel-shopify/issues/744#issuecomment-86332
+       6966 ↗
+     * [3] [18]github.com/lucasmichot ↗
+     * [4] [19]github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0 ↗
 
    Appendix
 
    This post is 4 years old and may contain outdated information.
 
-   Copyright under [17]CC-4.0.
+   Copyright under [20]CC-4.0.
 
    Available in the following alternative formats:
-   [18]MD  /  [19]TXT  /  [20]PDF
+   [21]MD  /  [22]TXT  /  [23]PDF
 
      *
      *
@@ -122,8 +127,11 @@ References
   13. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
   14. https://github.com/lucasmichot
   15. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-  16. file:///tmp/lynxXXXXybQxNZ/L686385-7979TMP.html#https://github.com/lucasmichot
-  17. https://creativecommons.org/licenses/by/4.0/
-  18. file:///laravel-shopify-cookieless/index.md
-  19. file:///laravel-shopify-cookieless/index.txt
-  20. file:///tmp/lynxXXXXybQxNZ/L686385-7979TMP.html
+  16. https://github.com/gnikyt/laravel-shopify/issues/744
+  17. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
+  18. https://github.com/lucasmichot
+  19. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
+  20. https://creativecommons.org/licenses/by/4.0/
+  21. file:///laravel-shopify-cookieless/index.md
+  22. file:///laravel-shopify-cookieless/index.txt
+  23. file:///tmp/lynxXXXXB0q3kR/L724190-5076TMP.html

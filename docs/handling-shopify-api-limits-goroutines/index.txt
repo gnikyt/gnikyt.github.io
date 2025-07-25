@@ -444,12 +444,16 @@ completed.
    Hopefully this helpful to those looking to do similar. I have released
    this method as a Go package, which you can find [11]here on Github.
 
+   Anchors
+
+     * [1] [12]github.com/gnikyt/shopifysemaphore ↗
+
    Appendix
 
-   Copyright under [12]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -473,7 +477,8 @@ References
    9. file:///category/golang
   10. file:///category/shopify
   11. https://github.com/gnikyt/shopifysemaphore
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///handling-shopify-api-limits-goroutines/index.md
-  14. file:///handling-shopify-api-limits-goroutines/index.txt
-  15. file:///tmp/lynxXXXXrf2nve/L682611-5786TMP.html
+  12. https://github.com/gnikyt/shopifysemaphore
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///handling-shopify-api-limits-goroutines/index.md
+  15. file:///handling-shopify-api-limits-goroutines/index.txt
+  16. file:///tmp/lynxXXXXw9TNPK/L719507-9478TMP.html

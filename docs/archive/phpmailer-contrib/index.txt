@@ -30,14 +30,20 @@
    using getToAddresses(), getBccAddresses(), getCcAddresses(),
    getReplyToAddresses() and getAllRecipientAddresses().
 
+   Anchors
+
+     * [1] [14]http://phpmailer.worxware.com/ ↗
+     * [2] [15]http://codex.wordpress.org/Function_Reference/wp_mail ↗
+     * [3] [16]github.com/PHPMailer/PHPMailer/issues/180 ↗
+
    Appendix
 
    This post is 11 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -63,7 +69,10 @@ References
   11. http://phpmailer.worxware.com/
   12. http://codex.wordpress.org/Function_Reference/wp_mail
   13. https://github.com/PHPMailer/PHPMailer/issues/180
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///phpmailer-contrib/index.md
-  16. file:///phpmailer-contrib/index.txt
-  17. file:///tmp/lynxXXXX6RYxH7/L693269-7865TMP.html
+  14. http://phpmailer.worxware.com/
+  15. http://codex.wordpress.org/Function_Reference/wp_mail
+  16. https://github.com/PHPMailer/PHPMailer/issues/180
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///phpmailer-contrib/index.md
+  19. file:///phpmailer-contrib/index.txt
+  20. file:///tmp/lynxXXXXtt9Ey7/L733337-5371TMP.html

@@ -125,16 +125,22 @@ Press Release
 
      * [1] [16]leons.ca/ ↗
      * [2] [17]www.thebrick.com/ ↗
-     * [3] [18]www.lflgroup.ca/ ↗
+     * [3] [18]furniture.ca/ ↗
+     * [4] [19]www.linkedin.com/company/little-rocket-inc/ ↗
+     * [5]
+       [20]www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JO
+       INT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-
+       TORONTO-BASED-DIGITAL-AGENCY/default.aspx ↗
+     * [6] [21]www.lflgroup.ca/ ↗
 
    Appendix
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [19]CC-4.0.
+   Copyright under [22]CC-4.0.
 
    Available in the following alternative formats:
-   [20]MD  /  [21]TXT  /  [22]PDF
+   [23]MD  /  [24]TXT  /  [25]PDF
 
      *
      *
@@ -162,10 +168,13 @@ References
   13. https://www.linkedin.com/company/little-rocket-inc/
   14. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
   15. https://www.lflgroup.ca/
-  16. file:///tmp/lynxXXXXk74GYz/L685211-8464TMP.html#https://leons.ca/
-  17. file:///tmp/lynxXXXXk74GYz/L685211-8464TMP.html#https://www.thebrick.com/
-  18. file:///tmp/lynxXXXXk74GYz/L685211-8464TMP.html#https://www.lflgroup.ca/
-  19. https://creativecommons.org/licenses/by/4.0/
-  20. file:///joint-venture-lfl/index.md
-  21. file:///joint-venture-lfl/index.txt
-  22. file:///tmp/lynxXXXXk74GYz/L685211-8464TMP.html
+  16. https://leons.ca/
+  17. https://www.thebrick.com/
+  18. https://furniture.ca/
+  19. https://www.linkedin.com/company/little-rocket-inc/
+  20. https://www.lflgroup.ca/English/news/news-details/2022/LFL-ANNOUNCES-JOINT-VENTURE-TO-DEVELOP-INNOVATIVE-ECOMMERCE-SOLUTIONS-WITH-LEADING-TORONTO-BASED-DIGITAL-AGENCY/default.aspx
+  21. https://www.lflgroup.ca/
+  22. https://creativecommons.org/licenses/by/4.0/
+  23. file:///joint-venture-lfl/index.md
+  24. file:///joint-venture-lfl/index.txt
+  25. file:///tmp/lynxXXXXvrv27O/L722818-9495TMP.html

@@ -525,12 +525,17 @@ export default function descriptionTransformer(rawHtml, transformer) {
    attempting to use product descriptions in a Shopify Checkout UI
    Extension.
 
+   Anchors
+
+     * [1] [14]developer.mozilla.org/en-US/docs/Web/API/DOMParser ↗
+     * [2] [15]gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8 ↗
+
    Appendix
 
-   Copyright under [14]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -556,7 +561,9 @@ References
   11. file:///category/react
   12. https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
   13. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///shopify-checkout-ui-product-html/index.md
-  16. file:///shopify-checkout-ui-product-html/index.txt
-  17. file:///tmp/lynxXXXXWRSqSK/L682861-8664TMP.html
+  14. https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
+  15. https://gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///shopify-checkout-ui-product-html/index.md
+  18. file:///shopify-checkout-ui-product-html/index.txt
+  19. file:///tmp/lynxXXXXSmEylQ/L719877-6938TMP.html

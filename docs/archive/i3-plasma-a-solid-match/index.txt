@@ -112,15 +112,18 @@ Conclusion
 
      * [1] [15]/assets/images/posts/screenshot.png
      * [2] [16]ryanlue.com/posts/2019-06-13-kde-i3 ↗
+     * [3] [17]github.com/gnikyt/dots/blob/master/.Xresources ↗
+     * [4] [18]github.com/gnikyt/dots/blob/master/.config/i3/config ↗
+     * [5] [19]store.kde.org/p/1315319/ ↗
 
    Appendix
 
    This post is 5 years old and may contain outdated information.
 
-   Copyright under [17]CC-4.0.
+   Copyright under [20]CC-4.0.
 
    Available in the following alternative formats:
-   [18]MD  /  [19]TXT  /  [20]PDF
+   [21]MD  /  [22]TXT  /  [23]PDF
 
      *
      *
@@ -147,9 +150,12 @@ References
   12. https://github.com/gnikyt/dots/blob/master/.Xresources
   13. https://github.com/gnikyt/dots/blob/master/.config/i3/config
   14. https://store.kde.org/p/1315319/
-  15. file:///tmp/lynxXXXXirWk5U/L688184-1950TMP.html#/assets/images/posts/screenshot.png
-  16. file:///tmp/lynxXXXXirWk5U/L688184-1950TMP.html#https://ryanlue.com/posts/2019-06-13-kde-i3
-  17. https://creativecommons.org/licenses/by/4.0/
-  18. file:///i3-plasma-a-solid-match/index.md
-  19. file:///i3-plasma-a-solid-match/index.txt
-  20. file:///tmp/lynxXXXXirWk5U/L688184-1950TMP.html
+  15. file:///assets/images/posts/screenshot.png
+  16. https://ryanlue.com/posts/2019-06-13-kde-i3
+  17. https://github.com/gnikyt/dots/blob/master/.Xresources
+  18. https://github.com/gnikyt/dots/blob/master/.config/i3/config
+  19. https://store.kde.org/p/1315319/
+  20. https://creativecommons.org/licenses/by/4.0/
+  21. file:///i3-plasma-a-solid-match/index.md
+  22. file:///i3-plasma-a-solid-match/index.txt
+  23. file:///tmp/lynxXXXXWTMEZk/L726552-9049TMP.html

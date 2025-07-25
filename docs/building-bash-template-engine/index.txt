@@ -145,13 +145,14 @@ echo "$TPL" | be
    Anchors
 
      * [1] [12]github.com/gnikyt/be ↗
+     * [2] [13]githuib.com/gnikyt/be/tree/master/be ↗
 
    Appendix
 
-   Copyright under [13]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -175,8 +176,9 @@ References
    9. file:///category/cmd
   10. https://github.com/gnikyt/be
   11. https://githuib.com/gnikyt/be/tree/master/be
-  12. file:///tmp/lynxXXXXZN5mUr/L682391-2406TMP.html#https://github.com/gnikyt/be
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///building-bash-template-engine/index.md
-  15. file:///building-bash-template-engine/index.txt
-  16. file:///tmp/lynxXXXXZN5mUr/L682391-2406TMP.html
+  12. https://github.com/gnikyt/be
+  13. https://githuib.com/gnikyt/be/tree/master/be
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///building-bash-template-engine/index.md
+  16. file:///building-bash-template-engine/index.txt
+  17. file:///tmp/lynxXXXXMJZRIB/L719209-2832TMP.html

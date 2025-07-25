@@ -155,17 +155,22 @@ Cinnamon
 
    Anchors
 
-     * [1] [15]/assets/images/posts/gnomeshelllook.png
-     * [2] [16]/assets/images/posts/cinnamon.png
+     * [1] [15]/i3-plasma-a-solid-match
+     * [2] [16]/assets/images/posts/gnomeshelllook.png
+     * [3]
+       [17]gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/ ↗
+     * [4] [18]/assets/images/posts/cinnamon.png
+     * [5]
+       [19]linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html ↗
 
    Appendix
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [17]CC-4.0.
+   Copyright under [20]CC-4.0.
 
    Available in the following alternative formats:
-   [18]MD  /  [19]TXT  /  [20]PDF
+   [21]MD  /  [22]TXT  /  [23]PDF
 
      *
      *
@@ -192,9 +197,12 @@ References
   12. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
   13. file:///assets/images/posts/cinnamon.png
   14. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
-  15. file:///tmp/lynxXXXXdmCe8k/L684554-3095TMP.html#/assets/images/posts/gnomeshelllook.png
-  16. file:///tmp/lynxXXXXdmCe8k/L684554-3095TMP.html#/assets/images/posts/cinnamon.png
-  17. https://creativecommons.org/licenses/by/4.0/
-  18. file:///new-desktop-setup/index.md
-  19. file:///new-desktop-setup/index.txt
-  20. file:///tmp/lynxXXXXdmCe8k/L684554-3095TMP.html
+  15. file:///i3-plasma-a-solid-match
+  16. file:///assets/images/posts/gnomeshelllook.png
+  17. https://gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
+  18. file:///assets/images/posts/cinnamon.png
+  19. https://linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
+  20. https://creativecommons.org/licenses/by/4.0/
+  21. file:///new-desktop-setup/index.md
+  22. file:///new-desktop-setup/index.txt
+  23. file:///tmp/lynxXXXXqvsOoy/L721887-6085TMP.html

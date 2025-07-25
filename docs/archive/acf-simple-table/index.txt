@@ -29,14 +29,19 @@
    [12]click here and you’re free to use this in any commercial or
    personal project!
 
+   Anchors
+
+     * [1] [13]http://www.advancedcustomfields.com/ ↗
+     * [2] [14]github.com/gnikyt/acf-simple_table ↗
+
    Appendix
 
    This post is 11 years old and may contain outdated information.
 
-   Copyright under [13]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -61,7 +66,9 @@ References
   10. file:///category/wordpress
   11. http://www.advancedcustomfields.com/
   12. https://github.com/gnikyt/acf-simple_table
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///acf-simple-table/index.md
-  15. file:///acf-simple-table/index.txt
-  16. file:///tmp/lynxXXXXjPKFkW/L693003-8282TMP.html
+  13. http://www.advancedcustomfields.com/
+  14. https://github.com/gnikyt/acf-simple_table
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///acf-simple-table/index.md
+  17. file:///acf-simple-table/index.txt
+  18. file:///tmp/lynxXXXXwxFOrc/L732923-7540TMP.html

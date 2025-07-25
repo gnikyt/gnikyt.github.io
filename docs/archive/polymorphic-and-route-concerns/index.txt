@@ -151,14 +151,20 @@ end
    Now when saved, the metafield record in the database will automatically
    set the modal class and the ID for the object.
 
+   Anchors
+
+     * [1]
+       [12]http://guides.rubyonrails.org/association_basics.html#polymorph
+       ic-associations ↗
+
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [12]CC-4.0.
+   Copyright under [13]CC-4.0.
 
    Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
+   [14]MD  /  [15]TXT  /  [16]PDF
 
      *
      *
@@ -182,7 +188,8 @@ References
    9. file:///category/ruby
   10. file:///category/rails
   11. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///polymorphic-and-route-concerns/index.md
-  14. file:///polymorphic-and-route-concerns/index.txt
-  15. file:///tmp/lynxXXXXQuzLgj/L691908-5565TMP.html
+  12. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
+  13. https://creativecommons.org/licenses/by/4.0/
+  14. file:///polymorphic-and-route-concerns/index.md
+  15. file:///polymorphic-and-route-concerns/index.txt
+  16. file:///tmp/lynxXXXXvXr76F/L731557-7278TMP.html

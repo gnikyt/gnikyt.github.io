@@ -111,17 +111,19 @@ Further Exploring
 
    Anchors
 
-     * [1] [15]hub.docker.com/_/wordpress/ ↗
-     * [2] [16]github.com/gnikyt/wordpress-docker-quickstart ↗
+     * [1] [15]docs.docker.com/compose/ ↗
+     * [2] [16]hub.docker.com/_/wordpress/ ↗
+     * [3] [17]github.com/gnikyt/wordpress-docker-quickstart ↗
+     * [4] [18]github.com/gnikyt/wordpress-docker-quickstart ↗
 
    Appendix
 
    This post is 8 years old and may contain outdated information.
 
-   Copyright under [17]CC-4.0.
+   Copyright under [19]CC-4.0.
 
    Available in the following alternative formats:
-   [18]MD  /  [19]TXT  /  [20]PDF
+   [20]MD  /  [21]TXT  /  [22]PDF
 
      *
      *
@@ -148,9 +150,11 @@ References
   12. https://hub.docker.com/_/wordpress/
   13. https://github.com/gnikyt/wordpress-docker-quickstart
   14. https://github.com/gnikyt/wordpress-docker-quickstart
-  15. file:///tmp/lynxXXXX3hrWAn/L690064-2413TMP.html#https://hub.docker.com/_/wordpress/
-  16. file:///tmp/lynxXXXX3hrWAn/L690064-2413TMP.html#https://github.com/gnikyt/wordpress-docker-quickstart
-  17. https://creativecommons.org/licenses/by/4.0/
-  18. file:///wordpress-under-docker/index.md
-  19. file:///wordpress-under-docker/index.txt
-  20. file:///tmp/lynxXXXX3hrWAn/L690064-2413TMP.html
+  15. https://docs.docker.com/compose/
+  16. https://hub.docker.com/_/wordpress/
+  17. https://github.com/gnikyt/wordpress-docker-quickstart
+  18. https://github.com/gnikyt/wordpress-docker-quickstart
+  19. https://creativecommons.org/licenses/by/4.0/
+  20. file:///wordpress-under-docker/index.md
+  21. file:///wordpress-under-docker/index.txt
+  22. file:///tmp/lynxXXXXq8Xv0V/L728919-9093TMP.html

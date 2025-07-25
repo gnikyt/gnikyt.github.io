@@ -207,15 +207,17 @@ class WinningsMailTest extends TestCase
    Anchors
 
      * [1] [14]lumen.laravel.com/ ↗
+     * [2] [15]laravel.com/docs/5.5/mail#sending-mail ↗
+     * [3] [16]laravel.com/docs/5.5/mocking#mail-fake ↗
 
    Appendix
 
    This post is 7 years old and may contain outdated information.
 
-   Copyright under [15]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -241,8 +243,10 @@ References
   11. https://lumen.laravel.com/
   12. https://laravel.com/docs/5.5/mail#sending-mail
   13. https://laravel.com/docs/5.5/mocking#mail-fake
-  14. file:///tmp/lynxXXXXXeAUtx/L689009-7202TMP.html#https://lumen.laravel.com/
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///setting-up-lumen-with-mail/index.md
-  17. file:///setting-up-lumen-with-mail/index.txt
-  18. file:///tmp/lynxXXXXXeAUtx/L689009-7202TMP.html
+  14. https://lumen.laravel.com/
+  15. https://laravel.com/docs/5.5/mail#sending-mail
+  16. https://laravel.com/docs/5.5/mocking#mail-fake
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///setting-up-lumen-with-mail/index.md
+  19. file:///setting-up-lumen-with-mail/index.txt
+  20. file:///tmp/lynxXXXXdy8jf0/L727629-6677TMP.html

@@ -110,14 +110,19 @@ Utilization
    Hopefully this tool will continue to grow and is helpful to those who
    are looking to try and test their snippets; both small and complex.
 
+   Anchors
+
+     * [1] [13]github.com/gnikyt/liquid-fn-tester ↗
+     * [2] [14]github.com/gnikyt/liquid-fn-tester/tree/master/tests ↗
+
    Appendix
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [13]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -142,7 +147,9 @@ References
   10. file:///category/javascript
   11. https://github.com/gnikyt/liquid-fn-tester
   12. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///shopify-liquid-tester/index.md
-  15. file:///shopify-liquid-tester/index.txt
-  16. file:///tmp/lynxXXXXH20GNS/L684796-9236TMP.html
+  13. https://github.com/gnikyt/liquid-fn-tester
+  14. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///shopify-liquid-tester/index.md
+  17. file:///shopify-liquid-tester/index.txt
+  18. file:///tmp/lynxXXXXiYyphQ/L722243-5116TMP.html

@@ -49,14 +49,18 @@ Potential Solution #2
    was operating normally and speedtest-cli was reporting numbers
    identical to the host machine in both download and upload.
 
+   Anchors
+
+     * [1] [11]github.com/microsoft/WSL/issues/4901 ↗
+
    Appendix
 
    This post is 3 years old and may contain outdated information.
 
-   Copyright under [11]CC-4.0.
+   Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
-   [12]MD  /  [13]TXT  /  [14]PDF
+   [13]MD  /  [14]TXT  /  [15]PDF
 
      *
      *
@@ -79,7 +83,8 @@ References
    8. file:///rss.xml
    9. file:///category/cmd
   10. https://github.com/microsoft/WSL/issues/4901
-  11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///wsl-network-speed/index.md
-  13. file:///wsl-network-speed/index.txt
-  14. file:///tmp/lynxXXXXJuDUxI/L685815-8546TMP.html
+  11. https://github.com/microsoft/WSL/issues/4901
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///wsl-network-speed/index.md
+  14. file:///wsl-network-speed/index.txt
+  15. file:///tmp/lynxXXXXcM5ORo/L723476-6639TMP.html

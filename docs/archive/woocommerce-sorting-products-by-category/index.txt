@@ -148,14 +148,26 @@ In conclusion
    modify this and use it in your code since there doesn’t seem to be a
    more viable option around that I’ve seen.
 
+   Anchors
+
+     * [1]
+       [14]http://docs.woothemes.com/document/custom-sorting-options-ascde
+       sc/ ↗
+     * [2]
+       [15]http://wordpress.org/support/topic/plugin-woocommerce-trying-to
+       -order-categories#post-3186161 ↗
+     * [3]
+       [16]http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html
+       #411 ↗
+
    Appendix
 
    This post is 11 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [17]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [18]MD  /  [19]TXT  /  [20]PDF
 
      *
      *
@@ -181,7 +193,10 @@ References
   11. http://docs.woothemes.com/document/custom-sorting-options-ascdesc/
   12. http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161
   13. http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///woocommerce-sorting-products-by-category/index.md
-  16. file:///woocommerce-sorting-products-by-category/index.txt
-  17. file:///tmp/lynxXXXXgYlm0s/L693811-812TMP.html
+  14. http://docs.woothemes.com/document/custom-sorting-options-ascdesc/
+  15. http://wordpress.org/support/topic/plugin-woocommerce-trying-to-order-categories#post-3186161
+  16. http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html#411
+  17. https://creativecommons.org/licenses/by/4.0/
+  18. file:///woocommerce-sorting-products-by-category/index.md
+  19. file:///woocommerce-sorting-products-by-category/index.txt
+  20. file:///tmp/lynxXXXX61g9sD/L734027-9336TMP.html

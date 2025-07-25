@@ -118,14 +118,32 @@ Views
    Although the Rails Guide covers all this, I thought seeing a real-world
    example would help. Happy coding!
 
+   Anchors
+
+     * [1]
+       [16]http://edgeguides.rubyonrails.org/engines.html#improving-engine
+       -functionality ↗
+     * [2]
+       [17]http://edgeguides.rubyonrails.org/engines.html#overriding-model
+       s-and-controllers ↗
+     * [3]
+       [18]http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/re
+       quire_dependency ↗
+     * [4]
+       [19]http://guides.rubyonrails.org/layouts_and_rendering.html#unders
+       tanding-yield ↗
+     * [5]
+       [20]http://guides.rubyonrails.org/layouts_and_rendering.html#using-
+       the-content-for-method ↗
+
    Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [16]CC-4.0.
+   Copyright under [21]CC-4.0.
 
    Available in the following alternative formats:
-   [17]MD  /  [18]TXT  /  [19]PDF
+   [22]MD  /  [23]TXT  /  [24]PDF
 
      *
      *
@@ -153,7 +171,12 @@ References
   13. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require_dependency
   14. http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield
   15. http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method
-  16. https://creativecommons.org/licenses/by/4.0/
-  17. file:///extending-a-rails-engine/index.md
-  18. file:///extending-a-rails-engine/index.txt
-  19. file:///tmp/lynxXXXXzT25OE/L691655-8508TMP.html
+  16. http://edgeguides.rubyonrails.org/engines.html#improving-engine-functionality
+  17. http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers
+  18. http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/require_dependency
+  19. http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield
+  20. http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method
+  21. https://creativecommons.org/licenses/by/4.0/
+  22. file:///extending-a-rails-engine/index.md
+  23. file:///extending-a-rails-engine/index.txt
+  24. file:///tmp/lynxXXXX5kmm9l/L731243-7265TMP.html
