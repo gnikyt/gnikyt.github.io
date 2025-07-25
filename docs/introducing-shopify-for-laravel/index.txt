@@ -101,8 +101,8 @@ References
   12. https://github.com/Shopify/shopify_app
   13. https://github.com/gnikyt/laravel-shopify
   14. https://github.com/gnikyt/laravel-shopify/wiki
-  15. file:///tmp/lynxXXXX7D9eVq/L277389-8747TMP.html#https://github.com/Shopify/shopify_app
+  15. file:///tmp/lynxXXXXhYwHj0/L689331-199TMP.html#https://github.com/Shopify/shopify_app
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///introducing-shopify-for-laravel/index.md
   18. file:///introducing-shopify-for-laravel/index.txt
-  19. file:///tmp/lynxXXXX7D9eVq/L277389-8747TMP.html
+  19. file:///tmp/lynxXXXXhYwHj0/L689331-199TMP.html

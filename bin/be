@@ -120,6 +120,11 @@ be_include() {
   be < "$1"
 }
 
+# be_if handles checking if a variable is truthy.
+# If so, the block contents will be displayed.
+# If not, the block will be removed.
+# Block contents is ran through be.
+# Example: {{#HANDLE}}We have a handle, its {{HANDLE}}!{{/HANDLE}}
 be_if() {
   local block=""
   local value="${!1}"
@@ -202,7 +207,6 @@ be_foreach() {
   local tmp=""
   local value=""
   local block=""
-  local entries
   block=$(cat -)
 
   if [[ -z "$2" ]]; then
@@ -307,152 +311,76 @@ be_assign() {
 # By going through each character and positions, the applicable
 # template action is determined and then processed.
 be() {
-  local idx=0 # Current index in the input string.
-  local expr="" # Current expression being processed.
-  local block="" # Current block content being processed.
-  local block_start=0 # Start index of the block.
-  local block_end=0 # End index of the block.
-  local char="" # Current character.
-  local peek="" # Peeked characters.
-  local len=0 # Length of the input string.
-  local input="" # Input string to process.
-  local result="" # Parsed content.
+  local input result
   input=$(cat -)
   result="$input"
-  len=${#input}
 
-  # seek will return the next n characters from the current index.
-  # If n is positive, it returns the next n characters.
-  # If n is negative, it returns the character at the current index minus n.
-  # If it is out of bounds, it returns an empty string.
-  seek() {
-    local len=${#input}
-    local pos=0
-    local n="$1"
-    if (( n > 0 )); then
-      pos=$idx
-      if (( pos + n > len )); then
-        echo ""
-      else
-        echo "${input:$pos:$n}"
-      fi
-    elif (( n < 0 )); then
-      pos=$((idx - n))
-      if (( pos < 0 )); then
-        echo ""
-      else
-        echo "${input:$pos:1}"
-      fi
-    else
-      echo ""
-    fi
-  }
+  # Find all template expressions.
+  while [[ "$result" =~ \{\{([^}]*)\}\} ]]; do
+    local full_match="${BASH_REMATCH[0]}"
+    local expr="${BASH_REMATCH[1]}"
+    local parsed=""
 
-  while (( idx < len )); do
-    # Peek the next two characters to see if we have a template expression.
-    peek=$(seek 2)
-    if [[ "$peek" == "$TOKEN_OPEN_BRACE$TOKEN_OPEN_BRACE" ]]; then
-      # Template expression found. Skip the opening braces.
-      block_start=$idx
-      ((idx+=2))
+    debug "MATCH=$full_match;EXPR=$expr"
 
-      # Capture the expression.
-      expr=""
-      while (( idx < len )); do
-        char=${input:$idx:1}
-        if [[ "$(seek -1)" == "$TOKEN_CLOSE_BRACE" && "$char" == "$TOKEN_CLOSE_BRACE" ]]; then
-          # End of expression or block, skip past the closing brace and break out.
-          ((idx+=2))
-          break
-        elif [[ "$char" != "$TOKEN_CLOSE_BRACE" ]]; then
-          # Not a brace, capture the character.
-          expr="${expr}${char}"
-        fi
-        # Move to the next character.
-        ((idx++))
-      done
+    # Check if this is a block expression
+    if [[ "$expr" == ["$TOKEN_BLOCK_OPS"]* ]]; then
+      # Find the closing tag for blocks
+      local expr_name="${expr:1}"
+      local closing_tag="{{/$expr_name}}"
 
-      # Process the expression, if it is a block.
-      block=""
-      if [[ "$expr" == ["$TOKEN_BLOCK_OPS"]* ]]; then
-        # Keep going until we find the closing tag.
-        local expr_name="${expr:1}"
-        local closing_tag="{{$TOKEN_CLOSE_SLASH$expr_name}}"
-        local closing_len=${#closing_tag}
-        while (( idx < len )); do
-          char=${input:$idx:1}
-          if [[ "$(seek "$closing_len")" == "$closing_tag" ]]; then
-            block_end=$((idx + closing_len))
-            ((idx+=closing_len))
-            break
-          else
-            block+="$char"
-            ((idx++))
-          fi
-        done
-      fi
+      # Find the position of the opening and closing tags.
+      local before_block="${result%%"$full_match"*}"
+      local after_opening="${result#*"$full_match"}"
 
-      # Check if we have an operation or block.
-      if [[ "$block" != "" ]]; then
-        # Process by operation.
-        local match="${input:$block_start:(block_end - block_start)}"
+      if [[ "$after_opening" == *"$closing_tag"* ]]; then
+        # Closing tag found, extract the block content.
+        local block_content="${after_opening%%"$closing_tag"*}"
+        local after_closing="${after_opening#*"$closing_tag"}"
+        local full_block_match="$full_match$block_content$closing_tag"
+
+        # Process the block using the operation required.
         case "${expr:0:1}" in
-          # Handle if.
           "$TOKEN_OP_IF")
             debug "OP=$expr"
-            parsed=$(echo "$block" | be_if "${expr:1}")
-            result="${result/"$match"/"$parsed"}"
+            parsed=$(echo "$block_content" | be_if "${expr:1}")
             ;;
-
-          # Handle unless.
           "$TOKEN_OP_UNLESS")
             debug "OP=$expr"
-            parsed=$(echo "$block" | be_unless "${expr:1}")
-            result="${result/"$match"/"$parsed"}"
+            parsed=$(echo "$block_content" | be_unless "${expr:1}")
             ;;
-
-          # Handle functions.
           "$TOKEN_OP_FUNCTION")
             debug "OP=$expr"
             if [[ "${expr:1}" == "$FN_ASSIGN "* ]]; then
-              # Special handling for assign so global variables can be set.
-              be_assign "${expr:8}" <<< "$(echo "$block" | be)"
-              result="${result/"$match"/""}"
+              be_assign "${expr:8}" <<< "$(echo "$block_content" | be)"
+              parsed=""
             else
-              # Handle custom function.
-              # Remove the @ and run the function.
-              parsed=$(echo "$block" | be_function "${expr:1}")
-              result="${result/"$match"/"$parsed"}"
+              parsed=$(echo "$block_content" | be_function "${expr:1}")
             fi
             ;;
-
-          # Unknown, skip.
           *)
             debug "OP=$expr;ERROR=Unknown operation"
+            parsed="$full_block_match"
             ;;
         esac
-      else
-        local match="$TOKEN_OPEN_BRACE$TOKEN_OPEN_BRACE$expr$TOKEN_CLOSE_BRACE$TOKEN_CLOSE_BRACE"
-        case "${expr:0:1}" in
-          # Handle include of partial.
-          "$TOKEN_OP_INCLUDE")
-            debug "OP=$expr"
-            parsed=$(be_include "${expr:1}")
-            result="${result/"$match"/"$parsed"}"
-            ;;
 
-          # Handle variable.
-          *)
-            debug "VAR=$expr"
-            parsed=$(be_variable "$expr")
-            result="${result/"$match"/"$parsed"}"
-            ;;
-        esac
+        # Replace the full block match with the parsed content.
+        result="$before_block$parsed$after_closing"
       fi
-      continue
+    else
+      # Handle non-block expressions.
+      case "${expr:0:1}" in
+        "$TOKEN_OP_INCLUDE")
+          debug "OP=$expr"
+          parsed=$(be_include "${expr:1}")
+          ;;
+        *)
+          debug "VAR=$expr"
+          parsed=$(be_variable "$expr")
+          ;;
+      esac
+      result="${result/"$full_match"/"$parsed"}"
     fi
-    # Skip to the next character.
-    ((idx++))
   done
 
   echo "$result"

@@ -182,8 +182,8 @@ References
   11. http://liquidmarkup.org/
   12. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
   13. https://github.com/Shopify/liquid/wiki/Introduction-to-Drops
-  14. file:///tmp/lynxXXXX8w7ely/L367629-2986TMP.html#http://liquidmarkup.org/
+  14. file:///tmp/lynxXXXXErgxjd/L692229-7895TMP.html#http://liquidmarkup.org/
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///activerecord-and-liquid-drops-with-sinatra/index.md
   17. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
-  18. file:///tmp/lynxXXXX8w7ely/L367629-2986TMP.html
+  18. file:///tmp/lynxXXXXErgxjd/L692229-7895TMP.html
