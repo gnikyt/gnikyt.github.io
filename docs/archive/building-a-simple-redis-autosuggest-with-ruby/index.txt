@@ -220,4 +220,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
   19. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
-  20. file:///tmp/lynxXXXXCy7g7V/L730724-3271TMP.html
+  20. file:///tmp/lynxXXXX7C6HRg/L98961-517TMP.html

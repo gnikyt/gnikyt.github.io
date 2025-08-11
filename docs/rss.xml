@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Shopify variant metafield webhooks</title>
+      <link>https://gnikyt.com/shopify-variant-metafield-webhooks</link>
+      <description>When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered.
+      Similarly, updating a product metafield...</description>
+      <guid isPermLink="true">https://gnikyt.com/shopify-variant-metafield-webhooks</guid>
+      <pubDate>2025-08-08T16:00:00-0230</pubDate>
+      <archived></archived>
+      <category>shopify</category>
+    </item>
+    <item>
       <title>The lost web</title>
       <link>https://gnikyt.com/the-lost-web</link>
       <description>Late last night while in bed, after the chaos of the kids in the evening, I ended up letting my mind

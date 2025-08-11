@@ -566,4 +566,4 @@ References
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///shopify-checkout-ui-product-html/index.md
   18. file:///shopify-checkout-ui-product-html/index.txt
-  19. file:///tmp/lynxXXXXSmEylQ/L719877-6938TMP.html
+  19. file:///tmp/lynxXXXXDN9sAt/L88228-6528TMP.html

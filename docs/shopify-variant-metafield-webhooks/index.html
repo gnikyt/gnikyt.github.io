@@ -1,0 +1,211 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Shopify variant metafield webhooks | gnikyt
+    </title>
+    <link href="https://gnikyt.com/shopify-variant-metafield-webhooks" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered. Similarly, updating a product metafield..."
+    name="description">
+    <meta content="2025-08-08T16:00:00-0230" property="article:published_time">
+    <meta content="Shopify variant metafield webhooks" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered. Similarly, updating a product metafield..."
+    property="og:description">
+    <meta content="https://gnikyt.com/shopify-variant-metafield-webhooks" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered. Similarly, updating a product metafield..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2025-08-08T16:00:00-0230",
+    "datePublished": "2025-08-08T16:00:00-0230",
+    "description": "
+    When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered. Similarly, updating a product metafield...",
+    "headline": "Shopify variant metafield webhooks",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/shopify-variant-metafield-webhooks"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/shopify-variant-metafield-webhooks"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="shopify-variant-metafield-webhooks">
+    <header class="site-head container">
+      <div class="site-head__item">
+        <div class="site-head__title">
+          <div class="site-head__title-inner">
+            <span class="site-head__title-item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+            "site-head__title-item site-head__title-item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code
+            ramblings</span>
+          </div>
+
+          <div class="site-head__title-inner">
+            <a class="site-head__avatar" href="/about"><img alt="Ty King" class="site-head__avatar-img" src=
+            "/assets/images/me.jpg"></a>
+          </div>
+        </div>
+
+        <div class="site-nav">
+          <a class="button button--strong" href="/about">About</a><a class="button button--strong" href=
+          "https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button button--strong" href=
+          "https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button button--strong"
+          href="/assets/files/cv.pdf" target="_blank">CV</a><a class="button button--strong" href="/rss.xml" target=
+          "_blank">RSS</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            Shopify variant metafield webhooks /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2025-08-08">Aug 08,
+                2025</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">2.0KB</span> */
+              </div>
+
+              <div class="post__category">
+                <a href="/category/shopify"><img alt="Logo of shopify" class="post__category-logo" src=
+                "/assets/images/category-shopify.svg"></a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered.
+                Similarly, updating a product metafield fires the Product Update Webhook. However, updating a metafield
+                on a product variant does <strong>not</strong> trigger the Variant Update Webhook.
+              </p>
+
+              <p>
+                Recently, I needed to be notified about variant metafield updates to sync them with an internal system.
+                Since the webhook doesn’t fire for these changes, the only alternative would be to inefficiently poll
+                the variants for updates. Fortunately, I found a workaround based on information from Shopify.dev.
+              </p>
+
+              <p>
+                <strong>Metaobjects</strong> as the storage for the variant metafields. Althrough seemingly rough on
+                the surface, it did actually work for our needs. What I did was create a “Variant” metaobject, added a
+                field called “Variant ID” which was a string and set to be the display code. This means that the
+                variant ID would become the handle of the metaobject entry. Other fields required, which normally
+                would’ve lived in the variant metafield level, were then added to this new metaobject.
+              </p>
+
+              <p>
+                All existing variant metafields were deleted and a single metafield on the variant level was added
+                called “Meta”, which was a metafield that links to a singular metaobject. By configuring it this way,
+                clicking on “Meta” inside a variant would allow for adding information to the new metaobject, or
+                updating the existing metaobject for that variant.
+              </p>
+
+              <p>
+                Metaobjects <strong>do</strong> support webhook notifications for create, update, and delete, it even
+                allows filtering for only the webhooks you require. For this, I filtered by the new “Variant”
+                metaobject, to only recieve notifications for those.
+              </p>
+
+              <p>
+                <img src="/assets/images/posts/variant_metaobject.gif">
+              </p>
+
+              <p>
+                Hopefully Shopify will allow the Variant Update Webhook to fire in the future when a metafield changes,
+                but for now, this workaround solved the issue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/shopify-variant-metafield-webhooks/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link"
+                href="/shopify-variant-metafield-webhooks/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class=
+                "sources__link" href="#" onclick="window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

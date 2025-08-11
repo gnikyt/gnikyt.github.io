@@ -1,0 +1,78 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+   [3]Ty King
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+
+                      Shopify variant metafield webhooks /
+
+   /* Aug 08, 2025  —  2.0KB */
+   [9]Logo of shopify
+
+   When you update a metafield for a customer in Shopify, the Customer
+   Update Webhook is triggered. Similarly, updating a product metafield
+   fires the Product Update Webhook. However, updating a metafield on a
+   product variant does not trigger the Variant Update Webhook.
+
+   Recently, I needed to be notified about variant metafield updates to
+   sync them with an internal system. Since the webhook doesn’t fire for
+   these changes, the only alternative would be to inefficiently poll the
+   variants for updates. Fortunately, I found a workaround based on
+   information from Shopify.dev.
+
+   Metaobjects as the storage for the variant metafields. Althrough
+   seemingly rough on the surface, it did actually work for our needs.
+   What I did was create a “Variant” metaobject, added a field called
+   “Variant ID” which was a string and set to be the display code. This
+   means that the variant ID would become the handle of the metaobject
+   entry. Other fields required, which normally would’ve lived in the
+   variant metafield level, were then added to this new metaobject.
+
+   All existing variant metafields were deleted and a single metafield on
+   the variant level was added called “Meta”, which was a metafield that
+   links to a singular metaobject. By configuring it this way, clicking on
+   “Meta” inside a variant would allow for adding information to the new
+   metaobject, or updating the existing metaobject for that variant.
+
+   Metaobjects do support webhook notifications for create, update, and
+   delete, it even allows filtering for only the webhooks you require. For
+   this, I filtered by the new “Variant” metaobject, to only recieve
+   notifications for those.
+
+   [variant_metaobject.gif]
+
+   Hopefully Shopify will allow the Variant Update Webhook to fire in the
+   future when a metafield changes, but for now, this workaround solved
+   the issue.
+
+   Appendix
+
+   Copyright under [10]CC-4.0.
+
+   Available in the following alternative formats:
+   [11]MD  /  [12]TXT  /  [13]PDF
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. file:///
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/shopify
+  10. https://creativecommons.org/licenses/by/4.0/
+  11. file:///shopify-variant-metafield-webhooks/index.md
+  12. file:///shopify-variant-metafield-webhooks/index.txt
+  13. file:///tmp/lynxXXXX45xa56/L86749-4674TMP.html

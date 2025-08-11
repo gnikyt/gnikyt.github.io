@@ -9,106 +9,111 @@
    Displaying article entries sorted by creation date in descending order.
      * $>
 
-[9]The lost web
+[9]Shopify variant metafield webhooks
+       Aug 08, 2025
+       2.0KB
+     * $>
+
+[10]The lost web
        Jul 21, 2025
        3.1KB
      * $>
 
-[10]Shopify Value Objects for Go
+[11]Shopify Value Objects for Go
        Jul 15, 2025
        8.7KB
      * $>
 
-[11]Building a BASH template engine
+[12]Building a BASH template engine
        May 22, 2025
        4.1KB
      * $>
 
-[12]Handling Shopify API limits and Goroutines
+[13]Handling Shopify API limits and Goroutines
        Apr 10, 2025
        15KB
      * $>
 
-[13]Shopify checkout extension with product HTML
+[14]Shopify checkout extension with product HTML
        May 10, 2024
        14KB
      * $>
 
-[14]Shopify Prisma, Jest, and MySQL testing
+[15]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
        6.5KB
      * $>
 
-[15]Shopify Checkout Extension to backend fetching
+[16]Shopify Checkout Extension to backend fetching
        Feb 27, 2024
        3.1KB
      * $>
 
-[16]Type definitions without emitting
+[17]Type definitions without emitting
        Feb 07, 2024
        3.4KB
      * $>
 
-[17]Shopify Remix, Prisma, and Jest
+[18]Shopify Remix, Prisma, and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[18]WordPress Local with WSL
+[19]WordPress Local with WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[19]Shopify Github Action for versioning
+[20]Shopify Github Action for versioning
        May 20, 2022
        2.5KB
      * $>
 
-[20]Shopify Node App custom multi-tenant support
+[21]Shopify Node App custom multi-tenant support
        Nov 15, 2021
        10KB
      * $>
 
-[21]Git release branches
+[22]Git release branches
        Mar 10, 2021
        3.4KB
      * $>
 
-[22]Laravel Shopify featured on Shopify
+[23]Laravel Shopify featured on Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[23]Async Shopify API for Python
+[24]Async Shopify API for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[24]Introducing Laravel Shopify
+[25]Introducing Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[25]WordPress with Docker
+[26]WordPress with Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[26]shopify_app_whitelist Gem
+[27]shopify_app_whitelist Gem
        Nov 26, 2016
        1.5KB
      * $>
 
-[27]Testing with shopify_app
+[28]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[28]ActiveRecord and Liquid Drops with Sinatra
+[29]ActiveRecord and Liquid Drops with Sinatra
        Oct 15, 2015
        3.7KB
 
-   [29]Categories ›  |  [30]Archive ›
+   [30]Categories ›  |  [31]Archive ›
      *
      *
      *
@@ -128,25 +133,26 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///the-lost-web
-  10. file:///shopify-value-objects-go
-  11. file:///building-bash-template-engine
-  12. file:///handling-shopify-api-limits-goroutines
-  13. file:///shopify-checkout-ui-product-html
-  14. file:///prisma-jest-mysql-testing
-  15. file:///generate-type-definitions-without-emitting-js
-  16. file:///type-definitions-without-emitting
-  17. file:///shopify-remix-prisma-and-jest
-  18. file:///wplocal-with-wsl
-  19. file:///shopify-github-action-versioning
-  20. file:///shopify-node-app-custom-multi-tenant
-  21. file:///git-release-branches
-  22. file:///laravel-shopify-featured-shopify-blog
-  23. file:///async-shopify-api-for-python
-  24. file:///introducing-shopify-for-laravel
-  25. file:///wordpress-under-docker
-  26. file:///shopify-app-whitelist-gem
-  27. file:///testing-with-shopify-app
-  28. file:///activerecord-and-liquid-drops-with-sinatra
-  29. file:///category
-  30. file:///archive
+   9. file:///shopify-variant-metafield-webhooks
+  10. file:///the-lost-web
+  11. file:///shopify-value-objects-go
+  12. file:///building-bash-template-engine
+  13. file:///handling-shopify-api-limits-goroutines
+  14. file:///shopify-checkout-ui-product-html
+  15. file:///prisma-jest-mysql-testing
+  16. file:///generate-type-definitions-without-emitting-js
+  17. file:///type-definitions-without-emitting
+  18. file:///shopify-remix-prisma-and-jest
+  19. file:///wplocal-with-wsl
+  20. file:///shopify-github-action-versioning
+  21. file:///shopify-node-app-custom-multi-tenant
+  22. file:///git-release-branches
+  23. file:///laravel-shopify-featured-shopify-blog
+  24. file:///async-shopify-api-for-python
+  25. file:///introducing-shopify-for-laravel
+  26. file:///wordpress-under-docker
+  27. file:///shopify-app-whitelist-gem
+  28. file:///testing-with-shopify-app
+  29. file:///activerecord-and-liquid-drops-with-sinatra
+  30. file:///category
+  31. file:///archive
