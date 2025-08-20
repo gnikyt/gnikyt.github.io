@@ -21,7 +21,7 @@
 
 [11]Shopify Value Objects for Go
        Jul 15, 2025
-       8.7KB
+       8.8KB
      * $>
 
 [12]Building a BASH template engine

@@ -11,7 +11,7 @@
 
 [9]Shopify Value Objects for Go
        Jul 15, 2025
-       8.7KB
+       8.8KB
      * $>
 
 [10]Handling Shopify API limits and Goroutines

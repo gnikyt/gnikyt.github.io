@@ -83,4 +83,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///laravel-shopify-featured-shopify-blog/index.md
   16. file:///laravel-shopify-featured-shopify-blog/index.txt
-  17. file:///tmp/lynxXXXXYWwj9E/L93075-3109TMP.html
+  17. file:///tmp/lynxXXXXVfcjLO/L246150-7740TMP.html

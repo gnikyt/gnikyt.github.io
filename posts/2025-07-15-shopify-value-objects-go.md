@@ -100,13 +100,17 @@ func typeFrom[T Identifiers]() string {
 }
 
 // commonNew creates a new GID from a value.
-// It supports int64, int, and string formats.
+// It supports int64, int, float64, float32, and string formats.
 // String formats supported: full GID ("gid://shopify/Type/ID") or numeric string ("123456789").
 func commonNew[T Identifiers](val any) (T, error) {
 	switch v := val.(type) {
 	case int64:
 		return T(int(v)), nil
 	case int:
+		return T(int(v)), nil
+	case float64:
+		return T(int(v)), nil
+	case float32:
 		return T(int(v)), nil
 	case string:
 		parts := strings.Split(v, "/")
@@ -135,9 +139,8 @@ func commonNew[T Identifiers](val any) (T, error) {
 }
 
 // New creates a new GID from a value.
-// It supports int64, int, and string formats.
-// For strings, it expects the format "gid://shopify/Type/ID" or a
-// numeric "28282823332".
+// It supports int64, int, float64, float32, and string formats.
+// For strings, it accepts either full GID format "gid://shopify/Type/ID" or numeric string "123456789".
 // If the value is not recognized, it returns a zero value of the type.
 // It ignores errors in validation, for validation use NewValidated.
 func New[T Identifiers](val any) T {
@@ -197,11 +200,11 @@ func (cid CustomerID) MarshalJSON() ([]byte, error) {
 }
 
 func (cid *CustomerID) UnmarshalJSON(data []byte) error {
-	var gid string
-	if err := json.Unmarshal(data, &gid); err != nil {
+	var val any
+	if err := json.Unmarshal(data, &val); err != nil {
 		return err
 	}
-	*cid = New[CustomerID](gid)
+	*cid = New[CustomerID](val)
 	return nil
 }
 

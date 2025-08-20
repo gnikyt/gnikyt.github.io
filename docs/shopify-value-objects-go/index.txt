@@ -6,7 +6,7 @@
 
                          Shopify Value Objects for Go /
 
-   /* Jul 15, 2025  —  8.7KB */
+   /* Jul 15, 2025  —  8.8KB */
    [9]Logo of golang
 
    An existing project had grown rapidly, resulting in many places where
@@ -101,7 +101,7 @@ func typeFrom[T Identifiers]() string {
 }
 
 // commonNew creates a new GID from a value.
-// It supports int64, int, and string formats.
+// It supports int64, int, float64, float32, and string formats.
 // String formats supported: full GID ("gid://shopify/Type/ID") or numeric strin
 g ("123456789").
 func commonNew[T Identifiers](val any) (T, error) {
@@ -109,6 +109,10 @@ func commonNew[T Identifiers](val any) (T, error) {
     case int64:
         return T(int(v)), nil
     case int:
+        return T(int(v)), nil
+    case float64:
+        return T(int(v)), nil
+    case float32:
         return T(int(v)), nil
     case string:
         parts := strings.Split(v, "/")
@@ -139,9 +143,9 @@ v)
 }
 
 // New creates a new GID from a value.
-// It supports int64, int, and string formats.
-// For strings, it expects the format "gid://shopify/Type/ID" or a
-// numeric "28282823332".
+// It supports int64, int, float64, float32, and string formats.
+// For strings, it accepts either full GID format "gid://shopify/Type/ID" or num
+eric string "123456789".
 // If the value is not recognized, it returns a zero value of the type.
 // It ignores errors in validation, for validation use NewValidated.
 func New[T Identifiers](val any) T {
@@ -202,11 +206,11 @@ func (cid CustomerID) MarshalJSON() ([]byte, error) {
 }
 
 func (cid *CustomerID) UnmarshalJSON(data []byte) error {
-    var gid string
-    if err := json.Unmarshal(data, &gid); err != nil {
+    var val any
+    if err := json.Unmarshal(data, &val); err != nil {
         return err
     }
-    *cid = New[CustomerID](gid)
+    *cid = New[CustomerID](val)
     return nil
 }
 
@@ -363,4 +367,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///shopify-value-objects-go/index.md
   14. file:///shopify-value-objects-go/index.txt
-  15. file:///tmp/lynxXXXX9fSVNW/L87250-4172TMP.html
+  15. file:///tmp/lynxXXXX1KKRYE/L240299-1244TMP.html

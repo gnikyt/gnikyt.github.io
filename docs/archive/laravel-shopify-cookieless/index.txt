@@ -134,4 +134,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///laravel-shopify-cookieless/index.md
   22. file:///laravel-shopify-cookieless/index.txt
-  23. file:///tmp/lynxXXXXD7FnsO/L92503-5722TMP.html
+  23. file:///tmp/lynxXXXXa4QWEM/L245566-4180TMP.html
