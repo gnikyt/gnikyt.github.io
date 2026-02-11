@@ -6,17 +6,17 @@
 
                        Shopify Remix, Prisma, and Jest /
 
-   /* Jan 10, 2024  —  8.8KB */
+   /* Jan 10, 2024  --  8.8KB */
    [9]Logo of shopify [10]Logo of javascript
 
 Introduction
 
    Shopify has (once again) changed up their app framework and templates.
-   This time, they’re utilizing Remix which is a React-based web
+   This time, they're utilizing Remix which is a React-based web
    framework, and Prisma which is an ORM.
 
    Recently, I developed a large loyalty application utlizing the new
-   framework. Because this app is critical to the merchant’s shop, I
+   framework. Because this app is critical to the merchant's shop, I
    wanted to ensure the business logic was working correctly.
 
    For my needs, I wanted to do both unit tests on specific code and
@@ -191,7 +191,7 @@ export function prismaHooks(client: PrismaClient) {
   afterEach(() => destroyDatabase(client));
 }
 
-   What this file does is utilize’s Jest’s global hooks (beforeAll,
+   What this file does is utilize's Jest's global hooks (beforeAll,
    afterAll, etc) to setup and teardown the database for each test suite,
    if you invoke prismaHooks.
 
@@ -326,7 +326,7 @@ Tests running slow?
     2. runInBand flag: Add --runInBand which runs test in sync, example:
        npm run test -- --runInBand
     3. Remove ts-node: ts-node is slow, you can try swapping to swc with
-       it’s Jest support
+       it's Jest support
 
    My app is fairly chunky, and in my testing of speeds the results are as
    followed:
@@ -336,9 +336,12 @@ Tests running slow?
 
    Anchors
 
-     * [1] [12]www.prisma.io/docs/orm/prisma-client/testing/unit-testing ↗
+     * [1] [12]www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+       /^
 
    Appendix
+
+   This post is 2 years old and may contain outdated information.
 
    Copyright under [13]CC-4.0.
 
@@ -371,4 +374,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///shopify-remix-prisma-and-jest/index.md
   15. file:///shopify-remix-prisma-and-jest/index.txt
-  16. file:///tmp/lynxXXXXt4MZNv/L242383-2763TMP.html
+  16. file:///tmp/lynxXXXXS4X64z/L3009-1148TMP.html

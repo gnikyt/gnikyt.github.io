@@ -6,12 +6,12 @@
 
                   Handling Shopify API limits and Goroutines /
 
-   /* Apr 10, 2025  —  15KB */
+   /* Apr 10, 2025  --  15KB */
    [9]Logo of golang [10]Logo of shopify
 
    I frequently build integration applications with Shopify and I thought
    it would be helpful to highlight one approach (of many) that I commonly
-   use for handling API rate limits with Shopify’s GraphQL API using Go.
+   use for handling API rate limits with Shopify's GraphQL API using Go.
    The integration in question was originally developed and maintained by
    a third-party provider. However, after their company was acquired, they
    decided to shut down their service and stop all servicing of the
@@ -22,7 +22,7 @@
    list of SKUs and their current inventory levels, which needed to be
    synced with the Shopify store. This same CSV format was used by the
    service for multiple merchants at once and typically contained between
-   3,000–3,500 rows. Not every SKU in the CSV necessarily existed in the
+   3,000-3,500 rows. Not every SKU in the CSV necessarily existed in the
    store, so that had to be accounted for during processing.
 
    In summary, the rebuild of the integration had to handle the following:
@@ -37,7 +37,7 @@ ITEM_CODE,QTY
 23211,18
 ...
 
-   Additionally, Shopify’s GraphQL API limits would obviously be high
+   Additionally, Shopify's GraphQL API limits would obviously be high
    priority to factor in. In the case for this specific Shopify store, the
    limits were:
      * 2000 available points
@@ -48,7 +48,7 @@ ITEM_CODE,QTY
    to fetch the SKU, and if it was found, a mutation followed which would
    update the inventory.
 
-   By analyzing the query and mutation costs in Shopify’s GraphQL app, it
+   By analyzing the query and mutation costs in Shopify's GraphQL app, it
    was determined that each query consumed 2 points, while each mutation
    consumed 10 points. This meant, in the worst case senario, where every
    SKU existed, a total of 12 points would be consumed per row.
@@ -78,17 +78,17 @@ ITEM_CODE,QTY
    balance to continue with.
 
    Now, there are several methods a developer can take to craft a solution
-   preventing draining the available points down to zero… some developers
-   may call each job in sequence, some developers may call each job with a
-   sleep in between, some developers may run it as a batch of jobs in
-   sequence, some developers may utilize a worker pool system with a set
-   capacity, etc.
+   preventing draining the available points down to zero... some
+   developers may call each job in sequence, some developers may call each
+   job with a sleep in between, some developers may run it as a batch of
+   jobs in sequence, some developers may utilize a worker pool system with
+   a set capacity, etc.
 
-   For me, I decided to develop a semaphore approach. If you’re not
+   For me, I decided to develop a semaphore approach. If you're not
    familiar with that, a semaphore is essentially a concurrency control
-   method to maintain a set capacity of “how many” of something is
-   permitted to run at a time. A process would first “aquire” a spot and
-   when completed it’s work, it would “release” the spot, so another
+   method to maintain a set capacity of "how many" of something is
+   permitted to run at a time. A process would first "aquire" a spot and
+   when completed it's work, it would "release" the spot, so another
    process can aquire it.
 
    Since there would be between 3,000-3,500 rows in the CSV (on average),
@@ -100,7 +100,7 @@ ITEM_CODE,QTY
    Additionally, the capacity of this semaphore would be set to the 15-20
    limit previously determined from the simulated script. If the remaining
    available points dipped below a set threshold, the release mechanism
-   would cause a “pause” in releasing, calculating the time it would take
+   would cause a "pause" in releasing, calculating the time it would take
    to refill the available points back to maximum, then resuming the
    release. This would allow 15-20 concurrent jobs to be running at a
    time, while the release mechanism acted as the safe guard to ensure the
@@ -431,7 +431,7 @@ work finished.
 completed.
 
    Using the example semaphore method above, we are allowing 10 Goroutines
-   to run concurrently out of the 1000 and upon each Goroutine’s
+   to run concurrently out of the 1000 and upon each Goroutine's
    completion, the Goroutine will report the remaining points back to the
    release mechanism, which will determine if a pause is needed before
    actually issuing the release.
@@ -446,7 +446,7 @@ completed.
 
    Anchors
 
-     * [1] [12]github.com/gnikyt/shopifysemaphore ↗
+     * [1] [12]github.com/gnikyt/shopifysemaphore /^
 
    Appendix
 
@@ -481,4 +481,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///handling-shopify-api-limits-goroutines/index.md
   15. file:///handling-shopify-api-limits-goroutines/index.txt
-  16. file:///tmp/lynxXXXXOYt29O/L240922-9849TMP.html
+  16. file:///tmp/lynxXXXX9T0jyb/L1563-3956TMP.html

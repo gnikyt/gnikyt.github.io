@@ -6,10 +6,10 @@
 
                                ACF Simple Table /
 
-   /* Jul 18, 2014  —  1.2KB */
+   /* Jul 18, 2014  --  1.2KB */
    [9]Logo of php [10]Logo of wordpress
 
-   I’ve released a new GitHub repo. It’s an add-on for popular [11]ACF
+   I've released a new GitHub repo. It's an add-on for popular [11]ACF
    (Advanced Custom Fields) for WordPress which allows you to create
    really custom post/taxonomy pages and more.
 
@@ -26,13 +26,13 @@
    representing a table).
 
    To see some screenshots and sample usage of this add-on please
-   [12]click here and you’re free to use this in any commercial or
+   [12]click here and you're free to use this in any commercial or
    personal project!
 
    Anchors
 
-     * [1] [13]http://www.advancedcustomfields.com/ ↗
-     * [2] [14]github.com/gnikyt/acf-simple_table ↗
+     * [1] [13]http://www.advancedcustomfields.com/ /^
+     * [2] [14]github.com/gnikyt/acf-simple_table /^
 
    Appendix
 
@@ -71,4 +71,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///acf-simple-table/index.md
   17. file:///acf-simple-table/index.txt
-  18. file:///tmp/lynxXXXXJot1q8/L254250-9390TMP.html
+  18. file:///tmp/lynxXXXXnDroH8/L14661-9852TMP.html

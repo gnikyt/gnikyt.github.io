@@ -6,17 +6,17 @@
 
                          Async Shopify API for Python /
 
-   /* Jun 29, 2020  —  4.0KB */
+   /* Jun 29, 2020  --  4.0KB */
    [9]Logo of shopify [10]Logo of python
 
 Introduction
 
    I maintain a fairly used [11]PHP library for Shopify API which uses
    Guzzle for sync/async requests. It was also recently featured as a
-   recommended third-party library on Shopify’s dev docs.
+   recommended third-party library on Shopify's dev docs.
 
-   For Python, which I also use with Shopify work, I didn’t notice a
-   library which provides async abilities. Normally I use Shopify’s Python
+   For Python, which I also use with Shopify work, I didn't notice a
+   library which provides async abilities. Normally I use Shopify's Python
    library which provides a nice ActiveResource implementation. However,
    their library has no plans to support async.
 
@@ -128,13 +128,13 @@ Conclusion
 
    Feel free to give it a try with your projects, with the continual rise
    of async within Python, I hope the library will serve some use to you.
-   I’ve recently paired it with [13]FastAPI and it performed well.
+   I've recently paired it with [13]FastAPI and it performed well.
 
    Anchors
 
-     * [1] [14]github.com/gnikyt/Basic-Shopify-API ↗
-     * [2] [15]github.com/gnikyt/basic_shopify_api ↗
-     * [3] [16]fastapi.tiangolo.com/ ↗
+     * [1] [14]github.com/gnikyt/Basic-Shopify-API /^
+     * [2] [15]github.com/gnikyt/basic_shopify_api /^
+     * [3] [16]fastapi.tiangolo.com/ /^
 
    Appendix
 
@@ -175,4 +175,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///async-shopify-api-for-python/index.md
   19. file:///async-shopify-api-for-python/index.txt
-  20. file:///tmp/lynxXXXXElgtf8/L247041-6287TMP.html
+  20. file:///tmp/lynxXXXXifyTSX/L7590-2789TMP.html

@@ -6,12 +6,12 @@
 
                 Original sized images from a WordPress Gallery /
 
-   /* Nov 08, 2014  —  1.5KB */
+   /* Nov 08, 2014  --  1.5KB */
    [9]Logo of php [10]Logo of wordpress
 
    Recently, I was working on a project where I needed to modify an
    existing page that had multiple galleries. This change required me to
-   have access to the original uploaded images. Here’s a simple function I
+   have access to the original uploaded images. Here's a simple function I
    wrote which returns the images easily in an array format.
 # Input
 Hey comes see my gallery! [gallery ids="12,124,342]
@@ -52,7 +52,7 @@ function getGalleryImages($content, $return_size = 'large') {
 
    Appendix
 
-   This post is 10 years old and may contain outdated information.
+   This post is 11 years old and may contain outdated information.
 
    Copyright under [11]CC-4.0.
 
@@ -83,4 +83,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.md
   13. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.txt
-  14. file:///tmp/lynxXXXXT9iFe5/L253876-8630TMP.html
+  14. file:///tmp/lynxXXXXN7OtxZ/L14299-2561TMP.html

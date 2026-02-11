@@ -6,13 +6,13 @@
 
                        Building a BASH template engine /
 
-   /* May 22, 2025  —  4.1KB */
+   /* May 22, 2025  --  4.1KB */
    [9]Logo of cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was
    such a large setup for such a small blog to maintain. I wanted
-   something more “portable” without libraries, so I settled to build my
-   blog and it’s generation with BASH.
+   something more "portable" without libraries, so I settled to build my
+   blog and it's generation with BASH.
 
    Everything needed was built out: frontmatter processing, Markdown to
    HTML generation, post handling, page handling, category support, RSS
@@ -34,9 +34,9 @@
      * Detect the applicable template tags
      * For each template tag:
           + Parse it character-by-character to determine:
-               o It’s operation type
-               o It’s optional ask
-               o It’s optional contents
+               o It's operation type
+               o It's optional ask
+               o It's optional contents
                o And more
      * Once determined, run the applicable operation to produce a result
      * Take the result and replace the original template tag with that
@@ -144,8 +144,8 @@ echo "$TPL" | be
 
    Anchors
 
-     * [1] [12]github.com/gnikyt/be ↗
-     * [2] [13]githuib.com/gnikyt/be/tree/master/be ↗
+     * [1] [12]github.com/gnikyt/be /^
+     * [2] [13]githuib.com/gnikyt/be/tree/master/be /^
 
    Appendix
 
@@ -181,4 +181,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///building-bash-template-engine/index.md
   16. file:///building-bash-template-engine/index.txt
-  17. file:///tmp/lynxXXXXZGJj8H/L240627-3860TMP.html
+  17. file:///tmp/lynxXXXXP0h66c/L1281-8416TMP.html

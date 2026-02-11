@@ -6,17 +6,17 @@
 
                  Shopify checkout extension with product HTML /
 
-   /* May 10, 2024  —  14KB */
+   /* May 10, 2024  --  14KB */
    [9]Logo of shopify [10]Logo of javascript [11]Logo of react
 
 Background
 
    A project last month required a build of an upselling checkout UI
    extension for Shopify. The client wanted the description of the product
-   to be what is displayed in the checkout, however, Shopify’s checkout
+   to be what is displayed in the checkout, however, Shopify's checkout
    extension system does not support directly using HTML nor the
    dangerouslySetInnerHtml property. Additionally to this, the extensions
-   do not support such services such a [12]DOMParser – something custom
+   do not support such services such a [12]DOMParser - something custom
    would have to be built.
 
    Given the tight timeline for the project, it was decided to just build
@@ -521,14 +521,14 @@ export default function descriptionTransformer(rawHtml, transformer) {
   return transform(walk(cleanedRawHtml), transformer);
 }
 
-   Hopefully this can help point you in the right direction if you’re
+   Hopefully this can help point you in the right direction if you're
    attempting to use product descriptions in a Shopify Checkout UI
    Extension.
 
    Anchors
 
-     * [1] [14]developer.mozilla.org/en-US/docs/Web/API/DOMParser ↗
-     * [2] [15]gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8 ↗
+     * [1] [14]developer.mozilla.org/en-US/docs/Web/API/DOMParser /^
+     * [2] [15]gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8 /^
 
    Appendix
 
@@ -566,4 +566,4 @@ References
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///shopify-checkout-ui-product-html/index.md
   18. file:///shopify-checkout-ui-product-html/index.txt
-  19. file:///tmp/lynxXXXXxPe7o3/L241286-4026TMP.html
+  19. file:///tmp/lynxXXXXhCYv3y/L1919-6220TMP.html

@@ -6,10 +6,10 @@
 
                              Git release branches /
 
-   /* Mar 10, 2021  —  3.4KB */
+   /* Mar 10, 2021  --  3.4KB */
    [9]Logo of python [10]Logo of cmd
 
-   A method I like to utilize internally, which I’ve been slowly pushing
+   A method I like to utilize internally, which I've been slowly pushing
    into my open source work, is to create branches for each major/minor
    release. Many developers will say branches are meant to be short-lived,
    to be eventually merged into your main branch. I believe this is true
@@ -18,11 +18,11 @@
 
    Essentially, if you follow symver ([major].[minor].[patch]) for
    versioning, you would create and maintain a branch for each
-   [major].[minor] release. For example… if I tagged the production branch
-   with v9.0.0, a new major release, I would create a supplementary branch
-   9.0. If I then released a bugfix, v9.0.1, I would then issue a pull
-   request to merge code for v9.0.1 into branch 9.0 to keep it updated
-   with patches.
+   [major].[minor] release. For example... if I tagged the production
+   branch with v9.0.0, a new major release, I would create a supplementary
+   branch 9.0. If I then released a bugfix, v9.0.1, I would then issue a
+   pull request to merge code for v9.0.1 into branch 9.0 to keep it
+   updated with patches.
 $ git branch -l | sort -V
 # ...
 8.2
@@ -37,7 +37,7 @@ master
      * Have the ability to support multiple versions easily
      * Have a easily navigable snapshot of previous releases
 
-   This may be overkill for small and personal projects, but when you’re
+   This may be overkill for small and personal projects, but when you're
    working with a team and potentially have to support multiple versions
    of a codebase, then this flow is easy to adopt.
 
@@ -106,7 +106,7 @@ for branch, tag in mm.items():
         make_branch(branch, tag)
     print(">> Complete")
 
-   Running with the DRY_RUN env supplied, you’ll be able to see the
+   Running with the DRY_RUN env supplied, you'll be able to see the
    branches it will created based on your existing tags before proceeding
    with the creation.
 
@@ -143,4 +143,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///git-release-branches/index.md
   13. file:///git-release-branches/index.txt
-  14. file:///tmp/lynxXXXXpxXct5/L245824-2321TMP.html
+  14. file:///tmp/lynxXXXXvJvTvR/L6398-6081TMP.html

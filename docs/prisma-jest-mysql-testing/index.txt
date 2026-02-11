@@ -6,13 +6,13 @@
 
                    Shopify Prisma, Jest, and MySQL testing /
 
-   /* Mar 28, 2024  —  6.5KB */
+   /* Mar 28, 2024  --  6.5KB */
    [9]Logo of shopify [10]Logo of javascript
 
    This is an alternate extension to my previous post, [11]Shopify, Remix,
    Prisma, and Jest.
 
-   Follow that post to get to its current state, and we’ll modify the
+   Follow that post to get to its current state, and we'll modify the
    existing files to support MySQL.
 
 Changes
@@ -206,9 +206,9 @@ COPY --from=testcache /cache .
 
 CMD ["npm", "run", "test", "--", "--verbose", "--runInBand"]
 
-   This Dockerfile uses Alpine Linux with two stage build… one to install
-   dependencies and cache them, and a second step which uses the cached
-   dependencies and runs the tests.
+   This Dockerfile uses Alpine Linux with two stage build... one to
+   install dependencies and cache them, and a second step which uses the
+   cached dependencies and runs the tests.
 version: '3.9'
 
 services:
@@ -258,7 +258,7 @@ volumes:
 
    Anchors
 
-     * [1] [12]../shopify-remix-prisma-and-jest ↗
+     * [1] [12]../shopify-remix-prisma-and-jest /^
 
    Appendix
 
@@ -293,4 +293,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///prisma-jest-mysql-testing/index.md
   15. file:///prisma-jest-mysql-testing/index.txt
-  16. file:///tmp/lynxXXXXQYKOIe/L241595-6627TMP.html
+  16. file:///tmp/lynxXXXX2USw8D/L2226-20TMP.html

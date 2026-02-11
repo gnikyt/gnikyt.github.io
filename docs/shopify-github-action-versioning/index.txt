@@ -6,7 +6,7 @@
 
                      Shopify Github Action for versioning /
 
-   /* May 20, 2022  —  2.5KB */
+   /* May 20, 2022  --  2.5KB */
    [9]Logo of shopify [10]Logo of cmd
 
    Shopify recently updated their admin panel again and started to display
@@ -111,4 +111,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///shopify-github-action-versioning/index.md
   17. file:///shopify-github-action-versioning/index.txt
-  18. file:///tmp/lynxXXXXGlA7IS/L244558-7963TMP.html
+  18. file:///tmp/lynxXXXX9SdUFl/L5140-7613TMP.html

@@ -6,7 +6,7 @@
 
                          i3-Plasma for a solid match /
 
-   /* Aug 28, 2019  —  4.4KB */
+   /* Aug 28, 2019  --  4.4KB */
    [9]Logo of cmd
 
    [10]Cover Image
@@ -26,20 +26,20 @@ Introduction
 
    However, all the major desktop environments are geared towards floating
    and manually managing windows like you would with Windows or OSX. You
-   end up spending a good chunk of time attached to your mouse… moving,
+   end up spending a good chunk of time attached to your mouse... moving,
    resizing, and managing those windows to do your work. Yes, you could
    tweak the settings of these desktop environments to semi-simulate what
    a good window manager can do, but it is not the same.
 
    With a configurable window manager, such as i3, sway, bspwm, and
-   others, you’re able to solely use your keyboard to manage windows in a
-   way that’s efficient, natural, and powerful.
+   others, you're able to solely use your keyboard to manage windows in a
+   way that's efficient, natural, and powerful.
 
-   For someone like me, who doesn’t use a mouse (I use my Thinkpad dot
-   only) and has back/neck issues… the less I move around (reaching for
+   For someone like me, who doesn't use a mouse (I use my Thinkpad dot
+   only) and has back/neck issues... the less I move around (reaching for
    mice), the better!
 
-   So, to hit all points above… a combo of Plasma and i3 works wonders.
+   So, to hit all points above... a combo of Plasma and i3 works wonders.
    And the best thing is that it takes no time at all to setup.
 
 Setup
@@ -68,7 +68,7 @@ $ sudo sed -i '/Name.*=/ s/$/-i3/' /usr/local/share/xsessions/plasma-i3.desktop
 $ echo -e '\n\n[X11]\nSessionDir=/usr/local/share/xsessions' | sudo tee -a /usr/
 lib/sddm/sddm.conf.d/00-general.conf
 
-   Logging out, you’ll be presented with an option in SDDM for Plasma-i3.
+   Logging out, you'll be presented with an option in SDDM for Plasma-i3.
 
 Tweaking
 
@@ -87,7 +87,7 @@ Tweaking
    [13]Here is my i3 config, which has pre-defined settings for handling
    the different Plasma windows. I have several standard keybindings
    defined, launchers, and window management. You can go in-depth as you
-   like… you can target certain windows/popups/window-titles and more to
+   like... you can target certain windows/popups/window-titles and more to
    do anything you like. You can have certain windows float, certain
    windows open on a monitor or workspace, certain windows have
    priorities, certain windows that open next to other certain windows,
@@ -95,13 +95,13 @@ Tweaking
 
 Bars
 
-   You’re able to use any “bar” or panel you like with this setup..
+   You're able to use any "bar" or panel you like with this setup..
    weather it be i3bar, polybar, or plain Plasma panel as I have.
 
    If you decide to use Plasma panels, definitely install [14]Virtual
    Desktop Bar Widget, its a virtual desktop pager which is configurable
-   and simple, and mimics how most other “bars” handle workspaces (its the
-   widget in the screenshot above with “web”, “code”, “mail”, etc).
+   and simple, and mimics how most other "bars" handle workspaces (its the
+   widget in the screenshot above with "web", "code", "mail", etc).
 
 Conclusion
 
@@ -111,14 +111,14 @@ Conclusion
    Anchors
 
      * [1] [15]/assets/images/posts/screenshot.png
-     * [2] [16]ryanlue.com/posts/2019-06-13-kde-i3 ↗
-     * [3] [17]github.com/gnikyt/dots/blob/master/.Xresources ↗
-     * [4] [18]github.com/gnikyt/dots/blob/master/.config/i3/config ↗
-     * [5] [19]store.kde.org/p/1315319/ ↗
+     * [2] [16]ryanlue.com/posts/2019-06-13-kde-i3 /^
+     * [3] [17]github.com/gnikyt/dots/blob/master/.Xresources /^
+     * [4] [18]github.com/gnikyt/dots/blob/master/.config/i3/config /^
+     * [5] [19]store.kde.org/p/1315319/ /^
 
    Appendix
 
-   This post is 5 years old and may contain outdated information.
+   This post is 6 years old and may contain outdated information.
 
    Copyright under [20]CC-4.0.
 
@@ -158,4 +158,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///i3-plasma-a-solid-match/index.md
   22. file:///i3-plasma-a-solid-match/index.txt
-  23. file:///tmp/lynxXXXXJJxgf8/L247901-7869TMP.html
+  23. file:///tmp/lynxXXXXDBqdnR/L8446-2805TMP.html

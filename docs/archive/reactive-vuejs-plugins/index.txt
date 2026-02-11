@@ -6,7 +6,7 @@
 
                             Reactive VueJS plugins /
 
-   /* Jun 29, 2017  —  4.1KB */
+   /* Jun 29, 2017  --  4.1KB */
    [9]Logo of javascript [10]Logo of vuejs
 
    VueJS has been my go-to framework from building small to medium-sized
@@ -18,7 +18,7 @@ Plugins & Reactivity
    [11]Plugins in Vue, allow you to extract code into a reusable module.
    The plugins allow you to create global mixins, methods, properties, and
    more. It has the added benefit of keeping your code modularized, clean,
-   and doesn’t pollute your app’s main instance.
+   and doesn't pollute your app's main instance.
 
    [12]Reactivity in Vue is simply a way of describing something that
    watches for changes in state/data and reacts to it. Vue watches for
@@ -28,21 +28,21 @@ Plugins & Reactivity
 Use Case
 
    As mentioned, creating plugins can keep your code modularized and your
-   main app instance clean. There could be many reasons you’d need a
+   main app instance clean. There could be many reasons you'd need a
    plugin to track data (be reactive).
 
-   One example is if you’re depending on a third-party service for data.
+   One example is if you're depending on a third-party service for data.
    You need to request this data, process it, save it, and display it.
    This takes time. By the time the request is completed your Vue instance
    may be rendered and your data will not display.
 
 Building
 
-   Let’s build a sports ticker to show the latest score result from some
+   Let's build a sports ticker to show the latest score result from some
    sports teams.
 
-   The key to making your data reactive in your plugin is simple… create a
-   new Vue instance that holds the data.
+   The key to making your data reactive in your plugin is simple... create
+   a new Vue instance that holds the data.
 // plugins/sports-ticker.js
 
 /**
@@ -115,9 +115,9 @@ export default {
 // Usage: import SportsTicker from 'plugins/sports-ticket'; Vue.use(SportsTicker
 );
 
-   That’s all that’s to it.
+   That's all that's to it.
 
-   What we’ve done is created a class to keep our logic separate from the
+   What we've done is created a class to keep our logic separate from the
    Vue plugin installation code. Then, we register the plugin with the
    options (in this case, just the team name). In the SportsTicker class,
    we create a new Vue instance with its own data store filled with
@@ -143,8 +143,8 @@ re.home }} - {{ $SportsTicker.state.score.away }}
 
    Anchors
 
-     * [1] [13]vuejs.org/v2/guide/plugins.html ↗
-     * [2] [14]vuejs.org/v2/guide/reactivity.html ↗
+     * [1] [13]vuejs.org/v2/guide/plugins.html /^
+     * [2] [14]vuejs.org/v2/guide/reactivity.html /^
 
    Appendix
 
@@ -183,4 +183,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///reactive-vuejs-plugins/index.md
   17. file:///reactive-vuejs-plugins/index.txt
-  18. file:///tmp/lynxXXXXfFCAJs/L249775-433TMP.html
+  18. file:///tmp/lynxXXXXMBkhZe/L10293-6546TMP.html

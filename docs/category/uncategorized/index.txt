@@ -9,7 +9,7 @@
    Displaying uncategorized entries sorted by creation date in descending
    order.
 
-   [9]‹ Categories  |  [10]‹ Home
+   [9]< Categories  |  [10]< Home
 
      *
      *

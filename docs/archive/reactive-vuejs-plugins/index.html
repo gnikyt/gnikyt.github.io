@@ -15,7 +15,7 @@
     <meta content=
     "VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to deve..."
     name="description">
-    <meta content="2017-06-29T12:36:22-0230" property="article:published_time">
+    <meta content="2017-06-29T12:36:22+0000" property="article:published_time">
     <meta content="Reactive VueJS plugins" property="og:title">
     <meta content="en" property="og:locale">
     <meta content=
@@ -32,8 +32,8 @@
     {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "dateModified": "2017-06-29T12:36:22-0230",
-    "datePublished": "2017-06-29T12:36:22-0230",
+    "dateModified": "2017-06-29T12:36:22+0000",
+    "datePublished": "2017-06-29T12:36:22+0000",
     "description": "
     VueJS has been my go-to framework from building small to medium-sized frontend applications and add-ins. Its simply great - easy to deve...",
     "headline": "Reactive VueJS plugins",
@@ -216,8 +216,7 @@
 <span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a><span class="co">   * </span><span class=
 "an">@return</span><span class="co"> {Object}</span></span>
 <span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a><span class="co">   */</span></span>
-<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>  <span class="kw">get</span> <span class=
-"fu">state</span>() {</span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>  get <span class="fu">state</span>() {</span>
 <span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a>    <span class=
 "cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">storeVM</span><span class=
 "op">.</span><span class="at">$data</span><span class="op">;</span></span>
@@ -300,15 +299,14 @@
 
               <div class="sourceCode" id="cb2">
                 <pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a aria-hidden="true" href=
-                "#cb2-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">template</span> <span class=
-                "er">v-if</span><span class="ot">=</span><span class=
-                "st">"$SportsTicker.state.gameTime"</span><span class="dt">&gt;</span></span>
+                "#cb2-1" tabindex="-1"></a><span class="kw">&lt;template</span> <span class="er">v-if</span><span class=
+                "ot">=</span><span class="st">"$SportsTicker.state.gameTime"</span><span class="kw">&gt;</span></span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>  {% raw %}</span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex=
 "-1"></a>  {{ $SportsTicker.state.team }}'s last game results: {{ $SportsTicker.state.score.home }} - {{ $SportsTicker.state.score.away }}</span>
 <span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>  {% endraw %}</span>
-<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="dt">&lt;/</span><span class=
-"kw">template</span><span class="dt">&gt;</span></span></code></pre>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class=
+"kw">&lt;/template&gt;</span></span></code></pre>
               </div>
 
               <p>

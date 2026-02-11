@@ -6,7 +6,7 @@
 
                            Laravel Shopify billing /
 
-   /* Jan 26, 2018  —  992B */
+   /* Jan 26, 2018  --  992B */
    [9]Logo of php [10]Logo of laravel
 
    Version 2.0.0 was [11]just released which features the baked-in ability
@@ -17,7 +17,7 @@
    recurring charges. You can set the plan name, price, trial days, and
    more.
 
-   You also have to ability to easily upgrade or downgrade a shop’s plan,
+   You also have to ability to easily upgrade or downgrade a shop's plan,
    enable them as a grandfather (skip billing), and more.
 
    For full information see the release notes, [12]upgrading doc, and the
@@ -28,16 +28,16 @@
 
    Anchors
 
-     * [1] [14]github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0 ↗
+     * [1] [14]github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0 /^
      * [2] [15]github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
-       ↗
+       /^
      * [3]
        [16]github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
-       ↗
+       /^
 
    Appendix
 
-   This post is 7 years old and may contain outdated information.
+   This post is 8 years old and may contain outdated information.
 
    Copyright under [17]CC-4.0.
 
@@ -74,4 +74,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///laravel-shopify-billing/index.md
   19. file:///laravel-shopify-billing/index.txt
-  20. file:///tmp/lynxXXXXAwqSfs/L248307-236TMP.html
+  20. file:///tmp/lynxXXXXZZUc8e/L8850-2703TMP.html

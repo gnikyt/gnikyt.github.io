@@ -6,13 +6,13 @@
 
                   Sorting product by category in WooCommerce /
 
-   /* Oct 05, 2013  —  6.0KB */
+   /* Oct 05, 2013  --  6.0KB */
    [9]Logo of wordpress [10]Logo of php
 
    This past week I was assigned to heavily customize a Woocommerce
-   install on a client’s successful store. What needed to be done on one
+   install on a client's successful store. What needed to be done on one
    task, was to give the customers the ability to filter products on the
-   product’s page by a specific set of categories. In other words: Only
+   product's page by a specific set of categories. In other words: Only
    show the products in X Category.
 
 Sure, this should be easy
@@ -25,14 +25,14 @@ Sure, this should be easy
    dead wrong. It turns out after all, $args passed to the
    woocommerce_get_catalog_ordering_args filter is more of a collection of
    direct SQL commands which WordPress compiles. This means simply passing
-   $args['product_cat'] = xxx; wasn’t going to work as I originally
-   thought. Back to square one…
+   $args['product_cat'] = xxx; wasn't going to work as I originally
+   thought. Back to square one...
 
 Finding a clue to the puzzle
 
-   That’s when I busted out some Google-Fu and tried to find any hook or
+   That's when I busted out some Google-Fu and tried to find any hook or
    filter Woocomerce had to directly modify the output of the query. There
-   is no Woocommerce-direct way to do this from what I’ve found. I did
+   is no Woocommerce-direct way to do this from what I've found. I did
    however find a [12]WordPress support post of people asking a similar
    question, and a guy by the name of bheadrick in that discussion
    provided some sample code.
@@ -42,8 +42,8 @@ Finding a clue to the puzzle
      ability for any other sort of options, which is a bit of a bummer.
 
    That is the sad key to the great code-snippet he provided in the
-   discussion. Although it worked, it modified all of WordPress’ post
-   queries instead of just the Woocomerce product’s page. I decided to dig
+   discussion. Although it worked, it modified all of WordPress' post
+   queries instead of just the Woocomerce product's page. I decided to dig
    into the Woocomerce code itself.
 
 Reading the code to find an answer
@@ -55,7 +55,7 @@ Reading the code to find an answer
 
    This is the filter I can use to add clauses (joins, wheres, orders) to
    the $args passed. So mixing that, with the code bheadrick provided in
-   the discussion is this…
+   the discussion is this...
 add_filter('woocommerce_default_catalog_orderby_options', 'ty_catalog_orderby');
 add_filter('woocommerce_catalog_orderby', 'ty_catalog_orderby');
 function ty_catalog_orderby( $sortby ) {
@@ -122,7 +122,7 @@ JOIN " . $wpdb->woocommerce_termmeta ." tm ON tm.woocommerce_term_id = t.term_id
 }
 
      * Lines 1-8 register the extra filters I want to show in
-       Woocommerce’s filter dropdown.
+       Woocommerce's filter dropdown.
      * Lines 10-33 adds my custom handler for when my filter is selected
        and called.
      * Lines 35-43 and45-53` is where the magic happens.
@@ -144,25 +144,25 @@ In conclusion
    " AND t.term_id IN(13, 15, 19)"; if you wish to get products in
    multiple categories for one filter action.
 
-   Anyways, that’s my story on the hunt to add such a filter. Feel free to
-   modify this and use it in your code since there doesn’t seem to be a
-   more viable option around that I’ve seen.
+   Anyways, that's my story on the hunt to add such a filter. Feel free to
+   modify this and use it in your code since there doesn't seem to be a
+   more viable option around that I've seen.
 
    Anchors
 
      * [1]
        [14]http://docs.woothemes.com/document/custom-sorting-options-ascde
-       sc/ ↗
+       sc/ /^
      * [2]
        [15]http://wordpress.org/support/topic/plugin-woocommerce-trying-to
-       -order-categories#post-3186161 ↗
+       -order-categories#post-3186161 /^
      * [3]
        [16]http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html
-       #411 ↗
+       #411 /^
 
    Appendix
 
-   This post is 11 years old and may contain outdated information.
+   This post is 12 years old and may contain outdated information.
 
    Copyright under [17]CC-4.0.
 
@@ -199,4 +199,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///woocommerce-sorting-products-by-category/index.md
   19. file:///woocommerce-sorting-products-by-category/index.txt
-  20. file:///tmp/lynxXXXX4OYivk/L255335-9072TMP.html
+  20. file:///tmp/lynxXXXXIYCTL7/L15734-7375TMP.html

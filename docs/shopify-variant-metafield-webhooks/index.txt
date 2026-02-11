@@ -6,7 +6,7 @@
 
                       Shopify variant metafield webhooks /
 
-   /* Aug 08, 2025  —  2.0KB */
+   /* Aug 08, 2025  --  2.0KB */
    [9]Logo of shopify
 
    When you update a metafield for a customer in Shopify, the Customer
@@ -15,28 +15,28 @@
    product variant does not trigger the Variant Update Webhook.
 
    Recently, I needed to be notified about variant metafield updates to
-   sync them with an internal system. Since the webhook doesn’t fire for
+   sync them with an internal system. Since the webhook doesn't fire for
    these changes, the only alternative would be to inefficiently poll the
    variants for updates. Fortunately, I found a workaround based on
    information from Shopify.dev.
 
    Metaobjects as the storage for the variant metafields. Althrough
    seemingly rough on the surface, it did actually work for our needs.
-   What I did was create a “Variant” metaobject, added a field called
-   “Variant ID” which was a string and set to be the display code. This
+   What I did was create a "Variant" metaobject, added a field called
+   "Variant ID" which was a string and set to be the display code. This
    means that the variant ID would become the handle of the metaobject
-   entry. Other fields required, which normally would’ve lived in the
+   entry. Other fields required, which normally would've lived in the
    variant metafield level, were then added to this new metaobject.
 
    All existing variant metafields were deleted and a single metafield on
-   the variant level was added called “Meta”, which was a metafield that
+   the variant level was added called "Meta", which was a metafield that
    links to a singular metaobject. By configuring it this way, clicking on
-   “Meta” inside a variant would allow for adding information to the new
+   "Meta" inside a variant would allow for adding information to the new
    metaobject, or updating the existing metaobject for that variant.
 
    Metaobjects do support webhook notifications for create, update, and
    delete, it even allows filtering for only the webhooks you require. For
-   this, I filtered by the new “Variant” metaobject, to only recieve
+   this, I filtered by the new "Variant" metaobject, to only recieve
    notifications for those.
 
    [variant_metaobject.gif]
@@ -75,4 +75,4 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///shopify-variant-metafield-webhooks/index.md
   12. file:///shopify-variant-metafield-webhooks/index.txt
-  13. file:///tmp/lynxXXXXCmaJv2/L239778-8984TMP.html
+  13. file:///tmp/lynxXXXXi2cqBg/L469-3946TMP.html

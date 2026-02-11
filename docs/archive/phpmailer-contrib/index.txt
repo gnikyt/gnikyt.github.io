@@ -6,7 +6,7 @@
 
                             PHPMailer contribution /
 
-   /* Feb 09, 2014  —  1.4KB */
+   /* Feb 09, 2014  --  1.4KB */
    [9]Logo of wordpress [10]Logo of php
 
    I and a fellow developer were working on updating a two/three-year-old
@@ -16,29 +16,29 @@
 
    During our upgrading of the code, we discovered [11]PHPMailer (the
    component WordPress uses for mailing [12]wp_mail, has been changed
-   since we last wrote the plugin. The class properties “to”, “bcc”, “cc”,
-   “ReplyTo”, and “all_recipients” of PHPMailer went from public to
+   since we last wrote the plugin. The class properties "to", "bcc", "cc",
+   "ReplyTo", and "all_recipients" of PHPMailer went from public to
    protected over the last couple years.
 
-   So our issue was $mailer->to simply wouldn’t work anymore, and there
+   So our issue was $mailer->to simply wouldn't work anymore, and there
    appeared to be no public access methods to get the addresses such as
    $mailer->getToAddresses().
 
-   I addressed the issue on PHPMailer’s Github page, and [13]provided a
+   I addressed the issue on PHPMailer's Github page, and [13]provided a
    pull request which has been merged into the master :) So in short, you
-   can now access “to”, “bcc”, “cc”, “ReplyTo”, and “all_recipients” by
+   can now access "to", "bcc", "cc", "ReplyTo", and "all_recipients" by
    using getToAddresses(), getBccAddresses(), getCcAddresses(),
    getReplyToAddresses() and getAllRecipientAddresses().
 
    Anchors
 
-     * [1] [14]http://phpmailer.worxware.com/ ↗
-     * [2] [15]http://codex.wordpress.org/Function_Reference/wp_mail ↗
-     * [3] [16]github.com/PHPMailer/PHPMailer/issues/180 ↗
+     * [1] [14]http://phpmailer.worxware.com/ /^
+     * [2] [15]http://codex.wordpress.org/Function_Reference/wp_mail /^
+     * [3] [16]github.com/PHPMailer/PHPMailer/issues/180 /^
 
    Appendix
 
-   This post is 11 years old and may contain outdated information.
+   This post is 12 years old and may contain outdated information.
 
    Copyright under [17]CC-4.0.
 
@@ -75,4 +75,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///phpmailer-contrib/index.md
   19. file:///phpmailer-contrib/index.txt
-  20. file:///tmp/lynxXXXXDlhAae/L254670-1203TMP.html
+  20. file:///tmp/lynxXXXXJCGGit/L15073-2481TMP.html

@@ -6,7 +6,7 @@
 
                            Extending a Rails Engine /
 
-   /* Feb 20, 2016  —  4.4KB */
+   /* Feb 20, 2016  --  4.4KB */
    [9]Logo of ruby [10]Logo of rails
 
    Redesigning my CMS in Rails has been great fun. There have been many
@@ -16,7 +16,7 @@
    methods of controllers, models, helpers, etc.
 
    The [11]Rails Engine Guide is excellent and it has two main points on
-   extending the engine functionality. One is by use of “decorators” and
+   extending the engine functionality. One is by use of "decorators" and
    the other is by abstracting all your controller and model code into
    concerns inside your engine. While I like the concern method, as it
    gives more flexibility for complex extensions, its overkill in my
@@ -105,7 +105,7 @@ Views
    As stated above for the controller example, since Rails looks in the
    main app for views first, you simply need to match the correct path.
 
-   If your engine’s view for CoolController#jumps is
+   If your engine's view for CoolController#jumps is
    app/views/{engine}/cool/jumps.html.erb you will duplicate this in your
    main Rails apps by creating a file in
    app/views/{engine}/cool/jumps.html.erb. You can then enter anything you
@@ -122,19 +122,19 @@ Views
 
      * [1]
        [16]http://edgeguides.rubyonrails.org/engines.html#improving-engine
-       -functionality ↗
+       -functionality /^
      * [2]
        [17]http://edgeguides.rubyonrails.org/engines.html#overriding-model
-       s-and-controllers ↗
+       s-and-controllers /^
      * [3]
        [18]http://apidock.com/rails/ActiveSupport/Dependencies/Loadable/re
-       quire_dependency ↗
+       quire_dependency /^
      * [4]
        [19]http://guides.rubyonrails.org/layouts_and_rendering.html#unders
-       tanding-yield ↗
+       tanding-yield /^
      * [5]
        [20]http://guides.rubyonrails.org/layouts_and_rendering.html#using-
-       the-content-for-method ↗
+       the-content-for-method /^
 
    Appendix
 
@@ -179,4 +179,4 @@ References
   21. https://creativecommons.org/licenses/by/4.0/
   22. file:///extending-a-rails-engine/index.md
   23. file:///extending-a-rails-engine/index.txt
-  24. file:///tmp/lynxXXXXNj0UPz/L252590-8020TMP.html
+  24. file:///tmp/lynxXXXXgDpS81/L13021-977TMP.html

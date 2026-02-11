@@ -6,12 +6,12 @@
 
                 Shopify Checkout Extension to backend fetching /
 
-   /* Feb 27, 2024  —  3.1KB */
+   /* Feb 27, 2024  --  3.1KB */
    [9]Logo of shopify [10]Logo of javascript [11]Logo of react
 
    There are several posts around about people having issues figuring out
    how to send a fetch request from their checkout extension to their app
-   backend (Remix). Shopify’s documentation around this is rather limited
+   backend (Remix). Shopify's documentation around this is rather limited
    as well. So, I have put together a small example of how you can achieve
    this!
 
@@ -57,7 +57,7 @@ export default function useSessionFetch(sessionToken: SessionToken) {
 
    This function will accept the session token service and return a
    function you can use instead of fetch. Upon calling it, the code will
-   automatically get a session token to append to the fetch request’s
+   automatically get a session token to append to the fetch request's
    headers. Its really just a small but helpful hook to wrap around fetch.
 
    To utilize this in your extension, example:
@@ -137,4 +137,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///generate-type-definitions-without-emitting-js/index.md
   14. file:///generate-type-definitions-without-emitting-js/index.txt
-  15. file:///tmp/lynxXXXX9XN5db/L241840-847TMP.html
+  15. file:///tmp/lynxXXXXb7F6or/L2469-1734TMP.html

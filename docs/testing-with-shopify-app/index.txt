@@ -6,7 +6,7 @@
 
                            Testing with shopify_app /
 
-   /* Jun 21, 2016  —  2.3KB */
+   /* Jun 21, 2016  --  2.3KB */
    [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
 
    [12]shopify_app is a great Gem to quickly build a Shopify App with
@@ -19,13 +19,13 @@
    create a fixture file in test/fixtures/shops.yml of your Rails
    application.
 
-   Inspecting it you will see it’s filled with one shop,
+   Inspecting it you will see it's filled with one shop,
    regular-shop.myshopify.com, and a simple token. When running bundle
    exec rake test (after migrations are done for a test environment of
    course), it will populate the shop database table with the fixture data
    in shop.yml.
 
-   Now that we have a shop we can “log into”, let’s create a support
+   Now that we have a shop we can "log into", let's create a support
    module for the unit tests. Create a file called
    shopify_session_support.rb inside test/support.
 # test/support/shopify_session_support.rb
@@ -64,7 +64,7 @@ end
 
    Anchors
 
-     * [1] [13]github.com/Shopify/shopify_app ↗
+     * [1] [13]github.com/Shopify/shopify_app /^
 
    Appendix
 
@@ -102,4 +102,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///testing-with-shopify-app/index.md
   16. file:///testing-with-shopify-app/index.txt
-  17. file:///tmp/lynxXXXXTCGuS1/L250959-2781TMP.html
+  17. file:///tmp/lynxXXXXmb8zJG/L11436-1224TMP.html

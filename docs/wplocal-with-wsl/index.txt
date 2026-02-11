@@ -6,7 +6,7 @@
 
                            WordPress Local with WSL /
 
-   /* Dec 07, 2023  —  5.6KB */
+   /* Dec 07, 2023  --  5.6KB */
    [9]Logo of php [10]Logo of wordpress
 
    A recent project was picked up from another agency where they utilized
@@ -35,11 +35,11 @@ Installation
    [11]WP Local Running inside WSL
 
    Although its open and running, if you immediately tried to connect to
-   WP Engine and pull down a project, you’ll have displays with errors pop
+   WP Engine and pull down a project, you'll have displays with errors pop
    up such as the inability for WP Local to ask for priviliages (sudo) and
    issues for it to properly configure NGINX.
 
-   With a lot of digging around the web to solve both issues… I came
+   With a lot of digging around the web to solve both issues... I came
    across a great post by [12]robert77 on the WP Local Community Forums
    which I will outline below.
 
@@ -48,7 +48,7 @@ Fixing Dependencies
    As mentioned earlier, not all dependencies we actually end up being
    installed. I am unsure if the Debian package defines the dependencies
    to be installed, or they error upon installing (I did not see an error
-   in my case), but… we need more packages regardless!
+   in my case), but... we need more packages regardless!
 
    Run sudo apt-get update && sudo apt-get upgrade to ensure package
    information is updated and accurate.
@@ -80,7 +80,7 @@ Priviliaged Requests
    Local to spawn a GUI to ask for a password.
 
    Running sudo nano /usr/bin/kdesudo should open a new file. Inside the
-   file, paste the following to use LxQT’s prompt:
+   file, paste the following to use LxQT's prompt:
 #!/bin/bash
 /usr/bin/lxqt-sudo $7
 
@@ -104,8 +104,8 @@ ning-services/nginx-[version]/bin/linux/sbin/nginx`
 Recommended
 
    Once completed, recommendation would be to change WP Local to use
-   “localhost” instead of “Site Domains”, but should you choose to use
-   “Site Domains”, you will need to add an entry to your Windows’ hosts
+   "localhost" instead of "Site Domains", but should you choose to use
+   "Site Domains", you will need to add an entry to your Windows' hosts
    file (C:\Windows\system32\drivers\etc\hosts) for the domain. For
    example, if your project was jumping-bean.local you would need to add
    127.0.0.1 jumping-bean.local to the hosts file.
@@ -118,7 +118,7 @@ Recommended
 
 Bonus: Git Integration
 
-   If you’re curious on how you can pull down a project with WP Local and
+   If you're curious on how you can pull down a project with WP Local and
    connect it to either a new or existing repository, then it can be
    achieved by doing the following steps, at a high level:
     1. Pull down the project with WP Local
@@ -135,7 +135,7 @@ git remote add origin [url] && \
 git fetch origin master && \
 git reset --hard origin/master
 
-   Replacing [url] with your repository’s URL.
+   Replacing [url] with your repository's URL.
 
    Once completed, this will allow you to make changes to your code and
    have it synced with WP Local, and additionally deploy the code with WP
@@ -143,17 +143,19 @@ git reset --hard origin/master
 
 Conclusion
 
-   That’s it! A very helpful post from robert77 leads to a working WP
+   That's it! A very helpful post from robert77 leads to a working WP
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
    Anchors
 
      * [1] [14]/assets/images/posts/wplocal_running.png
-     * [2] [15]community.localwp.com/u/robert77 ↗
+     * [2] [15]community.localwp.com/u/robert77 /^
      * [3] [16]/assets/images/posts/wplocal_sudo.png
 
    Appendix
+
+   This post is 2 years old and may contain outdated information.
 
    Copyright under [17]CC-4.0.
 
@@ -190,4 +192,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///wplocal-with-wsl/index.md
   19. file:///wplocal-with-wsl/index.txt
-  20. file:///tmp/lynxXXXXNEsKHv/L242780-1142TMP.html
+  20. file:///tmp/lynxXXXXNf21Cp/L3404-2600TMP.html

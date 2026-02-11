@@ -8,7 +8,7 @@
 
    Headshot Headshot
 
-   Hello World. I’m Ty(ler) King — A self-taught, seasoned, and versatile
+   Hello World. I'm Ty(ler) King -- A self-taught, seasoned, and versatile
    developer out of Newfoundland. With over a decade of experience in the
    Shopify ecosystem, I have developed a passion for ecommerce-focused
    initiatives. I specialize in crafting innovative solutions with
@@ -20,7 +20,7 @@
    open-door mindset allow me to navigate both the technical and human
    sides of business with confidence.
 
-   You can reach me several ways — through [9]me@gnikyt.com, with
+   You can reach me several ways -- through [9]me@gnikyt.com, with
    [10]Github, or connect on [11]LinkedIn.
 
 My Rundown
@@ -37,7 +37,7 @@ Regularly developing
 
    What I work with day-to-day.
      * Shopify (apps, integrations, extensions, themes)
-     * Javascript/Typescript (and it’s frameworks)
+     * Javascript/Typescript (and it's frameworks)
      * Go
 
 Previously developing
@@ -61,8 +61,8 @@ Pinned Open Source work
        Shopify using Guzzle for REST and GraphQL.
      * [17]basic_shopify_api - Python; A sync/async REST and GraphQL
        client for Shopify API using HTTPX.
-     * [18]gowith - Golang; Python’s “with” implemented in Go.
-     * [19]with - PHP; Python’s “with” implemented in PHP.
+     * [18]gowith - Golang; Python's "with" implemented in Go.
+     * [19]with - PHP; Python's "with" implemented in PHP.
      * [20]http_shopify_webhook - Golang; Webhook verification for
        Shopify.
      * [21]be - BASH; Template engine in BASH.
@@ -109,4 +109,4 @@ References
   22. https://creativecommons.org/licenses/by/4.0/
   23. file:///about/index.md
   24. file:///about/index.txt
-  25. file:///tmp/lynxXXXXVsCgul/L255548-8723TMP.html
+  25. file:///tmp/lynxXXXXgUbT2c/L15945-8322TMP.html

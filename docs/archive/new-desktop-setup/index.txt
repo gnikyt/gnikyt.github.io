@@ -6,16 +6,16 @@
 
                               New desktop setup /
 
-   /* Dec 11, 2022  —  6.5KB */
+   /* Dec 11, 2022  --  6.5KB */
    [9]Logo of cmd
 
 Introduction
 
-   I haven’t had the time to tweak my desktop in over a year, I’ve been
+   I haven't had the time to tweak my desktop in over a year, I've been
    mostly stuck with the default settings of Fedora (GNOME) and slowly
    tweaked things, before that, a [10]Plasma/i3 setup (which was
-   awesome!). I’ve had a long run of different setups over the last couple
-   of decades… AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
+   awesome!). I've had a long run of different setups over the last couple
+   of decades... AwesomeWM, i3, KDE 2/3, GNOME 2/3/4, XFCE, etc.
 
    Using GNOME full-time has been fine, but not great. It is a dependable
    and well-working desktop environment out-of-the-box, but that is as far
@@ -27,7 +27,7 @@ Introduction
      * No proper information is displayed
 
    For me, I like key information and easy access to things by both
-   keyboard (mainly) and mouse. I’m a little old school in that sense…
+   keyboard (mainly) and mouse. I'm a little old school in that sense...
    preferring information to eye candy. The days of everyone having CPU
    graphs, cool Conky configs, panels with functionality, and so on, seem
    to be a thing of the past for many users; which is fine! That is their
@@ -36,11 +36,11 @@ Introduction
    The workflow GNOME offers, by default, has all those sorts of things
    very hidden or non-existent.
      * No list of open windows
-     * No indication of what desktop you’re viewing
+     * No indication of what desktop you're viewing
      * No quick access to device settings (Bluetooth, sound, wifi, etc.)
      * Did I say you need a lot of extensions yet?
 
-   I simply miss my old XFCE and GNOME 2 layout of the early 2000s – the
+   I simply miss my old XFCE and GNOME 2 layout of the early 2000s - the
    peak of the Linux Desktop, in my opinion, something which KDE continues
    to do with Plasma (I have my preferences with Plasma, but I will not
    get into it for this post).
@@ -54,7 +54,7 @@ Trying with GNOME
    [11]Finalized GNOME
 
    The above screenshot is an example of the resulting setup which has a
-   similar feel to the old layout… two panels with proper information.
+   similar feel to the old layout... two panels with proper information.
 
    To achieve this, it required the following extensions:
      * Applications Menu: To get the application menu as GNOME 2 had
@@ -82,18 +82,18 @@ Trying with GNOME
    As I said, GNOME works well out of the box, the second you start
    tacking on a bulk of extensions to backfill some functionality, it
    breaks down. Not only that, GNOME visually does a great job with the
-   unification of applications, dialogs, themes, etc, it’s very
-   consistent. It’s a shame they took such a radical direction away from
+   unification of applications, dialogs, themes, etc, it's very
+   consistent. It's a shame they took such a radical direction away from
    GNOME 2 which was a tried and true base.
 
 Exploring Alternatives
 
-   I decided to give XFCE a whirl again, I haven’t used it in maybe 5 or 6
+   I decided to give XFCE a whirl again, I haven't used it in maybe 5 or 6
    years. With XFCE still being actively developed, and pushing for a
    Wayland implementation in future releases, it seemed like a good
    avenue. Short and sweet result: consistency was hard to get between
-   various applications which affected my workflow, I’ll skip the details
-   as it’s simply an opinion.
+   various applications which affected my workflow, I'll skip the details
+   as it's simply an opinion.
 
    Next, a toss-up between MATE and Cinnamon (which I had not yet tried).
    My gut told me to try Cinnamon; it is very actively developed by the
@@ -115,7 +115,7 @@ Cinnamon
 
    [13]Cinnamon result
 
-   It’s everything I need to visually see at the moment (minus some system
+   It's everything I need to visually see at the moment (minus some system
    stats which I had not yet tackled). It is also consistent. The Linux
    Mint team has done a great job to build Cinnamon away from GNOME Shell
    but still provide a consistent look between applications for a bit of a
@@ -145,7 +145,7 @@ Cinnamon
      * GTK/WM theme: Mint-Y-Dark-Aqua
      * Desktop theme: Mint-Y-Dark-Aqua (but Cinnamon default is nice too!)
 
-   Additionally, Mint’s [14]“X-Apps” work well and are customizable as I
+   Additionally, Mint's [14]"X-Apps" work well and are customizable as I
    like. As well, Nemo, is much more full featured than Nautilus, it
    actually shows informations and has meaningful settings.
 
@@ -158,14 +158,16 @@ Cinnamon
      * [1] [15]/i3-plasma-a-solid-match
      * [2] [16]/assets/images/posts/gnomeshelllook.png
      * [3]
-       [17]gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/ ↗
+       [17]gitlab.gnome.org/eeshugerman/gnome-shell-theme-default-light/
+       /^
      * [4] [18]/assets/images/posts/cinnamon.png
      * [5]
-       [19]linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html ↗
+       [19]linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
+       /^
 
    Appendix
 
-   This post is 2 years old and may contain outdated information.
+   This post is 3 years old and may contain outdated information.
 
    Copyright under [20]CC-4.0.
 
@@ -205,4 +207,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///new-desktop-setup/index.md
   22. file:///new-desktop-setup/index.txt
-  23. file:///tmp/lynxXXXXpv33gh/L243266-8319TMP.html
+  23. file:///tmp/lynxXXXXe4EVRL/L3888-4992TMP.html

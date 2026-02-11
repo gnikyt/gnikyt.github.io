@@ -6,15 +6,15 @@
 
                  Symfony Flex with Symfony Server Dockerized /
 
-   /* Feb 04, 2020  —  5.5KB */
+   /* Feb 04, 2020  --  5.5KB */
    [9]Logo of php [10]Logo of symfony
 
    Symfony Flex allows you to tailor a Symfony application to your needs
-   by building it with “recipes”. It provides a way to create a very lean
+   by building it with "recipes". It provides a way to create a very lean
    and clean Symfony application with only the bells and whistles you
    choose.
 
-   In this post, I’ll show you how to create a Dockerized version of your
+   In this post, I'll show you how to create a Dockerized version of your
    Flex application that utilizes the Symfony local server for use during
    local development.
 
@@ -34,7 +34,7 @@ Setup
 
    composer req api
 
-   You’re now free to create any entities, repositories, controllers,
+   You're now free to create any entities, repositories, controllers,
    services, etc. that you require, or you can come back to that at a
    later time, it is not required.
 
@@ -42,7 +42,7 @@ Dockerizing
 
 Docker Compose
 
-   For this example, we’ll simply set up a MySQL server, Redis server, and
+   For this example, we'll simply set up a MySQL server, Redis server, and
    PHP CLI. We will manage all this through Docker Compose.
 # docker-compose.yml
 version: '3'
@@ -82,12 +82,12 @@ services:
     tty: true
 
    The above will pull in the mysql:5.7 image with some initial
-   environment variables (you’re free to replace them). It will mount its
+   environment variables (you're free to replace them). It will mount its
    data volume to ./docker/db of your myapi directory for persistence. It
    will also map port 3306 on your host machine to forward to 3306 in the
    container.
 
-   Below that, we pull in the redis image and mount it’s volume to
+   Below that, we pull in the redis image and mount it's volume to
    ./docker/redis of your myapi directory for storage. It will also map
    port 6379 of your host machine to forward to 6379 in the container. You
    can adjust the entrypoint to your needs.
@@ -126,7 +126,7 @@ EXPOSE 80
 CMD cd /var/www/html && symfony server:start --no-tls --port=80
 
    The above Dockerfile will pull in the php:7.3-cli image. Since
-   Symfony’s local server will be handling the requests, we do not need
+   Symfony's local server will be handling the requests, we do not need
    Nginx, Apache, mod_php, or php-fpm.
 
    In the commands, we tell it to install wget which is required to
@@ -138,7 +138,7 @@ CMD cd /var/www/html && symfony server:start --no-tls --port=80
 Running
 
    It is a good idea to now modify your .env.local file to connect to the
-   container’s MySQL instance and Redis instance with the credentials set
+   container's MySQL instance and Redis instance with the credentials set
    up in the docker-compose.yml file and the special mapping keywords,
    redis and db for the address.
 
@@ -148,7 +148,7 @@ Running
      * REDIS_URL=redis://redis:6379?timeout=5
 
    Finally, executing docker-compose up will build and boot the
-   containers. If you’re successful… you should see the Symfony local
+   containers. If you're successful... you should see the Symfony local
    server running with a message similar to:
 
    [OK] Web server listening on http://127.0.0.1:80
@@ -158,7 +158,7 @@ Running
    see the Symfony welcome screen.
 
    As a side note, it would be a good idea to set up a hosts file entry so
-   you don’t need to type your localhost every time, and also enabling
+   you don't need to type your localhost every time, and also enabling
    HTTPS would be a good measure, but not necessarily needed for local
    development.
 
@@ -172,12 +172,12 @@ Conclusion
 
    Anchors
 
-     * [1] [13]symfony.com/doc/current/quick_tour/flex_recipes.html ↗
-     * [2] [14]symfony.com/doc/current/setup/symfony_server.html ↗
+     * [1] [13]symfony.com/doc/current/quick_tour/flex_recipes.html /^
+     * [2] [14]symfony.com/doc/current/setup/symfony_server.html /^
 
    Appendix
 
-   This post is 5 years old and may contain outdated information.
+   This post is 6 years old and may contain outdated information.
 
    Copyright under [15]CC-4.0.
 
@@ -212,4 +212,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
   17. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
-  18. file:///tmp/lynxXXXXfaJpYX/L247399-7544TMP.html
+  18. file:///tmp/lynxXXXXHGheJh/L7946-9967TMP.html

@@ -6,11 +6,11 @@
 
                                Lumen with Redis /
 
-   /* Nov 19, 2017  —  1.3KB */
+   /* Nov 19, 2017  --  1.3KB */
    [9]Logo of php [10]Logo of laravel
 
-   This is more of an extension of my previous post “Setting Up Lumen +
-   Mail”. I wanted to take it a step further and show the basic setup for
+   This is more of an extension of my previous post "Setting Up Lumen +
+   Mail". I wanted to take it a step further and show the basic setup for
    getting Redis to work, so you can queue not only mail, but jobs.
 
    First, run composer require illuminate/redis:5.5 to grab the Redis
@@ -42,17 +42,17 @@ return [
   ]
 ];
 
-   Don’t forget to set up all your environment variables for Redis, as
+   Don't forget to set up all your environment variables for Redis, as
    well, to enable Redis for job processing and cache, set the following
    environment variables:
 CACHE_DRIVER=redis
 QUEUE_DRIVER=redis
 
-   That’s it! You can now queue mail or process jobs.
+   That's it! You can now queue mail or process jobs.
 
    Appendix
 
-   This post is 7 years old and may contain outdated information.
+   This post is 8 years old and may contain outdated information.
 
    Copyright under [11]CC-4.0.
 
@@ -83,4 +83,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///setting-up-lumen-with-redis/index.md
   13. file:///setting-up-lumen-with-redis/index.txt
-  14. file:///tmp/lynxXXXXxyKdEm/L248568-5491TMP.html
+  14. file:///tmp/lynxXXXXIvnTE2/L9099-9912TMP.html

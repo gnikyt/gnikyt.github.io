@@ -6,7 +6,7 @@
 
                       Type definitions without emitting /
 
-   /* Feb 07, 2024  —  3.4KB */
+   /* Feb 07, 2024  --  3.4KB */
    [9]Logo of javascript
 
 Introduction
@@ -15,7 +15,7 @@ Introduction
    frontend extensions. After completion of the backend, it was realized
    that the frontend extensions needed types from the backend.
 
-   Extensions with Shopify’s setup does not allow importing relative
+   Extensions with Shopify's setup does not allow importing relative
    packages. For example, if this was the loose structure:
  - app/
      - paginate/
@@ -42,7 +42,7 @@ import { type ShopifyOrderIdValue } from "../../../app/value/id";
 
    This would produce an error and not compile. You could copy/paste the
    type definitions into the extension manually, but this is not a great
-   idea.. what if the types you’re importing change? They would be out of
+   idea.. what if the types you're importing change? They would be out of
    sync if you did not manually correct it.
 
    A solution is to generate types based upon the app into a local package
@@ -58,7 +58,7 @@ types package
   "version": "1.0.0"
 }
 
-   In my case, I named the package app-types, but you’re free to name as
+   In my case, I named the package app-types, but you're free to name as
    you please.
 
 Generation
@@ -100,7 +100,7 @@ Importing
    Adding, "app-types": "file:../../../types" to devDependencies, then
    running npm install.
 
-   Now, you’ll be able to import the types without compilation errors or
+   Now, you'll be able to import the types without compilation errors or
    warnings as such:
 // extensions/order-stats/src/BlockExtension.tsx
 
@@ -108,6 +108,8 @@ import { type PaginatedRecords } from "app-types/paginate/index";
 import { type ShopifyOrderIdValue } from "app-types/value/id";
 
    Appendix
+
+   This post is 2 years old and may contain outdated information.
 
    Copyright under [10]CC-4.0.
 
@@ -137,4 +139,4 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///type-definitions-without-emitting/index.md
   12. file:///type-definitions-without-emitting/index.txt
-  13. file:///tmp/lynxXXXXlSnPQr/L242079-6532TMP.html
+  13. file:///tmp/lynxXXXXdNNf06/L2712-4800TMP.html

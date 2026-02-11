@@ -6,12 +6,12 @@
 
                  Shopify Node App custom multi-tenant support /
 
-   /* Nov 15, 2021  —  10KB */
+   /* Nov 15, 2021  --  10KB */
    [9]Logo of shopify [10]Logo of javascript
 
 Introduction
 
-   Shopify’s new boilerplate for app development with Node works well. It
+   Shopify's new boilerplate for app development with Node works well. It
    gets a lot of small details out of the way, allowing you to code an app
    with built in Polaris support, verification, and more.
 
@@ -205,7 +205,7 @@ router.get(
    As well, remove the default Shopify.Context declaration in the
    server.js file.
 
-   Now, all API requests in your handlers will use the shop’s API key and
+   Now, all API requests in your handlers will use the shop's API key and
    secret.
 
 VerifyHmac
@@ -358,12 +358,12 @@ class MyApp extends App {
   }
 }
 
-   You’re now completed.
+   You're now completed.
 
 Conculsion
 
    In two parts, we created middleware to handle modifying/setting up the
-   Shopify.Context object and also created a handler to verify the shop’s
+   Shopify.Context object and also created a handler to verify the shop's
    request and supply back an API key to pass to AppBridge.
 
    The code in this post can certainly be improved upon, but its a good
@@ -372,7 +372,7 @@ Conculsion
 
    Appendix
 
-   This post is 3 years old and may contain outdated information.
+   This post is 4 years old and may contain outdated information.
 
    Copyright under [11]CC-4.0.
 
@@ -403,4 +403,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///shopify-node-app-custom-multi-tenant/index.md
   13. file:///shopify-node-app-custom-multi-tenant/index.txt
-  14. file:///tmp/lynxXXXXd5go6B/L245101-9326TMP.html
+  14. file:///tmp/lynxXXXXrVi1pA/L5679-9342TMP.html

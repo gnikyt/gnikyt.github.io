@@ -6,10 +6,10 @@
 
                             WordPress User Themes /
 
-   /* May 21, 2015  —  365B */
+   /* May 21, 2015  --  365B */
    [9]Logo of php [10]Logo of wordpress
 
-   I’ve released a unit-tested plugin called Wp User Themes.
+   I've released a unit-tested plugin called Wp User Themes.
 
    It allows users to switch themes in their profile section (useful for
    development!)
@@ -18,7 +18,7 @@
 
    Anchors
 
-     * [1] [12]github.com/gnikyt/wp-user-themes ↗
+     * [1] [12]github.com/gnikyt/wp-user-themes /^
 
    Appendix
 
@@ -55,4 +55,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///wp-user-themes/index.md
   15. file:///wp-user-themes/index.txt
-  16. file:///tmp/lynxXXXXMSDIBB/L253625-5136TMP.html
+  16. file:///tmp/lynxXXXXe6s8bI/L14050-118TMP.html

@@ -1,0 +1,828 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      New cq release | gnikyt
+    </title>
+    <link href="https://gnikyt.com/new-cq-release" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "I intended to write an update about `cq` since a lot of features have been added in recent months, but I realized this is actually the f..."
+    name="description">
+    <meta content="2026-02-11T07:48:02+0000" property="article:published_time">
+    <meta content="New cq release" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "I intended to write an update about `cq` since a lot of features have been added in recent months, but I realized this is actually the f..."
+    property="og:description">
+    <meta content="https://gnikyt.com/new-cq-release" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "I intended to write an update about `cq` since a lot of features have been added in recent months, but I realized this is actually the f..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2026-02-11T07:48:02+0000",
+    "datePublished": "2026-02-11T07:48:02+0000",
+    "description": "
+    I intended to write an update about `cq` since a lot of features have been added in recent months, but I realized this is actually the f...",
+    "headline": "New cq release",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/new-cq-release"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/new-cq-release"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post" data-handle="new-cq-release">
+    <header class="site-head container">
+      <div class="site-head__item">
+        <div class="site-head__title">
+          <div class="site-head__title-inner">
+            <span class="site-head__title-item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+            "site-head__title-item site-head__title-item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code
+            ramblings</span>
+          </div>
+
+          <div class="site-head__title-inner">
+            <a class="site-head__avatar" href="/about"><img alt="Ty King" class="site-head__avatar-img" src=
+            "/assets/images/me.jpg"></a>
+          </div>
+        </div>
+
+        <div class="site-nav">
+          <a class="button button--strong" href="/about">About</a><a class="button button--strong" href=
+          "https://github.com/gnikyt" rel="noopener" target="_blank">Github</a><a class="button button--strong" href=
+          "https://linkedin.com/in/gnikyt" rel="noopener" target="_blank">LinkedIn</a><a class="button button--strong"
+          href="/assets/files/cv.pdf" target="_blank">CV</a><a class="button button--strong" href="/rss.xml" target=
+          "_blank">RSS</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            New cq release /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container">
+              <div class="post__details">
+                /* <time class="post__time" datetime="2026-02-11">Feb 11,
+                2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class="post__size">9.3KB</span> */
+              </div>
+
+              <div class="post__category">
+                <a href="/category/golang"><img alt="Logo of golang" class="post__category-logo" src=
+                "/assets/images/category-golang.svg"></a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                I intended to write an update about <code>cq</code> since a lot of features have been added in recent
+                months, but I realized this is actually the first time I’ve posted about <code>cq</code>!
+              </p>
+
+              <p>
+                Given that, here is an overview of the project.
+              </p>
+
+              <h2 id="what-is-cq">
+                What is cq?
+              </h2>
+
+              <p>
+                <code>cq</code> (Composable Queue) is an auto-scaling Go queue for processing functions as jobs.
+              </p>
+
+              <p>
+                At the core, it gives you:
+              </p>
+
+              <ul>
+                <li>A worker pool that scales between min/max workers
+                </li>
+
+                <li>A queue for job execution (including priority support)
+                </li>
+
+                <li>Wrappers you can compose around jobs for behavior like retries, backoff, timeouts, tracing,
+                release/defer, and circuit breaking
+                </li>
+              </ul>
+
+              <p>
+                The key design idea is composition: keep job logic focused on business work, and layer operational
+                behavior around it with wrappers.
+              </p>
+
+              <h2 id="why-use-it">
+                Why use it?
+              </h2>
+
+              <p>
+                For most teams, background processing eventually needs more than “run this function later”:
+              </p>
+
+              <ul>
+                <li>Handling transient failures cleanly
+                </li>
+
+                <li>Controlling retries and backoff without spaghetti logic
+                </li>
+
+                <li>Preventing overlap or duplicate work
+                </li>
+
+                <li>Respecting upstream rate limits
+                </li>
+
+                <li>Capturing outcomes and tracing for observability
+                </li>
+              </ul>
+
+              <p>
+                <code>cq</code> is aimed at those real-world concerns while staying lightweight, dependency-free,
+                customizable, and fast; a great drop-in package to both new and existing setups.
+              </p>
+
+              <h2 id="where-cq-fits">
+                Where cq fits
+              </h2>
+
+              <p>
+                You can use it in a few ways:
+              </p>
+
+              <ol type="1">
+                <li>
+                  <p>
+                    <strong>Standalone (in-memory)</strong><br>
+                    Great for CLIs, internal services, and apps where external queue infra is unnecessary.
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>With external brokers</strong><br>
+                    Use SQS/Redis/RabbitMQ/etc for transport and use <code>cq</code> as your in-process worker
+                    execution layer.
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>Embedded in an existing app</strong><br>
+                    Add background job processing without introducing a full queue platform.
+                  </p>
+                </li>
+              </ol>
+
+              <h2 id="core-benefits">
+                Core benefits
+              </h2>
+
+              <ul>
+                <li>Auto-scaling workers (min/max)
+                </li>
+
+                <li>Composable wrappers for retries, timeout, backoff, tracing, outcomes, and more
+                </li>
+
+                <li>Priority dispatch for time-sensitive jobs
+                </li>
+
+                <li>Built-in scheduler for recurring and one-time work
+                </li>
+
+                <li>Job metadata in context (ID, enqueue time, retry attempt)
+                </li>
+
+                <li>Circuit breaker, overlap controls, and uniqueness constraints
+                </li>
+
+                <li>No external dependencies required for core usage
+                </li>
+              </ul>
+
+              <hr>
+
+              <h2 id="whats-new">
+                What’s new
+              </h2>
+
+              <p>
+                A lot has changed recently for <code>cq</code>, mostly focused on making real-world job handling easier
+                (retries, rate limiting, observability, and safer control over failure behavior).
+              </p>
+
+              <h2 id="big-mentions">
+                Big mentions
+              </h2>
+
+              <ul>
+                <li>Scheduler support (<strong>Every</strong>, <strong>At</strong>, with easy cron-like adaptation)
+                </li>
+
+                <li>Conditional retries (<strong>WithRetryIf</strong>)
+                </li>
+
+                <li>Tracing wrapper (<strong>WithTracing</strong>)
+                </li>
+
+                <li>Rate limiting (<strong>WithRateLimit</strong>)
+                </li>
+
+                <li>Job metadata in context (<strong>MetaFromContext</strong>)
+                </li>
+
+                <li>Circuit breaker wrapper (<strong>WithCircuitBreaker</strong>)
+                </li>
+
+                <li>Outcome-based errors (<strong>AsRetryable</strong>, <strong>AsPermanent</strong>,
+                <strong>AsDiscard</strong>)
+                </li>
+
+                <li>
+                  <strong>WithOutcome</strong> callback wrapper (complete/fail/discard hooks)
+                </li>
+
+                <li>
+                  <strong>WithReleaseSelf</strong> + <strong>RequestRelease</strong> (job-driven deferred re-enqueue)
+                </li>
+
+                <li>
+                  <strong>WithRateLimitRelease</strong> (defer instead of blocking workers when rate-limited)
+                </li>
+              </ul>
+
+              <h2 id="in-depth">
+                In-depth
+              </h2>
+
+              <h3 id="outcome-markers-make-retries-clearer">
+                Outcome markers make retries clearer
+              </h3>
+
+              <p>
+                Instead of “everything is just an error”… you can mark intent directly now:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>cq.AsRetryable(err)</strong>
+                </li>
+
+                <li>
+                  <strong>cq.AsPermanent(err)</strong>
+                </li>
+
+                <li>
+                  <strong>cq.AsDiscard(err)</strong>
+                </li>
+              </ul>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithRetryIf<span class="op">(</span><span class="kw">func</span><span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>    err <span class=
+"op">:=</span> process<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>    <span class="cf">if</span> err <span class=
+"op">==</span> <span class="ot">nil</span> <span class="op">{</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>        <span class=
+"cf">return</span> <span class="ot">nil</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>    <span class=
+"cf">if</span> isValidationError<span class="op">(</span>err<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>        <span class=
+"cf">return</span> cq<span class="op">.</span>AsPermanent<span class="op">(</span>err<span class=
+"op">)</span> <span class="co">// Don't retry this.</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>    <span class=
+"cf">if</span> isTransient<span class="op">(</span>err<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>        <span class=
+"cf">return</span> cq<span class="op">.</span>AsRetryable<span class="op">(</span>err<span class=
+"op">)</span> <span class="co">// Retry this.</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>    <span class=
+"cf">return</span> cq<span class="op">.</span>AsDiscard<span class="op">(</span>err<span class=
+"op">)</span> <span class="co">// Intentionally ignore.</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="op">},</span> <span class=
+"dv">5</span><span class="op">,</span> <span class="kw">func</span><span class="op">(</span>err <span class=
+"dt">error</span><span class="op">)</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class=
+"cf">return</span> errors<span class="op">.</span>Is<span class="op">(</span>err<span class=
+"op">,</span> cq<span class="op">.</span>ErrRetryable<span class="op">)</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a><span class="op">})</span></span></code></pre>
+              </div>
+
+              <p>
+                Why this helps: retry behavior is explicit and easier to reason about at a glance. This will retry up
+                to 5 times unless the error returned is stated as not retryable.
+              </p>
+
+              <h2 id="withoutcome-for-successfaildiscard-handling">
+                WithOutcome for success/fail/discard handling
+              </h2>
+
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithOutcome<span class="op">(</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>    actualJob<span class="op">,</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>    <span class="kw">func</span><span class=
+"op">()</span> <span class="op">{</span> log<span class="op">.</span>Println<span class="op">(</span><span class=
+"st">"completed"</span><span class="op">)</span> <span class="op">},</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>    <span class="kw">func</span><span class=
+"op">(</span>err <span class="dt">error</span><span class="op">)</span> <span class="op">{</span> log<span class=
+"op">.</span>Printf<span class="op">(</span><span class="st">"failed: %v"</span><span class=
+"op">,</span> err<span class="op">)</span> <span class="op">},</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>    <span class="kw">func</span><span class=
+"op">(</span>err <span class="dt">error</span><span class="op">)</span> <span class="op">{</span> log<span class=
+"op">.</span>Printf<span class="op">(</span><span class="st">"discarded: %v"</span><span class=
+"op">,</span> err<span class="op">)</span> <span class="op">},</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                All callbacks are optional (<code>nil</code> if you don’t care about one of them).
+              </p>
+
+              <p>
+                Nice for: logging, metrics, DLQ routing, idempotency/no-op visibility.
+              </p>
+
+              <p>
+                This also replaces the existing <strong>WithResultHandler</strong>, which is still usable, but
+                deprecated.
+              </p>
+
+              <h2 id="withreleaseself-lets-jobs-defer-themselves">
+                WithReleaseSelf lets jobs defer themselves
+              </h2>
+
+              <p>
+                Before this, we only had <strong>WithRelease</strong>, which was a wrapper-level, predicate-driven
+                release with a fixed delay configured outside the job.
+              </p>
+
+              <p>
+                That is still useful, but it is different:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>WithRelease</strong> decides from the outside (“if this error matches, release for X
+                  duration”)
+                </li>
+
+                <li>
+                  <strong>WithReleaseSelf</strong> lets the job decide from the inside (“release me now”), without
+                  requiring an error path
+                </li>
+              </ul>
+
+              <p>
+                This matters when delay is dynamic and only knowable during execution (for example, reading a
+                <code>Retry-After</code> header, per-tenant pacing, or upstream/external conditions).
+              </p>
+
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithReleaseSelf<span class="op">(</span><span class="kw">func</span><span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>    cq<span class=
+"op">.</span>RequestRelease<span class="op">(</span>ctx<span class="op">,</span> <span class="dv">30</span><span class=
+"op">*</span>time<span class="op">.</span>Second<span class="op">)</span> <span class=
+"co">// Initial estimate.</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>    <span class=
+"cf">if</span> shouldRetrySoonerForSomeReason<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>        cq<span class=
+"op">.</span>RequestRelease<span class="op">(</span>ctx<span class="op">,</span> <span class="dv">5</span><span class=
+"op">*</span>time<span class="op">.</span>Second<span class="op">)</span> <span class=
+"co">// Last call wins.</span></span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    <span class="cf">return</span> <span class=
+"ot">nil</span></span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a><span class="op">},</span> queue<span class=
+"op">,</span> <span class="dv">3</span><span class="op">)</span> <span class=
+"co">// maxReleases (0 = unlimited).</span></span></code></pre>
+              </div>
+
+              <p>
+                A couple useful notes:
+              </p>
+
+              <ul>
+                <li>If both error and release request happen, release wins while budget allows.
+                </li>
+
+                <li>Multiple <strong>RequestRelease</strong> calls in one run: last call wins.
+                </li>
+
+                <li>
+                  <strong>RequestRelease</strong> returns <code>false</code> if not running under
+                  <strong>WithReleaseSelf</strong>.
+                </li>
+              </ul>
+
+              <p>
+                Good fit for: dynamic “try again later” behavior (retry-after, upstream warmup, tenant pacing).
+              </p>
+
+              <h2 id="withratelimitrelease-avoids-worker-blocking">
+                WithRateLimitRelease avoids worker blocking
+              </h2>
+
+              <ul>
+                <li>
+                  <strong>WithRateLimit</strong>: blocks waiting for a token.<br>
+                </li>
+
+                <li>
+                  <strong>WithRateLimitRelease</strong>: re-enqueues using limiter delay so workers are freed
+                  immediately.
+                </li>
+              </ul>
+
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a>limiter <span class="op">:=</span> rate<span class=
+                "op">.</span>NewLimiter<span class="op">(</span><span class="dv">10</span><span class=
+                "op">,</span> <span class="dv">5</span><span class="op">)</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+"op">.</span>WithRateLimitRelease<span class="op">(</span>actualJob<span class="op">,</span> limiter<span class=
+"op">,</span> queue<span class="op">,</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>queue<span class=
+"op">.</span>Enqueue<span class="op">(</span>job<span class="op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                Use this when throughput matters and you don’t want workers parked waiting on limiter tokens. The
+                release of the job back into the queue is delayed and automatically delayed by a duration determined
+                directly by the rate limiter API.
+              </p>
+
+              <h2 id="overlap-lock-duration-is-already-composable">
+                Overlap lock duration is already composable
+              </h2>
+
+              <p>
+                Not a code change to the package, but a call-out. If you need overlap protection but don’t want lock
+                hold to run forever:
+              </p>
+
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb5-1"><a aria-hidden="true" href=
+                "#cb5-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithoutOverlap<span class="op">(</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithTimeout<span class="op">(</span>actualJob<span class="op">,</span> <span class=
+"dv">5</span><span class="op">*</span>time<span class="op">.</span>Minute<span class="op">),</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>    <span class=
+"st">"account-123"</span><span class="op">,</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>    locker<span class="op">,</span></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a><span class="op">)</span></span></code></pre>
+              </div>
+
+              <h2 id="scheduler-every-at">
+                Scheduler (<code>Every</code>, <code>At</code>)
+              </h2>
+
+              <p>
+                Recurring and one-time job scheduling is now built in, and you can adapt cron-like workflows on top of
+                it easily.
+              </p>
+
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a>queue <span class="op">:=</span> cq<span class=
+                "op">.</span>NewQueue<span class="op">(</span><span class="dv">2</span><span class=
+                "op">,</span> <span class="dv">10</span><span class="op">,</span> <span class=
+                "dv">100</span><span class="op">)</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a>queue<span class="op">.</span>Start<span class=
+"op">()</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a>scheduler <span class=
+"op">:=</span> cq<span class="op">.</span>NewScheduler<span class="op">(</span>context<span class=
+"op">.</span>Background<span class="op">(),</span> queue<span class="op">)</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a><span class=
+"cf">defer</span> scheduler<span class="op">.</span>Stop<span class="op">()</span></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a>scheduler<span class=
+"op">.</span>Every<span class="op">(</span><span class="st">"cleanup"</span><span class="op">,</span> <span class=
+"dv">10</span><span class="op">*</span>time<span class="op">.</span>Minute<span class=
+"op">,</span> cleanupJob<span class="op">)</span></span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a>scheduler<span class="op">.</span>At<span class=
+"op">(</span><span class="st">"reminder"</span><span class="op">,</span> time<span class="op">.</span>Now<span class=
+"op">().</span>Add<span class="op">(</span><span class="dv">1</span><span class="op">*</span>time<span class=
+"op">.</span>Hour<span class="op">),</span> reminderJob<span class="op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                For cron-like behavior, you can layer an external parser and re-schedule after each run:
+              </p>
+
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb7-1"><a aria-hidden="true" href=
+                "#cb7-1" tabindex="-1"></a><span class="kw">func</span> ScheduleCron<span class=
+                "op">(</span>s <span class="op">*</span>cq<span class="op">.</span>Scheduler<span class=
+                "op">,</span> id<span class="op">,</span> expr <span class="dt">string</span><span class=
+                "op">,</span> job cq<span class="op">.</span>Job<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a>    gron <span class=
+"op">:=</span> gronx<span class="op">.</span>New<span class="op">()</span></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a>    <span class="cf">if</span> <span class=
+"op">!</span>gron<span class="op">.</span>IsValid<span class="op">(</span>expr<span class="op">)</span> <span class=
+"op">{</span></span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a>        <span class=
+"cf">return</span> fmt<span class="op">.</span>Errorf<span class="op">(</span><span class=
+"st">"ScheduleCron: invalid cron: %s"</span><span class="op">,</span> expr<span class="op">)</span></span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a>    nextRun<span class=
+"op">,</span> _ <span class="op">:=</span> gronx<span class="op">.</span>NextTick<span class=
+"op">(</span>expr<span class="op">,</span> <span class="ot">true</span><span class="op">)</span></span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a aria-hidden="true" href="#cb7-9" tabindex="-1"></a>    <span class=
+"kw">var</span> scheduled cq<span class="op">.</span>Job</span>
+<span id="cb7-10"><a aria-hidden="true" href="#cb7-10" tabindex="-1"></a>    scheduled <span class=
+"op">=</span> <span class="kw">func</span><span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">)</span> <span class="dt">error</span> <span class="op">{</span></span>
+<span id="cb7-11"><a aria-hidden="true" href="#cb7-11" tabindex="-1"></a>        err <span class=
+"op">:=</span> job<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb7-12"><a aria-hidden="true" href="#cb7-12" tabindex="-1"></a>        <span class=
+"cf">if</span> next<span class="op">,</span> e <span class="op">:=</span> gronx<span class=
+"op">.</span>NextTick<span class="op">(</span>expr<span class="op">,</span> <span class="ot">false</span><span class=
+"op">);</span> e <span class="op">==</span> <span class="ot">nil</span> <span class="op">{</span></span>
+<span id="cb7-13"><a aria-hidden="true" href="#cb7-13" tabindex="-1"></a>            s<span class=
+"op">.</span>At<span class="op">(</span>id<span class="op">,</span> next<span class="op">,</span> scheduled<span class=
+"op">)</span></span>
+<span id="cb7-14"><a aria-hidden="true" href="#cb7-14" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-15"><a aria-hidden="true" href="#cb7-15" tabindex="-1"></a>        <span class=
+"cf">return</span> err</span>
+<span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a></span>
+<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>    <span class=
+"cf">return</span> s<span class="op">.</span>At<span class="op">(</span>id<span class="op">,</span> nextRun<span class=
+"op">,</span> scheduled<span class="op">)</span></span>
+<span id="cb7-19"><a aria-hidden="true" href="#cb7-19" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-20"><a aria-hidden="true" href="#cb7-20" tabindex="-1"></a></span>
+<span id="cb7-21"><a aria-hidden="true" href="#cb7-21" tabindex="-1"></a>ScheduleCron<span class=
+"op">(</span>scheduler<span class="op">,</span> <span class="st">"daily"</span><span class="op">,</span> <span class=
+"st">"0 2 * * *"</span><span class="op">,</span> dailyJob<span class="op">)</span></span></code></pre>
+              </div>
+
+              <h2 id="tracing-hooks">
+                Tracing hooks
+              </h2>
+
+              <p>
+                Tracing hooks give you consistent timing/error visibility for job execution. You can build support in
+                for services like Sentry, DataDog, etc.
+              </p>
+
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb8-1"><a aria-hidden="true" href=
+                "#cb8-1" tabindex="-1"></a><span class="kw">type</span> myHook <span class=
+                "kw">struct</span><span class="op">{}</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a><span class="kw">func</span> <span class=
+"op">(</span>h myHook<span class="op">)</span> Start<span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">,</span> name <span class="dt">string</span><span class=
+"op">)</span> context<span class="op">.</span>Context <span class="op">{</span> <span class=
+"cf">return</span> ctx <span class="op">}</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a><span class="kw">func</span> <span class=
+"op">(</span>h myHook<span class="op">)</span> Success<span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">,</span> d time<span class="op">.</span>Duration<span class=
+"op">)</span> <span class="op">{}</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a><span class="kw">func</span> <span class=
+"op">(</span>h myHook<span class="op">)</span> Failure<span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">,</span> err <span class="dt">error</span><span class=
+"op">,</span> d time<span class="op">.</span>Duration<span class="op">)</span> <span class="op">{}</span></span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+"op">.</span>WithTracing<span class="op">(</span>actualJob<span class="op">,</span> <span class=
+"st">"sync-products"</span><span class="op">,</span> myHook<span class="op">{})</span></span>
+<span id="cb8-8"><a aria-hidden="true" href="#cb8-8" tabindex="-1"></a>queue<span class=
+"op">.</span>Enqueue<span class="op">(</span>job<span class="op">)</span></span></code></pre>
+              </div>
+
+              <h2 id="circuit-breaker">
+                Circuit breaker
+              </h2>
+
+              <p>
+                Circuit breaker support helps protect downstream systems during repeated failure periods by moving
+                through three states:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Closed</strong>: Normal flow, jobs execute. After enough consecutive failures, the circuit
+                  opens.
+                </li>
+
+                <li>
+                  <strong>Open</strong>: Calls are rejected immediately (<strong>cq.ErrCircuitOpen</strong>) during
+                  cooldown.
+                </li>
+
+                <li>
+                  <strong>Half-open</strong>: After cooldown, one or a small probe path is allowed to test recovery.
+                  Success closes the circuit again; failure re-opens it.
+                </li>
+              </ul>
+
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb9-1"><a aria-hidden="true" href=
+                "#cb9-1" tabindex="-1"></a>paymentCB <span class="op">:=</span> cq<span class=
+                "op">.</span>NewCircuitBreaker<span class="op">(</span><span class="dv">5</span><span class=
+                "op">,</span> <span class="dv">30</span><span class="op">*</span>time<span class=
+                "op">.</span>Second<span class="op">)</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+"op">.</span>WithCircuitBreaker<span class="op">(</span><span class="kw">func</span><span class=
+"op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+"dt">error</span> <span class="op">{</span></span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>    <span class=
+"cf">return</span> processPayment<span class="op">(</span>orderID<span class="op">)</span></span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a><span class="op">},</span> paymentCB<span class=
+"op">)</span></span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a>queue<span class=
+"op">.</span>Enqueue<span class="op">(</span>job<span class="op">)</span></span></code></pre>
+              </div>
+
+              <h2 id="job-metadata-in-context">
+                Job metadata in context
+              </h2>
+
+              <p>
+                Job metadata (ID, enqueue time, attempt) is available in context for logging and execution-aware logic.
+              </p>
+
+              <div class="sourceCode" id="cb10">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb10-1"><a aria-hidden="true" href=
+                "#cb10-1" tabindex="-1"></a>job <span class="op">:=</span> <span class="kw">func</span><span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>    meta <span class=
+"op">:=</span> cq<span class="op">.</span>MetaFromContext<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>    log<span class=
+"op">.</span>Printf<span class="op">(</span></span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>        <span class=
+"st">"job %s, attempt %d, queued %v ago"</span><span class="op">,</span></span>
+<span id="cb10-5"><a aria-hidden="true" href="#cb10-5" tabindex="-1"></a>        meta<span class=
+"op">.</span>ID<span class="op">,</span> meta<span class="op">.</span>Attempt<span class="op">,</span> time<span class=
+"op">.</span>Since<span class="op">(</span>meta<span class="op">.</span>EnqueuedAt<span class="op">),</span></span>
+<span id="cb10-6"><a aria-hidden="true" href="#cb10-6" tabindex="-1"></a>    <span class="op">)</span></span>
+<span id="cb10-7"><a aria-hidden="true" href="#cb10-7" tabindex="-1"></a>    <span class=
+"cf">return</span> doWork<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb10-8"><a aria-hidden="true" href="#cb10-8" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-9"><a aria-hidden="true" href="#cb10-9" tabindex="-1"></a>queue<span class=
+"op">.</span>Enqueue<span class="op">(</span>job<span class="op">)</span></span></code></pre>
+              </div>
+
+              <hr>
+
+              <p>
+                Testing and benchmarks from the README:
+              </p>
+
+              <div class="sourceCode" id="cb11">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a aria-hidden="true" href=
+                "#cb11-1" tabindex="-1"></a><span class="fu">make</span> test</span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a><span class=
+"ex">ok</span>      github.com/gnikyt/cq    17.586s coverage: 91.2% of statements</span></code></pre>
+              </div>
+
+              <div class="sourceCode" id="cb12">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a aria-hidden="true" href=
+                "#cb12-1" tabindex="-1"></a><span class="fu">make</span> bench</span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a><span class="ex">cpu:</span> Apple M5</span>
+<span id="cb12-3"><a aria-hidden="true" href="#cb12-3" tabindex="-1"></a><span class=
+"ex">BenchmarkScenarios/100Req--10kJobs-10</span>                             7    192443179 ns/op</span>
+<span id="cb12-4"><a aria-hidden="true" href="#cb12-4" tabindex="-1"></a><span class=
+"ex">BenchmarkScenarios/1kReq--1kJobs-10</span>                               7    194722393 ns/op</span>
+<span id="cb12-5"><a aria-hidden="true" href="#cb12-5" tabindex="-1"></a><span class=
+"ex">BenchmarkScenarios/10kReq--100Jobs-10</span>                             7    352322048 ns/op</span>
+<span id="cb12-6"><a aria-hidden="true" href="#cb12-6" tabindex="-1"></a><span class=
+"ex">BenchmarkSingleSteadyState-10</span>                               3063700        393.4 ns/op</span></code></pre>
+              </div>
+
+              <p>
+                GitHub: <a href="https://github.com/gnikyt/cq">github.com/gnikyt/cq</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="tab tab--anchors">
+        <div class="tab__title tab__title--short">
+          Anchors
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <ul class="anchors-list">
+              <li class="anchors-list__item">
+                <strong>[1]</strong> <a class="sources__link anchors-list__link" href="https://github.com/gnikyt/cq"
+                rel="noopener" target="_parent">github.com/gnikyt/cq</a> ↗
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab tab--appendix">
+        <div class="tab__title tab__title--short">
+          Appendix
+        </div>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/new-cq-release/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/new-cq-release/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href="#" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

@@ -15,7 +15,7 @@
     <meta content=
     "An existing project had grown rapidly, resulting in many places where IDs were manually extracted from GIDs or formatted into GIDs witho..."
     name="description">
-    <meta content="2025-07-15T12:16:00-0230" property="article:published_time">
+    <meta content="2025-07-15T12:16:00+0000" property="article:published_time">
     <meta content="Shopify Value Objects for Go" property="og:title">
     <meta content="en" property="og:locale">
     <meta content=
@@ -32,8 +32,8 @@
     {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "dateModified": "2025-07-15T12:16:00-0230",
-    "datePublished": "2025-07-15T12:16:00-0230",
+    "dateModified": "2025-07-15T12:16:00+0000",
+    "datePublished": "2025-07-15T12:16:00+0000",
     "description": "
     An existing project had grown rapidly, resulting in many places where IDs were manually extracted from GIDs or formatted into GIDs witho...",
     "headline": "Shopify Value Objects for Go",
@@ -262,8 +262,8 @@
 <span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a><span class=
 "kw">func</span> typeFrom<span class="op">[</span>T Identifiers<span class="op">]()</span> <span class=
 "dt">string</span> <span class="op">{</span></span>
-<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>    <span class="cf">switch</span> <span class=
-"dt">any</span><span class="op">(*</span><span class="bu">new</span><span class="op">(</span>T<span class=
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>    <span class=
+"cf">switch</span> any<span class="op">(*</span><span class="bu">new</span><span class="op">(</span>T<span class=
 "op">)).(</span><span class="kw">type</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>    <span class=
 "cf">case</span> CustomerID<span class="op">:</span></span>
@@ -299,9 +299,9 @@
 <span id="cb3-25"><a aria-hidden="true" href="#cb3-25" tabindex="-1"></a><span class=
 "co">// String formats supported: full GID ("gid://shopify/Type/ID") or numeric string ("123456789").</span></span>
 <span id="cb3-26"><a aria-hidden="true" href="#cb3-26" tabindex="-1"></a><span class=
-"kw">func</span> commonNew<span class="op">[</span>T Identifiers<span class="op">](</span>val <span class=
-"dt">any</span><span class="op">)</span> <span class="op">(</span>T<span class="op">,</span> <span class=
-"dt">error</span><span class="op">)</span> <span class="op">{</span></span>
+"kw">func</span> commonNew<span class="op">[</span>T Identifiers<span class="op">](</span>val any<span class=
+"op">)</span> <span class="op">(</span>T<span class="op">,</span> <span class="dt">error</span><span class=
+"op">)</span> <span class="op">{</span></span>
 <span id="cb3-27"><a aria-hidden="true" href="#cb3-27" tabindex="-1"></a>    <span class=
 "cf">switch</span> v <span class="op">:=</span> val<span class="op">.(</span><span class="kw">type</span><span class=
 "op">)</span> <span class="op">{</span></span>
@@ -399,8 +399,7 @@
 <span id="cb3-66"><a aria-hidden="true" href="#cb3-66" tabindex="-1"></a><span class=
 "co">// It ignores errors in validation, for validation use NewValidated.</span></span>
 <span id="cb3-67"><a aria-hidden="true" href="#cb3-67" tabindex="-1"></a><span class="kw">func</span> New<span class=
-"op">[</span>T Identifiers<span class="op">](</span>val <span class="dt">any</span><span class=
-"op">)</span> T <span class="op">{</span></span>
+"op">[</span>T Identifiers<span class="op">](</span>val any<span class="op">)</span> T <span class="op">{</span></span>
 <span id="cb3-68"><a aria-hidden="true" href="#cb3-68" tabindex="-1"></a>    n<span class="op">,</span> _ <span class=
 "op">:=</span> commonNew<span class="op">[</span>T<span class="op">](</span>val<span class="op">)</span></span>
 <span id="cb3-69"><a aria-hidden="true" href="#cb3-69" tabindex="-1"></a>    <span class="cf">return</span> n</span>
@@ -411,9 +410,9 @@
 <span id="cb3-73"><a aria-hidden="true" href="#cb3-73" tabindex="-1"></a><span class=
 "co">// It returns an error if the GID is not valid.</span></span>
 <span id="cb3-74"><a aria-hidden="true" href="#cb3-74" tabindex="-1"></a><span class=
-"kw">func</span> NewValidated<span class="op">[</span>T Identifiers<span class="op">](</span>val <span class=
-"dt">any</span><span class="op">)</span> <span class="op">(</span>T<span class="op">,</span> <span class=
-"dt">error</span><span class="op">)</span> <span class="op">{</span></span>
+"kw">func</span> NewValidated<span class="op">[</span>T Identifiers<span class="op">](</span>val any<span class=
+"op">)</span> <span class="op">(</span>T<span class="op">,</span> <span class="dt">error</span><span class=
+"op">)</span> <span class="op">{</span></span>
 <span id="cb3-75"><a aria-hidden="true" href="#cb3-75" tabindex="-1"></a>    gid<span class=
 "op">,</span> err <span class="op">:=</span> commonNew<span class="op">[</span>T<span class=
 "op">](</span>val<span class="op">)</span></span>
@@ -515,8 +514,7 @@
 "op">(</span>cid <span class="op">*</span>CustomerID<span class="op">)</span> UnmarshalJSON<span class=
 "op">(</span>data <span class="op">[]</span><span class="dt">byte</span><span class="op">)</span> <span class=
 "dt">error</span> <span class="op">{</span></span>
-<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a>    <span class=
-"kw">var</span> val <span class="dt">any</span></span>
+<span id="cb4-26"><a aria-hidden="true" href="#cb4-26" tabindex="-1"></a>    <span class="kw">var</span> val any</span>
 <span id="cb4-27"><a aria-hidden="true" href="#cb4-27" tabindex="-1"></a>    <span class=
 "cf">if</span> err <span class="op">:=</span> json<span class="op">.</span>Unmarshal<span class=
 "op">(</span>data<span class="op">,</span> <span class="op">&</span>val<span class="op">);</span> err <span class=
@@ -560,8 +558,8 @@
 <span id="cb4-49"><a aria-hidden="true" href="#cb4-49" tabindex="-1"></a><span class=
 "co">// NewCustomerID creates a new CustomerID from a value.</span></span>
 <span id="cb4-50"><a aria-hidden="true" href="#cb4-50" tabindex="-1"></a><span class=
-"kw">func</span> NewCustomerID<span class="op">(</span>val <span class="dt">any</span><span class=
-"op">)</span> CustomerID <span class="op">{</span></span>
+"kw">func</span> NewCustomerID<span class="op">(</span>val any<span class="op">)</span> CustomerID <span class=
+"op">{</span></span>
 <span id="cb4-51"><a aria-hidden="true" href="#cb4-51" tabindex="-1"></a>    <span class=
 "cf">return</span> New<span class="op">[</span>CustomerID<span class="op">](</span>val<span class="op">)</span></span>
 <span id="cb4-52"><a aria-hidden="true" href="#cb4-52" tabindex="-1"></a><span class="op">}</span></span>
@@ -569,9 +567,9 @@
 <span id="cb4-54"><a aria-hidden="true" href="#cb4-54" tabindex="-1"></a><span class=
 "co">// NewCustomerIDValidated creates a new CustomerID from a value and validates it.</span></span>
 <span id="cb4-55"><a aria-hidden="true" href="#cb4-55" tabindex="-1"></a><span class=
-"kw">func</span> NewCustomerIDValidated<span class="op">(</span>val <span class="dt">any</span><span class=
-"op">)</span> <span class="op">(</span>CustomerID<span class="op">,</span> <span class="dt">error</span><span class=
-"op">)</span> <span class="op">{</span></span>
+"kw">func</span> NewCustomerIDValidated<span class="op">(</span>val any<span class="op">)</span> <span class=
+"op">(</span>CustomerID<span class="op">,</span> <span class="dt">error</span><span class="op">)</span> <span class=
+"op">{</span></span>
 <span id="cb4-56"><a aria-hidden="true" href="#cb4-56" tabindex="-1"></a>    <span class=
 "cf">return</span> NewValidated<span class="op">[</span>CustomerID<span class="op">](</span>val<span class=
 "op">)</span></span>

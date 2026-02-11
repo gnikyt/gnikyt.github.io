@@ -6,41 +6,41 @@
 
                           shopify_app_whitelist Gem /
 
-   /* Nov 26, 2016  —  1.5KB */
+   /* Nov 26, 2016  --  1.5KB */
    [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
 
-   I regularly use [12]shopify_app. It’s a great way to get an app,
+   I regularly use [12]shopify_app. It's a great way to get an app,
    embedded or not, up and running with Rails.
 
-   Sometimes I’ll create apps with shopify_app which are to be used by
+   Sometimes I'll create apps with shopify_app which are to be used by
    only one store. These apps sometimes have a front-end component for the
-   themes… proxy integration, or JSON data fetching. I’d hate to have
-   someone poke around and install the client’s app to their shop.
+   themes... proxy integration, or JSON data fetching. I'd hate to have
+   someone poke around and install the client's app to their shop.
 
-   In the past, I limited access to shopify_app’s session controller by
+   In the past, I limited access to shopify_app's session controller by
    having a before_action callback to confirm the shop. This gets
    repetitive quick and its not a central solution meaning its hard to
    update should the Gem change.
 
    I decided to create a Gem for this problem which allows you to
-   whitelist shops to have access to installing or accessing the app’s
+   whitelist shops to have access to installing or accessing the app's
    backend. [13]shopify_app_whitelist adds a Railite which automatically
    injects a controller concern into your ApplicationController. It also
-   adds a couple of settings to shopify_app’s config so you can define
+   adds a couple of settings to shopify_app's config so you can define
    your whitelist settings. I figured I would make it as easy as possible.
 
    You simply need to add the Gem to your Gemfile, add two configuration
-   lines, and you’re set. The Gem is fully tested and documented if you
+   lines, and you're set. The Gem is fully tested and documented if you
    want to dig into the code. I hope someone will find it useful!
 
    Anchors
 
-     * [1] [14]github.com/Shopify/shopify_app ↗
-     * [2] [15]github.com/gnikyt/shopify_app_whitelist ↗
+     * [1] [14]github.com/Shopify/shopify_app /^
+     * [2] [15]github.com/gnikyt/shopify_app_whitelist /^
 
    Appendix
 
-   This post is 8 years old and may contain outdated information.
+   This post is 9 years old and may contain outdated information.
 
    Copyright under [16]CC-4.0.
 
@@ -76,4 +76,4 @@ References
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///shopify-app-whitelist-gem/index.md
   18. file:///shopify-app-whitelist-gem/index.txt
-  19. file:///tmp/lynxXXXXnl4csX/L250620-4924TMP.html
+  19. file:///tmp/lynxXXXXtj3tBl/L11116-3358TMP.html

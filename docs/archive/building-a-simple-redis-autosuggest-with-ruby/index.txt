@@ -6,7 +6,7 @@
 
                         Redis autosuggest with Sinatra /
 
-   /* Mar 02, 2016  —  5.6KB */
+   /* Mar 02, 2016  --  5.6KB */
    [9]Logo of ruby [10]Logo of sinatra
 
    So you have a search box on your website.. an article search, a product
@@ -16,25 +16,25 @@
 
 Planning
 
-   Let’s say we have a bunch of products:
-     * Tommy’s Ray Gun - ID: 1
+   Let's say we have a bunch of products:
+     * Tommy's Ray Gun - ID: 1
      * 1990 Blaster Ray!! - ID: 2
      * (Nuke) Bomb Gun #8 - ID: 3
 
    Looking at our products, we can see there is a different and
    unpredictable title. We have punctuation, special characters, numbers,
-   and letters. If someone types Gun we’d like to see our search suggest
+   and letters. If someone types Gun we'd like to see our search suggest
    (Nuke) Bomb Gun #8 and Tommy's Ray Gun.
 
    Redis does not offer a full-text search solution like ElasticSearch, so
-   we simply can’t drop Tommy's Ray Gun string into Redis and expect to
+   we simply can't drop Tommy's Ray Gun string into Redis and expect to
    search it. We need to come up with a clever way.
 
    My solution was to split each letter up of each word in each product.
    For each letter set, we store the products which contain those letters.
    So common sets of letters in titles will be stored together.
 
-   As a basic example, let’s look at a singular word. RUBY we can split
+   As a basic example, let's look at a singular word. RUBY we can split
    this up into R then RU then RUB and finally RUBY.
 
    Lets store these product titles in this manner with the values being
@@ -46,7 +46,7 @@ Planning
 
 Processing the Objects
 
-   So now we have a plan in place, let’s write a quick script to import
+   So now we have a plan in place, let's write a quick script to import
    the objects you wish to autosuggest, into your Redis database. As
    before, we need to split each word up of each object.
 # autosuggest.rb
@@ -92,7 +92,7 @@ Processing (Nuke) Bomb Gun #8...
 
    Here we can see how the script cleans the titles, then breaks them down
    to produce key names for Redis to use as we had hoped for in the
-   planning section. Now, let’s import this into Redis. Simply change line
+   planning section. Now, let's import this into Redis. Simply change line
    27:
 # BEFORE
 puts part[0...len]
@@ -108,7 +108,7 @@ Processing Tommy's Ray Gun...
 Processing 1990 Blaster Ray!!...
 Processing (Nuke) Bomb Gun #8...
 
-   Login to Redis and let’s check if it works as planned. Since this is a
+   Login to Redis and let's check if it works as planned. Since this is a
    sorted set we need to use [12]ZRANGE.
 > redis-cli
 127.0.0.1:6379> ZRANGE p:gun 0 -1
@@ -123,10 +123,10 @@ Processing (Nuke) Bomb Gun #8...
 Frontend
 
    Now that we have a script (that you should expand on into a proper
-   lib), we need to now show results to the user for when they’re
+   lib), we need to now show results to the user for when they're
    searching.
 
-   Here’s a quick Sinatra example (of course you can use more advanced
+   Here's a quick Sinatra example (of course you can use more advanced
    techniques as well)
 require "redis"
 require "json"
@@ -177,9 +177,9 @@ end
 
    Anchors
 
-     * [1] [14]http://redis.io/commands/ZADD ↗
-     * [2] [15]http://redis.io/commands/ZRANGE ↗
-     * [3] [16]http://redis.io/commands/ZINTERSTORE ↗
+     * [1] [14]http://redis.io/commands/ZADD /^
+     * [2] [15]http://redis.io/commands/ZRANGE /^
+     * [3] [16]http://redis.io/commands/ZINTERSTORE /^
 
    Appendix
 
@@ -220,4 +220,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
   19. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
-  20. file:///tmp/lynxXXXX92gSuj/L252058-4982TMP.html
+  20. file:///tmp/lynxXXXX6gCCoh/L12509-468TMP.html

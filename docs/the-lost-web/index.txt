@@ -6,7 +6,7 @@
 
                                  The lost web /
 
-   /* Jul 21, 2025  —  3.1KB */
+   /* Jul 21, 2025  --  3.1KB */
    [9]Logo of thoughts
 
    Late last night while in bed, after the chaos of the kids in the
@@ -28,14 +28,14 @@
 
    Deployment? The sacred rite of passage: FTP! Or, if you were lucky,
    some cPanel setup. WYSIWYG hosting services like Geocities, Tripod, and
-   Angelfire were /the thing/, oh man, I loved those days! Everyone’s
+   Angelfire were /the thing/, oh man, I loved those days! Everyone's
    website was a masterpiece of art and creativity. Sure, today we might
    call it ugly, but at the time? Those websites were the bees knees.
 
-   Who didn’t love some table-based layouts, the wealth of iframes, tiled
+   Who didn't love some table-based layouts, the wealth of iframes, tiled
    background images, every color applied to a font imaginable (in Comic
    Sans MS no less), dancing GIFs (and the time-tested construction
-   GIFs!), hit counters that were the website’s trophy, pill-shaped
+   GIFs!), hit counters that were the website's trophy, pill-shaped
    navigation buttons, marquee text sliding across the screen.
 
    It was just awesome in looking back on it. You can as well still access
@@ -46,16 +46,16 @@
    threads, old-school forums like YaBB, and instant messengers like AIM
    and ICQ or IRC.
 
-   Fast forward to today, and it’s a whole new game. Development has
-   evolved rapidly… so fast, you too probably didn’t even register or take
-   notice while living through it. The leap from things like FTP to S3,
-   shared hosting to VPS, simple scripts to containerized services… just
-   wow.
+   Fast forward to today, and it's a whole new game. Development has
+   evolved rapidly... so fast, you too probably didn't even register or
+   take notice while living through it. The leap from things like FTP to
+   S3, shared hosting to VPS, simple scripts to containerized services...
+   just wow.
 
    Now we build apps housed in all these orchestrated systems with load
    balancers, auth layers, caching mechanisms, logging, and interconnected
-   services which need to be always up and running. It’s powerful,
-   scalable, and polished… but whoa, its definitely different!
+   services which need to be always up and running. It's powerful,
+   scalable, and polished... but whoa, its definitely different!
 
    Looking back on that journey, both personal and professional, it is a
    weird feeling, like time that passed on me too quickly to enjoy it
@@ -63,10 +63,11 @@
    leading to my first young gig, to architecting sophisticated systems,
    and somewhere along the way, I grew just as much as the tech did.
 
-   Last night’s mental wander turned into gift of nostalgia. Sometimes
+   Last night's mental wander turned into gift of nostalgia. Sometimes
    reflection sneaks up on you and it leaves you with a kind of
-   appreciation you didn’t know you needed, but I sure do miss those days…
-   can we go back in time for a bit? I want to stay a little longer.
+   appreciation you didn't know you needed, but I sure do miss those
+   days... can we go back in time for a bit? I want to stay a little
+   longer.
 
    Appendix
 
@@ -98,4 +99,4 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///the-lost-web/index.md
   12. file:///the-lost-web/index.txt
-  13. file:///tmp/lynxXXXXgr5ux9/L240005-2877TMP.html
+  13. file:///tmp/lynxXXXXsC5K9g/L681-8384TMP.html

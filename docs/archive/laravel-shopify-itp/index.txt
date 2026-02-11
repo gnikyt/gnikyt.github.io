@@ -6,7 +6,7 @@
 
                              Laravel Shopify ITP /
 
-   /* Feb 03, 2021  —  3.1KB */
+   /* Feb 03, 2021  --  3.1KB */
    [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
 Background
@@ -17,16 +17,16 @@ Background
 
    Around 2017, Safari, and later other browsers, began blocking browser
    storage access for third-parties. This includes cookies, session
-   storage, local storage, and more. This was called “Intelligent Tracking
-   Prevention” (ITP).
+   storage, local storage, and more. This was called "Intelligent Tracking
+   Prevention" (ITP).
 
-   Given Shopify apps load within an iframe inside Shopify’s admin panel,
+   Given Shopify apps load within an iframe inside Shopify's admin panel,
    this means the app inside the iframe is a third-party, thus will be
    blocked from attempting to access storage.
 
    Once ITP gained traction in the largest market share browser, Chrome,
    Laravel Shopify was immediately flooded with issues of users having
-   trouble with their applications… no login session, authentication
+   trouble with their applications... no login session, authentication
    errors, etc.
 
 Solving
@@ -38,21 +38,22 @@ Solving
    The solution was to create a flow that tried to handle everything
    smoothly for the app user.
     1. A middleware to check if a cookie called itp exists
-    2. If not, redirect full-page to a route to set this itp cookie… this
-       creates a first-party cookie since it was not created in an iframe
+    2. If not, redirect full-page to a route to set this itp cookie...
+       this creates a first-party cookie since it was not created in an
+       iframe
     3. Re-check the existence of the itp cookie. In some cases, since the
        original cookie was created first-party, this re-check passes and
        the app will load
-    4. If the re-check fails… display a prompt to try and ask for storage
-       access, and set a cookie through Javascript
-    5. If the prompt method fails… as a final fallback, we ask the app
+    4. If the re-check fails... display a prompt to try and ask for
+       storage access, and set a cookie through Javascript
+    5. If the prompt method fails... as a final fallback, we ask the app
        user to manually enable storage access
 
    In some cases, 1->3 is enough to load the app, but in the majority of
-   cases in testing, 1->4 is what’s actually happening to initially get
+   cases in testing, 1->4 is what's actually happening to initially get
    the app displaying properly.
 
-   The above flow is similar to what Shopify’s own Ruby and Koa packages
+   The above flow is similar to what Shopify's own Ruby and Koa packages
    are following, which is what I tried to strive for in the latest
    release.
 
@@ -79,14 +80,14 @@ Conclusion
 
    Anchors
 
-     * [1] [16]github.com/gnikyt/laravel-shopify ↗
+     * [1] [16]github.com/gnikyt/laravel-shopify /^
      * [2] [17]/assets/images/2021/01/ls-ask.png
      * [3] [18]/assets/images/2021/01/ls-ask.png
-     * [4] [19]github.com/gnikyt/laravel-shopify/wiki/ITP ↗
+     * [4] [19]github.com/gnikyt/laravel-shopify/wiki/ITP /^
 
    Appendix
 
-   This post is 4 years old and may contain outdated information.
+   This post is 5 years old and may contain outdated information.
 
    Copyright under [20]CC-4.0.
 
@@ -126,4 +127,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///laravel-shopify-itp/index.md
   22. file:///laravel-shopify-itp/index.txt
-  23. file:///tmp/lynxXXXXO1cnT4/L246620-7199TMP.html
+  23. file:///tmp/lynxXXXXCHBK6d/L7171-1011TMP.html

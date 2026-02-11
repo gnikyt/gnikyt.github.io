@@ -6,7 +6,7 @@
 
                             WordPress with Docker /
 
-   /* Jun 15, 2017  —  3.6KB */
+   /* Jun 15, 2017  --  3.6KB */
    [9]Logo of php [10]Logo of wordpress
 
 Purpose
@@ -15,7 +15,7 @@ Purpose
    for WordPress. However, some people have a little trouble getting going
    so I will quickly provide some tips to help out.
 
-   I haven’t used WordPress professionally in a long time, but I decided
+   I haven't used WordPress professionally in a long time, but I decided
    to do some weekend digging to keep my brain fresh, so forgive any
    errors ;)
 
@@ -23,7 +23,7 @@ Setup
 
 Directories
 
-   Let’s create a basic directory structure to use. Keep in mind, this is
+   Let's create a basic directory structure to use. Keep in mind, this is
    geared for theme development.
      * {your_theme}/
           + wordpress/
@@ -40,11 +40,11 @@ Directories
 
 Docker
 
-   Next, let’s get Docker ready. The simplest way is to use a [11]Docker
-   Compose file. It’s a simple YML-formatted file that’s easy to read for
+   Next, let's get Docker ready. The simplest way is to use a [11]Docker
+   Compose file. It's a simple YML-formatted file that's easy to read for
    anyone.
 
-   Based on [12]WordPress’ Offical Image, I’ve compiled the following
+   Based on [12]WordPress' Offical Image, I've compiled the following
    docker-compose.yml [13]file you can use.
 
    Simply replace {YOUR_THEME} with your theme name and save it to the
@@ -52,9 +52,9 @@ Docker
 
 Volumes
 
-   In the docker-compose.yml file you’ll notice two entries under volumes.
+   In the docker-compose.yml file you'll notice two entries under volumes.
 
-   One maps the theme folder to the WordPress install so it’s visible to
+   One maps the theme folder to the WordPress install so it's visible to
    WordPress, the other maps, read-write, wp-content/uploads to the
    WordPress install as well so it can write and read media from a
    location accessible.
@@ -62,7 +62,7 @@ Volumes
 Git Ignore
 
    Now that you have the directories set up, Docker Compose ready, volumes
-   mapped… its time to setup Git.
+   mapped... its time to setup Git.
 
    wordpress/wp-content/uploads/*
 
@@ -70,32 +70,32 @@ Git Ignore
 
 Running
 
-   Once you’re done the quick setup simply run docker-compose up in the
-   main directory. On the first run, you’ll have to run through the
+   Once you're done the quick setup simply run docker-compose up in the
+   main directory. On the first run, you'll have to run through the
    WordPress installation process.
 
-   After it’s done, simply log in and visit Appearance. If you have your
+   After it's done, simply log in and visit Appearance. If you have your
    theme setup as per WordPress requirements (style.css (with info) and
-   index.php) then you will see it in the theme list. Hit “Activate” and
-   you’re ready to go.
+   index.php) then you will see it in the theme list. Hit "Activate" and
+   you're ready to go.
 
 Windows (WSL1) Tips
 
-   If you’re running this under WSL1, be sure you have Docker on Windows
-   settings set to expose Docker daemon without TLS (it’s under General
+   If you're running this under WSL1, be sure you have Docker on Windows
+   settings set to expose Docker daemon without TLS (it's under General
    panel).
 
    Also, WSL1 accesses your C: drive via /mnt/c but Docker requires /c. To
    resolve this issue simply create a symlink via ln -s /mnt/c /c. If this
-   is not done, you’ll have issues with Docker under WSL trying to find
+   is not done, you'll have issues with Docker under WSL trying to find
    files and map volumes. This means you also need to run docker-compose
    commands under /c as well.
 
-   To quickly switch to /c no matter what directory you’re under, open
+   To quickly switch to /c no matter what directory you're under, open
    $HOME/.bash_aliases and add this entry:
 alias cswap='cd `pwd | sed 's,/mnt,,g'`'
 
-   Now, any directory you’re in, simply run cswap and it’ll move you to /c
+   Now, any directory you're in, simply run cswap and it'll move you to /c
 tyler@bash[/mnt/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ cswap
 tyler@bash[/c/Users/Tyler/Development/GitHub/wordpress-docker-setup/]$ docker-co
 mpose up
@@ -103,7 +103,7 @@ Starting...
 
 Further Exploring
 
-   [14]I’ve set up a repo on Github which contains all I’ve talked about
+   [14]I've set up a repo on Github which contains all I've talked about
    above plus some extras like a basic Grunt setup for managing asset
    files. Feel free to clone, run docker-compose up, and play around!
 
@@ -111,10 +111,10 @@ Further Exploring
 
    Anchors
 
-     * [1] [15]docs.docker.com/compose/ ↗
-     * [2] [16]hub.docker.com/_/wordpress/ ↗
-     * [3] [17]github.com/gnikyt/wordpress-docker-quickstart ↗
-     * [4] [18]github.com/gnikyt/wordpress-docker-quickstart ↗
+     * [1] [15]docs.docker.com/compose/ /^
+     * [2] [16]hub.docker.com/_/wordpress/ /^
+     * [3] [17]github.com/gnikyt/wordpress-docker-quickstart /^
+     * [4] [18]github.com/gnikyt/wordpress-docker-quickstart /^
 
    Appendix
 
@@ -157,4 +157,4 @@ References
   19. https://creativecommons.org/licenses/by/4.0/
   20. file:///wordpress-under-docker/index.md
   21. file:///wordpress-under-docker/index.txt
-  22. file:///tmp/lynxXXXXu5eSJb/L250256-9280TMP.html
+  22. file:///tmp/lynxXXXXPBMuCI/L10754-7249TMP.html
