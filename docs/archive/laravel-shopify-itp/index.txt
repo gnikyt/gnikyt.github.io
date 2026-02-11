@@ -127,4 +127,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///laravel-shopify-itp/index.md
   22. file:///laravel-shopify-itp/index.txt
-  23. file:///tmp/lynxXXXXCHBK6d/L7171-1011TMP.html
+  23. file:///tmp/lynxXXXXirwDnU/L7171-7555TMP.html

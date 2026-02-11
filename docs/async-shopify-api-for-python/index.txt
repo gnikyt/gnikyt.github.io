@@ -175,4 +175,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///async-shopify-api-for-python/index.md
   19. file:///async-shopify-api-for-python/index.txt
-  20. file:///tmp/lynxXXXXifyTSX/L7590-2789TMP.html
+  20. file:///tmp/lynxXXXXJCWDgo/L7590-8576TMP.html

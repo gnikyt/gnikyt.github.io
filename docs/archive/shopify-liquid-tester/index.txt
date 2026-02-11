@@ -152,4 +152,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///shopify-liquid-tester/index.md
   17. file:///shopify-liquid-tester/index.txt
-  18. file:///tmp/lynxXXXXmjUpEh/L4242-4122TMP.html
+  18. file:///tmp/lynxXXXX2RQK9r/L4242-8715TMP.html

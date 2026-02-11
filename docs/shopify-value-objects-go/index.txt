@@ -367,4 +367,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///shopify-value-objects-go/index.md
   14. file:///shopify-value-objects-go/index.txt
-  15. file:///tmp/lynxXXXX1zTLWv/L956-5763TMP.html
+  15. file:///tmp/lynxXXXXXeRoml/L956-6343TMP.html

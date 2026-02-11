@@ -74,4 +74,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///laravel-shopify-billing/index.md
   19. file:///laravel-shopify-billing/index.txt
-  20. file:///tmp/lynxXXXXZZUc8e/L8850-2703TMP.html
+  20. file:///tmp/lynxXXXXbFwglD/L8850-6474TMP.html

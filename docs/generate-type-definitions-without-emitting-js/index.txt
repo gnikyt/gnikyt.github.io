@@ -137,4 +137,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///generate-type-definitions-without-emitting-js/index.md
   14. file:///generate-type-definitions-without-emitting-js/index.txt
-  15. file:///tmp/lynxXXXXb7F6or/L2469-1734TMP.html
+  15. file:///tmp/lynxXXXXg5ciyJ/L2469-477TMP.html

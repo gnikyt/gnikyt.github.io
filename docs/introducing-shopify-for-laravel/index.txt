@@ -110,4 +110,4 @@ References
   18. https://creativecommons.org/licenses/by/4.0/
   19. file:///introducing-shopify-for-laravel/index.md
   20. file:///introducing-shopify-for-laravel/index.txt
-  21. file:///tmp/lynxXXXXZLqKie/L9929-4505TMP.html
+  21. file:///tmp/lynxXXXXoHXAq7/L9929-7638TMP.html
