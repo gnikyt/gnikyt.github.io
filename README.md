@@ -28,6 +28,19 @@ docs/hello-world/
 * `pandoc` - For HTML generation support from Markdown and for PDF output.
 * `lynx` - For TXT generation support from HTML.
 * `tidy` - For cleaning resulting HTML and XML.
+* `pcregrep` - For anchor extraction in generated HTML.
+
+## Building (Docker)
+
+If you prefer not to install local dependencies, build with Docker:
+
+`bash bin/build-docker`
+
+This command:
+
+* Builds a local image from `Dockerfile.build`
+* Runs `bin/build` inside the container
+* Mounts your repo so generated output is written to your local `docs/`
 
 ## Building
 
