@@ -3,7 +3,7 @@ title: About
 permalink: about
 ---
 
-<div class="about__heads">![Headshot](/assets/images/me-headshot.png)![Headshot](/assets/images/me.jpg)</div>
+<div class="about__heads">![Headshot](/assets/images/me-headshot.jpg)![Headshot](/assets/images/me.jpg)</div>
 
 _Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer out of Newfoundland. With over a decade of experience in the Shopify ecosystem, I have developed a passion for ecommerce-focused initiatives. I specialize in crafting innovative solutions with precision and expertise through hands-on coding or consulting.
 
