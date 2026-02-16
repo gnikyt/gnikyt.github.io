@@ -6,7 +6,7 @@
 
                                 New cq release /
 
-   /* Feb 11, 2026  --  9.3KB */
+   /* Feb 11, 2026  --  11KB */
    [9]Logo of golang
 
    I intended to write an update about cq since a lot of features have
@@ -72,11 +72,15 @@ What's new
 
    A lot has changed recently for cq, mostly focused on making real-world
    job handling easier (retries, rate limiting, observability, and safer
-   control over failure behavior).
+   control over failure behavior). But, the biggest addition is envelope
+   persistence/recovery support.
 
 Big mentions
 
      * Scheduler support (Every, At, with easy cron-like adaptation)
+     * Envelope lifecycle persistence via WithEnvelopeStore
+     * Recovery helpers (RecoverEnvelopes, RecoverEnvelopesWithOptions,
+       StartRecoveryLoop)
      * Conditional retries (WithRetryIf)
      * Tracing wrapper (WithTracing)
      * Rate limiting (WithRateLimit)
@@ -87,8 +91,67 @@ Big mentions
      * WithReleaseSelf + RequestRelease (job-driven deferred re-enqueue)
      * WithRateLimitRelease (defer instead of blocking workers when
        rate-limited)
+     * Context-aware backoff cancellation in WithBackoff
 
 In-depth
+
+Envelope persistence and recovery
+
+   Optional envelope model so queue lifecycle transitions can be persisted
+   and replayed.
+
+   At queue level, you can plug in an envelope store:
+queue := cq.NewQueue(1, 10, 100, cq.WithEnvelopeStore(store))
+
+   That store can receive lifecycle events like:
+     * Enqueue
+     * Claim
+     * Ack
+     * Nack
+     * Reschedule
+     * Recoverable
+
+   Which means you can now add durable replay/recovery after restarts,
+   implement DLQ/event handling, and keep better execution history outside
+   in-memory process state.
+
+   For recovery, it also adds registry-driven helpers:
+registry := cq.NewEnvelopeRegistry()
+registry.Register("send_invitation", func(env cq.Envelope) (cq.Job, error) {
+    // rebuild a cq.Job from envelope payload/type.
+    return actualJob, nil
+})
+
+scheduled, err := cq.RecoverEnvelopes(context.Background(), queue, store, regist
+ry, time.Now())
+if err != nil {
+    log.Fatal(err)
+}
+log.Printf("scheduled %d recovered jobs", scheduled)
+
+   And for continuous replay:
+cancelLoop, err := cq.StartRecoveryLoop(
+    context.Background(),
+    5*time.Second, // polling interval.
+    queue,
+    store,
+    registry,
+    cq.RecoverOptions{
+        MaxEnvelopes:    100,
+        ContinueOnError: true,
+    },
+    func(err error) {
+        log.Printf("recover loop error: %v", err)
+    },
+)
+if err != nil {
+    log.Fatal(err)
+}
+defer cancelLoop()
+
+   Also worth noting: built-in deferred wrappers now report reschedule
+   reasons into envelope state (release, release_self, rate_limit), which
+   makes deferred behavior auditable.
 
 Outcome markers make retries clearer
 
@@ -330,4 +393,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///new-cq-release/index.md
   14. file:///new-cq-release/index.txt
-  15. file:///tmp/lynxXXXXbpeRji/L257-9350TMP.html
+  15. file:///tmp/lynxXXXXZ7z4UX/L257-3446TMP.html
