@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Removing emotion from work</title>
+      <link>https://gnikyt.com/removing-emotion-from-work</link>
+      <description>I've been doing development for about 25 years now, which is still wild to think about. So much has
+      changed in that time, *like I touche...</description>
+      <guid isPermLink="true">https://gnikyt.com/removing-emotion-from-work</guid>
+      <pubDate>2026-02-25T10:24:12+0000</pubDate>
+      <archived></archived>
+      <category>thoughts</category>
+    </item>
+    <item>
       <title>New cq release</title>
       <link>https://gnikyt.com/new-cq-release</link>
       <description>I intended to write an update about `cq` since a lot of features have been added in recent months,

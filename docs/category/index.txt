@@ -9,19 +9,19 @@
    Displaying all categories with their post count.
      * $>
 
-[9]golang
+[9]thoughts
+       3 posts
+       Logo of thoughts
+     * $>
+
+[10]golang
        3 posts
        Logo of golang
      * $>
 
-[10]shopify
+[11]shopify
        17 posts
        Logo of shopify
-     * $>
-
-[11]thoughts
-       2 posts
-       Logo of thoughts
      * $>
 
 [12]cmd
@@ -109,9 +109,9 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/golang
-  10. file:///category/shopify
-  11. file:///category/thoughts
+   9. file:///category/thoughts
+  10. file:///category/golang
+  11. file:///category/shopify
   12. file:///category/cmd
   13. file:///category/javascript
   14. file:///category/react

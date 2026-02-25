@@ -11,7 +11,7 @@
 
 [9]New cq release
        Feb 11, 2026
-       11KB
+       12KB
      * $>
 
 [10]Shopify Value Objects for Go
