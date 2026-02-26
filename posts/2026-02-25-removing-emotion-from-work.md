@@ -16,13 +16,17 @@ I fully believe that mix of loving the internet, building things, and grinding t
 
 But all that experience isn't just development experience. People management (not "managing people") is a huge factor that separates a hobbyist or junior from a leader. People are far more complex than code, easily. Learning how to understand people opens a lot of doors and gives you a lot more peace in your work. *People* can mean a lot of things: employees, co-workers, clients, vendors, merchants. If you can get better at people management, you build a better version of yourself, better direction, and better harmony around you.
 
-A lot of this comes from what we do best as developers: logic. If you remove emotion from the issue, you can see the problem from different perspectives and attack it in a pragmatic, logical way.
+A lot of this comes from what we do best as developers: logic. If you can regulate your emotional response to an issue, you can see the problem from different perspectives and attack it in a pragmatic, logical way *(like code)*.
 
-We all know clients get angry sometimes. Sometimes they take it out on you. But if you step back, remove emotion, and look at the context, you'll often see it's not really about you personally. They might be under pressure from a production issue, working late, stressed, and reacting... and unfortunately, you are the one they react *to*.
+I'm not saying become *emotionless*. Empathy is critical... it's how you understand why a client is spiraling or why a teammate may be difficult. The goal isn't to remove emotion, it's to manage it. Keep your own reactions in check while staying attuned to the emotional state of the room.
+
+We all know clients get angry sometimes. Sometimes they take it out on you. But if you step back, regulate your response, and look at the context, you'll often see it's not really about you personally. They might be under pressure from a production issue, working late, stressed, and reacting... and unfortunately, you are the one they react *to*.
+
+Sometimes, the other person needs to feel heard before they can engage logically. Jumping straight into problem-solving mode too early can actually escalate things. Let them vent, acknowledge the frustration, then guide the conversation toward resolution.
 
 If you respond emotionally, that's not productive... it usually makes things worse. If you treat it like a personal attack, that's not productive either, because now you're focused on being defensive instead of solving the problem.
 
-But if you remove emotion and treat it like a logical problem *(like code)*, you can navigate the conversation calmly and move toward a real solution without being reactive.
+But if you regulate your own emotions and treat the situation like a logical problem *(like code)*, you can navigate the conversation calmly and move toward a real solution without being reactive.
 
 The same goes for co-workers, employees, your team... whoever it is. People are complex, and people are emotional. When pressure ramps up, emotions bubble up and often come out the wrong way.
 
@@ -32,8 +36,8 @@ At the end of the day, whether it's a code issue or an internal people issue, em
 
 Resolution comes faster when you think clearly and logically.
 
-I've been that guy getting screamed at over the phone by a client in front of a board while fixing a production issue I didn't cause. I've been in internal team conflict. I've been thrown under the bus. But I've handled those situations well by keeping emotions out of it, and I've come out of them with mature, sensible resolutions because I focused on the problem, not the feelings. It's more productive, and it makes you look professionally mature.
+I've been that guy getting screamed at over the phone by a client in front of a board while fixing a production issue I didn't cause. I've been inside internal team conflict. I've been thrown under the bus. But! I've handled those situations well by keeping my own emotions regulated, and I've come out of those situations with mature and sensible resolutions because I focused on the problem while still acknowledging the human side of it all. It's more productive and it makes you look professionally mature.
 
 So in the end, all this time I've been developing, I've been building two skill sets: coding, and people. That second one has helped separate me from others and keep me effective as a problem solver, whether the problem is code or people.
 
-Removing emotion from your work doesn't make you cold. It makes you clearer. That can make you both a better developer and a better person.
+Regulating emotion in your work doesn't make you cold. It makes you clearer. Stay attuned to the room, stay empathetic, but don't let your own reactions drive the conversation or influence the potential resolution. That balance can make you both a better developer and a better person.
