@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                         Single field error in Symfony /
 
-   /* Dec 12, 2013  --  959B */
    [9]Logo of php [10]Logo of symfony
 
    This is just a quick tid-bit/how-to!
@@ -30,7 +30,7 @@
 
    Just replace field_name with the field name you wish to use!
 
-   Appendix
+Appendix
 
    This post is 12 years old and may contain outdated information.
 
@@ -63,4 +63,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///get-single-field-error-in-symfony/index.md
   13. file:///get-single-field-error-in-symfony/index.txt
-  14. file:///tmp/lynxXXXXvacPB0/L15592-4309TMP.html
+  14. file:///tmp/lynxXXXX75bdSb/L15592-7485TMP.html

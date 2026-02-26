@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                               WSL network speed /
 
-   /* Nov 16, 2021  --  1.8KB */
    [9]Logo of cmd
 
    Recently, I jumped back into Windows after a few months of Linux and
@@ -49,11 +49,11 @@ Potential Solution #2
    was operating normally and speedtest-cli was reporting numbers
    identical to the host machine in both download and upload.
 
-   Anchors
+Anchors
 
      * [1] [11]github.com/microsoft/WSL/issues/4901 /^
 
-   Appendix
+Appendix
 
    This post is 4 years old and may contain outdated information.
 
@@ -87,4 +87,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///wsl-network-speed/index.md
   14. file:///wsl-network-speed/index.txt
-  15. file:///tmp/lynxXXXXufK6rl/L5709-8339TMP.html
+  15. file:///tmp/lynxXXXXrtKx34/L5709-4886TMP.html

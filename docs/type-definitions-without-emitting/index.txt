@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                       Type definitions without emitting /
 
-   /* Feb 07, 2024  --  3.4KB */
    [9]Logo of javascript
 
 Introduction
@@ -107,7 +107,7 @@ Importing
 import { type PaginatedRecords } from "app-types/paginate/index";
 import { type ShopifyOrderIdValue } from "app-types/value/id";
 
-   Appendix
+Appendix
 
    This post is 2 years old and may contain outdated information.
 
@@ -139,4 +139,4 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///type-definitions-without-emitting/index.md
   12. file:///type-definitions-without-emitting/index.txt
-  13. file:///tmp/lynxXXXXg5lP3B/L2982-8551TMP.html
+  13. file:///tmp/lynxXXXX7U5fHQ/L2982-8630TMP.html

@@ -2,6 +2,7 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                     About /
@@ -67,7 +68,7 @@ Pinned Open Source work
        Shopify.
      * [21]be - BASH; Template engine in BASH.
 
-   Appendix
+Appendix
 
    Copyright under [22]CC-4.0.
 
@@ -109,4 +110,4 @@ References
   22. https://creativecommons.org/licenses/by/4.0/
   23. file:///about/index.md
   24. file:///about/index.txt
-  25. file:///tmp/lynxXXXXf07fYI/L16215-4679TMP.html
+  25. file:///tmp/lynxXXXX4am9Rl/L16215-4645TMP.html

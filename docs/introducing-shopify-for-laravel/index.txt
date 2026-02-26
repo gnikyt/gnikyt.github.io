@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          Introducing Laravel Shopify /
 
-   /* Aug 09, 2017  --  2.6KB */
    [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
 Background
@@ -64,13 +64,13 @@ Project
 
    Happy coding with Shopify + Laravel!
 
-   Anchors
+Anchors
 
      * [1] [15]github.com/Shopify/shopify_app /^
      * [2] [16]github.com/gnikyt/laravel-shopify /^
      * [3] [17]github.com/gnikyt/laravel-shopify/wiki /^
 
-   Appendix
+Appendix
 
    This post is 8 years old and may contain outdated information.
 
@@ -110,4 +110,4 @@ References
   18. https://creativecommons.org/licenses/by/4.0/
   19. file:///introducing-shopify-for-laravel/index.md
   20. file:///introducing-shopify-for-laravel/index.txt
-  21. file:///tmp/lynxXXXXImGwNi/L10199-2663TMP.html
+  21. file:///tmp/lynxXXXXvD7RIi/L10199-9951TMP.html

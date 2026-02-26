@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                       Counting unique options in Shopify /
 
-   /* Jun 21, 2016  --  2.1KB */
    [9]Logo of shopify
 
    Ever wanted to quickly display how many of an option a product
@@ -55,13 +55,13 @@ r', 'colors' }}
    selecting the product appropriate to their needs... this little bit of
    Liquid can easily help with conversion rates.
 
-   Anchors
+Anchors
 
      * [1] [12]help.shopify.com/themes/liquid/filters/array-filters#map /^
      * [2] [13]help.shopify.com/themes/liquid/filters/array-filters#uniq
        /^
 
-   Appendix
+Appendix
 
    This post is 9 years old and may contain outdated information.
 
@@ -97,4 +97,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///counting-unique-options-in-shopify/index.md
   16. file:///counting-unique-options-in-shopify/index.txt
-  17. file:///tmp/lynxXXXXhH6SHF/L12063-7535TMP.html
+  17. file:///tmp/lynxXXXXjo77D7/L12063-9249TMP.html

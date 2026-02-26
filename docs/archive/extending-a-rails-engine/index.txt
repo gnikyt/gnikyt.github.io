@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                            Extending a Rails Engine /
 
-   /* Feb 20, 2016  --  4.4KB */
    [9]Logo of ruby [10]Logo of rails
 
    Redesigning my CMS in Rails has been great fun. There have been many
@@ -118,7 +118,7 @@ Views
    Although the Rails Guide covers all this, I thought seeing a real-world
    example would help. Happy coding!
 
-   Anchors
+Anchors
 
      * [1]
        [16]http://edgeguides.rubyonrails.org/engines.html#improving-engine
@@ -136,7 +136,7 @@ Views
        [20]http://guides.rubyonrails.org/layouts_and_rendering.html#using-
        the-content-for-method /^
 
-   Appendix
+Appendix
 
    This post is 10 years old and may contain outdated information.
 
@@ -179,4 +179,4 @@ References
   21. https://creativecommons.org/licenses/by/4.0/
   22. file:///extending-a-rails-engine/index.md
   23. file:///extending-a-rails-engine/index.txt
-  24. file:///tmp/lynxXXXXrteYf9/L13291-87TMP.html
+  24. file:///tmp/lynxXXXXSQAwY3/L13291-955TMP.html

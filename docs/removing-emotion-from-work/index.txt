@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           Removing emotion from work /
 
-   /* Feb 25, 2026  --  4.5KB */
    [9]Logo of thoughts
 
    I've been doing development for about 25 years now, which is still wild
@@ -19,11 +19,12 @@
    to FormMail.pl in a CGI/Perl setup, adding hit counters and guestbooks
    to every site, fighting JavaScript differences between IE and Netscape,
    or trying to get your work hosted on some shared FTP/cPanel box,
-   tinkering with the hot-new Python, and so on. There weren't many
-   resources besides literal books in the house, and if you were lucky, an
-   early forum where you could ask questions. No AI, no StackOverflow, no
-   Slack or Discord, no smartphones, no instant internet access (I still
-   miss the dial-up sound).
+   tinkering with the hot-new Python, and so on.
+
+   There weren't many resources besides literal books in the house, and if
+   you were lucky, an early forum where you could ask questions. No AI, no
+   StackOverflow, no Slack or Discord, no smartphones, no instant internet
+   access (I still miss the dial-up sound).
 
    I fully believe that mix of loving the internet, building things, and
    grinding through self-taught learning made me who I am today. I loved
@@ -46,23 +47,36 @@
    yourself, better direction, and better harmony around you.
 
    A lot of this comes from what we do best as developers: logic. If you
-   remove emotion from the issue, you can see the problem from different
-   perspectives and attack it in a pragmatic, logical way.
+   can regulate your emotional response to an issue, you can see the
+   problem from different perspectives and attack it in a pragmatic,
+   logical way (like code).
+
+   I'm not saying become emotionless. Empathy is critical... it's how you
+   understand why a client is spiraling or why a teammate may be
+   difficult. The goal isn't to remove emotion, it's to manage it. Keep
+   your own reactions in check while staying attuned to the emotional
+   state of the room.
 
    We all know clients get angry sometimes. Sometimes they take it out on
-   you. But if you step back, remove emotion, and look at the context,
-   you'll often see it's not really about you personally. They might be
-   under pressure from a production issue, working late, stressed, and
-   reacting... and unfortunately, you are the one they react to.
+   you. But if you step back, regulate your response, and look at the
+   context, you'll often see it's not really about you personally. They
+   might be under pressure from a production issue, working late,
+   stressed, and reacting... and unfortunately, you are the one they react
+   to.
+
+   Sometimes, the other person needs to feel heard before they can engage
+   logically. Jumping straight into problem-solving mode too early can
+   actually escalate things. Let them vent, acknowledge the frustration,
+   then guide the conversation toward resolution.
 
    If you respond emotionally, that's not productive... it usually makes
    things worse. If you treat it like a personal attack, that's not
    productive either, because now you're focused on being defensive
    instead of solving the problem.
 
-   But if you remove emotion and treat it like a logical problem (like
-   code), you can navigate the conversation calmly and move toward a real
-   solution without being reactive.
+   But if you regulate your own emotions and treat the situation like a
+   logical problem (like code), you can navigate the conversation calmly
+   and move toward a real solution without being reactive.
 
    The same goes for co-workers, employees, your team... whoever it is.
    People are complex, and people are emotional. When pressure ramps up,
@@ -77,10 +91,11 @@
 
    I've been that guy getting screamed at over the phone by a client in
    front of a board while fixing a production issue I didn't cause. I've
-   been in internal team conflict. I've been thrown under the bus. But
-   I've handled those situations well by keeping emotions out of it, and
-   I've come out of them with mature, sensible resolutions because I
-   focused on the problem, not the feelings. It's more productive, and it
+   been inside internal team conflict. I've been thrown under the bus.
+   But! I've handled those situations well by keeping my own emotions
+   regulated, and I've come out of those situations with mature and
+   sensible resolutions because I focused on the problem while still
+   acknowledging the human side of it all. It's more productive and it
    makes you look professionally mature.
 
    So in the end, all this time I've been developing, I've been building
@@ -88,14 +103,17 @@
    me from others and keep me effective as a problem solver, whether the
    problem is code or people.
 
-   Removing emotion from your work doesn't make you cold. It makes you
-   clearer. That can make you both a better developer and a better person.
+   Regulating emotion in your work doesn't make you cold. It makes you
+   clearer. Stay attuned to the room, stay empathetic, but don't let your
+   own reactions drive the conversation or influence the potential
+   resolution. That balance can make you both a better developer and a
+   better person.
 
-   Anchors
+Anchors
 
      * [1] [11]/the-lost-web
 
-   Appendix
+Appendix
 
    Copyright under [12]CC-4.0.
 
@@ -127,4 +145,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///removing-emotion-from-work/index.md
   14. file:///removing-emotion-from-work/index.txt
-  15. file:///tmp/lynxXXXX1DPS9v/L252-9245TMP.html
+  15. file:///tmp/lynxXXXXrs6Kb6/L252-9317TMP.html

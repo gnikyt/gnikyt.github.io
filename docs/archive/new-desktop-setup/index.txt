@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                               New desktop setup /
 
-   /* Dec 11, 2022  --  6.5KB */
    [9]Logo of cmd
 
 Introduction
@@ -153,7 +153,7 @@ Cinnamon
    great, well-thought-out desktop which brings back the feeling of
    nostalgia and control again.
 
-   Anchors
+Anchors
 
      * [1] [15]/i3-plasma-a-solid-match
      * [2] [16]/assets/images/posts/gnomeshelllook.png
@@ -165,7 +165,7 @@ Cinnamon
        [19]linuxmint-developer-guide.readthedocs.io/en/latest/xapps.html
        /^
 
-   Appendix
+Appendix
 
    This post is 3 years old and may contain outdated information.
 
@@ -207,4 +207,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///new-desktop-setup/index.md
   22. file:///new-desktop-setup/index.txt
-  23. file:///tmp/lynxXXXXJtywhy/L4158-3870TMP.html
+  23. file:///tmp/lynxXXXXE1EA1o/L4158-9392TMP.html

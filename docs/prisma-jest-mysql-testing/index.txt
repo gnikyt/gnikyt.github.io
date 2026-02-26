@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                    Shopify Prisma, Jest, and MySQL testing /
 
-   /* Mar 28, 2024  --  6.5KB */
    [9]Logo of shopify [10]Logo of javascript
 
    This is an alternate extension to my previous post, [11]Shopify, Remix,
@@ -256,11 +256,11 @@ volumes:
    down once Jest exits. Without this, the container stays open and
    running.
 
-   Anchors
+Anchors
 
      * [1] [12]../shopify-remix-prisma-and-jest /^
 
-   Appendix
+Appendix
 
    Copyright under [13]CC-4.0.
 
@@ -293,4 +293,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///prisma-jest-mysql-testing/index.md
   15. file:///prisma-jest-mysql-testing/index.txt
-  16. file:///tmp/lynxXXXXtVMPCR/L2496-7340TMP.html
+  16. file:///tmp/lynxXXXXItOzSV/L2496-7735TMP.html

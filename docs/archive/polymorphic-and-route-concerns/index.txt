@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                     Polymorphic route concerns with Rails /
 
-   /* Jan 01, 2016  --  5.1KB */
    [9]Logo of ruby [10]Logo of rails
 
    The goal of this post is to outline some tips on easily figuring out
@@ -151,13 +151,13 @@ end
    Now when saved, the metafield record in the database will automatically
    set the modal class and the ID for the object.
 
-   Anchors
+Anchors
 
      * [1]
        [12]http://guides.rubyonrails.org/association_basics.html#polymorph
        ic-associations /^
 
-   Appendix
+Appendix
 
    This post is 10 years old and may contain outdated information.
 
@@ -192,4 +192,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///polymorphic-and-route-concerns/index.md
   15. file:///polymorphic-and-route-concerns/index.txt
-  16. file:///tmp/lynxXXXXO7YDJB/L13603-6670TMP.html
+  16. file:///tmp/lynxXXXXp2KeXv/L13603-5745TMP.html

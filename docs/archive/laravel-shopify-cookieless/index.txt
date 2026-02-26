@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           Laravel Shopify cookieless /
 
-   /* Jun 29, 2021  --  2.8KB */
    [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
 This Issue
@@ -83,7 +83,7 @@ What's next?
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
-   Anchors
+Anchors
 
      * [1] [16]github.com/gnikyt/laravel-shopify/issues/744 /^
      * [2]
@@ -92,7 +92,7 @@ What's next?
      * [3] [18]github.com/lucasmichot /^
      * [4] [19]github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0 /^
 
-   Appendix
+Appendix
 
    This post is 4 years old and may contain outdated information.
 
@@ -134,4 +134,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///laravel-shopify-cookieless/index.md
   22. file:///laravel-shopify-cookieless/index.txt
-  23. file:///tmp/lynxXXXXLbChdK/L6412-6237TMP.html
+  23. file:///tmp/lynxXXXXJbNlzy/L6412-6987TMP.html

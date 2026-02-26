@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                      Laravel Shopify featured on Shopify /
 
-   /* Mar 04, 2021  --  1.7KB */
    [9]Logo of shopify [10]Logo of php [11]Logo of laravel
 
    A couple of weeks ago, Liam Griffin at Shopify reached out to me about
@@ -43,11 +43,11 @@
    Thank you Liam for the opportunity to share the package with your
    readers!
 
-   Anchors
+Anchors
 
      * [1] [13]www.shopify.com/partners/blog/api-tools /^
 
-   Appendix
+Appendix
 
    This post is 4 years old and may contain outdated information.
 
@@ -83,4 +83,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///laravel-shopify-featured-shopify-blog/index.md
   16. file:///laravel-shopify-featured-shopify-blog/index.txt
-  17. file:///tmp/lynxXXXXMh4J2F/L6980-2481TMP.html
+  17. file:///tmp/lynxXXXXoguEwB/L6980-9629TMP.html

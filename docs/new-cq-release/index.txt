@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                 New cq release /
 
-   /* Feb 11, 2026  --  12KB */
    [9]Logo of golang
 
    I intended to write an update about cq since a lot of features have
@@ -382,11 +382,11 @@ BenchmarkSingleSteadyState-10                               3063700        393.4
 
    GitHub: [10]github.com/gnikyt/cq
 
-   Anchors
+Anchors
 
      * [1] [11]github.com/gnikyt/cq /^
 
-   Appendix
+Appendix
 
    Copyright under [12]CC-4.0.
 
@@ -418,4 +418,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///new-cq-release/index.md
   14. file:///new-cq-release/index.txt
-  15. file:///tmp/lynxXXXX7mgFCH/L527-493TMP.html
+  15. file:///tmp/lynxXXXXlkLVeb/L527-6186TMP.html

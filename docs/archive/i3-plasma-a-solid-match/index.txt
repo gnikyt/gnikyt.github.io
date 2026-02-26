@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          i3-Plasma for a solid match /
 
-   /* Aug 28, 2019  --  4.4KB */
    [9]Logo of cmd
 
    [10]Cover Image
@@ -108,7 +108,7 @@ Conclusion
    Give a try. My dot files for i3 and .Xresources has a good starting
    ground which you can expand upon and enjoy a mouseless experience!
 
-   Anchors
+Anchors
 
      * [1] [15]/assets/images/posts/screenshot.png
      * [2] [16]ryanlue.com/posts/2019-06-13-kde-i3 /^
@@ -116,7 +116,7 @@ Conclusion
      * [4] [18]github.com/gnikyt/dots/blob/master/.config/i3/config /^
      * [5] [19]store.kde.org/p/1315319/ /^
 
-   Appendix
+Appendix
 
    This post is 6 years old and may contain outdated information.
 
@@ -158,4 +158,4 @@ References
   20. https://creativecommons.org/licenses/by/4.0/
   21. file:///i3-plasma-a-solid-match/index.md
   22. file:///i3-plasma-a-solid-match/index.txt
-  23. file:///tmp/lynxXXXXxAJwRc/L8716-2651TMP.html
+  23. file:///tmp/lynxXXXXFcm8SR/L8716-6568TMP.html

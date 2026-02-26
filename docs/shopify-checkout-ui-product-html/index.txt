@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                  Shopify checkout extension with product HTML /
 
-   /* May 10, 2024  --  14KB */
    [9]Logo of shopify [10]Logo of javascript [11]Logo of react
 
 Background
@@ -525,12 +525,12 @@ export default function descriptionTransformer(rawHtml, transformer) {
    attempting to use product descriptions in a Shopify Checkout UI
    Extension.
 
-   Anchors
+Anchors
 
      * [1] [14]developer.mozilla.org/en-US/docs/Web/API/DOMParser /^
      * [2] [15]gist.github.com/gnikyt/3d8f0043281e3ebfa72793c546c2cfe8 /^
 
-   Appendix
+Appendix
 
    Copyright under [16]CC-4.0.
 
@@ -566,4 +566,4 @@ References
   16. https://creativecommons.org/licenses/by/4.0/
   17. file:///shopify-checkout-ui-product-html/index.md
   18. file:///shopify-checkout-ui-product-html/index.txt
-  19. file:///tmp/lynxXXXX0KGvwR/L2189-9496TMP.html
+  19. file:///tmp/lynxXXXXeb8PJX/L2189-6921TMP.html

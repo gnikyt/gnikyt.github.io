@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                   Handling Shopify API limits and Goroutines /
 
-   /* Apr 10, 2025  --  15KB */
    [9]Logo of golang [10]Logo of shopify
 
    I frequently build integration applications with Shopify and I thought
@@ -444,11 +444,11 @@ completed.
    Hopefully this helpful to those looking to do similar. I have released
    this method as a Go package, which you can find [11]here on Github.
 
-   Anchors
+Anchors
 
      * [1] [12]github.com/gnikyt/shopifysemaphore /^
 
-   Appendix
+Appendix
 
    Copyright under [13]CC-4.0.
 
@@ -481,4 +481,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///handling-shopify-api-limits-goroutines/index.md
   15. file:///handling-shopify-api-limits-goroutines/index.txt
-  16. file:///tmp/lynxXXXXJcV8Y4/L1833-6605TMP.html
+  16. file:///tmp/lynxXXXXqpSuhc/L1833-4012TMP.html

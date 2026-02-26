@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             WordPress with Docker /
 
-   /* Jun 15, 2017  --  3.6KB */
    [9]Logo of php [10]Logo of wordpress
 
 Purpose
@@ -109,14 +109,14 @@ Further Exploring
 
    I hope this has helped anyone struggling.
 
-   Anchors
+Anchors
 
      * [1] [15]docs.docker.com/compose/ /^
      * [2] [16]hub.docker.com/_/wordpress/ /^
      * [3] [17]github.com/gnikyt/wordpress-docker-quickstart /^
      * [4] [18]github.com/gnikyt/wordpress-docker-quickstart /^
 
-   Appendix
+Appendix
 
    This post is 8 years old and may contain outdated information.
 
@@ -157,4 +157,4 @@ References
   19. https://creativecommons.org/licenses/by/4.0/
   20. file:///wordpress-under-docker/index.md
   21. file:///wordpress-under-docker/index.txt
-  22. file:///tmp/lynxXXXXMTG5Tl/L11024-4324TMP.html
+  22. file:///tmp/lynxXXXXf0orb1/L11024-4038TMP.html

@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                ACF Simple Table /
 
-   /* Jul 18, 2014  --  1.2KB */
    [9]Logo of php [10]Logo of wordpress
 
    I've released a new GitHub repo. It's an add-on for popular [11]ACF
@@ -29,12 +29,12 @@
    [12]click here and you're free to use this in any commercial or
    personal project!
 
-   Anchors
+Anchors
 
      * [1] [13]http://www.advancedcustomfields.com/ /^
      * [2] [14]github.com/gnikyt/acf-simple_table /^
 
-   Appendix
+Appendix
 
    This post is 11 years old and may contain outdated information.
 
@@ -71,4 +71,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///acf-simple-table/index.md
   17. file:///acf-simple-table/index.txt
-  18. file:///tmp/lynxXXXXAP5vpb/L14931-690TMP.html
+  18. file:///tmp/lynxXXXXZl5LHa/L14931-9841TMP.html

@@ -2,6 +2,7 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           Index of category / golang /
@@ -24,7 +25,6 @@
        15KB
 
    [12]< Categories  |  [13]< Home
-
      *
      *
      *

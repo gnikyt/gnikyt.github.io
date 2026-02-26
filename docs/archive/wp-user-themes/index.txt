@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             WordPress User Themes /
 
-   /* May 21, 2015  --  365B */
    [9]Logo of php [10]Logo of wordpress
 
    I've released a unit-tested plugin called Wp User Themes.
@@ -16,11 +16,11 @@
 
    You can check out the plugin [11]here
 
-   Anchors
+Anchors
 
      * [1] [12]github.com/gnikyt/wp-user-themes /^
 
-   Appendix
+Appendix
 
    This post is 10 years old and may contain outdated information.
 
@@ -55,4 +55,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///wp-user-themes/index.md
   15. file:///wp-user-themes/index.txt
-  16. file:///tmp/lynxXXXX3Hy9j2/L14320-1338TMP.html
+  16. file:///tmp/lynxXXXXVoRI0T/L14320-9721TMP.html

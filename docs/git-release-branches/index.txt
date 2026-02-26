@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                              Git release branches /
 
-   /* Mar 10, 2021  --  3.4KB */
    [9]Logo of python [10]Logo of cmd
 
    A method I like to utilize internally, which I've been slowly pushing
@@ -110,7 +110,7 @@ for branch, tag in mm.items():
    branches it will created based on your existing tags before proceeding
    with the creation.
 
-   Appendix
+Appendix
 
    This post is 4 years old and may contain outdated information.
 
@@ -143,4 +143,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///git-release-branches/index.md
   13. file:///git-release-branches/index.txt
-  14. file:///tmp/lynxXXXXRU75tg/L6668-4839TMP.html
+  14. file:///tmp/lynxXXXXY31wGx/L6668-7573TMP.html

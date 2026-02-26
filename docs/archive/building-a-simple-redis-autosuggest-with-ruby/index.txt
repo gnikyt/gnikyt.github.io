@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                         Redis autosuggest with Sinatra /
 
-   /* Mar 02, 2016  --  5.6KB */
    [9]Logo of ruby [10]Logo of sinatra
 
    So you have a search box on your website.. an article search, a product
@@ -175,13 +175,13 @@ end
    Finally, send the results as JSON. You can use AJAX to actively call
    the Sinatra app when the user is typing.
 
-   Anchors
+Anchors
 
      * [1] [14]http://redis.io/commands/ZADD /^
      * [2] [15]http://redis.io/commands/ZRANGE /^
      * [3] [16]http://redis.io/commands/ZINTERSTORE /^
 
-   Appendix
+Appendix
 
    This post is 9 years old and may contain outdated information.
 
@@ -220,4 +220,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///building-a-simple-redis-autosuggest-with-ruby/index.md
   19. file:///building-a-simple-redis-autosuggest-with-ruby/index.txt
-  20. file:///tmp/lynxXXXXitlBZK/L12779-3803TMP.html
+  20. file:///tmp/lynxXXXXJrazxq/L12779-9998TMP.html

@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                                Lumen with Redis /
 
-   /* Nov 19, 2017  --  1.3KB */
    [9]Logo of php [10]Logo of laravel
 
    This is more of an extension of my previous post "Setting Up Lumen +
@@ -50,7 +50,7 @@ QUEUE_DRIVER=redis
 
    That's it! You can now queue mail or process jobs.
 
-   Appendix
+Appendix
 
    This post is 8 years old and may contain outdated information.
 
@@ -83,4 +83,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///setting-up-lumen-with-redis/index.md
   13. file:///setting-up-lumen-with-redis/index.txt
-  14. file:///tmp/lynxXXXXMtD9TR/L9369-4608TMP.html
+  14. file:///tmp/lynxXXXXyfzJFA/L9369-8997TMP.html

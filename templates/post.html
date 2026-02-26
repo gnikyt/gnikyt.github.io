@@ -9,7 +9,7 @@
     <div class="tab__content">
       <div class="post__meta content-container">
         <div class="post__details">
-          /* <time class="post__time" datetime="{{DATE_YMD}}">{{DATE_HUMAN}}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">{{POST_SIZE}}</span> */
+          <!-- <time class="post__time" datetime="{{DATE_YMD}}">{{DATE_HUMAN}}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">{{POST_SIZE}}</span> -->
         </div>
         <div class="post__category">
           {{@FOREACH CATEGORY ,}}
@@ -26,8 +26,8 @@
 </article>
 
 {{#ANCHORS}}
-  <section class="tab tab--anchors">
-    <div class="tab__title tab__title--short">Anchors</div>
+  <section class="tab tab--anchors" aria-labelledby="anchors-heading">
+    <h2 id="anchors-heading" class="tab__title tab__title--short">Anchors</h2>
     <div class="tab__container">
       <div class="tab__content">
         <ul class="anchors-list">
@@ -43,8 +43,8 @@
   </section>
 {{/ANCHORS}}
 
-<section class="tab tab--appendix">
-  <div class="tab__title tab__title--short">Appendix</div>
+<section class="tab tab--appendix" aria-labelledby="appendix-heading">
+  <h2 id="appendix-heading" class="tab__title tab__title--short">Appendix</h2>
   <div class="tab__container">
     <div class="tab__content">
       <div class="content-container">

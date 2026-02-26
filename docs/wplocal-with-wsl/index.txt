@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                            WordPress Local with WSL /
 
-   /* Dec 07, 2023  --  5.6KB */
    [9]Logo of php [10]Logo of wordpress
 
    A recent project was picked up from another agency where they utilized
@@ -147,13 +147,13 @@ Conclusion
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
-   Anchors
+Anchors
 
      * [1] [14]/assets/images/posts/wplocal_running.png
      * [2] [15]community.localwp.com/u/robert77 /^
      * [3] [16]/assets/images/posts/wplocal_sudo.png
 
-   Appendix
+Appendix
 
    This post is 2 years old and may contain outdated information.
 
@@ -192,4 +192,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///wplocal-with-wsl/index.md
   19. file:///wplocal-with-wsl/index.txt
-  20. file:///tmp/lynxXXXX27sHkA/L3674-916TMP.html
+  20. file:///tmp/lynxXXXXhOae1n/L3674-2262TMP.html

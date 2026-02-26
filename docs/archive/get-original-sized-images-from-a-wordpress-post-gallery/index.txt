@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                 Original sized images from a WordPress Gallery /
 
-   /* Nov 08, 2014  --  1.5KB */
    [9]Logo of php [10]Logo of wordpress
 
    Recently, I was working on a project where I needed to modify an
@@ -50,7 +50,7 @@ function getGalleryImages($content, $return_size = 'large') {
   return $images;
 }
 
-   Appendix
+Appendix
 
    This post is 11 years old and may contain outdated information.
 
@@ -83,4 +83,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.md
   13. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.txt
-  14. file:///tmp/lynxXXXX2as85a/L14569-1935TMP.html
+  14. file:///tmp/lynxXXXXllg26u/L14569-9455TMP.html

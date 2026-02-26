@@ -2,6 +2,7 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                            Index of category / php /
@@ -89,7 +90,6 @@
        6.0KB
 
    [25]< Categories  |  [26]< Home
-
      *
      *
      *

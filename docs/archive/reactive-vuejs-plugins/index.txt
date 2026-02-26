@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             Reactive VueJS plugins /
 
-   /* Jun 29, 2017  --  4.1KB */
    [9]Logo of javascript [10]Logo of vuejs
 
    VueJS has been my go-to framework from building small to medium-sized
@@ -141,12 +141,12 @@ re.home }} - {{ $SportsTicker.state.score.away }}
    All we needed to do was create our own Vue instance for the plugin to
    store the data, with a simple method to access it (get state).
 
-   Anchors
+Anchors
 
      * [1] [13]vuejs.org/v2/guide/plugins.html /^
      * [2] [14]vuejs.org/v2/guide/reactivity.html /^
 
-   Appendix
+Appendix
 
    This post is 8 years old and may contain outdated information.
 
@@ -183,4 +183,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///reactive-vuejs-plugins/index.md
   17. file:///reactive-vuejs-plugins/index.txt
-  18. file:///tmp/lynxXXXXLgX54M/L10563-8421TMP.html
+  18. file:///tmp/lynxXXXXLLokSX/L10563-3964TMP.html

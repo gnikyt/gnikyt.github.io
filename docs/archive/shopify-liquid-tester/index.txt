@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             Shopify Liquid Tester /
 
-   /* Nov 20, 2022  --  3.9KB */
    [9]Logo of shopify [10]Logo of javascript
 
 Introduction
@@ -110,12 +110,12 @@ Utilization
    Hopefully this tool will continue to grow and is helpful to those who
    are looking to try and test their snippets; both small and complex.
 
-   Anchors
+Anchors
 
      * [1] [13]github.com/gnikyt/liquid-fn-tester /^
      * [2] [14]github.com/gnikyt/liquid-fn-tester/tree/master/tests /^
 
-   Appendix
+Appendix
 
    This post is 3 years old and may contain outdated information.
 
@@ -152,4 +152,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///shopify-liquid-tester/index.md
   17. file:///shopify-liquid-tester/index.txt
-  18. file:///tmp/lynxXXXXXRGXN6/L4512-6856TMP.html
+  18. file:///tmp/lynxXXXXoqNMpW/L4512-9565TMP.html

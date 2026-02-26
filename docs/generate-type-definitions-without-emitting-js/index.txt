@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                 Shopify Checkout Extension to backend fetching /
 
-   /* Feb 27, 2024  --  3.1KB */
    [9]Logo of shopify [10]Logo of javascript [11]Logo of react
 
    There are several posts around about people having issues figuring out
@@ -105,7 +105,7 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
    authenticate.public.checkout, you can easily make a fetch request from
    your extension to your backend.
 
-   Appendix
+Appendix
 
    Copyright under [12]CC-4.0.
 
@@ -137,4 +137,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///generate-type-definitions-without-emitting-js/index.md
   14. file:///generate-type-definitions-without-emitting-js/index.txt
-  15. file:///tmp/lynxXXXX44CIIG/L2739-3757TMP.html
+  15. file:///tmp/lynxXXXXRVxFtE/L2739-515TMP.html

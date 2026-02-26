@@ -2,6 +2,7 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          Index of category / thoughts /
@@ -12,7 +13,7 @@
 
 [9]Removing emotion from work
        Feb 25, 2026
-       4.5KB
+       5.3KB
      * $>
 
 [10]The lost web
@@ -25,7 +26,6 @@
        6.0KB
 
    [12]< Categories  |  [13]< Home
-
      *
      *
      *

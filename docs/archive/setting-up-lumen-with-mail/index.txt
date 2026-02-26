@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                               Lumen with Mailer /
 
-   /* Nov 19, 2017  --  5.3KB */
    [9]Logo of php [10]Logo of laravel
 
 What is Lumen
@@ -204,13 +204,13 @@ class WinningsMailTest extends TestCase
    I hope this was a quick and useful setup for anyone having issues. Good
    luck!
 
-   Anchors
+Anchors
 
      * [1] [14]lumen.laravel.com/ /^
      * [2] [15]laravel.com/docs/5.5/mail#sending-mail /^
      * [3] [16]laravel.com/docs/5.5/mocking#mail-fake /^
 
-   Appendix
+Appendix
 
    This post is 8 years old and may contain outdated information.
 
@@ -249,4 +249,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///setting-up-lumen-with-mail/index.md
   19. file:///setting-up-lumen-with-mail/index.txt
-  20. file:///tmp/lynxXXXX7trbiN/L9781-3660TMP.html
+  20. file:///tmp/lynxXXXX8yBmW1/L9781-4643TMP.html

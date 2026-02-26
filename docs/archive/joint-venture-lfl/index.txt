@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                             Joint Venture with LFL /
 
-   /* Nov 15, 2022  --  6.0KB */
    [9]Logo of thoughts
 
 JV
@@ -121,7 +121,7 @@ Press Release
      Company operates five websites: leons.ca, thebrick.com,
      furniture.ca, midnorthern.com and appliancecanada.com.
 
-   Anchors
+Anchors
 
      * [1] [16]leons.ca/ /^
      * [2] [17]www.thebrick.com/ /^
@@ -133,7 +133,7 @@ Press Release
        TORONTO-BASED-DIGITAL-AGENCY/default.aspx /^
      * [6] [21]www.lflgroup.ca/ /^
 
-   Appendix
+Appendix
 
    This post is 3 years old and may contain outdated information.
 
@@ -177,4 +177,4 @@ References
   22. https://creativecommons.org/licenses/by/4.0/
   23. file:///joint-venture-lfl/index.md
   24. file:///joint-venture-lfl/index.txt
-  25. file:///tmp/lynxXXXXWECp73/L5067-6011TMP.html
+  25. file:///tmp/lynxXXXXl8Quc8/L5067-727TMP.html

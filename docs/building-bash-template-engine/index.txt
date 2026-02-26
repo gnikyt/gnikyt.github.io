@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                        Building a BASH template engine /
 
-   /* May 22, 2025  --  4.1KB */
    [9]Logo of cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was
@@ -142,12 +142,12 @@ echo "$TPL" | be
    however, you can view the entire solution on [11]here and modify for
    your needs.
 
-   Anchors
+Anchors
 
      * [1] [12]github.com/gnikyt/be /^
      * [2] [13]githuib.com/gnikyt/be/tree/master/be /^
 
-   Appendix
+Appendix
 
    Copyright under [14]CC-4.0.
 
@@ -181,4 +181,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///building-bash-template-engine/index.md
   16. file:///building-bash-template-engine/index.txt
-  17. file:///tmp/lynxXXXXmds18h/L1551-2802TMP.html
+  17. file:///tmp/lynxXXXX17rT2E/L1551-6566TMP.html

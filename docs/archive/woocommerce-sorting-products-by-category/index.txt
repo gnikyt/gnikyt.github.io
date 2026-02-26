@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                   Sorting product by category in WooCommerce /
 
-   /* Oct 05, 2013  --  6.0KB */
    [9]Logo of wordpress [10]Logo of php
 
    This past week I was assigned to heavily customize a Woocommerce
@@ -148,7 +148,7 @@ In conclusion
    modify this and use it in your code since there doesn't seem to be a
    more viable option around that I've seen.
 
-   Anchors
+Anchors
 
      * [1]
        [14]http://docs.woothemes.com/document/custom-sorting-options-ascde
@@ -160,7 +160,7 @@ In conclusion
        [16]http://docs.woothemes.com/wc-apidocs/source-class-WC_Query.html
        #411 /^
 
-   Appendix
+Appendix
 
    This post is 12 years old and may contain outdated information.
 
@@ -199,4 +199,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///woocommerce-sorting-products-by-category/index.md
   19. file:///woocommerce-sorting-products-by-category/index.txt
-  20. file:///tmp/lynxXXXX29ZPIh/L16004-5048TMP.html
+  20. file:///tmp/lynxXXXXrIgRoU/L16004-7653TMP.html

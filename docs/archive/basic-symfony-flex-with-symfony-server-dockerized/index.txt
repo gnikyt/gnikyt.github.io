@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                  Symfony Flex with Symfony Server Dockerized /
 
-   /* Feb 04, 2020  --  5.5KB */
    [9]Logo of php [10]Logo of symfony
 
    Symfony Flex allows you to tailor a Symfony application to your needs
@@ -170,12 +170,12 @@ Conclusion
    For more information on Symfony Flex, [11]click here; or information on
    Symfony Server, [12]click here.
 
-   Anchors
+Anchors
 
      * [1] [13]symfony.com/doc/current/quick_tour/flex_recipes.html /^
      * [2] [14]symfony.com/doc/current/setup/symfony_server.html /^
 
-   Appendix
+Appendix
 
    This post is 6 years old and may contain outdated information.
 
@@ -212,4 +212,4 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
   17. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
-  18. file:///tmp/lynxXXXXQqDWYH/L8216-792TMP.html
+  18. file:///tmp/lynxXXXXcYJekL/L8216-9915TMP.html

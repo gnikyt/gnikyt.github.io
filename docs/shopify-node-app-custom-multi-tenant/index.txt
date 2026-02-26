@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                  Shopify Node App custom multi-tenant support /
 
-   /* Nov 15, 2021  --  10KB */
    [9]Logo of shopify [10]Logo of javascript
 
 Introduction
@@ -370,7 +370,7 @@ Conculsion
    start for someone looking to add multi-tenant support to a custom app
    setup.
 
-   Appendix
+Appendix
 
    This post is 4 years old and may contain outdated information.
 
@@ -403,4 +403,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///shopify-node-app-custom-multi-tenant/index.md
   13. file:///shopify-node-app-custom-multi-tenant/index.txt
-  14. file:///tmp/lynxXXXXlimtEj/L5949-3257TMP.html
+  14. file:///tmp/lynxXXXXAMMmbU/L5949-1889TMP.html

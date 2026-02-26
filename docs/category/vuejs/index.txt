@@ -2,6 +2,7 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                           Index of category / vuejs /
@@ -14,7 +15,6 @@
        4.1KB
 
    [10]< Categories  |  [11]< Home
-
      *
      *
      *

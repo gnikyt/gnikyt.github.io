@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                        Shopify Remix, Prisma, and Jest /
 
-   /* Jan 10, 2024  --  8.8KB */
    [9]Logo of shopify [10]Logo of javascript
 
 Introduction
@@ -334,12 +334,12 @@ Tests running slow?
      * Running with maxWorkers=4: 38 seconds
      * Running with runInBand: 73 seconds
 
-   Anchors
+Anchors
 
      * [1] [12]www.prisma.io/docs/orm/prisma-client/testing/unit-testing
        /^
 
-   Appendix
+Appendix
 
    This post is 2 years old and may contain outdated information.
 
@@ -374,4 +374,4 @@ References
   13. https://creativecommons.org/licenses/by/4.0/
   14. file:///shopify-remix-prisma-and-jest/index.md
   15. file:///shopify-remix-prisma-and-jest/index.txt
-  16. file:///tmp/lynxXXXXvrMjhB/L3279-3236TMP.html
+  16. file:///tmp/lynxXXXX95qNpu/L3279-5253TMP.html

@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                            Testing with shopify_app /
 
-   /* Jun 21, 2016  --  2.3KB */
    [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
 
    [12]shopify_app is a great Gem to quickly build a Shopify App with
@@ -62,11 +62,11 @@ end
 
    Running bundle exec rake test should now pass your tests with the shop.
 
-   Anchors
+Anchors
 
      * [1] [13]github.com/Shopify/shopify_app /^
 
-   Appendix
+Appendix
 
    This post is 9 years old and may contain outdated information.
 
@@ -102,4 +102,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///testing-with-shopify-app/index.md
   16. file:///testing-with-shopify-app/index.txt
-  17. file:///tmp/lynxXXXXx8orVE/L11706-1148TMP.html
+  17. file:///tmp/lynxXXXX2Hnxp5/L11706-3651TMP.html

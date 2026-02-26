@@ -2,11 +2,11 @@
 
    [2]gnikyt   /  Code ramblings
    [3]Ty King
+
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
                          Shopify Value Objects for Go /
 
-   /* Jul 15, 2025  --  8.8KB */
    [9]Logo of golang
 
    An existing project had grown rapidly, resulting in many places where
@@ -331,11 +331,11 @@ sm := SomeFunc(true, gid.VariantID(129292))
 
    You can view the package snippet [10]here on Github.
 
-   Anchors
+Anchors
 
      * [1] [11]github.com/gnikyt/shopify-go-value-objects /^
 
-   Appendix
+Appendix
 
    Copyright under [12]CC-4.0.
 
@@ -367,4 +367,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///shopify-value-objects-go/index.md
   14. file:///shopify-value-objects-go/index.txt
-  15. file:///tmp/lynxXXXXkRnKLD/L1226-5313TMP.html
+  15. file:///tmp/lynxXXXXE1PXWD/L1226-6605TMP.html
