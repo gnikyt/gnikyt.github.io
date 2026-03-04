@@ -107,6 +107,8 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 
 Appendix
 
+   This post is 2 years old and may contain outdated information.
+
    Copyright under [12]CC-4.0.
 
    Available in the following alternative formats:
@@ -137,4 +139,4 @@ References
   12. https://creativecommons.org/licenses/by/4.0/
   13. file:///generate-type-definitions-without-emitting-js/index.md
   14. file:///generate-type-definitions-without-emitting-js/index.txt
-  15. file:///tmp/lynxXXXXRVxFtE/L2739-515TMP.html
+  15. file:///tmp/lynxXXXXSmDv0q/L2695-9997TMP.html

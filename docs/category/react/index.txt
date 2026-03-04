@@ -12,7 +12,7 @@
 
 [9]Shopify checkout extension with product HTML
        May 10, 2024
-       14KB
+       20KB
      * $>
 
 [10]Shopify Checkout Extension to backend fetching
