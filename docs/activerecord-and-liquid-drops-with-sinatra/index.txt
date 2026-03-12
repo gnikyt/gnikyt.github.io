@@ -190,4 +190,4 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///activerecord-and-liquid-drops-with-sinatra/index.md
   19. file:///activerecord-and-liquid-drops-with-sinatra/index.txt
-  20. file:///tmp/lynxXXXX1ZAm73/L13970-974TMP.html
+  20. file:///tmp/lynxXXXXH9xMW2/L13970-7650TMP.html

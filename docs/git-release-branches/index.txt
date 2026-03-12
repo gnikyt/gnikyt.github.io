@@ -112,7 +112,7 @@ for branch, tag in mm.items():
 
 Appendix
 
-   This post is 4 years old and may contain outdated information.
+   This post is 5 years old and may contain outdated information.
 
    Copyright under [11]CC-4.0.
 
@@ -143,4 +143,4 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///git-release-branches/index.md
   13. file:///git-release-branches/index.txt
-  14. file:///tmp/lynxXXXXYvIfgv/L6624-4440TMP.html
+  14. file:///tmp/lynxXXXXfazCGJ/L6624-9543TMP.html

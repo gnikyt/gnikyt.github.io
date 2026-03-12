@@ -97,4 +97,4 @@ References
   14. https://creativecommons.org/licenses/by/4.0/
   15. file:///counting-unique-options-in-shopify/index.md
   16. file:///counting-unique-options-in-shopify/index.txt
-  17. file:///tmp/lynxXXXXaThdhY/L12019-8304TMP.html
+  17. file:///tmp/lynxXXXXdnFKzz/L12019-9007TMP.html

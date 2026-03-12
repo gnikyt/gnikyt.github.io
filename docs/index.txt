@@ -47,7 +47,7 @@
 
 [16]Shopify checkout extension with product HTML
        May 10, 2024
-       20KB
+       14KB
      * $>
 
 [17]Shopify Prisma, Jest, and MySQL testing

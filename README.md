@@ -34,7 +34,7 @@ docs/hello-world/
 
 If you prefer not to install local dependencies, build with Docker:
 
-`bash bin/build-docker`
+`bash bin/build_docker`
 
 This command:
 
