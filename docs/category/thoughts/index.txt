@@ -11,21 +11,26 @@
    order.
      * $>
 
-[9]Removing emotion from work
+[9]Overloaded AI documentation
+       Apr 05, 2026
+       3.6KB
+     * $>
+
+[10]Removing emotion from work
        Feb 25, 2026
        5.3KB
      * $>
 
-[10]The lost web
+[11]The lost web
        Jul 21, 2025
        3.1KB
      * $>
 
-[11]Joint Venture with LFL
+[12]Joint Venture with LFL
        Nov 15, 2022
        6.0KB
 
-   [12]< Categories  |  [13]< Home
+   [13]< Categories  |  [14]< Home
      *
      *
      *
@@ -45,8 +50,9 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///removing-emotion-from-work
-  10. file:///the-lost-web
-  11. file:///archive/joint-venture-lfl
-  12. file:///category
-  13. file:///
+   9. file:///overloaded-ai-documentation
+  10. file:///removing-emotion-from-work
+  11. file:///the-lost-web
+  12. file:///archive/joint-venture-lfl
+  13. file:///category
+  14. file:///

@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Overloaded AI documentation</title>
+      <link>https://gnikyt.com/overloaded-ai-documentation</link>
+      <description>## Problem created from a problem For many years, the complaint in development (from developers,
+      PMs, etc) was that documentation was n...</description>
+      <guid isPermLink="true">https://gnikyt.com/overloaded-ai-documentation</guid>
+      <pubDate>2026-04-05T18:30:01+0000</pubDate>
+      <archived></archived>
+      <category>thoughts</category>
+    </item>
+    <item>
       <title>Removing emotion from work</title>
       <link>https://gnikyt.com/removing-emotion-from-work</link>
       <description>I've been doing development for about 25 years now, which is still wild to think about. So much has
