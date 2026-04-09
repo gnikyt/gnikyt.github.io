@@ -7,6 +7,7 @@
 
                   Sorting product by category in WooCommerce /
 
+   Oct 05, 2013  --  6.0KB
    [9]Logo of wordpress [10]Logo of php
 
    This past week I was assigned to heavily customize a Woocommerce

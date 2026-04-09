@@ -7,6 +7,7 @@
 
                     Polymorphic route concerns with Rails /
 
+   Jan 01, 2016  --  5.1KB
    [9]Logo of ruby [10]Logo of rails
 
    The goal of this post is to outline some tips on easily figuring out

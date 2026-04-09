@@ -7,6 +7,7 @@
 
                                ACF Simple Table /
 
+   Jul 18, 2014  --  1.2KB
    [9]Logo of php [10]Logo of wordpress
 
    I've released a new GitHub repo. It's an add-on for popular [11]ACF

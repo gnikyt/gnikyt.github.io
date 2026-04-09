@@ -7,6 +7,7 @@
 
                            Testing with shopify_app /
 
+   Jun 21, 2016  --  2.3KB
    [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
 
    [12]shopify_app is a great Gem to quickly build a Shopify App with

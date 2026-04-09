@@ -7,6 +7,7 @@
 
                        Building a BASH template engine /
 
+   May 22, 2025  --  4.1KB
    [9]Logo of cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was

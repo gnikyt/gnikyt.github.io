@@ -7,6 +7,7 @@
 
                               WSL network speed /
 
+   Nov 16, 2021  --  1.8KB
    [9]Logo of cmd
 
    Recently, I jumped back into Windows after a few months of Linux and

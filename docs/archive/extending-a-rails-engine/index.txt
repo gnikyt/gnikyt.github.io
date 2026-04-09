@@ -7,6 +7,7 @@
 
                            Extending a Rails Engine /
 
+   Feb 20, 2016  --  4.4KB
    [9]Logo of ruby [10]Logo of rails
 
    Redesigning my CMS in Rails has been great fun. There have been many

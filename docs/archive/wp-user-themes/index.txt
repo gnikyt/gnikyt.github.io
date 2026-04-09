@@ -7,6 +7,7 @@
 
                             WordPress User Themes /
 
+   May 21, 2015  --  365B
    [9]Logo of php [10]Logo of wordpress
 
    I've released a unit-tested plugin called Wp User Themes.

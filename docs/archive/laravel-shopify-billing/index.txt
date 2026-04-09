@@ -7,6 +7,7 @@
 
                            Laravel Shopify billing /
 
+   Jan 26, 2018  --  992B
    [9]Logo of php [10]Logo of laravel
 
    Version 2.0.0 was [11]just released which features the baked-in ability

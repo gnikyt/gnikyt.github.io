@@ -7,6 +7,7 @@
 
                           Removing emotion from work /
 
+   Feb 25, 2026  --  5.3KB
    [9]Logo of thoughts
 
    I've been doing development for about 25 years now, which is still wild

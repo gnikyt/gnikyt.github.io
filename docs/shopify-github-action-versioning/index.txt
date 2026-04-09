@@ -7,6 +7,7 @@
 
                      Shopify Github Action for versioning /
 
+   May 20, 2022  --  2.5KB
    [9]Logo of shopify [10]Logo of cmd
 
    Shopify recently updated their admin panel again and started to display

@@ -7,6 +7,7 @@
 
                     Precompiling assets with Rails Engine /
 
+   May 03, 2016  --  2.3KB
    [9]Logo of ruby [10]Logo of rails
 
    This will be a quick post to highlight an issue I had where I needed to
