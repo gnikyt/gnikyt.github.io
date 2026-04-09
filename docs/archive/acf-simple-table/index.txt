@@ -71,4 +71,3 @@ References
   15. https://creativecommons.org/licenses/by/4.0/
   16. file:///acf-simple-table/index.md
   17. file:///acf-simple-table/index.txt
-  18. file:///tmp/lynxXXXXqhibJl/L15105-6626TMP.html

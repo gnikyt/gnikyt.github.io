@@ -143,4 +143,3 @@ References
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///git-release-branches/index.md
   13. file:///git-release-branches/index.txt
-  14. file:///tmp/lynxXXXXaKjHyL/L6842-9722TMP.html

@@ -249,4 +249,3 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///setting-up-lumen-with-mail/index.md
   19. file:///setting-up-lumen-with-mail/index.txt
-  20. file:///tmp/lynxXXXXVVcMnn/L9955-9847TMP.html

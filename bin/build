@@ -20,6 +20,12 @@ if [[ $ERR -eq 1 ]]; then
   exit 1
 fi
 
+# Lynx --dump lists its internal temp copy of stdin as file:///tmp/lynx… (path varies per run).
+# Drop those lines so generated index.txt stays stable in git.
+lynx_text_dump() {
+  lynx "$@" | grep -v 'file:///tmp/'
+}
+
 # layouts tracks the various layout files.
 declare -A LAYOUTS
 
@@ -180,7 +186,7 @@ process_posts() {
 
     # Create text versions.
     start=$(date +%s%3N)
-    TEXT=$(lynx -hiddenlinks=ignore --stdin --dump < "$TARGET"/index.html)
+    TEXT=$(lynx_text_dump -hiddenlinks=ignore --stdin --dump < "$TARGET"/index.html)
     TEXT=${TEXT/file:\/\//}
     echo "$TEXT" > "$TARGET"/index.txt
     cp posts/"$SOURCE" "$TARGET"/index.md
@@ -343,7 +349,7 @@ process_pages() {
       echo "$PARSED_TPL" > "$TARGET"/index.html
 
       # Create text and Markdown versions.
-      TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+      TEXT=$(lynx_text_dump --stdin --dump < "$TARGET"/index.html)
       echo "$TEXT" > "$TARGET"/index.txt
       cp pages/"$SOURCE" "$TARGET"/index.md
 
@@ -391,7 +397,7 @@ process_index() {
   echo "$PARSED_TPL" > docs/index.html
 
   # Create text version.
-  TEXT=$(lynx --stdin --dump < docs/index.html)
+  TEXT=$(lynx_text_dump --stdin --dump < docs/index.html)
   echo "$TEXT" > docs/index.txt
 
   echo -e "Completed\n"
@@ -419,7 +425,7 @@ process_archive() {
   echo "$PARSED_TPL" > "$TARGET"/index.html
 
   # Create text version.
-  TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+  TEXT=$(lynx_text_dump --stdin --dump < "$TARGET"/index.html)
   echo "$TEXT" > "$TARGET"/index.txt
 
   # Parse the sitemap template and save result.
@@ -540,7 +546,7 @@ process_categories() {
     echo "$PARSED_TPL" > "$TARGET"/index.html
 
     # Create text version.
-    TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+    TEXT=$(lynx_text_dump --stdin --dump < "$TARGET"/index.html)
     echo "$TEXT" > "$TARGET"/index.txt
 
     # Parse the categories list template and save result.
@@ -567,7 +573,7 @@ process_categories() {
   echo "$PARSED_TPL" > "$TARGET"/index.html
 
   # Create text version.
-  TEXT=$(lynx --stdin --dump < "$TARGET"/index.html)
+  TEXT=$(lynx_text_dump --stdin --dump < "$TARGET"/index.html)
   echo "$TEXT" > "$TARGET"/index.txt
 
   # Parse the sitemap template and save result.

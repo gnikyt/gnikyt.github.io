@@ -5,42 +5,24 @@ permalink: about
 
 <div class="about__heads">![Headshot](/assets/images/me-headshot.jpg)![Headshot](/assets/images/me.jpg)</div>
 
-_Hello World_. I'm **Ty(ler) King** — A self-taught, seasoned, and versatile developer out of Newfoundland. With over a decade of experience in the Shopify ecosystem, I have developed a passion for ecommerce-focused initiatives. I specialize in crafting innovative solutions with precision and expertise through hands-on coding or consulting.
+_Hello World_. I'm **Ty(ler) King** — I am a self-taught, seasoned architect and developer based in Newfoundland. With 25 years of experience, 12 of those years of deep immersion in the Shopify ecosystem, I specialize in designing reliable ecommerce solutions where precision, stability, and performance are key factors.
 
-Beyond development, I bring extensive expertise in process development and consulting, along with a proven track record in team leadership, talent acquisition, and organizational growth. My experience and open-door mindset allow me to navigate both the technical and human sides of business with confidence.
+Beyond the code, I focus on the "human architecture" of business. My perspective is shaped by a decade of co-running a Toronto-based agency and serving as a past CTO, where I was responsible for everything from technical strategy to talent acquisition and organizational growth. This background has allowed me to navigate complex technical debt and high-level corporate goals with equal confidence.
+
+Having an open-door and collaborative approach allows me to building systems that scale and fostering teams that thrive and integrate. Whether through hands-on development or high-level consulting, I bridge the gap between technical execution and business vision.
+
+Currently, I am a Technical Lead at the awesome Vancouver-based Sultans Consulting, where I focus on the niche, but expansive, MLM market in Shopify... an industry that presents some of the greatest complexities in technical implementations and solution engineering.
 
 You can reach me several ways &mdash; through [me@gnikyt.com](mailto:me@gnikyt.com), with [Github](https://github.com/gnikyt), or connect on [LinkedIn](https://linkedin.com/in/gnikyt).
 
 ## My Rundown
 
-### Specializing in
+* **Core Expertise**: Ecommerce architecture, Shopify ecosystem, job processing, system integrations.
+* **Leadership**: Technical strategy, team mentorship/leadership, talent acquisition, process development.
+* **Current Primary Stack**: Golang, Javascript.
+* **Principles**: Simplicity over complexity, loose coupling, composition, test-driven, and human-centric documentation.
 
-*My core focuses*.
-
-- Backend systems
-- Integrations between systems
-- Shopify themes, apps, integrations, and extensions
-- Development/technical consulting
-
-### Regularly developing
-
-*What I work with day-to-day*.
-
-- Shopify (apps, integrations, extensions, themes)
-- Javascript/Typescript (and it's frameworks)
-- Go
-
-### Previously developing
-
-*What I previously worked at day-to-day*.
-
-- Python, Django, Flask
-- Ruby, Rails, Sinatra
-- PHP, Wordpress, Symfony, Laravel
-- React Native, Expo
-- Hardware development with BLE and NFC communications
-
-### Pinned Open Source work
+## Pinned Open Source
 
 *View [my Github](https://github.com/gnikyt) for more*.
 

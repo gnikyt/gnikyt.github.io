@@ -199,4 +199,3 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///woocommerce-sorting-products-by-category/index.md
   19. file:///woocommerce-sorting-products-by-category/index.txt
-  20. file:///tmp/lynxXXXXy52XhP/L16178-3467TMP.html

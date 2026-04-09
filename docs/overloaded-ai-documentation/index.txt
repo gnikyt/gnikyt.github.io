@@ -117,4 +117,3 @@ References
   10. https://creativecommons.org/licenses/by/4.0/
   11. file:///overloaded-ai-documentation/index.md
   12. file:///overloaded-ai-documentation/index.txt
-  13. file:///tmp/lynxXXXXk0uhAr/L194-2971TMP.html

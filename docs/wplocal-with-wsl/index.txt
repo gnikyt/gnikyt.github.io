@@ -192,4 +192,3 @@ References
   17. https://creativecommons.org/licenses/by/4.0/
   18. file:///wplocal-with-wsl/index.md
   19. file:///wplocal-with-wsl/index.txt
-  20. file:///tmp/lynxXXXXHpMuBe/L3848-6014TMP.html
