@@ -10,21 +10,26 @@
    Displaying golang entries sorted by creation date in descending order.
      * $>
 
-[9]New cq release
+[9]More cq updates
+       Apr 30, 2026
+       1.5KB
+     * $>
+
+[10]New cq release
        Feb 11, 2026
        12KB
      * $>
 
-[10]Shopify Value Objects for Go
+[11]Shopify Value Objects for Go
        Jul 15, 2025
        8.8KB
      * $>
 
-[11]Handling Shopify API limits and Goroutines
+[12]Handling Shopify API limits and Goroutines
        Apr 10, 2025
        15KB
 
-   [12]< Categories  |  [13]< Home
+   [13]< Categories  |  [14]< Home
      *
      *
      *
@@ -44,8 +49,9 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///new-cq-release
-  10. file:///shopify-value-objects-go
-  11. file:///handling-shopify-api-limits-goroutines
-  12. file:///category
-  13. file:///
+   9. file:///more-cq-updates
+  10. file:///new-cq-release
+  11. file:///shopify-value-objects-go
+  12. file:///handling-shopify-api-limits-goroutines
+  13. file:///category
+  14. file:///

@@ -1,0 +1,236 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      More cq updates | gnikyt
+    </title>
+    <link href="https://gnikyt.com/more-cq-updates" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I have kept pushing on the project and..."
+    name="description">
+    <meta content="2026-04-30T13:29:02+0000" property="article:published_time">
+    <meta content="More cq updates" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I have kept pushing on the project and..."
+    property="og:description">
+    <meta content="https://gnikyt.com/more-cq-updates" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I have kept pushing on the project and..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2026-04-30T13:29:02+0000",
+    "datePublished": "2026-04-30T13:29:02+0000",
+    "description": "
+    Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I have kept pushing on the project and...",
+    "headline": "More cq updates",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/more-cq-updates"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/more-cq-updates"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+  </head>
+  <body class="layout layout--post theme-shell" data-handle="more-cq-updates">
+    <header class="site-head container">
+      <div class="site-head__item">
+        <div class="site-head__title">
+          <div class="site-head__title-inner">
+            <span class="site-head__title-item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+            "site-head__title-item site-head__title-item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code
+            ramblings</span>
+          </div>
+
+          <div class="site-head__title-inner">
+            <a class="site-head__avatar" href="/about"><img alt="Ty King" class="site-head__avatar-img" src=
+            "/assets/images/me.jpg"></a>
+          </div>
+        </div>
+
+        <nav aria-label="Site navigation" class="site-nav">
+          <a class="button button--strong button--ember" href="/about">About</a><a class=
+          "button button--strong button--moss" href="https://github.com/gnikyt" rel="noopener" target=
+          "_blank">Github</a><a class="button button--strong button--slate" href="https://linkedin.com/in/gnikyt" rel=
+          "noopener" target="_blank">LinkedIn</a><a class="button button--strong button--gold" href=
+          "/assets/files/cv.pdf" rel="noopener" target="_blank">CV</a><a class="button button--strong button--paper"
+          href="/rss.xml" rel="noopener" target="_blank">RSS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            More cq updates /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container content-container--meta">
+              <div class="post__details">
+                <time class="post__time" datetime="2026-04-30">Apr 30, 2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class=
+                "post__size">1.5KB</span>
+              </div>
+
+              <div class="post__category">
+                <a href="/category/golang"><img alt="Logo of golang" class="post__category-logo" src=
+                "/assets/images/category-golang.svg"></a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <p>
+                Back in February I wrote about the latest <a href="https://github.com/gnikyt/cq">cq</a> release. Since
+                then, I have kept pushing on the project and it has picked up a nice set of workflow improvements.
+              </p>
+
+              <p>
+                The biggest additions have been around composing larger job flows more cleanly:
+              </p>
+
+              <ul>
+                <li>
+                  <code>WithDependsOn</code> for dependency-aware job execution
+                </li>
+
+                <li>
+                  <code>WithCheckpoint</code> for retry-safe workflow step tracking/checkpointing
+                </li>
+
+                <li>
+                  <code>WithConcurrencyByKey</code> for limiting concurrent work per key
+                </li>
+
+                <li>Queue manager and priority queue manager support for routing jobs across multiple queues
+                </li>
+              </ul>
+
+              <p>
+                There has also been a lot of refinement around contention and dispatch behavior. Jobs that run into
+                uniqueness, overlap, or keyed concurrency pressure now have better control over what happens next,
+                including clearer contention handling and optional release behavior for <code>WithUnique</code>.
+              </p>
+
+              <p>
+                Also, implemented batch reporting support with a custom store option and an in-memory default. That
+                makes grouped execution easier to observe without having to bolt on your own reporting layer.
+              </p>
+
+              <p>
+                The docs have grown quite a bit too, especially around custom lockers, checkpoint stores, and keyed
+                concurrency limiters, which should make it easier to use <code>cq</code> in more distributed setups
+                without losing the simple in-memory starting point.
+              </p>
+
+              <p>
+                Current release at the time of writing: <code>v1.29.0</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section aria-labelledby="anchors-heading" class="tab tab--anchors">
+        <h2 class="tab__title tab__title--short tab__title--slate" id="anchors-heading">
+          Anchors
+        </h2>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container content-container--anchors">
+              <ul class="anchors-list">
+                <li class="anchors-list__item">
+                  <strong>[1]</strong> <a class="sources__link anchors-list__link" href="https://github.com/gnikyt/cq"
+                  rel="noopener" target="_parent">github.com/gnikyt/cq</a> ↗
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="appendix-heading" class="tab tab--appendix">
+        <h2 class="tab__title tab__title--short tab__title--moss" id="appendix-heading">
+          Appendix
+        </h2>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container content-container--appendix">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/more-cq-updates/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/more-cq-updates/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href="#" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+   [3]Ty King
+
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+
+                               More cq updates /
+
+   Apr 30, 2026  --  1.5KB
+   [9]Logo of golang
+
+   Back in February I wrote about the latest [10]cq release. Since then, I
+   have kept pushing on the project and it has picked up a nice set of
+   workflow improvements.
+
+   The biggest additions have been around composing larger job flows more
+   cleanly:
+     * WithDependsOn for dependency-aware job execution
+     * WithCheckpoint for retry-safe workflow step tracking/checkpointing
+     * WithConcurrencyByKey for limiting concurrent work per key
+     * Queue manager and priority queue manager support for routing jobs
+       across multiple queues
+
+   There has also been a lot of refinement around contention and dispatch
+   behavior. Jobs that run into uniqueness, overlap, or keyed concurrency
+   pressure now have better control over what happens next, including
+   clearer contention handling and optional release behavior for
+   WithUnique.
+
+   Also, implemented batch reporting support with a custom store option
+   and an in-memory default. That makes grouped execution easier to
+   observe without having to bolt on your own reporting layer.
+
+   The docs have grown quite a bit too, especially around custom lockers,
+   checkpoint stores, and keyed concurrency limiters, which should make it
+   easier to use cq in more distributed setups without losing the simple
+   in-memory starting point.
+
+   Current release at the time of writing: v1.29.0.
+
+Anchors
+
+     * [1] [11]github.com/gnikyt/cq /^
+
+Appendix
+
+   Copyright under [12]CC-4.0.
+
+   Available in the following alternative formats:
+   [13]MD  /  [14]TXT  /  [15]PDF
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. file:///
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/golang
+  10. https://github.com/gnikyt/cq
+  11. https://github.com/gnikyt/cq
+  12. https://creativecommons.org/licenses/by/4.0/
+  13. file:///more-cq-updates/index.md
+  14. file:///more-cq-updates/index.txt

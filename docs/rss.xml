@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>More cq updates</title>
+      <link>https://gnikyt.com/more-cq-updates</link>
+      <description>Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I
+      have kept pushing on the project and...</description>
+      <guid isPermLink="true">https://gnikyt.com/more-cq-updates</guid>
+      <pubDate>2026-04-30T13:29:02+0000</pubDate>
+      <archived></archived>
+      <category>golang</category>
+    </item>
+    <item>
       <title>Overloaded AI documentation</title>
       <link>https://gnikyt.com/overloaded-ai-documentation</link>
       <description>## Problem created from a problem For many years, the complaint in development (from developers,
