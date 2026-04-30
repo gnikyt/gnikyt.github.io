@@ -1,13 +1,13 @@
 {{>templates/_layout_head.html}}
 
-<section class="tab">
+<section class="tab tab--category">
   <header>
     <h1 class="tab__title tab__title--short post__title">Index of category / {{CATEGORY}} /</h1>
   </header>
 
   <div class="tab__container">
     <div class="tab__content">
-      <div class="content-container">
+      <div class="content-container content-container--intro">
         <p>Displaying {{CATEGORY}} entries sorted by creation date in descending order.</p>
       </div>
 
@@ -18,7 +18,7 @@
   </div>
 </section>
 
-<nav class="sources" aria-label="Related links">
+<nav class="sources sources--nav" aria-label="Related links">
   <a class="sources__link" href="/category">&lsaquo; Categories</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="sources__link" href="/">&lsaquo; Home</a>
 </nav>
 

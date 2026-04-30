@@ -7,7 +7,7 @@
 
   <div class="tab__container">
     <div class="tab__content">
-      <div class="post__meta content-container">
+      <div class="post__meta content-container content-container--meta">
         <div class="post__details">
           <time class="post__time" datetime="{{DATE_YMD}}">{{DATE_HUMAN}}</time>&nbsp;&nbsp;&mdash;&nbsp;&nbsp;<span class="post__size">{{POST_SIZE}}</span>
         </div>
@@ -27,27 +27,29 @@
 
 {{#ANCHORS}}
   <section class="tab tab--anchors" aria-labelledby="anchors-heading">
-    <h2 id="anchors-heading" class="tab__title tab__title--short">Anchors</h2>
+    <h2 id="anchors-heading" class="tab__title tab__title--short tab__title--slate">Anchors</h2>
     <div class="tab__container">
       <div class="tab__content">
-        <ul class="anchors-list">
-          {{@FOREACH ANCHORS}}
-            {{@ASSIGN IS_LOCAL}}{{@STARTSWITH VALUE "/"}}true{{/STARTSWITH VALUE "/"}}{{/ASSIGN IS_LOCAL}}
-            <li class="anchors-list__item">
-              <strong>[{{KEY1}}]</strong> <a href="{{VALUE}}" class="sources__link anchors-list__link" rel="noopener" {{^IS_LOCAL}}target="_parent"{{/IS_LOCAL}}>{{VALUE|REPLACE "https://" ""|REPLACE "www." ""}}</a> {{^IS_LOCAL}}&#8599;{{/IS_LOCAL}}
-            </li>
-          {{/FOREACH ANCHORS}}
-        </ul>
+        <div class="content-container content-container--anchors">
+          <ul class="anchors-list">
+            {{@FOREACH ANCHORS}}
+              {{@ASSIGN IS_LOCAL}}{{@STARTSWITH VALUE "/"}}true{{/STARTSWITH VALUE "/"}}{{/ASSIGN IS_LOCAL}}
+              <li class="anchors-list__item">
+                <strong>[{{KEY1}}]</strong> <a href="{{VALUE}}" class="sources__link anchors-list__link" rel="noopener" {{^IS_LOCAL}}target="_parent"{{/IS_LOCAL}}>{{VALUE|REPLACE "https://" ""|REPLACE "www." ""}}</a> {{^IS_LOCAL}}&#8599;{{/IS_LOCAL}}
+              </li>
+            {{/FOREACH ANCHORS}}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 {{/ANCHORS}}
 
 <section class="tab tab--appendix" aria-labelledby="appendix-heading">
-  <h2 id="appendix-heading" class="tab__title tab__title--short">Appendix</h2>
+  <h2 id="appendix-heading" class="tab__title tab__title--short tab__title--moss">Appendix</h2>
   <div class="tab__container">
     <div class="tab__content">
-      <div class="content-container">
+      <div class="content-container content-container--appendix">
         {{#IS_OLD}}{{>templates/_old_warning.html}}{{/IS_OLD}}
 
         <p>
