@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                        Single field error in Symfony /
+                        Single-field errors in Symfony /
 
-   Dec 12, 2013  --  959B
-   [9]Logo of php [10]Logo of symfony
+   Dec 12, 2013  --  960B
+   [9]#symfony [10]#php
 
    This is just a quick tid-bit/how-to!
 
@@ -59,8 +59,8 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/php
-  10. file:///category/symfony
+   9. file:///category/symfony
+  10. file:///category/php
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///get-single-field-error-in-symfony/index.md
   13. file:///get-single-field-error-in-symfony/index.txt

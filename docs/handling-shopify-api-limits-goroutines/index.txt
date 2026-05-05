@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                  Handling Shopify API limits and Goroutines /
+                  Handling Shopify API limits and goroutines /
 
    Apr 10, 2025  --  15KB
-   [9]Logo of golang [10]Logo of shopify
+   [9]#golang [10]#shopify
 
    I frequently build integration applications with Shopify and I thought
    it would be helpful to highlight one approach (of many) that I commonly

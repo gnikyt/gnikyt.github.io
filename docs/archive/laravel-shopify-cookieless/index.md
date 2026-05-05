@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel Shopify cookieless
+title: Removing cookies from Laravel Shopify
 permalink: laravel-shopify-cookieless
 date: '2021-06-29 15:57:18'
 archive: true

@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                            WordPress User Themes /
+                            WordPress user themes /
 
    May 21, 2015  --  365B
-   [9]Logo of php [10]Logo of wordpress
+   [9]#wordpress [10]#php
 
    I've released a unit-tested plugin called Wp User Themes.
 
@@ -49,8 +49,8 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/php
-  10. file:///category/wordpress
+   9. file:///category/wordpress
+  10. file:///category/php
   11. https://github.com/gnikyt/wp-user-themes
   12. https://github.com/gnikyt/wp-user-themes
   13. https://creativecommons.org/licenses/by/4.0/

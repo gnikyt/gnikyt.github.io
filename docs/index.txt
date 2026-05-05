@@ -10,7 +10,7 @@
    Displaying article entries sorted by creation date in descending order.
      * $>
 
-[9]More cq updates
+[9]cq release updates
        Apr 30, 2026
        1.5KB
      * $>
@@ -25,7 +25,7 @@
        5.3KB
      * $>
 
-[12]New cq release
+[12]Introducing cq
        Feb 11, 2026
        12KB
      * $>
@@ -40,17 +40,17 @@
        3.1KB
      * $>
 
-[15]Shopify Value Objects for Go
+[15]Shopify value objects for Go
        Jul 15, 2025
        8.8KB
      * $>
 
-[16]Building a BASH template engine
+[16]Building a Bash template engine
        May 22, 2025
        4.1KB
      * $>
 
-[17]Handling Shopify API limits and Goroutines
+[17]Handling Shopify API limits and goroutines
        Apr 10, 2025
        15KB
      * $>
@@ -62,15 +62,15 @@
 
 [19]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
-       6.5KB
+       6.6KB
      * $>
 
-[20]Shopify Checkout Extension to backend fetching
+[20]Fetching from a Shopify checkout extension to backend
        Feb 27, 2024
        3.1KB
      * $>
 
-[21]Type definitions without emitting
+[21]Type definitions without emitting JavaScript
        Feb 07, 2024
        3.4KB
      * $>
@@ -80,17 +80,17 @@
        8.8KB
      * $>
 
-[23]WordPress Local with WSL
+[23]WP Local with WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[24]Shopify Github Action for versioning
+[24]Versioning Shopify themes with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[25]Shopify Node App custom multi-tenant support
+[25]Custom multi-tenant support for Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
@@ -120,7 +120,7 @@
        3.6KB
      * $>
 
-[31]shopify_app_whitelist Gem
+[31]shopify_app_whitelist gem
        Nov 26, 2016
        1.5KB
      * $>
@@ -130,7 +130,7 @@
        2.3KB
      * $>
 
-[33]ActiveRecord and Liquid Drops with Sinatra
+[33]ActiveRecord and Liquid drops with Sinatra
        Oct 15, 2015
        3.7KB
 

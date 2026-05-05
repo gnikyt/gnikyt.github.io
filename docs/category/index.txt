@@ -8,86 +8,22 @@
                               Index of category /
 
    Displaying all categories with their post count.
-     * $>
-
-[9]golang
-       4 posts
-       Logo of golang
-     * $>
-
-[10]thoughts
-       4 posts
-       Logo of thoughts
-     * $>
-
-[11]shopify
-       17 posts
-       Logo of shopify
-     * $>
-
-[12]cmd
-       6 posts
-       Logo of cmd
-     * $>
-
-[13]javascript
-       8 posts
-       Logo of javascript
-     * $>
-
-[14]react
-       2 posts
-       Logo of react
-     * $>
-
-[15]php
-       16 posts
-       Logo of php
-     * $>
-
-[16]wordpress
-       7 posts
-       Logo of wordpress
-     * $>
-
-[17]laravel
-       7 posts
-       Logo of laravel
-     * $>
-
-[18]python
-       2 posts
-       Logo of python
-     * $>
-
-[19]symfony
-       2 posts
-       Logo of symfony
-     * $>
-
-[20]vuejs
-       1 posts
-       Logo of vuejs
-     * $>
-
-[21]ruby
-       7 posts
-       Logo of ruby
-     * $>
-
-[22]rails
-       5 posts
-       Logo of rails
-     * $>
-
-[23]sinatra
-       2 posts
-       Logo of sinatra
-     * $>
-
-[24]uncategorized
-       0 posts
-       Logo of uncategorized
+     * [9]#cmd 9 posts
+     * [10]#golang 4 posts
+     * [11]#javascript 8 posts
+     * [12]#laravel 7 posts
+     * [13]#php 16 posts
+     * [14]#python 2 posts
+     * [15]#rails 5 posts
+     * [16]#react 2 posts
+     * [17]#ruby 7 posts
+     * [18]#shopify 19 posts
+     * [19]#sinatra 2 posts
+     * [20]#symfony 2 posts
+     * [21]#testing 4 posts
+     * [22]#thoughts 4 posts
+     * [23]#vuejs 1 post
+     * [24]#wordpress 7 posts
 
    [25]< Home
      *
@@ -109,20 +45,20 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/golang
-  10. file:///category/thoughts
-  11. file:///category/shopify
-  12. file:///category/cmd
-  13. file:///category/javascript
-  14. file:///category/react
-  15. file:///category/php
-  16. file:///category/wordpress
-  17. file:///category/laravel
-  18. file:///category/python
-  19. file:///category/symfony
-  20. file:///category/vuejs
-  21. file:///category/ruby
-  22. file:///category/rails
-  23. file:///category/sinatra
-  24. file:///category/uncategorized
+   9. file:///category/cmd
+  10. file:///category/golang
+  11. file:///category/javascript
+  12. file:///category/laravel
+  13. file:///category/php
+  14. file:///category/python
+  15. file:///category/rails
+  16. file:///category/react
+  17. file:///category/ruby
+  18. file:///category/shopify
+  19. file:///category/sinatra
+  20. file:///category/symfony
+  21. file:///category/testing
+  22. file:///category/thoughts
+  23. file:///category/vuejs
+  24. file:///category/wordpress
   25. file:///

@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                           Extending a Rails Engine /
+                           Extending a Rails engine /
 
    Feb 20, 2016  --  4.4KB
-   [9]Logo of ruby [10]Logo of rails
+   [9]#ruby [10]#rails
 
    Redesigning my CMS in Rails has been great fun. There have been many
    challenges faced, and many conquered (like having 100% code coverage

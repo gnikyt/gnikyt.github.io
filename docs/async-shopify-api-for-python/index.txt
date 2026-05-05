@@ -8,7 +8,7 @@
                          Async Shopify API for Python /
 
    Jun 29, 2020  --  4.0KB
-   [9]Logo of shopify [10]Logo of python
+   [9]#shopify [10]#python
 
 Introduction
 

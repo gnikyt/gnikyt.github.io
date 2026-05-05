@@ -15,7 +15,7 @@
        14KB
      * $>
 
-[10]Shopify Checkout Extension to backend fetching
+[10]Fetching from a Shopify checkout extension to backend
        Feb 27, 2024
        3.1KB
 

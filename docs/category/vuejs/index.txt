@@ -10,7 +10,7 @@
    Displaying vuejs entries sorted by creation date in descending order.
      * $>
 
-[9]Reactive VueJS plugins
+[9]Reactive Vue.js plugins
        Jun 29, 2017
        4.1KB
 

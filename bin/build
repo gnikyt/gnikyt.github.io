@@ -77,6 +77,8 @@ SYMFONY_ENTRIES=""
 SYMFONY_COUNT=0
 VUEJS_ENTRIES=""
 VUEJS_COUNT=0
+TESTING_ENTRIES=""
+TESTING_COUNT=0
 RUBY_ENTRIES=""
 RUBY_COUNT=0
 RAILS_ENTRIES=""
@@ -274,6 +276,10 @@ process_posts() {
             VUEJS_ENTRIES="${VUEJS_ENTRIES}${NEWLINE}${PARSED_TPL}"
             ((VUEJS_COUNT++))
             ;;
+          testing)
+            TESTING_ENTRIES="${TESTING_ENTRIES}${NEWLINE}${PARSED_TPL}"
+            ((TESTING_COUNT++))
+            ;;
           ruby)
             RUBY_ENTRIES="${RUBY_ENTRIES}${NEWLINE}${PARSED_TPL}"
             ((RUBY_COUNT++))
@@ -444,10 +450,13 @@ process_categories() {
 
   local CATEGORY_ENTRIES=""
   local CATEGORY_COUNT=0
+  local CATEGORY_COUNT_LABEL=""
   COUNT=0
 
-  ALL_CATEGORIES="${ALL_CATEGORIES}uncategorized"
-  readarray -d "," -t VALS <<< "$ALL_CATEGORIES"
+  if [[ ",$ALL_CATEGORIES" != *",uncategorized,"* ]]; then
+    ALL_CATEGORIES="${ALL_CATEGORIES}uncategorized"
+  fi
+  readarray -t VALS < <(tr "," "\n" <<< "$ALL_CATEGORIES" | sed '/^$/d' | sort)
   for VAL in "${VALS[@]}"; do
     VAL=$(echo "$VAL" | tr -d '\n')
     echo "[$VAL] Generating..."
@@ -460,6 +469,7 @@ process_categories() {
     CATEGORY="$VAL"
     CATEGORY_ENTRIES=""
     CATEGORY_COUNT=0
+    CATEGORY_COUNT_LABEL=""
 
     case "$VAL" in
       cmd)
@@ -510,6 +520,10 @@ process_categories() {
         CATEGORY_ENTRIES="$VUEJS_ENTRIES"
         CATEGORY_COUNT=$VUEJS_COUNT
         ;;
+      testing)
+        CATEGORY_ENTRIES="$TESTING_ENTRIES"
+        CATEGORY_COUNT=$TESTING_COUNT
+        ;;
       ruby)
         CATEGORY_ENTRIES="$RUBY_ENTRIES"
         CATEGORY_COUNT=$RUBY_COUNT
@@ -531,6 +545,12 @@ process_categories() {
         ;;
     esac
 
+    if [[ "$CATEGORY_COUNT" -eq 1 ]]; then
+      CATEGORY_COUNT_LABEL="1 post"
+    else
+      CATEGORY_COUNT_LABEL="$CATEGORY_COUNT posts"
+    fi
+
     local LOCAL_LAYOUT
     local TARGET
 
@@ -550,15 +570,19 @@ process_categories() {
     echo "$TEXT" > "$TARGET"/index.txt
 
     # Parse the categories list template and save result.
-    LOCAL_LAYOUT=$(cat "${LAYOUTS["_categories_entry"]}")
-    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
-    CATEGORIES_ENTRIES="${CATEGORIES_ENTRIES}${NEWLINE}${PARSED_TPL}"
+    if [[ "$VAL" != "uncategorized" || "$CATEGORY_COUNT" -gt 0 ]]; then
+      LOCAL_LAYOUT=$(cat "${LAYOUTS["_categories_entry"]}")
+      PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+      CATEGORIES_ENTRIES="${CATEGORIES_ENTRIES}${NEWLINE}${PARSED_TPL}"
+    fi
 
     # Parse the sitemap template and save result.
-    DATE_ISO8601=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
-    LOCAL_LAYOUT=$(cat "${LAYOUTS["_sitemap_item"]}")
-    PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
-    SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
+    if [[ "$VAL" != "uncategorized" || "$CATEGORY_COUNT" -gt 0 ]]; then
+      DATE_ISO8601=$(date -d "now" +"%Y-%m-%dT%H:%M:%S%z")
+      LOCAL_LAYOUT=$(cat "${LAYOUTS["_sitemap_item"]}")
+      PARSED_TPL=$(echo "$LOCAL_LAYOUT" | be)
+      SITEMAP_ITEMS="${SITEMAP_ITEMS}${NEWLINE}${PARSED_TPL}"
+    fi
 
     echo -e "\033[1A\033[K[$VAL] Generated"
     ((COUNT++))

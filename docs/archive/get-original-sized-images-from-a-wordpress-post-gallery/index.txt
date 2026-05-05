@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                Original sized images from a WordPress Gallery /
+                Original-size images from a WordPress gallery /
 
    Nov 08, 2014  --  1.5KB
-   [9]Logo of php [10]Logo of wordpress
+   [9]#wordpress [10]#php
 
    Recently, I was working on a project where I needed to modify an
    existing page that had multiple galleries. This change required me to
@@ -79,8 +79,8 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/php
-  10. file:///category/wordpress
+   9. file:///category/wordpress
+  10. file:///category/php
   11. https://creativecommons.org/licenses/by/4.0/
   12. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.md
   13. file:///get-original-sized-images-from-a-wordpress-post-gallery/index.txt

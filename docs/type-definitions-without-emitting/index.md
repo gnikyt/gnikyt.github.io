@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Type definitions without emitting
+title: Type definitions without emitting JavaScript
 permalink: type-definitions-without-emitting
 date: '2024-02-07 13:44:12'
 archive: false
-category: javascript
+category: shopify,javascript
 ---
 
 ## Introduction

@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                 Symfony Flex with Symfony Server Dockerized /
+                 Dockerizing Symfony Flex with Symfony Server /
 
-   Feb 04, 2020  --  5.5KB
-   [9]Logo of php [10]Logo of symfony
+   Feb 04, 2020  --  5.6KB
+   [9]#symfony [10]#php [11]#cmd
 
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with "recipes". It provides a way to create a very lean
@@ -168,22 +168,22 @@ Conclusion
    That concludes the basic setup to Dockerize a Symfony Flex API
    application.
 
-   For more information on Symfony Flex, [11]click here; or information on
-   Symfony Server, [12]click here.
+   For more information on Symfony Flex, [12]click here; or information on
+   Symfony Server, [13]click here.
 
 Anchors
 
-     * [1] [13]symfony.com/doc/current/quick_tour/flex_recipes.html /^
-     * [2] [14]symfony.com/doc/current/setup/symfony_server.html /^
+     * [1] [14]symfony.com/doc/current/quick_tour/flex_recipes.html /^
+     * [2] [15]symfony.com/doc/current/setup/symfony_server.html /^
 
 Appendix
 
    This post is 6 years old and may contain outdated information.
 
-   Copyright under [15]CC-4.0.
+   Copyright under [16]CC-4.0.
 
    Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
+   [17]MD  /  [18]TXT  /  [19]PDF
 
      *
      *
@@ -204,12 +204,13 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/php
-  10. file:///category/symfony
-  11. https://symfony.com/doc/current/quick_tour/flex_recipes.html
-  12. https://symfony.com/doc/current/setup/symfony_server.html
-  13. https://symfony.com/doc/current/quick_tour/flex_recipes.html
-  14. https://symfony.com/doc/current/setup/symfony_server.html
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
-  17. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
+   9. file:///category/symfony
+  10. file:///category/php
+  11. file:///category/cmd
+  12. https://symfony.com/doc/current/quick_tour/flex_recipes.html
+  13. https://symfony.com/doc/current/setup/symfony_server.html
+  14. https://symfony.com/doc/current/quick_tour/flex_recipes.html
+  15. https://symfony.com/doc/current/setup/symfony_server.html
+  16. https://creativecommons.org/licenses/by/4.0/
+  17. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
+  18. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt

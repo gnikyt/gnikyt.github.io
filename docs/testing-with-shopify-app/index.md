@@ -4,7 +4,7 @@ title: Testing with shopify_app
 permalink: testing-with-shopify-app
 date: '2016-06-21 01:17:33'
 archive: false
-category: shopify,ruby,rails
+category: shopify,ruby,rails,testing
 ---
 
 [shopify_app](https://github.com/Shopify/shopify_app) is a great Gem to quickly build a Shopify App with Rails. It handles all the verifications, authorizations, webhook, and more; leaving you to focus on developing your app. This post is to serve as a quick tip on how to unit-test your app with the Gem.

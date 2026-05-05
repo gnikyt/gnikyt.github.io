@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                            Reactive VueJS plugins /
+                           Reactive Vue.js plugins /
 
    Jun 29, 2017  --  4.1KB
-   [9]Logo of javascript [10]Logo of vuejs
+   [9]#javascript [10]#vuejs
 
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop

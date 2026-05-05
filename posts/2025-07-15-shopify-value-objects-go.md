@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shopify Value Objects for Go
+title: Shopify value objects for Go
 permalink: shopify-value-objects-go
 date: '2025-07-15 12:16:00'
 category: golang

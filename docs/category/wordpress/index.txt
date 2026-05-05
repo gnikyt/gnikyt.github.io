@@ -11,7 +11,7 @@
    order.
      * $>
 
-[9]WordPress Local with WSL
+[9]WP Local with WSL
        Dec 07, 2023
        5.6KB
      * $>
@@ -21,12 +21,12 @@
        3.6KB
      * $>
 
-[11]WordPress User Themes
+[11]WordPress user themes
        May 21, 2015
        365B
      * $>
 
-[12]Original sized images from a WordPress Gallery
+[12]Original-size images from a WordPress gallery
        Nov 08, 2014
        1.5KB
      * $>
@@ -41,7 +41,7 @@
        1.4KB
      * $>
 
-[15]Sorting product by category in WooCommerce
+[15]Sorting products by category in WooCommerce
        Oct 05, 2013
        6.0KB
 

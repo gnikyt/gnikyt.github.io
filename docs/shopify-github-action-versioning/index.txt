@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                     Shopify Github Action for versioning /
+                Versioning Shopify themes with GitHub Actions /
 
    May 20, 2022  --  2.5KB
-   [9]Logo of shopify [10]Logo of cmd
+   [9]#shopify [10]#cmd
 
    Shopify recently updated their admin panel again and started to display
    the value of theme_version from config/settings_schema.json onto the

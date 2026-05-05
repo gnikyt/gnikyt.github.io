@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                    Precompiling assets with Rails Engine /
+                    Precompiling assets with Rails engine /
 
    May 03, 2016  --  2.3KB
-   [9]Logo of ruby [10]Logo of rails
+   [9]#ruby [10]#rails
 
    This will be a quick post to highlight an issue I had where I needed to
    precompile an asset file for my Rails engine that was not to be
@@ -77,7 +77,7 @@ Anchors
 
 Appendix
 
-   This post is 9 years old and may contain outdated information.
+   This post is 10 years old and may contain outdated information.
 
    Copyright under [13]CC-4.0.
 

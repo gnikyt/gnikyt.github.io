@@ -10,22 +10,22 @@
    Displaying golang entries sorted by creation date in descending order.
      * $>
 
-[9]More cq updates
+[9]cq release updates
        Apr 30, 2026
        1.5KB
      * $>
 
-[10]New cq release
+[10]Introducing cq
        Feb 11, 2026
        12KB
      * $>
 
-[11]Shopify Value Objects for Go
+[11]Shopify value objects for Go
        Jul 15, 2025
        8.8KB
      * $>
 
-[12]Handling Shopify API limits and Goroutines
+[12]Handling Shopify API limits and goroutines
        Apr 10, 2025
        15KB
 

@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                          shopify_app_whitelist Gem /
+                          shopify_app_whitelist gem /
 
    Nov 26, 2016  --  1.5KB
-   [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
+   [9]#shopify [10]#ruby [11]#rails
 
    I regularly use [12]shopify_app. It's a great way to get an app,
    embedded or not, up and running with Rails.

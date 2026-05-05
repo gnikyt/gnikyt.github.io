@@ -4,7 +4,7 @@ title: WordPress with Docker
 permalink: WordPress-under-docker
 date: '2017-06-15 09:53:10'
 archive: false
-category: php,wordpress
+category: wordpress,php,cmd
 ---
 
 ## Purpose

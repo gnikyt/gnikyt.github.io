@@ -8,7 +8,7 @@
                  Shopify checkout extension with product HTML /
 
    May 10, 2024  --  14KB
-   [9]Logo of shopify [10]Logo of javascript [11]Logo of react
+   [9]#shopify [10]#javascript [11]#react
 
 Background
 

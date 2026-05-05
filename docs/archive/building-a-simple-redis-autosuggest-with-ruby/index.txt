@@ -8,7 +8,7 @@
                         Redis autosuggest with Sinatra /
 
    Mar 02, 2016  --  5.6KB
-   [9]Logo of ruby [10]Logo of sinatra
+   [9]#ruby [10]#sinatra
 
    So you have a search box on your website.. an article search, a product
    search.. whatever it may be, you may find yourself the need to display

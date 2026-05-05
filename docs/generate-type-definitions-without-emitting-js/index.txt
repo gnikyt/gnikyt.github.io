@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                Shopify Checkout Extension to backend fetching /
+            Fetching from a Shopify checkout extension to backend /
 
    Feb 27, 2024  --  3.1KB
-   [9]Logo of shopify [10]Logo of javascript [11]Logo of react
+   [9]#shopify [10]#javascript [11]#react
 
    There are several posts around about people having issues figuring out
    how to send a fetch request from their checkout extension to their app

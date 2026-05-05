@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                 Shopify Node App custom multi-tenant support /
+              Custom multi-tenant support for Shopify Node apps /
 
    Nov 15, 2021  --  10KB
-   [9]Logo of shopify [10]Logo of javascript
+   [9]#shopify [10]#javascript
 
 Introduction
 

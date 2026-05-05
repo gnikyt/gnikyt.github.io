@@ -6,7 +6,7 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>More cq updates</title>
+      <title>cq release updates</title>
       <link>https://gnikyt.com/more-cq-updates</link>
       <description>Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I
       have kept pushing on the project and...</description>
@@ -36,7 +36,7 @@
       <category>thoughts</category>
     </item>
     <item>
-      <title>New cq release</title>
+      <title>Introducing cq</title>
       <link>https://gnikyt.com/new-cq-release</link>
       <description>I intended to write an update about `cq` since a lot of features have been added in recent months,
       but I realized this is actually the f...</description>
@@ -66,7 +66,7 @@
       <category>thoughts</category>
     </item>
     <item>
-      <title>Shopify Value Objects for Go</title>
+      <title>Shopify value objects for Go</title>
       <link>https://gnikyt.com/shopify-value-objects-go</link>
       <description>An existing project had grown rapidly, resulting in many places where IDs were manually extracted
       from GIDs or formatted into GIDs witho...</description>
@@ -76,7 +76,7 @@
       <category>golang</category>
     </item>
     <item>
-      <title>Building a BASH template engine</title>
+      <title>Building a Bash template engine</title>
       <link>https://gnikyt.com/building-bash-template-engine</link>
       <description>Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a
       small blog to maintain. I wanted some...</description>
@@ -86,7 +86,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Handling Shopify API limits and Goroutines</title>
+      <title>Handling Shopify API limits and goroutines</title>
       <link>https://gnikyt.com/handling-shopify-api-limits-goroutines</link>
       <description>I frequently build integration applications with Shopify and I thought it would be helpful to
       highlight one approach (of many) that I co...</description>
@@ -118,9 +118,10 @@
       <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
+      <category>testing</category>
     </item>
     <item>
-      <title>Shopify Checkout Extension to backend fetching</title>
+      <title>Fetching from a Shopify checkout extension to backend</title>
       <link>https://gnikyt.com/generate-type-definitions-without-emitting-js</link>
       <description>There are several posts around about people having issues figuring out how to send a fetch request
       from their checkout extension to thei...</description>
@@ -132,13 +133,14 @@
       <category>react</category>
     </item>
     <item>
-      <title>Type definitions without emitting</title>
+      <title>Type definitions without emitting JavaScript</title>
       <link>https://gnikyt.com/type-definitions-without-emitting</link>
       <description>## Introduction A Shopify-based project was assigned which was a backend app with frontend
       extensions. After completion of the backend,...</description>
       <guid isPermLink="true">https://gnikyt.com/type-definitions-without-emitting</guid>
       <pubDate>2024-02-07T13:44:12+0000</pubDate>
       <archived></archived>
+      <category>shopify</category>
       <category>javascript</category>
     </item>
     <item>
@@ -151,17 +153,19 @@
       <archived></archived>
       <category>shopify</category>
       <category>javascript</category>
+      <category>testing</category>
     </item>
     <item>
-      <title>WordPress Local with WSL</title>
+      <title>WP Local with WSL</title>
       <link>https://gnikyt.com/wplocal-with-wsl</link>
       <description>A recent project was picked up from another agency where they utilized WP Engine and WP Local. WP
       Local *can* work with WSL, but the pro...</description>
       <guid isPermLink="true">https://gnikyt.com/wplocal-with-wsl</guid>
       <pubDate>2023-12-07T11:22:03+0000</pubDate>
       <archived></archived>
-      <category>php</category>
       <category>wordpress</category>
+      <category>php</category>
+      <category>cmd</category>
     </item>
     <item>
       <title>New desktop setup</title>
@@ -174,7 +178,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Shopify Liquid Tester</title>
+      <title>Testing Shopify Liquid snippets</title>
       <link>https://gnikyt.com/shopify-liquid-tester</link>
       <description>## Introduction Shopify's theme system currently lacks the ability to define custom "functions". As
       a result, many Shopify developers u...</description>
@@ -183,9 +187,10 @@
       <archived>true</archived>
       <category>shopify</category>
       <category>javascript</category>
+      <category>testing</category>
     </item>
     <item>
-      <title>Joint Venture with LFL</title>
+      <title>Joint venture with LFL</title>
       <link>https://gnikyt.com/joint-venture-lfl</link>
       <description>## JV The journey of running an agency is an uphill one for sure. It takes everyone working together
       across the board, to not only keep...</description>
@@ -195,7 +200,7 @@
       <category>thoughts</category>
     </item>
     <item>
-      <title>Shopify Github Action for versioning</title>
+      <title>Versioning Shopify themes with GitHub Actions</title>
       <link>https://gnikyt.com/shopify-github-action-versioning</link>
       <description>Shopify recently updated their admin panel again and started to display the value of `theme_version`
       from `config/settings_schema.json` ...</description>
@@ -216,7 +221,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Shopify Node App custom multi-tenant support</title>
+      <title>Custom multi-tenant support for Shopify Node apps</title>
       <link>https://gnikyt.com/shopify-node-app-custom-multi-tenant</link>
       <description>## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of
       small details out of the way, allo...</description>
@@ -227,7 +232,7 @@
       <category>javascript</category>
     </item>
     <item>
-      <title>Laravel Shopify cookieless</title>
+      <title>Removing cookies from Laravel Shopify</title>
       <link>https://gnikyt.com/laravel-shopify-cookieless</link>
       <description>## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize
       the new session token implementati...</description>
@@ -262,7 +267,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Laravel Shopify ITP</title>
+      <title>Handling ITP in Laravel Shopify</title>
       <link>https://gnikyt.com/laravel-shopify-itp</link>
       <description>## Background [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) is a package I started a
       few years ago which gained quite a ...</description>
@@ -285,15 +290,16 @@
       <category>python</category>
     </item>
     <item>
-      <title>Symfony Flex with Symfony Server Dockerized</title>
+      <title>Dockerizing Symfony Flex with Symfony Server</title>
       <link>https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized</link>
       <description>Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes".
       It provides a way to create a very ...</description>
       <guid isPermLink="true">https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized</guid>
       <pubDate>2020-02-04T00:56:22+0000</pubDate>
       <archived>true</archived>
-      <category>php</category>
       <category>symfony</category>
+      <category>php</category>
+      <category>cmd</category>
     </item>
     <item>
       <title>i3-Plasma for a solid match</title>
@@ -313,6 +319,7 @@
       <guid isPermLink="true">https://gnikyt.com/laravel-shopify-billing</guid>
       <pubDate>2018-01-26T15:52:56+0000</pubDate>
       <archived>true</archived>
+      <category>shopify</category>
       <category>php</category>
       <category>laravel</category>
     </item>
@@ -328,7 +335,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Lumen with Mailer</title>
+      <title>Lumen with mailer</title>
       <link>https://gnikyt.com/setting-up-lumen-with-mail</link>
       <description>## What is Lumen [Lumen](https://lumen.laravel.com/) is a micro-framework built by Laravel. Its
       geared towards small services like APIs...</description>
@@ -351,7 +358,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Reactive VueJS plugins</title>
+      <title>Reactive Vue.js plugins</title>
       <link>https://gnikyt.com/reactive-vuejs-plugins</link>
       <description>VueJS has been my go-to framework from building small to medium-sized frontend applications and
       add-ins. Its simply great - easy to deve...</description>
@@ -369,11 +376,12 @@
       <guid isPermLink="true">https://gnikyt.com/wordpress-under-docker</guid>
       <pubDate>2017-06-15T09:53:10+0000</pubDate>
       <archived></archived>
-      <category>php</category>
       <category>wordpress</category>
+      <category>php</category>
+      <category>cmd</category>
     </item>
     <item>
-      <title>shopify_app_whitelist Gem</title>
+      <title>shopify_app_whitelist gem</title>
       <link>https://gnikyt.com/shopify-app-whitelist-gem</link>
       <description>I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an
       app, embedded or not, up and running w...</description>
@@ -395,6 +403,7 @@
       <category>shopify</category>
       <category>ruby</category>
       <category>rails</category>
+      <category>testing</category>
     </item>
     <item>
       <title>Counting unique options in Shopify</title>
@@ -407,7 +416,7 @@
       <category>shopify</category>
     </item>
     <item>
-      <title>Precompiling assets with Rails Engine</title>
+      <title>Precompiling assets with Rails engine</title>
       <link>https://gnikyt.com/precompiling-assets-in-your-rails-engine</link>
       <description>This will be a quick post to highlight an issue I had where I needed to precompile an asset file for
       my Rails engine that was not to be ...</description>
@@ -429,7 +438,7 @@
       <category>sinatra</category>
     </item>
     <item>
-      <title>Extending a Rails Engine</title>
+      <title>Extending a Rails engine</title>
       <link>https://gnikyt.com/extending-a-rails-engine</link>
       <description>Redesigning my CMS in Rails has been great fun. There have been many challenges faced, and many
       conquered (like having 100% code coverag...</description>
@@ -451,7 +460,7 @@
       <category>rails</category>
     </item>
     <item>
-      <title>ActiveRecord and Liquid Drops with Sinatra</title>
+      <title>ActiveRecord and Liquid drops with Sinatra</title>
       <link>https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra</link>
       <description>Normally I use ERB when doing templates but there was a special use-case recently where I needed to
       allow the app user to modify a speci...</description>
@@ -462,26 +471,26 @@
       <category>sinatra</category>
     </item>
     <item>
-      <title>WordPress User Themes</title>
+      <title>WordPress user themes</title>
       <link>https://gnikyt.com/wp-user-themes</link>
       <description>I've released a unit-tested plugin called Wp User Themes. It allows users to switch themes in their
       profile section (useful for develop...</description>
       <guid isPermLink="true">https://gnikyt.com/wp-user-themes</guid>
       <pubDate>2015-05-21T17:00:34+0000</pubDate>
       <archived>true</archived>
-      <category>php</category>
       <category>wordpress</category>
+      <category>php</category>
     </item>
     <item>
-      <title>Original sized images from a WordPress Gallery</title>
+      <title>Original-size images from a WordPress gallery</title>
       <link>https://gnikyt.com/get-original-sized-images-from-a-wordpress-post-gallery</link>
       <description>Recently, I was working on a project where I needed to modify an existing page that had multiple
       galleries. This change required me to h...</description>
       <guid isPermLink="true">https://gnikyt.com/get-original-sized-images-from-a-wordpress-post-gallery</guid>
       <pubDate>2014-11-08T20:36:59+0000</pubDate>
       <archived>true</archived>
-      <category>php</category>
       <category>wordpress</category>
+      <category>php</category>
     </item>
     <item>
       <title>ACF Simple Table</title>
@@ -491,8 +500,8 @@
       <guid isPermLink="true">https://gnikyt.com/acf-simple-table</guid>
       <pubDate>2014-07-18T12:48:05+0000</pubDate>
       <archived>true</archived>
-      <category>php</category>
       <category>wordpress</category>
+      <category>php</category>
     </item>
     <item>
       <title>PHPMailer contribution</title>
@@ -506,18 +515,18 @@
       <category>php</category>
     </item>
     <item>
-      <title>Single field error in Symfony</title>
+      <title>Single-field errors in Symfony</title>
       <link>https://gnikyt.com/get-single-field-error-in-symfony</link>
       <description>This is just a quick tid-bit/how-to! Recently a project came up where special front-end actions and
       structures had to take place within...</description>
       <guid isPermLink="true">https://gnikyt.com/get-single-field-error-in-symfony</guid>
       <pubDate>2013-12-12T23:04:07+0000</pubDate>
       <archived>true</archived>
-      <category>php</category>
       <category>symfony</category>
+      <category>php</category>
     </item>
     <item>
-      <title>Sorting product by category in WooCommerce</title>
+      <title>Sorting products by category in WooCommerce</title>
       <link>https://gnikyt.com/woocommerce-sorting-products-by-category</link>
       <description>This past week I was assigned to heavily customize a Woocommerce install on a client's successful
       store. What needed to be done on one t...</description>

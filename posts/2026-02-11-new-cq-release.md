@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New cq release
+title: Introducing cq
 permalink: new-cq-release
 date: '2026-02-11 07:48:02'
 category: golang

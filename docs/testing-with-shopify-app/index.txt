@@ -8,9 +8,9 @@
                            Testing with shopify_app /
 
    Jun 21, 2016  --  2.3KB
-   [9]Logo of shopify [10]Logo of ruby [11]Logo of rails
+   [9]#shopify [10]#ruby [11]#rails [12]#testing
 
-   [12]shopify_app is a great Gem to quickly build a Shopify App with
+   [13]shopify_app is a great Gem to quickly build a Shopify App with
    Rails. It handles all the verifications, authorizations, webhook, and
    more; leaving you to focus on developing your app. This post is to
    serve as a quick tip on how to unit-test your app with the Gem.
@@ -65,16 +65,16 @@ end
 
 Anchors
 
-     * [1] [13]github.com/Shopify/shopify_app /^
+     * [1] [14]github.com/Shopify/shopify_app /^
 
 Appendix
 
    This post is 9 years old and may contain outdated information.
 
-   Copyright under [14]CC-4.0.
+   Copyright under [15]CC-4.0.
 
    Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
+   [16]MD  /  [17]TXT  /  [18]PDF
 
      *
      *
@@ -98,8 +98,9 @@ References
    9. file:///category/shopify
   10. file:///category/ruby
   11. file:///category/rails
-  12. https://github.com/Shopify/shopify_app
+  12. file:///category/testing
   13. https://github.com/Shopify/shopify_app
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///testing-with-shopify-app/index.md
-  16. file:///testing-with-shopify-app/index.txt
+  14. https://github.com/Shopify/shopify_app
+  15. https://creativecommons.org/licenses/by/4.0/
+  16. file:///testing-with-shopify-app/index.md
+  17. file:///testing-with-shopify-app/index.txt

@@ -15,7 +15,7 @@
        5.6KB
      * $>
 
-[10]ActiveRecord and Liquid Drops with Sinatra
+[10]ActiveRecord and Liquid drops with Sinatra
        Oct 15, 2015
        3.7KB
 

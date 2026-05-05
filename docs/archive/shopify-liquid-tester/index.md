@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Shopify Liquid Tester
+title: Testing Shopify Liquid snippets
 permalink: shopify-liquid-tester
 date: '2022-11-20 14:08:03'
 archive: true
-category: shopify,javascript
+category: shopify,javascript,testing
 ---
 
 ## Introduction

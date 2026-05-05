@@ -8,7 +8,7 @@
                     Polymorphic route concerns with Rails /
 
    Jan 01, 2016  --  5.1KB
-   [9]Logo of ruby [10]Logo of rails
+   [9]#ruby [10]#rails
 
    The goal of this post is to outline some tips on easily figuring out
    the parent object for a polymorphic modal/route/controller. Let's start

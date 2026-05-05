@@ -142,6 +142,7 @@ textarea:not([rows]) {
  */
 body {
   font-family: "Roboto Mono", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   background-color: var(--background-color);
   color: var(--font-color);
 }
@@ -512,25 +513,8 @@ body {
 
 .index-list .index-list__icon {
   font-weight: 300;
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: var(--color-orange);
-}
-
-.index-list--categories .index-document__meta--misc {
-  justify-self: flex-end;
-}
-
-.index-list--categories .index-document__category-logo[src*="golang"] {
-  height: 20px;
-}
-
-.index-list--categories .index-document__category-logo[src*="thoughts"] {
-  height: 30px;
-}
-
-.index-list--categories .index-document__category-logo[src*="cmd"],
-.index-list--categories .index-document__category-logo[src*="rails"] {
-  height: 25px;
 }
 
 .index-document {
@@ -580,9 +564,50 @@ body {
   color: var(--color-gold);
 }
 
-.index-document .index-document__category-logo {
-  width: auto;
-  height: 30px;
+.category-hashtag {
+  color: var(--color-grey-dark);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.category-hashtag:hover {
+  color: var(--color-blue);
+}
+
+.category-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, calc((100% - 2.25em) / 4)));
+  gap: .75em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-cloud__item {
+  background-color: rgb(255 255 255 / 18%);
+}
+
+.category-cloud__item:hover {
+  background-color: rgb(255 255 255 / 28%);
+}
+
+.category-cloud__link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .25em;
+  height: 100%;
+  padding: .75em .85em;
+  color: var(--color-navy);
+  font-weight: 300;
+  overflow-wrap: anywhere;
+}
+
+.category-cloud__count {
+  color: var(--color-gold);
+  font-size: .85em;
+  font-weight: 300;
+  white-space: nowrap;
 }
 
 /**
@@ -663,22 +688,21 @@ body {
   padding: 0;
 }
 
-.post ul li code {
-  font-size: 1.3em;
+code.sourceCode {
+  font-size: 0.85em;
 }
 
+.post ul li code,
 .post p > code {
   word-break: break-all;
-  font-size: 1.3em;
+  font-size: 1em;
   border-top: 0;
   border-right: 0;
   border-bottom: 0;
-  border-left-style: solid;
-  border-left-width: 3px;
-  border-left-color: var(--color-orange);
+  border-left: 0;
   background: var(--background-code-color);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.3rem;
+  padding-right: 0.2rem;
 }
 
 .post code .err {
@@ -757,40 +781,8 @@ body {
 }
 
 .post .post__meta .post__category a {
-  border-bottom: none;
-}
-
-.post .post__meta .post__category .post__category-logo {
-  width: 40px;
-  height: auto;
-}
-
-.post .post__meta .post__category .post__category-logo[src*="shopify"] {
-  width: 20px;
-}
-
-.post .post__meta .post__category .post__category-logo[src*="thoughts"],
-.post .post__meta .post__category .post__category-logo[src*="vuejs"],
-.post .post__meta .post__category .post__category-logo[src*="javascript"],
-.post .post__meta .post__category .post__category-logo[src*="react"],
-.post .post__meta .post__category .post__category-logo[src*="laravel"],
-.post .post__meta .post__category .post__category-logo[src*="wordpress"] {
-  width: 25px;
-}
-
-.post .post__meta .post__category .post__category-logo[src*="php"] {
-  width: 45px;
-}
-
-.post .post__meta .post__category .post__category-logo[src*="cmd"],
-.post .post__meta .post__category .post__category-logo[src*="sinatra"] {
-  width: 30px;
-}
-
-.post .post__meta .post__category .post__category-logo[src*="python"],
-.post .post__meta .post__category .post__category-logo[src*="symfony"],
-.post .post__meta .post__category .post__category-logo[src*="ruby"] {
-  width: 23px;
+  border-bottom: 0;
+  font-weight: 300;
 }
 
 .post .post__meta + .content-container {
@@ -886,7 +878,7 @@ body[data-handle="about"] .post figcaption {
 
   .index-list .index-list__icon {
     position: relative;
-    top: 2px;
+    top: 3px;
   }
 
   .index-document {

@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                       Building a BASH template engine /
+                       Building a Bash template engine /
 
    May 22, 2025  --  4.1KB
-   [9]Logo of cmd
+   [9]#cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was
    such a large setup for such a small blog to maintain. I wanted

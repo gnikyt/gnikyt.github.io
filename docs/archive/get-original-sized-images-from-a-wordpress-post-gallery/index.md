@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Original sized images from a WordPress Gallery
+title: Original-size images from a WordPress gallery
 permalink: get-original-sized-images-from-a-wordpress-post-gallery
 date: '2014-11-08 20:36:59'
 archive: true
-category: php,wordpress
+category: wordpress,php
 ---
 
 Recently, I was working on a project where I needed to modify an existing page that had multiple galleries. This change required me to have access to the original uploaded images. Here's a simple function I wrote which returns the images easily in an array format.  

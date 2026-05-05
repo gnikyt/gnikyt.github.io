@@ -4,7 +4,7 @@ title: Shopify Prisma, Jest, and MySQL testing
 permalink: prisma-jest-mysql-testing
 date: '2024-03-28 13:19:23'
 archive: false
-category: shopify,javascript
+category: shopify,javascript,testing
 ---
 
 *This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and Jest](../shopify-remix-prisma-and-jest).*

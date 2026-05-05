@@ -15,7 +15,7 @@
        2.0KB
      * $>
 
-[10]Handling Shopify API limits and Goroutines
+[10]Handling Shopify API limits and goroutines
        Apr 10, 2025
        15KB
      * $>
@@ -27,74 +27,84 @@
 
 [12]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
-       6.5KB
+       6.6KB
      * $>
 
-[13]Shopify Checkout Extension to backend fetching
+[13]Fetching from a Shopify checkout extension to backend
        Feb 27, 2024
        3.1KB
      * $>
 
-[14]Shopify Remix, Prisma, and Jest
+[14]Type definitions without emitting JavaScript
+       Feb 07, 2024
+       3.4KB
+     * $>
+
+[15]Shopify Remix, Prisma, and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[15]Shopify Liquid Tester
+[16]Testing Shopify Liquid snippets
        Nov 20, 2022
        3.9KB
      * $>
 
-[16]Shopify Github Action for versioning
+[17]Versioning Shopify themes with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[17]Shopify Node App custom multi-tenant support
+[18]Custom multi-tenant support for Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
 
-[18]Laravel Shopify cookieless
+[19]Removing cookies from Laravel Shopify
        Jun 29, 2021
        2.8KB
      * $>
 
-[19]Laravel Shopify featured on Shopify
+[20]Laravel Shopify featured on Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[20]Laravel Shopify ITP
+[21]Handling ITP in Laravel Shopify
        Feb 03, 2021
        3.1KB
      * $>
 
-[21]Async Shopify API for Python
+[22]Async Shopify API for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[22]Introducing Laravel Shopify
+[23]Laravel Shopify billing
+       Jan 26, 2018
+       1000B
+     * $>
+
+[24]Introducing Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[23]shopify_app_whitelist Gem
+[25]shopify_app_whitelist gem
        Nov 26, 2016
        1.5KB
      * $>
 
-[24]Testing with shopify_app
+[26]Testing with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[25]Counting unique options in Shopify
+[27]Counting unique options in Shopify
        Jun 21, 2016
        2.1KB
 
-   [26]< Categories  |  [27]< Home
+   [28]< Categories  |  [29]< Home
      *
      *
      *
@@ -119,17 +129,19 @@ References
   11. file:///shopify-checkout-ui-product-html
   12. file:///prisma-jest-mysql-testing
   13. file:///generate-type-definitions-without-emitting-js
-  14. file:///shopify-remix-prisma-and-jest
-  15. file:///archive/shopify-liquid-tester
-  16. file:///shopify-github-action-versioning
-  17. file:///shopify-node-app-custom-multi-tenant
-  18. file:///archive/laravel-shopify-cookieless
-  19. file:///laravel-shopify-featured-shopify-blog
-  20. file:///archive/laravel-shopify-itp
-  21. file:///async-shopify-api-for-python
-  22. file:///introducing-shopify-for-laravel
-  23. file:///shopify-app-whitelist-gem
-  24. file:///testing-with-shopify-app
-  25. file:///archive/counting-unique-options-in-shopify
-  26. file:///category
-  27. file:///
+  14. file:///type-definitions-without-emitting
+  15. file:///shopify-remix-prisma-and-jest
+  16. file:///archive/shopify-liquid-tester
+  17. file:///shopify-github-action-versioning
+  18. file:///shopify-node-app-custom-multi-tenant
+  19. file:///archive/laravel-shopify-cookieless
+  20. file:///laravel-shopify-featured-shopify-blog
+  21. file:///archive/laravel-shopify-itp
+  22. file:///async-shopify-api-for-python
+  23. file:///archive/laravel-shopify-billing
+  24. file:///introducing-shopify-for-laravel
+  25. file:///shopify-app-whitelist-gem
+  26. file:///testing-with-shopify-app
+  27. file:///archive/counting-unique-options-in-shopify
+  28. file:///category
+  29. file:///

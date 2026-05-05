@@ -8,7 +8,7 @@
                       Shopify variant metafield webhooks /
 
    Aug 08, 2025  --  2.0KB
-   [9]Logo of shopify
+   [9]#shopify
 
    When you update a metafield for a customer in Shopify, the Customer
    Update Webhook is triggered. Similarly, updating a product metafield

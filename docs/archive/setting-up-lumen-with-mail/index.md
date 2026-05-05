@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lumen with Mailer
+title: Lumen with mailer
 permalink: setting-up-lumen-with-mail
 date: '2017-11-19 11:04:33'
 archive: true

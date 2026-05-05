@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                  Sorting product by category in WooCommerce /
+                 Sorting products by category in WooCommerce /
 
    Oct 05, 2013  --  6.0KB
-   [9]Logo of wordpress [10]Logo of php
+   [9]#wordpress [10]#php
 
    This past week I was assigned to heavily customize a Woocommerce
    install on a client's successful store. What needed to be done on one

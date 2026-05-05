@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                         Shopify Value Objects for Go /
+                         Shopify value objects for Go /
 
    Jul 15, 2025  --  8.8KB
-   [9]Logo of golang
+   [9]#golang
 
    An existing project had grown rapidly, resulting in many places where
    IDs were manually extracted from GIDs or formatted into GIDs without

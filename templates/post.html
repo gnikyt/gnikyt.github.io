@@ -13,7 +13,7 @@
         </div>
         <div class="post__category">
           {{@FOREACH CATEGORY ,}}
-            <a href="/category/{{VALUE}}"><img src="/assets/images/category-{{VALUE}}.svg" class="post__category-logo" alt="Logo of {{VALUE}}"></a>
+            <a href="/category/{{VALUE}}" class="category-hashtag" rel="tag" aria-label="View posts in category {{VALUE}}">#{{VALUE}}</a>
           {{/FOREACH CATEGORY ,}}
         </div>
       </div>

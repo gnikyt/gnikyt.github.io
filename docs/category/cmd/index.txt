@@ -10,36 +10,51 @@
    Displaying cmd entries sorted by creation date in descending order.
      * $>
 
-[9]Building a BASH template engine
+[9]Building a Bash template engine
        May 22, 2025
        4.1KB
      * $>
 
-[10]New desktop setup
+[10]WP Local with WSL
+       Dec 07, 2023
+       5.6KB
+     * $>
+
+[11]New desktop setup
        Dec 11, 2022
        6.5KB
      * $>
 
-[11]Shopify Github Action for versioning
+[12]Versioning Shopify themes with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[12]WSL network speed
+[13]WSL network speed
        Nov 16, 2021
        1.8KB
      * $>
 
-[13]Git release branches
+[14]Git release branches
        Mar 10, 2021
        3.4KB
      * $>
 
-[14]i3-Plasma for a solid match
+[15]Dockerizing Symfony Flex with Symfony Server
+       Feb 04, 2020
+       5.6KB
+     * $>
+
+[16]i3-Plasma for a solid match
        Aug 28, 2019
        4.4KB
+     * $>
 
-   [15]< Categories  |  [16]< Home
+[17]WordPress with Docker
+       Jun 15, 2017
+       3.6KB
+
+   [18]< Categories  |  [19]< Home
      *
      *
      *
@@ -60,10 +75,13 @@ References
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
    9. file:///building-bash-template-engine
-  10. file:///archive/new-desktop-setup
-  11. file:///shopify-github-action-versioning
-  12. file:///archive/wsl-network-speed
-  13. file:///git-release-branches
-  14. file:///archive/i3-plasma-a-solid-match
-  15. file:///category
-  16. file:///
+  10. file:///wplocal-with-wsl
+  11. file:///archive/new-desktop-setup
+  12. file:///shopify-github-action-versioning
+  13. file:///archive/wsl-network-speed
+  14. file:///git-release-branches
+  15. file:///archive/basic-symfony-flex-with-symfony-server-dockerized
+  16. file:///archive/i3-plasma-a-solid-match
+  17. file:///wordpress-under-docker
+  18. file:///category
+  19. file:///

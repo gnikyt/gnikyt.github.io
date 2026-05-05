@@ -1,10 +1,10 @@
 ---
 layout: post
-title: WordPress Local with WSL
+title: WP Local with WSL
 permalink: wplocal-with-wsl
 date: '2023-12-07 11:22:03'
 archive: false
-category: php,wordpress
+category: wordpress,php,cmd
 ---
 
 A recent project was picked up from another agency where they utilized WP Engine and WP Local. WP Local *can* work with WSL, but the provided Debian package file seems to miss some dependencies required to properly use it and additionally, some issues cropped up which needed to be solved to have a fully working setup.

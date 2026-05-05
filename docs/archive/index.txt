@@ -16,12 +16,12 @@
        6.5KB
      * $>
 
-[10]Shopify Liquid Tester
+[10]Testing Shopify Liquid snippets
        Nov 20, 2022
        3.9KB
      * $>
 
-[11]Joint Venture with LFL
+[11]Joint venture with LFL
        Nov 15, 2022
        6.0KB
      * $>
@@ -31,19 +31,19 @@
        1.8KB
      * $>
 
-[13]Laravel Shopify cookieless
+[13]Removing cookies from Laravel Shopify
        Jun 29, 2021
        2.8KB
      * $>
 
-[14]Laravel Shopify ITP
+[14]Handling ITP in Laravel Shopify
        Feb 03, 2021
        3.1KB
      * $>
 
-[15]Symfony Flex with Symfony Server Dockerized
+[15]Dockerizing Symfony Flex with Symfony Server
        Feb 04, 2020
-       5.5KB
+       5.6KB
      * $>
 
 [16]i3-Plasma for a solid match
@@ -53,7 +53,7 @@
 
 [17]Laravel Shopify billing
        Jan 26, 2018
-       992B
+       1000B
      * $>
 
 [18]Lumen with Redis
@@ -61,12 +61,12 @@
        1.3KB
      * $>
 
-[19]Lumen with Mailer
+[19]Lumen with mailer
        Nov 19, 2017
        5.3KB
      * $>
 
-[20]Reactive VueJS plugins
+[20]Reactive Vue.js plugins
        Jun 29, 2017
        4.1KB
      * $>
@@ -76,7 +76,7 @@
        2.1KB
      * $>
 
-[22]Precompiling assets with Rails Engine
+[22]Precompiling assets with Rails engine
        May 03, 2016
        2.3KB
      * $>
@@ -86,7 +86,7 @@
        5.6KB
      * $>
 
-[24]Extending a Rails Engine
+[24]Extending a Rails engine
        Feb 20, 2016
        4.4KB
      * $>
@@ -96,12 +96,12 @@
        5.1KB
      * $>
 
-[26]WordPress User Themes
+[26]WordPress user themes
        May 21, 2015
        365B
      * $>
 
-[27]Original sized images from a WordPress Gallery
+[27]Original-size images from a WordPress gallery
        Nov 08, 2014
        1.5KB
      * $>
@@ -116,12 +116,12 @@
        1.4KB
      * $>
 
-[30]Single field error in Symfony
+[30]Single-field errors in Symfony
        Dec 12, 2013
-       959B
+       960B
      * $>
 
-[31]Sorting product by category in WooCommerce
+[31]Sorting products by category in WooCommerce
        Oct 05, 2013
        6.0KB
 

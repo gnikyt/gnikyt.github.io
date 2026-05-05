@@ -1,0 +1,57 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+   [3]Ty King
+
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+
+                         Index of category / testing /
+
+   Displaying testing entries sorted by creation date in descending order.
+     * $>
+
+[9]Shopify Prisma, Jest, and MySQL testing
+       Mar 28, 2024
+       6.6KB
+     * $>
+
+[10]Shopify Remix, Prisma, and Jest
+       Jan 10, 2024
+       8.8KB
+     * $>
+
+[11]Testing Shopify Liquid snippets
+       Nov 20, 2022
+       3.9KB
+     * $>
+
+[12]Testing with shopify_app
+       Jun 21, 2016
+       2.3KB
+
+   [13]< Categories  |  [14]< Home
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. file:///rss.xml
+   2. file:///
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///prisma-jest-mysql-testing
+  10. file:///shopify-remix-prisma-and-jest
+  11. file:///archive/shopify-liquid-tester
+  12. file:///testing-with-shopify-app
+  13. file:///category
+  14. file:///

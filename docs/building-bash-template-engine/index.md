@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building a BASH template engine
+title: Building a Bash template engine
 permalink: building-bash-template-engine
 date: '2025-05-22 14:09:31'
 category: cmd

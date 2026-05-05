@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Extending a Rails Engine
+title: Extending a Rails engine
 permalink: extending-a-rails-engine
 date: '2016-02-20 12:27:45'
 archive: true

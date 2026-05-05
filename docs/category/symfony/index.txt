@@ -10,14 +10,14 @@
    Displaying symfony entries sorted by creation date in descending order.
      * $>
 
-[9]Symfony Flex with Symfony Server Dockerized
+[9]Dockerizing Symfony Flex with Symfony Server
        Feb 04, 2020
-       5.5KB
+       5.6KB
      * $>
 
-[10]Single field error in Symfony
+[10]Single-field errors in Symfony
        Dec 12, 2013
-       959B
+       960B
 
    [11]< Categories  |  [12]< Home
      *

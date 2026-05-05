@@ -8,7 +8,7 @@
                                Lumen with Redis /
 
    Nov 19, 2017  --  1.3KB
-   [9]Logo of php [10]Logo of laravel
+   [9]#php [10]#laravel
 
    This is more of an extension of my previous post "Setting Up Lumen +
    Mail". I wanted to take it a step further and show the basic setup for

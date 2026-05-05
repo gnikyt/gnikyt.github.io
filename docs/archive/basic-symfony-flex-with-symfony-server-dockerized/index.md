@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Symfony Flex with Symfony Server Dockerized
+title: Dockerizing Symfony Flex with Symfony Server
 permalink: basic-symfony-flex-with-symfony-server-dockerized
 date: '2020-02-04 00:56:22'
 archive: true
-category: php,symfony
+category: symfony,php,cmd
 ---
 
 Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes". It provides a way to create a very lean and clean Symfony application with only the bells and whistles you choose.

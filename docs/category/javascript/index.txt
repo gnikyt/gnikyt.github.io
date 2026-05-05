@@ -18,15 +18,15 @@
 
 [10]Shopify Prisma, Jest, and MySQL testing
        Mar 28, 2024
-       6.5KB
+       6.6KB
      * $>
 
-[11]Shopify Checkout Extension to backend fetching
+[11]Fetching from a Shopify checkout extension to backend
        Feb 27, 2024
        3.1KB
      * $>
 
-[12]Type definitions without emitting
+[12]Type definitions without emitting JavaScript
        Feb 07, 2024
        3.4KB
      * $>
@@ -36,17 +36,17 @@
        8.8KB
      * $>
 
-[14]Shopify Liquid Tester
+[14]Testing Shopify Liquid snippets
        Nov 20, 2022
        3.9KB
      * $>
 
-[15]Shopify Node App custom multi-tenant support
+[15]Custom multi-tenant support for Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
 
-[16]Reactive VueJS plugins
+[16]Reactive Vue.js plugins
        Jun 29, 2017
        4.1KB
 

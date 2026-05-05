@@ -8,7 +8,7 @@
                        Shopify Remix, Prisma, and Jest /
 
    Jan 10, 2024  --  8.8KB
-   [9]Logo of shopify [10]Logo of javascript
+   [9]#shopify [10]#javascript [11]#testing
 
 Introduction
 
@@ -26,7 +26,7 @@ Introduction
    someone could get going on testing.
 
    With Prisma, you can mock the database returns from Prisma (example
-   findMany) out of the box [11]for unit tests.
+   findMany) out of the box [12]for unit tests.
 const record = {
   id: 1,
   title: "Example",
@@ -337,17 +337,17 @@ Tests running slow?
 
 Anchors
 
-     * [1] [12]www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+     * [1] [13]www.prisma.io/docs/orm/prisma-client/testing/unit-testing
        /^
 
 Appendix
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [13]CC-4.0.
+   Copyright under [14]CC-4.0.
 
    Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
+   [15]MD  /  [16]TXT  /  [17]PDF
 
      *
      *
@@ -370,8 +370,9 @@ References
    8. file:///rss.xml
    9. file:///category/shopify
   10. file:///category/javascript
-  11. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+  11. file:///category/testing
   12. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///shopify-remix-prisma-and-jest/index.md
-  15. file:///shopify-remix-prisma-and-jest/index.txt
+  13. https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+  14. https://creativecommons.org/licenses/by/4.0/
+  15. file:///shopify-remix-prisma-and-jest/index.md
+  16. file:///shopify-remix-prisma-and-jest/index.txt

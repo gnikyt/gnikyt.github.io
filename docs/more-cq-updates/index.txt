@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                               More cq updates /
+                              cq release updates /
 
    Apr 30, 2026  --  1.5KB
-   [9]Logo of golang
+   [9]#golang
 
    Back in February I wrote about the latest [10]cq release. Since then, I
    have kept pushing on the project and it has picked up a nice set of

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: WordPress User Themes
+title: WordPress user themes
 permalink: wp-user-themes
 date: '2015-05-21 17:00:34'
 archive: true
-category: php,wordpress
+category: wordpress,php
 ---
 
 I've released a unit-tested plugin called Wp User Themes.

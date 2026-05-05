@@ -8,7 +8,7 @@
                      Laravel Shopify featured on Shopify /
 
    Mar 04, 2021  --  1.7KB
-   [9]Logo of shopify [10]Logo of php [11]Logo of laravel
+   [9]#shopify [10]#php [11]#laravel
 
    A couple of weeks ago, Liam Griffin at Shopify reached out to me about
    the Laravel Shopify package, interested in featuring it on Shopify's

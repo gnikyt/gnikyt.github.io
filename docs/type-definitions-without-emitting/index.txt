@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                      Type definitions without emitting /
+                 Type definitions without emitting JavaScript /
 
    Feb 07, 2024  --  3.4KB
-   [9]Logo of javascript
+   [9]#shopify [10]#javascript
 
 Introduction
 
@@ -112,10 +112,10 @@ Appendix
 
    This post is 2 years old and may contain outdated information.
 
-   Copyright under [10]CC-4.0.
+   Copyright under [11]CC-4.0.
 
    Available in the following alternative formats:
-   [11]MD  /  [12]TXT  /  [13]PDF
+   [12]MD  /  [13]TXT  /  [14]PDF
 
      *
      *
@@ -136,7 +136,8 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///category/javascript
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///type-definitions-without-emitting/index.md
-  12. file:///type-definitions-without-emitting/index.txt
+   9. file:///category/shopify
+  10. file:///category/javascript
+  11. https://creativecommons.org/licenses/by/4.0/
+  12. file:///type-definitions-without-emitting/index.md
+  13. file:///type-definitions-without-emitting/index.txt

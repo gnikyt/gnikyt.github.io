@@ -10,7 +10,7 @@
    Displaying rails entries sorted by creation date in descending order.
      * $>
 
-[9]shopify_app_whitelist Gem
+[9]shopify_app_whitelist gem
        Nov 26, 2016
        1.5KB
      * $>
@@ -20,12 +20,12 @@
        2.3KB
      * $>
 
-[11]Precompiling assets with Rails Engine
+[11]Precompiling assets with Rails engine
        May 03, 2016
        2.3KB
      * $>
 
-[12]Extending a Rails Engine
+[12]Extending a Rails engine
        Feb 20, 2016
        4.4KB
      * $>

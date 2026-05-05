@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ActiveRecord and Liquid Drops with Sinatra
+title: ActiveRecord and Liquid drops with Sinatra
 permalink: activerecord-and-liquid-drops-with-sinatra
 date: '2015-10-15 02:00:00'
 archive: false

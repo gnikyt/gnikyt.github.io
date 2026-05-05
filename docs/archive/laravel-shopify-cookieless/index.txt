@@ -5,10 +5,10 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                          Laravel Shopify cookieless /
+                    Removing cookies from Laravel Shopify /
 
    Jun 29, 2021  --  2.8KB
-   [9]Logo of shopify [10]Logo of php [11]Logo of laravel
+   [9]#shopify [10]#php [11]#laravel
 
 This Issue
 

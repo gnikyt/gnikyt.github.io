@@ -10,7 +10,7 @@
    Displaying laravel entries sorted by creation date in descending order.
      * $>
 
-[9]Laravel Shopify cookieless
+[9]Removing cookies from Laravel Shopify
        Jun 29, 2021
        2.8KB
      * $>
@@ -20,14 +20,14 @@
        1.7KB
      * $>
 
-[11]Laravel Shopify ITP
+[11]Handling ITP in Laravel Shopify
        Feb 03, 2021
        3.1KB
      * $>
 
 [12]Laravel Shopify billing
        Jan 26, 2018
-       992B
+       1000B
      * $>
 
 [13]Lumen with Redis
@@ -35,7 +35,7 @@
        1.3KB
      * $>
 
-[14]Lumen with Mailer
+[14]Lumen with mailer
        Nov 19, 2017
        5.3KB
      * $>
