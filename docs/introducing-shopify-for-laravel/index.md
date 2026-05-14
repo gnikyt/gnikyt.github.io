@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing Laravel Shopify
+title: Meet Laravel Shopify
 permalink: introducing-shopify-for-laravel
 date: '2017-08-09 16:35:00'
 archive: false

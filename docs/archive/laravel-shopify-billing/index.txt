@@ -5,9 +5,9 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                           Laravel Shopify billing /
+                     Handling billing in Laravel Shopify /
 
-   Jan 26, 2018  --  1000B
+   Jan 26, 2018  --  1012B
    [9]#shopify [10]#php [11]#laravel
 
    Version 2.0.0 was [12]just released which features the baked-in ability

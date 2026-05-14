@@ -10,7 +10,7 @@
    Displaying symfony entries sorted by creation date in descending order.
      * $>
 
-[9]Dockerizing Symfony Flex with Symfony Server
+[9]Running Symfony Flex with Symfony Server in Docker
        Feb 04, 2020
        5.6KB
      * $>

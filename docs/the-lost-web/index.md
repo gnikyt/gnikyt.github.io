@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The lost web
+title: The web got boring, didn't it?
 permalink: the-lost-web
 date: '2025-07-21 16:35:00'
 category: thoughts

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Async Shopify API for Python
+title: An async Shopify API helper for Python
 permalink: async-shopify-api-for-python
 date: '2020-06-29 12:31:02'
 archive: false

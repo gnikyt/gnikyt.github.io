@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                 Shopify checkout extension with product HTML /
+                   Showing product HTML in Shopify checkout /
 
    May 10, 2024  --  14KB
    [9]#shopify [10]#javascript [11]#react
@@ -530,6 +530,8 @@ Anchors
      * [1] [13]developer.mozilla.org/en-US/docs/Web/API/DOMParser /^
 
 Appendix
+
+   This post is 2 years old and may contain outdated information.
 
    Copyright under [14]CC-4.0.
 

@@ -25,7 +25,7 @@
        8.8KB
      * $>
 
-[12]Handling Shopify API limits and goroutines
+[12]Keeping goroutines under Shopify API limits
        Apr 10, 2025
        15KB
 

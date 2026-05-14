@@ -10,27 +10,27 @@
    Displaying shopify entries sorted by creation date in descending order.
      * $>
 
-[9]Shopify variant metafield webhooks
+[9]Catching Shopify variant metafield updates
        Aug 08, 2025
        2.0KB
      * $>
 
-[10]Handling Shopify API limits and goroutines
+[10]Keeping goroutines under Shopify API limits
        Apr 10, 2025
        15KB
      * $>
 
-[11]Shopify checkout extension with product HTML
+[11]Showing product HTML in Shopify checkout
        May 10, 2024
        14KB
      * $>
 
-[12]Shopify Prisma, Jest, and MySQL testing
+[12]Testing Shopify apps with Prisma, Jest, and MySQL
        Mar 28, 2024
        6.6KB
      * $>
 
-[13]Fetching from a Shopify checkout extension to backend
+[13]Getting Shopify checkout extensions talking to your backend
        Feb 27, 2024
        3.1KB
      * $>
@@ -40,67 +40,67 @@
        3.4KB
      * $>
 
-[15]Shopify Remix, Prisma, and Jest
+[15]Testing Shopify Remix with Prisma and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[16]Testing Shopify Liquid snippets
+[16]Testing Liquid snippets without opening Shopify
        Nov 20, 2022
        3.9KB
      * $>
 
-[17]Versioning Shopify themes with GitHub Actions
+[17]Keeping Shopify themes versioned with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[18]Custom multi-tenant support for Shopify Node apps
+[18]Adding multi-tenant support to Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
 
-[19]Removing cookies from Laravel Shopify
+[19]Making Laravel Shopify work without cookies
        Jun 29, 2021
        2.8KB
      * $>
 
-[20]Laravel Shopify featured on Shopify
+[20]Laravel Shopify got featured by Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[21]Handling ITP in Laravel Shopify
+[21]Dealing with ITP in Laravel Shopify
        Feb 03, 2021
-       3.1KB
+       3.2KB
      * $>
 
-[22]Async Shopify API for Python
+[22]An async Shopify API helper for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[23]Laravel Shopify billing
+[23]Handling billing in Laravel Shopify
        Jan 26, 2018
-       1000B
+       1012B
      * $>
 
-[24]Introducing Laravel Shopify
+[24]Meet Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[25]shopify_app_whitelist gem
+[25]A whitelist helper for shopify_app
        Nov 26, 2016
        1.5KB
      * $>
 
-[26]Testing with shopify_app
+[26]A cleaner way to test with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[27]Counting unique options in Shopify
+[27]Finding unique product options in Shopify
        Jun 21, 2016
        2.1KB
 

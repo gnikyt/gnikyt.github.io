@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dockerizing Symfony Flex with Symfony Server
+title: Running Symfony Flex with Symfony Server in Docker
 permalink: basic-symfony-flex-with-symfony-server-dockerized
 date: '2020-02-04 00:56:22'
 archive: true

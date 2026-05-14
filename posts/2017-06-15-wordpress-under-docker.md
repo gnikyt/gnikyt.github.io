@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WordPress with Docker
+title: Running WordPress inside Docker
 permalink: WordPress-under-docker
 date: '2017-06-15 09:53:10'
 archive: false

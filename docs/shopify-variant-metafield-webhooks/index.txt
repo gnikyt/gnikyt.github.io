@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                      Shopify variant metafield webhooks /
+                  Catching Shopify variant metafield updates /
 
    Aug 08, 2025  --  2.0KB
    [9]#shopify

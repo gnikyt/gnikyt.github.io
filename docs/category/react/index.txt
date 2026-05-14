@@ -10,12 +10,12 @@
    Displaying react entries sorted by creation date in descending order.
      * $>
 
-[9]Shopify checkout extension with product HTML
+[9]Showing product HTML in Shopify checkout
        May 10, 2024
        14KB
      * $>
 
-[10]Fetching from a Shopify checkout extension to backend
+[10]Getting Shopify checkout extensions talking to your backend
        Feb 27, 2024
        3.1KB
 

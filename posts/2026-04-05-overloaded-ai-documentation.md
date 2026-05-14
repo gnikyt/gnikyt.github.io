@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Overloaded AI documentation
+title: The quiet bloat of AI documentation
 permalink: overloaded-ai-documentation
 date: '2026-04-05 18:30:01'
 category: thoughts

@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                  ActiveRecord and Liquid drops with Sinatra /
+                 Wiring Liquid drops into a tiny Sinatra app /
 
    Oct 15, 2015  --  3.7KB
    [9]#ruby [10]#sinatra

@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                 Dockerizing Symfony Flex with Symfony Server /
+              Running Symfony Flex with Symfony Server in Docker /
 
    Feb 04, 2020  --  5.6KB
    [9]#symfony [10]#php [11]#cmd

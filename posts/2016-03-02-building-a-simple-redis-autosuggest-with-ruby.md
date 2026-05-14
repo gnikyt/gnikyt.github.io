@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Redis autosuggest with Sinatra
+title: Making Redis autocomplete with Sinatra
 permalink: building-a-simple-redis-autosuggest-with-ruby
 date: '2016-03-02 01:02:11'
 archive: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fetching from a Shopify checkout extension to backend
+title: Getting Shopify checkout extensions talking to your backend
 permalink: generate-type-definitions-without-emitting-js
 date: '2024-02-27 15:52:00'
 archive: false

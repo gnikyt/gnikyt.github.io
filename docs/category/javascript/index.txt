@@ -11,17 +11,17 @@
    order.
      * $>
 
-[9]Shopify checkout extension with product HTML
+[9]Showing product HTML in Shopify checkout
        May 10, 2024
        14KB
      * $>
 
-[10]Shopify Prisma, Jest, and MySQL testing
+[10]Testing Shopify apps with Prisma, Jest, and MySQL
        Mar 28, 2024
        6.6KB
      * $>
 
-[11]Fetching from a Shopify checkout extension to backend
+[11]Getting Shopify checkout extensions talking to your backend
        Feb 27, 2024
        3.1KB
      * $>
@@ -31,22 +31,22 @@
        3.4KB
      * $>
 
-[13]Shopify Remix, Prisma, and Jest
+[13]Testing Shopify Remix with Prisma and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[14]Testing Shopify Liquid snippets
+[14]Testing Liquid snippets without opening Shopify
        Nov 20, 2022
        3.9KB
      * $>
 
-[15]Custom multi-tenant support for Shopify Node apps
+[15]Adding multi-tenant support to Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
 
-[16]Reactive Vue.js plugins
+[16]Making Vue.js plugins reactive
        Jun 29, 2017
        4.1KB
 

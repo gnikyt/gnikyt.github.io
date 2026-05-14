@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                         i3-Plasma for a solid match /
+                        Making i3 and Plasma play nice /
 
    Aug 28, 2019  --  4.4KB
    [9]#cmd

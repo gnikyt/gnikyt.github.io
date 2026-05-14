@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Handling ITP in Laravel Shopify
+title: Dealing with ITP in Laravel Shopify
 permalink: laravel-shopify-itp
 date: '2021-02-03 10:28:34'
 archive: true

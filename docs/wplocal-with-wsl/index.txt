@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                              WP Local with WSL /
+                         Running WP Local through WSL /
 
    Dec 07, 2023  --  5.6KB
    [9]#wordpress [10]#php [11]#cmd

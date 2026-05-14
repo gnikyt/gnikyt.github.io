@@ -11,22 +11,22 @@
    order.
      * $>
 
-[9]Overloaded AI documentation
+[9]The quiet bloat of AI documentation
        Apr 05, 2026
        3.6KB
      * $>
 
-[10]Removing emotion from work
+[10]Letting work be less emotionally expensive
        Feb 25, 2026
        5.3KB
      * $>
 
-[11]The lost web
+[11]The web got boring, didn't it?
        Jul 21, 2025
        3.1KB
      * $>
 
-[12]Joint venture with LFL
+[12]Working with LFL on something new
        Nov 15, 2022
        6.0KB
 

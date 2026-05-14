@@ -5,9 +5,9 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                       Handling ITP in Laravel Shopify /
+                     Dealing with ITP in Laravel Shopify /
 
-   Feb 03, 2021  --  3.1KB
+   Feb 03, 2021  --  3.2KB
    [9]#shopify [10]#php [11]#laravel
 
 Background

@@ -15,12 +15,12 @@
        1.5KB
      * $>
 
-[10]Overloaded AI documentation
+[10]The quiet bloat of AI documentation
        Apr 05, 2026
        3.6KB
      * $>
 
-[11]Removing emotion from work
+[11]Letting work be less emotionally expensive
        Feb 25, 2026
        5.3KB
      * $>
@@ -30,12 +30,12 @@
        12KB
      * $>
 
-[13]Shopify variant metafield webhooks
+[13]Catching Shopify variant metafield updates
        Aug 08, 2025
        2.0KB
      * $>
 
-[14]The lost web
+[14]The web got boring, didn't it?
        Jul 21, 2025
        3.1KB
      * $>
@@ -45,27 +45,27 @@
        8.8KB
      * $>
 
-[16]Building a Bash template engine
+[16]Building a tiny template engine in Bash
        May 22, 2025
        4.1KB
      * $>
 
-[17]Handling Shopify API limits and goroutines
+[17]Keeping goroutines under Shopify API limits
        Apr 10, 2025
        15KB
      * $>
 
-[18]Shopify checkout extension with product HTML
+[18]Showing product HTML in Shopify checkout
        May 10, 2024
        14KB
      * $>
 
-[19]Shopify Prisma, Jest, and MySQL testing
+[19]Testing Shopify apps with Prisma, Jest, and MySQL
        Mar 28, 2024
        6.6KB
      * $>
 
-[20]Fetching from a Shopify checkout extension to backend
+[20]Getting Shopify checkout extensions talking to your backend
        Feb 27, 2024
        3.1KB
      * $>
@@ -75,62 +75,62 @@
        3.4KB
      * $>
 
-[22]Shopify Remix, Prisma, and Jest
+[22]Testing Shopify Remix with Prisma and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[23]WP Local with WSL
+[23]Running WP Local through WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[24]Versioning Shopify themes with GitHub Actions
+[24]Keeping Shopify themes versioned with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[25]Custom multi-tenant support for Shopify Node apps
+[25]Adding multi-tenant support to Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
 
-[26]Git release branches
+[26]A simple Git release branch flow
        Mar 10, 2021
        3.4KB
      * $>
 
-[27]Laravel Shopify featured on Shopify
+[27]Laravel Shopify got featured by Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[28]Async Shopify API for Python
+[28]An async Shopify API helper for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[29]Introducing Laravel Shopify
+[29]Meet Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[30]WordPress with Docker
+[30]Running WordPress inside Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[31]shopify_app_whitelist gem
+[31]A whitelist helper for shopify_app
        Nov 26, 2016
        1.5KB
      * $>
 
-[32]Testing with shopify_app
+[32]A cleaner way to test with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[33]ActiveRecord and Liquid drops with Sinatra
+[33]Wiring Liquid drops into a tiny Sinatra app
        Oct 15, 2015
        3.7KB
 

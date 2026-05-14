@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WSL network speed
+title: Chasing down slow WSL networking
 permalink: wsl-network-speed
 date: '2021-11-16 12:52:01'
 archive: true

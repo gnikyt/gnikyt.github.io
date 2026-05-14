@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-              Custom multi-tenant support for Shopify Node apps /
+               Adding multi-tenant support to Shopify Node apps /
 
    Nov 15, 2021  --  10KB
    [9]#shopify [10]#javascript

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shopify Remix, Prisma, and Jest
+title: Testing Shopify Remix with Prisma and Jest
 permalink: shopify-remix-prisma-and-jest
 date: '2024-01-10 13:17:03'
 archive: false

@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                               Lumen with Redis /
+                           Wiring Redis into Lumen /
 
    Nov 19, 2017  --  1.3KB
    [9]#php [10]#laravel

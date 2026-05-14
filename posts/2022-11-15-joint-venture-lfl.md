@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Joint venture with LFL
+title: Working with LFL on something new
 permalink: joint-venture-lfl
 date: '2022-11-15 11:48:03'
 archive: true

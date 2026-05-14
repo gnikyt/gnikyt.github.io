@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shopify checkout extension with product HTML
+title: Showing product HTML in Shopify checkout
 permalink: shopify-checkout-ui-product-html
 date: '2024-05-10 13:30:56'
 archive: false
@@ -486,4 +486,3 @@ export default function descriptionTransformer(rawHtml, transformer) {
 }
 ```
 Hopefully this can help point you in the right direction if you're attempting to use product descriptions in a Shopify Checkout UI Extension.
-

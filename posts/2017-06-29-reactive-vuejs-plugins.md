@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reactive Vue.js plugins
+title: Making Vue.js plugins reactive
 permalink: reactive-vuejs-plugins
 date: '2017-06-29 12:36:22'
 archive: true

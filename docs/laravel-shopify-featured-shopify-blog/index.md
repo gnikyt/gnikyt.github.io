@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel Shopify featured on Shopify
+title: Laravel Shopify got featured by Shopify
 permalink: laravel-shopify-featured-shopify-blog
 date: '2021-03-04 10:28:34'
 archive: false

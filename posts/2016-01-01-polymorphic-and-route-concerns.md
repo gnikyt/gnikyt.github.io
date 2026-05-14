@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Polymorphic route concerns with Rails
+title: Taming polymorphic routes in Rails
 permalink: polymorphic-and-route-concerns
 date: '2016-01-01 12:55:00'
 archive: true

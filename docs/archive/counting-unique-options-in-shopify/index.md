@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Counting unique options in Shopify
+title: Finding unique product options in Shopify
 permalink: counting-unique-options-in-shopify
 date: '2016-06-21 01:17:33'
 archive: true

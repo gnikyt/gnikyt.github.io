@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Testing with shopify_app
+title: A cleaner way to test with shopify_app
 permalink: testing-with-shopify-app
 date: '2016-06-21 01:17:33'
 archive: false

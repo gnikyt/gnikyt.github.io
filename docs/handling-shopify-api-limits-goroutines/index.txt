@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                  Handling Shopify API limits and goroutines /
+                 Keeping goroutines under Shopify API limits /
 
    Apr 10, 2025  --  15KB
    [9]#golang [10]#shopify

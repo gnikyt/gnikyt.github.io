@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Removing emotion from work
+title: Letting work be less emotionally expensive
 permalink: removing-emotion-from-work
 date: '2026-02-25 10:24:12'
 category: thoughts

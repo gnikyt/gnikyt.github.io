@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git release branches
+title: A simple Git release branch flow
 permalink: git-release-branches
 date: '2021-03-10 11:12:19'
 archive: false

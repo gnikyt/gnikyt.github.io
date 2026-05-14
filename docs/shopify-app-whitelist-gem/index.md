@@ -1,6 +1,6 @@
 ---
 layout: post
-title: shopify_app_whitelist gem
+title: A whitelist helper for shopify_app
 permalink: shopify-app-whitelist-gem
 date: '2016-11-26 16:45:01'
 archive: false

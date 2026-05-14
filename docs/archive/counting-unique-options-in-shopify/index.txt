@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                      Counting unique options in Shopify /
+                  Finding unique product options in Shopify /
 
    Jun 21, 2016  --  2.1KB
    [9]#shopify

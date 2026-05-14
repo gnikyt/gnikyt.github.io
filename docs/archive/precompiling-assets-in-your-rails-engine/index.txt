@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                    Precompiling assets with Rails engine /
+                  Getting Rails engine assets to precompile /
 
    May 03, 2016  --  2.3KB
    [9]#ruby [10]#rails

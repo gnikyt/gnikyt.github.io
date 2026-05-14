@@ -16,7 +16,7 @@
       <category>golang</category>
     </item>
     <item>
-      <title>Overloaded AI documentation</title>
+      <title>The quiet bloat of AI documentation</title>
       <link>https://gnikyt.com/overloaded-ai-documentation</link>
       <description>## Problem created from a problem For many years, the complaint in development (from developers,
       PMs, etc) was that documentation was n...</description>
@@ -26,7 +26,7 @@
       <category>thoughts</category>
     </item>
     <item>
-      <title>Removing emotion from work</title>
+      <title>Letting work be less emotionally expensive</title>
       <link>https://gnikyt.com/removing-emotion-from-work</link>
       <description>I've been doing development for about 25 years now, which is still wild to think about. So much has
       changed in that time, *like I touche...</description>
@@ -46,7 +46,7 @@
       <category>golang</category>
     </item>
     <item>
-      <title>Shopify variant metafield webhooks</title>
+      <title>Catching Shopify variant metafield updates</title>
       <link>https://gnikyt.com/shopify-variant-metafield-webhooks</link>
       <description>When you update a metafield for a customer in Shopify, the Customer Update Webhook is triggered.
       Similarly, updating a product metafield...</description>
@@ -56,7 +56,7 @@
       <category>shopify</category>
     </item>
     <item>
-      <title>The lost web</title>
+      <title>The web got boring, didn't it?</title>
       <link>https://gnikyt.com/the-lost-web</link>
       <description>Late last night while in bed, after the chaos of the kids in the evening, I ended up letting my mind
       wander. My mind unexpectedly drifte...</description>
@@ -76,7 +76,7 @@
       <category>golang</category>
     </item>
     <item>
-      <title>Building a Bash template engine</title>
+      <title>Building a tiny template engine in Bash</title>
       <link>https://gnikyt.com/building-bash-template-engine</link>
       <description>Earlier this year I migrated my blog away from Jekyll because it was such a large setup for such a
       small blog to maintain. I wanted some...</description>
@@ -86,7 +86,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Handling Shopify API limits and goroutines</title>
+      <title>Keeping goroutines under Shopify API limits</title>
       <link>https://gnikyt.com/handling-shopify-api-limits-goroutines</link>
       <description>I frequently build integration applications with Shopify and I thought it would be helpful to
       highlight one approach (of many) that I co...</description>
@@ -97,7 +97,7 @@
       <category>shopify</category>
     </item>
     <item>
-      <title>Shopify checkout extension with product HTML</title>
+      <title>Showing product HTML in Shopify checkout</title>
       <link>https://gnikyt.com/shopify-checkout-ui-product-html</link>
       <description>## Background A project last month required a build of an upselling checkout UI extension for
       Shopify. The client wanted the descriptio...</description>
@@ -109,7 +109,7 @@
       <category>react</category>
     </item>
     <item>
-      <title>Shopify Prisma, Jest, and MySQL testing</title>
+      <title>Testing Shopify apps with Prisma, Jest, and MySQL</title>
       <link>https://gnikyt.com/prisma-jest-mysql-testing</link>
       <description>*This is an alternate extension to my previous post, [Shopify, Remix, Prisma, and
       Jest](../shopify-remix-prisma-and-jest).* Follow that...</description>
@@ -121,7 +121,7 @@
       <category>testing</category>
     </item>
     <item>
-      <title>Fetching from a Shopify checkout extension to backend</title>
+      <title>Getting Shopify checkout extensions talking to your backend</title>
       <link>https://gnikyt.com/generate-type-definitions-without-emitting-js</link>
       <description>There are several posts around about people having issues figuring out how to send a fetch request
       from their checkout extension to thei...</description>
@@ -144,7 +144,7 @@
       <category>javascript</category>
     </item>
     <item>
-      <title>Shopify Remix, Prisma, and Jest</title>
+      <title>Testing Shopify Remix with Prisma and Jest</title>
       <link>https://gnikyt.com/shopify-remix-prisma-and-jest</link>
       <description>## Introduction Shopify has *(once again)* changed up their app framework and templates. This time,
       they're utilizing Remix which is a ...</description>
@@ -156,7 +156,7 @@
       <category>testing</category>
     </item>
     <item>
-      <title>WP Local with WSL</title>
+      <title>Running WP Local through WSL</title>
       <link>https://gnikyt.com/wplocal-with-wsl</link>
       <description>A recent project was picked up from another agency where they utilized WP Engine and WP Local. WP
       Local *can* work with WSL, but the pro...</description>
@@ -168,7 +168,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>New desktop setup</title>
+      <title>My desktop setup, rebuilt again</title>
       <link>https://gnikyt.com/new-desktop-setup</link>
       <description>## Introduction I haven't had the time to tweak my desktop in over a year, I've been mostly stuck
       with the default settings of Fedora (...</description>
@@ -178,7 +178,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Testing Shopify Liquid snippets</title>
+      <title>Testing Liquid snippets without opening Shopify</title>
       <link>https://gnikyt.com/shopify-liquid-tester</link>
       <description>## Introduction Shopify's theme system currently lacks the ability to define custom "functions". As
       a result, many Shopify developers u...</description>
@@ -190,7 +190,7 @@
       <category>testing</category>
     </item>
     <item>
-      <title>Joint venture with LFL</title>
+      <title>Working with LFL on something new</title>
       <link>https://gnikyt.com/joint-venture-lfl</link>
       <description>## JV The journey of running an agency is an uphill one for sure. It takes everyone working together
       across the board, to not only keep...</description>
@@ -200,7 +200,7 @@
       <category>thoughts</category>
     </item>
     <item>
-      <title>Versioning Shopify themes with GitHub Actions</title>
+      <title>Keeping Shopify themes versioned with GitHub Actions</title>
       <link>https://gnikyt.com/shopify-github-action-versioning</link>
       <description>Shopify recently updated their admin panel again and started to display the value of `theme_version`
       from `config/settings_schema.json` ...</description>
@@ -211,7 +211,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>WSL network speed</title>
+      <title>Chasing down slow WSL networking</title>
       <link>https://gnikyt.com/wsl-network-speed</link>
       <description>Recently, I jumped back into Windows after a few months of Linux and FreeBSD. I opted to upgrade to
       Windows 11 and clean out my system t...</description>
@@ -221,7 +221,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Custom multi-tenant support for Shopify Node apps</title>
+      <title>Adding multi-tenant support to Shopify Node apps</title>
       <link>https://gnikyt.com/shopify-node-app-custom-multi-tenant</link>
       <description>## Introduction Shopify's new boilerplate for app development with Node works well. It gets a lot of
       small details out of the way, allo...</description>
@@ -232,7 +232,7 @@
       <category>javascript</category>
     </item>
     <item>
-      <title>Removing cookies from Laravel Shopify</title>
+      <title>Making Laravel Shopify work without cookies</title>
       <link>https://gnikyt.com/laravel-shopify-cookieless</link>
       <description>## This Issue In the beginning part of 2021, Shopify introduced new requirements for apps to utilize
       the new session token implementati...</description>
@@ -244,7 +244,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Git release branches</title>
+      <title>A simple Git release branch flow</title>
       <link>https://gnikyt.com/git-release-branches</link>
       <description>A method I like to utilize internally, which I've been slowly pushing into my open source work, is
       to create branches for each major/min...</description>
@@ -255,7 +255,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Laravel Shopify featured on Shopify</title>
+      <title>Laravel Shopify got featured by Shopify</title>
       <link>https://gnikyt.com/laravel-shopify-featured-shopify-blog</link>
       <description>A couple of weeks ago, Liam Griffin at Shopify reached out to me about the Laravel Shopify package,
       interested in featuring it on Shopif...</description>
@@ -267,7 +267,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Handling ITP in Laravel Shopify</title>
+      <title>Dealing with ITP in Laravel Shopify</title>
       <link>https://gnikyt.com/laravel-shopify-itp</link>
       <description>## Background [Laravel Shopify](https://github.com/gnikyt/laravel-shopify) is a package I started a
       few years ago which gained quite a ...</description>
@@ -279,7 +279,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Async Shopify API for Python</title>
+      <title>An async Shopify API helper for Python</title>
       <link>https://gnikyt.com/async-shopify-api-for-python</link>
       <description>## Introduction I maintain a fairly used [PHP](https://github.com/gnikyt/Basic-Shopify-API) library
       for Shopify API which uses Guzzle f...</description>
@@ -290,7 +290,7 @@
       <category>python</category>
     </item>
     <item>
-      <title>Dockerizing Symfony Flex with Symfony Server</title>
+      <title>Running Symfony Flex with Symfony Server in Docker</title>
       <link>https://gnikyt.com/basic-symfony-flex-with-symfony-server-dockerized</link>
       <description>Symfony Flex allows you to tailor a Symfony application to your needs by building it with "recipes".
       It provides a way to create a very ...</description>
@@ -302,7 +302,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>i3-Plasma for a solid match</title>
+      <title>Making i3 and Plasma play nice</title>
       <link>https://gnikyt.com/i3-plasma-a-solid-match</link>
       <description>[![Cover Image](/assets/images/posts/screenshot.png)](/assets/images/posts/screenshot.png) ##
       Introduction I have been struggling rece...</description>
@@ -312,7 +312,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>Laravel Shopify billing</title>
+      <title>Handling billing in Laravel Shopify</title>
       <link>https://gnikyt.com/laravel-shopify-billing</link>
       <description>Version 2.0.0 was [just released](https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0)
       which features the baked-in ability to ...</description>
@@ -324,7 +324,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Lumen with Redis</title>
+      <title>Wiring Redis into Lumen</title>
       <link>https://gnikyt.com/setting-up-lumen-with-redis</link>
       <description>This is more of an extension of my previous post "Setting Up Lumen + Mail". I wanted to take it a
       step further and show the basic setup ...</description>
@@ -335,7 +335,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Lumen with mailer</title>
+      <title>Adding a mailer to Lumen</title>
       <link>https://gnikyt.com/setting-up-lumen-with-mail</link>
       <description>## What is Lumen [Lumen](https://lumen.laravel.com/) is a micro-framework built by Laravel. Its
       geared towards small services like APIs...</description>
@@ -346,7 +346,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Introducing Laravel Shopify</title>
+      <title>Meet Laravel Shopify</title>
       <link>https://gnikyt.com/introducing-shopify-for-laravel</link>
       <description>## Background As an active Ruby (and Rails) developer, I found myself regularly making Shopify apps
       in Rails and Sinatra. I've even rel...</description>
@@ -358,7 +358,7 @@
       <category>laravel</category>
     </item>
     <item>
-      <title>Reactive Vue.js plugins</title>
+      <title>Making Vue.js plugins reactive</title>
       <link>https://gnikyt.com/reactive-vuejs-plugins</link>
       <description>VueJS has been my go-to framework from building small to medium-sized frontend applications and
       add-ins. Its simply great - easy to deve...</description>
@@ -369,7 +369,7 @@
       <category>vuejs</category>
     </item>
     <item>
-      <title>WordPress with Docker</title>
+      <title>Running WordPress inside Docker</title>
       <link>https://gnikyt.com/wordpress-under-docker</link>
       <description>## Purpose There are many lengthy guides out there for the official Docker image for WordPress.
       However, some people have a little trou...</description>
@@ -381,7 +381,7 @@
       <category>cmd</category>
     </item>
     <item>
-      <title>shopify_app_whitelist gem</title>
+      <title>A whitelist helper for shopify_app</title>
       <link>https://gnikyt.com/shopify-app-whitelist-gem</link>
       <description>I regularly use [shopify_app](https://github.com/Shopify/shopify_app). It's a great way to get an
       app, embedded or not, up and running w...</description>
@@ -393,7 +393,7 @@
       <category>rails</category>
     </item>
     <item>
-      <title>Testing with shopify_app</title>
+      <title>A cleaner way to test with shopify_app</title>
       <link>https://gnikyt.com/testing-with-shopify-app</link>
       <description>[shopify_app](https://github.com/Shopify/shopify_app) is a great Gem to quickly build a Shopify App
       with Rails. It handles all the verif...</description>
@@ -406,7 +406,7 @@
       <category>testing</category>
     </item>
     <item>
-      <title>Counting unique options in Shopify</title>
+      <title>Finding unique product options in Shopify</title>
       <link>https://gnikyt.com/counting-unique-options-in-shopify</link>
       <description>Ever wanted to quickly display how many of an option a product contains? Available in 4 sizes ...
       Available in Red, Blue, ...</description>
@@ -416,7 +416,7 @@
       <category>shopify</category>
     </item>
     <item>
-      <title>Precompiling assets with Rails engine</title>
+      <title>Getting Rails engine assets to precompile</title>
       <link>https://gnikyt.com/precompiling-assets-in-your-rails-engine</link>
       <description>This will be a quick post to highlight an issue I had where I needed to precompile an asset file for
       my Rails engine that was not to be ...</description>
@@ -427,7 +427,7 @@
       <category>rails</category>
     </item>
     <item>
-      <title>Redis autosuggest with Sinatra</title>
+      <title>Making Redis autocomplete with Sinatra</title>
       <link>https://gnikyt.com/building-a-simple-redis-autosuggest-with-ruby</link>
       <description>So you have a search box on your website.. an article search, a product search.. whatever it may be,
       you may find yourself the need to d...</description>
@@ -449,7 +449,7 @@
       <category>rails</category>
     </item>
     <item>
-      <title>Polymorphic route concerns with Rails</title>
+      <title>Taming polymorphic routes in Rails</title>
       <link>https://gnikyt.com/polymorphic-and-route-concerns</link>
       <description>The goal of this post is to outline some tips on easily figuring out the parent object for a
       polymorphic modal/route/controller. Let's s...</description>
@@ -460,7 +460,7 @@
       <category>rails</category>
     </item>
     <item>
-      <title>ActiveRecord and Liquid drops with Sinatra</title>
+      <title>Wiring Liquid drops into a tiny Sinatra app</title>
       <link>https://gnikyt.com/activerecord-and-liquid-drops-with-sinatra</link>
       <description>Normally I use ERB when doing templates but there was a special use-case recently where I needed to
       allow the app user to modify a speci...</description>
@@ -471,7 +471,7 @@
       <category>sinatra</category>
     </item>
     <item>
-      <title>WordPress user themes</title>
+      <title>Letting WordPress users pick their own theme</title>
       <link>https://gnikyt.com/wp-user-themes</link>
       <description>I've released a unit-tested plugin called Wp User Themes. It allows users to switch themes in their
       profile section (useful for develop...</description>
@@ -504,7 +504,7 @@
       <category>php</category>
     </item>
     <item>
-      <title>PHPMailer contribution</title>
+      <title>A tiny patch for PHPMailer</title>
       <link>https://gnikyt.com/phpmailer-contrib</link>
       <description>I and a fellow developer were working on updating a two/three-year-old plugin we developed for
       WordPress this week. Its a fairly complex...</description>
@@ -526,7 +526,7 @@
       <category>php</category>
     </item>
     <item>
-      <title>Sorting products by category in WooCommerce</title>
+      <title>WooCommerce category sorting without the fuss</title>
       <link>https://gnikyt.com/woocommerce-sorting-products-by-category</link>
       <description>This past week I was assigned to heavily customize a Woocommerce install on a client's successful
       store. What needed to be done on one t...</description>

@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-            Fetching from a Shopify checkout extension to backend /
+         Getting Shopify checkout extensions talking to your backend /
 
    Feb 27, 2024  --  3.1KB
    [9]#shopify [10]#javascript [11]#react

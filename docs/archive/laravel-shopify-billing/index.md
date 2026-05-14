@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel Shopify billing
+title: Handling billing in Laravel Shopify
 permalink: laravel-shopify-billing
 date: '2018-01-26 15:52:56'
 archive: true

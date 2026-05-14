@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Handling Shopify API limits and goroutines
+title: Keeping goroutines under Shopify API limits
 permalink: handling-shopify-api-limits-goroutines
 date: '2025-04-10 16:26:22'
 category: golang,shopify

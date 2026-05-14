@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                            PHPMailer contribution /
+                          A tiny patch for PHPMailer /
 
    Feb 09, 2014  --  1.4KB
    [9]#wordpress [10]#php

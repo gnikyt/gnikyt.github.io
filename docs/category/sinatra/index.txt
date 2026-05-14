@@ -10,12 +10,12 @@
    Displaying sinatra entries sorted by creation date in descending order.
      * $>
 
-[9]Redis autosuggest with Sinatra
+[9]Making Redis autocomplete with Sinatra
        Mar 02, 2016
-       5.6KB
+       5.7KB
      * $>
 
-[10]ActiveRecord and Liquid drops with Sinatra
+[10]Wiring Liquid drops into a tiny Sinatra app
        Oct 15, 2015
        3.7KB
 

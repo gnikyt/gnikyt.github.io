@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                       Testing Shopify Liquid snippets /
+               Testing Liquid snippets without opening Shopify /
 
    Nov 20, 2022  --  3.9KB
    [9]#shopify [10]#javascript [11]#testing

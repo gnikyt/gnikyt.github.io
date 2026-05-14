@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                       Shopify Remix, Prisma, and Jest /
+                  Testing Shopify Remix with Prisma and Jest /
 
    Jan 10, 2024  --  8.8KB
    [9]#shopify [10]#javascript [11]#testing

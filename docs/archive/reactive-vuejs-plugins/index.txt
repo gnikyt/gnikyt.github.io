@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                           Reactive Vue.js plugins /
+                        Making Vue.js plugins reactive /
 
    Jun 29, 2017  --  4.1KB
    [9]#javascript [10]#vuejs

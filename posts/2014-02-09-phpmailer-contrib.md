@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHPMailer contribution
+title: A tiny patch for PHPMailer
 permalink: phpmailer-contrib
 date: '2014-02-09 20:55:00'
 archive: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Versioning Shopify themes with GitHub Actions
+title: Keeping Shopify themes versioned with GitHub Actions
 permalink: shopify-github-action-versioning
 date: '2022-05-20 16:16:20'
 archive: false

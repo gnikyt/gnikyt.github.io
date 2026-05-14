@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                     Laravel Shopify featured on Shopify /
+                   Laravel Shopify got featured by Shopify /
 
    Mar 04, 2021  --  1.7KB
    [9]#shopify [10]#php [11]#laravel

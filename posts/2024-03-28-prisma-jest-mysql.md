@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shopify Prisma, Jest, and MySQL testing
+title: Testing Shopify apps with Prisma, Jest, and MySQL
 permalink: prisma-jest-mysql-testing
 date: '2024-03-28 13:19:23'
 archive: false

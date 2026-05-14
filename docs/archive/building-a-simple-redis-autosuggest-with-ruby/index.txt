@@ -5,9 +5,9 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                        Redis autosuggest with Sinatra /
+                    Making Redis autocomplete with Sinatra /
 
-   Mar 02, 2016  --  5.6KB
+   Mar 02, 2016  --  5.7KB
    [9]#ruby [10]#sinatra
 
    So you have a search box on your website.. an article search, a product

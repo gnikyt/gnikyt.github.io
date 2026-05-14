@@ -10,22 +10,22 @@
    Displaying testing entries sorted by creation date in descending order.
      * $>
 
-[9]Shopify Prisma, Jest, and MySQL testing
+[9]Testing Shopify apps with Prisma, Jest, and MySQL
        Mar 28, 2024
        6.6KB
      * $>
 
-[10]Shopify Remix, Prisma, and Jest
+[10]Testing Shopify Remix with Prisma and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[11]Testing Shopify Liquid snippets
+[11]Testing Liquid snippets without opening Shopify
        Nov 20, 2022
        3.9KB
      * $>
 
-[12]Testing with shopify_app
+[12]A cleaner way to test with shopify_app
        Jun 21, 2016
        2.3KB
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WordPress user themes
+title: Letting WordPress users pick their own theme
 permalink: wp-user-themes
 date: '2015-05-21 17:00:34'
 archive: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Testing Shopify Liquid snippets
+title: Testing Liquid snippets without opening Shopify
 permalink: shopify-liquid-tester
 date: '2022-11-20 14:08:03'
 archive: true

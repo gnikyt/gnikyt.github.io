@@ -11,19 +11,19 @@
    order.
      * $>
 
-[9]WP Local with WSL
+[9]Running WP Local through WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[10]WordPress with Docker
+[10]Running WordPress inside Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[11]WordPress user themes
+[11]Letting WordPress users pick their own theme
        May 21, 2015
-       365B
+       388B
      * $>
 
 [12]Original-size images from a WordPress gallery
@@ -36,12 +36,12 @@
        1.2KB
      * $>
 
-[14]PHPMailer contribution
+[14]A tiny patch for PHPMailer
        Feb 09, 2014
        1.4KB
      * $>
 
-[15]Sorting products by category in WooCommerce
+[15]WooCommerce category sorting without the fuss
        Oct 05, 2013
        6.0KB
 

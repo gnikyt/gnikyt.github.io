@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                            WordPress with Docker /
+                       Running WordPress inside Docker /
 
    Jun 15, 2017  --  3.6KB
    [9]#wordpress [10]#php [11]#cmd

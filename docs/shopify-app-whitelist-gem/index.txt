@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                          shopify_app_whitelist gem /
+                      A whitelist helper for shopify_app /
 
    Nov 26, 2016  --  1.5KB
    [9]#shopify [10]#ruby [11]#rails

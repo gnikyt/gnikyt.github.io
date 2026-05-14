@@ -10,47 +10,47 @@
    Displaying cmd entries sorted by creation date in descending order.
      * $>
 
-[9]Building a Bash template engine
+[9]Building a tiny template engine in Bash
        May 22, 2025
        4.1KB
      * $>
 
-[10]WP Local with WSL
+[10]Running WP Local through WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[11]New desktop setup
+[11]My desktop setup, rebuilt again
        Dec 11, 2022
        6.5KB
      * $>
 
-[12]Versioning Shopify themes with GitHub Actions
+[12]Keeping Shopify themes versioned with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[13]WSL network speed
+[13]Chasing down slow WSL networking
        Nov 16, 2021
        1.8KB
      * $>
 
-[14]Git release branches
+[14]A simple Git release branch flow
        Mar 10, 2021
        3.4KB
      * $>
 
-[15]Dockerizing Symfony Flex with Symfony Server
+[15]Running Symfony Flex with Symfony Server in Docker
        Feb 04, 2020
        5.6KB
      * $>
 
-[16]i3-Plasma for a solid match
+[16]Making i3 and Plasma play nice
        Aug 28, 2019
        4.4KB
      * $>
 
-[17]WordPress with Docker
+[17]Running WordPress inside Docker
        Jun 15, 2017
        3.6KB
 

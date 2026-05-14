@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                       Building a Bash template engine /
+                   Building a tiny template engine in Bash /
 
    May 22, 2025  --  4.1KB
    [9]#cmd

@@ -5,7 +5,7 @@
 
    [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
 
-                    Polymorphic route concerns with Rails /
+                      Taming polymorphic routes in Rails /
 
    Jan 01, 2016  --  5.1KB
    [9]#ruby [10]#rails
