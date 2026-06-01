@@ -1,0 +1,270 @@
+   #[1]gnikyt feed
+
+   [2]gnikyt   /  Code ramblings
+   [3]Ty King
+
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+
+                  Building my own productivity setup with AI /
+
+   Jun 01, 2026  --  7.9KB
+   [9]#thoughts
+
+   For a long time, productivity tools have felt a little difficult to me.
+   The tools either did too much, too little, or something in-between...
+   it wasn't "tailored" to me.
+
+   You start with a simple need: remember what needs doing, see what is on
+   the calendar, keep track of notes, maybe find something you wrote down
+   last week. Then somehow the solution becomes three subscriptions, a new
+   dashboard, another app to maintain, another database, another login,
+   another sync process, another place where your own personal information
+   now lives.
+
+   I do not want more systems to manage the system.
+
+   What I wanted was simpler: use the tools I already use, keep the data
+   where it already lives, and have ChatGPT act as the ingestion layer. So
+   that is what I started building.
+
+   Why ChatGPT? Eh... I always used it since early launch. I have a great
+   productivity flow with it for work and personal ops, it works well for
+   me, and thats what matters!
+
+Source of truth
+
+   For personal and work, I use Apple Calendar, Reminders, Mail, and
+   Notes. They are boring in the best way. They are already on my phone,
+   my laptop, etc. They already sync well. They already fit into my day
+   without needing me to become a part-time operations manager for my own
+   life.
+
+   So instead of replacing them, I built around them.
+
+   The idea is simple:
+     * Calendar stays in Apple Calendar.
+     * Tasks stay in Apple Reminders.
+     * Notes stay in Apple Notes.
+     * Mailing stays in Apple Mail.
+     * ChatGPT becomes the front-end for asking questions and taking
+       action.
+
+   That means I can ask things like:
+
+     What is my day like?
+
+   And behind the scenes, it can pull today's calendar, overdue reminders,
+   today's reminders, and whatever other context matters. Then it can
+   summarize it like a useful assistant instead of making me open four
+   apps before coffee. Pairing this with existing integrations into
+   services like JIRA, Slack, Confluence, and so on... it gives me a good
+   picture of things.
+
+   On top of this, ChatGPT also handles recording my meetings,
+   transcribing them and placing the summarized notes into the applicable
+   folders in my Apple Notes.
+
+Local-first, not SaaS-first
+
+   I could have used some polished third-party productivity service for
+   this. There are plenty of them. Some are probably great.
+
+   But I did not want to pay monthly for a tool whose main job is to sit
+   between me and data I already own.
+
+   I also did not want to sync my Apple Notes into a separate database
+   just so I could search them with AI. That felt like adding risk and
+   complexity for something that should be boring.
+
+   So I kept it local-first.
+
+   I built a local Apple/Home productivity MCP setup. It talks to Apple
+   Calendar, Reminders, Notes, etc directly. For Notes, I added an
+   answer_from_notes action that searches live, retrieves only matching
+   note bodies for that request, strips them down to plain text, and
+   answers from those results only.
+
+   No background indexing. No embeddings. No separate notes database. No
+   "sync all your private notes into this clever new thing."
+
+   Just live queries against the source of truth.
+
+   That distinction matters to me. AI tooling can get weirdly hungry if
+   you let it. Suddenly everything wants to index everything, store
+   everything, summarize everything, and "remember" everything forever. I
+   do not need that for day-to-day ops. I need the right information at
+   the right moment, then I need it to get out of the way.
+
+The runner
+
+   The other piece is what I call Home Runner.
+
+   It is the local orchestrator that keeps the required pieces alive: the
+   Apple MCP services and the Cloudflare tunnels that make the setup
+   reachable when I am not sitting directly on the machine.
+
+   This is not glamorous software. It is glue. But glue is underrated.
+
+   It is an Apple app which allows me to configure custom services to
+   run... naming, envs, paths, notes, logs, etc. So I can start, stop,
+   restart, and monitor various services (like the custom MCPs).
+
+   All these services and MCPs run through a custom domain and tunnel
+   setup to be accessible through ChatGPT and only via my devices.
+
+What this gives me
+
+   The most useful interaction is the daily one.
+
+   I can ask:
+
+     What is my day like?
+
+   And the assistant can pull from Calendar and Reminders, then give me a
+   grounded summary of meetings, deadlines, overdue tasks, and open space.
+
+   I can ask:
+
+     Show my reminders.
+
+   Or:
+
+     Show recent notes.
+
+   Or:
+
+     What have I discussed with lately?
+
+   That last one is where Apple Notes becomes much more useful. I can keep
+   using notes the way I naturally use them, then ask a question later and
+   have the assistant search them live. It is not trying to become a
+   second brain product. It is just helping me retrieve context from the
+   first brain dump.
+
+   Again, nothing magical. Just a conversational layer over things I
+   already track.
+
+   Combining this with the other MCP setups like Jira, Conflurence, Slack,
+   etc. gives me a nice picture.
+
+The part AI is actually good at
+
+   This is where AI has felt genuinely useful to me.
+
+   Not as a magical replacement for thinking. Not as a productivity
+   personality cult. Not as another subscription box with charts.
+
+   AI is useful here because it can take several small pieces of context
+   and turn them into a reasonable answer.
+
+   Calendar events by themselves are not the day. Reminders by themselves
+   are not the day. Notes by themselves are not the day.
+
+   But together, in the right moment, they become context.
+
+   That is the actual value.
+
+   Instead of asking me to organize my life around a new tool, ChatGPT can
+   adapt to the tools already in my life.
+
+You can build this too
+
+   The nice thing is that none of this requires a big company-scale
+   system.
+
+   Start small.
+
+   Pick the source of truth you already trust. Maybe that is Apple Notes.
+   Maybe it is Google Calendar. Maybe it is a folder of Markdown files.
+   Maybe it is a local SQLite database. The important part is to avoid
+   inventing a new storage layer unless you truly need one.
+
+   Then expose a few useful actions:
+     * Get today's calendar.
+     * Get due and overdue reminders.
+     * Search notes.
+     * Retrieve one note.
+     * Append to a note.
+     * Ask a grounded question from matching notes.
+
+   That is already enough to make a daily assistant feel useful.
+
+   From there, add only the parts that remove friction. If you take
+   meeting notes, add a workflow that turns a transcript into summary and
+   action items, then saves it back to Notes. If tunnels break often, add
+   health checks.
+
+   I have taken the same approach with other little tools too, like a home
+   budget system and a custom CLI for remembering commands I do not want
+   to keep re-looking-up. They are not meant to become platforms. They are
+   just small, useful things built around the way I already work.
+
+   But resist the urge to turn it into a giant platform.
+
+   That is how productivity systems become their own chores.
+
+   I vibe-coded all the Apple apps and MCP implementations in a couple
+   hours and they worked fantastically.
+
+The shape of it
+
+   The setup I want is not a dashboard.
+
+   It is closer to a command center, but even that sounds too dramatic.
+   Really, it is a quiet bridge between the tools I already use and the
+   questions I naturally ask.
+
+   I do not want to open Calendar, Reminders, and Notes just to understand
+   my morning.
+
+   I want to ask:
+
+     What should I pay attention to today?
+
+   And get a useful answer.
+
+   That is the whole thing.
+
+   AI did not replace my productivity tools. It made them easier to talk
+   to. And by keeping the source of truth local and boring, I get the
+   benefit without handing my whole personal workflow to another
+   third-party service.
+
+   That feels like the right shape to me: Apple apps for capture, local
+   services for access, ChatGPT for conversation, and as little extra
+   machinery as possible. You don't need to reinvent the wheel, add five
+   subscriptions to your wallet, or go crazy migrating data... utilize
+   what works for you already.
+
+   End of the day, I am happy... it is useful, boring, and mine.
+
+Appendix
+
+   Copyright under [10]CC-4.0.
+
+   Available in the following alternative formats:
+   [11]MD  /  [12]TXT  /  [13]PDF
+
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+
+References
+
+   1. /rss.xml
+   2. file:///
+   3. file:///about
+   4. file:///about
+   5. https://github.com/gnikyt
+   6. https://linkedin.com/in/gnikyt
+   7. file:///assets/files/cv.pdf
+   8. file:///rss.xml
+   9. file:///category/thoughts
+  10. https://creativecommons.org/licenses/by/4.0/
+  11. file:///building-my-own-productivity-setup-with-ai/index.md
+  12. file:///building-my-own-productivity-setup-with-ai/index.txt

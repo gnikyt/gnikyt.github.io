@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Building my own productivity setup with AI</title>
+      <link>https://gnikyt.com/building-my-own-productivity-setup-with-ai</link>
+      <description>For a long time, productivity tools have felt a little difficult to me. The tools either did too
+      much, too little, or something in-betwe...</description>
+      <guid isPermLink="true">https://gnikyt.com/building-my-own-productivity-setup-with-ai</guid>
+      <pubDate>2026-06-01T09:00:00+0000</pubDate>
+      <archived></archived>
+      <category>thoughts</category>
+    </item>
+    <item>
       <title>cq release updates</title>
       <link>https://gnikyt.com/more-cq-updates</link>
       <description>Back in February I wrote about the latest [cq](https://github.com/gnikyt/cq) release. Since then, I
