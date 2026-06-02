@@ -58,9 +58,7 @@ That distinction matters to me. AI tooling can get weirdly hungry if you let it.
 
 ## The runner
 
-The other piece is what I call Home Runner.
-
-It is the local orchestrator that keeps the required pieces alive: the Apple MCP services and the Cloudflare tunnels that make the setup reachable when I am not sitting directly on the machine.
+The other piece is what I call Home Runner. It is the local orchestrator that keeps the required pieces alive.
 
 This is not glamorous software. It is glue. But glue is underrated.
 
