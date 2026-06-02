@@ -88,7 +88,7 @@ Or:
 
 Or:
 
-> What have I discussed with <this person> lately?
+> What have I discussed with *this person* lately?
 
 That last one is where Apple Notes becomes much more useful. I can keep using notes the way I naturally use them, then ask a question later and have the assistant search them live. It is not trying to become a second brain product. It is just helping me retrieve context from the first brain dump.
 

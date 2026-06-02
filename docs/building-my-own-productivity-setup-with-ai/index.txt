@@ -133,7 +133,7 @@ What this gives me
 
    Or:
 
-     What have I discussed with lately?
+     What have I discussed with this person lately?
 
    That last one is where Apple Notes becomes much more useful. I can keep
    using notes the way I naturally use them, then ask a question later and
