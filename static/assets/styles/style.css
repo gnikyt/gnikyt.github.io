@@ -878,6 +878,7 @@ body[data-handle="about"] .post figcaption {
 
   .index-list .index-list__item {
     align-items: center;
+    min-height: 6.125em;
   }
 
   .index-list .index-list__icon {
