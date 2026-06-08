@@ -51,6 +51,7 @@
     <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
     <link href="/assets/styles/style.css" rel="stylesheet">
     <link href="/assets/styles/highlight.css" rel="stylesheet">
+    <script>try { if (localStorage.getItem("theme") === "day") document.documentElement.dataset.theme = "day"; } catch {}</script>
   </head>
   <body class="layout layout--page theme-shell" data-handle="archive">
     <header class="site-head container">
@@ -74,7 +75,7 @@
           "_blank">Github</a><a class="button button--strong button--slate" href="https://linkedin.com/in/gnikyt" rel=
           "noopener" target="_blank">LinkedIn</a><a class="button button--strong button--gold" href=
           "/assets/files/cv.pdf" rel="noopener" target="_blank">CV</a><a class="button button--strong button--paper"
-          href="/rss.xml" rel="noopener" target="_blank">RSS</a>
+          href="/rss.xml" rel="noopener" target="_blank">RSS</a><button type="button" class="theme-toggle" aria-label="Switch to day theme" aria-pressed="false"><svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg><svg class="theme-toggle__icon theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.25A8.5 8.5 0 0 1 8.75 3.5a8.5 8.5 0 1 0 11.75 11.75Z"></path></svg></button>
         </nav>
       </div>
     </header>
@@ -546,5 +547,6 @@
       <li class="site-colors__color color--h">
       </li>
     </ul>
+    <script src="/assets/scripts/theme.js"></script>
   </body>
 </html>
