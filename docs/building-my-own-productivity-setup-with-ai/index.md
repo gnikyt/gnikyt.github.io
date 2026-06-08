@@ -36,7 +36,8 @@ That means I can ask things like:
 
 And behind the scenes, it can pull today's calendar, overdue reminders, today's reminders, and whatever other context matters. Then it can summarize it like a useful assistant instead of making me open four apps before coffee. Pairing this with existing integrations into services like JIRA, Slack, Confluence, and so on... it gives me a good picture of things.
 
-On top of this, ChatGPT also handles recording my meetings, transcribing them and placing the summarized notes into the applicable folders in my Apple Notes. 
+On top of this, ChatGPT also handles recording my meetings, transcribing them and placing the summarized notes into the applicable folders in my Apple Notes.
+It also extracts action items from those meeting notes and automatically creates them in Apple Reminders with the right due dates, so follow-ups are captured without manual entry.
 
 ## Local-first, not SaaS-first
 

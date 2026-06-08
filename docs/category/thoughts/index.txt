@@ -3,7 +3,7 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
 
                          Index of category / thoughts /
 
@@ -13,7 +13,7 @@
 
 [9]Building my own productivity setup with AI
        Jun 01, 2026
-       7.8KB
+       8.0KB
      * $>
 
 [10]The quiet bloat of AI documentation

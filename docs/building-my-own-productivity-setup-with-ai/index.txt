@@ -3,11 +3,11 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
 
                   Building my own productivity setup with AI /
 
-   Jun 01, 2026  --  7.8KB
+   Jun 01, 2026  --  8.0KB
    [9]#thoughts
 
    For a long time, productivity tools have felt a little difficult to me.
@@ -62,7 +62,9 @@ Source of truth
 
    On top of this, ChatGPT also handles recording my meetings,
    transcribing them and placing the summarized notes into the applicable
-   folders in my Apple Notes.
+   folders in my Apple Notes. It also extracts action items from those
+   meeting notes and automatically creates them in Apple Reminders with
+   the right due dates, so follow-ups are captured without manual entry.
 
 Local-first, not SaaS-first
 

@@ -3,7 +3,7 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS
+   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
 
                     Making Redis autocomplete with Sinatra /
 
