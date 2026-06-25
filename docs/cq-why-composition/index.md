@@ -1,0 +1,412 @@
+---
+layout: post
+title: 'Why composition over configuration for cq?'
+permalink: cq-why-composition
+date: '2026-06-24 07:58:12'
+category: golang
+---
+
+# Why
+
+Why is `cq` is built around composition, not configuration?
+
+Most job queue libraries ask you to configure behaviour. `cq` asks you to compose it. That distinction sounds subtle, but it changes how you think about your jobs and how well the library gets out of your way when things get complicated.
+
+Background job processing has been a constant across most of my career. I've used Sidekiq, Celery, Bull, Resque, Laravel Queues, Pond, Ants, home-grown database polling loops, and more than a few things I probably now forget. Each one has a different answer to the same questions: How do you handle retries? How do you control timeouts? How do you prevent duplicate runs? And each one encodes those answers into its own configuration model, its own option surface, its own extension points... which you have to learn before you can bend them to fit a problem they didn't anticipate.
+
+After enough of that, I started building `cq` many years ago. Not because the other libraries are bad, but because I kept running into the same friction point: the moment a job needed behaviour the library hadn't designed for, you were fighting the abstractions instead of solving the problem. I wanted something where that friction didn't exist by design.
+
+This is the post I wish I had written alongside the introduction to `cq`. Not *"here is what it does"*, but *"here is /why/ it works the way it does"*.
+
+## Configuration trap
+
+Take a look at how Sidekiq handles retry behaviour. You declare options on the job class itself:
+
+```ruby
+class EmailNotificationWorker
+  include Sidekiq::Job
+  sidekiq_options queue: 'mailers', retry: 5
+
+  sidekiq_retry_in do |count, exception, jobhash|
+    count * 10
+  end
+
+  sidekiq_retries_exhausted do |job, ex|
+    Sentry.capture_exception(ex)
+  end
+
+  def perform(user_id, notification_type)
+    # ...
+  end
+end
+```
+
+Or globally in `sidekiq.yml`:
+
+```yaml
+:max_retries: 25
+```
+
+Celery follows the same pattern with decorator arguments:
+
+```python
+@shared_task(
+    bind=True,
+    autoretry_for=(Exception,),
+    max_retries=5,
+    retry_backoff=True,
+    retry_backoff_max=500,
+    retry_jitter=True
+)
+def sync_products(self, store_id):
+    ...
+```
+
+This works for common cases. Both libraries are battle-tested and the configuration surface is well documented. But the model has a limitation: **operational behaviour lives separately from the job itself, in a different language (config, decorators, class options), governed by rules the library defines and unique syntaxes to achieve its behaviour**.
+
+What happens when your retry logic needs to be conditional? What if certain errors should never retry, while others should backoff differently based on a response header? You end up fighting the library. Celery's `autoretry_for` wraps your entire task body automatically, but if you need to distinguish a permanent failure from a transient one, you have to catch the exception yourself and decide whether to call `self.retry()` manually... effectively recreating the logic the decorator was supposed to handle.
+
+The configuration model works until it doesn't. Then you're writing workarounds for the library's opinions.
+
+## Jobs are just functions
+
+`cq` starts from a simpler foundation. A job is:
+
+```go
+type Job func(ctx context.Context) error
+```
+
+That's it. A function that takes a context and returns an error. No base class to inherit, no decorator to apply, no interface to implement. The job is just code.
+
+This matters because it means there is no seam between your business logic and the queue. The job knows about your domain. It doesn't need to know about the queue or anything else.
+
+```go
+func syncProducts(ctx context.Context) error {
+    return store.Sync(ctx)
+}
+
+queue.Submit(ctx, syncProducts)
+// or, queue.Submit(ctx, store.Sync) to simplify.
+```
+
+Clean. No framework in the way.
+
+## Wrappers are just functions too
+
+Here is the key insight: a wrapper is also a `Job`. It takes a `Job` and returns a `Job`.
+
+The operational behaviour: retries, timeouts, rate limiting is just more code that wraps your own code. There is no plugin registration, no hook registry you implement against. You compose by calling functions.
+
+```go
+// WithTimeout takes a job and returns a new job that runs with a deadline.
+func WithTimeout(job Job, d time.Duration) Job {
+    return func(ctx context.Context) error {
+        ctx, cancel := context.WithTimeout(ctx, d)
+        defer cancel()
+        return job(ctx)
+    }
+}
+```
+
+Because wrappers and jobs share the same type, you can stack them freely:
+
+```go
+job := cq.WithTimeout(syncProducts, 30*time.Second)
+```
+
+And because the result is still a `Job`, you can wrap the wrapper:
+
+```go
+job := cq.WithRetry(
+    cq.WithBackoff(
+        cq.WithTimeout(syncProducts, 30*time.Second), // Timeout after 30 seconds.
+        cq.ExponentialBackoff, // Exponential backoff strategy.
+    ),
+    3, // 3 retries.
+)
+```
+
+Each wrapper adds exactly one responsibility and nothing else. `WithTimeout` handles deadline cancellation. `WithBackoff` handles delay strategy. `WithRetry` handles attempt counting. None of them need to know the others exist, and you control exactly how they nest.
+
+## What composition gives you
+
+Consider a realistic job: syncing products from an external API that is rate-limited, occasionally flaky, and prone to duplicate runs. In a configuration-based library you'd be hunting for the right combination of options, decorators, and callbacks to cover all of that.
+
+In `cq`, you layer it:
+
+```go
+locker := cq.NewUniqueMemoryLocker() // Can be replaced with a distributed locker.
+
+job := cq.WithOutcome(
+    cq.WithUnique(
+        cq.WithRetry(
+            cq.WithBackoff(
+                cq.WithRateLimit(
+                    cq.WithTimeout(syncProducts, 30*time.Second), // Timeout after 30 seconds.
+                    rateLimiter, // Rate limiter.
+                ),
+                cq.ExponentialBackoff, // Exponential backoff strategy.
+            ),
+            3, // Retry up to 3 times.
+        ),
+        "sync-products:store-123", // Unique key for the lock.
+        5*time.Minute, // Lock duration.
+        locker, // Locker.
+    ),
+    func() { metrics.Increment("sync.completed") }, // Success handler.
+    func(err error) { sentry.CaptureException(err) }, // Failure handler.
+    nil, // Discard handler.
+)
+```
+
+Read it from the inside out:
+
+1. `WithTimeout`: The actual work runs with a 30-second deadline
+2. `WithRateLimit`: It respects the API's rate limit
+3. `WithBackoff`: Failed attempts wait with exponential delay before the next try
+4. `WithRetry`: Transient failures get up to 3 attempts
+5. `WithUnique`: Only one sync per store runs at a time for a window
+6. `WithOutcome`: Success and failure are routed to metrics and error tracking
+
+Each wrapper is visible. Each has a clear boundary. And, the order is *explicit*... you chose it, not the library. The outermost wrapper runs first and controls what happens to the result of everything inside it.
+
+## Explicit failure intent
+
+One thing composition enables that configuration struggles with: **failure intent**.
+
+In most queue libraries, an error is just an error. The library decides whether to retry based on your configuration. If you need different behaviour for different error types, you end up with exception filters or conditional retry callbacks that read awkwardly.
+
+In `cq`, you can mark intent directly from inside the job:
+
+```go
+job := cq.WithRetryIf(func(ctx context.Context) error {
+    result, err := callExternalAPI(ctx)
+    if err == nil {
+        return nil
+    }
+
+    if isValidationError(err) {
+        return cq.AsPermanent(err)  // Bad data, don't retry.
+    }
+    if isRateLimitError(err) {
+        return cq.AsRetryable(err)  // Transient, retry this.
+    }
+    return cq.AsDiscard(err)  // Known noise, swallow it.
+}, 5, func(err error) bool {
+    return errors.Is(err, cq.ErrRetryable)  // Retry on retryable errors only.
+})
+```
+
+The retry logic reads like a policy. What should happen is written where the decision is made, not in a config file two layers removed from the error.
+
+## Where middleware and hooks fit
+
+Composition handles per-job behaviour well, but not everything belongs on individual jobs. Logging every job start and finish, tagging jobs with tenant context, feeding lifecycle events into a metrics pipeline... these are concerns that you don't want to wire into every `Submit` call or job setup.
+
+`cq` covers this at the queue level with two distinct mechanisms.
+
+**Middleware** wraps every job that passes through the queue. It uses the same `Job`-wrapping pattern as per-job wrappers, just applied once at the queue level:
+
+```go
+withLogging := func(next cq.Job) cq.Job {
+    return func(ctx context.Context) error {
+        meta := cq.MetaFromContext(ctx)
+        slog.Info("job starting", "id", meta.ID, "attempt", meta.Attempt)
+        err := next(ctx)
+        slog.Info("job done", "id", meta.ID, "err", err)
+        return err
+    }
+}
+
+queue := cq.NewQueue(1, 10, 100, cq.WithMiddleware(withLogging))
+```
+
+**Hooks** are observational callbacks tied to queue lifecycle transitions such as enqueue, start, success, failure, discard, reschedule, and per-attempt events. They receive a structured `JobEvent` with timing, state, error, and metadata, and they sit outside the execution path:
+
+```go
+queue := cq.NewQueue(1, 10, 100,
+    cq.WithHooks(cq.Hooks{
+        OnSuccess: func(ctx context.Context, e cq.JobEvent) {
+            metrics.Histogram("job.duration", e.ExecutionDuration.Seconds(),
+                "job", e.Name,
+            )
+        },
+        OnFailure: func(ctx context.Context, e cq.JobEvent) {
+            sentry.CaptureException(e.Err,
+                sentry.WithTag("job_id", e.ID),
+                sentry.WithTag("attempt", strconv.Itoa(e.Attempt)),
+            )
+        },
+    }),
+)
+```
+
+The distinction between the two is intentional. Middleware is in the execution path and can affect the result. Hooks are observational and cannot — they fire after the outcome is determined. Both follow the same underlying principle as per-job wrappers: plain Go, no registration ceremony, no interface to implement beyond the function signature itself.
+
+The rule of thumb that's worked well: if behaviour is specific to a job's business logic, it's a wrapper on that job. If it applies to every job through a queue, it's middleware. If it's purely observational like metrics, audit logs, alerting, then it's a hook.
+
+## Writing your own wrapper
+
+The most useful thing about a composition model is that the extension point is the same as the core. You don't call into a plugin API or implement a library interface. You write a function.
+
+Say you have jobs that need to tag themselves with a tenant ID pulled from context, and you want that on every retry attempt automatically:
+
+```go
+type tenantKey struct{}
+
+func WithTenantContext(job cq.Job, tenantID string) cq.Job {
+    return func(ctx context.Context) error {
+        ctx = context.WithValue(ctx, tenantKey{}, tenantID)
+        return job(ctx)
+    }
+}
+```
+
+Or a wrapper that checks a feature flag before running, and discards the job cleanly if the flag is off:
+
+```go
+func WithFeatureFlag(job cq.Job, flag string, flags FeatureFlagClient) cq.Job {
+    return func(ctx context.Context) error {
+        if !flags.IsEnabled(flag) {
+            return cq.AsDiscard(fmt.Errorf("feature %q is disabled", flag))
+        }
+        return job(ctx)
+    }
+}
+```
+
+Both are just functions. Both compose cleanly with everything else in `cq`. Neither required reading a plugin guide or registering anything. You write the logic, return a `Job`, and stack it wherever it makes sense:
+
+```go
+job := cq.WithOutcome(
+    WithFeatureFlag(
+        WithTenantContext(
+            cq.WithRetry(
+                cq.WithBackoff(processOrder, cq.ExponentialBackoff), // Retry with exponential backoff.
+                3, // Retry up to 3 times.
+            ),
+            tenantID, // Pass the tenant ID to the job.
+        ),
+        "new-order-processing", // Feature flag name.
+        flagClient, // Feature flag client.
+    ),
+    onComplete, // Success handler.
+    onFail, // Failure handler.
+    nil, // Discard handler.
+)
+```
+
+This is what the composition model actually buys you in practice: the library's behaviour and your behaviour are written the same way. When you need something cq doesn't have, you don't go looking for a plugin. You write a function.
+
+### Context is the wire
+
+There is a deeper point worth drawing out here: because every wrapper receives and passes along the same `context.Context`, the context becomes the channel through which the whole stack communicates. Wrappers higher up can inject capabilities into it. Wrappers lower down, and the job itself, can read from or act on those capabilities, without either side knowing the other's implementation details.
+
+`cq` uses this pattern extensively for its own wrappers, and your custom wrappers can plug into the same mechanism.
+
+The simplest example is job metadata. Every job already has access to its own ID, name, attempt count, and enqueue time through `MetaFromContext`:
+
+```go
+func syncProducts(ctx context.Context) error {
+    meta := cq.MetaFromContext(ctx)
+    slog.Info("running job",
+        "id", meta.ID,
+        "attempt", meta.Attempt,
+        "queued_ago", time.Since(meta.EnqueuedAt),
+    )
+    return store.Sync(ctx)
+}
+```
+
+No arguments to thread through, no global state. The queue injects the metadata into context before the job runs, and the job reads it out when it needs it. Your custom wrappers can do the same thing... inject something into the context before calling the inner job, and anything downstream can read it.
+
+The retry wrappers take this further. After a failed attempt, `WithRetry` puts the previous error into context so the next attempt can see what went wrong:
+
+```go
+func processOrder(ctx context.Context) error {
+    if lastErr := cq.LastErrorFromContext(ctx); lastErr != nil {
+        // We know what the previous attempt failed with.
+        // Maybe log it, adjust strategy, or handle differently on retry.
+        slog.Info("retrying after", "error", lastErr)
+    }
+    return doWork(ctx)
+}
+```
+
+The long-running lock case is where context-as-wire gets genuinely powerful. When you use `WithUnique` for example, with a renewable locker, the wrapper injects a "touch" capability into the context. Your job can then extend its own lease mid-execution by calling `TouchLock` all without knowing anything about the locker implementation, the key, or the token:
+
+```go
+func indexLargeDataset(ctx context.Context) error {
+    for _, batch := range batches {
+        if err := processBatch(ctx, batch); err != nil {
+            return err
+        }
+
+        // Extend the lock after each batch so we don't lose ownership
+        // on a long run. TouchLock is a no-op if no renewable lock is present.
+        // Add two minutes to the lock duration.
+        if err := cq.TouchLock(ctx, 2*time.Minute); err != nil {
+            if errors.Is(err, cq.ErrUniqueLeaseLost) {
+                return fmt.Errorf("lock lost mid-run, aborting: %w", err)
+            }
+            // ErrTouchLockUnavailable means we weren't run under WithUnique... fine.
+        }
+    }
+    return nil
+}
+```
+
+`WithUnique` wired the touch capability in. `TouchLock` reads it out. The job itself has zero coupling to how the lock works.
+
+The same pattern applies to deferred re-enqueueing. When running under `WithReleaseSelf`, a job can ask to be re-queued with a dynamic delay, say, whatever the upstream service's `Retry-After` header tells you, by calling `RequestRelease`:
+
+```go
+func callRateLimitedAPI(ctx context.Context) error {
+    resp, err := apiClient.Call(ctx)
+    if err != nil {
+        return err
+    }
+
+    if resp.StatusCode == http.StatusTooManyRequests {
+        retryAfter := parseRetryAfter(resp.Header)
+        cq.RequestRelease(ctx, retryAfter) // Defer re-enqueue, free the worker.
+        return nil
+    }
+
+    return process(ctx, resp)
+}
+```
+
+Again: the job doesn't know what queue it's on, how the re-enqueue works, or whether `WithReleaseSelf` is even present. It makes a request through context and the wrapper honours it if it can.
+
+This is the real payoff of the composition model. Each wrapper is responsible for what it injects. The job (and any inner wrapper) is free to consume those capabilities without coupling. You can write custom wrappers that inject their own values the same way, a database transaction, a telemetry span, a per-tenant rate limiter, and anything downstream just reads from context. The stack stays clean because nobody has to know the whole picture.
+
+## Where the tradeoff shows up
+
+Composition is not free. There is one thing you have to understand: **wrapper order matters**.
+
+`WithOutcome` wrapping `WithRetry` wrapping `WithTimeout` behaves differently from the reverse. The outermost wrapper runs first, sees the result last, and has the final say on what gets returned.
+
+In a configuration model, the library controls execution order for you. You set flags and it orchestrates. You don't need to think about it, but you also can't change it.
+
+With composition, you have full control over the order, and you are responsible for getting it right. In practice, the pattern is consistent enough that it becomes intuitive quickly: outermost is what you want to *react to the result*, innermost is what you want to *constrain the run*. Outcome observation goes outside, timeout goes inside.
+
+That is visible complexity rather than hidden complexity, which I'll take every time.
+
+## The shape of it
+
+Most queue libraries make a bargain with you: configure your behaviour upfront, and the library will handle it consistently. It is a reasonable bargain. It works for the common case and reduces boilerplate.
+
+`cq` makes a different bargain: keep jobs as plain functions, keep wrappers as plain functions, and let you build exactly the behaviour you need by composing them. Middleware and hooks extend that to the queue level without breaking the model. There is more you need to understand upfront, and what you trade for that is a library that never boxes you in.
+
+When you hit the case the library didn't anticipate, such as a `Retry-After` header that should control re-enqueue delay, a dynamic rate limit that varies per tenant, a circuit breaker that should fire independently per downstream service... then you don't reach for a plugin or a workaround. You just write a wrapper. **It is just a function.**
+
+## Not for everyone
+
+I want to be honest about this: `cq` is not a general-purpose answer to background processing. It is my answer, to a pattern I kept running into, built up over years of hitting the edges of libraries that were otherwise perfectly good.
+
+If Sidekiq fits your Rails app, use Sidekiq. If Celery is already running your Python workers, there is no reason to jump ship. These are mature, widely understood tools with large communities and years of production hardening behind them.
+
+`cq` exists because I work in Go, I wanted the composition model specifically, and I wanted to own the full thing from the inside out... not as a platform, but as a package that fits cleanly into the projects I actually build. It started small, grew as real problems required it, and reflects the kind of background processing I find myself doing repeatedly: Go services, moderate scale, lots of edge cases around retries and rate limits and overlap prevention.
+
+If that matches your context, I hope it is useful. If it doesn't, use what fits. The best tool is the one that stops being the thing you're thinking about.

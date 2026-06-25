@@ -1,0 +1,1099 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      Why composition over configuration for cq? | gnikyt
+    </title>
+    <link href="https://gnikyt.com/cq-why-composition" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "# Why Why is `cq` is built around composition, not configuration? Most job queue libraries ask you to configure behaviour. `cq` asks y..."
+    name="description">
+    <meta content="2026-06-24T07:58:12+0000" property="article:published_time">
+    <meta content="Why composition over configuration for cq?" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "# Why Why is `cq` is built around composition, not configuration? Most job queue libraries ask you to configure behaviour. `cq` asks y..."
+    property="og:description">
+    <meta content="https://gnikyt.com/cq-why-composition" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "# Why Why is `cq` is built around composition, not configuration? Most job queue libraries ask you to configure behaviour. `cq` asks y..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2026-06-24T07:58:12+0000",
+    "datePublished": "2026-06-24T07:58:12+0000",
+    "description": "
+    # Why
+
+    Why is `cq` is built around composition, not configuration?
+
+    Most job queue libraries ask you to configure behaviour. `cq` asks y...",
+    "headline": "Why composition over configuration for cq?",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/cq-why-composition"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/cq-why-composition"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+    <script>
+    try {
+      if (localStorage.getItem("theme") === "day") {
+        document.documentElement.dataset.theme = "day";
+      }
+    } catch {}
+    </script>
+  </head>
+  <body class="layout layout--post theme-shell" data-handle="cq-why-composition">
+    <header class="site-head container">
+      <div class="site-head__item">
+        <div class="site-head__title">
+          <div class="site-head__title-inner">
+            <span class="site-head__title-item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+            "site-head__title-item site-head__title-item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code
+            ramblings</span>
+          </div>
+
+          <div class="site-head__title-inner">
+            <a class="site-head__avatar" href="/about"><img alt="Ty King" class="site-head__avatar-img" src=
+            "/assets/images/me.jpg"></a>
+          </div>
+        </div>
+
+        <nav aria-label="Site navigation" class="site-nav">
+          <a class="button button--strong button--ember" href="/about">About</a><a class=
+          "button button--strong button--moss" href="https://github.com/gnikyt" rel="noopener" target=
+          "_blank">Github</a><a class="button button--strong button--slate" href="https://linkedin.com/in/gnikyt" rel=
+          "noopener" target="_blank">LinkedIn</a><a class="button button--strong button--gold" href=
+          "/assets/files/cv.pdf" rel="noopener" target="_blank">CV</a><a class="button button--strong button--paper"
+          href="/rss.xml" rel="noopener" target="_blank">RSS</a> <button aria-label="Switch to day theme" aria-pressed=
+          "false" class="theme-toggle" type="button"><svg aria-hidden="true" class=
+          "theme-toggle__icon theme-toggle__sun" viewbox="0 0 24 24">
+          <circle cx="12" cy="12" r="3.5">
+          </circle>
+          <path d=
+          "M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41">
+
+          </path></svg> <svg aria-hidden="true" class="theme-toggle__icon theme-toggle__moon" viewbox="0 0 24 24">
+          <path d="M20.5 15.25A8.5 8.5 0 0 1 8.75 3.5a8.5 8.5 0 1 0 11.75 11.75Z">
+          </path></svg></button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            Why composition over configuration for cq? /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container content-container--meta">
+              <div class="post__details">
+                <time class="post__time" datetime="2026-06-24">Jun 24, 2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class=
+                "post__size">20KB</span>
+              </div>
+
+              <div class="post__category">
+                <a aria-label="View posts in category golang" class="category-hashtag" href="/category/golang" rel=
+                "tag">#golang</a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <h1 id="why">
+                Why
+              </h1>
+
+              <p>
+                Why is <code>cq</code> is built around composition, not configuration?
+              </p>
+
+              <p>
+                Most job queue libraries ask you to configure behaviour. <code>cq</code> asks you to compose it. That
+                distinction sounds subtle, but it changes how you think about your jobs and how well the library gets
+                out of your way when things get complicated.
+              </p>
+
+              <p>
+                Background job processing has been a constant across most of my career. I’ve used Sidekiq, Celery,
+                Bull, Resque, Laravel Queues, Pond, Ants, home-grown database polling loops, and more than a few things
+                I probably now forget. Each one has a different answer to the same questions: How do you handle
+                retries? How do you control timeouts? How do you prevent duplicate runs? And each one encodes those
+                answers into its own configuration model, its own option surface, its own extension points… which you
+                have to learn before you can bend them to fit a problem they didn’t anticipate.
+              </p>
+
+              <p>
+                After enough of that, I started building <code>cq</code> many years ago. Not because the other
+                libraries are bad, but because I kept running into the same friction point: the moment a job needed
+                behaviour the library hadn’t designed for, you were fighting the abstractions instead of solving the
+                problem. I wanted something where that friction didn’t exist by design.
+              </p>
+
+              <p>
+                This is the post I wish I had written alongside the introduction to <code>cq</code>. Not <em>“here is
+                what it does”</em>, but <em>“here is /why/ it works the way it does”</em>.
+              </p>
+
+              <h2 id="configuration-trap">
+                Configuration trap
+              </h2>
+
+              <p>
+                Take a look at how Sidekiq handles retry behaviour. You declare options on the job class itself:
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class="cf">class</span> <span class=
+                "dt">EmailNotificationWorker</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>  <span class="fu">include</span> <span class=
+"dt">Sidekiq</span><span class="kw">::</span><span class="dt">Job</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>  sidekiq_options <span class=
+"wa">queue: </span><span class="vs">'mailers'</span>, <span class="cf">retry</span>: <span class="dv">5</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>  sidekiq_retry_in <span class=
+"cf">do</span> <span class="kw">|</span>count, exception, jobhash<span class="kw">|</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>    count <span class="kw">*</span> <span class=
+"dv">10</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a>  sidekiq_retries_exhausted <span class=
+"cf">do</span> <span class="kw">|</span>job, ex<span class="kw">|</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>    <span class="dt">Sentry</span><span class=
+"at">.capture_exception</span>(ex)</span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>  <span class=
+"cf">def</span> perform(user_id, notification_type)</span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a><span class=
+"cf">end</span></span></code></pre>
+              </div>
+
+              <p>
+                Or globally in <code>sidekiq.yml</code>:
+              </p>
+
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a><span class="fu">:max_retries</span><span class="kw">:</span><span class=
+                "at"> </span><span class="dv">25</span></span></code></pre>
+              </div>
+
+              <p>
+                Celery follows the same pattern with decorator arguments:
+              </p>
+
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true"
+                href="#cb3-1" tabindex="-1"></a><span class="at">@shared_task</span>(</span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>    bind<span class="op">=</span><span class=
+"va">True</span>,</span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>    autoretry_for<span class=
+"op">=</span>(<span class="pp">Exception</span>,),</span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a>    max_retries<span class=
+"op">=</span><span class="dv">5</span>,</span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a>    retry_backoff<span class=
+"op">=</span><span class="va">True</span>,</span>
+<span id="cb3-6"><a aria-hidden="true" href="#cb3-6" tabindex="-1"></a>    retry_backoff_max<span class=
+"op">=</span><span class="dv">500</span>,</span>
+<span id="cb3-7"><a aria-hidden="true" href="#cb3-7" tabindex="-1"></a>    retry_jitter<span class=
+"op">=</span><span class="va">True</span></span>
+<span id="cb3-8"><a aria-hidden="true" href="#cb3-8" tabindex="-1"></a>)</span>
+<span id="cb3-9"><a aria-hidden="true" href="#cb3-9" tabindex="-1"></a><span class=
+"kw">def</span> sync_products(<span class="va">self</span>, store_id):</span>
+<span id="cb3-10"><a aria-hidden="true" href="#cb3-10" tabindex="-1"></a>    ...</span></code></pre>
+              </div>
+
+              <p>
+                This works for common cases. Both libraries are battle-tested and the configuration surface is well
+                documented. But the model has a limitation: <strong>operational behaviour lives separately from the job
+                itself, in a different language (config, decorators, class options), governed by rules the library
+                defines and unique syntaxes to achieve its behaviour</strong>.
+              </p>
+
+              <p>
+                What happens when your retry logic needs to be conditional? What if certain errors should never retry,
+                while others should backoff differently based on a response header? You end up fighting the library.
+                Celery’s <code>autoretry_for</code> wraps your entire task body automatically, but if you need to
+                distinguish a permanent failure from a transient one, you have to catch the exception yourself and
+                decide whether to call <code>self.retry()</code> manually… effectively recreating the logic the
+                decorator was supposed to handle.
+              </p>
+
+              <p>
+                The configuration model works until it doesn’t. Then you’re writing workarounds for the library’s
+                opinions.
+              </p>
+
+              <h2 id="jobs-are-just-functions">
+                Jobs are just functions
+              </h2>
+
+              <p>
+                <code>cq</code> starts from a simpler foundation. A job is:
+              </p>
+
+              <div class="sourceCode" id="cb4">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb4-1"><a aria-hidden="true" href=
+                "#cb4-1" tabindex="-1"></a><span class="kw">type</span> Job <span class="kw">func</span><span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span></span></code></pre>
+              </div>
+
+              <p>
+                That’s it. A function that takes a context and returns an error. No base class to inherit, no decorator
+                to apply, no interface to implement. The job is just code.
+              </p>
+
+              <p>
+                This matters because it means there is no seam between your business logic and the queue. The job knows
+                about your domain. It doesn’t need to know about the queue or anything else.
+              </p>
+
+              <div class="sourceCode" id="cb5">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb5-1"><a aria-hidden="true" href=
+                "#cb5-1" tabindex="-1"></a><span class="kw">func</span> syncProducts<span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>    <span class=
+"cf">return</span> store<span class="op">.</span>Sync<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a>queue<span class="op">.</span>Submit<span class=
+"op">(</span>ctx<span class="op">,</span> syncProducts<span class="op">)</span></span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a><span class=
+"co">// or, queue.Submit(ctx, store.Sync) to simplify.</span></span></code></pre>
+              </div>
+
+              <p>
+                Clean. No framework in the way.
+              </p>
+
+              <h2 id="wrappers-are-just-functions-too">
+                Wrappers are just functions too
+              </h2>
+
+              <p>
+                Here is the key insight: a wrapper is also a <code>Job</code>. It takes a <code>Job</code> and returns
+                a <code>Job</code>.
+              </p>
+
+              <p>
+                The operational behaviour: retries, timeouts, rate limiting is just more code that wraps your own code.
+                There is no plugin registration, no hook registry you implement against. You compose by calling
+                functions.
+              </p>
+
+              <div class="sourceCode" id="cb6">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb6-1"><a aria-hidden="true" href=
+                "#cb6-1" tabindex="-1"></a><span class=
+                "co">// WithTimeout takes a job and returns a new job that runs with a deadline.</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class=
+"kw">func</span> WithTimeout<span class="op">(</span>job Job<span class="op">,</span> d time<span class=
+"op">.</span>Duration<span class="op">)</span> Job <span class="op">{</span></span>
+<span id="cb6-3"><a aria-hidden="true" href="#cb6-3" tabindex="-1"></a>    <span class="cf">return</span> <span class=
+"kw">func</span><span class="op">(</span>ctx context<span class="op">.</span>Context<span class=
+"op">)</span> <span class="dt">error</span> <span class="op">{</span></span>
+<span id="cb6-4"><a aria-hidden="true" href="#cb6-4" tabindex="-1"></a>        ctx<span class=
+"op">,</span> cancel <span class="op">:=</span> context<span class="op">.</span>WithTimeout<span class=
+"op">(</span>ctx<span class="op">,</span> d<span class="op">)</span></span>
+<span id="cb6-5"><a aria-hidden="true" href="#cb6-5" tabindex="-1"></a>        <span class=
+"cf">defer</span> cancel<span class="op">()</span></span>
+<span id="cb6-6"><a aria-hidden="true" href="#cb6-6" tabindex="-1"></a>        <span class=
+"cf">return</span> job<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb6-7"><a aria-hidden="true" href="#cb6-7" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-8"><a aria-hidden="true" href="#cb6-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                Because wrappers and jobs share the same type, you can stack them freely:
+              </p>
+
+              <div class="sourceCode" id="cb7">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb7-1"><a aria-hidden="true" href=
+                "#cb7-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithTimeout<span class="op">(</span>syncProducts<span class="op">,</span> <span class=
+                "dv">30</span><span class="op">*</span>time<span class="op">.</span>Second<span class=
+                "op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                And because the result is still a <code>Job</code>, you can wrap the wrapper:
+              </p>
+
+              <div class="sourceCode" id="cb8">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb8-1"><a aria-hidden="true" href=
+                "#cb8-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithRetry<span class="op">(</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithBackoff<span class="op">(</span></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>        cq<span class=
+"op">.</span>WithTimeout<span class="op">(</span>syncProducts<span class="op">,</span> <span class=
+"dv">30</span><span class="op">*</span>time<span class="op">.</span>Second<span class="op">),</span> <span class=
+"co">// Timeout after 30 seconds.</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>        cq<span class=
+"op">.</span>ExponentialBackoff<span class="op">,</span> <span class=
+"co">// Exponential backoff strategy.</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a>    <span class="op">),</span></span>
+<span id="cb8-6"><a aria-hidden="true" href="#cb8-6" tabindex="-1"></a>    <span class="dv">3</span><span class=
+"op">,</span> <span class="co">// 3 retries.</span></span>
+<span id="cb8-7"><a aria-hidden="true" href="#cb8-7" tabindex="-1"></a><span class="op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                Each wrapper adds exactly one responsibility and nothing else. <code>WithTimeout</code> handles
+                deadline cancellation. <code>WithBackoff</code> handles delay strategy. <code>WithRetry</code> handles
+                attempt counting. None of them need to know the others exist, and you control exactly how they nest.
+              </p>
+
+              <h2 id="what-composition-gives-you">
+                What composition gives you
+              </h2>
+
+              <p>
+                Consider a realistic job: syncing products from an external API that is rate-limited, occasionally
+                flaky, and prone to duplicate runs. In a configuration-based library you’d be hunting for the right
+                combination of options, decorators, and callbacks to cover all of that.
+              </p>
+
+              <p>
+                In <code>cq</code>, you layer it:
+              </p>
+
+              <div class="sourceCode" id="cb9">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb9-1"><a aria-hidden="true" href=
+                "#cb9-1" tabindex="-1"></a>locker <span class="op">:=</span> cq<span class=
+                "op">.</span>NewUniqueMemoryLocker<span class="op">()</span> <span class=
+                "co">// Can be replaced with a distributed locker.</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+"op">.</span>WithOutcome<span class="op">(</span></span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithUnique<span class="op">(</span></span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>        cq<span class=
+"op">.</span>WithRetry<span class="op">(</span></span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a>            cq<span class=
+"op">.</span>WithBackoff<span class="op">(</span></span>
+<span id="cb9-7"><a aria-hidden="true" href="#cb9-7" tabindex="-1"></a>                cq<span class=
+"op">.</span>WithRateLimit<span class="op">(</span></span>
+<span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a>                    cq<span class=
+"op">.</span>WithTimeout<span class="op">(</span>syncProducts<span class="op">,</span> <span class=
+"dv">30</span><span class="op">*</span>time<span class="op">.</span>Second<span class="op">),</span> <span class=
+"co">// Timeout after 30 seconds.</span></span>
+<span id="cb9-9"><a aria-hidden="true" href="#cb9-9" tabindex="-1"></a>                    rateLimiter<span class=
+"op">,</span> <span class="co">// Rate limiter.</span></span>
+<span id="cb9-10"><a aria-hidden="true" href="#cb9-10" tabindex="-1"></a>                <span class=
+"op">),</span></span>
+<span id="cb9-11"><a aria-hidden="true" href="#cb9-11" tabindex="-1"></a>                cq<span class=
+"op">.</span>ExponentialBackoff<span class="op">,</span> <span class=
+"co">// Exponential backoff strategy.</span></span>
+<span id="cb9-12"><a aria-hidden="true" href="#cb9-12" tabindex="-1"></a>            <span class="op">),</span></span>
+<span id="cb9-13"><a aria-hidden="true" href="#cb9-13" tabindex="-1"></a>            <span class=
+"dv">3</span><span class="op">,</span> <span class="co">// Retry up to 3 times.</span></span>
+<span id="cb9-14"><a aria-hidden="true" href="#cb9-14" tabindex="-1"></a>        <span class="op">),</span></span>
+<span id="cb9-15"><a aria-hidden="true" href="#cb9-15" tabindex="-1"></a>        <span class=
+"st">"sync-products:store-123"</span><span class="op">,</span> <span class=
+"co">// Unique key for the lock.</span></span>
+<span id="cb9-16"><a aria-hidden="true" href="#cb9-16" tabindex="-1"></a>        <span class="dv">5</span><span class=
+"op">*</span>time<span class="op">.</span>Minute<span class="op">,</span> <span class=
+"co">// Lock duration.</span></span>
+<span id="cb9-17"><a aria-hidden="true" href="#cb9-17" tabindex="-1"></a>        locker<span class=
+"op">,</span> <span class="co">// Locker.</span></span>
+<span id="cb9-18"><a aria-hidden="true" href="#cb9-18" tabindex="-1"></a>    <span class="op">),</span></span>
+<span id="cb9-19"><a aria-hidden="true" href="#cb9-19" tabindex="-1"></a>    <span class="kw">func</span><span class=
+"op">()</span> <span class="op">{</span> metrics<span class="op">.</span>Increment<span class="op">(</span><span class=
+"st">"sync.completed"</span><span class="op">)</span> <span class="op">},</span> <span class=
+"co">// Success handler.</span></span>
+<span id="cb9-20"><a aria-hidden="true" href="#cb9-20" tabindex="-1"></a>    <span class="kw">func</span><span class=
+"op">(</span>err <span class="dt">error</span><span class="op">)</span> <span class="op">{</span> sentry<span class=
+"op">.</span>CaptureException<span class="op">(</span>err<span class="op">)</span> <span class=
+"op">},</span> <span class="co">// Failure handler.</span></span>
+<span id="cb9-21"><a aria-hidden="true" href="#cb9-21" tabindex="-1"></a>    <span class="ot">nil</span><span class=
+"op">,</span> <span class="co">// Discard handler.</span></span>
+<span id="cb9-22"><a aria-hidden="true" href="#cb9-22" tabindex="-1"></a><span class="op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                Read it from the inside out:
+              </p>
+
+              <ol type="1">
+                <li>
+                  <code>WithTimeout</code>: The actual work runs with a 30-second deadline
+                </li>
+
+                <li>
+                  <code>WithRateLimit</code>: It respects the API’s rate limit
+                </li>
+
+                <li>
+                  <code>WithBackoff</code>: Failed attempts wait with exponential delay before the next try
+                </li>
+
+                <li>
+                  <code>WithRetry</code>: Transient failures get up to 3 attempts
+                </li>
+
+                <li>
+                  <code>WithUnique</code>: Only one sync per store runs at a time for a window
+                </li>
+
+                <li>
+                  <code>WithOutcome</code>: Success and failure are routed to metrics and error tracking
+                </li>
+              </ol>
+
+              <p>
+                Each wrapper is visible. Each has a clear boundary. And, the order is <em>explicit</em>… you chose it,
+                not the library. The outermost wrapper runs first and controls what happens to the result of everything
+                inside it.
+              </p>
+
+              <h2 id="explicit-failure-intent">
+                Explicit failure intent
+              </h2>
+
+              <p>
+                One thing composition enables that configuration struggles with: <strong>failure intent</strong>.
+              </p>
+
+              <p>
+                In most queue libraries, an error is just an error. The library decides whether to retry based on your
+                configuration. If you need different behaviour for different error types, you end up with exception
+                filters or conditional retry callbacks that read awkwardly.
+              </p>
+
+              <p>
+                In <code>cq</code>, you can mark intent directly from inside the job:
+              </p>
+
+              <div class="sourceCode" id="cb10">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb10-1"><a aria-hidden="true" href=
+                "#cb10-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithRetryIf<span class="op">(</span><span class="kw">func</span><span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>    result<span class=
+"op">,</span> err <span class="op">:=</span> callExternalAPI<span class="op">(</span>ctx<span class=
+"op">)</span></span>
+<span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>    <span class=
+"cf">if</span> err <span class="op">==</span> <span class="ot">nil</span> <span class="op">{</span></span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>        <span class=
+"cf">return</span> <span class="ot">nil</span></span>
+<span id="cb10-5"><a aria-hidden="true" href="#cb10-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-6"><a aria-hidden="true" href="#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a aria-hidden="true" href="#cb10-7" tabindex="-1"></a>    <span class=
+"cf">if</span> isValidationError<span class="op">(</span>err<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-8"><a aria-hidden="true" href="#cb10-8" tabindex="-1"></a>        <span class=
+"cf">return</span> cq<span class="op">.</span>AsPermanent<span class="op">(</span>err<span class=
+"op">)</span>  <span class="co">// Bad data, don't retry.</span></span>
+<span id="cb10-9"><a aria-hidden="true" href="#cb10-9" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-10"><a aria-hidden="true" href="#cb10-10" tabindex="-1"></a>    <span class=
+"cf">if</span> isRateLimitError<span class="op">(</span>err<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-11"><a aria-hidden="true" href="#cb10-11" tabindex="-1"></a>        <span class=
+"cf">return</span> cq<span class="op">.</span>AsRetryable<span class="op">(</span>err<span class=
+"op">)</span>  <span class="co">// Transient, retry this.</span></span>
+<span id="cb10-12"><a aria-hidden="true" href="#cb10-12" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-13"><a aria-hidden="true" href="#cb10-13" tabindex="-1"></a>    <span class=
+"cf">return</span> cq<span class="op">.</span>AsDiscard<span class="op">(</span>err<span class=
+"op">)</span>  <span class="co">// Known noise, swallow it.</span></span>
+<span id="cb10-14"><a aria-hidden="true" href="#cb10-14" tabindex="-1"></a><span class="op">},</span> <span class=
+"dv">5</span><span class="op">,</span> <span class="kw">func</span><span class="op">(</span>err <span class=
+"dt">error</span><span class="op">)</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb10-15"><a aria-hidden="true" href="#cb10-15" tabindex="-1"></a>    <span class=
+"cf">return</span> errors<span class="op">.</span>Is<span class="op">(</span>err<span class=
+"op">,</span> cq<span class="op">.</span>ErrRetryable<span class="op">)</span>  <span class=
+"co">// Retry on retryable errors only.</span></span>
+<span id="cb10-16"><a aria-hidden="true" href="#cb10-16" tabindex="-1"></a><span class=
+"op">})</span></span></code></pre>
+              </div>
+
+              <p>
+                The retry logic reads like a policy. What should happen is written where the decision is made, not in a
+                config file two layers removed from the error.
+              </p>
+
+              <h2 id="where-middleware-and-hooks-fit">
+                Where middleware and hooks fit
+              </h2>
+
+              <p>
+                Composition handles per-job behaviour well, but not everything belongs on individual jobs. Logging
+                every job start and finish, tagging jobs with tenant context, feeding lifecycle events into a metrics
+                pipeline… these are concerns that you don’t want to wire into every <code>Submit</code> call or job
+                setup.
+              </p>
+
+              <p>
+                <code>cq</code> covers this at the queue level with two distinct mechanisms.
+              </p>
+
+              <p>
+                <strong>Middleware</strong> wraps every job that passes through the queue. It uses the same
+                <code>Job</code>-wrapping pattern as per-job wrappers, just applied once at the queue level:
+              </p>
+
+              <div class="sourceCode" id="cb11">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb11-1"><a aria-hidden="true" href=
+                "#cb11-1" tabindex="-1"></a>withLogging <span class="op">:=</span> <span class=
+                "kw">func</span><span class="op">(</span>next cq<span class="op">.</span>Job<span class=
+                "op">)</span> cq<span class="op">.</span>Job <span class="op">{</span></span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="kw">func</span><span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">)</span> <span class="dt">error</span> <span class="op">{</span></span>
+<span id="cb11-3"><a aria-hidden="true" href="#cb11-3" tabindex="-1"></a>        meta <span class=
+"op">:=</span> cq<span class="op">.</span>MetaFromContext<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb11-4"><a aria-hidden="true" href="#cb11-4" tabindex="-1"></a>        slog<span class=
+"op">.</span>Info<span class="op">(</span><span class="st">"job starting"</span><span class="op">,</span> <span class=
+"st">"id"</span><span class="op">,</span> meta<span class="op">.</span>ID<span class="op">,</span> <span class=
+"st">"attempt"</span><span class="op">,</span> meta<span class="op">.</span>Attempt<span class="op">)</span></span>
+<span id="cb11-5"><a aria-hidden="true" href="#cb11-5" tabindex="-1"></a>        err <span class=
+"op">:=</span> next<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb11-6"><a aria-hidden="true" href="#cb11-6" tabindex="-1"></a>        slog<span class=
+"op">.</span>Info<span class="op">(</span><span class="st">"job done"</span><span class="op">,</span> <span class=
+"st">"id"</span><span class="op">,</span> meta<span class="op">.</span>ID<span class="op">,</span> <span class=
+"st">"err"</span><span class="op">,</span> err<span class="op">)</span></span>
+<span id="cb11-7"><a aria-hidden="true" href="#cb11-7" tabindex="-1"></a>        <span class=
+"cf">return</span> err</span>
+<span id="cb11-8"><a aria-hidden="true" href="#cb11-8" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-9"><a aria-hidden="true" href="#cb11-9" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb11-10"><a aria-hidden="true" href="#cb11-10" tabindex="-1"></a></span>
+<span id="cb11-11"><a aria-hidden="true" href="#cb11-11" tabindex="-1"></a>queue <span class=
+"op">:=</span> cq<span class="op">.</span>NewQueue<span class="op">(</span><span class="dv">1</span><span class=
+"op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">100</span><span class=
+"op">,</span> cq<span class="op">.</span>WithMiddleware<span class="op">(</span>withLogging<span class=
+"op">))</span></span></code></pre>
+              </div>
+
+              <p>
+                <strong>Hooks</strong> are observational callbacks tied to queue lifecycle transitions such as enqueue,
+                start, success, failure, discard, reschedule, and per-attempt events. They receive a structured
+                <code>JobEvent</code> with timing, state, error, and metadata, and they sit outside the execution path:
+              </p>
+
+              <div class="sourceCode" id="cb12">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb12-1"><a aria-hidden="true" href=
+                "#cb12-1" tabindex="-1"></a>queue <span class="op">:=</span> cq<span class=
+                "op">.</span>NewQueue<span class="op">(</span><span class="dv">1</span><span class=
+                "op">,</span> <span class="dv">10</span><span class="op">,</span> <span class=
+                "dv">100</span><span class="op">,</span></span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithHooks<span class="op">(</span>cq<span class="op">.</span>Hooks<span class="op">{</span></span>
+<span id="cb12-3"><a aria-hidden="true" href="#cb12-3" tabindex="-1"></a>        OnSuccess<span class=
+"op">:</span> <span class="kw">func</span><span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">,</span> e cq<span class="op">.</span>JobEvent<span class=
+"op">)</span> <span class="op">{</span></span>
+<span id="cb12-4"><a aria-hidden="true" href="#cb12-4" tabindex="-1"></a>            metrics<span class=
+"op">.</span>Histogram<span class="op">(</span><span class="st">"job.duration"</span><span class=
+"op">,</span> e<span class="op">.</span>ExecutionDuration<span class="op">.</span>Seconds<span class=
+"op">(),</span></span>
+<span id="cb12-5"><a aria-hidden="true" href="#cb12-5" tabindex="-1"></a>                <span class=
+"st">"job"</span><span class="op">,</span> e<span class="op">.</span>Name<span class="op">,</span></span>
+<span id="cb12-6"><a aria-hidden="true" href="#cb12-6" tabindex="-1"></a>            <span class="op">)</span></span>
+<span id="cb12-7"><a aria-hidden="true" href="#cb12-7" tabindex="-1"></a>        <span class="op">},</span></span>
+<span id="cb12-8"><a aria-hidden="true" href="#cb12-8" tabindex="-1"></a>        OnFailure<span class=
+"op">:</span> <span class="kw">func</span><span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">,</span> e cq<span class="op">.</span>JobEvent<span class=
+"op">)</span> <span class="op">{</span></span>
+<span id="cb12-9"><a aria-hidden="true" href="#cb12-9" tabindex="-1"></a>            sentry<span class=
+"op">.</span>CaptureException<span class="op">(</span>e<span class="op">.</span>Err<span class="op">,</span></span>
+<span id="cb12-10"><a aria-hidden="true" href="#cb12-10" tabindex="-1"></a>                sentry<span class=
+"op">.</span>WithTag<span class="op">(</span><span class="st">"job_id"</span><span class="op">,</span> e<span class=
+"op">.</span>ID<span class="op">),</span></span>
+<span id="cb12-11"><a aria-hidden="true" href="#cb12-11" tabindex="-1"></a>                sentry<span class=
+"op">.</span>WithTag<span class="op">(</span><span class="st">"attempt"</span><span class=
+"op">,</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>e<span class=
+"op">.</span>Attempt<span class="op">)),</span></span>
+<span id="cb12-12"><a aria-hidden="true" href="#cb12-12" tabindex="-1"></a>            <span class="op">)</span></span>
+<span id="cb12-13"><a aria-hidden="true" href="#cb12-13" tabindex="-1"></a>        <span class="op">},</span></span>
+<span id="cb12-14"><a aria-hidden="true" href="#cb12-14" tabindex="-1"></a>    <span class="op">}),</span></span>
+<span id="cb12-15"><a aria-hidden="true" href="#cb12-15" tabindex="-1"></a><span class=
+"op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                The distinction between the two is intentional. Middleware is in the execution path and can affect the
+                result. Hooks are observational and cannot — they fire after the outcome is determined. Both follow the
+                same underlying principle as per-job wrappers: plain Go, no registration ceremony, no interface to
+                implement beyond the function signature itself.
+              </p>
+
+              <p>
+                The rule of thumb that’s worked well: if behaviour is specific to a job’s business logic, it’s a
+                wrapper on that job. If it applies to every job through a queue, it’s middleware. If it’s purely
+                observational like metrics, audit logs, alerting, then it’s a hook.
+              </p>
+
+              <h2 id="writing-your-own-wrapper">
+                Writing your own wrapper
+              </h2>
+
+              <p>
+                The most useful thing about a composition model is that the extension point is the same as the core.
+                You don’t call into a plugin API or implement a library interface. You write a function.
+              </p>
+
+              <p>
+                Say you have jobs that need to tag themselves with a tenant ID pulled from context, and you want that
+                on every retry attempt automatically:
+              </p>
+
+              <div class="sourceCode" id="cb13">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb13-1"><a aria-hidden="true" href=
+                "#cb13-1" tabindex="-1"></a><span class="kw">type</span> tenantKey <span class=
+                "kw">struct</span><span class="op">{}</span></span>
+<span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a><span class=
+"kw">func</span> WithTenantContext<span class="op">(</span>job cq<span class="op">.</span>Job<span class=
+"op">,</span> tenantID <span class="dt">string</span><span class="op">)</span> cq<span class=
+"op">.</span>Job <span class="op">{</span></span>
+<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="kw">func</span><span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">)</span> <span class="dt">error</span> <span class="op">{</span></span>
+<span id="cb13-5"><a aria-hidden="true" href="#cb13-5" tabindex="-1"></a>        ctx <span class=
+"op">=</span> context<span class="op">.</span>WithValue<span class="op">(</span>ctx<span class=
+"op">,</span> tenantKey<span class="op">{},</span> tenantID<span class="op">)</span></span>
+<span id="cb13-6"><a aria-hidden="true" href="#cb13-6" tabindex="-1"></a>        <span class=
+"cf">return</span> job<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb13-7"><a aria-hidden="true" href="#cb13-7" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-8"><a aria-hidden="true" href="#cb13-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                Or a wrapper that checks a feature flag before running, and discards the job cleanly if the flag is
+                off:
+              </p>
+
+              <div class="sourceCode" id="cb14">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb14-1"><a aria-hidden="true" href=
+                "#cb14-1" tabindex="-1"></a><span class="kw">func</span> WithFeatureFlag<span class=
+                "op">(</span>job cq<span class="op">.</span>Job<span class="op">,</span> flag <span class=
+                "dt">string</span><span class="op">,</span> flags FeatureFlagClient<span class=
+                "op">)</span> cq<span class="op">.</span>Job <span class="op">{</span></span>
+<span id="cb14-2"><a aria-hidden="true" href="#cb14-2" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="kw">func</span><span class="op">(</span>ctx context<span class=
+"op">.</span>Context<span class="op">)</span> <span class="dt">error</span> <span class="op">{</span></span>
+<span id="cb14-3"><a aria-hidden="true" href="#cb14-3" tabindex="-1"></a>        <span class=
+"cf">if</span> <span class="op">!</span>flags<span class="op">.</span>IsEnabled<span class=
+"op">(</span>flag<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-4"><a aria-hidden="true" href="#cb14-4" tabindex="-1"></a>            <span class=
+"cf">return</span> cq<span class="op">.</span>AsDiscard<span class="op">(</span>fmt<span class=
+"op">.</span>Errorf<span class="op">(</span><span class="st">"feature %q is disabled"</span><span class=
+"op">,</span> flag<span class="op">))</span></span>
+<span id="cb14-5"><a aria-hidden="true" href="#cb14-5" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb14-6"><a aria-hidden="true" href="#cb14-6" tabindex="-1"></a>        <span class=
+"cf">return</span> job<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb14-7"><a aria-hidden="true" href="#cb14-7" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-8"><a aria-hidden="true" href="#cb14-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                Both are just functions. Both compose cleanly with everything else in <code>cq</code>. Neither required
+                reading a plugin guide or registering anything. You write the logic, return a <code>Job</code>, and
+                stack it wherever it makes sense:
+              </p>
+
+              <div class="sourceCode" id="cb15">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb15-1"><a aria-hidden="true" href=
+                "#cb15-1" tabindex="-1"></a>job <span class="op">:=</span> cq<span class=
+                "op">.</span>WithOutcome<span class="op">(</span></span>
+<span id="cb15-2"><a aria-hidden="true" href="#cb15-2" tabindex="-1"></a>    WithFeatureFlag<span class=
+"op">(</span></span>
+<span id="cb15-3"><a aria-hidden="true" href="#cb15-3" tabindex="-1"></a>        WithTenantContext<span class=
+"op">(</span></span>
+<span id="cb15-4"><a aria-hidden="true" href="#cb15-4" tabindex="-1"></a>            cq<span class=
+"op">.</span>WithRetry<span class="op">(</span></span>
+<span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a>                cq<span class=
+"op">.</span>WithBackoff<span class="op">(</span>processOrder<span class="op">,</span> cq<span class=
+"op">.</span>ExponentialBackoff<span class="op">),</span> <span class=
+"co">// Retry with exponential backoff.</span></span>
+<span id="cb15-6"><a aria-hidden="true" href="#cb15-6" tabindex="-1"></a>                <span class=
+"dv">3</span><span class="op">,</span> <span class="co">// Retry up to 3 times.</span></span>
+<span id="cb15-7"><a aria-hidden="true" href="#cb15-7" tabindex="-1"></a>            <span class="op">),</span></span>
+<span id="cb15-8"><a aria-hidden="true" href="#cb15-8" tabindex="-1"></a>            tenantID<span class=
+"op">,</span> <span class="co">// Pass the tenant ID to the job.</span></span>
+<span id="cb15-9"><a aria-hidden="true" href="#cb15-9" tabindex="-1"></a>        <span class="op">),</span></span>
+<span id="cb15-10"><a aria-hidden="true" href="#cb15-10" tabindex="-1"></a>        <span class=
+"st">"new-order-processing"</span><span class="op">,</span> <span class="co">// Feature flag name.</span></span>
+<span id="cb15-11"><a aria-hidden="true" href="#cb15-11" tabindex="-1"></a>        flagClient<span class=
+"op">,</span> <span class="co">// Feature flag client.</span></span>
+<span id="cb15-12"><a aria-hidden="true" href="#cb15-12" tabindex="-1"></a>    <span class="op">),</span></span>
+<span id="cb15-13"><a aria-hidden="true" href="#cb15-13" tabindex="-1"></a>    onComplete<span class=
+"op">,</span> <span class="co">// Success handler.</span></span>
+<span id="cb15-14"><a aria-hidden="true" href="#cb15-14" tabindex="-1"></a>    onFail<span class=
+"op">,</span> <span class="co">// Failure handler.</span></span>
+<span id="cb15-15"><a aria-hidden="true" href="#cb15-15" tabindex="-1"></a>    <span class="ot">nil</span><span class=
+"op">,</span> <span class="co">// Discard handler.</span></span>
+<span id="cb15-16"><a aria-hidden="true" href="#cb15-16" tabindex="-1"></a><span class=
+"op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                This is what the composition model actually buys you in practice: the library’s behaviour and your
+                behaviour are written the same way. When you need something cq doesn’t have, you don’t go looking for a
+                plugin. You write a function.
+              </p>
+
+              <h3 id="context-is-the-wire">
+                Context is the wire
+              </h3>
+
+              <p>
+                There is a deeper point worth drawing out here: because every wrapper receives and passes along the
+                same <code>context.Context</code>, the context becomes the channel through which the whole stack
+                communicates. Wrappers higher up can inject capabilities into it. Wrappers lower down, and the job
+                itself, can read from or act on those capabilities, without either side knowing the other’s
+                implementation details.
+              </p>
+
+              <p>
+                <code>cq</code> uses this pattern extensively for its own wrappers, and your custom wrappers can plug
+                into the same mechanism.
+              </p>
+
+              <p>
+                The simplest example is job metadata. Every job already has access to its own ID, name, attempt count,
+                and enqueue time through <code>MetaFromContext</code>:
+              </p>
+
+              <div class="sourceCode" id="cb16">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb16-1"><a aria-hidden="true" href=
+                "#cb16-1" tabindex="-1"></a><span class="kw">func</span> syncProducts<span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb16-2"><a aria-hidden="true" href="#cb16-2" tabindex="-1"></a>    meta <span class=
+"op">:=</span> cq<span class="op">.</span>MetaFromContext<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb16-3"><a aria-hidden="true" href="#cb16-3" tabindex="-1"></a>    slog<span class=
+"op">.</span>Info<span class="op">(</span><span class="st">"running job"</span><span class="op">,</span></span>
+<span id="cb16-4"><a aria-hidden="true" href="#cb16-4" tabindex="-1"></a>        <span class=
+"st">"id"</span><span class="op">,</span> meta<span class="op">.</span>ID<span class="op">,</span></span>
+<span id="cb16-5"><a aria-hidden="true" href="#cb16-5" tabindex="-1"></a>        <span class=
+"st">"attempt"</span><span class="op">,</span> meta<span class="op">.</span>Attempt<span class="op">,</span></span>
+<span id="cb16-6"><a aria-hidden="true" href="#cb16-6" tabindex="-1"></a>        <span class=
+"st">"queued_ago"</span><span class="op">,</span> time<span class="op">.</span>Since<span class=
+"op">(</span>meta<span class="op">.</span>EnqueuedAt<span class="op">),</span></span>
+<span id="cb16-7"><a aria-hidden="true" href="#cb16-7" tabindex="-1"></a>    <span class="op">)</span></span>
+<span id="cb16-8"><a aria-hidden="true" href="#cb16-8" tabindex="-1"></a>    <span class=
+"cf">return</span> store<span class="op">.</span>Sync<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb16-9"><a aria-hidden="true" href="#cb16-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                No arguments to thread through, no global state. The queue injects the metadata into context before the
+                job runs, and the job reads it out when it needs it. Your custom wrappers can do the same thing… inject
+                something into the context before calling the inner job, and anything downstream can read it.
+              </p>
+
+              <p>
+                The retry wrappers take this further. After a failed attempt, <code>WithRetry</code> puts the previous
+                error into context so the next attempt can see what went wrong:
+              </p>
+
+              <div class="sourceCode" id="cb17">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb17-1"><a aria-hidden="true" href=
+                "#cb17-1" tabindex="-1"></a><span class="kw">func</span> processOrder<span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb17-2"><a aria-hidden="true" href="#cb17-2" tabindex="-1"></a>    <span class=
+"cf">if</span> lastErr <span class="op">:=</span> cq<span class="op">.</span>LastErrorFromContext<span class=
+"op">(</span>ctx<span class="op">);</span> lastErr <span class="op">!=</span> <span class="ot">nil</span> <span class=
+"op">{</span></span>
+<span id="cb17-3"><a aria-hidden="true" href="#cb17-3" tabindex="-1"></a>        <span class=
+"co">// We know what the previous attempt failed with.</span></span>
+<span id="cb17-4"><a aria-hidden="true" href="#cb17-4" tabindex="-1"></a>        <span class=
+"co">// Maybe log it, adjust strategy, or handle differently on retry.</span></span>
+<span id="cb17-5"><a aria-hidden="true" href="#cb17-5" tabindex="-1"></a>        slog<span class=
+"op">.</span>Info<span class="op">(</span><span class="st">"retrying after"</span><span class=
+"op">,</span> <span class="st">"error"</span><span class="op">,</span> lastErr<span class="op">)</span></span>
+<span id="cb17-6"><a aria-hidden="true" href="#cb17-6" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-7"><a aria-hidden="true" href="#cb17-7" tabindex="-1"></a>    <span class=
+"cf">return</span> doWork<span class="op">(</span>ctx<span class="op">)</span></span>
+<span id="cb17-8"><a aria-hidden="true" href="#cb17-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                The long-running lock case is where context-as-wire gets genuinely powerful. When you use
+                <code>WithUnique</code> for example, with a renewable locker, the wrapper injects a “touch” capability
+                into the context. Your job can then extend its own lease mid-execution by calling
+                <code>TouchLock</code> all without knowing anything about the locker implementation, the key, or the
+                token:
+              </p>
+
+              <div class="sourceCode" id="cb18">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb18-1"><a aria-hidden="true" href=
+                "#cb18-1" tabindex="-1"></a><span class="kw">func</span> indexLargeDataset<span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb18-2"><a aria-hidden="true" href="#cb18-2" tabindex="-1"></a>    <span class="cf">for</span> _<span class=
+"op">,</span> batch <span class="op">:=</span> <span class="kw">range</span> batches <span class="op">{</span></span>
+<span id="cb18-3"><a aria-hidden="true" href="#cb18-3" tabindex="-1"></a>        <span class=
+"cf">if</span> err <span class="op">:=</span> processBatch<span class="op">(</span>ctx<span class=
+"op">,</span> batch<span class="op">);</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class=
+"op">{</span></span>
+<span id="cb18-4"><a aria-hidden="true" href="#cb18-4" tabindex="-1"></a>            <span class=
+"cf">return</span> err</span>
+<span id="cb18-5"><a aria-hidden="true" href="#cb18-5" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb18-6"><a aria-hidden="true" href="#cb18-6" tabindex="-1"></a></span>
+<span id="cb18-7"><a aria-hidden="true" href="#cb18-7" tabindex="-1"></a>        <span class=
+"co">// Extend the lock after each batch so we don't lose ownership</span></span>
+<span id="cb18-8"><a aria-hidden="true" href="#cb18-8" tabindex="-1"></a>        <span class=
+"co">// on a long run. TouchLock is a no-op if no renewable lock is present.</span></span>
+<span id="cb18-9"><a aria-hidden="true" href="#cb18-9" tabindex="-1"></a>        <span class=
+"co">// Add two minutes to the lock duration.</span></span>
+<span id="cb18-10"><a aria-hidden="true" href="#cb18-10" tabindex="-1"></a>        <span class=
+"cf">if</span> err <span class="op">:=</span> cq<span class="op">.</span>TouchLock<span class=
+"op">(</span>ctx<span class="op">,</span> <span class="dv">2</span><span class="op">*</span>time<span class=
+"op">.</span>Minute<span class="op">);</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class=
+"op">{</span></span>
+<span id="cb18-11"><a aria-hidden="true" href="#cb18-11" tabindex="-1"></a>            <span class=
+"cf">if</span> errors<span class="op">.</span>Is<span class="op">(</span>err<span class="op">,</span> cq<span class=
+"op">.</span>ErrUniqueLeaseLost<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-12"><a aria-hidden="true" href="#cb18-12" tabindex="-1"></a>                <span class=
+"cf">return</span> fmt<span class="op">.</span>Errorf<span class="op">(</span><span class=
+"st">"lock lost mid-run, aborting: %w"</span><span class="op">,</span> err<span class="op">)</span></span>
+<span id="cb18-13"><a aria-hidden="true" href="#cb18-13" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb18-14"><a aria-hidden="true" href="#cb18-14" tabindex="-1"></a>            <span class=
+"co">// ErrTouchLockUnavailable means we weren't run under WithUnique... fine.</span></span>
+<span id="cb18-15"><a aria-hidden="true" href="#cb18-15" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb18-16"><a aria-hidden="true" href="#cb18-16" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-17"><a aria-hidden="true" href="#cb18-17" tabindex="-1"></a>    <span class=
+"cf">return</span> <span class="ot">nil</span></span>
+<span id="cb18-18"><a aria-hidden="true" href="#cb18-18" tabindex="-1"></a><span class=
+"op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                <code>WithUnique</code> wired the touch capability in. <code>TouchLock</code> reads it out. The job
+                itself has zero coupling to how the lock works.
+              </p>
+
+              <p>
+                The same pattern applies to deferred re-enqueueing. When running under <code>WithReleaseSelf</code>, a
+                job can ask to be re-queued with a dynamic delay, say, whatever the upstream service’s
+                <code>Retry-After</code> header tells you, by calling <code>RequestRelease</code>:
+              </p>
+
+              <div class="sourceCode" id="cb19">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb19-1"><a aria-hidden="true" href=
+                "#cb19-1" tabindex="-1"></a><span class="kw">func</span> callRateLimitedAPI<span class=
+                "op">(</span>ctx context<span class="op">.</span>Context<span class="op">)</span> <span class=
+                "dt">error</span> <span class="op">{</span></span>
+<span id="cb19-2"><a aria-hidden="true" href="#cb19-2" tabindex="-1"></a>    resp<span class=
+"op">,</span> err <span class="op">:=</span> apiClient<span class="op">.</span>Call<span class=
+"op">(</span>ctx<span class="op">)</span></span>
+<span id="cb19-3"><a aria-hidden="true" href="#cb19-3" tabindex="-1"></a>    <span class=
+"cf">if</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
+<span id="cb19-4"><a aria-hidden="true" href="#cb19-4" tabindex="-1"></a>        <span class=
+"cf">return</span> err</span>
+<span id="cb19-5"><a aria-hidden="true" href="#cb19-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-6"><a aria-hidden="true" href="#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a aria-hidden="true" href="#cb19-7" tabindex="-1"></a>    <span class=
+"cf">if</span> resp<span class="op">.</span>StatusCode <span class="op">==</span> http<span class=
+"op">.</span>StatusTooManyRequests <span class="op">{</span></span>
+<span id="cb19-8"><a aria-hidden="true" href="#cb19-8" tabindex="-1"></a>        retryAfter <span class=
+"op">:=</span> parseRetryAfter<span class="op">(</span>resp<span class="op">.</span>Header<span class=
+"op">)</span></span>
+<span id="cb19-9"><a aria-hidden="true" href="#cb19-9" tabindex="-1"></a>        cq<span class=
+"op">.</span>RequestRelease<span class="op">(</span>ctx<span class="op">,</span> retryAfter<span class=
+"op">)</span> <span class="co">// Defer re-enqueue, free the worker.</span></span>
+<span id="cb19-10"><a aria-hidden="true" href="#cb19-10" tabindex="-1"></a>        <span class=
+"cf">return</span> <span class="ot">nil</span></span>
+<span id="cb19-11"><a aria-hidden="true" href="#cb19-11" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-12"><a aria-hidden="true" href="#cb19-12" tabindex="-1"></a></span>
+<span id="cb19-13"><a aria-hidden="true" href="#cb19-13" tabindex="-1"></a>    <span class=
+"cf">return</span> process<span class="op">(</span>ctx<span class="op">,</span> resp<span class="op">)</span></span>
+<span id="cb19-14"><a aria-hidden="true" href="#cb19-14" tabindex="-1"></a><span class=
+"op">}</span></span></code></pre>
+              </div>
+
+              <p>
+                Again: the job doesn’t know what queue it’s on, how the re-enqueue works, or whether
+                <code>WithReleaseSelf</code> is even present. It makes a request through context and the wrapper
+                honours it if it can.
+              </p>
+
+              <p>
+                This is the real payoff of the composition model. Each wrapper is responsible for what it injects. The
+                job (and any inner wrapper) is free to consume those capabilities without coupling. You can write
+                custom wrappers that inject their own values the same way, a database transaction, a telemetry span, a
+                per-tenant rate limiter, and anything downstream just reads from context. The stack stays clean because
+                nobody has to know the whole picture.
+              </p>
+
+              <h2 id="where-the-tradeoff-shows-up">
+                Where the tradeoff shows up
+              </h2>
+
+              <p>
+                Composition is not free. There is one thing you have to understand: <strong>wrapper order
+                matters</strong>.
+              </p>
+
+              <p>
+                <code>WithOutcome</code> wrapping <code>WithRetry</code> wrapping <code>WithTimeout</code> behaves
+                differently from the reverse. The outermost wrapper runs first, sees the result last, and has the final
+                say on what gets returned.
+              </p>
+
+              <p>
+                In a configuration model, the library controls execution order for you. You set flags and it
+                orchestrates. You don’t need to think about it, but you also can’t change it.
+              </p>
+
+              <p>
+                With composition, you have full control over the order, and you are responsible for getting it right.
+                In practice, the pattern is consistent enough that it becomes intuitive quickly: outermost is what you
+                want to <em>react to the result</em>, innermost is what you want to <em>constrain the run</em>. Outcome
+                observation goes outside, timeout goes inside.
+              </p>
+
+              <p>
+                That is visible complexity rather than hidden complexity, which I’ll take every time.
+              </p>
+
+              <h2 id="the-shape-of-it">
+                The shape of it
+              </h2>
+
+              <p>
+                Most queue libraries make a bargain with you: configure your behaviour upfront, and the library will
+                handle it consistently. It is a reasonable bargain. It works for the common case and reduces
+                boilerplate.
+              </p>
+
+              <p>
+                <code>cq</code> makes a different bargain: keep jobs as plain functions, keep wrappers as plain
+                functions, and let you build exactly the behaviour you need by composing them. Middleware and hooks
+                extend that to the queue level without breaking the model. There is more you need to understand
+                upfront, and what you trade for that is a library that never boxes you in.
+              </p>
+
+              <p>
+                When you hit the case the library didn’t anticipate, such as a <code>Retry-After</code> header that
+                should control re-enqueue delay, a dynamic rate limit that varies per tenant, a circuit breaker that
+                should fire independently per downstream service… then you don’t reach for a plugin or a workaround.
+                You just write a wrapper. <strong>It is just a function.</strong>
+              </p>
+
+              <h2 id="not-for-everyone">
+                Not for everyone
+              </h2>
+
+              <p>
+                I want to be honest about this: <code>cq</code> is not a general-purpose answer to background
+                processing. It is my answer, to a pattern I kept running into, built up over years of hitting the edges
+                of libraries that were otherwise perfectly good.
+              </p>
+
+              <p>
+                If Sidekiq fits your Rails app, use Sidekiq. If Celery is already running your Python workers, there is
+                no reason to jump ship. These are mature, widely understood tools with large communities and years of
+                production hardening behind them.
+              </p>
+
+              <p>
+                <code>cq</code> exists because I work in Go, I wanted the composition model specifically, and I wanted
+                to own the full thing from the inside out… not as a platform, but as a package that fits cleanly into
+                the projects I actually build. It started small, grew as real problems required it, and reflects the
+                kind of background processing I find myself doing repeatedly: Go services, moderate scale, lots of edge
+                cases around retries and rate limits and overlap prevention.
+              </p>
+
+              <p>
+                If that matches your context, I hope it is useful. If it doesn’t, use what fits. The best tool is the
+                one that stops being the thing you’re thinking about.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section aria-labelledby="appendix-heading" class="tab tab--appendix">
+        <h2 class="tab__title tab__title--short tab__title--moss" id="appendix-heading">
+          Appendix
+        </h2>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container content-container--appendix">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/cq-why-composition/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/cq-why-composition/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href="#"
+                onclick="window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+    <script src="/assets/scripts/theme.js"></script>
+  </body>
+</html>
