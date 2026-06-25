@@ -10,26 +10,31 @@
    Displaying golang entries sorted by creation date in descending order.
      * $>
 
-[9]cq release updates
+[9]Why composition over configuration for cq?
+       Jun 24, 2026
+       20KB
+     * $>
+
+[10]cq release updates
        Apr 30, 2026
        1.5KB
      * $>
 
-[10]Introducing cq
+[11]Introducing cq
        Feb 11, 2026
        12KB
      * $>
 
-[11]Shopify value objects for Go
+[12]Shopify value objects for Go
        Jul 15, 2025
        8.8KB
      * $>
 
-[12]Keeping goroutines under Shopify API limits
+[13]Keeping goroutines under Shopify API limits
        Apr 10, 2025
        15KB
 
-   [13]< Categories  |  [14]< Home
+   [14]< Categories  |  [15]< Home
      *
      *
      *
@@ -49,9 +54,10 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///more-cq-updates
-  10. file:///new-cq-release
-  11. file:///shopify-value-objects-go
-  12. file:///handling-shopify-api-limits-goroutines
-  13. file:///category
-  14. file:///
+   9. file:///cq-why-composition
+  10. file:///more-cq-updates
+  11. file:///new-cq-release
+  12. file:///shopify-value-objects-go
+  13. file:///handling-shopify-api-limits-goroutines
+  14. file:///category
+  15. file:///

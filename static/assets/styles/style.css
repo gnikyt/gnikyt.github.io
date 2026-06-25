@@ -47,7 +47,7 @@
   --content-subtle-color: #173b47;
 
   --font-color: #9aa9aa;
-  --font-color-reverse: #b9c2c1;
+  --font-color-reverse: #d4dcdc;
 
   --color-muted: #1c414c;
   --color-grey-light: #214651;
@@ -69,7 +69,7 @@
   --nav-paper-color: #b7aea0;
   --nav-paper-background: rgb(183 174 160 / 10%);
   --index-icon-color: #a97860;
-  --link-color: #9fb8bd;
+  --link-color: #b8d0d5;
   --link-hover-color: var(--color-gold);
   --link-underline-color: rgb(159 184 189 / 58%);
   --inset-highlight: rgb(147 161 161 / 12%);
@@ -79,7 +79,7 @@
   --syntax-blue: #84a5ac;
   --syntax-teal: #7d9fa6;
   --syntax-green: #879675;
-  --syntax-muted: #607b81;
+  --syntax-muted: #728d94;
   --syntax-orange: #cf8c66;
   --syntax-purple: #9b91ad;
   --syntax-text: #aab6b6;
@@ -158,7 +158,11 @@ ol[role='list'] {
 body {
   min-height: 100vh;
   line-height: 1.5;
-  background-image: none;
+  background-image:
+    radial-gradient(circle at top left, rgb(125 159 166 / 6%), transparent 40%),
+    radial-gradient(circle at top right, rgb(135 150 117 / 4%), transparent 30%),
+    linear-gradient(180deg, #0b2e3a 0%, #0a2a35 30%, var(--background-color) 100%);
+  background-attachment: fixed;
 }
 
 html[data-theme="day"] body {
@@ -310,7 +314,7 @@ html[data-theme="day"] .theme-shell::before {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 5px solid var(--font-color);
+  border: 5px solid var(--color-blue);
   box-shadow: 0 12px 24px var(--shadow-strong-color);
 }
 
@@ -871,7 +875,7 @@ code.sourceCode {
 .post h5,
 .post h6 {
   font-weight: normal;
-  color: var(--color-navy);
+  color: var(--font-color-reverse);
 }
 
 .post p img {

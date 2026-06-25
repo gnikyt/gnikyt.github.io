@@ -219,7 +219,7 @@ process_posts() {
     else
       # Home entry.
       HOME_ENTRIES="${HOME_ENTRIES}${NEWLINE}${PARSED_TPL}"
-    fi   
+    fi
 
     # Get categories to assign to category entries.
     if [[ -n "$CATEGORY" && "$CATEGORY" != "" ]]; then
@@ -624,12 +624,10 @@ process_sitemap() {
   echo -e "Completed\n"
 }
 
-# create_highlight will use Pandoc to generate the CSS for highlighting code.
+# create_highlight is a no-op; highlight.css is maintained manually with CSS variables
+# for theme-aware (dark/light) syntax highlighting.
 create_highlight() {
-  echo "Generating highlighting..."
-  CSS=$(highlight)
-  echo "$CSS" > static/assets/styles/highlight.css
-  echo -e "Completed\n"
+  echo "Highlighting CSS is custom — skipping Pandoc generation"
 }
 
 # tidy_markup will tidy the HTML and XML.
@@ -690,7 +688,7 @@ main() {
   process_categories
   process_rss
   process_sitemap
-  create_highlight
+  # create_highlight
   tidy_markup
 
   # Copy static files to docs.

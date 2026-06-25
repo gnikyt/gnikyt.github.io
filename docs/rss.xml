@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Why composition over configuration for cq?</title>
+      <link>https://gnikyt.com/cq-why-composition</link>
+      <description># Why Why is `cq` is built around composition, not configuration? Most job queue libraries ask you
+      to configure behaviour. `cq` asks y...</description>
+      <guid isPermLink="true">https://gnikyt.com/cq-why-composition</guid>
+      <pubDate>2026-06-24T07:58:12+0000</pubDate>
+      <archived></archived>
+      <category>golang</category>
+    </item>
+    <item>
       <title>Building my own productivity setup with AI</title>
       <link>https://gnikyt.com/building-my-own-productivity-setup-with-ai</link>
       <description>For a long time, productivity tools have felt a little difficult to me. The tools either did too

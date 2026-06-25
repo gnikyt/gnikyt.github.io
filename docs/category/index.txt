@@ -9,7 +9,7 @@
 
    Displaying all categories with their post count.
      * [9]#cmd 9 posts
-     * [10]#golang 4 posts
+     * [10]#golang 5 posts
      * [11]#javascript 8 posts
      * [12]#laravel 7 posts
      * [13]#php 16 posts
