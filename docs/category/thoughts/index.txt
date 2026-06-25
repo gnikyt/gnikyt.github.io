@@ -11,31 +11,36 @@
    order.
      * $>
 
-[9]Building my own productivity setup with AI
+[9]Invisible mentoring
+       Jun 25, 2026
+       6.5KB
+     * $>
+
+[10]Building my own productivity setup with AI
        Jun 01, 2026
        8.0KB
      * $>
 
-[10]The quiet bloat of AI documentation
+[11]The quiet bloat of AI documentation
        Apr 05, 2026
        3.6KB
      * $>
 
-[11]Letting work be less emotionally expensive
+[12]Letting work be less emotionally expensive
        Feb 25, 2026
        5.3KB
      * $>
 
-[12]The web got boring, didn't it?
+[13]The web got boring, didn't it?
        Jul 21, 2025
        3.1KB
      * $>
 
-[13]Working with LFL on something new
+[14]Working with LFL on something new
        Nov 15, 2022
        6.0KB
 
-   [14]< Categories  |  [15]< Home
+   [15]< Categories  |  [16]< Home
      *
      *
      *
@@ -55,10 +60,11 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///building-my-own-productivity-setup-with-ai
-  10. file:///overloaded-ai-documentation
-  11. file:///removing-emotion-from-work
-  12. file:///the-lost-web
-  13. file:///archive/joint-venture-lfl
-  14. file:///category
-  15. file:///
+   9. file:///invisible-mentoring
+  10. file:///building-my-own-productivity-setup-with-ai
+  11. file:///overloaded-ai-documentation
+  12. file:///removing-emotion-from-work
+  13. file:///the-lost-web
+  14. file:///archive/joint-venture-lfl
+  15. file:///category
+  16. file:///

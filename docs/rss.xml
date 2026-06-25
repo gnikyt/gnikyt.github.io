@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Invisible mentoring</title>
+      <link>https://gnikyt.com/invisible-mentoring</link>
+      <description>I've been building software for about 25 years now. Somewhere in that time, without really planning
+      for it, I became a person people cam...</description>
+      <guid isPermLink="true">https://gnikyt.com/invisible-mentoring</guid>
+      <pubDate>2026-06-25T12:10:58+0000</pubDate>
+      <archived></archived>
+      <category>thoughts</category>
+    </item>
+    <item>
       <title>Why composition over configuration for cq?</title>
       <link>https://gnikyt.com/cq-why-composition</link>
       <description># Why Why is `cq` is built around composition, not configuration? Most job queue libraries ask you

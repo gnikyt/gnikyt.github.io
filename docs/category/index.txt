@@ -21,7 +21,7 @@
      * [19]#sinatra 2 posts
      * [20]#symfony 2 posts
      * [21]#testing 4 posts
-     * [22]#thoughts 5 posts
+     * [22]#thoughts 6 posts
      * [23]#vuejs 1 post
      * [24]#wordpress 7 posts
 
