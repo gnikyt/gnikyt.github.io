@@ -11,36 +11,41 @@
    order.
      * $>
 
-[9]Invisible mentoring
+[9]Developer supports are important
+       Aug 05, 2026
+       9.4KB
+     * $>
+
+[10]Invisible mentoring
        Jun 25, 2026
        6.5KB
      * $>
 
-[10]Building my own productivity setup with AI
+[11]Building my own productivity setup with AI
        Jun 01, 2026
        8.0KB
      * $>
 
-[11]The quiet bloat of AI documentation
+[12]The quiet bloat of AI documentation
        Apr 05, 2026
        3.6KB
      * $>
 
-[12]Letting work be less emotionally expensive
+[13]Letting work be less emotionally expensive
        Feb 25, 2026
        5.3KB
      * $>
 
-[13]The web got boring, didn't it?
+[14]The web got boring, didn't it?
        Jul 21, 2025
        3.1KB
      * $>
 
-[14]Working with LFL on something new
+[15]Working with LFL on something new
        Nov 15, 2022
        6.0KB
 
-   [15]< Categories  |  [16]< Home
+   [16]< Categories  |  [17]< Home
      *
      *
      *
@@ -60,11 +65,12 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///invisible-mentoring
-  10. file:///building-my-own-productivity-setup-with-ai
-  11. file:///overloaded-ai-documentation
-  12. file:///removing-emotion-from-work
-  13. file:///the-lost-web
-  14. file:///archive/joint-venture-lfl
-  15. file:///category
-  16. file:///
+   9. file:///developer-supports-are-important
+  10. file:///invisible-mentoring
+  11. file:///building-my-own-productivity-setup-with-ai
+  12. file:///overloaded-ai-documentation
+  13. file:///removing-emotion-from-work
+  14. file:///the-lost-web
+  15. file:///archive/joint-venture-lfl
+  16. file:///category
+  17. file:///

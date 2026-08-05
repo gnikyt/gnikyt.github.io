@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Developer supports are important</title>
+      <link>https://gnikyt.com/developer-supports-are-important</link>
+      <description>A webhook that can fire twice. A job that needs to back off and retry instead of hammering an
+      endpoint after a timeout. An API that rate...</description>
+      <guid isPermLink="true">https://gnikyt.com/developer-supports-are-important</guid>
+      <pubDate>2026-08-05T08:31:20+0000</pubDate>
+      <archived></archived>
+      <category>thoughts</category>
+    </item>
+    <item>
       <title>Invisible mentoring</title>
       <link>https://gnikyt.com/invisible-mentoring</link>
       <description>I've been building software for about 25 years now. Somewhere in that time, without really planning
