@@ -22,7 +22,7 @@ This is fine for a while. Small clients don't ask hard questions. A junior dev c
 
 Enterprise clients change the math. They have their own technical people. They ask exactly the questions your undocumented, one-off infrastructure can't answer well: how do you handle retries, what happens on a duplicate webhook, how do you rate-limit against our API, what's your test coverage look like, how are you tracking requests in and ensuring its completed, how are we handling races, X condition, Y condition, and so on. They are well versed and expect infrastructure and core architecture to exist and when the honest answer is "depends which developer built it, and there's no doc for it," that's not a small embarrassment at all... that's a credibility problem, live, on a call, with the client deciding whether to keep going or not.
 
-I've sat on those calls. More than once in my career. It's not fun, and it's avoidable. For many years I've consulted teams on how to avoid this, but your voice can only reach so far.
+I've sat on those calls. More than once in my career. It's not fun, and it's avoidable. For many years I've consulted teams on exactly how to avoid this by starting with an internal discovery.
 
 The cost shows up in a few predictable ways:
 

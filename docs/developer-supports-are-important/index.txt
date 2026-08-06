@@ -68,8 +68,8 @@ Where it actually breaks
    call, with the client deciding whether to keep going or not.
 
    I've sat on those calls. More than once in my career. It's not fun, and
-   it's avoidable. For many years I've consulted teams on how to avoid
-   this, but your voice can only reach so far.
+   it's avoidable. For many years I've consulted teams on exactly how to
+   avoid this by starting with an internal discovery.
 
    The cost shows up in a few predictable ways:
      * The same integration problem gets re-solved from scratch by a
