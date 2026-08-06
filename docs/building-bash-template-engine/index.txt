@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                    Building a tiny template engine in Bash /
 
    May 22, 2025  --  4.1KB
-   [9]#cmd
+   [1]#cmd
 
    Earlier this year I migrated my blog away from Jekyll because it was
    such a large setup for such a small blog to maintain. I wanted
@@ -67,7 +60,7 @@
        run specific functions to replace the input contents with the
        parsed contents
 
-   [10]I built a library to handle this called be.
+   [2]I built a library to handle this called be.
 
    Example usage, with custom functions and filters:
 #!/bin/bash
@@ -140,45 +133,11 @@ echo "$TPL" | be
     Won't be processed: {{NAME}}
 
    BASH is definately not the best solution for a template engine,
-   however, you can view the entire solution on [11]here and modify for
+   however, you can view the entire solution on [3]here and modify for
    your needs.
-
-Anchors
-
-     * [1] [12]github.com/gnikyt/be /^
-     * [2] [13]githuib.com/gnikyt/be/tree/master/be /^
-
-Appendix
-
-   Copyright under [14]CC-4.0.
-
-   Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
 
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/cmd
-  10. https://github.com/gnikyt/be
-  11. https://githuib.com/gnikyt/be/tree/master/be
-  12. https://github.com/gnikyt/be
-  13. https://githuib.com/gnikyt/be/tree/master/be
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///building-bash-template-engine/index.md
-  16. file:///building-bash-template-engine/index.txt
+   1. /category/cmd
+   2. https://github.com/gnikyt/be
+   3. https://githuib.com/gnikyt/be/tree/master/be

@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                        Developer supports are important /
 
    Aug 05, 2026  --  9.4KB
-   [9]#thoughts
+   [1]#thoughts
 
    A webhook that can fire twice. A job that needs to back off and retry
    instead of hammering an endpoint after a timeout. An API that
@@ -193,33 +186,6 @@ They're not actually competing
    or you'll end up rebuilding it later, under worse conditions, with a
    client watching.
 
-Appendix
-
-   Copyright under [10]CC-4.0.
-
-   Available in the following alternative formats:
-   [11]MD  /  [12]TXT  /  [13]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/thoughts
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///developer-supports-are-important/index.md
-  12. file:///developer-supports-are-important/index.txt
+   1. /category/thoughts

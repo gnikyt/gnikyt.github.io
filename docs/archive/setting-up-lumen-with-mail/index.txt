@@ -1,18 +1,11 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                            Adding a mailer to Lumen /
 
    Nov 19, 2017  --  5.3KB
-   [9]#php [10]#laravel
+   [1]#php [2]#laravel
 
 What is Lumen
 
-   [11]Lumen is a micro-framework built by Laravel. Its geared towards
+   [3]Lumen is a micro-framework built by Laravel. Its geared towards
    small services like APIs, job handling, or very small projects. Laravel
    is all-inclusive, whereas Lumen is more bare-bones but moderately
    featured; however, it doesn't feel as lean as something like Slim.
@@ -170,7 +163,7 @@ Mail::send(
 );
 
    If you're queuing mail, replace send with queue. You can also see
-   [12]Laravel's mail documentation for more information on sending.
+   [4]Laravel's mail documentation for more information on sending.
 
 Testing
 
@@ -199,54 +192,16 @@ class WinningsMailTest extends TestCase
 }
 
    Running the tests should pass if everything is set up correctly. For
-   more information on testing mailables, see [13]Laravel's documentation
+   more information on testing mailables, see [5]Laravel's documentation
    on faking.
 
    I hope this was a quick and useful setup for anyone having issues. Good
    luck!
 
-Anchors
-
-     * [1] [14]lumen.laravel.com/ /^
-     * [2] [15]laravel.com/docs/5.5/mail#sending-mail /^
-     * [3] [16]laravel.com/docs/5.5/mocking#mail-fake /^
-
-Appendix
-
-   This post is 8 years old and may contain outdated information.
-
-   Copyright under [17]CC-4.0.
-
-   Available in the following alternative formats:
-   [18]MD  /  [19]TXT  /  [20]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/php
-  10. file:///category/laravel
-  11. https://lumen.laravel.com/
-  12. https://laravel.com/docs/5.5/mail#sending-mail
-  13. https://laravel.com/docs/5.5/mocking#mail-fake
-  14. https://lumen.laravel.com/
-  15. https://laravel.com/docs/5.5/mail#sending-mail
-  16. https://laravel.com/docs/5.5/mocking#mail-fake
-  17. https://creativecommons.org/licenses/by/4.0/
-  18. file:///setting-up-lumen-with-mail/index.md
-  19. file:///setting-up-lumen-with-mail/index.txt
+   1. /category/php
+   2. file:///category/laravel
+   3. https://lumen.laravel.com/
+   4. https://laravel.com/docs/5.5/mail#sending-mail
+   5. https://laravel.com/docs/5.5/mocking#mail-fake

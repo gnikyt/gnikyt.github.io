@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                         Single-field errors in Symfony /
 
    Dec 12, 2013  --  960B
-   [9]#symfony [10]#php
+   [1]#symfony [2]#php
 
    This is just a quick tid-bit/how-to!
 
@@ -31,36 +24,7 @@
 
    Just replace field_name with the field name you wish to use!
 
-Appendix
-
-   This post is 12 years old and may contain outdated information.
-
-   Copyright under [11]CC-4.0.
-
-   Available in the following alternative formats:
-   [12]MD  /  [13]TXT  /  [14]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/symfony
-  10. file:///category/php
-  11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///get-single-field-error-in-symfony/index.md
-  13. file:///get-single-field-error-in-symfony/index.txt
+   1. /category/symfony
+   2. file:///category/php

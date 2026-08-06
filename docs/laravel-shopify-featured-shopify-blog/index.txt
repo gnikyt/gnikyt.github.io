@@ -1,20 +1,13 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                    Laravel Shopify got featured by Shopify /
 
    Mar 04, 2021  --  1.7KB
-   [9]#shopify [10]#php [11]#laravel
+   [1]#shopify [2]#php [3]#laravel
 
    A couple of weeks ago, Liam Griffin at Shopify reached out to me about
    the Laravel Shopify package, interested in featuring it on Shopify's
    development blog with other community-built tools.
 
-   You can view the article [12]here at Shopify's blog, Laravel Shopify is
+   You can view the article [4]here at Shopify's blog, Laravel Shopify is
    the second mentioned package.
 
      This is a Laravel package that integrates with Shopify's REST and
@@ -44,43 +37,9 @@
    Thank you Liam for the opportunity to share the package with your
    readers!
 
-Anchors
-
-     * [1] [13]www.shopify.com/partners/blog/api-tools /^
-
-Appendix
-
-   This post is 5 years old and may contain outdated information.
-
-   Copyright under [14]CC-4.0.
-
-   Available in the following alternative formats:
-   [15]MD  /  [16]TXT  /  [17]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/shopify
-  10. file:///category/php
-  11. file:///category/laravel
-  12. https://www.shopify.com/partners/blog/api-tools
-  13. https://www.shopify.com/partners/blog/api-tools
-  14. https://creativecommons.org/licenses/by/4.0/
-  15. file:///laravel-shopify-featured-shopify-blog/index.md
-  16. file:///laravel-shopify-featured-shopify-blog/index.txt
+   1. /category/shopify
+   2. file:///category/php
+   3. file:///category/laravel
+   4. https://www.shopify.com/partners/blog/api-tools

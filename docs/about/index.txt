@@ -1,10 +1,3 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                                     About /
 
    Headshot Headshot
@@ -32,8 +25,8 @@
    Shopify... an industry that presents some of the greatest complexities
    in technical implementations and solution engineering.
 
-   You can reach me several ways -- through [9]me@gnikyt.com, with
-   [10]Github, or connect on [11]LinkedIn.
+   You can reach me several ways -- through [1]me@gnikyt.com, with
+   [2]Github, or connect on [3]LinkedIn.
 
 My Rundown
 
@@ -47,61 +40,34 @@ My Rundown
 
 Pinned Open Source
 
-   View [12]my Github for more.
-     * [13]cq - Golang; A function-based composible queue.
-     * [14]shopifysemaphore - Golang; A Semaphore implementation
-       accounting for GraphQL API limits.
-     * [15]Laravel Shopify - PHP; A full-featured Laravel package for
+   View [4]my Github for more.
+     * [5]cq - Golang; A function-based composible queue.
+     * [6]shopifysemaphore - Golang; A Semaphore implementation accounting
+       for GraphQL API limits.
+     * [7]Laravel Shopify - PHP; A full-featured Laravel package for
        aiding in Shopify App development
-     * [16]Basic Shopify API - PHP; A simple sync/async API wrapper for
+     * [8]Basic Shopify API - PHP; A simple sync/async API wrapper for
        Shopify using Guzzle for REST and GraphQL.
-     * [17]basic_shopify_api - Python; A sync/async REST and GraphQL
-       client for Shopify API using HTTPX.
-     * [18]gowith - Golang; Python's "with" implemented in Go.
-     * [19]with - PHP; Python's "with" implemented in PHP.
-     * [20]http_shopify_webhook - Golang; Webhook verification for
+     * [9]basic_shopify_api - Python; A sync/async REST and GraphQL client
+       for Shopify API using HTTPX.
+     * [10]gowith - Golang; Python's "with" implemented in Go.
+     * [11]with - PHP; Python's "with" implemented in PHP.
+     * [12]http_shopify_webhook - Golang; Webhook verification for
        Shopify.
-     * [21]be - BASH; Template engine in BASH.
-
-Appendix
-
-   Copyright under [22]CC-4.0.
-
-   Additionally available in alternative formats:
-   [23]MD  /  [24]TXT  /  [25]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+     * [13]be - BASH; Template engine in BASH.
 
 References
 
-   1. file:///rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. mailto:me@gnikyt.com
-  10. https://github.com/gnikyt
-  11. https://linkedin.com/in/gnikyt
-  12. https://github.com/gnikyt
-  13. https://github.com/gnikyt/cq
-  14. https://github.com/gnikyt/shopifysemaphore
-  15. https://github.com/gnikyt/laravel-shopify
-  16. https://github.com/gnikyt/Basic-Shopify-API
-  17. https://github.com/gnikyt/basic_shopify_api
-  18. https://github.com/gnikyt/gowith
-  19. https://github.com/gnikyt/with
-  20. https://github.com/gnikyt/http_shopify_webhook
-  21. https://github.com/gnikyt/be
-  22. https://creativecommons.org/licenses/by/4.0/
-  23. file:///about/index.md
-  24. file:///about/index.txt
+   1. mailto:me@gnikyt.com
+   2. https://github.com/gnikyt
+   3. https://linkedin.com/in/gnikyt
+   4. https://github.com/gnikyt
+   5. https://github.com/gnikyt/cq
+   6. https://github.com/gnikyt/shopifysemaphore
+   7. https://github.com/gnikyt/laravel-shopify
+   8. https://github.com/gnikyt/Basic-Shopify-API
+   9. https://github.com/gnikyt/basic_shopify_api
+  10. https://github.com/gnikyt/gowith
+  11. https://github.com/gnikyt/with
+  12. https://github.com/gnikyt/http_shopify_webhook
+  13. https://github.com/gnikyt/be

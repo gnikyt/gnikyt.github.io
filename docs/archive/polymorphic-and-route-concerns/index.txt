@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                       Taming polymorphic routes in Rails /
 
    Jan 01, 2016  --  5.1KB
-   [9]#ruby [10]#rails
+   [1]#ruby [2]#rails
 
    The goal of this post is to outline some tips on easily figuring out
    the parent object for a polymorphic modal/route/controller. Let's start
@@ -16,7 +9,7 @@
 
 Polymorphic
 
-   For those unfamiliar to it, [11]Polymorphic is an Active Record
+   For those unfamiliar to it, [3]Polymorphic is an Active Record
    association type where a model can belong to other models. As a simple
    example, you could have an Ingredient model which can be polymorphic
    and belong to different types of models such as Baking, Cooking, or
@@ -152,44 +145,8 @@ end
    Now when saved, the metafield record in the database will automatically
    set the modal class and the ID for the object.
 
-Anchors
-
-     * [1]
-       [12]http://guides.rubyonrails.org/association_basics.html#polymorph
-       ic-associations /^
-
-Appendix
-
-   This post is 10 years old and may contain outdated information.
-
-   Copyright under [13]CC-4.0.
-
-   Available in the following alternative formats:
-   [14]MD  /  [15]TXT  /  [16]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/ruby
-  10. file:///category/rails
-  11. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-  12. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
-  13. https://creativecommons.org/licenses/by/4.0/
-  14. file:///polymorphic-and-route-concerns/index.md
-  15. file:///polymorphic-and-route-concerns/index.txt
+   1. /category/ruby
+   2. file:///category/rails
+   3. http://guides.rubyonrails.org/association_basics.html#polymorphic-associations

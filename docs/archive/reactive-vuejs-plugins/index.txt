@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                         Making Vue.js plugins reactive /
 
    Jun 29, 2017  --  4.1KB
-   [9]#javascript [10]#vuejs
+   [1]#javascript [2]#vuejs
 
    VueJS has been my go-to framework from building small to medium-sized
    frontend applications and add-ins. Its simply great - easy to develop
@@ -16,12 +9,12 @@
 
 Plugins & Reactivity
 
-   [11]Plugins in Vue, allow you to extract code into a reusable module.
+   [3]Plugins in Vue, allow you to extract code into a reusable module.
    The plugins allow you to create global mixins, methods, properties, and
    more. It has the added benefit of keeping your code modularized, clean,
    and doesn't pollute your app's main instance.
 
-   [12]Reactivity in Vue is simply a way of describing something that
+   [4]Reactivity in Vue is simply a way of describing something that
    watches for changes in state/data and reacts to it. Vue watches for
    changes in data, which in turn causes the component to re-render,
    showing the updated state.
@@ -142,45 +135,9 @@ re.home }} - {{ $SportsTicker.state.score.away }}
    All we needed to do was create our own Vue instance for the plugin to
    store the data, with a simple method to access it (get state).
 
-Anchors
-
-     * [1] [13]vuejs.org/v2/guide/plugins.html /^
-     * [2] [14]vuejs.org/v2/guide/reactivity.html /^
-
-Appendix
-
-   This post is 9 years old and may contain outdated information.
-
-   Copyright under [15]CC-4.0.
-
-   Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/javascript
-  10. file:///category/vuejs
-  11. https://vuejs.org/v2/guide/plugins.html
-  12. https://vuejs.org/v2/guide/reactivity.html
-  13. https://vuejs.org/v2/guide/plugins.html
-  14. https://vuejs.org/v2/guide/reactivity.html
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///reactive-vuejs-plugins/index.md
-  17. file:///reactive-vuejs-plugins/index.txt
+   1. /category/javascript
+   2. file:///category/vuejs
+   3. https://vuejs.org/v2/guide/plugins.html
+   4. https://vuejs.org/v2/guide/reactivity.html

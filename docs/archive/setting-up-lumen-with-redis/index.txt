@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                            Wiring Redis into Lumen /
 
    Nov 19, 2017  --  1.3KB
-   [9]#php [10]#laravel
+   [1]#php [2]#laravel
 
    This is more of an extension of my previous post "Setting Up Lumen +
    Mail". I wanted to take it a step further and show the basic setup for
@@ -51,36 +44,7 @@ QUEUE_DRIVER=redis
 
    That's it! You can now queue mail or process jobs.
 
-Appendix
-
-   This post is 8 years old and may contain outdated information.
-
-   Copyright under [11]CC-4.0.
-
-   Available in the following alternative formats:
-   [12]MD  /  [13]TXT  /  [14]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/php
-  10. file:///category/laravel
-  11. https://creativecommons.org/licenses/by/4.0/
-  12. file:///setting-up-lumen-with-redis/index.md
-  13. file:///setting-up-lumen-with-redis/index.txt
+   1. /category/php
+   2. file:///category/laravel

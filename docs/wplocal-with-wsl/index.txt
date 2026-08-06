@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                          Running WP Local through WSL /
 
    Dec 07, 2023  --  5.6KB
-   [9]#wordpress [10]#php [11]#cmd
+   [1]#wordpress [2]#php [3]#cmd
 
    A recent project was picked up from another agency where they utilized
    WP Engine and WP Local. WP Local can work with WSL, but the provided
@@ -33,7 +26,7 @@ Installation
    for Local (Ubuntu) (in my case), but you can also spawn it through the
    terminal with /usr/bin/local.
 
-   [12]WP Local Running inside WSL
+   [4]WP Local Running inside WSL
 
    Although its open and running, if you immediately tried to connect to
    WP Engine and pull down a project, you'll have displays with errors pop
@@ -41,7 +34,7 @@ Installation
    issues for it to properly configure NGINX.
 
    With a lot of digging around the web to solve both issues... I came
-   across a great post by [13]robert77 on the WP Local Community Forums
+   across a great post by [5]robert77 on the WP Local Community Forums
    which I will outline below.
 
 Fixing Dependencies
@@ -89,7 +82,7 @@ Priviliaged Requests
 
    An example of it running:
 
-   [14]LxQT Sudo GUI
+   [6]LxQT Sudo GUI
 
 NGINX Fix
 
@@ -148,49 +141,11 @@ Conclusion
    Local installation. When previewing the site, WSL even opens your
    default browser (on Windows) just fine.
 
-Anchors
-
-     * [1] [15]/assets/images/posts/wplocal_running.png
-     * [2] [16]community.localwp.com/u/robert77 /^
-     * [3] [17]/assets/images/posts/wplocal_sudo.png
-
-Appendix
-
-   This post is 2 years old and may contain outdated information.
-
-   Copyright under [18]CC-4.0.
-
-   Available in the following alternative formats:
-   [19]MD  /  [20]TXT  /  [21]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/wordpress
-  10. file:///category/php
-  11. file:///category/cmd
-  12. file:///assets/images/posts/wplocal_running.png
-  13. https://community.localwp.com/u/robert77
-  14. file:///assets/images/posts/wplocal_sudo.png
-  15. file:///assets/images/posts/wplocal_running.png
-  16. https://community.localwp.com/u/robert77
-  17. file:///assets/images/posts/wplocal_sudo.png
-  18. https://creativecommons.org/licenses/by/4.0/
-  19. file:///wplocal-with-wsl/index.md
-  20. file:///wplocal-with-wsl/index.txt
+   1. /category/wordpress
+   2. file:///category/php
+   3. file:///category/cmd
+   4. file:///assets/images/posts/wplocal_running.png
+   5. https://community.localwp.com/u/robert77
+   6. file:///assets/images/posts/wplocal_sudo.png

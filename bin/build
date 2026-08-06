@@ -187,8 +187,13 @@ process_posts() {
     echo "$PARSED_TPL" > "$TARGET"/index.html
 
     # Create text versions.
+    # Feed lynx only the <article> block (title, date, size, categories, content)
+    # so the site header/nav and the Appendix section are left out of index.txt.
+    # The extracted fragment has no <meta charset>, so tell lynx it's UTF-8,
+    # otherwise em-dashes and curly quotes come out as mojibake.
     start=$(date +%s%3N)
-    TEXT=$(lynx_text_dump -hiddenlinks=ignore --stdin --dump < "$TARGET"/index.html)
+    TEXT=$(pcregrep -M -o '(?s)<article.*?</article>' "$TARGET"/index.html \
+      | lynx_text_dump -assume_charset=utf-8 -hiddenlinks=ignore --stdin --dump)
     TEXT=${TEXT/file:\/\//}
     echo "$TEXT" > "$TARGET"/index.txt
     cp posts/"$SOURCE" "$TARGET"/index.md
@@ -355,7 +360,11 @@ process_pages() {
       echo "$PARSED_TPL" > "$TARGET"/index.html
 
       # Create text and Markdown versions.
-      TEXT=$(lynx_text_dump --stdin --dump < "$TARGET"/index.html)
+      # As with posts, feed lynx only the <article> block so the site
+      # header/nav and the Appendix section stay out of index.txt. The
+      # fragment has no <meta charset>, so tell lynx it's UTF-8.
+      TEXT=$(pcregrep -M -o '(?s)<article.*?</article>' "$TARGET"/index.html \
+        | lynx_text_dump -assume_charset=utf-8 -hiddenlinks=ignore --stdin --dump)
       echo "$TEXT" > "$TARGET"/index.txt
       cp pages/"$SOURCE" "$TARGET"/index.md
 

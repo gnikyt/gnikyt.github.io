@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                  Making Laravel Shopify work without cookies /
 
    Jun 29, 2021  --  2.8KB
-   [9]#shopify [10]#php [11]#laravel
+   [1]#shopify [2]#php [3]#laravel
 
 This Issue
 
@@ -18,7 +11,7 @@ This Issue
    implementing support for ITP to get around cookie issues. Now, with the
    announcement, that work needed to be scrapped.
 
-   On March 17th, [12]I opened an issue to outline the plan for tackling
+   On March 17th, [4]I opened an issue to outline the plan for tackling
    this new support for session tokens, and remove cookies/ITP. To be
    honest, I expected to tackle the work on my own. However, to my
    surprise, the community as well as Shopify themselves, helped lend a
@@ -39,13 +32,13 @@ Shopify
    proud the package was able to be a part of it!
 
    After a couple quick meetings with their developer advocate team, we
-   settled on [13]offering Shopify swag to gain momentum for anyone in
+   settled on [5]offering Shopify swag to gain momentum for anyone in
    support of closing the issue.
 
    This was a great move for Shopify - getting involved with the community
    open source projects that touch their platform. In addition to the
-   swag, [14]Lucas Michot of Shopify generated a number of pull requests
-   to tighten up the CI, cleaniness, code coverage, and testability of the
+   swag, [6]Lucas Michot of Shopify generated a number of pull requests to
+   tighten up the CI, cleaniness, code coverage, and testability of the
    package.
 
 Community
@@ -80,58 +73,16 @@ Community
 
 What's next?
 
-   You can [15]view the release for v17.0.0. For the package, we will be
+   You can [7]view the release for v17.0.0. For the package, we will be
    watching for upcoming issues and attempting to place back per-user
    authentication support that was in previous versions.
 
-Anchors
-
-     * [1] [16]github.com/gnikyt/laravel-shopify/issues/744 /^
-     * [2]
-       [17]github.com/gnikyt/laravel-shopify/issues/744#issuecomment-86332
-       6966 /^
-     * [3] [18]github.com/lucasmichot /^
-     * [4] [19]github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0 /^
-
-Appendix
-
-   This post is 5 years old and may contain outdated information.
-
-   Copyright under [20]CC-4.0.
-
-   Available in the following alternative formats:
-   [21]MD  /  [22]TXT  /  [23]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/shopify
-  10. file:///category/php
-  11. file:///category/laravel
-  12. https://github.com/gnikyt/laravel-shopify/issues/744
-  13. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
-  14. https://github.com/lucasmichot
-  15. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-  16. https://github.com/gnikyt/laravel-shopify/issues/744
-  17. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
-  18. https://github.com/lucasmichot
-  19. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0
-  20. https://creativecommons.org/licenses/by/4.0/
-  21. file:///laravel-shopify-cookieless/index.md
-  22. file:///laravel-shopify-cookieless/index.txt
+   1. /category/shopify
+   2. file:///category/php
+   3. file:///category/laravel
+   4. https://github.com/gnikyt/laravel-shopify/issues/744
+   5. https://github.com/gnikyt/laravel-shopify/issues/744#issuecomment-863326966
+   6. https://github.com/lucasmichot
+   7. https://github.com/gnikyt/laravel-shopify/releases/tag/v17.0.0

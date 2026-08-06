@@ -1,18 +1,11 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                   Letting work be less emotionally expensive /
 
    Feb 25, 2026  --  5.3KB
-   [9]#thoughts
+   [1]#thoughts
 
    I've been doing development for about 25 years now, which is still wild
    to think about. So much has changed in that time, like I touched on in
-   my previous article, [10]The lost web.
+   my previous article, [2]The lost web.
 
    I honestly think I entered the age of the internet at the perfect time.
    You had no choice but to do the hard work and learn, whether that meant
@@ -110,39 +103,7 @@
    resolution. That balance can make you both a better developer and a
    better person.
 
-Anchors
-
-     * [1] [11]/the-lost-web
-
-Appendix
-
-   Copyright under [12]CC-4.0.
-
-   Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/thoughts
-  10. file:///the-lost-web
-  11. file:///the-lost-web
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///removing-emotion-from-work/index.md
-  14. file:///removing-emotion-from-work/index.txt
+   1. /category/thoughts
+   2. file:///the-lost-web

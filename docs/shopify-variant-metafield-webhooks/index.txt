@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                   Catching Shopify variant metafield updates /
 
    Aug 08, 2025  --  2.0KB
-   [9]#shopify
+   [1]#shopify
 
    When you update a metafield for a customer in Shopify, the Customer
    Update Webhook is triggered. Similarly, updating a product metafield
@@ -46,33 +39,6 @@
    future when a metafield changes, but for now, this workaround solved
    the issue.
 
-Appendix
-
-   Copyright under [10]CC-4.0.
-
-   Available in the following alternative formats:
-   [11]MD  /  [12]TXT  /  [13]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/shopify
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///shopify-variant-metafield-webhooks/index.md
-  12. file:///shopify-variant-metafield-webhooks/index.txt
+   1. /category/shopify

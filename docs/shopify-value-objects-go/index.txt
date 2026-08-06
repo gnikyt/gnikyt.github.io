@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                          Shopify value objects for Go /
 
    Jul 15, 2025  --  8.8KB
-   [9]#golang
+   [1]#golang
 
    An existing project had grown rapidly, resulting in many places where
    IDs were manually extracted from GIDs or formatted into GIDs without
@@ -330,41 +323,9 @@ func SomeFunc(open bool, variantID gid.VariantID) {
 }
 sm := SomeFunc(true, gid.VariantID(129292))
 
-   You can view the package snippet [10]here on Github.
-
-Anchors
-
-     * [1] [11]github.com/gnikyt/shopify-go-value-objects /^
-
-Appendix
-
-   Copyright under [12]CC-4.0.
-
-   Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+   You can view the package snippet [2]here on Github.
 
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/golang
-  10. https://github.com/gnikyt/shopify-go-value-objects
-  11. https://github.com/gnikyt/shopify-go-value-objects
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///shopify-value-objects-go/index.md
-  14. file:///shopify-value-objects-go/index.txt
+   1. /category/golang
+   2. https://github.com/gnikyt/shopify-go-value-objects

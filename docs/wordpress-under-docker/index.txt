@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                        Running WordPress inside Docker /
 
    Jun 15, 2017  --  3.6KB
-   [9]#wordpress [10]#php [11]#cmd
+   [1]#wordpress [2]#php [3]#cmd
 
 Purpose
 
@@ -41,12 +34,12 @@ Directories
 
 Docker
 
-   Next, let's get Docker ready. The simplest way is to use a [12]Docker
+   Next, let's get Docker ready. The simplest way is to use a [4]Docker
    Compose file. It's a simple YML-formatted file that's easy to read for
    anyone.
 
-   Based on [13]WordPress' Offical Image, I've compiled the following
-   docker-compose.yml [14]file you can use.
+   Based on [5]WordPress' Offical Image, I've compiled the following
+   docker-compose.yml [6]file you can use.
 
    Simply replace {YOUR_THEME} with your theme name and save it to the
    root of {your_theme}/ directory.
@@ -104,58 +97,18 @@ Starting...
 
 Further Exploring
 
-   [15]I've set up a repo on Github which contains all I've talked about
+   [7]I've set up a repo on Github which contains all I've talked about
    above plus some extras like a basic Grunt setup for managing asset
    files. Feel free to clone, run docker-compose up, and play around!
 
    I hope this has helped anyone struggling.
 
-Anchors
-
-     * [1] [16]docs.docker.com/compose/ /^
-     * [2] [17]hub.docker.com/_/wordpress/ /^
-     * [3] [18]github.com/gnikyt/wordpress-docker-quickstart /^
-     * [4] [19]github.com/gnikyt/wordpress-docker-quickstart /^
-
-Appendix
-
-   This post is 9 years old and may contain outdated information.
-
-   Copyright under [20]CC-4.0.
-
-   Available in the following alternative formats:
-   [21]MD  /  [22]TXT  /  [23]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/wordpress
-  10. file:///category/php
-  11. file:///category/cmd
-  12. https://docs.docker.com/compose/
-  13. https://hub.docker.com/_/wordpress/
-  14. https://github.com/gnikyt/wordpress-docker-quickstart
-  15. https://github.com/gnikyt/wordpress-docker-quickstart
-  16. https://docs.docker.com/compose/
-  17. https://hub.docker.com/_/wordpress/
-  18. https://github.com/gnikyt/wordpress-docker-quickstart
-  19. https://github.com/gnikyt/wordpress-docker-quickstart
-  20. https://creativecommons.org/licenses/by/4.0/
-  21. file:///wordpress-under-docker/index.md
-  22. file:///wordpress-under-docker/index.txt
+   1. /category/wordpress
+   2. file:///category/php
+   3. file:///category/cmd
+   4. https://docs.docker.com/compose/
+   5. https://hub.docker.com/_/wordpress/
+   6. https://github.com/gnikyt/wordpress-docker-quickstart
+   7. https://github.com/gnikyt/wordpress-docker-quickstart

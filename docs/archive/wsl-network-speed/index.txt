@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                        Chasing down slow WSL networking /
 
    Nov 16, 2021  --  1.8KB
-   [9]#cmd
+   [1]#cmd
 
    Recently, I jumped back into Windows after a few months of Linux and
    FreeBSD. I opted to upgrade to Windows 11 and clean out my system to be
@@ -20,9 +13,9 @@
    Webpack dev server would take upwards of 5 minutes to serve a
    small-to-medium application.
 
-   In digging into it, [10]other people have reported similar issues.
-   Using speedtest-cli, my download was decent but my upload speed was in
-   the 0.5-0.8 mbps range.
+   In digging into it, [2]other people have reported similar issues. Using
+   speedtest-cli, my download was decent but my upload speed was in the
+   0.5-0.8 mbps range.
 
    I decided to try some solutions listed in the issue and here are my
    personal results...
@@ -50,41 +43,7 @@ Potential Solution #2
    was operating normally and speedtest-cli was reporting numbers
    identical to the host machine in both download and upload.
 
-Anchors
-
-     * [1] [11]github.com/microsoft/WSL/issues/4901 /^
-
-Appendix
-
-   This post is 4 years old and may contain outdated information.
-
-   Copyright under [12]CC-4.0.
-
-   Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/cmd
-  10. https://github.com/microsoft/WSL/issues/4901
-  11. https://github.com/microsoft/WSL/issues/4901
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///wsl-network-speed/index.md
-  14. file:///wsl-network-speed/index.txt
+   1. /category/cmd
+   2. https://github.com/microsoft/WSL/issues/4901

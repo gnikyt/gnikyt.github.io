@@ -1,16 +1,9 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                         Making i3 and Plasma play nice /
 
    Aug 28, 2019  --  4.4KB
-   [9]#cmd
+   [1]#cmd
 
-   [10]Cover Image
+   [2]Cover Image
 
 Introduction
 
@@ -45,7 +38,7 @@ Introduction
 
 Setup
 
-   I followed [11]this guide originally with some tweaks. Since I use
+   I followed [3]this guide originally with some tweaks. Since I use
    OpenSUSE, I did the following for my system (slightly different paths):
 # Install i3
 sudo zypper in i3
@@ -79,13 +72,13 @@ Tweaking
    This involves killing off Plasma desktop, telling i3 how to handle
    certain windows/popups/dialogs, and configuring launchers.
 
-   [12].Xresources is a great way to configure cross-compatible settings
+   [4].Xresources is a great way to configure cross-compatible settings
    for cursors, fonts, colors, and more. Mine simply has just that -
    colors, cursors, fonts, and some settings for URxvt (terminal).
 
    You can utilize your Xresources to pull in config values into i3.
 
-   [13]Here is my i3 config, which has pre-defined settings for handling
+   [5]Here is my i3 config, which has pre-defined settings for handling
    the different Plasma windows. I have several standard keybindings
    defined, launchers, and window management. You can go in-depth as you
    like... you can target certain windows/popups/window-titles and more to
@@ -99,7 +92,7 @@ Bars
    You're able to use any "bar" or panel you like with this setup..
    weather it be i3bar, polybar, or plain Plasma panel as I have.
 
-   If you decide to use Plasma panels, definitely install [14]Virtual
+   If you decide to use Plasma panels, definitely install [6]Virtual
    Desktop Bar Widget, its a virtual desktop pager which is configurable
    and simple, and mimics how most other "bars" handle workspaces (its the
    widget in the screenshot above with "web", "code", "mail", etc).
@@ -109,53 +102,11 @@ Conclusion
    Give a try. My dot files for i3 and .Xresources has a good starting
    ground which you can expand upon and enjoy a mouseless experience!
 
-Anchors
-
-     * [1] [15]/assets/images/posts/screenshot.png
-     * [2] [16]ryanlue.com/posts/2019-06-13-kde-i3 /^
-     * [3] [17]github.com/gnikyt/dots/blob/master/.Xresources /^
-     * [4] [18]github.com/gnikyt/dots/blob/master/.config/i3/config /^
-     * [5] [19]store.kde.org/p/1315319/ /^
-
-Appendix
-
-   This post is 6 years old and may contain outdated information.
-
-   Copyright under [20]CC-4.0.
-
-   Available in the following alternative formats:
-   [21]MD  /  [22]TXT  /  [23]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/cmd
-  10. file:///assets/images/posts/screenshot.png
-  11. https://ryanlue.com/posts/2019-06-13-kde-i3
-  12. https://github.com/gnikyt/dots/blob/master/.Xresources
-  13. https://github.com/gnikyt/dots/blob/master/.config/i3/config
-  14. https://store.kde.org/p/1315319/
-  15. file:///assets/images/posts/screenshot.png
-  16. https://ryanlue.com/posts/2019-06-13-kde-i3
-  17. https://github.com/gnikyt/dots/blob/master/.Xresources
-  18. https://github.com/gnikyt/dots/blob/master/.config/i3/config
-  19. https://store.kde.org/p/1315319/
-  20. https://creativecommons.org/licenses/by/4.0/
-  21. file:///i3-plasma-a-solid-match/index.md
-  22. file:///i3-plasma-a-solid-match/index.txt
+   1. /category/cmd
+   2. file:///assets/images/posts/screenshot.png
+   3. https://ryanlue.com/posts/2019-06-13-kde-i3
+   4. https://github.com/gnikyt/dots/blob/master/.Xresources
+   5. https://github.com/gnikyt/dots/blob/master/.config/i3/config
+   6. https://store.kde.org/p/1315319/

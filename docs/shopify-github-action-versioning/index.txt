@@ -1,20 +1,13 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
              Keeping Shopify themes versioned with GitHub Actions /
 
    May 20, 2022  --  2.5KB
-   [9]#shopify [10]#cmd
+   [1]#shopify [2]#cmd
 
    Shopify recently updated their admin panel again and started to display
    the value of theme_version from config/settings_schema.json onto the
    theme listing page. Example (yellow highlight):
 
-   [11]Shopify theme version example
+   [3]Shopify theme version example
 
    With our setup, all our client themes are connected to Github and every
    release gets tagged a version in SYMVER format.
@@ -65,50 +58,14 @@ jobs:
     5. Commit the changes to the schema with a commit message containing
        the version; lines 19-25
 
-   [12]Shopify theme version output example
+   [4]Shopify theme version output example
 
    Hopefully this is a helpful starting point for any other developers
    looking to do the same process.
 
-Anchors
-
-     * [1] [13]/assets/images/posts/shopify-versioning.png
-     * [2] [14]/assets/images/posts/shopify-versioning-github.png
-
-Appendix
-
-   This post is 4 years old and may contain outdated information.
-
-   Copyright under [15]CC-4.0.
-
-   Available in the following alternative formats:
-   [16]MD  /  [17]TXT  /  [18]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/shopify
-  10. file:///category/cmd
-  11. file:///assets/images/posts/shopify-versioning.png
-  12. file:///assets/images/posts/shopify-versioning-github.png
-  13. file:///assets/images/posts/shopify-versioning.png
-  14. file:///assets/images/posts/shopify-versioning-github.png
-  15. https://creativecommons.org/licenses/by/4.0/
-  16. file:///shopify-github-action-versioning/index.md
-  17. file:///shopify-github-action-versioning/index.txt
+   1. /category/shopify
+   2. file:///category/cmd
+   3. file:///assets/images/posts/shopify-versioning.png
+   4. file:///assets/images/posts/shopify-versioning-github.png

@@ -1,16 +1,9 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                      Handling billing in Laravel Shopify /
 
    Jan 26, 2018  --  1012B
-   [9]#shopify [10]#php [11]#laravel
+   [1]#shopify [2]#php [3]#laravel
 
-   Version 2.0.0 was [12]just released which features the baked-in ability
+   Version 2.0.0 was [4]just released which features the baked-in ability
    to turn your Shopify app into a billable app with some simple
    configuration additions.
 
@@ -21,58 +14,17 @@
    You also have to ability to easily upgrade or downgrade a shop's plan,
    enable them as a grandfather (skip billing), and more.
 
-   For full information see the release notes, [13]upgrading doc, and the
-   wiki page for [14]creating a billable app.
+   For full information see the release notes, [5]upgrading doc, and the
+   wiki page for [6]creating a billable app.
 
    Other minor updates include integration with StyleCI to keep coding
    standards within PSR1 and PSR2.
 
-Anchors
-
-     * [1] [15]github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0 /^
-     * [2] [16]github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
-       /^
-     * [3]
-       [17]github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
-       /^
-
-Appendix
-
-   This post is 8 years old and may contain outdated information.
-
-   Copyright under [18]CC-4.0.
-
-   Available in the following alternative formats:
-   [19]MD  /  [20]TXT  /  [21]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/shopify
-  10. file:///category/php
-  11. file:///category/laravel
-  12. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
-  13. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
-  14. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
-  15. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
-  16. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
-  17. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App
-  18. https://creativecommons.org/licenses/by/4.0/
-  19. file:///laravel-shopify-billing/index.md
-  20. file:///laravel-shopify-billing/index.txt
+   1. /category/shopify
+   2. file:///category/php
+   3. file:///category/laravel
+   4. https://github.com/gnikyt/laravel-shopify/releases/tag/v2.0.0
+   5. https://github.com/gnikyt/laravel-shopify/wiki/Upgrading#v1xx--v200
+   6. https://github.com/gnikyt/laravel-shopify/wiki/Creating-a-Billable-App

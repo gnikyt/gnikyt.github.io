@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                                 Introducing cq /
 
    Feb 11, 2026  --  12KB
-   [9]#golang
+   [1]#golang
 
    I intended to write an update about cq since a lot of features have
    been added in recent months, but I realized this is actually the first
@@ -381,41 +374,9 @@ BenchmarkScenarios/10kReq--100Jobs-10                             7    352322048
 BenchmarkSingleSteadyState-10                               3063700        393.4
  ns/op
 
-   GitHub: [10]github.com/gnikyt/cq
-
-Anchors
-
-     * [1] [11]github.com/gnikyt/cq /^
-
-Appendix
-
-   Copyright under [12]CC-4.0.
-
-   Available in the following alternative formats:
-   [13]MD  /  [14]TXT  /  [15]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+   GitHub: [2]github.com/gnikyt/cq
 
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/golang
-  10. https://github.com/gnikyt/cq
-  11. https://github.com/gnikyt/cq
-  12. https://creativecommons.org/licenses/by/4.0/
-  13. file:///new-cq-release/index.md
-  14. file:///new-cq-release/index.txt
+   1. /category/golang
+   2. https://github.com/gnikyt/cq

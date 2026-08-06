@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                Testing Liquid snippets without opening Shopify /
 
    Nov 20, 2022  --  3.9KB
-   [9]#shopify [10]#javascript [11]#testing
+   [1]#shopify [2]#javascript [3]#testing
 
 Introduction
 
@@ -47,7 +40,7 @@ Introduction
 
    We can not unit test Liquid files in the context of a Shopify store
    very easily, which is why I developed a handly tool called
-   [12]liquid-fn-tester to assist with this for our clients.
+   [4]liquid-fn-tester to assist with this for our clients.
 
 How it works
 
@@ -102,7 +95,7 @@ Utilization
    Your test suite will have full control over setup, snippet
    initilization, teardown, output, and more.
 
-   The repository's [13]provided examples is a great guide for how
+   The repository's [5]provided examples is a great guide for how
    everything comes together and how you can test a single snippet against
    multiple values.
    Liquid Fn Example Liquid Fn Example
@@ -111,46 +104,10 @@ Utilization
    Hopefully this tool will continue to grow and is helpful to those who
    are looking to try and test their snippets; both small and complex.
 
-Anchors
-
-     * [1] [14]github.com/gnikyt/liquid-fn-tester /^
-     * [2] [15]github.com/gnikyt/liquid-fn-tester/tree/master/tests /^
-
-Appendix
-
-   This post is 3 years old and may contain outdated information.
-
-   Copyright under [16]CC-4.0.
-
-   Available in the following alternative formats:
-   [17]MD  /  [18]TXT  /  [19]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/shopify
-  10. file:///category/javascript
-  11. file:///category/testing
-  12. https://github.com/gnikyt/liquid-fn-tester
-  13. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
-  14. https://github.com/gnikyt/liquid-fn-tester
-  15. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests
-  16. https://creativecommons.org/licenses/by/4.0/
-  17. file:///shopify-liquid-tester/index.md
-  18. file:///shopify-liquid-tester/index.txt
+   1. /category/shopify
+   2. file:///category/javascript
+   3. file:///category/testing
+   4. https://github.com/gnikyt/liquid-fn-tester
+   5. https://github.com/gnikyt/liquid-fn-tester/tree/master/tests

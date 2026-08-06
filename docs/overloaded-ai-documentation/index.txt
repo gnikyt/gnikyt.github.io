@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
                      The quiet bloat of AI documentation /
 
    Apr 05, 2026  --  3.6KB
-   [9]#thoughts
+   [1]#thoughts
 
 Problem created from a problem
 
@@ -88,33 +81,6 @@ Summary
    The best documentation doesn't prove that work was done. It helps the
    next person do theirs.
 
-Appendix
-
-   Copyright under [10]CC-4.0.
-
-   Available in the following alternative formats:
-   [11]MD  /  [12]TXT  /  [13]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/thoughts
-  10. https://creativecommons.org/licenses/by/4.0/
-  11. file:///overloaded-ai-documentation/index.md
-  12. file:///overloaded-ai-documentation/index.txt
+   1. /category/thoughts

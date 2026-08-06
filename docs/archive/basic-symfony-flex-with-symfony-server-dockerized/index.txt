@@ -1,14 +1,7 @@
-   #[1]gnikyt feed
-
-   [2]gnikyt   /  Code ramblings
-   [3]Ty King
-
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
-
               Running Symfony Flex with Symfony Server in Docker /
 
    Feb 04, 2020  --  5.6KB
-   [9]#symfony [10]#php [11]#cmd
+   [1]#symfony [2]#php [3]#cmd
 
    Symfony Flex allows you to tailor a Symfony application to your needs
    by building it with "recipes". It provides a way to create a very lean
@@ -168,49 +161,13 @@ Conclusion
    That concludes the basic setup to Dockerize a Symfony Flex API
    application.
 
-   For more information on Symfony Flex, [12]click here; or information on
-   Symfony Server, [13]click here.
-
-Anchors
-
-     * [1] [14]symfony.com/doc/current/quick_tour/flex_recipes.html /^
-     * [2] [15]symfony.com/doc/current/setup/symfony_server.html /^
-
-Appendix
-
-   This post is 6 years old and may contain outdated information.
-
-   Copyright under [16]CC-4.0.
-
-   Available in the following alternative formats:
-   [17]MD  /  [18]TXT  /  [19]PDF
-
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+   For more information on Symfony Flex, [4]click here; or information on
+   Symfony Server, [5]click here.
 
 References
 
-   1. /rss.xml
-   2. file:///
-   3. file:///about
-   4. file:///about
-   5. https://github.com/gnikyt
-   6. https://linkedin.com/in/gnikyt
-   7. file:///assets/files/cv.pdf
-   8. file:///rss.xml
-   9. file:///category/symfony
-  10. file:///category/php
-  11. file:///category/cmd
-  12. https://symfony.com/doc/current/quick_tour/flex_recipes.html
-  13. https://symfony.com/doc/current/setup/symfony_server.html
-  14. https://symfony.com/doc/current/quick_tour/flex_recipes.html
-  15. https://symfony.com/doc/current/setup/symfony_server.html
-  16. https://creativecommons.org/licenses/by/4.0/
-  17. file:///basic-symfony-flex-with-symfony-server-dockerized/index.md
-  18. file:///basic-symfony-flex-with-symfony-server-dockerized/index.txt
+   1. /category/symfony
+   2. file:///category/php
+   3. file:///category/cmd
+   4. https://symfony.com/doc/current/quick_tour/flex_recipes.html
+   5. https://symfony.com/doc/current/setup/symfony_server.html
