@@ -119,7 +119,7 @@
             <div class="post__meta content-container content-container--meta">
               <div class="post__details">
                 <time class="post__time" datetime="2026-08-05">Aug 05, 2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class=
-                "post__size">9.4KB</span>
+                "post__size">11KB</span>
               </div>
 
               <div class="post__category">
@@ -315,6 +315,39 @@
                 <li>
                   <strong>Documentation that’s actually current</strong> — not a Slack canvas from two years ago nobody
                   trusts anymore.
+                </li>
+              </ul>
+
+              <p>
+                <strong>Talking to other systems</strong>
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Payload deliverability</strong> — outbound webhooks and callbacks that sign, retry, and
+                  confirm delivery, with a record of what was sent and whether it actually landed, instead of a
+                  fire-and-forget POST nobody notices failed until the client asks where their data went.
+                </li>
+
+                <li>
+                  <strong>Inbound webhook verification</strong> — signature checking, replay protection, and idempotent
+                  processing baked in, not a raw endpoint that trusts whatever hits it and hopes for the best.
+                </li>
+              </ul>
+
+              <p>
+                <strong>Data and config</strong>
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Multi-tenancy isolation</strong> — one client can never see another’s data, enforced, not
+                  per-query diligence that’s one forgotten <code>where</code> clause away from a leak.
+                </li>
+
+                <li>
+                  <strong>Feature flags</strong> — flip behavior per client or roll something out gradually without a
+                  deploy, instead of commenting code in and out or branching on hardcoded conditionals.
                 </li>
               </ul>
 

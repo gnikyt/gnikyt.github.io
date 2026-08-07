@@ -255,4 +255,3 @@ References
    1. /category/shopify
    2. file:///category/javascript
    3. file:///category/testing
-   4. file:///var/folders/bc/vhdfgtbj27v9lczrftwqw5x40000gn/shopify-remix-prisma-and-jest
