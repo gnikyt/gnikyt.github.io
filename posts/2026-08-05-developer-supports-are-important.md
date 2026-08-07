@@ -59,6 +59,16 @@ Not an abstract "engineering culture" thing. Concretely, this is everything a de
 * **Logging and error handling that actually tell you something** — not a bare stack trace three services removed from where the real problem happened. Get some observability and tracing in place.
 * **Documentation that's actually current** — not a Slack canvas from two years ago nobody trusts anymore.
 
+**Talking to other systems**
+
+* **Payload deliverability** — outbound webhooks and callbacks that sign, retry, and confirm delivery, with a record of what was sent and whether it actually landed, instead of a fire-and-forget POST nobody notices failed until the client asks where their data went.
+* **Inbound webhook verification** — signature checking, replay protection, and idempotent processing baked in, not a raw endpoint that trusts whatever hits it and hopes for the best.
+
+**Data and config**
+
+* **Multi-tenancy isolation** — one client can never see another's data, enforced, not per-query diligence that's one forgotten `where` clause away from a leak.
+* **Feature flags** — flip behavior per client or roll something out gradually without a deploy, instead of commenting code in and out or branching on hardcoded conditionals.
+
 **Job and queue handling**
 
 * **Dead-letter handling that's automatic** — jobs that exhaust retries land somewhere visible and inspectable, not silently vanish because nobody wired up a DLQ.
