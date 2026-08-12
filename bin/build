@@ -30,6 +30,8 @@ lynx_text_dump() {
 declare -A LAYOUTS
 
 NEWLINE=$'\n'
+# Site-wide build date, in Apache directory-index format, for the footer.
+BUILD_DATE=$(date +"%d-%b-%Y")
 COUNT=0
 LAYOUT=""
 IS_POST=""

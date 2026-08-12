@@ -3,7 +3,7 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
+   [4]About[5]Github[6]LinkedIn[7]CV[8]XML (BUTTON)
 
                         Index of category / javascript /
 
@@ -60,6 +60,12 @@
      *
      *
 
+
+    This page maintained by the webmaster --
+    [19]me@gnikyt.com  |  [20]Sign my guestbook
+    Last updated 12-Aug-2026. Best viewed in Netscape Navigator 4.0 at
+    800x600.
+
 References
 
    1. file:///rss.xml
@@ -80,3 +86,5 @@ References
   16. file:///archive/reactive-vuejs-plugins
   17. file:///category
   18. file:///
+  19. mailto:me@gnikyt.com
+  20. https://github.com/gnikyt/gnikyt.github.io/issues
