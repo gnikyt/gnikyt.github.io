@@ -3,7 +3,7 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
+   [4]About[5]Github[6]LinkedIn[7]CV[8]XML (BUTTON)
 
                          Index of category / testing /
 
@@ -39,6 +39,12 @@
      *
      *
 
+
+    This page maintained by the webmaster --
+    [15]me@gnikyt.com  |  [16]Sign my guestbook
+    Last updated 18-Aug-2026. Best viewed in Netscape Navigator 4.0 at
+    800x600.
+
 References
 
    1. file:///rss.xml
@@ -55,3 +61,5 @@ References
   12. file:///testing-with-shopify-app
   13. file:///category
   14. file:///
+  15. mailto:me@gnikyt.com
+  16. https://github.com/gnikyt/gnikyt.github.io/issues

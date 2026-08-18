@@ -3,7 +3,7 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
+   [4]About[5]Github[6]LinkedIn[7]CV[8]XML (BUTTON)
 
                           Index of category / react /
 
@@ -29,6 +29,12 @@
      *
      *
 
+
+    This page maintained by the webmaster --
+    [13]me@gnikyt.com  |  [14]Sign my guestbook
+    Last updated 18-Aug-2026. Best viewed in Netscape Navigator 4.0 at
+    800x600.
+
 References
 
    1. file:///rss.xml
@@ -43,3 +49,5 @@ References
   10. file:///generate-type-definitions-without-emitting-js
   11. file:///category
   12. file:///
+  13. mailto:me@gnikyt.com
+  14. https://github.com/gnikyt/gnikyt.github.io/issues

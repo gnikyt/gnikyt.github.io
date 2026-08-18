@@ -463,6 +463,17 @@ html[data-theme="day"] .theme-toggle {
 }
 
 /**
+ * Site footer.
+ */
+.site-foot {
+  font-style: normal;
+  font-size: 0.75em;
+  line-height: 1.6;
+  text-align: right;
+  color: var(--color-grey-dark);
+}
+
+/**
  * Buttons.
  */
 .button {
@@ -641,6 +652,29 @@ html[data-theme="day"] .theme-toggle {
   font-weight: 300;
   font-size: 1.3em;
   color: var(--index-icon-color);
+}
+
+/* Apache-style column headings. Only meaningful once the columns exist at 768px. */
+.index-list .index-list__item--head {
+  display: none;
+}
+
+.index-list .index-list__item--head:hover {
+  background-color: transparent;
+}
+
+/* Match the width of the "$>" icon on real rows so the Name column lines up. */
+.index-list .index-list__item--head .index-list__icon {
+  width: 2ch;
+  line-height: 1;
+}
+
+.index-list .index-list__item--head .index-document__title,
+.index-list .index-list__item--head .index-document__meta {
+  color: var(--color-grey-dark);
+  font-weight: 400;
+  font-size: .8em;
+  line-height: 1.4;
 }
 
 .index-document {
@@ -1171,6 +1205,13 @@ html[data-theme="day"] .post .post__meta + .content-container {
     min-height: 6.125em;
   }
 
+  .index-list .index-list__item--head {
+    display: flex;
+    min-height: unset;
+    padding-top: .55em;
+    padding-bottom: .55em;
+  }
+
   .index-list .index-list__icon {
     position: relative;
     top: 3px;
@@ -1178,7 +1219,8 @@ html[data-theme="day"] .post .post__meta + .content-container {
 
   .index-document {
     column-gap: 2em;
-    grid-template-columns: minmax(0, 1fr) max-content max-content;
+    /* Fixed, not max-content: every row shares one column ruler, like a real index. */
+    grid-template-columns: minmax(0, 1fr) 12ch 7ch;
     grid-template-rows: unset;
   }
 

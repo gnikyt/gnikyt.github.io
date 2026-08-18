@@ -3,7 +3,7 @@
    [2]gnikyt   /  Code ramblings
    [3]Ty King
 
-   [4]About[5]Github[6]LinkedIn[7]CV[8]RSS (BUTTON)
+   [4]About[5]Github[6]LinkedIn[7]CV[8]XML (BUTTON)
 
                       Index of category / uncategorized /
 
@@ -20,6 +20,12 @@
      *
      *
 
+
+    This page maintained by the webmaster --
+    [11]me@gnikyt.com  |  [12]Sign my guestbook
+    Last updated 18-Aug-2026. Best viewed in Netscape Navigator 4.0 at
+    800x600.
+
 References
 
    1. file:///rss.xml
@@ -32,3 +38,5 @@ References
    8. file:///rss.xml
    9. file:///category
   10. file:///
+  11. mailto:me@gnikyt.com
+  12. https://github.com/gnikyt/gnikyt.github.io/issues
