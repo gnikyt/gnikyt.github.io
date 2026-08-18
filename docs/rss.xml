@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>A dashboard for cq</title>
+      <link>https://gnikyt.com/cq-dashboard</link>
+      <description># Seeing cq work `cq` deliberately holds nothing durably. It is an execution engine, and a restart
+      takes its state with it. That is a f...</description>
+      <guid isPermLink="true">https://gnikyt.com/cq-dashboard</guid>
+      <pubDate>2026-08-17T09:15:00+0000</pubDate>
+      <archived></archived>
+      <category>golang</category>
+    </item>
+    <item>
       <title>Developer supports are important</title>
       <link>https://gnikyt.com/developer-supports-are-important</link>
       <description>A webhook that can fire twice. A job that needs to back off and retry instead of hammering an

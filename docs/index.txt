@@ -10,151 +10,156 @@
    Displaying article entries sorted by creation date in descending order.
      * $>
 
-[9]Developer supports are important
+[9]A dashboard for cq
+       Aug 17, 2026
+       11KB
+     * $>
+
+[10]Developer supports are important
        Aug 05, 2026
        11KB
      * $>
 
-[10]Invisible mentoring
+[11]Invisible mentoring
        Jun 25, 2026
        6.5KB
      * $>
 
-[11]Why composition over configuration for cq?
+[12]Why composition over configuration for cq?
        Jun 24, 2026
        20KB
      * $>
 
-[12]Building my own productivity setup with AI
+[13]Building my own productivity setup with AI
        Jun 01, 2026
        8.0KB
      * $>
 
-[13]cq release updates
+[14]cq release updates
        Apr 30, 2026
        1.5KB
      * $>
 
-[14]The quiet bloat of AI documentation
+[15]The quiet bloat of AI documentation
        Apr 05, 2026
        3.6KB
      * $>
 
-[15]Letting work be less emotionally expensive
+[16]Letting work be less emotionally expensive
        Feb 25, 2026
        5.3KB
      * $>
 
-[16]Introducing cq
+[17]Introducing cq
        Feb 11, 2026
        12KB
      * $>
 
-[17]Catching Shopify variant metafield updates
+[18]Catching Shopify variant metafield updates
        Aug 08, 2025
        2.0KB
      * $>
 
-[18]The web got boring, didn't it?
+[19]The web got boring, didn't it?
        Jul 21, 2025
        3.1KB
      * $>
 
-[19]Shopify value objects for Go
+[20]Shopify value objects for Go
        Jul 15, 2025
        8.8KB
      * $>
 
-[20]Building a tiny template engine in Bash
+[21]Building a tiny template engine in Bash
        May 22, 2025
        4.1KB
      * $>
 
-[21]Keeping goroutines under Shopify API limits
+[22]Keeping goroutines under Shopify API limits
        Apr 10, 2025
        15KB
      * $>
 
-[22]Showing product HTML in Shopify checkout
+[23]Showing product HTML in Shopify checkout
        May 10, 2024
        14KB
      * $>
 
-[23]Testing Shopify apps with Prisma, Jest, and MySQL
+[24]Testing Shopify apps with Prisma, Jest, and MySQL
        Mar 28, 2024
        6.6KB
      * $>
 
-[24]Getting Shopify checkout extensions talking to your backend
+[25]Getting Shopify checkout extensions talking to your backend
        Feb 27, 2024
        3.1KB
      * $>
 
-[25]Type definitions without emitting JavaScript
+[26]Type definitions without emitting JavaScript
        Feb 07, 2024
        3.4KB
      * $>
 
-[26]Testing Shopify Remix with Prisma and Jest
+[27]Testing Shopify Remix with Prisma and Jest
        Jan 10, 2024
        8.8KB
      * $>
 
-[27]Running WP Local through WSL
+[28]Running WP Local through WSL
        Dec 07, 2023
        5.6KB
      * $>
 
-[28]Keeping Shopify themes versioned with GitHub Actions
+[29]Keeping Shopify themes versioned with GitHub Actions
        May 20, 2022
        2.5KB
      * $>
 
-[29]Adding multi-tenant support to Shopify Node apps
+[30]Adding multi-tenant support to Shopify Node apps
        Nov 15, 2021
        10KB
      * $>
 
-[30]A simple Git release branch flow
+[31]A simple Git release branch flow
        Mar 10, 2021
        3.4KB
      * $>
 
-[31]Laravel Shopify got featured by Shopify
+[32]Laravel Shopify got featured by Shopify
        Mar 04, 2021
        1.7KB
      * $>
 
-[32]An async Shopify API helper for Python
+[33]An async Shopify API helper for Python
        Jun 29, 2020
        4.0KB
      * $>
 
-[33]Meet Laravel Shopify
+[34]Meet Laravel Shopify
        Aug 09, 2017
        2.6KB
      * $>
 
-[34]Running WordPress inside Docker
+[35]Running WordPress inside Docker
        Jun 15, 2017
        3.6KB
      * $>
 
-[35]A whitelist helper for shopify_app
+[36]A whitelist helper for shopify_app
        Nov 26, 2016
        1.5KB
      * $>
 
-[36]A cleaner way to test with shopify_app
+[37]A cleaner way to test with shopify_app
        Jun 21, 2016
        2.3KB
      * $>
 
-[37]Wiring Liquid drops into a tiny Sinatra app
+[38]Wiring Liquid drops into a tiny Sinatra app
        Oct 15, 2015
        3.7KB
 
-   [38]Categories >  |  [39]Archive >
+   [39]Categories >  |  [40]Archive >
      *
      *
      *
@@ -174,34 +179,35 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///developer-supports-are-important
-  10. file:///invisible-mentoring
-  11. file:///cq-why-composition
-  12. file:///building-my-own-productivity-setup-with-ai
-  13. file:///more-cq-updates
-  14. file:///overloaded-ai-documentation
-  15. file:///removing-emotion-from-work
-  16. file:///new-cq-release
-  17. file:///shopify-variant-metafield-webhooks
-  18. file:///the-lost-web
-  19. file:///shopify-value-objects-go
-  20. file:///building-bash-template-engine
-  21. file:///handling-shopify-api-limits-goroutines
-  22. file:///shopify-checkout-ui-product-html
-  23. file:///prisma-jest-mysql-testing
-  24. file:///generate-type-definitions-without-emitting-js
-  25. file:///type-definitions-without-emitting
-  26. file:///shopify-remix-prisma-and-jest
-  27. file:///wplocal-with-wsl
-  28. file:///shopify-github-action-versioning
-  29. file:///shopify-node-app-custom-multi-tenant
-  30. file:///git-release-branches
-  31. file:///laravel-shopify-featured-shopify-blog
-  32. file:///async-shopify-api-for-python
-  33. file:///introducing-shopify-for-laravel
-  34. file:///wordpress-under-docker
-  35. file:///shopify-app-whitelist-gem
-  36. file:///testing-with-shopify-app
-  37. file:///activerecord-and-liquid-drops-with-sinatra
-  38. file:///category
-  39. file:///archive
+   9. file:///cq-dashboard
+  10. file:///developer-supports-are-important
+  11. file:///invisible-mentoring
+  12. file:///cq-why-composition
+  13. file:///building-my-own-productivity-setup-with-ai
+  14. file:///more-cq-updates
+  15. file:///overloaded-ai-documentation
+  16. file:///removing-emotion-from-work
+  17. file:///new-cq-release
+  18. file:///shopify-variant-metafield-webhooks
+  19. file:///the-lost-web
+  20. file:///shopify-value-objects-go
+  21. file:///building-bash-template-engine
+  22. file:///handling-shopify-api-limits-goroutines
+  23. file:///shopify-checkout-ui-product-html
+  24. file:///prisma-jest-mysql-testing
+  25. file:///generate-type-definitions-without-emitting-js
+  26. file:///type-definitions-without-emitting
+  27. file:///shopify-remix-prisma-and-jest
+  28. file:///wplocal-with-wsl
+  29. file:///shopify-github-action-versioning
+  30. file:///shopify-node-app-custom-multi-tenant
+  31. file:///git-release-branches
+  32. file:///laravel-shopify-featured-shopify-blog
+  33. file:///async-shopify-api-for-python
+  34. file:///introducing-shopify-for-laravel
+  35. file:///wordpress-under-docker
+  36. file:///shopify-app-whitelist-gem
+  37. file:///testing-with-shopify-app
+  38. file:///activerecord-and-liquid-drops-with-sinatra
+  39. file:///category
+  40. file:///archive

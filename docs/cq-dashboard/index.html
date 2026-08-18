@@ -1,0 +1,569 @@
+<!--
+  Hello! Lookin' for something? Well... it was built quickly, hope thats OK with you!
+  https://github.com/gnikyt/gnikyt.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>
+      A dashboard for cq | gnikyt
+    </title>
+    <link href="https://gnikyt.com/cq-dashboard" rel="canonical">
+    <meta content="Custom" name="generator">
+    <meta content=
+    "# Seeing cq work `cq` deliberately holds nothing durably. It is an execution engine, and a restart takes its state with it. That is a f..."
+    name="description">
+    <meta content="2026-08-17T09:15:00+0000" property="article:published_time">
+    <meta content="A dashboard for cq" property="og:title">
+    <meta content="en" property="og:locale">
+    <meta content=
+    "# Seeing cq work `cq` deliberately holds nothing durably. It is an execution engine, and a restart takes its state with it. That is a f..."
+    property="og:description">
+    <meta content="https://gnikyt.com/cq-dashboard" property="og:url">
+    <meta content="gnikyt" property="og:site_name">
+    <meta content="article" property="og:type">
+    <meta content="summary" name="twitter:card">
+    <meta content=
+    "# Seeing cq work `cq` deliberately holds nothing durably. It is an execution engine, and a restart takes its state with it. That is a f..."
+    property="twitter:title">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2026-08-17T09:15:00+0000",
+    "datePublished": "2026-08-17T09:15:00+0000",
+    "description": "
+    # Seeing cq work
+
+    `cq` deliberately holds nothing durably. It is an execution engine, and a restart takes its state with it. That is a f...",
+    "headline": "A dashboard for cq",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gnikyt.com/cq-dashboard"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gnikyt.com/assets/favicon-32x32.png"
+      }
+    },
+    "url": "https://gnikyt.com/cq-dashboard"
+    }
+    </script>
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Regular.woff2" rel="preload" type=
+    "font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Bold.woff2" rel="preload" type="font/woff2">
+    <link as="font" crossorigin="anonymous" href="/assets/fonts/RobotoMono-Light.woff2" rel="preload" type=
+    "font/woff2">
+    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/rss.xml" rel="alternate" title="gnikyt feed" type="application/rss+xml">
+    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="/assets/styles/highlight.css" rel="stylesheet">
+    <script>
+    try {
+      if (localStorage.getItem("theme") === "day") {
+        document.documentElement.dataset.theme = "day";
+      }
+    } catch {}
+    </script>
+  </head>
+  <body class="layout layout--post theme-shell" data-handle="cq-dashboard">
+    <header class="site-head container">
+      <div class="site-head__item">
+        <div class="site-head__title">
+          <div class="site-head__title-inner">
+            <span class="site-head__title-item"><a class="site-head__link" href="/">gnikyt</a></span> <span class=
+            "site-head__title-item site-head__title-item--tag"><span>&nbsp;&nbsp;</span>/&nbsp;&nbsp;Code
+            ramblings</span>
+          </div>
+
+          <div class="site-head__title-inner">
+            <a class="site-head__avatar" href="/about"><img alt="Ty King" class="site-head__avatar-img" src=
+            "/assets/images/me.jpg"></a>
+          </div>
+        </div>
+
+        <nav aria-label="Site navigation" class="site-nav">
+          <a class="button button--strong button--ember" href="/about">About</a><a class=
+          "button button--strong button--moss" href="https://github.com/gnikyt" rel="noopener" target=
+          "_blank">Github</a><a class="button button--strong button--slate" href="https://linkedin.com/in/gnikyt" rel=
+          "noopener" target="_blank">LinkedIn</a><a class="button button--strong button--gold" href=
+          "/assets/files/cv.pdf" rel="noopener" target="_blank">CV</a><a class="button button--strong button--paper"
+          href="/rss.xml" rel="noopener" target="_blank">RSS</a> <button aria-label="Switch to day theme" aria-pressed=
+          "false" class="theme-toggle" type="button"><svg aria-hidden="true" class=
+          "theme-toggle__icon theme-toggle__sun" viewbox="0 0 24 24">
+          <circle cx="12" cy="12" r="3.5">
+          </circle>
+          <path d=
+          "M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41">
+
+          </path></svg> <svg aria-hidden="true" class="theme-toggle__icon theme-toggle__moon" viewbox="0 0 24 24">
+          <path d="M20.5 15.25A8.5 8.5 0 0 1 8.75 3.5a8.5 8.5 0 1 0 11.75 11.75Z">
+          </path></svg></button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <article class="tab post">
+        <header class="post__head">
+          <h1 class="tab__title tab__title--short post__title">
+            A dashboard for cq /
+          </h1>
+        </header>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="post__meta content-container content-container--meta">
+              <div class="post__details">
+                <time class="post__time" datetime="2026-08-17">Aug 17, 2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class=
+                "post__size">11KB</span>
+              </div>
+
+              <div class="post__category">
+                <a aria-label="View posts in category golang" class="category-hashtag" href="/category/golang" rel=
+                "tag">#golang</a>
+              </div>
+            </div>
+
+            <div class="content-container">
+              <h1 id="seeing-cq-work">
+                Seeing cq work
+              </h1>
+
+              <p>
+                <code>cq</code> deliberately holds nothing durably. It is an execution engine, and a restart takes its
+                state with it. That is a feature, not an oversight… it is what keeps the core dependency-free and lets
+                it drop into a service without dragging infrastructure along behind it. If you need durability, you’re
+                expected to put it <em>in front</em> of <code>cq</code>: SQS, a database poller, RabbitMQ, a Redis
+                list, whatever already owns the work. <code>cq</code> is the thing that executes the messages those
+                transports hand it, not the thing that remembers them.
+              </p>
+
+              <p>
+                But that leaves an obvious gap: while the process is up, a lot is happening that you cannot see. Jobs
+                are retrying, backing off, rescheduling, racing each other for a lock, and the moment they finish, that
+                history is gone.
+              </p>
+
+              <p>
+                That kind of tracking is something you’d want anyway, transport in front or not. On most projects I end
+                up building it by hand: a <code>jobs</code> table, maybe a <code>job_attempts</code> alongside it, a
+                handful of columns for state, timing, error, attempt count, and a bit of code to keep them updated as
+                work moves through. It’s never the interesting part of the project, and it’s always slightly different
+                from the last time I wrote it. I still think that persistence belongs in the project, owned by you,
+                close to your domain. The dashboard doesn’t replace it. What it gives you is the visual layer on top: a
+                window into the same lifecycle, without hand-rolling a UI over your own tables every time you want to
+                actually <em>look</em> at what the queue is doing.
+              </p>
+
+              <p>
+                I kept reaching for a way to watch it. Not a metrics pipeline, and not another database of record, just
+                a window into what this particular process is doing right now and what it did a minute ago. So I built
+                one: <a href="https://github.com/gnikyt/cq-dashboard">cq-dashboard</a>.
+              </p>
+
+              <p>
+                It is a separate, optional module. It listens to <code>cq</code>’s lifecycle hooks, writes them to a
+                store, and serves views over the result. SQLite and Postgres ship in the box, and the store is a single
+                interface, so anything else, MySQL, a document store, an in-memory fake for tests, is one
+                implementation away. The core library keeps its zero-dependency promise because none of this lives
+                inside it. If you never import the dashboard, <code>cq</code> is exactly what it was.
+              </p>
+
+              <h2 id="hooks-do-the-recording">
+                Hooks do the recording
+              </h2>
+
+              <p>
+                If you’ve read the <a href="/cq-why-composition">composition post</a>, you already know the seam this
+                plugs into. Hooks are the observational callbacks <code>cq</code> fires on enqueue, start, success,
+                failure, discard, reschedule, and per-attempt events. They sit <em>outside</em> the execution path. The
+                dashboard is really just a well-behaved consumer of those hooks.
+              </p>
+
+              <p>
+                “Well-behaved” is the load-bearing part. <code>cq</code> invokes hooks synchronously on the goroutine
+                running the job, so a hook that writes to a database directly would steal worker capacity every time a
+                job changed state. You <em>can</em> spawn a goroutine inside a hook to push that work off the execution
+                path yourself, but then ordering, backpressure, and shutdown all become your problem to get right.
+              </p>
+
+              <p>
+                The dashboard’s sink takes that off your plate. A hook never does I/O; it just drops the event onto a
+                buffered channel and returns immediately. A separate writer goroutine drains that channel continuously
+                and batches whatever it finds into the store. To be clear, this isn’t a “save only once the buffer is
+                full” arrangement, the writer is always draining as fast as it can keep up. The buffer is just slack
+                for bursts. It only matters when events arrive faster than they can be written, and if it ever fills
+                completely, events are dropped and counted rather than blocking the queue. A nonzero
+                <code>Dropped()</code> means the history is incomplete, which is the honest price of never slowing
+                execution down.
+              </p>
+
+              <p>
+                Wiring it up is four pieces: a store, a sink that feeds it, your queue with the sink’s hooks attached,
+                and an HTTP handler.
+              </p>
+
+              <div class="sourceCode" id="cb1">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb1-1"><a aria-hidden="true" href=
+                "#cb1-1" tabindex="-1"></a><span class=
+                "co">// 1. Where history lives. A persistent volume, not /tmp.</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>st<span class="op">,</span> _ <span class=
+"op">:=</span> sqlite<span class="op">.</span>Open<span class="op">(</span><span class=
+"st">"/var/lib/myapp/cq-dashboard.db"</span><span class="op">)</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="cf">defer</span> st<span class=
+"op">.</span>Close<span class="op">()</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class=
+"co">// 2. The recorder. Start it before the queue, so no event is missed.</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>sk <span class="op">:=</span> sink<span class=
+"op">.</span>New<span class="op">(</span>st<span class="op">,</span> sink<span class=
+"op">.</span>WithRetention<span class="op">(</span><span class="dv">24</span><span class="op">*</span>time<span class=
+"op">.</span>Hour<span class="op">,</span> time<span class="op">.</span>Hour<span class="op">,</span> store<span class=
+"op">.</span>StateCompleted<span class="op">))</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a>sk<span class="op">.</span>Start<span class=
+"op">(</span>context<span class="op">.</span>Background<span class="op">())</span></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class=
+"co">// 3. Your queue, unchanged except for two options.</span></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>queue <span class=
+"op">:=</span> cq<span class="op">.</span>NewQueue<span class="op">(</span><span class="dv">2</span><span class=
+"op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">128</span><span class=
+"op">,</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithQueueName<span class="op">(</span><span class="st">"default"</span><span class="op">),</span></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithHooks<span class="op">(</span>sk<span class="op">.</span>Hooks<span class="op">()),</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>    cq<span class=
+"op">.</span>WithMiddleware<span class="op">(</span>sk<span class="op">.</span>ProgressMiddleware<span class=
+"op">(</span><span class="st">"default"</span><span class="op">)),</span> <span class=
+"co">// Optional: live progress.</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>queue<span class=
+"op">.</span>Start<span class="op">()</span></span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a><span class=
+"co">// 4. The UI, mounted anywhere.</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>handler<span class=
+"op">,</span> _ <span class="op">:=</span> web<span class="op">.</span>New<span class="op">(</span><span class=
+"st">"/cq"</span><span class="op">,</span> st<span class="op">,</span> sk<span class="op">,</span> web<span class=
+"op">.</span>WithQueues<span class="op">(</span>queue<span class="op">))</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>http<span class=
+"op">.</span>Handle<span class="op">(</span><span class="st">"/cq/"</span><span class="op">,</span> handler<span class=
+"op">)</span></span></code></pre>
+              </div>
+
+              <p>
+                Two options on a queue you already have, and a handler you mount wherever you like. That’s the whole
+                integration.
+              </p>
+
+              <h2 id="what-it-looks-like">
+                What it looks like
+              </h2>
+
+              <p>
+                The overview is the live view: queue stats read straight from <code>cq</code> per request, throughput
+                for the last hour, the jobs in flight right now, and any recurring schedules with their next fire time.
+              </p>
+
+              <figure>
+                <img alt="cq-dashboard overview page: live queue stats, throughput, in-flight jobs, and schedules" src=
+                "/assets/images/posts/cq-dashboard-overview.png">
+                <figcaption aria-hidden="true">
+                  cq-dashboard overview page: live queue stats, throughput, in-flight jobs, and schedules
+                </figcaption>
+              </figure>
+
+              <p>
+                The jobs page is the history: every execution <code>cq</code> recorded, newest first, filterable by
+                queue, attribute, and state. You can see retries (the <code>3</code> in the attempts column), live
+                progress on the <code>active</code> importers, and the <code>failed</code> charge-card jobs sitting
+                inline with their error.
+              </p>
+
+              <figure>
+                <img alt="cq-dashboard jobs page: every execution recorded, filterable by queue, attribute, and state"
+                src="/assets/images/posts/cq-dashboard-jobs.png">
+                <figcaption aria-hidden="true">
+                  cq-dashboard jobs page: every execution recorded, filterable by queue, attribute, and state
+                </figcaption>
+              </figure>
+
+              <p>
+                And the detail page is where a single logical job opens up: submission timings, the attributes you
+                tagged it with, every retry attempt with its individual result and error, and the reschedule/release
+                lineage collapsed into one chain.
+              </p>
+
+              <figure>
+                <img alt=
+                "cq-dashboard job detail: per-attempt results, errors, and the reschedule/release lineage chain" src=
+                "/assets/images/posts/cq-dashboard-job-detail.png">
+                <figcaption aria-hidden="true">
+                  cq-dashboard job detail: per-attempt results, errors, and the reschedule/release lineage chain
+                </figcaption>
+              </figure>
+
+              <p>
+                That last one is the view I wanted most. When a job that failed twice and succeeded on the third
+                attempt is just one row that says <em>completed</em>, you’ve lost the interesting part. Here,
+                <code>upstream timeout</code>, <code>upstream timeout</code>, then <code>completed</code> is right
+                there, per attempt.
+              </p>
+
+              <h2 id="what-it-is-not">
+                What it is not
+              </h2>
+
+              <p>
+                I want to be careful about this, because an observability tool is easy to mistake for something it
+                isn’t. The dashboard shows you <strong>what <code>cq</code> executed, and is executing right
+                now</strong>. It is not a queue of record, not a transport, and not a dead-letter queue.
+              </p>
+
+              <p>
+                That distinction has real consequences worth knowing before you lean on it:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Pending understates real backlog when something feeds <code>cq</code>.</strong> If jobs
+                  arrive from SQS, a database poller, or any other transport, <code>cq</code> only knows about the
+                  messages already pulled into memory. Ten thousand messages still waiting in SQS are invisible here.
+                  The dashboard answers <em>“what is this process doing”</em>, not <em>“how much work exists”</em>.
+                </li>
+
+                <li>
+                  <strong>Failures are execution outcomes, not a dead-letter queue.</strong> A job that exhausts its
+                  transport’s retries lands in that transport’s DLQ, and that stays the record of work still needing
+                  redrive. The failures view shows the <code>cq</code> executions that led there… the attempts, the
+                  errors, the timings.
+                </li>
+
+                <li>
+                  <strong>Retrying belongs to whatever owns the work.</strong> With a transport in front, that’s the
+                  transport. For in-memory-only <code>cq</code>, <code>StopDrain</code> hands unstarted jobs back to
+                  your code at shutdown so you can persist and resubmit them.
+                </li>
+              </ul>
+
+              <p>
+                What the dashboard has that the layer above it does not: per-attempt retry history, wait time versus
+                execution time, live progress from running jobs, reschedule and release lineage collapsed into one
+                logical job, and which jobs a shutdown abandoned. That is the gap it fills, and I tried hard to make it
+                fill <em>only</em> that gap.
+              </p>
+
+              <h2 id="the-same-views-as-json">
+                The same views, as JSON
+              </h2>
+
+              <p>
+                The HTML pages are the default, but they aren’t the only way out. <code>WithJSON()</code> serves the
+                read views as JSON alongside the HTML, for a frontend of your own, a monitoring script, or a bit of
+                <code>curl</code> in a terminal:
+              </p>
+
+              <div class="sourceCode" id="cb2">
+                <pre class="sourceCode go"><code class="sourceCode go"><span id="cb2-1"><a aria-hidden="true" href=
+                "#cb2-1" tabindex="-1"></a>handler<span class="op">,</span> _ <span class="op">:=</span> web<span class=
+                "op">.</span>New<span class="op">(</span><span class="st">"/cq"</span><span class=
+                "op">,</span> st<span class="op">,</span> sk<span class="op">,</span> web<span class=
+                "op">.</span>WithQueues<span class="op">(</span>queue<span class="op">),</span> web<span class=
+                "op">.</span>WithJSON<span class="op">())</span></span></code></pre>
+              </div>
+
+              <p>
+                It’s off unless you ask for it, and when it’s off the routes aren’t even registered, so a deployment
+                that doesn’t want a machine-readable surface has none to probe. That’s the same instinct as the write
+                controls: a capability you didn’t opt into shouldn’t exist as an endpoint to poke at. When you do turn
+                it on, it adds three:
+              </p>
+
+              <ul>
+                <li>
+                  <code>GET /cq/jobs.json</code> — A filtered page of history, with <code>total</code>,
+                  <code>pages</code>, and the window it was read against.
+                </li>
+
+                <li>
+                  <code>GET /cq/jobs/{key}.json</code> — One job with its attempts and reschedule lineage.
+                </li>
+
+                <li>
+                  <code>GET /cq/live.json</code> — Live queue state, pending jobs, schedules, stored counts, and sink
+                  health.
+                </li>
+              </ul>
+
+              <p>
+                These endpoints support the same functionality and filtering as the HTML views.
+              </p>
+
+              <h2 id="nothings-locked-by-default">
+                Nothing’s locked by default
+              </h2>
+
+              <p>
+                The views expose job names, attributes, error strings, and so on: nothing is protected out of the box.
+                There are a few ways to gate it:
+              </p>
+
+              <ul>
+                <li>
+                  <strong><code>WithLogin</code></strong> - Puts a styled sign-in form in front of every route, with
+                  the session in an HttpOnly, signed cookie, a real server-side sign-out, and failed attempts
+                  rate-limited and audited. Pass <code>StaticPassword</code> for a single shared login, or your own
+                  <code>func(user, pass) (string, bool)</code> to check against real accounts.
+                </li>
+
+                <li>
+                  <strong><code>WithTokens</code></strong> - Registers header credentials (a bearer token for CI, a
+                  monitoring script, curl). Adding a token doesn’t <em>demand</em> one, though… it only says how a
+                  caller may identify itself. <code>WithLogin</code>, or <code>RequireSignIn</code> for a token-only
+                  deployment, is what actually makes identity mandatory.
+                </li>
+
+                <li>
+                  <strong>Already have sessions or SSO?</strong> An <code>Authorizer</code> is just a
+                  <code>func(*http.Request) (subject, ok)</code>, so you wire the dashboard to the auth you already run
+                  rather than bolting a second system beside it.
+                </li>
+              </ul>
+
+              <p>
+                The same gate covers the JSON endpoints as well, and, an unauthenticated JSON request gets a 401, not a
+                redirect to the sign-in form.
+              </p>
+
+              <h2 id="getting-the-most-out-of-it">
+                Getting the most out of it
+              </h2>
+
+              <p>
+                The dashboard can only show what your jobs tell <code>cq</code>. Three things make it dramatically more
+                useful:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Name the job <em>type</em>, not the instance.</strong>
+                  <code>cq.WithJobName("import-rows")</code> — without a name, every row reads “unnamed” and the
+                  grouped failures view has nothing to group on. Put identity in attributes, not the name.
+                </li>
+
+                <li>
+                  <strong>Tag with attributes.</strong> <code>cq.WithJobAttribute("tenant", id)</code> is how you find
+                  a job later, and it’s the closest thing to a payload the dashboard can show. Attributes are
+                  filterable from the jobs and failures pages.
+                </li>
+
+                <li>
+                  <strong>Report progress.</strong> <code>cq.SetProgress(ctx, ...)</code> is what fills in those
+                  <code>50% · importing</code> lines, but only for jobs that call it, and only when the progress
+                  middleware is wired.
+                </li>
+              </ul>
+
+              <p>
+                The quickest way to see all of it is the demo, which generates its own traffic:
+              </p>
+
+              <div class="sourceCode" id="cb3">
+                <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" href=
+                "#cb3-1" tabindex="-1"></a><span class="ex">go</span> run ./cmd/demo <span class=
+                "at">-addr</span> :8080</span></code></pre>
+              </div>
+
+              <p>
+                Every screenshot above is that demo running.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section aria-labelledby="anchors-heading" class="tab tab--anchors">
+        <h2 class="tab__title tab__title--short tab__title--slate" id="anchors-heading">
+          Anchors
+        </h2>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container content-container--anchors">
+              <ul class="anchors-list">
+                <li class="anchors-list__item">
+                  <strong>[1]</strong> <a class="sources__link anchors-list__link" href=
+                  "https://github.com/gnikyt/cq-dashboard" rel="noopener" target=
+                  "_parent">github.com/gnikyt/cq-dashboard</a> ↗
+                </li>
+
+                <li class="anchors-list__item">
+                  <strong>[2]</strong> <a class="sources__link anchors-list__link" href="/cq-why-composition" rel=
+                  "noopener">/cq-why-composition</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="appendix-heading" class="tab tab--appendix">
+        <h2 class="tab__title tab__title--short tab__title--moss" id="appendix-heading">
+          Appendix
+        </h2>
+
+        <div class="tab__container">
+          <div class="tab__content">
+            <div class="content-container content-container--appendix">
+              <p>
+                Copyright under <a class="sources__link" href="https://creativecommons.org/licenses/by/4.0/" rel=
+                "noopener" target="_blank">CC-4.0</a>.
+              </p>
+
+              <p>
+                Available in the following alternative formats: <span class="sources"><a class="sources__link" href=
+                "/cq-dashboard/index.md">MD</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href=
+                "/cq-dashboard/index.txt">TXT</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="sources__link" href="#" onclick=
+                "window.print(); return false;">PDF</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ul class="site-colors container container--short">
+      <li class="site-colors__color color--a">
+      </li>
+
+      <li class="site-colors__color color--b">
+      </li>
+
+      <li class="site-colors__color color--c">
+      </li>
+
+      <li class="site-colors__color color--d">
+      </li>
+
+      <li class="site-colors__color color--e">
+      </li>
+
+      <li class="site-colors__color color--f">
+      </li>
+
+      <li class="site-colors__color color--g">
+      </li>
+
+      <li class="site-colors__color color--h">
+      </li>
+    </ul>
+    <script src="/assets/scripts/theme.js"></script>
+  </body>
+</html>
