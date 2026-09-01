@@ -19,12 +19,14 @@
     <figure class="lightbox__figure">
       <img class="lightbox__img" alt="" />
       <figcaption class="lightbox__caption"></figcaption>
+      <a class="lightbox__fullsize" target="_blank" rel="noopener">View full size &#8599;</a>
     </figure>
   `;
   document.body.appendChild(overlay);
 
   const overlayImg = overlay.querySelector(".lightbox__img");
   const overlayCaption = overlay.querySelector(".lightbox__caption");
+  const overlayFullsize = overlay.querySelector(".lightbox__fullsize");
   const closeButton = overlay.querySelector(".lightbox__close");
 
   let lastFocused = null;
@@ -33,6 +35,7 @@
     lastFocused = document.activeElement;
     overlayImg.setAttribute("src", src);
     overlayImg.setAttribute("alt", alt || "");
+    overlayFullsize.setAttribute("href", src);
 
     if (alt) {
       overlayCaption.textContent = alt;

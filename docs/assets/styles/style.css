@@ -1313,6 +1313,20 @@ html[data-theme="day"] .lightbox {
   max-width: 40em;
 }
 
+.lightbox__fullsize {
+  margin-top: .75em;
+  font-size: .75em;
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline-color);
+}
+
+.lightbox__fullsize:hover,
+.lightbox__fullsize:focus {
+  color: var(--link-hover-color);
+  text-decoration-color: var(--link-hover-color);
+}
+
 .lightbox__close {
   position: absolute;
   top: 1rem;
