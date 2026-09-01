@@ -1,0 +1,78 @@
+---
+layout: post
+title: 'redavni, building my own ADE'
+permalink: redavni
+date: '2026-09-01 09:00:00'
+category: thoughts
+---
+
+Like a lot of people, my workflow has shifted to be heavily AI over the last couple of years. And like a lot of people, I went shopping for the editor to wrap around that. There are plenty of them now, a new one seemingly every week, each with its own take on how you're supposed to work alongside a model.
+
+None of them fit the way I actually wanted to work.
+
+Claude Code got the closest. The CLI itself is excellent, and most of my day already runs through it. But the moment I stepped outside the terminal, the seams showed. It isn't great at reviewing diffs. It isn't great at letting me *comment* on those diffs, or on terminal output, or on any of the other places where I want to point at something and say "deal with this." And between turns, it was genuinely hard to see what files had actually changed. I kept losing the thread of my own repo.
+
+So I tried the other AI-native editors. Several of them. They were all fine, Zed was great, but none of them were what I needed for my workflow. I don't want to hand the whole thing to the model and hope. I still architect my own solutions, I still make the design calls, and I still review every line to make sure the code is written the way I would have written it. I lean on AI heavily, but "verify the output" is not a nice-to-have for me... it's the whole point. The tools I tried were built for a different kind of trust than the one I have.
+
+So I did the obvious thing. I used Claude to build my own.
+
+I'm calling it **redavni** (*re-DAV-nee*) — "invader" spelled backwards, lowercase always. It's a light "ADE" surrounding Claude CLI, and the idea behind it is narrow on purpose:
+
+- It's centered around the Claude CLI. Claude Code is the engine, redavni is the cockpit around it.
+- It should *look* familiar if you already live in Claude Code.
+- It should give me every tool I need to verify the work, right where I'm already looking.
+
+That third point is the one that matters. Everything else is in service of it.
+
+## Point at a thing, send it to Claude
+
+The core interaction is stupidly simple, and it's the thing I missed most everywhere else: I can right-click a file and send it to Claude, or attach a comment for Claude to deal with. And that same action works *everywhere* — in the file tree, in the diff view, in the terminal output, in the editor gutter. Anywhere I can see a thing, I can send that thing to Claude, or queue up a note about it.
+
+[![redavni with the git log, file history, terminal, and comments panes open around the editor](/assets/images/posts/redavni-comments.png)](/assets/images/posts/redavni-comments.png)
+
+Comments are the part I use constantly, and they've grown into something that feels a lot like reviewing a GitHub PR. I select a line, jot what I want changed, and it lands as a comment pinned to that `file:line`.
+
+[![Leaving a line comment, with the comments pane and history alongside](/assets/images/posts/redavni-add-comment.png)](/assets/images/posts/redavni-add-comment.png)
+
+From there it behaves like a proper review thread. Comments have a history. I can resolve them one at a time or clear the whole batch with *resolve all*. And the trick I care about most is that they *queue*... I can read through a diff, drop five comments across three files and a chunk of terminal output, and none of them interrupt Claude mid-turn. When I'm ready, I batch the whole lot into a single message and send it off. It's the difference between nagging the model line by line and handing it a proper review.
+
+[![Claude working through a batch of queued comments, with fuzzy search open alongside](/assets/images/posts/redavni-claude-execute.png)](/assets/images/posts/redavni-claude-execute.png)
+
+## Verifying the work
+
+This is where the whole thing earns its keep. Because I review everything, redavni is built around making review fast.
+
+There's full git integration. I can watch the current turn Claude is working on, then flip straight to the log and browse past work, commit by commit, seeing exactly which files each one touched.
+
+[![Reviewing a diff against the git log and file history](/assets/images/posts/redavni-history-diff.png)](/assets/images/posts/redavni-history-diff.png)
+
+I can pull up the history of a single file and walk its diffs. And I manage the repo from the same place — staging, unstaging, committing, pushing — without dropping back to a bare terminal to remember which flag I wanted.
+
+[![The status pane: stage, unstage, and commit from one bar](/assets/images/posts/redavni-git-status.png)](/assets/images/posts/redavni-git-status.png)
+
+The "which files changed this turn" problem that annoyed me in the plain CLI is just... gone. It's right there in the status pane, live, updating as Claude works.
+
+## The rest of the kit
+
+Around that core, it has the things I expect a workspace to have:
+
+- **Fuzzy search and file search**, for getting anywhere in a repo quickly.
+
+  [![Fuzzy searching across the project](/assets/images/posts/redavni-search.png)](/assets/images/posts/redavni-search.png)
+
+- **Configurable tasks** — my test and vet commands seeded in, one click to run, and `file:line` references in the output are clickable straight into the editor.
+- **Multi-instance terminals**, with sessions that persist.
+- **Resizable and reorderable panels**, so the layout is mine, not a template's.
+- **Activity indicators**, so when I'm not looking at Claude's pane I can still see what it's working on at a glance.
+
+[![redavni's settings](/assets/images/posts/redavni-settings.png)](/assets/images/posts/redavni-settings.png)
+
+And yes, it has settings, because of course it does.
+
+## Where it's at
+
+It's built in Swift, native macOS, and it's in its absolute infancy. There are rough edges I already know about, and plenty I haven't hit yet. Some of the git and highlight work is synchronous in ways that'll bite on a big repo, and there's a startup quirk or two I want to chase down.
+
+But it's mine, and it's already resolved every friction point that sent me looking in the first place. I have a way to point at anything and send it to Claude. I have a fast way to review what came back. I have my own repo's history within arm's reach at all times. That's the loop I wanted.
+
+I'll keep expanding it as I use it daily, and I'll write more as it grows up a little. For now it's a POC that happens to be good enough that I don't want to work any other way.

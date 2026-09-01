@@ -11,41 +11,46 @@
    order.
      * $>
 
-[9]Developer supports are important
+[9]redavni, building my own ADE
+       Sep 01, 2026
+       6.4KB
+     * $>
+
+[10]Developer supports are important
        Aug 05, 2026
        11KB
      * $>
 
-[10]Invisible mentoring
+[11]Invisible mentoring
        Jun 25, 2026
        6.5KB
      * $>
 
-[11]Building my own productivity setup with AI
+[12]Building my own productivity setup with AI
        Jun 01, 2026
        8.0KB
      * $>
 
-[12]The quiet bloat of AI documentation
+[13]The quiet bloat of AI documentation
        Apr 05, 2026
        3.6KB
      * $>
 
-[13]Letting work be less emotionally expensive
+[14]Letting work be less emotionally expensive
        Feb 25, 2026
        5.3KB
      * $>
 
-[14]The web got boring, didn't it?
+[15]The web got boring, didn't it?
        Jul 21, 2025
        3.1KB
      * $>
 
-[15]Working with LFL on something new
+[16]Working with LFL on something new
        Nov 15, 2022
        6.0KB
 
-   [16]< Categories  |  [17]< Home
+   [17]< Categories  |  [18]< Home
      *
      *
      *
@@ -57,8 +62,8 @@
 
 
     This page maintained by the webmaster --
-    [18]me@gnikyt.com  |  [19]Sign my guestbook
-    Last updated 18-Aug-2026. Best viewed in Netscape Navigator 4.0 at
+    [19]me@gnikyt.com  |  [20]Sign my guestbook
+    Last updated 01-Sep-2026. Best viewed in Netscape Navigator 4.0 at
     800x600.
 
 References
@@ -71,14 +76,15 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///developer-supports-are-important
-  10. file:///invisible-mentoring
-  11. file:///building-my-own-productivity-setup-with-ai
-  12. file:///overloaded-ai-documentation
-  13. file:///removing-emotion-from-work
-  14. file:///the-lost-web
-  15. file:///archive/joint-venture-lfl
-  16. file:///category
-  17. file:///
-  18. mailto:me@gnikyt.com
-  19. https://github.com/gnikyt/gnikyt.github.io/issues
+   9. file:///redavni
+  10. file:///developer-supports-are-important
+  11. file:///invisible-mentoring
+  12. file:///building-my-own-productivity-setup-with-ai
+  13. file:///overloaded-ai-documentation
+  14. file:///removing-emotion-from-work
+  15. file:///the-lost-web
+  16. file:///archive/joint-venture-lfl
+  17. file:///category
+  18. file:///
+  19. mailto:me@gnikyt.com
+  20. https://github.com/gnikyt/gnikyt.github.io/issues
