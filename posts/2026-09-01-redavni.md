@@ -52,6 +52,12 @@ I can pull up the history of a single file and walk its diffs. And I manage the 
 
 The "which files changed this turn" problem that annoyed me in the plain CLI is just... gone. It's right there in the status pane, live, updating as Claude works.
 
+Staging isn't all-or-nothing either. I can stage individual hunks straight from the diff gutter, so when a turn touched one file for two unrelated reasons, I can commit the part I've reviewed and leave the rest.
+
+And the branch menu quietly grew into the piece I reach for more than I expected. Switch branches, merge one into another, rename, delete, cut a tag, fetch/pull/push, or spin up a worktree... all from the one dropdown, without me leaving to go recite git incantations in a terminal.
+
+[![The branch menu: switch, merge, rename, delete, tags, worktrees, and fetch/pull/push in one place](/assets/images/posts/redavni-branch-menu.png)](/assets/images/posts/redavni-branch-menu.png)
+
 ## The rest of the kit
 
 Around that core, it has the things I expect a workspace to have:

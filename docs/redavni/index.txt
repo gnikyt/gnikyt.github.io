@@ -1,6 +1,6 @@
                          redavni, building my own ADE /
 
-   Sep 01, 2026  --  6.4KB
+   Sep 01, 2026  --  7.1KB
    [1]#thoughts
 
    Like a lot of people, my workflow has shifted to be heavily AI over the
@@ -95,12 +95,26 @@ Verifying the work
    plain CLI is just... gone. It's right there in the status pane, live,
    updating as Claude works.
 
+   Staging isn't all-or-nothing either. I can stage individual hunks
+   straight from the diff gutter, so when a turn touched one file for two
+   unrelated reasons, I can commit the part I've reviewed and leave the
+   rest.
+
+   And the branch menu quietly grew into the piece I reach for more than I
+   expected. Switch branches, merge one into another, rename, delete, cut
+   a tag, fetch/pull/push, or spin up a worktree... all from the one
+   dropdown, without me leaving to go recite git incantations in a
+   terminal.
+
+   [7]The branch menu: switch, merge, rename, delete, tags, worktrees, and
+   fetch/pull/push in one place
+
 The rest of the kit
 
    Around that core, it has the things I expect a workspace to have:
      * Fuzzy search and file search, for getting anywhere in a repo
        quickly.
-       [7]Fuzzy searching across the project
+       [8]Fuzzy searching across the project
      * Configurable tasks -- my test and vet commands seeded in, one click
        to run, and file:line references in the output are clickable
        straight into the editor.
@@ -110,7 +124,7 @@ The rest of the kit
      * Activity indicators, so when I'm not looking at Claude's pane I can
        still see what it's working on at a glance.
 
-   [8]redavni's settings
+   [9]redavni's settings
 
    And yes, it has settings, because of course it does.
 
@@ -140,5 +154,6 @@ References
    4. file:///assets/images/posts/redavni-claude-execute.png
    5. file:///assets/images/posts/redavni-history-diff.png
    6. file:///assets/images/posts/redavni-git-status.png
-   7. file:///assets/images/posts/redavni-search.png
-   8. file:///assets/images/posts/redavni-settings.png
+   7. file:///assets/images/posts/redavni-branch-menu.png
+   8. file:///assets/images/posts/redavni-search.png
+   9. file:///assets/images/posts/redavni-settings.png

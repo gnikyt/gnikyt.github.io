@@ -13,7 +13,7 @@
 
 [9]redavni, building my own ADE
        Sep 01, 2026
-       6.4KB
+       7.1KB
      * $>
 
 [10]Developer supports are important
