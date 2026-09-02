@@ -13,7 +13,7 @@
 
 [9]redavni, building my own ADE
        Sep 01, 2026
-       7.1KB
+       8.1KB
      * $>
 
 [10]Developer supports are important
@@ -63,7 +63,7 @@
 
     This page maintained by the webmaster --
     [19]me@gnikyt.com  |  [20]Sign my guestbook
-    Last updated 01-Sep-2026. Best viewed in Netscape Navigator 4.0 at
+    Last updated 02-Sep-2026. Best viewed in Netscape Navigator 4.0 at
     800x600.
 
 References

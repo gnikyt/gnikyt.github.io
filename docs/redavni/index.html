@@ -121,7 +121,7 @@
             <div class="post__meta content-container content-container--meta">
               <div class="post__details">
                 <time class="post__time" datetime="2026-09-01">Sep 01, 2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class=
-                "post__size">7.1KB</span>
+                "post__size">8.1KB</span>
               </div>
 
               <div class="post__category">
@@ -358,6 +358,39 @@
                 I’ll keep expanding it as I use it daily, and I’ll write more as it grows up a little. For now it’s a
                 POC that happens to be good enough that I don’t want to work any other way.
               </p>
+
+              <h2 id="update-lsp-support">
+                Update: LSP support
+              </h2>
+
+              <p>
+                First real addition since writing this: LSP support.
+              </p>
+
+              <p>
+                The bit I use most is the problems pane. Diagnostics show up there and inline as they happen, so an
+                unused parameter or a bad type is right in front of me instead of waiting for the next build. Handy in
+                the review loop… Claude changes something, and if it broke a type or left a dead param, I catch it
+                before the diff ever goes back.
+              </p>
+
+              <p>
+                <a href="/assets/images/posts/redavni-lsp-problems.png"><img alt=
+                "The problems pane showing a live LSP diagnostic, mirrored inline and in the info bar" src=
+                "/assets/images/posts/redavni-lsp-problems.png"></a>
+              </p>
+
+              <p>
+                The usual stuff is in too: quick info on hover, go-to-definition, find definitions and implementations.
+                So if I’m reading through a change and hit a type or function I don’t remember, I can hover it or jump
+                to where it lives without leaving the file.
+              </p>
+
+              <p>
+                <a href="/assets/images/posts/redavni-lsp-quickinfo.png"><img alt=
+                "Quick info popover showing a symbol’s type and doc, sourced from the language server" src=
+                "/assets/images/posts/redavni-lsp-quickinfo.png"></a>
+              </p>
             </div>
           </div>
         </div>
@@ -417,6 +450,18 @@
                   <strong>[8]</strong> <a class="sources__link anchors-list__link" href=
                   "/assets/images/posts/redavni-settings.png" rel=
                   "noopener">/assets/images/posts/redavni-settings.png</a>
+                </li>
+
+                <li class="anchors-list__item">
+                  <strong>[9]</strong> <a class="sources__link anchors-list__link" href=
+                  "/assets/images/posts/redavni-lsp-problems.png" rel=
+                  "noopener">/assets/images/posts/redavni-lsp-problems.png</a>
+                </li>
+
+                <li class="anchors-list__item">
+                  <strong>[10]</strong> <a class="sources__link anchors-list__link" href=
+                  "/assets/images/posts/redavni-lsp-quickinfo.png" rel=
+                  "noopener">/assets/images/posts/redavni-lsp-quickinfo.png</a>
                 </li>
               </ul>
             </div>
@@ -479,7 +524,7 @@
       This page maintained by the webmaster — <a class="sources__link" href=
       "mailto:me@gnikyt.com">me@gnikyt.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="sources__link" href=
       "https://github.com/gnikyt/gnikyt.github.io/issues" rel="noopener" target="_blank">Sign my guestbook</a><br>
-      Last updated 01-Sep-2026. Best viewed in Netscape Navigator 4.0 at 800x600.
+      Last updated 02-Sep-2026. Best viewed in Netscape Navigator 4.0 at 800x600.
     </address>
     <script src="/assets/scripts/theme.js"></script> 
     <script src="/assets/scripts/lightbox.js"></script>

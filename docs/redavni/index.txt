@@ -1,6 +1,6 @@
                          redavni, building my own ADE /
 
-   Sep 01, 2026  --  7.1KB
+   Sep 01, 2026  --  8.1KB
    [1]#thoughts
 
    Like a lot of people, my workflow has shifted to be heavily AI over the
@@ -146,6 +146,27 @@ Where it's at
    grows up a little. For now it's a POC that happens to be good enough
    that I don't want to work any other way.
 
+Update: LSP support
+
+   First real addition since writing this: LSP support.
+
+   The bit I use most is the problems pane. Diagnostics show up there and
+   inline as they happen, so an unused parameter or a bad type is right in
+   front of me instead of waiting for the next build. Handy in the review
+   loop... Claude changes something, and if it broke a type or left a dead
+   param, I catch it before the diff ever goes back.
+
+   [10]The problems pane showing a live LSP diagnostic, mirrored inline
+   and in the info bar
+
+   The usual stuff is in too: quick info on hover, go-to-definition, find
+   definitions and implementations. So if I'm reading through a change and
+   hit a type or function I don't remember, I can hover it or jump to
+   where it lives without leaving the file.
+
+   [11]Quick info popover showing a symbol's type and doc, sourced from
+   the language server
+
 References
 
    1. /category/thoughts
@@ -157,3 +178,5 @@ References
    7. file:///assets/images/posts/redavni-branch-menu.png
    8. file:///assets/images/posts/redavni-search.png
    9. file:///assets/images/posts/redavni-settings.png
+  10. file:///assets/images/posts/redavni-lsp-problems.png
+  11. file:///assets/images/posts/redavni-lsp-quickinfo.png

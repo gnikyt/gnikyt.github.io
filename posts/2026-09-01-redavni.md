@@ -82,3 +82,15 @@ It's built in Swift, native macOS, and it's in its absolute infancy. There are r
 But it's mine, and it's already resolved every friction point that sent me looking in the first place. I have a way to point at anything and send it to Claude. I have a fast way to review what came back. I have my own repo's history within arm's reach at all times. That's the loop I wanted.
 
 I'll keep expanding it as I use it daily, and I'll write more as it grows up a little. For now it's a POC that happens to be good enough that I don't want to work any other way.
+
+## Update: LSP support
+
+First real addition since writing this: LSP support.
+
+The bit I use most is the problems pane. Diagnostics show up there and inline as they happen, so an unused parameter or a bad type is right in front of me instead of waiting for the next build. Handy in the review loop... Claude changes something, and if it broke a type or left a dead param, I catch it before the diff ever goes back.
+
+[![The problems pane showing a live LSP diagnostic, mirrored inline and in the info bar](/assets/images/posts/redavni-lsp-problems.png)](/assets/images/posts/redavni-lsp-problems.png)
+
+The usual stuff is in too: quick info on hover, go-to-definition, find definitions and implementations. So if I'm reading through a change and hit a type or function I don't remember, I can hover it or jump to where it lives without leaving the file.
+
+[![Quick info popover showing a symbol's type and doc, sourced from the language server](/assets/images/posts/redavni-lsp-quickinfo.png)](/assets/images/posts/redavni-lsp-quickinfo.png)
