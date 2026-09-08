@@ -1,6 +1,6 @@
                          redavni, building my own ADE /
 
-   Sep 01, 2026  --  8.1KB
+   Sep 01, 2026  --  12KB
    [1]#thoughts
 
    Like a lot of people, my workflow has shifted to be heavily AI over the
@@ -30,9 +30,8 @@
 
    So I did the obvious thing. I used Claude to build my own.
 
-   I'm calling it redavni (re-DAV-nee) -- "invader" spelled backwards,
-   lowercase always. It's a light "ADE" surrounding Claude CLI, and the
-   idea behind it is narrow on purpose:
+   I'm calling it redavni (re-DAV-nee). It's a light "ADE" surrounding
+   Claude CLI, and the idea behind it is narrow on purpose:
      * It's centered around the Claude CLI. Claude Code is the engine,
        redavni is the cockpit around it.
      * It should look familiar if you already live in Claude Code.
@@ -46,10 +45,10 @@ Point at a thing, send it to Claude
 
    The core interaction is stupidly simple, and it's the thing I missed
    most everywhere else: I can right-click a file and send it to Claude,
-   or attach a comment for Claude to deal with. And that same action works
-   everywhere -- in the file tree, in the diff view, in the terminal
-   output, in the editor gutter. Anywhere I can see a thing, I can send
-   that thing to Claude, or queue up a note about it.
+   or attach a comment for Claude to deal with. And that same action
+   follows me across the app -- the file tree, the diff view, the terminal
+   output, the editor gutter. Most key places I can see a thing, I can
+   send that thing to Claude, or queue up a note about it.
 
    [2]redavni with the git log, file history, terminal, and comments panes
    open around the editor
@@ -57,7 +56,8 @@ Point at a thing, send it to Claude
    Comments are the part I use constantly, and they've grown into
    something that feels a lot like reviewing a GitHub PR. I select a line,
    jot what I want changed, and it lands as a comment pinned to that
-   file:line.
+   file:line -- down to the column range if I only selected part of a
+   line.
 
    [3]Leaving a line comment, with the comments pane and history alongside
 
@@ -70,6 +70,16 @@ Point at a thing, send it to Claude
    off. It's the difference between nagging the model line by line and
    handing it a proper review.
 
+   The queue closes itself out, too. Every comment carries a short
+   identifier, and when I send the batch I ask Claude to tag the commit
+   that fixes each one with a matching Resolves: trailer. When the repo
+   refreshes, redavni reads those trailers and ticks the comments off,
+   stamped with the commit that closed them. So I hand off a batch, Claude
+   works, and the review list resolves as the fixes land -- no going back
+   through to check each one off by hand. If Claude misses a trailer, that
+   comment just stays open, which is exactly the right failure: nothing
+   false-resolves.
+
    [4]Claude working through a batch of queued comments, with fuzzy search
    open alongside
 
@@ -80,92 +90,142 @@ Verifying the work
 
    There's full git integration. I can watch the current turn Claude is
    working on, then flip straight to the log and browse past work, commit
-   by commit, seeing exactly which files each one touched.
+   by commit, seeing exactly which files each one touched, and open any
+   file's diff from that commit.
 
    [5]Reviewing a diff against the git log and file history
 
-   I can pull up the history of a single file and walk its diffs. And I
-   manage the repo from the same place -- staging, unstaging, committing,
-   pushing -- without dropping back to a bare terminal to remember which
-   flag I wanted.
-
-   [6]The status pane: stage, unstage, and commit from one bar
+   The diff itself reads the way I want a diff to read -- a two-column
+   gutter with old and new line numbers, additions and removals coloured,
+   and a stepper to dial how much surrounding context I see. The same
+   viewer renders a commit's diff, a file's history, and the working tree,
+   so I never have to context-switch between "kinds" of diff.
 
    The "which files changed this turn" problem that annoyed me in the
    plain CLI is just... gone. It's right there in the status pane, live,
    updating as Claude works.
+
+   [6]The status pane: stage, unstage, and commit from one bar
+
+   But the piece that changed how a long back-and-forth feels is a "since
+   I last looked" marker. In a review that runs five rounds deep, the
+   whole-branch diff stops being useful fast -- what I actually want is
+   the delta since the last time I read it. So I can mark a point as
+   reviewed, and from then on redavni shows me just the files that changed
+   after it (commits and uncommitted edits both), with a "reviewed to
+   here" line drawn in the log. Re-reviewing becomes reading the new part,
+   not the whole thing again.
 
    Staging isn't all-or-nothing either. I can stage individual hunks
    straight from the diff gutter, so when a turn touched one file for two
    unrelated reasons, I can commit the part I've reviewed and leave the
    rest.
 
-   And the branch menu quietly grew into the piece I reach for more than I
+   And once a review round is done, the messy trail of fix commits is just
+   scaffolding. So I can squash the unpushed ones into a single clean
+   commit -- right from the log, with a stepper to pick how many, and the
+   message pre-filled from the original. It's a soft reset and a re-commit
+   under the hood rather than an interactive rebase, so there are no
+   conflicts to babysit, the working tree never moves, and it drops a
+   backup ref first in case I change my mind.
+
+   [7]Squashing the unpushed review commits into one, with a count stepper
+   and the commit list
+
+   The branch menu quietly grew into the piece I reach for more than I
    expected. Switch branches, merge one into another, rename, delete, cut
    a tag, fetch/pull/push, or spin up a worktree... all from the one
    dropdown, without me leaving to go recite git incantations in a
    terminal.
 
-   [7]The branch menu: switch, merge, rename, delete, tags, worktrees, and
+   [8]The branch menu: switch, merge, rename, delete, tags, worktrees, and
    fetch/pull/push in one place
+
+Language intelligence
+
+   A language server sits behind the editor, and it folds straight into
+   the review loop. The one I lean on is the problems pane: diagnostics
+   show up there and inline as they happen, so an unused parameter or a
+   bad type is right in front of me instead of waiting for the next build.
+   It's live as I type, before a save. That matters in the loop... Claude
+   changes something, and if it broke a type or left a dead param, I catch
+   it before the diff ever goes back.
+
+   [9]The problems pane showing a live LSP diagnostic, mirrored inline and
+   in the info bar
+
+   The rest is here too: quick info on hover, go-to-definition, a
+   filterable symbol outline for the current file, and format-on-command
+   through the server. So if I'm reading through a change and hit a type
+   or function I don't remember, I can hover it, jump to where it lives,
+   or skim the file's symbols without leaving the file. It runs a server
+   per language -- gopls, sourcekit-lsp, tsserver, pyright, rust-analyzer,
+   clangd -- resolved off my PATH, so it lights up for whatever I'm
+   actually working in.
+
+   [10]Quick info popover showing a symbol's type and doc, sourced from
+   the language server
 
 The rest of the kit
 
-   Around that core, it has the things I expect a workspace to have:
-     * Fuzzy search and file search, for getting anywhere in a repo
-       quickly.
-       [8]Fuzzy searching across the project
+   Around that core, it has the things I expect a workspace to have -- and
+   a few of them turned out deeper than "checkbox feature."
+
+   Search is project-wide, with a regex toggle and include/exclude globs,
+   and every hit lands as a clickable file:line. Any pane can be maximised
+   to take over the main area, which is exactly what I want when a search
+   turns up a few hundred results.
+
+   [11]Project-wide search with regex and glob filters, expanded over the
+   main area
+
+   Find and replace rides the native find bar right in the editor --
+   matches highlighted in place, next/previous, replace or replace-all.
+   Small thing, but I'd be surprised how often it's missing or awkward in
+   these tools.
+
+   [12]In-file find and replace, with matches highlighted in the source
+
+   Terminals are full sessions, multiple tabs, renamable, and they persist
+   across pane switches. Because "point at a thing" is the whole premise,
+   I can select a chunk of terminal output and comment on it or send it to
+   Claude, the same as I would a line of code. 88-click a file:line in any
+   output and it opens in the editor at that line.
+
+   [13]The terminal pane: multiple tabs and output selected to comment or
+   send to Claude
+
+   And the smaller pieces:
+     * Fuzzy file search, for getting anywhere in a repo quickly.
      * Configurable tasks -- my test and vet commands seeded in, one click
        to run, and file:line references in the output are clickable
        straight into the editor.
-     * Multi-instance terminals, with sessions that persist.
-     * Resizable and reorderable panels, so the layout is mine, not a
-       template's.
+     * Resizable, reorderable, maximisable panels, so the layout is mine,
+       not a template's.
      * Activity indicators, so when I'm not looking at Claude's pane I can
        still see what it's working on at a glance.
 
-   [9]redavni's settings
+   [14]redavni's settings
 
    And yes, it has settings, because of course it does.
 
 Where it's at
 
-   It's built in Swift, native macOS, and it's in its absolute infancy.
-   There are rough edges I already know about, and plenty I haven't hit
-   yet. Some of the git and highlight work is synchronous in ways that'll
-   bite on a big repo, and there's a startup quirk or two I want to chase
-   down.
+   It's built in Swift, native macOS, and it's still young. There are
+   rough edges I already know about, and plenty I haven't hit yet. Some of
+   the git and highlight work is synchronous in ways that'll bite on a big
+   repo, and there's a startup quirk or two I want to chase down.
 
    But it's mine, and it's already resolved every friction point that sent
    me looking in the first place. I have a way to point at anything and
-   send it to Claude. I have a fast way to review what came back. I have
-   my own repo's history within arm's reach at all times. That's the loop
-   I wanted.
+   send it to Claude. I have a fast way to review what came back, and to
+   see only what changed since I last looked. I have my own repo's history
+   within arm's reach at all times. And the review queue closes itself as
+   Claude works through it. That's the loop I wanted.
 
    I'll keep expanding it as I use it daily, and I'll write more as it
    grows up a little. For now it's a POC that happens to be good enough
    that I don't want to work any other way.
-
-Update: LSP support
-
-   First real addition since writing this: LSP support.
-
-   The bit I use most is the problems pane. Diagnostics show up there and
-   inline as they happen, so an unused parameter or a bad type is right in
-   front of me instead of waiting for the next build. Handy in the review
-   loop... Claude changes something, and if it broke a type or left a dead
-   param, I catch it before the diff ever goes back.
-
-   [10]The problems pane showing a live LSP diagnostic, mirrored inline
-   and in the info bar
-
-   The usual stuff is in too: quick info on hover, go-to-definition, find
-   definitions and implementations. So if I'm reading through a change and
-   hit a type or function I don't remember, I can hover it or jump to
-   where it lives without leaving the file.
-
-   [11]Quick info popover showing a symbol's type and doc, sourced from
-   the language server
 
 References
 
@@ -173,10 +233,13 @@ References
    2. file:///assets/images/posts/redavni-comments.png
    3. file:///assets/images/posts/redavni-add-comment.png
    4. file:///assets/images/posts/redavni-claude-execute.png
-   5. file:///assets/images/posts/redavni-history-diff.png
+   5. file:///assets/images/posts/redavni-working-diff.png
    6. file:///assets/images/posts/redavni-git-status.png
-   7. file:///assets/images/posts/redavni-branch-menu.png
-   8. file:///assets/images/posts/redavni-search.png
-   9. file:///assets/images/posts/redavni-settings.png
-  10. file:///assets/images/posts/redavni-lsp-problems.png
-  11. file:///assets/images/posts/redavni-lsp-quickinfo.png
+   7. file:///assets/images/posts/redavni-squash.png
+   8. file:///assets/images/posts/redavni-branch-menu.png
+   9. file:///assets/images/posts/redavni-lsp-problems.png
+  10. file:///assets/images/posts/redavni-lsp-quickinfo.png
+  11. file:///assets/images/posts/redavni-search.png
+  12. file:///assets/images/posts/redavni-find-replace.png
+  13. file:///assets/images/posts/redavni-terminal.png
+  14. file:///assets/images/posts/redavni-settings.png
