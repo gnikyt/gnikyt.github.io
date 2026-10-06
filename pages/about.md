@@ -35,3 +35,17 @@ You can reach me several ways &mdash; through [me@gnikyt.com](mailto:me@gnikyt.c
 - [with](https://github.com/gnikyt/with) - PHP; Python's "with" implemented in PHP.
 - [http\_shopify\_webhook](https://github.com/gnikyt/http_shopify_webhook) - Golang; Webhook verification for Shopify.
 - [be](https://github.com/gnikyt/be) - BASH; Template engine in BASH.
+
+## My Favorites
+
+### Top 3 Movies
+
+1. Matrix
+2. Terminator 2
+3. Star Wars (in general)
+
+### Top 3 Shows
+
+1. DARK
+2. For All Mankind
+3. The Expanse
