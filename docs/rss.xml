@@ -6,6 +6,16 @@
     <description>Code ramblings.</description>
     <atom:link href="https://gnikyt.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Shopify value objects for Go, v2</title>
+      <link>https://gnikyt.com/shopify-value-objects-go-v2</link>
+      <description>The first version of this package did what it needed to do: one common shape for GIDs, validation,
+      conversions, equality, and JSON suppo...</description>
+      <guid isPermLink="true">https://gnikyt.com/shopify-value-objects-go-v2</guid>
+      <pubDate>2026-10-13T12:00:00+0000</pubDate>
+      <archived></archived>
+      <category>golang</category>
+    </item>
+    <item>
       <title>redavni, building my own ADE</title>
       <link>https://gnikyt.com/redavni</link>
       <description>Like a lot of people, my workflow has shifted to be heavily AI over the last couple of years. And

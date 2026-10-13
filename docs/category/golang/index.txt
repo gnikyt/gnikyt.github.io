@@ -10,36 +10,41 @@
    Displaying golang entries sorted by creation date in descending order.
      * $>
 
-[9]A dashboard for cq
+[9]Shopify value objects for Go, v2
+       Oct 13, 2026
+       7.4KB
+     * $>
+
+[10]A dashboard for cq
        Aug 17, 2026
        11KB
      * $>
 
-[10]Why composition over configuration for cq?
+[11]Why composition over configuration for cq?
        Jun 24, 2026
        20KB
      * $>
 
-[11]cq release updates
+[12]cq release updates
        Apr 30, 2026
        1.5KB
      * $>
 
-[12]Introducing cq
+[13]Introducing cq
        Feb 11, 2026
        12KB
      * $>
 
-[13]Shopify value objects for Go
+[14]Shopify value objects for Go
        Jul 15, 2025
        8.8KB
      * $>
 
-[14]Keeping goroutines under Shopify API limits
+[15]Keeping goroutines under Shopify API limits
        Apr 10, 2025
        15KB
 
-   [15]< Categories  |  [16]< Home
+   [16]< Categories  |  [17]< Home
      *
      *
      *
@@ -51,8 +56,8 @@
 
 
     This page maintained by the webmaster --
-    [17]me@gnikyt.com  |  [18]Sign my guestbook
-    Last updated 08-Sep-2026. Best viewed in Netscape Navigator 4.0 at
+    [18]me@gnikyt.com  |  [19]Sign my guestbook
+    Last updated 13-Oct-2026. Best viewed in Netscape Navigator 4.0 at
     800x600.
 
 References
@@ -65,13 +70,14 @@ References
    6. https://linkedin.com/in/gnikyt
    7. file:///assets/files/cv.pdf
    8. file:///rss.xml
-   9. file:///cq-dashboard
-  10. file:///cq-why-composition
-  11. file:///more-cq-updates
-  12. file:///new-cq-release
-  13. file:///shopify-value-objects-go
-  14. file:///handling-shopify-api-limits-goroutines
-  15. file:///category
-  16. file:///
-  17. mailto:me@gnikyt.com
-  18. https://github.com/gnikyt/gnikyt.github.io/issues
+   9. file:///shopify-value-objects-go-v2
+  10. file:///cq-dashboard
+  11. file:///cq-why-composition
+  12. file:///more-cq-updates
+  13. file:///new-cq-release
+  14. file:///shopify-value-objects-go
+  15. file:///handling-shopify-api-limits-goroutines
+  16. file:///category
+  17. file:///
+  18. mailto:me@gnikyt.com
+  19. https://github.com/gnikyt/gnikyt.github.io/issues

@@ -9,7 +9,7 @@
 
    Displaying all categories with their post count.
      * [9]#cmd 9 posts
-     * [10]#golang 6 posts
+     * [10]#golang 7 posts
      * [11]#javascript 8 posts
      * [12]#laravel 7 posts
      * [13]#php 16 posts
@@ -38,7 +38,7 @@
 
     This page maintained by the webmaster --
     [26]me@gnikyt.com  |  [27]Sign my guestbook
-    Last updated 08-Sep-2026. Best viewed in Netscape Navigator 4.0 at
+    Last updated 13-Oct-2026. Best viewed in Netscape Navigator 4.0 at
     800x600.
 
 References
