@@ -2,24 +2,24 @@
  * Fonts.
  */
 @font-face {
-  font-family: "Roboto Mono";
-  src: url("/assets/fonts/RobotoMono-Regular.woff2") format("woff2"), url("/assets/fonts/RobotoMono-Regular.woff") format("woff"), url("/assets/fonts/RobotoMono-Regular.ttf") format("truetype");
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/IBMPlexMono-Regular.woff2") format("woff2"), url("/assets/fonts/IBMPlexMono-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto Mono";
-  src: url("/assets/fonts/RobotoMono-Bold.woff2") format("woff2"), url("/assets/fonts/RobotoMono-Bold.woff") format("woff"), url("/assets/fonts/RobotoMono-Bold.ttf") format("truetype");
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/IBMPlexMono-Bold.woff2") format("woff2"), url("/assets/fonts/IBMPlexMono-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto Mono";
-  src: url("/assets/fonts/RobotoMono-Light.woff2") format("woff2"), url("/assets/fonts/RobotoMono-Light.woff") format("woff"), url("/assets/fonts/RobotoMono-Light.ttf") format("truetype");
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/IBMPlexMono-Light.woff2") format("woff2"), url("/assets/fonts/IBMPlexMono-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -86,48 +86,48 @@
 }
 
 html[data-theme="day"] {
-  --background-color: #efe5d7;
-  --background-code-color: #e5dac9;
-  --content-background-color: #f6eee1;
-  --content-subtle-color: #e8e3db;
+  --background-color: #e3ceb5;
+  --background-code-color: #f1e6d8;
+  --content-background-color: #ecdcc8;
+  --content-subtle-color: #dcc4a8;
 
-  --font-color: #675d52;
-  --font-color-reverse: #f8f0e3;
+  --font-color: #5a1f3d;
+  --font-color-reverse: #f3e6d6;
 
-  --color-muted: #d8c8b2;
-  --color-grey-light: #eadfce;
-  --color-grey-dark: #8f8476;
-  --color-navy: #59738a;
-  --color-orange: #b55f44;
-  --color-blue: #617b8f;
-  --color-green: #75845e;
-  --color-gold: #957a2f;
-  --border-color: rgb(143 132 118 / 22%);
-  --shadow-color: rgb(124 98 71 / 7%);
-  --shadow-strong-color: rgb(92 83 72 / 18%);
-  --surface-ember: rgb(181 95 68 / 10%);
-  --surface-moss: rgb(117 132 94 / 10%);
-  --surface-slate: rgb(77 113 139 / 10%);
-  --surface-gold: rgb(149 122 47 / 10%);
-  --surface-paper: rgb(248 240 227 / 80%);
-  --nav-slate-background: rgb(77 113 139 / 10%);
+  --color-muted: #cfb08e;
+  --color-grey-light: #e9d7c0;
+  --color-grey-dark: #664539;
+  --color-navy: #7c2852;
+  --color-orange: #99103a;
+  --color-blue: #84295a;
+  --color-green: #7c2852;
+  --color-gold: #6e4520;
+  --border-color: rgb(124 40 82 / 20%);
+  --shadow-color: rgb(124 40 82 / 8%);
+  --shadow-strong-color: rgb(90 31 61 / 22%);
+  --surface-ember: rgb(192 19 67 / 9%);
+  --surface-moss: rgb(124 40 82 / 9%);
+  --surface-slate: rgb(148 51 100 / 9%);
+  --surface-gold: rgb(133 86 42 / 10%);
+  --surface-paper: rgb(243 230 214 / 80%);
+  --nav-slate-background: rgb(148 51 100 / 10%);
   --nav-paper-color: var(--font-color);
-  --nav-paper-background: rgb(248 240 227 / 72%);
+  --nav-paper-background: rgb(243 230 214 / 72%);
   --index-icon-color: var(--color-orange);
   --link-color: var(--color-blue);
-  --link-hover-color: var(--color-gold);
-  --link-underline-color: rgb(97 123 143 / 58%);
+  --link-hover-color: var(--color-orange);
+  --link-underline-color: rgb(148 51 100 / 58%);
   --inset-highlight: rgb(255 255 255 / 30%);
 
-  --syntax-alert: #a40000;
-  --syntax-gold: #8f5902;
-  --syntax-blue: #204a87;
-  --syntax-teal: #0000cf;
-  --syntax-green: #4e9a06;
-  --syntax-muted: #8f5902;
-  --syntax-orange: #ce5c00;
-  --syntax-purple: #75507b;
-  --syntax-text: #000000;
+  --syntax-alert: #99103a;
+  --syntax-gold: #6e4520;
+  --syntax-blue: #7c2852;
+  --syntax-teal: #84295a;
+  --syntax-green: #4f5a14;
+  --syntax-muted: #76594c;
+  --syntax-orange: #963c14;
+  --syntax-purple: #84295a;
+  --syntax-text: #3d1428;
 }
 
 /**
@@ -167,9 +167,9 @@ body {
 
 html[data-theme="day"] body {
   background-image:
-    radial-gradient(circle at top left, rgb(213 186 151 / 35%), transparent 32%),
-    radial-gradient(circle at top right, rgb(183 95 68 / 12%), transparent 24%),
-    linear-gradient(180deg, #f4ecdf 0%, var(--background-color) 100%);
+    radial-gradient(circle at top left, rgb(243 230 214 / 70%), transparent 36%),
+    radial-gradient(circle at top right, rgb(192 19 67 / 5%), transparent 24%),
+    linear-gradient(180deg, #ecdcc8 0%, var(--background-color) 100%);
   background-attachment: fixed;
 }
 
@@ -214,7 +214,7 @@ textarea:not([rows]) {
  * Base styling.
  */
 body {
-  font-family: "Roboto Mono", Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Mono", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background-color: var(--background-color);
   color: var(--font-color);
@@ -230,8 +230,8 @@ html[data-theme="day"] .theme-shell::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 15% 18%, rgb(149 122 47 / 10%), transparent 24%),
-    radial-gradient(circle at 82% 12%, rgb(117 132 94 / 10%), transparent 20%);
+    radial-gradient(circle at 15% 18%, rgb(133 86 42 / 7%), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgb(148 51 100 / 4%), transparent 20%);
 }
 
 .container {
@@ -1006,17 +1006,18 @@ body[data-handle="about"] .post figcaption {
 }
 
 /**
- * Original warm theme.
+ * Day theme (PB & J).
  */
 html[data-theme="day"] .content-container--intro,
 html[data-theme="day"] .content-container--meta {
-  background: rgb(232 227 219);
-  border-color: rgb(143 132 118 / 18%);
+  background: var(--font-color-reverse);
+  border-color: var(--border-color);
+  border-bottom: 2px solid rgb(124 40 82 / 35%);
 }
 
 html[data-theme="day"] .content-container--appendix,
 html[data-theme="day"] .content-container--anchors {
-  border-color: rgb(143 132 118 / 18%);
+  border-color: var(--border-color);
 }
 
 html[data-theme="day"] .site-head__link {
@@ -1024,11 +1025,11 @@ html[data-theme="day"] .site-head__link {
 }
 
 html[data-theme="day"] .site-head__title {
-  border-bottom-color: rgb(143 132 118 / 25%);
+  border-bottom-color: rgb(124 40 82 / 25%);
 }
 
 html[data-theme="day"] .site-head__avatar-img {
-  box-shadow: 0 12px 24px rgb(124 98 71 / 15%);
+  box-shadow: 0 12px 24px rgb(124 40 82 / 18%);
 }
 
 html[data-theme="day"] .site-nav .button {
@@ -1036,7 +1037,7 @@ html[data-theme="day"] .site-nav .button {
 }
 
 html[data-theme="day"] .button {
-  border: 3px solid var(--font-color);
+  border: 3px solid var(--color-navy);
   border-bottom-width: 5px;
 }
 
@@ -1046,28 +1047,28 @@ html[data-theme="day"] .button.button--shadow {
 }
 
 html[data-theme="day"] .button.button--ember {
-  background-color: rgb(181 95 68 / 8%);
+  background-color: rgb(192 19 67 / 8%);
 }
 
 html[data-theme="day"] .button.button--moss {
-  background-color: rgb(117 132 94 / 8%);
+  background-color: rgb(124 40 82 / 8%);
 }
 
 html[data-theme="day"] .button.button--slate {
-  background-color: rgb(97 123 143 / 8%);
+  background-color: rgb(148 51 100 / 8%);
 }
 
 html[data-theme="day"] .button.button--gold {
-  background-color: rgb(149 122 47 / 8%);
+  background-color: rgb(133 86 42 / 9%);
 }
 
 html[data-theme="day"] .button.button--paper {
   color: var(--font-color);
-  background-color: rgb(248 240 227 / 72%);
+  background-color: rgb(243 230 214 / 72%);
 }
 
 html[data-theme="day"] .tab__title {
-  background-color: var(--font-color);
+  background-color: var(--color-navy);
   color: var(--font-color-reverse);
   letter-spacing: .05em;
   border-left: 0;
@@ -1075,7 +1076,7 @@ html[data-theme="day"] .tab__title {
 }
 
 html[data-theme="day"] .tab__container {
-  border-color: var(--font-color);
+  border-color: var(--color-navy);
   border-width: 6px 3px 3px 3px;
 }
 
@@ -1111,15 +1112,15 @@ html[data-theme="day"] .index-list .index-list__item {
 }
 
 html[data-theme="day"] .index-list .index-list__item:not(:last-child) {
-  border-bottom: 2px solid rgb(143 132 118 / 25%);
+  border-bottom: 2px solid rgb(124 40 82 / 25%);
 }
 
 html[data-theme="day"] .index-list .index-list__item:hover {
-  background-color: rgb(255 255 255 / 18%);
+  background-color: rgb(124 40 82 / 6%);
 }
 
 html[data-theme="day"] .index-document .index-document__title-link {
-  border-bottom: 2px solid rgb(89 115 138 / 45%);
+  border-bottom: 2px solid rgb(148 51 100 / 45%);
 }
 
 html[data-theme="day"] .category-cloud__item {
@@ -1131,7 +1132,7 @@ html[data-theme="day"] .category-cloud__item:hover {
 }
 
 html[data-theme="day"] .post blockquote {
-  background: rgb(248 240 227 / 60%);
+  background: rgb(243 230 214 / 60%);
 }
 
 html[data-theme="day"] .post a {
@@ -1155,6 +1156,11 @@ html[data-theme="day"] .post h6 {
 
 html[data-theme="day"] .post .post__meta + .content-container {
   line-height: 1.5;
+}
+
+html[data-theme="day"] ::selection {
+  color: var(--font-color-reverse);
+  background-color: var(--color-navy);
 }
 
 /**
@@ -1278,7 +1284,7 @@ html[data-theme="day"] .post .post__meta + .content-container {
 }
 
 html[data-theme="day"] .lightbox {
-  background-color: rgb(50 40 30 / 74%);
+  background-color: rgb(60 20 40 / 76%);
 }
 
 .lightbox--open {
