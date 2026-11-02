@@ -56,6 +56,20 @@ Pinned Open Source
        Shopify.
      * [13]be - BASH; Template engine in BASH.
 
+My Favorites
+
+Top 3 Movies
+
+    1. Matrix
+    2. Terminator 2
+    3. Star Wars (in general)
+
+Top 3 Shows
+
+    1. DARK
+    2. For All Mankind
+    3. The Expanse
+
 References
 
    1. mailto:me@gnikyt.com
