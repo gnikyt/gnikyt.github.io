@@ -3,7 +3,7 @@
   https://github.com/gnikyt/gnikyt.github.io
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="day">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,8 +23,8 @@
   <link rel="stylesheet" href="/assets/styles/highlight.css" />
   <script>
     try {
-      if (localStorage.getItem("theme") === "day") {
-        document.documentElement.dataset.theme = "day";
+      if (localStorage.getItem("theme") === "night") {
+        delete document.documentElement.dataset.theme;
       }
     } catch {}
   </script>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <nav class="site-nav" aria-label="Site navigation">
-        <a href="/about" class="button button--strong button--ember">About</a><a href="https://github.com/gnikyt" target="_blank" rel="noopener" class="button button--strong button--moss">Github</a><a href="https://linkedin.com/in/gnikyt" target="_blank" rel="noopener" class="button button--strong button--slate">LinkedIn</a><a href="/assets/files/cv.pdf" target="_blank" rel="noopener" class="button button--strong button--gold">CV</a><a href="/rss.xml" target="_blank" rel="noopener" class="button button--strong button--paper">XML</a><button type="button" class="theme-toggle" aria-label="Switch to day theme" aria-pressed="false">
+        <a href="/about" class="button button--strong button--ember">About</a><a href="https://github.com/gnikyt" target="_blank" rel="noopener" class="button button--strong button--moss">Github</a><a href="https://linkedin.com/in/gnikyt" target="_blank" rel="noopener" class="button button--strong button--slate">LinkedIn</a><a href="/assets/files/cv.pdf" target="_blank" rel="noopener" class="button button--strong button--gold">CV</a><a href="/rss.xml" target="_blank" rel="noopener" class="button button--strong button--paper">XML</a><button type="button" class="theme-toggle" aria-label="Switch to night theme" aria-pressed="true">
           <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="3.5"></circle>
             <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>

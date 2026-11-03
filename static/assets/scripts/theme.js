@@ -18,12 +18,12 @@
     if (isDay) {
       delete root.dataset.theme;
       try {
-        localStorage.removeItem("theme");
+        localStorage.setItem("theme", "night");
       } catch {}
     } else {
       root.dataset.theme = "day";
       try {
-        localStorage.setItem("theme", "day");
+        localStorage.removeItem("theme");
       } catch {}
     }
 

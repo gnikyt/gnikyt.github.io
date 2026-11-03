@@ -3,7 +3,7 @@
   https://github.com/gnikyt/gnikyt.github.io
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="day" lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -66,8 +66,8 @@
     <link href="/assets/styles/highlight.css" rel="stylesheet">
     <script>
     try {
-      if (localStorage.getItem("theme") === "day") {
-        document.documentElement.dataset.theme = "day";
+      if (localStorage.getItem("theme") === "night") {
+        delete document.documentElement.dataset.theme;
       }
     } catch {}
     </script>
@@ -94,8 +94,8 @@
           "_blank">Github</a><a class="button button--strong button--slate" href="https://linkedin.com/in/gnikyt" rel=
           "noopener" target="_blank">LinkedIn</a><a class="button button--strong button--gold" href=
           "/assets/files/cv.pdf" rel="noopener" target="_blank">CV</a><a class="button button--strong button--paper"
-          href="/rss.xml" rel="noopener" target="_blank">XML</a> <button aria-label="Switch to day theme" aria-pressed=
-          "false" class="theme-toggle" type="button"><svg aria-hidden="true" class=
+          href="/rss.xml" rel="noopener" target="_blank">XML</a> <button aria-label="Switch to night theme"
+          aria-pressed="true" class="theme-toggle" type="button"><svg aria-hidden="true" class=
           "theme-toggle__icon theme-toggle__sun" viewbox="0 0 24 24">
           <circle cx="12" cy="12" r="3.5">
           </circle>
@@ -435,7 +435,7 @@
       This page maintained by the webmaster — <a class="sources__link" href=
       "mailto:me@gnikyt.com">me@gnikyt.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="sources__link" href=
       "https://github.com/gnikyt/gnikyt.github.io/issues" rel="noopener" target="_blank">Sign my guestbook</a><br>
-      Last updated 02-Nov-2026. Best viewed in Netscape Navigator 4.0 at 800x600.
+      Last updated 03-Nov-2026. Best viewed in Netscape Navigator 4.0 at 800x600.
     </address>
     <script src="/assets/scripts/theme.js"></script> 
     <script src="/assets/scripts/lightbox.js"></script>
