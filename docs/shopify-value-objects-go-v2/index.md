@@ -66,6 +66,7 @@ A few things changed along the way:
 * The backing type is `int64` instead of `int`.
 * Float inputs are gone — `parse` accepts `int`, `int64`, and strings.
 * Parsing is stricter: a full GID must split into exactly five parts, and the `gid:` and `shopify` segments are checked, not just the type and ID.
+* Query parameters are not supported by this example implementation, but can easily be added. As-is, a GID such as `gid://shopify/{Resource}/123?some_param=1` will fail to parse, as `123?some_param=1` is not a valid ID.
 
 ```go
 func parseString[K kind](s string) (GID[K], error) {

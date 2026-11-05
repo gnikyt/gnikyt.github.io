@@ -122,7 +122,7 @@
             <div class="post__meta content-container content-container--meta">
               <div class="post__details">
                 <time class="post__time" datetime="2026-10-13">Oct 13, 2026</time>&nbsp;&nbsp;—&nbsp;&nbsp;<span class=
-                "post__size">7.4KB</span>
+                "post__size">7.6KB</span>
               </div>
 
               <div class="post__category">
@@ -253,6 +253,11 @@
 
                 <li>Parsing is stricter: a full GID must split into exactly five parts, and the <code>gid:</code> and
                 <code>shopify</code> segments are checked, not just the type and ID.
+                </li>
+
+                <li>Query parameters are not supported by this example implementation, but can easily be added. As-is,
+                a GID such as <code>gid://shopify/{Resource}/123?some_param=1</code> will fail to parse, as
+                <code>123?some_param=1</code> is not a valid ID.
                 </li>
               </ul>
 
@@ -718,7 +723,7 @@
       This page maintained by the webmaster — <a class="sources__link" href=
       "mailto:me@gnikyt.com">me@gnikyt.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="sources__link" href=
       "https://github.com/gnikyt/gnikyt.github.io/issues" rel="noopener" target="_blank">Sign my guestbook</a><br>
-      Last updated 03-Nov-2026. Best viewed in Netscape Navigator 4.0 at 800x600.
+      Last updated 05-Nov-2026. Best viewed in Netscape Navigator 4.0 at 800x600.
     </address>
     <script src="/assets/scripts/theme.js"></script> 
     <script src="/assets/scripts/lightbox.js"></script>

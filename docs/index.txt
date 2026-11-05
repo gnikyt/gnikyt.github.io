@@ -16,7 +16,7 @@
 
 [9]Shopify value objects for Go, v2
        Oct 13, 2026
-       7.4KB
+       7.6KB
      * $>
 
 [10]redavni, building my own ADE
@@ -186,7 +186,7 @@
 
     This page maintained by the webmaster --
     [43]me@gnikyt.com  |  [44]Sign my guestbook
-    Last updated 03-Nov-2026. Best viewed in Netscape Navigator 4.0 at
+    Last updated 05-Nov-2026. Best viewed in Netscape Navigator 4.0 at
     800x600.
 
 References

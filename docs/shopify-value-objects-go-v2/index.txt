@@ -1,6 +1,6 @@
                        Shopify value objects for Go, v2 /
 
-   Oct 13, 2026  --  7.4KB
+   Oct 13, 2026  --  7.6KB
    [1]#golang
 
    The first version of this package did what it needed to do: one common
@@ -70,6 +70,10 @@ func (g GID[K]) Equal(other GID[K]) bool {
      * Parsing is stricter: a full GID must split into exactly five parts,
        and the gid: and shopify segments are checked, not just the type
        and ID.
+     * Query parameters are not supported by this example implementation,
+       but can easily be added. As-is, a GID such as
+       gid://shopify/{Resource}/123?some_param=1 will fail to parse, as
+       123?some_param=1 is not a valid ID.
 
 func parseString[K kind](s string) (GID[K], error) {
     // Bare numeric string: "123456789".
